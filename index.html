@@ -28,7 +28,9 @@
     --gold-soft:#D8C193;
     --ink:#26281F;
     --ink-soft:#6B6A5C;
+    --chip-ink:#123528;   /* control-chip label; must contrast with the page, not the header */
     --ar-color:#0B241B;
+    --accent-green:#1E5540;    /* bismillah + section titles: light enough to read as green */
     --ar-size:1.9rem;
   }
   :root.dark{
@@ -42,8 +44,10 @@
     --gold:#C9A55E;
     --gold-soft:#D8C193;
     --ink:#ECE7D6;
-    --ink-soft:#A3A08E;
+    --ink-soft:#C7C3AF;   /* brightened: was #A3A08E, too dim for the translation line */
+    --chip-ink:#EFE7CF;   /* light label on the dark card, instead of the dark green */
     --ar-color:#F3ECD8;
+    --accent-green:#F3ECD8;    /* cream in dark mode — any green this dark would vanish */
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{-webkit-text-size-adjust:100%}
@@ -64,25 +68,22 @@
     text-align:center;
     position:relative;
   }
-  .masthead .bismillah{
-    font-family:'Amiri',serif;
-    font-size:1.5rem;
-    color:var(--gold-soft);
-    margin-bottom:.9rem;
-  }
-  .masthead h1{
-    font-family:'Amiri',serif;
-    font-weight:700;
-    font-size:2.5rem;
-    line-height:1.25;
+  .masthead .logo{
+    display:block;
+    width:min(210px, 52%);
+    height:auto;
+    margin:.3rem auto .5rem;
   }
   .masthead .sub{
     font-family:'Crimson Pro',serif;
     font-style:italic;
     font-size:1.05rem;
     color:var(--gold-soft);
-    margin-top:.35rem;
+    margin:.35rem auto 0;
     letter-spacing:.02em;
+    line-height:1.45;
+    max-width:26ch;      /* wraps to a tidy two lines on a phone, one on desktop */
+    text-wrap:balance;   /* keeps both lines of similar length where supported */
   }
   .star-band{display:block;margin:1.1rem auto 0;width:min(240px,70%)}
   .theme-toggle{
@@ -194,9 +195,11 @@
   .chip{
     font-size:.8rem;font-weight:700;letter-spacing:.03em;
     padding:.4rem .85rem;border-radius:999px;
-    border:1.5px solid var(--gold);color:var(--green);background:transparent;
+    border:1.5px solid var(--gold);color:var(--chip-ink);background:transparent;
   }
-  .chip.off{opacity:.42;border-color:var(--ink-soft)}
+  /* "Off" reads by its muted grey border and label, not by fading the text out —
+     opacity alone made it unreadable on the dark background. */
+  .chip.off{opacity:.85;border-color:var(--ink-soft);color:var(--ink-soft)}
   .chip.size{border-color:var(--paper-edge);background:var(--card)}
 
   .verses{max-width:640px;margin:0 auto;padding:1.2rem 1.1rem calc(env(safe-area-inset-bottom,0px) + 7rem)}
@@ -252,6 +255,120 @@
     font-family:'Crimson Pro',serif;font-size:1.4rem;color:var(--ar-color);
     text-align:center;line-height:1.7;margin-top:.3rem;font-weight:600;
   }
+  .home-grid{
+    display:grid; gap:.6rem;
+    /* Two-up on a phone, three across on a wide screen — six short cards read
+       far better as a compact block than as one tall column. */
+    grid-template-columns:repeat(auto-fit, minmax(148px, 1fr));
+    max-width:600px;
+    margin:0 auto; padding:.2rem 1.1rem 1.2rem;
+  }
+  .home-card{
+    display:flex; flex-direction:column;
+    align-items:center; justify-content:center; gap:.1rem;
+    /* Centred, so the cards sit on the same axis as the logo, bismillah
+       and search box above them. */
+    text-align:center; width:100%; cursor:pointer; min-height:6.4rem;
+    background:var(--card); border:1px solid var(--paper-edge);
+    border-radius:14px; padding:.9rem .55rem;
+    transition:transform .1s, border-color .12s;
+  }
+  .home-card:hover{ border-color:var(--gold-soft); }
+  .home-card:active{ transform:scale(.98); }
+  .bismillah-panel{
+    display:flex; align-items:center; justify-content:center; gap:.8rem;
+    max-width:640px; margin:0 auto; padding:1rem 1.1rem .2rem;
+  }
+  .bp-text{
+    font-family:'Amiri',serif;
+    font-size:clamp(1.5rem, 6.5vw, 2rem);
+    line-height:1.5;
+    color:var(--accent-green);
+    flex:0 0 auto;
+  }
+  /* Thin gold rules either side, echoing an illuminated panel's framing */
+  .bp-rule{
+    flex:1 1 auto; height:1px; max-width:4rem;
+    background:linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity:.65;
+  }
+  .section-intro{
+    max-width:640px; margin:0 auto; padding:.2rem 1.1rem .1rem;
+    font-family:'Crimson Pro',serif; font-size:.92rem; line-height:1.5;
+    color:var(--ink-soft); text-align:center;
+  }
+  .hc-ar{ font-family:'Amiri',serif; font-size:1.2rem; line-height:1.75; color:var(--accent-green); }
+  .hc-en{ font-weight:700; font-size:.85rem; line-height:1.3; color:var(--ink); }
+  .hc-count{
+    font-size:.6rem; color:var(--gold); letter-spacing:.05em;
+    text-transform:uppercase; margin-top:.3rem; line-height:1.3;
+  }
+  .masthead .logo.tappable{ cursor:pointer; }
+  .session-banner{
+    position:fixed; top:calc(env(safe-area-inset-top, 0px) + .5rem);
+    left:50%; transform:translateX(-50%); z-index:70;
+    display:flex; align-items:center; gap:.5rem;
+    background:var(--green-deep); color:var(--paper);
+    padding:.35rem .6rem; border-radius:999px;
+    box-shadow:0 4px 16px rgba(0,0,0,.35);
+    font-size:.75rem; letter-spacing:.02em;
+    border:1px solid rgba(184,147,74,.5);
+  }
+  .session-banner .dot{
+    width:.5rem; height:.5rem; border-radius:999px;
+    background:#5FBF7F; box-shadow:0 0 6px #5FBF7F;
+  }
+  .session-banner.paused .dot{ background:var(--gold); box-shadow:none; }
+  .session-banner button{
+    border:none; background:rgba(243,236,216,.16); color:var(--paper);
+    padding:.2rem .5rem; border-radius:999px; cursor:pointer;
+    font-size:.7rem; font-weight:700;
+  }
+  .session-panel{
+    max-width:520px; margin:0 auto; padding:.5rem 1.1rem 2rem;
+    text-align:center; color:var(--ink);
+  }
+  .session-panel p{ color:var(--ink-soft); font-size:.92rem; line-height:1.55; margin:.6rem 0 1rem; }
+  .session-code{
+    font-family:'Karla',system-ui,sans-serif; font-weight:700;
+    font-size:2.6rem; letter-spacing:.25em; color:var(--gold);
+    padding:.6rem 0 .2rem; font-variant-numeric:tabular-nums;
+  }
+  .session-btn{
+    border:1.5px solid var(--gold); background:transparent; color:var(--chip-ink);
+    padding:.6rem 1.2rem; border-radius:999px; cursor:pointer;
+    font-weight:700; font-size:.9rem;
+  }
+  .session-btn.primary{ background:var(--gold); color:var(--green-deep); border-color:var(--gold); }
+  .session-hint{
+    font-size:.82rem !important; color:var(--gold) !important;
+    margin:.2rem auto .8rem !important; max-width:32ch;
+  }
+  .session-share{ display:flex; gap:.5rem; justify-content:center; flex-wrap:wrap; margin-bottom:.4rem; }
+  .session-btn.quiet{
+    border-color:var(--paper-edge); color:var(--ink-soft);
+    font-size:.82rem; padding:.45rem 1rem; margin-top:1rem;
+  }
+  .session-join{ display:flex; gap:.5rem; justify-content:center; margin-top:1rem; }
+  .session-join input{
+    width:8rem; text-align:center; font-size:1.1rem; letter-spacing:.2em;
+    padding:.55rem .5rem; border-radius:12px;
+    border:1.5px solid var(--paper-edge); background:var(--card); color:var(--ink);
+    font-variant-numeric:tabular-nums;
+  }
+  .session-status{
+    margin:1rem auto 0; max-width:34ch; font-size:.82rem;
+    color:var(--ink-soft); line-height:1.5;
+  }
+  .fav-btn{
+    border:none; background:none; cursor:pointer; padding:.2rem .3rem;
+    display:flex; align-items:center; justify-content:center;
+    color:var(--gold-soft);
+    opacity:.75; transition:transform .12s, opacity .12s;
+  }
+  .fav-btn:hover{ opacity:1; }
+  .fav-btn:active{ transform:scale(.85); }
+  .fav-btn.on{ color:var(--gold); opacity:1; }
   .autoscroll-bar{
     position:fixed; left:50%; transform:translateX(-50%);
     bottom:calc(env(safe-area-inset-bottom, 0px) + 1rem);
@@ -603,7 +720,7 @@ const QASIDAS = [
     category: "qasida",
     group: "qasidas",
     titleArabic: "يَا نَبِي سَلَامْ عَلَيْكَ",
-    titleEnglish: "13b · Yā Nabī Salām ʿAlayka — Anta Shamsun version",
+    titleEnglish: "Yā Nabī Salām ʿAlayka — Anta Shamsun version",
     verses: [
       { refrain: true,
         ar: "يَا نَبِي سَلَامْ عَلَيْكَ\nيَا رَسُولْ سَلَامْ عَلَيْكَ\nيَا حَبِيبْ سَلَامْ عَلَيْكَ\nيَا رَسُولَ الله\nصَلَوَاتُ اللهْ عَلَيْكَ",
@@ -1201,15 +1318,267 @@ const QASIDAS = [
         tr: "Mā arīd amūt il-yōm, kafnī ʿabātī · Dizzū ʿalā Ṭāhā yiḥḍar wafātī",
         en: "I don't wish to die today — my cloak is my only shroud; send word to Ṭāhā, that he may attend my passing." }
     ]
+  },
+  {
+    category: "dua",
+    group: "duas",
+    titleArabic: "مَدْحُ الْمُؤَلِّفِ",
+    titleEnglish: "8 · Author's Praise",
+    verses: [
+      { ar:"فَسُبْحَانَ مَنْ خَصَّهُ ﷺ بِأَشْرَفِ الْمَنَاصِبِ وَالْمَرَاتِبِ",
+        tr:"Fa-subḥāna man khaṣṣahu ﷺ bi-ashrafi l-manāṣibi wa l-marātib",
+        en:"Glory be to the One who singled him ﷺ out with the noblest of offices and ranks." },
+      { ar:"أَحْمَدُهُ عَلَى مَا مَنَحَ مِنَ الْمَوَاهِبِ",
+        tr:"Aḥmaduhu ʿalā mā manaḥa mina l-mawāhib",
+        en:"I praise Him for the gifts He has bestowed." },
+      { ar:"وَأَشْهَدُ أَنْ لَا إِلٰهَ إِلَّا اللهُ وَحْدَهُ لَا شَرِيكَ لَهُ رَبُّ الْمَشَارِقِ وَالْمَغَارِبِ",
+        tr:"Wa ashhadu an lā ilāha illā-Llāhu waḥdahu lā sharīka lahu Rabbu l-mashāriqi wa l-maghārib",
+        en:"And I bear witness that there is no god but Allah alone, having no partner, Lord of every east and every west." },
+      { ar:"وَأَشْهَدُ أَنَّ سَيِّدَنَا مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ الْمَبْعُوثُ إِلَى سَائِرِ الْأَعَاجِمِ وَالْأَعَارِبِ",
+        tr:"Wa ashhadu anna sayyidanā Muḥammadan ʿabduhu wa Rasūluhu l-mabʿūthu ilā sāʾiri l-aʿājimi wa l-aʿārib",
+        en:"And I bear witness that our master Muhammad is His servant and His Messenger, sent to all peoples, non-Arab and Arab alike." },
+      { ar:"صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ وَعَلَى آلِهِ وَأَصْحَابِهِ أُولِي الْمَآثِرِ وَالْمَنَاقِبِ",
+        tr:"Ṣallā-Llāhu ʿalayhi wa sallama wa ʿalā ālihi wa aṣḥābihi ulī l-maʾāthiri wa l-manāqib",
+        en:"May Allah bless him and grant him peace, and his family and his companions, possessors of noble deeds and virtues." },
+      { ar:"صَلَاةً وَسَلَامًا دَائِمَيْنِ مُتَلَازِمَيْنِ يَأْتِي قَائِلُهُمَا يَوْمَ الْقِيَامَةِ غَيْرَ خَائِبٍ",
+        tr:"Ṣalātan wa salāman dāʾimayni mutalāzimayni yaʾtī qāʾiluhumā yawma l-qiyāmati ghayra khāʾib",
+        en:"Blessings and peace, lasting and inseparable — whoever utters them will come on the Day of Rising not disappointed." },
+      { refrain:true, ar:"اللّٰهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَيْهِ وَعَلَى آلِهْ",
+        tr:"Allāhumma ṣalli wa sallim wa bārik ʿalayhi wa ʿalā ālih",
+        en:"O Allah, bless him, grant him peace, and pour Your blessings upon him and his family." }
+    ]
+  },
+  {
+    category: "qasida",
+    group: "qasidas",
+    titleArabic: "يَا تَوَّابُ تُبْ عَلَيْنَا",
+    titleEnglish: "22 · Yā Tawwāb Tub ʿAlaynā",
+    note:"The refrain is sung twice, and repeated after each verse.",
+    verses: [
+      { refrain:true, ar:"يَا تَوَّابُ تُبْ عَلَيْنَا ۞ وَارْحَمْنَا وَانْظُرْ إِلَيْنَا",
+        tr:"Yā Tawwābu tub ʿalaynā · wa-rḥamnā wa-nẓur ilaynā",
+        en:"O Ever-Relenting, turn to us in forgiveness; have mercy on us and look upon us." },
+      { ar:"خُذْ يَمِينًا خُذْ يَمِينًا ۞ عَنْ سَبِيلِ الظَّالِمِينَا",
+        tr:"Khudh yamīnan khudh yamīnan · ʿan sabīli ẓ-ẓālimīnā",
+        en:"Keep to the right, keep to the right, away from the path of the wrongdoers." },
+      { ar:"وَاتَّقِ اللهَ تَعَالَى ۞ عَنْ مَقَالِ الْمُلْحِدِينَا",
+        tr:"Wa-ttaqi-Llāha taʿālā · ʿan maqāli l-mulḥidīnā",
+        en:"And be mindful of Allah Most High, turning away from the talk of those who deny Him." },
+      { ar:"اَللهُ الْحَقُّ رَبُّ الْعَرْشِ ۞ رَبُّ الْعَالَمِينَا",
+        tr:"Allāhu l-Ḥaqqu Rabbu l-ʿArshi · Rabbu l-ʿālamīnā",
+        en:"Allah, the Real, is Lord of the Throne, Lord of all the worlds." },
+      { ar:"هُوَ رَبُّ الْأَوَّلِينَا ۞ هُوَ رَبُّ الْآخِرِينَا",
+        tr:"Huwa Rabbu l-awwalīnā · huwa Rabbu l-ākhirīnā",
+        en:"He is the Lord of those who came first; He is the Lord of those who come last." },
+      { ar:"هُوَ رَبِّي هُوَ حَسْبِي ۞ هُوَ خَيْرُ الرَّازِقِينَا",
+        tr:"Huwa Rabbī huwa ḥasbī · huwa khayru r-rāziqīnā",
+        en:"He is my Lord, He is my sufficiency; He is the best of providers." },
+      { ar:"هُوَ غَفَّارُ الْخَطَايَا ۞ هُوَ خَيْرُ الرَّاحِمِينَا",
+        tr:"Huwa ghaffāru l-khaṭāyā · huwa khayru r-rāḥimīnā",
+        en:"He is the Forgiver of faults; He is the best of those who show mercy." },
+      { ar:"رَبِّ أَدْخِلْنَا جَمِيعًا ۞ فِي الْعِبَادِ الصَّالِحِينَا",
+        tr:"Rabbi adkhilnā jamīʿan · fi l-ʿibādi ṣ-ṣāliḥīnā",
+        en:"My Lord, admit us all among Your righteous servants." },
+      { ar:"وَارْضَ عَنَّا وَاعْفُ عَنَّا ۞ وَأَجِرْنَا أَجْمَعِينَا",
+        tr:"Wa-rḍa ʿannā wa-ʿfu ʿannā · wa ajirnā ajmaʿīnā",
+        en:"Be pleased with us, pardon us, and grant us all Your protection —" },
+      { ar:"مِنْ عَذَابٍ فِي جَحِيمٍ ۞ أُرْصِدَتْ لِلْمُجْرِمِينَا",
+        tr:"Min ʿadhābin fī jaḥīmin · urṣidat li-l-mujrimīnā",
+        en:"from a punishment in the blazing Fire, made ready for the guilty," },
+      { ar:"مِنْ عُصَاةٍ فَاسِقِينَا ۞ وَعُتَاةٍ كَافِرِينَا",
+        tr:"Min ʿuṣātin fāsiqīnā · wa ʿutātin kāfirīnā",
+        en:"for the disobedient and depraved, and the insolent who disbelieve." },
+      { ar:"رَبِّ أَدْخِلْنَا جِنَانًا ۞ أُزْلِفَتْ لِلْمُتَّقِينَا",
+        tr:"Rabbi adkhilnā jinānan · uzlifat li-l-muttaqīnā",
+        en:"My Lord, admit us into gardens brought near for the God-fearing," },
+      { ar:"إِذْ يُنَادَوْنَ ادْخُلُوهَا ۞ بِسَلَامٍ آمِنِينَا",
+        tr:"Idh yunādawna-dkhulūhā · bi-salāmin āminīnā",
+        en:"when they are called: enter them in peace, secure." },
+      { ar:"وَصَلَاةُ اللهِ تَغْشَى ۞ أَحْمَدَ الْهَادِي الْأَمِينَا",
+        tr:"Wa ṣalātu-Llāhi taghshā · Aḥmada l-hādī l-amīnā",
+        en:"And may Allah's blessings envelop Ahmad, the guide, the trustworthy," },
+      { ar:"وَعَلَى الْآلِ وَالصَّحْبِ ۞ وَجَمِيعِ التَّابِعِينَا",
+        tr:"Wa ʿalā l-āli wa ṣ-ṣaḥbi · wa jamīʿi t-tābiʿīnā",
+        en:"and upon his family and companions, and all who followed after them," },
+      { ar:"مَا تَلَا تَالٍ قُرْآنًا ۞ جَاءَ بِالْحَقِّ الْمُبِينَا",
+        tr:"Mā talā tālin Qurʾānan · jāʾa bi-l-ḥaqqi l-mubīnā",
+        en:"for as long as any reciter recites the Qur'an, which came with the manifest truth." },
+      { refrain:true, ar:"اللّٰهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَيْهِ وَعَلَى آلِهْ",
+        tr:"Allāhumma ṣalli wa sallim wa bārik ʿalayhi wa ʿalā ālih",
+        en:"O Allah, bless him, grant him peace, and pour Your blessings upon him and his family." }
+    ]
+  },
+  {
+    category: "qasida",
+    group: "qasidas",
+    titleArabic: "يَا بَدْرُ تَمَّ",
+    titleEnglish: "25 · Yā Badra Timma",
+    verses: [
+      { ar:"يَا بَدْرُ تَمَّ فَحَازَ كُلَّ كَمَالِ ۞ مَاذَا يُعَبِّرُ عَنْ عُلَاكَ مَقَالِي",
+        tr:"Yā badru tamma fa-ḥāza kulla kamāli · mādhā yuʿabbiru ʿan ʿulāka maqālī",
+        en:"O full moon, complete, having gathered every perfection — what can my speech convey of your loftiness?" },
+      { ar:"أَنْتَ الَّذِي أَشْرَقْتَ فِي أُفُقِ الْعُلَا ۞ فَمَحَوْتَ بِالْأَنْوَارِ كُلَّ ضَلَالِ",
+        tr:"Anta lladhī ashraqta fī ufuqi l-ʿulā · fa-maḥawta bi-l-anwāri kulla ḍalāli",
+        en:"You are the one who rose in the horizon of the heights, and with your lights you effaced every misguidance." },
+      { ar:"وَبِكَ اسْتَنَارَ الْكَوْنُ يَا عَلَمَ الْهُدَى ۞ بِالنُّورِ وَالْإِنْعَامِ وَالْإِفْضَالِ",
+        tr:"Wa bika-stanāra l-kawnu yā ʿalama l-hudā · bi-n-nūri wa l-inʿāmi wa l-ifḍāli",
+        en:"Through you the universe was lit, O banner of guidance — with light, with blessing, and with bounty." },
+      { ar:"صَلَّى عَلَيْكَ اللهُ رَبِّي دَائِمًا ۞ أَبَدًا مَعَ الْإِبْكَارِ وَالْآصَالِ",
+        tr:"Ṣallā ʿalayka-Llāhu Rabbī dāʾiman · abadan maʿa l-ibkāri wa l-āṣāli",
+        en:"May Allah, my Lord, send blessings upon you always and forever, at every dawn and every evening," },
+      { ar:"وَعَلَى جَمِيعِ الْآلِ وَالْأَصْحَابِ مَنْ ۞ قَدْ خَصَّهُمْ رَبُّ الْعُلَا بِكَمَالِ",
+        tr:"Wa ʿalā jamīʿi l-āli wa l-aṣḥābi man · qad khaṣṣahum Rabbu l-ʿulā bi-kamāli",
+        en:"and upon all the family and the companions, whom the Lord of the heights singled out with perfection." },
+      { refrain:true, ar:"اللّٰهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَيْهِ وَعَلَى آلِهْ",
+        tr:"Allāhumma ṣalli wa sallim wa bārik ʿalayhi wa ʿalā ālih",
+        en:"O Allah, bless him, grant him peace, and pour Your blessings upon him and his family." }
+    ]
+  },
+  {
+    category: "qasida",
+    group: "qasidas",
+    titleArabic: "الْقَصِيدَةُ الْمُحَمَّدِيَّةُ",
+    titleEnglish: "34 · The Muhammadan Qasidah",
+    note:"Each verse opens with the blessed name; the refrain is repeated after each.",
+    verses: [
+      { refrain:true, ar:"سَلَامٌ عَلَيْكَ يَا نَبِي سَلَامٌ عَلَيْكَ سَيِّدِي ۞ يَا نَبِي يَا إِمَامَ الْحَرَمَيْنِ",
+        tr:"Salāmun ʿalayk yā Nabī, salāmun ʿalayk sayyidī · yā Nabī yā Imāma l-ḥaramayn",
+        en:"Peace be upon you, O Prophet; peace be upon you, my master — O Prophet, O Imam of the two sanctuaries." },
+      { ar:"مُحَمَّدٌ أَشْرَفُ الْأَعْرَابِ وَالْعَجَمِ ۞ مُحَمَّدٌ خَيْرُ مَنْ يَمْشِي عَلَى قَدَمِ",
+        tr:"Muḥammadun ashrafu l-aʿrābi wa l-ʿajami · Muḥammadun khayru man yamshī ʿalā qadami",
+        en:"Muhammad is the noblest of Arabs and non-Arabs; Muhammad is the best of all who ever walked upon a foot." },
+      { ar:"مُحَمَّدٌ بَاسِطُ الْمَعْرُوفِ جَامِعُهُ ۞ مُحَمَّدٌ صَاحِبُ الْإِحْسَانِ وَالْكَرَمِ",
+        tr:"Muḥammadun bāsiṭu l-maʿrūfi jāmiʿuhu · Muḥammadun ṣāḥibu l-iḥsāni wa l-karami",
+        en:"Muhammad spreads what is good and gathers it in himself; Muhammad is the possessor of kindness and generosity." },
+      { ar:"مُحَمَّدٌ تَاجُ رُسْلِ اللهِ قَاطِبَةً ۞ مُحَمَّدٌ صَادِقُ الْقَوْلِ وَالْكَلِمِ",
+        tr:"Muḥammadun tāju rusli-Llāhi qāṭibatan · Muḥammadun ṣādiqu l-qawli wa l-kalimi",
+        en:"Muhammad is the crown of all Allah's messengers; Muhammad is truthful in speech and in word." },
+      { ar:"مُحَمَّدٌ ثَابِتُ الْمِيثَاقِ حَافِظُهُ ۞ مُحَمَّدٌ طَيِّبُ الْأَخْلَاقِ وَالشِّيَمِ",
+        tr:"Muḥammadun thābitu l-mīthāqi ḥāfiẓuhu · Muḥammadun ṭayyibu l-akhlāqi wa sh-shiyami",
+        en:"Muhammad holds firm to the covenant and keeps it; Muhammad is sweet in character and disposition." },
+      { ar:"مُحَمَّدٌ رُوِيَتْ بِالنُّورِ طِينَتُهُ ۞ مُحَمَّدٌ لَمْ يَزَلْ نُورًا مِنَ الْقِدَمِ",
+        tr:"Muḥammadun ruwiyat bi-n-nūri ṭīnatuhu · Muḥammadun lam yazal nūran mina l-qidami",
+        en:"Muhammad — his very clay was steeped in light; Muhammad has never ceased to be a light from eternity." },
+      { ar:"مُحَمَّدٌ حَاكِمٌ بِالْعَدْلِ ذُو شَرَفٍ ۞ مُحَمَّدٌ مَعْدِنُ الْإِنْعَامِ وَالْحِكَمِ",
+        tr:"Muḥammadun ḥākimun bi-l-ʿadli dhū sharafin · Muḥammadun maʿdinu l-inʿāmi wa l-ḥikami",
+        en:"Muhammad rules with justice, possessed of honour; Muhammad is the wellspring of blessing and wisdom." },
+      { ar:"مُحَمَّدٌ خَيْرُ خَلْقِ اللهِ مِنْ مُضَرٍ ۞ مُحَمَّدٌ خَيْرُ رُسْلِ اللهِ كُلِّهِمِ",
+        tr:"Muḥammadun khayru khalqi-Llāhi min Muḍarin · Muḥammadun khayru rusli-Llāhi kullihimi",
+        en:"Muhammad is the best of Allah's creation, of the line of Mudar; Muhammad is the best of all Allah's messengers." },
+      { ar:"مُحَمَّدٌ دِينُهُ حَقٌّ نَدِينُ بِهِ ۞ مُحَمَّدٌ مُجْمَلًا حَقًّا عَلَى عَلَمِ",
+        tr:"Muḥammadun dīnuhu ḥaqqun nadīnu bihi · Muḥammadun mujmalan ḥaqqan ʿalā ʿalami",
+        en:"Muhammad — his religion is truth, and by it we live; Muhammad, in sum, is truth raised as a standard." },
+      { ar:"مُحَمَّدٌ ذِكْرُهُ رُوحٌ لِأَنْفُسِنَا ۞ مُحَمَّدٌ شُكْرُهُ فَرْضٌ عَلَى الْأُمَمِ",
+        tr:"Muḥammadun dhikruhu rūḥun li-anfusinā · Muḥammadun shukruhu farḍun ʿalā l-umami",
+        en:"Muhammad — his remembrance is life to our souls; Muhammad — gratitude for him is a duty upon the nations." },
+      { ar:"مُحَمَّدٌ زِينَةُ الدُّنْيَا وَبَهْجَتُهَا ۞ مُحَمَّدٌ كَاشِفُ الْغُمَّاتِ وَالظُّلَمِ",
+        tr:"Muḥammadun zīnatu d-dunyā wa bahjatuhā · Muḥammadun kāshifu l-ghummāti wa ẓ-ẓulami",
+        en:"Muhammad is the adornment of this world and its delight; Muhammad is the lifter of sorrows and darknesses." },
+      { ar:"مُحَمَّدٌ سَيِّدٌ طَابَتْ مَنَاقِبُهُ ۞ مُحَمَّدٌ صَاغَهُ الرَّحْمَنُ بِالنِّعَمِ",
+        tr:"Muḥammadun sayyidun ṭābat manāqibuhu · Muḥammadun ṣāghahu r-Raḥmānu bi-n-niʿami",
+        en:"Muhammad is a master whose virtues are sweet; Muhammad — the All-Merciful fashioned him with favours." },
+      { ar:"مُحَمَّدٌ صَفْوَةُ الْبَارِي وَخِيرَتُهُ ۞ مُحَمَّدٌ طَاهِرٌ مِنْ سَائِرِ التُّهَمِ",
+        tr:"Muḥammadun ṣafwatu l-Bārī wa khīratuhu · Muḥammadun ṭāhirun min sāʾiri t-tuhami",
+        en:"Muhammad is the chosen of the Maker and His elect; Muhammad is pure of every accusation." },
+      { ar:"مُحَمَّدٌ ضَاحِكٌ لِلضَّيْفِ مُكْرِمُهُ ۞ مُحَمَّدٌ جَارُهُ وَاللهِ لَمْ يُضَمِ",
+        tr:"Muḥammadun ḍāḥikun li-ḍ-ḍayfi mukrimuhu · Muḥammadun jāruhu wa-Llāhi lam yuḍami",
+        en:"Muhammad smiles at the guest and honours him; Muhammad's neighbour — by Allah — is never wronged." },
+      { ar:"مُحَمَّدٌ طَابَتِ الدُّنْيَا بِبِعْثَتِهِ ۞ مُحَمَّدٌ جَاءَ بِالْآيَاتِ وَالْحِكَمِ",
+        tr:"Muḥammadun ṭābati d-dunyā bi-biʿthatihi · Muḥammadun jāʾa bi-l-āyāti wa l-ḥikami",
+        en:"Muhammad — with his sending the world grew sweet; Muhammad came with signs and with wisdom." },
+      { ar:"مُحَمَّدٌ يَوْمَ بَعْثِ النَّاسِ شَافِعُنَا ۞ مُحَمَّدٌ نُورُهُ الْهَادِي مِنَ الظُّلَمِ",
+        tr:"Muḥammadun yawma baʿthi n-nāsi shāfiʿunā · Muḥammadun nūruhu l-hādī mina ẓ-ẓulami",
+        en:"Muhammad, on the day mankind is raised, is our intercessor; Muhammad — his light is the guide out of the darknesses." },
+      { ar:"مُحَمَّدٌ قَائِمٌ لِلَّهِ ذُو هِمَمٍ ۞ مُحَمَّدٌ خَاتَمٌ لِلرُّسْلِ كُلِّهِمِ",
+        tr:"Muḥammadun qāʾimun li-Llāhi dhū himamin · Muḥammadun khātamun li-r-rusli kullihimi",
+        en:"Muhammad stands for Allah, possessed of high resolve; Muhammad is the seal of all the messengers." },
+      { refrain:true, ar:"اللّٰهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَيْهِ وَعَلَى آلِهْ",
+        tr:"Allāhumma ṣalli wa sallim wa bārik ʿalayhi wa ʿalā ālih",
+        en:"O Allah, bless him, grant him peace, and pour Your blessings upon him and his family." }
+    ]
   }
 ];
 
 /* ---------------- app logic ---------------- */
 const app = document.getElementById('app');
 const AR_NUMS = ['٠','١','٢','٣','٤','٥','٦','٧','٨','٩'];
-const toArNum = n => String(n).split('').map(d => AR_NUMS[+d]).join('');
+// Devotion/verse number badges use standard (Western) numerals for easy reading;
+// the gold-circle styling is unchanged. Swap to AR_NUMS mapping to go Arabic-script.
+const toArNum = n => String(n);
 
-const state = { showTr: true, showEn: true, arScale: 1, query: '', tab: 'duas', burdahChapter: null, scrollSpeedIdx: 3 };
+/* ── Favourites ──────────────────────────────────────────────────
+   Stored in this browser's localStorage, so they stay on the device and are
+   never shared between people opening the same hosted link.
+   The key is kind + titleEnglish (unique within every array) rather than an
+   array index, so favourites survive adding, removing or reordering pieces.
+   A favourite whose title is later edited is simply dropped. */
+const FAV_KEY = 'mawlid-favs';
+
+function loadFavs(){
+  try { const v = JSON.parse(localStorage.getItem(FAV_KEY)); return Array.isArray(v) ? v : []; }
+  catch(e){ return []; }
+}
+function saveFavs(){
+  try { localStorage.setItem(FAV_KEY, JSON.stringify(state.favs)); } catch(e){}
+}
+
+const state = { showTr: true, showEn: true, arScale: 1, query: '', tab: 'home', burdahChapter: null, scrollSpeedIdx: 3, favs: loadFavs() };
+
+/* The four content arrays, keyed by the same letters reopen() uses. */
+function arrayOf(kind){
+  return kind === 'q' ? QASIDAS
+       : kind === 'b' ? BURDAH_CHAPTERS
+       : kind === 's' ? SIRAH_CHAPTERS
+       : kind === 'i' ? ILAHI_CHAPTERS
+       : null;
+}
+function pieceOf(kind, idx){ const a = arrayOf(kind); return a ? a[idx] : null; }
+function favKey(kind, piece){ return kind + '|' + piece.titleEnglish; }
+function isFav(kind, idx){
+  const p = pieceOf(kind, idx);
+  return !!p && state.favs.includes(favKey(kind, p));
+}
+function toggleFav(kind, idx){
+  const p = pieceOf(kind, idx);
+  if(!p) return;
+  const key = favKey(kind, p);
+  const at = state.favs.indexOf(key);
+  if(at >= 0) state.favs.splice(at, 1); else state.favs.push(key);
+  saveFavs();
+  updateFavUI(kind, idx);
+}
+/* Bookmark glyph: outline when unsaved, filled when saved. Drawn as SVG so it
+   takes the app's gold via currentColor instead of an emoji's fixed colour. */
+function bookmarkIcon(on){
+  return `<svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"
+    fill="${on ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="1.7"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6.5 3.5h11a.9.9 0 0 1 .9.9v15.8a.5.5 0 0 1-.77.42L12 16.8l-5.63 3.82a.5.5 0 0 1-.77-.42V4.4a.9.9 0 0 1 .9-.9z"/>
+  </svg>`;
+}
+
+/* Update the star in place, so tapping it never disturbs your scroll position */
+function updateFavUI(kind, idx){
+  const btn = document.querySelector('.fav-btn');
+  if(!btn) return;
+  const on = isFav(kind, idx);
+  btn.innerHTML = bookmarkIcon(on);
+  btn.classList.toggle('on', on);
+  btn.setAttribute('aria-label', on ? 'Remove bookmark' : 'Bookmark this');
+}
+/* Resolve saved keys back to live pieces, skipping any that no longer exist */
+function favItems(){
+  const out = [];
+  state.favs.forEach(key => {
+    const kind = key.slice(0, 1);
+    const title = key.slice(2);
+    const arr = arrayOf(kind);
+    if(!arr) return;
+    const idx = arr.findIndex(p => p.titleEnglish === title);
+    if(idx >= 0) out.push({ kind, idx, piece: arr[idx] });
+  });
+  return out;
+}
 
 /* Fuzzy-normalize transliterated Arabic so different English spellings match.
    e.g. "Qaseeda", "kasida", "qasīda" all collapse to the same key.
@@ -1220,6 +1589,10 @@ function normalize(str){
   let s = str.toLowerCase();
   // strip combining diacritical marks (ā ṣ ḥ ʿ etc.)
   s = s.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  // strip Arabic harakat/tatweel and fold letter variants, so searching Arabic
+  // works whether or not the person types the vowel marks
+  s = s.replace(/[\u064b-\u065f\u0670\u0640]/g, '');
+  s = s.replace(/[أإآٱ]/g, 'ا').replace(/ى/g, 'ي').replace(/ؤ/g, 'و').replace(/ئ/g, 'ي').replace(/ة/g, 'ه');
   // remove Arabic transliteration marks and punctuation, keep a-z and arabic block
   s = s.replace(/[ʿʾ'`’‘_\-.,;:!?()\[\]"۞·]/g, ' ');
   // sound-folding for common spelling variants
@@ -1252,7 +1625,21 @@ function haystack(q){
   const parts = [q.titleEnglish, q.titleArabic];
   q.verses.forEach(v => { parts.push(v.tr, v.en, v.ar); });
   const joined = parts.join(' ');
-  return { norm: normalize(joined), raw: joined.toLowerCase(), ar: joined };
+  const norm = normalize(joined);
+  return {
+    norm,
+    // space-free copy, so word breaks don't matter: "mawla ya" == "mawlaya".
+    // Doubles are re-collapsed AFTER squeezing, since removing a space can
+    // create one ("ar rahman" -> "arrahman" -> "arahman").
+    tight: tighten(norm),
+    raw: joined.toLowerCase(),
+    ar: joined
+  };
+}
+
+/* Space-free, double-free form used for spacing-insensitive matching. */
+function tighten(normalized){
+  return normalized.replace(/\s+/g, '').replace(/(.)\1+/g, '$1');
 }
 
 function matchesQuery(q, query){
@@ -1261,11 +1648,26 @@ function matchesQuery(q, query){
   const h = haystack(q);
   // match on normalized (fuzzy) OR raw lowercase OR arabic-script substring
   if(nq && h.norm.includes(nq)) return true;
+  // spacing-insensitive: "mawla ya" and "mawlaya" both find the same verse
+  const tq = tighten(nq);
+  if(tq && h.tight.includes(tq)) return true;
   const rawq = query.toLowerCase().trim();
   if(h.raw.includes(rawq)) return true;
   if(/[\u0600-\u06ff]/.test(query) && h.ar.includes(query.trim())) return true;
   return false;
 }
+
+const CORNER_MOTIF = (cls, pid) => `<svg class="corner-motif ${cls}" viewBox="0 0 118 118" aria-hidden="true">
+  <defs>
+    <pattern id="${pid}" width="28" height="28" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="currentColor" stroke-width="1">
+        <rect x="7.5" y="7.5" width="13" height="13"/>
+        <rect x="7.5" y="7.5" width="13" height="13" transform="rotate(45 14 14)"/>
+      </g>
+    </pattern>
+  </defs>
+  <path d="M0 0 H118 L0 118 Z" fill="url(#${pid})"/>
+</svg>`;
 
 const STAR = `<svg class="star-band" viewBox="0 0 240 24" fill="none" aria-hidden="true">
   <line x1="0" y1="12" x2="96" y2="12" stroke="#B8934A" stroke-width="1"/>
@@ -1301,11 +1703,11 @@ function sectionCards(cat){
 
 /* ---- Top-level sections shown as a left-to-right nav bar ---- */
 const TABS = [
-  { id:'duas',    label:'Duas &amp; Devotions', ar:'الأدعية' },
-  { id:'sirah',   label:'Shamā\'il &amp; Sīrah',  ar:'الشمائل والسيرة' },
+  { id:'mawlid',  label:'Mawlid ad-Daybaʿi',    ar:'مولد الديبعي' },
   { id:'qasidas', label:'Qasidas',              ar:'القصائد' },
   { id:'burdah',  label:'Burdah',               ar:'البردة' },
   { id:'ilahis',  label:'Turkish Ilahis',       ar:'الإلهيات' },
+  { id:'favs',    label:'Favorites',            ar:'المفضلة' },
 ];
 
 /* The 10 chapters of Imam al-Būṣīrī's Qaṣīdat al-Burda.
@@ -2543,6 +2945,76 @@ function selectTab(id){
 }
 
 /* Cards for a given group, honoring the search query. */
+/* ── Mawlid ad-Daybaʿi: one ordered section ──────────────────────
+   The mawlid's pieces live in two arrays: QASIDAS (its duas and qasidas)
+   and SIRAH_CHAPTERS (its prose). Each carries its section number from the
+   kitab in its title, e.g. "13b · …". We merge both and sort by that number
+   so the tab follows the book's own order. A qasida with NO section number
+   didn't come from the mawlid — it belongs under the Qasidas tab. */
+const SECTION_RE = /^(\d+)(b?)\s*·\s*(.*)$/;
+
+function sectionOf(title){
+  const m = SECTION_RE.exec(title || '');
+  if(!m) return null;
+  return { num: +m[1] + (m[2] ? 0.5 : 0), label: m[1] + m[2], rest: m[3] };
+}
+
+function mawlidItems(){
+  const items = [];
+  QASIDAS.forEach((qa, i) => {
+    const sec = sectionOf(qa.titleEnglish);
+    if(sec) items.push({ sec, kind:'q', idx:i, piece:qa });
+  });
+  SIRAH_CHAPTERS.forEach((c, n) => {
+    const sec = sectionOf(c.titleEnglish);
+    if(sec) items.push({ sec, kind:'s', idx:n, piece:c });
+  });
+  items.sort((a,b) => a.sec.num - b.sec.num);
+  /* Number them 1..N by their place in the kitab's order. The badge is a
+     running position, not the kitab's own number, so the list never skips
+     even though some of the kitab's sections aren't in the app yet. Adding a
+     missing section later slots it in and renumbers everything automatically. */
+  items.forEach((it, n) => { it.pos = n + 1; });
+  return items;
+}
+
+function mawlidCards(){
+  /* Position is assigned before filtering, so searching never renumbers. */
+  const items = mawlidItems().filter(x => matchesQuery(x.piece, state.query));
+  if(items.length === 0) return '';
+  return items.map(({pos, kind, idx, piece}) => `
+        <button class="qcard" onclick="${kind==='s' ? 'openSirah' : 'openQasida'}(${idx})">
+          <span class="num">${toArNum(pos)}</span>
+          <span class="titles">
+            <span class="t-ar">${piece.titleArabic}</span>
+            <span class="t-en">${sectionOf(piece.titleEnglish).rest}</span>
+          </span>
+          <span class="chev">›</span>
+        </button>`).join('');
+}
+
+/* Qasidas that did not come from the Mawlid ad-Daybaʿi */
+/* Qasidas that did not come from the mawlid — the source of truth for both
+   the Qasidas tab and the landing page's count. */
+function additionalQasidaItems(){
+  return QASIDAS.map((qa,i) => ({q:qa, i}))
+    .filter(x => x.q.group === 'qasidas' && !sectionOf(x.q.titleEnglish));
+}
+
+function additionalQasidaCards(){
+  const items = additionalQasidaItems().filter(x => matchesQuery(x.q, state.query));
+  if(items.length === 0) return '';
+  return items.map(({q:qa, i}, n) => `
+        <button class="qcard" onclick="openQasida(${i})">
+          <span class="num">${toArNum(n+1)}</span>
+          <span class="titles">
+            <span class="t-ar">${qa.titleArabic}</span>
+            <span class="t-en">${qa.titleEnglish}</span>
+          </span>
+          <span class="chev">›</span>
+        </button>`).join('');
+}
+
 function groupCards(group){
   const q = state.query;
   let items = QASIDAS.map((qa,i)=>({q:qa,i}))
@@ -2572,7 +3044,7 @@ function searchBox(){
   return `
       <div class="search-wrap">
         <input id="search" class="search" type="search" inputmode="search"
-          placeholder="Search — e.g. ya nabi, salaam, mercy…"
+          placeholder="Search everything — e.g. ya nabi, salaam, mercy…"
           autocomplete="off" autocapitalize="off" autocorrect="off"
           value="${state.query.replace(/"/g,'&quot;')}"
           oninput="updateSearch(this.value)">
@@ -2595,24 +3067,8 @@ function placeholder(title){
     </div>`;
 }
 
-/* Two search "worlds": devotional (duas + sirah) and the rest
-   (qasidas + burdah + ilahis). Search from any tab covers its whole world. */
-function worldOf(tab){
-  return (tab === 'duas' || tab === 'sirah') ? 'devotional' : 'main';
-}
-
 function burdahCards(){
-  const q = state.query;
-  const matches = (c) => {
-    if(!q) return true;
-    const t = normalize(c.titleEnglish + ' ' + c.titleArabic);
-    const nq = normalize(q);
-    const hay = normalize([c.titleEnglish, c.titleArabic, ...(c.verses||[]).flatMap(v=>[v.tr,v.en,v.ar])].join(' '));
-    return (nq && (t.includes(nq) || hay.includes(nq))) ||
-           (c.titleEnglish + c.titleArabic).toLowerCase().includes(q.toLowerCase().trim()) ||
-           (/[\u0600-\u06ff]/.test(q) && c.titleArabic.includes(q.trim()));
-  };
-  const items = BURDAH_CHAPTERS.map((c,n)=>({c,n})).filter(x=>matches(x.c));
+  const items = BURDAH_CHAPTERS.map((c,n)=>({c,n})).filter(x=>matchesQuery(x.c, state.query));
   if(items.length === 0) return '';
   return items.map(({c,n})=>`
         <button class="qcard" onclick="openBurdah(${n})">
@@ -2625,40 +3081,8 @@ function burdahCards(){
         </button>`).join('');
 }
 
-function sirahCards(){
-  const q = state.query;
-  const matches = (c) => {
-    if(!q) return true;
-    const t = normalize(c.titleEnglish + ' ' + c.titleArabic);
-    const nq = normalize(q);
-    const hay = normalize([c.titleEnglish, c.titleArabic, ...(c.verses||[]).flatMap(v=>[v.tr,v.en,v.ar])].join(' '));
-    return (nq && (t.includes(nq) || hay.includes(nq))) ||
-           (c.titleEnglish + c.titleArabic).toLowerCase().includes(q.toLowerCase().trim()) ||
-           (/[\u0600-\u06ff]/.test(q) && c.titleArabic.includes(q.trim()));
-  };
-  const items = SIRAH_CHAPTERS.map((c,n)=>({c,n})).filter(x=>matches(x.c));
-  if(items.length === 0) return '';
-  return items.map(({c,n})=>`
-        <button class="qcard" onclick="openSirah(${n})">
-          <span class="num">${toArNum(n+1)}</span>
-          <span class="titles">
-            <span class="t-ar">${c.titleArabic}</span>
-            <span class="t-en">${c.titleEnglish}</span>
-          </span>
-          <span class="chev">›</span>
-        </button>`).join('');
-}
-
 function ilahiCards(){
-  const q = state.query;
-  const matches = (c) => {
-    if(!q) return true;
-    const nq = normalize(q);
-    const hay = normalize([c.titleEnglish, c.titleArabic, ...(c.verses||[]).flatMap(v=>[v.tr,v.en,v.ar])].join(' '));
-    return (nq && hay.includes(nq)) ||
-           (c.titleEnglish + c.titleArabic).toLowerCase().includes(q.toLowerCase().trim());
-  };
-  const items = ILAHI_CHAPTERS.map((c,n)=>({c,n})).filter(x=>matches(x.c));
+  const items = ILAHI_CHAPTERS.map((c,n)=>({c,n})).filter(x=>matchesQuery(x.c, state.query));
   if(items.length === 0) return '';
   return items.map(({c,n})=>`
         <button class="qcard" onclick="openIlahi(${n})">
@@ -2666,6 +3090,104 @@ function ilahiCards(){
           <span class="titles">
             <span class="t-ar" style="font-family:'Crimson Pro',serif;direction:ltr;text-align:left">${c.titleArabic}</span>
             <span class="t-en">${c.titleEnglish}</span>
+          </span>
+          <span class="chev">›</span>
+        </button>`).join('');
+}
+
+/* The reader opener for each kind, matching reopen()'s letters. */
+function openFnOf(kind){
+  return kind === 'q' ? 'openQasida'
+       : kind === 'b' ? 'openBurdah'
+       : kind === 's' ? 'openSirah'
+       : 'openIlahi';
+}
+/* Mawlid pieces carry their kitab number in the title; drop it for display. */
+function displayTitle(piece){
+  const s = sectionOf(piece.titleEnglish);
+  return s ? s.rest : piece.titleEnglish;
+}
+
+/* ── Landing page ────────────────────────────────────────────────
+   The app opens here rather than dropping straight into the mawlid, so the
+   calligraphy has room and each section can introduce itself. Counts are
+   computed live, so they stay right as content is added. */
+const HOME_CARDS = [
+  { id:'mawlid',  ar:'مولد الديبعي', en:'Mawlid ad-Daybaʿi', desc:'The mawlid of Imam ad-Daybaʿī — read straight through, in order.' },
+  { id:'qasidas', ar:'القصائد',      en:'Qasidas',           desc:'Poems in praise of the Prophet ﷺ.' },
+  { id:'burdah',  ar:'البردة',        en:'Burdah',            desc:'Imam al-Būṣīrī’s celebrated poem, with audio for every chapter.' },
+  { id:'ilahis',  ar:'الإلهيات',      en:'Turkish Ilahis',    desc:'Devotional songs in Turkish, with translation.' },
+  { id:'favs',    ar:'المفضلة',       en:'Favorites',         desc:'Whatever you bookmark, kept on this device.' },
+];
+
+function sectionCount(id){
+  return id === 'mawlid'  ? mawlidItems().length
+       : id === 'qasidas' ? additionalQasidaItems().length
+       : id === 'burdah'  ? BURDAH_CHAPTERS.length
+       : id === 'ilahis'  ? ILAHI_CHAPTERS.length
+       : favItems().length;
+}
+function countLabel(id, n){
+  if(id === 'favs')    return n ? n + (n === 1 ? ' bookmark' : ' bookmarks') : 'Nothing saved yet';
+  if(id === 'mawlid')  return n + ' sections';
+  if(id === 'burdah')  return n + ' chapters';
+  if(id === 'qasidas') return n + (n === 1 ? ' qasida' : ' qasidas');
+  return n + (n === 1 ? ' ilahi' : ' ilahis');
+}
+
+/* Bismillah panel shown on the landing page, between the header and the search
+   box. Drawn with the Amiri font's calligraphic ﷽ ligature rather than an
+   image, so it stays crisp at any size, adapts to dark mode, adds no weight,
+   and is our own — no artist's work reproduced. */
+const BISMILLAH = `
+  <div class="bismillah-panel">
+    <span class="bp-rule"></span>
+    <span class="bp-text" role="img"
+          aria-label="بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ"
+          title="Bismillāh ar-Raḥmān ar-Raḥīm">﷽</span>
+    <span class="bp-rule"></span>
+  </div>`;
+
+function homeCards(){
+  const sessionLabel = session.role
+    ? (session.role === 'leader' ? 'Leading · ' + session.code : 'Following · ' + session.code)
+    : 'Not connected';
+  return `<div class="home-grid">${HOME_CARDS.map(c => `
+      <button class="home-card" onclick="selectTab('${c.id}')">
+        <span class="hc-ar">${c.ar}</span>
+        <span class="hc-en">${c.en}</span>
+        <span class="hc-count">${countLabel(c.id, sectionCount(c.id))}</span>
+      </button>`).join('')}
+      <button class="home-card" onclick="selectTab('session')">
+        <span class="hc-ar">مجلس مشترك</span>
+        <span class="hc-en">Live Session</span>
+        <span class="hc-count">${sessionLabel}</span>
+      </button></div>`;
+}
+
+/* Each section introduces itself at the top of its own page, rather than
+   crowding the landing page. */
+function sectionIntro(id){
+  const c = HOME_CARDS.find(x => x.id === id);
+  return c ? `<div class="section-intro">${c.desc}</div>` : '';
+}
+
+function goHome(){
+  stopAutoScroll();
+  state.tab = 'home';
+  state.query = '';
+  renderIndex();
+}
+
+function favCards(){
+  const items = favItems();
+  if(items.length === 0) return '';
+  return items.map(({kind, idx, piece}, n) => `
+        <button class="qcard" onclick="${openFnOf(kind)}(${idx})">
+          <span class="num">${toArNum(n+1)}</span>
+          <span class="titles">
+            <span class="t-ar"${kind === 'i' ? ` style="font-family:'Crimson Pro',serif;direction:ltr;text-align:left"` : ''}>${piece.titleArabic}</span>
+            <span class="t-en">${displayTitle(piece)}</span>
           </span>
           <span class="chev">›</span>
         </button>`).join('');
@@ -2680,33 +3202,33 @@ function renderResults(){
   const tab = state.tab;
   const q = state.query;
 
-  // ---- SEARCH MODE: aggregate across the current world ----
+  // ---- SEARCH MODE: search the whole app, from whichever tab you're on ----
   if(q){
     let html = '';
-    if(worldOf(tab) === 'devotional'){
-      const duas = groupCards('duas');
-      if(duas) html += label('Duas &amp; Devotions · الأدعية') + duas;
-      const sirah = sirahCards();
-      if(sirah) html += label('Shamā\'il &amp; Sīrah · الشمائل والسيرة', !!duas) + sirah;
-    } else {
-      const qas = groupCards('qasidas');
-      if(qas) html += label('Qasidas · القصائد') + qas;
-      const burd = burdahCards();
-      if(burd) html += label('Burdah · البردة', !!qas) + burd;
-      const ilahis = ilahiCards();
-      if(ilahis) html += label('Turkish Ilahis · الإلهيات', !!qas || !!burd) + ilahis;
-    }
+    const mawlid = mawlidCards();
+    if(mawlid) html += label('Mawlid ad-Daybaʿi · مولد الديبعي') + mawlid;
+    const qas = additionalQasidaCards();
+    if(qas) html += label('Qasidas · القصائد', !!mawlid) + qas;
+    const burd = burdahCards();
+    if(burd) html += label('Burdah · البردة', !!mawlid || !!qas) + burd;
+    const ilahis = ilahiCards();
+    if(ilahis) html += label('Turkish Ilahis · الإلهيات', !!mawlid || !!qas || !!burd) + ilahis;
     if(!html) return `<div class="no-results">No matches for "${q.replace(/</g,'&lt;')}". Try a different spelling.</div>`;
     return html;
   }
 
   // ---- BROWSE MODE: just the current tab ----
-  if(tab === 'duas')   return groupCards('duas') || placeholder('Duas &amp; Devotions');
-  if(tab === 'qasidas')return groupCards('qasidas') || placeholder('Qasidas');
-  if(tab === 'sirah')  return label('Select a section · اختر فصلاً') + sirahCards();
-  if(tab === 'ilahis') return label('Select an ilahi · ilahi seçin') + ilahiCards();
+  if(tab === 'mawlid')  return sectionIntro('mawlid') + label('Follow the mawlid in order · على ترتيب المولد') + mawlidCards();
+  if(tab === 'qasidas') return sectionIntro('qasidas') + (additionalQasidaCards() || placeholder('Qasidas'));
+  if(tab === 'ilahis')  return sectionIntro('ilahis') + label('Select an ilahi · ilahi seçin') + ilahiCards();
+  if(tab === 'favs'){
+    const cards = favCards();
+    return cards
+      ? sectionIntro('favs') + label('Your favorites · المفضلة') + cards
+      : `<div class="no-results">No favorites yet.<br><br>Open any piece and tap the bookmark beside its title to save it here.<br><br>Favorites are kept on this device only — they aren't shared with anyone else using the app.</div>`;
+  }
   if(tab === 'burdah'){
-    return label('Select a chapter · اختر فصلاً') + burdahCards();
+    return sectionIntro('burdah') + label('Select a chapter · اختر فصلاً') + burdahCards();
   }
   return '';
 }
@@ -2719,18 +3241,22 @@ function tabHasSearch(){
 function renderIndex(){
   stopAutoScroll();
   document.documentElement.style.setProperty('--ar-size', '1.9rem');
+  /* Landing page: shown on first open, and whenever you tap the logo.
+     A search from here still runs, so the box stays useful. */
+  const home = state.tab === 'home' && !state.query;
+  const sessionScreen = state.tab === 'session' && !state.query;
   app.innerHTML = `
     <header class="masthead">
       <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">${document.documentElement.classList.contains('dark') ? '☀' : '☾'}</button>
-      <div class="bismillah">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
-      <h1>مَوْلِد</h1>
-      <div class="sub">Mawlid, Qasidas &amp; Devotional Ilahis</div>
-      ${STAR}
+      <img class="logo${home?'':' tappable'}" ${home?'':'onclick="goHome()" title="Home"'} src="data:image/png;base64,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" width="540" height="745"
+           alt="مَوْلِدُ النَّبِيِّ الشَّرِيفِ — مُحَمَّدٌ ﷺ (Mawlid an-Nabī ash-Sharīf)">
+      <div class="sub">A companion for gatherings of love and remembrance</div>
     </header>
-    ${navBar()}
+    ${(home || sessionScreen) ? '' : navBar()}
+    ${home ? BISMILLAH : ''}
     <main class="index">
-      ${tabHasSearch() ? searchBox() : ''}
-      <div id="results">${renderResults()}</div>
+      ${(tabHasSearch() && !sessionScreen) ? searchBox() : ''}
+      <div id="results">${home ? homeCards() : sessionScreen ? sessionPanel() : renderResults()}</div>
     </main>
     <footer>Works offline once added to your home screen.</footer>`;
   window.scrollTo(0,0);
@@ -2760,8 +3286,10 @@ function toggleTheme(){
 /* ── Auto-scroll engine ─────────────────────────────
    Smoothly scrolls the reader while reciting. Speed is adjustable.
    Reads SPEEDS[idx] each frame, so speed changes apply live. */
-const SCROLL_SPEEDS = [0.2, 0.4, 0.7, 1.1, 1.7, 2.6];      // px per frame
-const SCROLL_LABELS = ['0.25×', '0.5×', '1×', '1.5×', '2×', '3×'];
+/* Speeds run 0.2×–1×, where 1× is a steady recitation pace. Fine steps
+   because the useful range for reciting aloud is all at the slow end. */
+const SCROLL_SPEEDS = [0.14, 0.21, 0.28, 0.35, 0.42, 0.49, 0.56, 0.63, 0.70];   // px per frame
+const SCROLL_LABELS = ['0.2×', '0.3×', '0.4×', '0.5×', '0.6×', '0.7×', '0.8×', '0.9×', '1×'];
 let autoScrollRAF = null, autoScrollActive = false, scrollAccum = 0;
 
 function scrollSpeedLabel(){ return SCROLL_LABELS[state.scrollSpeedIdx]; }
@@ -2818,13 +3346,236 @@ function autoScrollBar(){
     </div>`;
 }
 
-function readerHTML(q, backOnclick, controlsTarget){
+/* ── Live session (optional) ─────────────────────────────────────────────
+   Lets a gathering follow whoever is leading: when they open a piece, every
+   joined device opens it too.
+
+   This is the ONLY part of the app that touches the network. It is designed
+   so it can never harm the rest:
+     • The Supabase library is fetched only when someone taps Join/Start.
+       Nothing is downloaded otherwise, so an offline launch never waits on it.
+     • If it fails, it fails alone — browsing, search, bookmarks and
+       auto-scroll are untouched and still work with no connection.
+     • Losing signal just stops the following; you keep reading and navigate
+       by hand exactly as before, and it resumes if you reconnect.
+
+   To switch it on, paste your own Supabase project's URL and anon key below
+   (see the README). Left blank, the feature simply stays off. */
+const SESSION_CONFIG = {
+  url: 'https://heduxokhztwdqcfamdfd.supabase.co',
+  key: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhlZHV4b2toenR3ZHFjZmFtZGZkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQxNDMzMjIsImV4cCI6MjA5OTcxOTMyMn0.8blm9OG4cHyHxsjMcnEVWjS2-dHRlPxFMda-ihCKTcI'
+  // anon / public key — safe to publish. Never put the service_role key here.
+};
+const SUPABASE_CDN = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
+
+const session = { role:null, code:null, client:null, channel:null, paused:false, status:'', lastNav:null };
+let suppressNavSignals = false;   // true during re-renders and remote-driven navigation
+
+function sessionConfigured(){ return !!(SESSION_CONFIG.url && SESSION_CONFIG.key); }
+
+/* Fetch the library on demand only. */
+function loadSupabase(){
+  if(window.supabase) return Promise.resolve(window.supabase);
+  return new Promise((resolve, reject) => {
+    const s = document.createElement('script');
+    s.src = SUPABASE_CDN;
+    s.onload = () => window.supabase ? resolve(window.supabase) : reject(new Error('load failed'));
+    s.onerror = () => reject(new Error('offline'));
+    document.head.appendChild(s);
+  });
+}
+
+function newSessionCode(){ return String(Math.floor(1000 + Math.random() * 9000)); }
+
+function setSessionStatus(msg){ session.status = msg; renderSessionBanner(); if(state.tab === 'session') renderIndex(); }
+
+function connectSession(code, role){
+  if(!sessionConfigured()){ setSessionStatus("Sessions aren't set up yet — see the README."); return; }
+  setSessionStatus('Connecting…');
+  loadSupabase().then(sb => {
+    const client = sb.createClient(SESSION_CONFIG.url, SESSION_CONFIG.key);
+    const channel = client.channel('mawlid:' + code, { config: { broadcast: { self: false } } });
+
+    channel.on('broadcast', { event: 'nav' }, ({ payload }) => {
+      if(session.role !== 'follower' || session.paused) return;
+      if(!payload || typeof payload.idx !== 'number') return;
+      applyRemoteNav(payload.kind, payload.idx);
+    });
+    /* A late joiner asks where everyone is; the leader answers. */
+    channel.on('broadcast', { event: 'where' }, () => {
+      if(session.role === 'leader' && session.lastNav) sendNav(session.lastNav.kind, session.lastNav.idx);
+    });
+
+    channel.subscribe(status => {
+      if(status === 'SUBSCRIBED'){
+        session.client = client; session.channel = channel;
+        session.role = role; session.code = code; session.paused = false;
+        setSessionStatus(role === 'leader' ? 'Leading — others can join with this code.' : 'Following the leader.');
+        if(role === 'follower') channel.send({ type:'broadcast', event:'where', payload:{} });
+      } else if(status === 'CHANNEL_ERROR' || status === 'TIMED_OUT'){
+        setSessionStatus('Could not connect. Check your connection and try again.');
+      }
+    });
+  }).catch(() => {
+    setSessionStatus("Couldn't connect — you're offline. Everything else still works; navigate by hand.");
+  });
+}
+
+function startSession(){ connectSession(newSessionCode(), 'leader'); }
+function joinSession(){
+  const el = document.getElementById('join-code');
+  const code = (el ? el.value : '').replace(/\D/g,'').slice(0,4);
+  if(code.length !== 4){ setSessionStatus('Enter the 4-digit code.'); return; }
+  connectSession(code, 'follower');
+}
+function leaveSession(){
+  clearSessionHash();
+  try { if(session.channel) session.channel.unsubscribe(); } catch(e){}
+  try { if(session.client) session.client.removeAllChannels(); } catch(e){}
+  session.role = null; session.code = null; session.channel = null;
+  session.client = null; session.paused = false; session.lastNav = null;
+  setSessionStatus('');
+}
+function pauseFollowing(){
+  if(session.role !== 'follower' || session.paused) return;
+  session.paused = true;
+  setSessionStatus('Paused — you moved on your own.');
+}
+function resumeFollowing(){
+  if(session.role !== 'follower') return;
+  session.paused = false;
+  setSessionStatus('Following the leader.');
+  if(session.channel) session.channel.send({ type:'broadcast', event:'where', payload:{} });
+}
+
+/* Apply a leader's move without echoing it back or counting it as manual. */
+function applyRemoteNav(kind, idx){
+  const arr = arrayOf(kind);
+  if(!arr || !arr[idx]) return;
+  suppressNavSignals = true;
+  try { reopen(kind, idx); } finally { suppressNavSignals = false; }
+}
+function sendNav(kind, idx){
+  if(!session.channel) return;
+  try { session.channel.send({ type:'broadcast', event:'nav', payload:{ kind, idx } }); } catch(e){}
+}
+/* Called by every open*() — the single place navigation is signalled. */
+function onNavigated(kind, idx){
+  if(suppressNavSignals) return;
+  if(session.role === 'leader'){ session.lastNav = { kind, idx }; sendNav(kind, idx); }
+  else if(session.role === 'follower'){ pauseFollowing(); }
+}
+
+/* The banner lives on <body>, outside #app, so re-rendering never wipes it. */
+function renderSessionBanner(){
+  let el = document.getElementById('session-banner');
+  if(!session.role){ if(el) el.remove(); return; }
+  if(!el){ el = document.createElement('div'); el.id = 'session-banner'; document.body.appendChild(el); }
+  el.className = 'session-banner' + (session.paused ? ' paused' : '');
+  const label = session.role === 'leader' ? 'Leading' : (session.paused ? 'Paused' : 'Following');
+  el.innerHTML = `
+    <span class="dot"></span>
+    <span class="txt">${label} · ${session.code}</span>
+    ${session.paused ? `<button onclick="resumeFollowing()">Resume</button>` : ''}
+    <button onclick="shareSession()" aria-label="Share this session">Share</button>
+    <button onclick="leaveSession()">Leave</button>`;
+}
+
+/* A shareable link that drops someone straight into the session — the code
+   lives in the URL fragment, so it never reaches a server. Sending this over
+   WhatsApp reaches the whole room at once, which a QR code can't do. */
+function sessionLink(code){
+  const c = code || session.code;
+  return location.origin + location.pathname + '#s=' + c;
+}
+function shareSession(){
+  const url = sessionLink();
+  if(navigator.share){
+    navigator.share({ title: 'Mawlid session', text: 'Follow along with the gathering:', url })
+      .catch(() => {});   // the person simply dismissed the share sheet
+  } else {
+    copySessionLink();
+  }
+}
+function copySessionLink(){
+  const url = sessionLink();
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(url)
+      .then(() => setSessionStatus('Link copied — paste it to the group.'))
+      .catch(() => setSessionStatus('Copy failed. The code is ' + session.code + '.'));
+  } else {
+    setSessionStatus('Share the code: ' + session.code);
+  }
+}
+/* A session code arriving in the URL, e.g. …/#s=4821 */
+function pendingSessionCode(){
+  const m = /[#&?]s=(\d{4})\b/.exec(location.hash || '');
+  return m ? m[1] : null;
+}
+function clearSessionHash(){
+  if(location.hash && /[#&?]s=\d{4}/.test(location.hash)){
+    try { history.replaceState(null, '', location.pathname + location.search); } catch(e){}
+  }
+}
+
+/* The link is just the code — it says nothing about who's leading — so anyone
+   in the session can pass it on. Followers get the same buttons as the leader,
+   which means a latecomer can be pulled in without interrupting whoever is
+   reciting. */
+function shareRow(){
+  return `<div class="session-share">
+    <button class="session-btn primary" onclick="shareSession()">Share link</button>
+    <button class="session-btn" onclick="copySessionLink()">Copy link</button>
+  </div>`;
+}
+
+function sessionPanel(){
+  if(!sessionConfigured()){
+    return `<div class="no-results">Live sessions aren't set up yet.<br><br>
+      They need a free Supabase project — see the README for the two values to paste in.<br><br>
+      Everything else in the app works without it.</div>`;
+  }
+  const note = session.status ? `<div class="session-status">${session.status}</div>` : '';
+  if(session.role === 'leader'){
+    return `<div class="session-panel">
+      <div class="session-code">${session.code}</div>
+      <p>Send the link to your group — tapping it joins them straight away. Or read the code aloud for anyone who can't open it.</p>
+      ${shareRow()}
+      ${note}
+      <button class="session-btn quiet" onclick="leaveSession()">End session</button>
+    </div>`;
+  }
+  if(session.role === 'follower'){
+    return `<div class="session-panel">
+      <div class="session-code">${session.code}</div>
+      <p>You're following the leader. Open anything yourself and you'll take over — tap Resume in the banner to follow again.</p>
+      <p class="session-hint">Someone just arrived? Send them the link yourself — no need to interrupt the leader.</p>
+      ${shareRow()}
+      ${note}
+      <button class="session-btn quiet" onclick="leaveSession()">Leave session</button>
+    </div>`;
+  }
+  return `<div class="session-panel">
+    <p>Everyone's screen follows whoever is leading. Needs internet — without it, the app still works and you navigate by hand.</p>
+    <button class="session-btn primary" onclick="startSession()">Start a session</button>
+    <div class="session-join">
+      <input id="join-code" inputmode="numeric" maxlength="4" placeholder="4-digit code" aria-label="Session code">
+      <button class="session-btn" onclick="joinSession()">Join</button>
+    </div>
+    ${note}
+  </div>`;
+}
+
+function readerHTML(q, backOnclick, kind, idx){
   const empty = !q.verses || q.verses.length === 0;
+  const controlsTarget = `'${kind}',${idx}`;
+  const fav = isFav(kind, idx);
   return `
     <div class="reader-bar">
       <button class="back" onclick="${backOnclick}">‹ Back</button>
       <div class="rtitle">${q.titleArabic}</div>
-      <div class="spacer"></div>
+      <button class="fav-btn ${fav?'on':''}" onclick="toggleFav(${controlsTarget})"
+              aria-label="${fav?'Remove bookmark':'Bookmark this'}">${bookmarkIcon(fav)}</button>
     </div>
     ${empty ? '' : `<div class="controls">
       ${q.latin ? '' : `<button class="chip ${state.showTr?'':'off'}" onclick="toggle(${controlsTarget})">Transliteration</button>`}
@@ -2853,30 +3604,41 @@ function readerHTML(q, backOnclick, controlsTarget){
 
 function openQasida(i){
   document.documentElement.style.setProperty('--ar-size', (1.9*state.arScale)+'rem');
-  app.innerHTML = readerHTML(QASIDAS[i], 'renderIndex()', `'q',${i}`);
+  app.innerHTML = readerHTML(QASIDAS[i], 'renderIndex()', 'q', i);
   window.scrollTo(0,0);
+  onNavigated('q', i);
 }
 
 function openBurdah(n){
   state.burdahChapter = n;
   document.documentElement.style.setProperty('--ar-size', (1.9*state.arScale)+'rem');
-  app.innerHTML = readerHTML(BURDAH_CHAPTERS[n], "selectTab('burdah')", `'b',${n}`);
+  app.innerHTML = readerHTML(BURDAH_CHAPTERS[n], "selectTab('burdah')", 'b', n);
   window.scrollTo(0,0);
+  onNavigated('b', n);
 }
 
 function openSirah(n){
   document.documentElement.style.setProperty('--ar-size', (1.9*state.arScale)+'rem');
-  app.innerHTML = readerHTML(SIRAH_CHAPTERS[n], "selectTab('sirah')", `'s',${n}`);
+  app.innerHTML = readerHTML(SIRAH_CHAPTERS[n], "selectTab('mawlid')", 's', n);
   window.scrollTo(0,0);
+  onNavigated('s', n);
 }
 
 function openIlahi(n){
   document.documentElement.style.setProperty('--ar-size', (1.9*state.arScale)+'rem');
-  app.innerHTML = readerHTML(ILAHI_CHAPTERS[n], "selectTab('ilahis')", `'i',${n}`);
+  app.innerHTML = readerHTML(ILAHI_CHAPTERS[n], "selectTab('ilahis')", 'i', n);
   window.scrollTo(0,0);
+  onNavigated('i', n);
 }
 
-function reopen(kind, i){ kind==='b' ? openBurdah(i) : kind==='s' ? openSirah(i) : kind==='i' ? openIlahi(i) : openQasida(i); }
+/* Re-render the current piece (control toggles, remote applies). Signals are
+   suppressed so toggling translation never counts as navigating away. */
+function reopen(kind, i){
+  const prev = suppressNavSignals;
+  suppressNavSignals = true;
+  try { kind==='b' ? openBurdah(i) : kind==='s' ? openSirah(i) : kind==='i' ? openIlahi(i) : openQasida(i); }
+  finally { suppressNavSignals = prev; }
+}
 function toggle(kind,i){ state.showTr = !state.showTr; reopen(kind,i); }
 function toggleEn(kind,i){ state.showEn = !state.showEn; reopen(kind,i); }
 function scaleAr(dir,kind,i){
@@ -2886,6 +3648,18 @@ function scaleAr(dir,kind,i){
 
 renderIndex();
 
+/* Opened from a shared session link (…/#s=4821)? Land on the session screen and
+   join straight away — the tap on the link is the person's consent, and the
+   banner makes it obvious what happened. Offline, this fails quietly and the
+   app behaves exactly as normal. */
+(function joinFromLink(){
+  const code = pendingSessionCode();
+  if(!code) return;
+  state.tab = 'session';
+  renderIndex();
+  connectSession(code, 'follower');
+})();
+
 /* Pause auto-scroll the moment the user scrolls by hand (wheel or drag).
    Our own window.scrollBy doesn't fire these input events, so no false stops. */
 window.addEventListener('wheel',    () => { if(autoScrollActive) stopAutoScroll(); }, { passive:true });
@@ -2894,6 +3668,14 @@ window.addEventListener('touchmove',() => { if(autoScrollActive) stopAutoScroll(
 /* Register service worker for offline use (needs hosting over https) */
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('sw.js').catch(()=>{});
+}
+
+/* Warm the font cache while online, so the Arabic (Amiri) and Latin fonts are
+   available offline from the first visit — not only after they happen to load.
+   document.fonts.ready resolves once the used faces have downloaded; the SW's
+   fetch handler then holds them in the cache. */
+if (document.fonts && document.fonts.ready) {
+  document.fonts.ready.catch(()=>{});
 }
 </script>
 </body>

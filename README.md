@@ -123,6 +123,58 @@ phones auto-update on next launch.
 
 ---
 
+## Live sessions (optional — off by default)
+
+Lets a gathering follow whoever is leading: when they open a piece, every joined
+device opens it too. It's the only part of the app that uses the network.
+
+**It is off until you switch it on**, and the rest of the app never depends on it.
+The Supabase library is only fetched when someone taps Start/Join, so an offline
+launch never waits on it. If it can't connect, following stops and nothing else
+changes — you browse, search, bookmark and auto-scroll exactly as before.
+
+### Switching it on
+
+1. Make a free project at [supabase.com](https://supabase.com).
+2. In the dashboard go to **Project Settings → API** and copy the **Project URL**
+   and the **anon / public** key.
+3. In `index.html`, find `SESSION_CONFIG` near the top of the `<script>` and paste
+   them in:
+
+```js
+const SESSION_CONFIG = {
+  url: 'https://xxxxxxxx.supabase.co',
+  key: 'eyJhbGciOi…'      // the anon/public key
+};
+```
+
+4. Bump the cache version in `sw.js` and redeploy.
+
+The anon key is designed to be public — it's safe in a public repo. No database
+tables and no sign-in are needed: sessions use Realtime **Broadcast**, which just
+relays messages and stores nothing.
+
+### Using it
+
+- The leader opens **Live Session → Start a session**, then taps **Share link** and
+  sends it to the group (WhatsApp, SMS, wherever). Tapping the link joins them
+  straight away — no code to type.
+- The 4-digit code is still shown, so anyone who can't open the link can be told it
+  and enter it under **Join**.
+- Anyone who opens something themselves takes over; a **Resume** button in the
+  banner puts them back in step. Joining late jumps you to wherever the leader is.
+- A banner at the top shows whether you're leading, following, or paused.
+
+The link is just `…/#s=4821`. The code sits in the URL *fragment*, which browsers
+never send to a server, so sharing a link reveals nothing to the host.
+
+### The honest limits
+
+- Following needs internet at the gathering. Everything else works offline.
+- A device that is offline can't be told the leader moved — it simply stays put.
+
+---
+
 ## A note on content & copyright (please keep to this)
 
 The approach throughout this project has been deliberate:

@@ -1,6 +1,6 @@
 /* Offline support: caches the app shell and fonts on first visit,
    then serves everything from cache (works with no connection). */
-const CACHE = 'mawlid-v35'; // bump this (v2, v3…) whenever you update index.html
+const CACHE = 'mawlid-v62'; // bump this (v2, v3…) whenever you update index.html
 const CORE = ['./', './index.html', './manifest.json', './icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', e => {
@@ -16,17 +16,28 @@ self.addEventListener('activate', e => {
 });
 
 self.addEventListener('fetch', e => {
+  const req = e.request;
+  if (req.method !== 'GET') return;
   e.respondWith(
-    caches.match(e.request).then(cached => {
+    caches.match(req).then(cached => {
       if (cached) return cached;
-      return fetch(e.request).then(resp => {
-        // Cache fonts and any other successful GET at runtime
-        if (e.request.method === 'GET' && resp.ok) {
+      return fetch(req).then(resp => {
+        /* Cache same-origin successes AND opaque cross-origin responses.
+           The Google Fonts stylesheet is fetched no-cors, so it comes back
+           opaque with status 0 and resp.ok === false — without the opaque
+           check it was never cached, and the Arabic font quietly fell back
+           to a system font offline. */
+        if (resp && (resp.ok || resp.type === 'opaque')) {
           const copy = resp.clone();
-          caches.open(CACHE).then(c => c.put(e.request, copy));
+          caches.open(CACHE).then(c => c.put(req, copy)).catch(() => {});
         }
         return resp;
-      }).catch(() => caches.match('./index.html'));
+      }).catch(() => {
+        /* Only fall back to the app shell for page navigations. Handing back
+           HTML for a stylesheet or font request just breaks it. */
+        if (req.mode === 'navigate') return caches.match('./index.html');
+        return Response.error();
+      });
     })
   );
 });
