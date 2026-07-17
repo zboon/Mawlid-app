@@ -14,10 +14,30 @@ It is a **single self-contained app** — no build step, no server, no dependenc
 
 | File | What it is |
 |------|------------|
-| `index.html` | **Everything.** All content, styling (CSS), and logic (JS) live here. This is the only file you normally edit. |
+| `index.html` | **Everything.** All content, styling (CSS), and logic (JS) live here — including the bundled Arabic font. This is the only file you normally edit. |
 | `sw.js` | Service worker — makes the app work offline. Contains the cache version string (see below). |
 | `manifest.json` | PWA metadata (app name, icons, colours) so it installs to a phone home screen. |
 | `icon-192.png`, `icon-512.png` | Home-screen icons. |
+| `OFL.txt` | The SIL Open Font License for the bundled Arabic font. **Keep this file** — the licence requires it to travel with the font. |
+
+### The Arabic font
+
+The Arabic is set in **Amiri**, embedded directly in `index.html`
+as base64 — subset to Arabic + Latin and WOFF-compressed, Regular and Bold. It is *not* fetched
+from Google.
+
+This matters more than it sounds: the text is fully vocalised, and if the font failed
+to load, the harakat would fall back to whatever the phone happens to have — at
+exactly the moment someone is reciting aloud. Bundling means the Arabic renders
+correctly with no connection at all, and nothing is requested from Google for it.
+
+The font is licensed under the SIL OFL 1.1 (see `OFL.txt`), which permits bundling
+and redistribution. The Latin faces (Crimson Pro, Karla) still come from Google
+Fonts, but the service worker caches them after the first load.
+
+To swap the Arabic font, replace the two `@font-face` blocks at the top of the
+`<style>` and update the ten `font-family:'Amiri',serif` rules. Keep the
+matching `OFL.txt`.
 
 ---
 
