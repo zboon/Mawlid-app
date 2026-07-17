@@ -3,8 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Mawlid ad-Daybaʿi</title>
-<meta name="description" content="Qasidas and duas of Mawlid ad-Daybaʿi — Arabic, transliteration and translation.">
+<title>Rawdat al-Mawālid</title>
+<meta name="description" content="Mawlid, qasidas, the Burdah and devotional ilahis — Arabic, transliteration and English. A companion app for gatherings of love and remembrance.">
+<!-- Link previews (WhatsApp, iMessage, etc). Without these, scrapers fall back
+     to whatever they can find and the shared link shows the wrong name. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rawdat al-Mawālid">
+<meta property="og:title" content="Rawdat al-Mawālid · روضة الموالد">
+<meta property="og:description" content="Mawlid, qasidas, the Burdah and devotional ilahis — Arabic, transliteration and English. A companion app for gatherings of love and remembrance.">
+<meta property="og:image" content="icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Rawdat al-Mawālid · روضة الموالد">
+<meta name="twitter:description" content="Mawlid, qasidas, the Burdah and devotional ilahis — Arabic, transliteration and English. A companion app for gatherings of love and remembrance.">
+<meta name="application-name" content="Mawlid">
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#123528">
 <!-- iOS home-screen support -->
@@ -181,13 +192,17 @@
     transition:opacity .15s, color .15s;
   }
   .search-wrap:focus-within .search-icon{opacity:1;color:var(--gold)}
-  /* On the home page the bar lives at the bottom. Sticky, so it stays within
-     reach when search results run long above it. */
+  /* On the home page the bar is pinned to the bottom of the screen.
+     Note: position:sticky does NOT work here — a sticky element can only travel
+     inside its parent's box, and this is the last child of .index, so its whole
+     range would be that element's own bottom padding (~3rem). Fixed is correct. */
   .search-wrap.at-bottom{
-    position:sticky;
+    position:fixed;
+    left:50%; transform:translateX(-50%);
     bottom:calc(env(safe-area-inset-bottom, 0px) + .85rem);
-    margin:1.4rem 0 .3rem;
-    z-index:5;
+    width:min(605px, calc(100% - 2.2rem));
+    margin:0;
+    z-index:20;
   }
   /* Needs a solid backdrop here — content scrolls underneath it. */
   .search-wrap.at-bottom .search{

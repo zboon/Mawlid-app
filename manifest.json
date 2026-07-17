@@ -1,14 +1,23 @@
 {
-  "name": "Mawlid ad-Daybai",
+  "name": "Rawdat al-Mawālid",
   "short_name": "Mawlid",
-  "description": "Qasidas and duas of Mawlid ad-Daybai with Arabic, transliteration and translation.",
+  "description": "Mawlid, qasidas, the Burdah and devotional ilahis — Arabic, transliteration and English. A companion app for gatherings of love and remembrance.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "background_color": "#FAF5EA",
   "theme_color": "#123528",
   "icons": [
-    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
-    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
   ]
 }
