@@ -26,6 +26,10 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Mawlid">
+<!-- Browser tab icon: the محمد calligraphy on the header green. Embedded so
+     it needs no extra request and works offline like the rest of the app. -->
+<link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEc0lEQVR42sWXbUyVZRjHf/f9cDgHDngERIIl4IqXJW+CYkgfdGtzc9qcQrqpc6bzZTSctjShLWez0TRfZhtTdCkTzTSlREwzBPO1DSFfJrrc0pY1lCUcOryc57nvPgCnXIrTzsn76/M8u373/7r+13U9InJsquY5nqCn/UAAGhhq2Imzh/PA7KbV68HSCv1/AAwgJDhcJNpdPLB66FS9uM1eH1yAAcBAEmELIVgGMUwYqEdElVKilPI/gEZjoTnf8StRhgMThUd5+589XXAA+azF06NM7no7afV6UFr7ghv9wcePzsEZGho4AAAhBALxkOyWUkzMzWXr6hK01r73AgKgtWbg7lJKtNYsLpzJ3o3lGIaB1+sNrAIPe0MgBIzPysJmC+HKzZt4TdMHFnAAKQVKab46dQohBNsO7PeBBVwBKSVe0yQhNo71K0vZtHMLZy419teEFVgAIQRaa4YNjeB4xU4+rdrFtgMHeDHmBZRSgxagXwCk6Mtx8Zy5lFVUcLbpEg2VVbjCw5/oAL/Y0FIWsdHDcYWFkZ+dzbEd+9CWyd3WVp9T/N6K/3l7S1skxScwZ/pc7t/7mU07txI3PIb2TjdGf18IYAr6bhcVEcHRU98weckSXs/L4/PaoyilsJRCysFDiP+6D0gpMaRkiNNJ3e69fFFbw7rt5UghCQ9z0u52B06BgaHjCh/Chf1fUlP/Heu2l5MzKo3m6iPcOlHPewsXBUYBIQQSQZDNRsOuSg7XneTjHRU4Q0PYU7aeX1rbsEnNm1MKmLVsEd+eP+ffIpSir8msXVrE+R+bqbtwESkl6cmplFVs5+KVywC0uzuZPWXqYwHks0pvKYuM5BTQip/u3GbFvHlorclMTuGD4uUsn7+QpPhEPjt8kFCHw781MNBa8rKyuXnnNqWLi1BKobXGbrMxLvNV3l/6DpmpKbS1d+D2dPm3D1hKYQ8O5uX4eCaMyaF8/17yMrIIC3WSnpwCuou6C2dpvHaNl0aMoN3d4T+AAV8HGUHMfmMaPzQ3UlaxjcuHqjlduYeE+CSK166mquYIAAsKCmi6ft0/KTCkAYBSivnTZ4AI4t1PNmApxW9tbSTEp7JmS5kveEJsLBPHjKOmof7pFPCtWuLvRUNpjaUspJSULi5ixYK36fbcxxUehlKKks2biHS5qD3dAECIw07Vhs0c/76BPzra/dMHxmVkUrJoCa/lTqD+3EnSU1MxTU3xujWc7LeZlJKcV9LYsKqUYUNdjC2cRndv72O35EcCxERFkzwyESEEDpuNpMSRTBqfT35uPmDj+OljvFVawsaVq5g5dRZm132u3rrFvbY2olxDyM7Kw+z1MGnhXJpbbgy6pj8yBe4/O3HY7RROmkxeZgZxMTH0dHXRdLWZqpqv2V19CKUUH5aXk5w4ktHpo8lKGwP01cjVliaWfbSW5pYbGGLwifjEFNiDg4mOjMS0FL/fa/3XHHCGhDJ/RiG5o0bh6enmTOMlDp6opbunF0MaT1zJxPP+O5Y85/MXXGvODMd/Rn8AAAAASUVORK5CYII=">
+<link rel="icon" type="image/png" sizes="48x48" href="data:image/png;base64,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">
 <link rel="apple-touch-icon" href="icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -423,7 +427,8 @@
   .session-banner{
     position:fixed; top:calc(env(safe-area-inset-top, 0px) + .5rem);
     left:50%; transform:translateX(-50%); z-index:70;
-    display:flex; align-items:center; gap:.5rem;
+    display:flex; align-items:center; justify-content:center; gap:.5rem;
+    flex-wrap:wrap; max-width:min(94vw, 27rem);
     background:var(--green-deep); color:var(--paper);
     padding:.35rem .6rem; border-radius:999px;
     box-shadow:0 4px 16px rgba(0,0,0,.35);
@@ -435,6 +440,9 @@
     background:#5FBF7F; box-shadow:0 0 6px #5FBF7F;
   }
   .session-banner.paused .dot{ background:var(--gold); box-shadow:none; }
+  /* Open mic: gold rim, so it reads across the room as needing someone. */
+  .session-banner.open-mic{ border-color:var(--gold); }
+  .session-banner button.mic{ background:var(--gold); color:var(--green); }
   .session-banner button{
     border:none; background:rgba(243,236,216,.16); color:var(--paper);
     padding:.2rem .5rem; border-radius:999px; cursor:pointer;
@@ -3621,7 +3629,22 @@ const SESSION_CONFIG = {
 };
 const SUPABASE_CDN = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
 
-const session = { role:null, code:null, client:null, channel:null, paused:false, status:'', lastNav:null };
+/* A stable per-device id, so leadership claims can be resolved the same way
+   on every phone. Random, local, never sent anywhere but the session channel. */
+function myClientId(){
+  try{
+    let id = localStorage.getItem('mawlid-client-id');
+    if(!id){ id = Math.random().toString(36).slice(2,10); localStorage.setItem('mawlid-client-id', id); }
+    return id;
+  }catch(e){ return Math.random().toString(36).slice(2,10); }
+}
+
+/* term: increments on every handoff. Every message carries it, and anything
+   with an older term is ignored — that's what stops a phone that dropped out
+   while leading from fighting the new leader when it wakes up. */
+const session = { role:null, code:null, client:null, channel:null, paused:false, status:'',
+                  lastNav:null, id:myClientId(), term:0, leaderless:false, claiming:false };
+let claimState = { term:0, ids:[], timer:null };
 let suppressNavSignals = false;   // true during re-renders and remote-driven navigation
 
 function sessionConfigured(){ return !!(SESSION_CONFIG.url && SESSION_CONFIG.key); }
@@ -3650,10 +3673,19 @@ function connectSession(code, role){
     const channel = client.channel('mawlid:' + code, { config: { broadcast: { self: false } } });
 
     channel.on('broadcast', { event: 'nav' }, ({ payload }) => {
-      if(session.role !== 'follower' || session.paused) return;
       if(!payload || typeof payload.idx !== 'number') return;
+      if(typeof payload.term === 'number'){
+        if(payload.term < session.term) return;          // a stale leader talking
+        if(payload.term > session.term){                 // someone took the mic
+          session.term = payload.term;
+          session.leaderless = false;
+          if(session.role === 'leader'){ session.role = 'follower'; setSessionStatus('Following the leader.'); }
+        }
+      }
+      if(session.role !== 'follower' || session.paused) return;
       applyRemoteNav(payload.kind, payload.idx);
     });
+    channel.on('broadcast', { event: 'lead' }, ({ payload }) => handleLeadMsg(payload));
     /* A late joiner asks where everyone is; the leader answers. */
     channel.on('broadcast', { event: 'where' }, () => {
       if(session.role === 'leader' && session.lastNav) sendNav(session.lastNav.kind, session.lastNav.idx);
@@ -3682,11 +3714,18 @@ function joinSession(){
   connectSession(code, 'follower');
 }
 function leaveSession(){
+  /* Hand the mic back to the room rather than leaving everyone following a ghost. */
+  if(session.role === 'leader' && session.channel){
+    try{ session.channel.send({ type:'broadcast', event:'lead', payload:{ t:'release', term: session.term + 1 } }); }catch(e){}
+  }
+  if(claimState.timer){ clearTimeout(claimState.timer); claimState.timer = null; }
+  claimState = { term:0, ids:[], timer:null };
   clearSessionHash();
   try { if(session.channel) session.channel.unsubscribe(); } catch(e){}
   try { if(session.client) session.client.removeAllChannels(); } catch(e){}
   session.role = null; session.code = null; session.channel = null;
   session.client = null; session.paused = false; session.lastNav = null;
+  session.term = 0; session.leaderless = false; session.claiming = false;
   setSessionStatus('');
 }
 function pauseFollowing(){
@@ -3707,16 +3746,98 @@ function applyRemoteNav(kind, idx){
   if(!arr || !arr[idx]) return;
   suppressNavSignals = true;
   try { reopen(kind, idx); } finally { suppressNavSignals = false; }
+  session.lastNav = { kind, idx };
 }
 function sendNav(kind, idx){
   if(!session.channel) return;
-  try { session.channel.send({ type:'broadcast', event:'nav', payload:{ kind, idx } }); } catch(e){}
+  try { session.channel.send({ type:'broadcast', event:'nav', payload:{ kind, idx, term: session.term } }); } catch(e){}
 }
+/* ── Passing the mic ──────────────────────────────────────────────────────
+   The leader releases; the session then has no leader and anyone may claim it.
+   Simultaneous taps are settled deterministically: claims are gathered for a
+   short window and the lowest client id wins, so every device reaches the same
+   answer without needing a server to arbitrate. */
+function releaseLead(){
+  if(session.role !== 'leader' || !session.channel) return;
+  session.term += 1;
+  session.role = 'follower';
+  session.leaderless = true;
+  session.paused = false;
+  try{ session.channel.send({ type:'broadcast', event:'lead', payload:{ t:'release', term: session.term } }); }catch(e){}
+  setSessionStatus('You passed the mic — anyone can take the lead.');
+}
+
+function takeLead(){
+  if(!session.channel || session.role === 'leader') return;
+  const term = session.term + 1;
+  session.claiming = true;
+  addClaim(term, session.id);
+  try{ session.channel.send({ type:'broadcast', event:'lead', payload:{ t:'claim', term, id: session.id } }); }catch(e){}
+  setSessionStatus('Taking the lead…');
+}
+
+function addClaim(term, id){
+  if(term < claimState.term) return;
+  if(term > claimState.term){ claimState.term = term; claimState.ids = []; }
+  if(claimState.ids.indexOf(id) === -1) claimState.ids.push(id);
+  if(claimState.timer) clearTimeout(claimState.timer);
+  claimState.timer = setTimeout(settleClaims, 700);
+}
+
+function settleClaims(){
+  claimState.timer = null;
+  const term = claimState.term;
+  const ids = claimState.ids.slice().sort();
+  claimState.ids = [];
+  if(!ids.length || !session.channel) return;
+  session.term = Math.max(session.term, term);
+  session.leaderless = false;
+  session.claiming = false;
+  if(ids[0] === session.id){
+    session.role = 'leader';
+    session.paused = false;
+    try{ session.channel.send({ type:'broadcast', event:'lead', payload:{ t:'lead', term: session.term, id: session.id } }); }catch(e){}
+    if(session.lastNav) sendNav(session.lastNav.kind, session.lastNav.idx);
+    setSessionStatus('You have the lead.');
+  } else {
+    session.role = 'follower';
+    session.paused = false;
+    setSessionStatus('Following the leader.');
+  }
+}
+
+function handleLeadMsg(p){
+  if(!p || typeof p.term !== 'number' || p.term < session.term) return;
+  if(p.t === 'release'){
+    session.term = p.term;
+    session.role = 'follower';
+    session.leaderless = true;
+    session.paused = false;
+    session.claiming = false;
+    setSessionStatus('The mic is open — anyone can take the lead.');
+  } else if(p.t === 'claim'){
+    addClaim(p.term, p.id);
+  } else if(p.t === 'lead'){
+    /* If we both think we won the same term, the lower id wins — same rule
+       everywhere, so the disagreement resolves itself. */
+    if(session.role === 'leader' && p.term === session.term && p.id > session.id) return;
+    if(claimState.timer){ clearTimeout(claimState.timer); claimState.timer = null; }
+    claimState.ids = [];
+    session.term = p.term;
+    session.leaderless = false;
+    session.claiming = false;
+    session.role = 'follower';
+    session.paused = false;
+    setSessionStatus('Following the leader.');
+  }
+}
+
 /* Called by every open*() — the single place navigation is signalled. */
 function onNavigated(kind, idx){
   if(suppressNavSignals) return;
-  if(session.role === 'leader'){ session.lastNav = { kind, idx }; sendNav(kind, idx); }
-  else if(session.role === 'follower'){ pauseFollowing(); }
+  if(session.role) session.lastNav = { kind, idx };   // so whoever takes the mic can resync
+  if(session.role === 'leader'){ sendNav(kind, idx); }
+  else if(session.role === 'follower' && !session.leaderless){ pauseFollowing(); }
 }
 
 /* The banner lives on <body>, outside #app, so re-rendering never wipes it. */
@@ -3724,12 +3845,19 @@ function renderSessionBanner(){
   let el = document.getElementById('session-banner');
   if(!session.role){ if(el) el.remove(); return; }
   if(!el){ el = document.createElement('div'); el.id = 'session-banner'; document.body.appendChild(el); }
-  el.className = 'session-banner' + (session.paused ? ' paused' : '');
-  const label = session.role === 'leader' ? 'Leading' : (session.paused ? 'Paused' : 'Following');
+  el.className = 'session-banner' + (session.paused && !session.leaderless ? ' paused' : '') + (session.leaderless ? ' open-mic' : '');
+  const label = session.leaderless ? 'Mic open'
+              : session.role === 'leader' ? 'Leading'
+              : (session.paused ? 'Paused' : 'Following');
+  const mic = session.leaderless
+    ? `<button class="mic" onclick="takeLead()">Take the lead</button>`
+    : session.role === 'leader'
+      ? `<button onclick="releaseLead()">Pass the mic</button>` : '';
   el.innerHTML = `
     <span class="dot"></span>
     <span class="txt">${label} · ${session.code}</span>
-    ${session.paused ? `<button onclick="resumeFollowing()">Resume</button>` : ''}
+    ${mic}
+    ${(session.paused && !session.leaderless) ? `<button onclick="resumeFollowing()">Resume</button>` : ''}
     <button onclick="shareSession()" aria-label="Share this session">Share</button>
     <button onclick="leaveSession()">Leave</button>`;
 }
@@ -3795,7 +3923,19 @@ function sessionPanel(){
       <p>Send the link to your group — tapping it joins them straight away. Or read the code aloud for anyone who can't open it.</p>
       ${shareRow()}
       ${note}
+      <button class="session-btn" onclick="releaseLead()">Pass the mic</button>
       <button class="session-btn quiet" onclick="leaveSession()">End session</button>
+    </div>`;
+  }
+  if(session.role === 'follower' && session.leaderless){
+    return `<div class="session-panel">
+      <div class="session-code">${session.code}</div>
+      <p>No one is leading right now. Whoever takes the mic chooses what the gathering reads next.</p>
+      <button class="session-btn primary" onclick="takeLead()">Take the lead</button>
+      <p class="session-hint">If several people tap at once, one is chosen and the rest keep following — nobody has to sort it out.</p>
+      ${shareRow()}
+      ${note}
+      <button class="session-btn quiet" onclick="leaveSession()">Leave session</button>
     </div>`;
   }
   if(session.role === 'follower'){
