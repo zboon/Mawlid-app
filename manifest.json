@@ -1,7 +1,7 @@
 {
-  "name": "Rawdat al-Mawālid",
+  "name": "Anīs al-Mawlid",
   "short_name": "Mawlid",
-  "description": "Mawlid, qasidas, the Burdah and devotional ilahis — Arabic, transliteration and English. A companion app for gatherings of love and remembrance.",
+  "description": "Mawlid, qasidas, the Burdah and devotional ilahis — Arabic, transliteration and English. An accessory app for gatherings of devotion.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
