@@ -140,7 +140,7 @@
   /* English lines under the wordmark, inside the green header (home only). */
   .head-en1{
     font-family:'Crimson Pro',serif;
-    font-size:1.08rem;
+    font-size:1.28rem;
     letter-spacing:.05em;
     color:var(--paper);
     margin-top:.45rem;
@@ -148,7 +148,7 @@
   .head-en2{
     font-family:'Crimson Pro',serif;
     font-style:italic;
-    font-size:.85rem;
+    font-size:1rem;
     color:var(--gold-soft);
     margin-top:.2rem;
   }
@@ -177,6 +177,11 @@
   .session-mark:active{background:rgba(250,245,234,.28)}
   /* Gold while a session is running, so it reads at a glance. */
   .session-mark.live{background:var(--gold);color:var(--green)}
+  .build-tag{
+    text-align:center; margin:1.6rem 0 .4rem;
+    font-family:'Crimson Pro',serif; font-size:.7rem; letter-spacing:.08em;
+    color:var(--ink-soft); opacity:.45;
+  }
   .back-link{
     display:block;margin:.1rem auto .5rem;padding:.3rem .7rem;
     background:none;border:none;cursor:pointer;
@@ -1878,6 +1883,10 @@ const MAWLID_COLLECTIONS = [
   { id:'barzanji', ar:'مولد البرزنجي', en:'Mawlid al-Barzanjī', desc:'The most widely recited mawlid in the world, with the qiyām at the birth.' },
 ];
 
+/* Bumped with sw.js on every release. Shown small at the foot of the home page
+   so you can tell at a glance which build a given phone is actually running. */
+const APP_VERSION = 'v109';
+
 const TABS = [
   { id:'mawlids', label:'Mawlid Collections',   ar:'مجموعات الموالد' },
   { id:'burdah',  label:'Qasida Burdah',        ar:'قصيدة البردة' },
@@ -3457,7 +3466,7 @@ function renderResults(){
   /* The home tab needs a branch here too, not only in renderIndex(): typing and
      then deleting a search calls updateSearch(), which re-renders this alone.
      Without it, clearing the query left the page blank with no way back. */
-  if(tab === 'home')    return homeCards();
+  if(tab === 'home')    return homeCards() + `<div class="build-tag">${APP_VERSION}</div>`;
   if(tab === 'mawlids') return sectionIntro('mawlids') + label('Choose a mawlid · اختر مولداً') + `<div class="home-grid">${mawlidsHub()}</div>`;
   if(tab === 'mawlid')  return backToMawlids() + sectionIntro('mawlid') + label('Follow the mawlid in order · على ترتيب المولد') + mawlidCards();
   if(tab === 'qasidas') return sectionIntro('qasidas') + (additionalQasidaCards() || placeholder('Qasidas'));
