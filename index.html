@@ -179,8 +179,8 @@
   .session-mark.live{background:var(--gold);color:var(--green)}
   .build-tag{
     text-align:center; margin:1.6rem 0 .4rem;
-    font-family:'Crimson Pro',serif; font-size:.7rem; letter-spacing:.08em;
-    color:var(--ink-soft); opacity:.45;
+    font-family:'Crimson Pro',serif; font-size:.58rem; letter-spacing:.1em;
+    color:var(--ink-soft); opacity:.4;
   }
   .back-link{
     display:block;margin:.1rem auto .5rem;padding:.3rem .7rem;
@@ -1885,7 +1885,17 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v110';
+const APP_VERSION = 'v112';
+
+/* A very small build stamp: 'v110' shows as 'v11.0' (dot before the last digit),
+   so you can tell at a glance which build a phone is running. Hidden on the
+   Turkish Ilahis page and nowhere else. */
+function versionTag(){
+  if(state.tab !== 'ilahis') return '';
+  const n = APP_VERSION.replace(/^v/, '');
+  const shown = n.length > 1 ? n.slice(0, -1) + '.' + n.slice(-1) : n;
+  return `<div class="build-tag">v${shown}</div>`;
+}
 
 const TABS = [
   { id:'mawlids', label:'Mawlid Collections',   ar:'مجموعات الموالد' },
@@ -3249,7 +3259,7 @@ function searchBox(atBottom){
 function updateSearch(val){
   state.query = val;
   const results = document.getElementById('results');
-  if(results) results.innerHTML = renderResults();
+  if(results) results.innerHTML = renderResults() + versionTag();
 }
 
 /* Placeholder shown for sections whose content isn't added yet. */
@@ -3466,7 +3476,7 @@ function renderResults(){
   /* The home tab needs a branch here too, not only in renderIndex(): typing and
      then deleting a search calls updateSearch(), which re-renders this alone.
      Without it, clearing the query left the page blank with no way back. */
-  if(tab === 'home')    return homeCards() + `<div class="build-tag">${APP_VERSION}</div>`;
+  if(tab === 'home')    return homeCards();
   if(tab === 'mawlids') return sectionIntro('mawlids') + label('Choose a mawlid · اختر مولداً') + `<div class="home-grid">${mawlidsHub()}</div>`;
   if(tab === 'mawlid')  return backToMawlids() + sectionIntro('mawlid') + label('Follow the mawlid in order · على ترتيب المولد') + mawlidCards();
   if(tab === 'qasidas') return sectionIntro('qasidas') + (additionalQasidaCards() || placeholder('Qasidas'));
@@ -3525,7 +3535,7 @@ function renderIndex(){
     ${(onHome || sessionScreen) ? '' : navBar()}
     <main class="index">
       ${(tabHasSearch() && !sessionScreen && !onHome) ? searchBox() : ''}
-      <div id="results">${home ? homeCards() : sessionScreen ? sessionPanel() : renderResults()}</div>
+      <div id="results">${(home ? homeCards() : sessionScreen ? sessionPanel() : renderResults()) + versionTag()}</div>
       ${onHome ? searchBox(true) : ''}
     </main>
     <footer>Works offline once added to your home screen.</footer>`;
