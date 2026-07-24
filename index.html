@@ -3769,6 +3769,8 @@ function releaseLead(){
 
 function takeLead(){
   if(!session.channel || session.role === 'leader') return;
+  /* Works whether or not we heard the release: the term simply moves past
+     whatever the old leader was on, and their later messages are ignored. */
   const term = session.term + 1;
   session.claiming = true;
   addClaim(term, session.id);
@@ -3942,6 +3944,8 @@ function sessionPanel(){
     return `<div class="session-panel">
       <div class="session-code">${session.code}</div>
       <p>You're following the leader. Open anything yourself and you'll take over — tap Resume in the banner to follow again.</p>
+      <button class="session-btn" onclick="takeLead()">Take the lead</button>
+      <p class="session-hint">Taking the lead moves it to this device and the current leader becomes a follower. Also use this if the leader has gone quiet or their phone dropped out.</p>
       <p class="session-hint">Someone just arrived? Send them the link yourself — no need to interrupt the leader.</p>
       ${shareRow()}
       ${note}
