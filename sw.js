@@ -1,10 +1,14 @@
 /* Offline support: caches the app shell and fonts on first visit,
    then serves everything from cache (works with no connection). */
-const CACHE = 'mawlid-v72'; // bump this (v2, v3…) whenever you update index.html
+const CACHE = 'mawlid-v164'; // bump this (v2, v3…) whenever you update index.html
 const CORE = ['./', './index.html', './manifest.json', './icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', e => {
-  e.waitUntil(caches.open(CACHE).then(c => c.addAll(CORE)).then(() => self.skipWaiting()));
+  e.waitUntil(
+    caches.open(CACHE)
+      .then(c => c.addAll(CORE))
+      .then(() => self.skipWaiting())
+  );
 });
 
 self.addEventListener('activate', e => {
