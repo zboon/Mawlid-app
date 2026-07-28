@@ -432,6 +432,9 @@
     text-align:center; min-height:2.6rem;
     display:flex; align-items:center; justify-content:center;
   }
+  /* A mid-leaf division band (thulth / rubʿ markers), as the book sets them. */
+  .ms-band-div{ margin-top:1.4rem; }
+  .ms-cartouche-div{ font-size:.98rem; }
   .ms-band-art{ position:absolute; inset:0; width:100%; height:100%; display:block; }
   .ms-cartouche{ position:relative; z-index:1; }
   .ms-cartouche{
@@ -4128,17 +4131,1257 @@ const DALAIL_CHAPTERS = [
   {
     "titleArabic": "حِزْبُ يَوْمِ الِاثْنَيْنِ — الْجُزْءُ الأَوَّلُ",
     "titleEnglish": "Monday — Part 1",
-    "verses": []
+    "cartouche": "حِزْبُ يَوْمِ الِاثْنَيْنِ",
+    "note": "The first portion of Monday's ḥizb, opening with the section on the manner of invoking blessings upon the Prophet ﷺ. A long sequence of ṣalawāt is followed by the duʿāʾ that is hoped to be answered, recited after the blessings.",
+    "folios": [
+      { "from": 0, "to": 5 },
+      { "from": 6, "to": 12 },
+      { "from": 13, "to": 15 },
+      { "from": 16, "to": 17 },
+      { "from": 18, "to": 21 },
+      { "from": 22, "to": 27 },
+      { "from": 28, "to": 32 },
+      { "from": 33, "to": 37 },
+      { "from": 38, "to": 39 },
+      { "from": 40, "to": 43 },
+      { "from": 44, "to": 45 },
+      { "from": 46, "to": 49 },
+      { "from": 50, "to": 52 }
+    ],
+    "verses": [
+      {
+        "ar": "بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ",
+        "tr": "Bismi-Llāhi r-Raḥmāni r-Raḥīm",
+        "en": "In the name of Allah, the All-Merciful, the Most Merciful."
+      },
+      {
+        "ar": "صَلَّى اللَّهُ عَلَى سَيِّدِنَا وَمَوْلَانَا مُحَمَّدٍ وَعَلَى آلِهِ وَصَحْبِهِ وَسَلَّمَ",
+        "tr": "Ṣallā llāhu ʿalā sayyidinā wa mawlānā Muḥammadin wa ʿalā ālihi wa ṣaḥbihi wa sallam.",
+        "en": "Allah’s blessings and peace be upon our lord and master Muhammad and upon his family and Companions."
+      },
+      {
+        "ar": "اَللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَأَزْوَاجِهِ وَذُرِّيَّتِهِ كَمَا صَلَّيْتَ عَلَى سَيِّدِنَا إِبْرَاهِيمَ وَبَارِكْ عَلَى سَيِّدِنَا مُحَمَّدٍ وَأَزْوَاجِهِ وَذُرِّيَّتِهِ كَمَا بَارَكْتَ عَلَى آلِ سَيِّدِنَا إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammadin wa azwājihi wa dhurriyyatihi kamā ṣallayta ʿalā sayyidinā Ibrāhīma wa bārik ʿalā sayyidinā Muḥammadin wa azwājihi wa dhurriyyatihi kamā bārakta ʿalā āli sayyidinā Ibrāhīma innaka Ḥamīdun Majīd.",
+        "en": "O Allah, bless our master Muhammad and his wives and his descendants, just as You blessed our master Abraham, and sanctify our master Muhammad and his wives and descendants, just as You sanctified our master Abraham. For You are the Praiseworthy, the Mighty."
+      },
+      {
+        "ar": "اَللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِهِ كَمَا صَلَّيْتَ عَلَى سَيِّدِنَا إِبْرَاهِيمَ وَبَارِكْ عَلَى سَيِّدِنَا مُحَمَّدٍ وَآلِ سَيِّدِنَا مُحَمَّدٍ كَمَا بَارَكْتَ عَلَى آلِ سَيِّدِنَا إِبْرَاهِيمَ فِي العَالَمِينَ إِنَّكَ حَمِيدٌ مَجِيدٌ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammadin wa ʿalā ālihi kamā ṣallayta ʿalā sayyidinā Ibrāhīma wa bārik ʿalā sayyidinā Muḥammadin wa āli sayyidinā Muḥammadin kamā bārakta ʿalā āli sayyidinā Ibrāhīma fī l-ʿālamīna innaka Ḥamīdun Majīd.",
+        "en": "O Allah, bless our master Muhammad and his family, just as You blessed our master Abraham, and sanctify our master Muhammad and the family of Muhammad, just as You sanctified our master Abraham and the family of Abraham in all worlds. For You are the Praiseworthy, the Mighty."
+      },
+      {
+        "ar": "اَللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَآلِ سَيِّدِنَا مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى سَيِّدِنَا إِبْرَاهِيمَ وَبَارِكْ عَلَى سَيِّدِنَا مُحَمَّدٍ وَآلِ سَيِّدِنَا مُحَمَّدٍ كَمَا بَارَكْتَ عَلَى سَيِّدِنَا إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammadin wa āli sayyidinā Muḥammadin kamā ṣallayta ʿalā sayyidinā Ibrāhīma wa bārik ʿalā sayyidinā Muḥammadin wa ʿalā āli sayyidinā Muḥammadin kamā bārakta ʿalā sayyidinā Ibrāhīma innaka Ḥamīdun Majīd.",
+        "en": "O Allah, bless our master Muhammad and the family of our master Muhammad, just as You blessed our master Abraham, and sanctify our master Muhammad and the family of Muhammad, just as You sanctified our master Abraham. For You are the Praiseworthy, the Mighty."
+      },
+      {
+        "ar": "اَللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ النَّبِيِّ الأُمِّيِّ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammadin an-nabiyyi l-ummiyyi wa ʿalā āli sayyidinā Muḥammad.",
+        "en": "O Allah, bless our master Muhammad, the Unlettered Prophet, and the family of our master Muhammad."
+      },
+      {
+        "ar": "اَللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ عَبْدِكَ وَرَسُولِكَ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammadin ʿabdika wa rasūlik.",
+        "en": "O Allah, bless our master Muhammad, Your slave and Your Messenger."
+      },
+      {
+        "ar": "اَللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى سَيِّدِنَا إِبْرَاهِيمَ وَعَلَى آلِ سَيِّدِنَا إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammadin wa-ʿalā āli sayyidinā Muḥammadin kamā ṣallayta ʿalā sayyidinā Ibrāhīma wa-ʿalā āli sayyidinā Ibrāhīma innaka ḥamīdun majīd.",
+        "en": "O Allah, bless our master Muhammad and the family of our master Muhammad, just as You blessed our master Abraham and the family of our master Abraham. For You are the Praiseworthy, the Mighty."
+      },
+      {
+        "ar": "اَللَّهُمَّ بَارِكْ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ كَمَا بَارَكْتَ عَلَى سَيِّدِنَا إِبْرَاهِيمَ وَعَلَى آلِ سَيِّدِنَا إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ",
+        "tr": "Allāhumma bārik ʿalā sayyidinā Muḥammadin wa-ʿalā āli sayyidinā Muḥammadin kamā bārakta ʿalā sayyidinā Ibrāhīma wa-ʿalā āli sayyidinā Ibrāhīma innaka ḥamīdun majīd.",
+        "en": "O Allah, sanctify our master Muhammad and the family of our master Muhammad, just as You sanctified our master Abraham and the family of our master Abraham. For You are the Praiseworthy, the Mighty."
+      },
+      {
+        "ar": "اَللَّهُمَّ وَتَرَحَّمْ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ كَمَا تَرَحَّمْتَ عَلَى سَيِّدِنَا إِبْرَاهِيمَ وَعَلَى آلِ سَيِّدِنَا إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ",
+        "tr": "Allāhumma wa tarraḥam ʿalā sayyidinā Muḥammadin wa-ʿalā āli sayyidinā Muḥammadin kamā tarraḥamta ʿalā sayyidinā Ibrāhīma wa-ʿalā āli sayyidinā Ibrāhīma innaka ḥamīdun majīd.",
+        "en": "O Allah, be merciful to our master Muhammad and the family of our master Muhammad, just as You were merciful to our master Abraham and the family of our master Abraham. For You are the Praiseworthy, the Mighty."
+      },
+      {
+        "ar": "اَللَّهُمَّ وَتَحَنَّنْ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ كَمَا تَحَنَّنْتَ عَلَى سَيِّدِنَا إِبْرَاهِيمَ وَعَلَى آلِ سَيِّدِنَا إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ",
+        "tr": "Allāhumma wa taḥannan ʿalā sayyidinā Muḥammadin wa-ʿalā āli sayyidinā Muḥammadin kamā taḥannanta ʿalā sayyidinā Ibrāhīma wa-ʿalā āli sayyidinā Ibrāhīma innaka ḥamīdun majīd.",
+        "en": "O Allah, be kind to our master Muhammad and the family of our master Muhammad, just as You were kind to our master Abraham and the family of our master Abraham. For You are the Praiseworthy, the Mighty."
+      },
+      {
+        "ar": "اَللَّهُمَّ وَسَلِّمْ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ كَمَا سَلَّمْتَ عَلَى سَيِّدِنَا إِبْرَاهِيمَ وَعَلَى آلِ سَيِّدِنَا إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ",
+        "tr": "Allāhumma wa sallim ʿalā sayyidinā Muḥammadin wa-ʿalā āli sayyidinā Muḥammadin kamā sallamta ʿalā sayyidinā Ibrāhīma wa-ʿalā āli sayyidinā Ibrāhīma innaka ḥamīdun majīd.",
+        "en": "O Allah, grant peace to our master Muhammad and the family of our master Muhammad, just as You granted peace to our master Abraham and the family of our master Abraham. For You are the Praiseworthy, the Mighty."
+      },
+      {
+        "ar": "اَللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ وَارْحَمْ سَیِّدَنَا مُحَمَّدًا وَآلَ سَيِّدِنَا مُحَمَّدٍ وَبَارِكْ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ كَمَا صَلَّیْتَ وَرَحِمْتَ وَبَارَكْتَ عَلَى سَيِّدِنَا إِبْرَاهِيمَ وَعَلَى آلِ سَيِّدِنَا إِبْرَاهِيمَ فِي العَالَمِینَ إِنَّكَ حَمِيدٌ مَجِيدٌ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammadin wa-ʿalā āli sayyidinā Muḥammadin wa-rḥam sayyidinā Muḥammadan wa-āla sayyidinā Muḥammadin wa-bārik ʿalā sayyidinā Muḥammadin wa-ʿalā āli sayyidinā Muḥammadin kamā ṣallayta wa-raḥimta wa-bārakta ʿalā sayyidinā Ibrāhīma wa-ʿalā āli sayyidinā Ibrāhīma fī l-ʿālamīna innaka ḥamīdun majīd.",
+        "en": "O Allah, bless our master Muhammad and the family of our master Muhammad, and be merciful to our master Muhammad and the family of our master Muhammad, and sanctify our master Muhammad and the family of our master Muhammad, just as You blessed, were merciful to, and sanctified our master Abraham and the family of our master Abraham in the worlds. For You are the Praiseworthy, the Mighty."
+      },
+      {
+        "ar": "اَللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ النَّبِيِّ وَأَزْوَاجِهِ أُمَّهَاتِ المُؤْمِنِينَ وَذُرِّيَّتِهِ وَأَهْلِ بَيْتِهِ كَمَا صَلَّيْتَ عَلَى سَيِّدِنَا إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammadin an-nabiyyi wa azwājihi ummahāti l-mu’minīna wa dhurriyyatihi wa ahli baytihi kamā ṣallayta ʿalā sayyidinā Ibrāhīma innaka Ḥamīdun Majīd.",
+        "en": "O Allah, bless our master Muhammad, the Prophet, and his wives, the Mothers of the Believers, and his descendants and the People of his House, just as You blessed our master Abraham. For You are the Praiseworthy, the Mighty."
+      },
+      {
+        "ar": "اَللَّهُمَّ بَارِكْ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ كَمَا بَارَكْتَ عَلَى سَيِّدِنَا إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ",
+        "tr": "Allāhumma bārik ʿalā sayyidinā Muḥammadin wa ʿalā āli sayyidinā Muḥammadin kamā bārakta ʿalā sayyidinā Ibrāhīma innaka Ḥamīdun Majīd.",
+        "en": "O Allah, bless our master Muhammad and the family of our master Muhammad, just as You bless our master Abraham. For You are the Praiseworthy, the Mighty."
+      },
+      {
+        "ar": "اَللَّهُمَّ دَاحِيَ المَدْحُوَّاتِ، وَبَارِئَ المَسْمُوكَاتِ، وَجَبَّارَ القُلُوبِ عَلَى فِطْرَتِهَا شَقِيِّهَا وَسَعِيدِهَا، اجْعَلْ شَرَائِفَ صَلَوَاتِكَ وَنَوَامِيَ بَرَكَاتِكَ وَرَأْفَةَ تَحَنُّنِكَ عَلَى سَيِّدِنَا مُحَمَّدٍ عَبْدِكَ وَرَسُولِكَ الفَاتِحِ لِمَا أُغْلِقَ، وَالخَاتِمِ لِمَا سَبَقَ، وَالمُعْلِنِ الحَقَّ بِالحَقِّ، وَالدَّامِغِ لِجَيْشَاتِ الأَبَاطِيلِ كَمَا حُمِّلَ، فَاضْطَلَعَ بِأَمْرِكَ بِطَاعَتِكَ، مُسْتَوْفِزًا فِي مَرْضَاتِكَ، وَاعِيًا لِوَحْيِكَ، حَافِظًا لِعَهْدِكَ، مَاضِيًا عَلَى نَفَاذِ أَمْرِكَ، حَتَّى أَوْرَى قَبَسًا لِقَابِسٍ، آلَاءُ اللَّهِ تَصِلُ بِأَهْلِهِ أَسْبَابَهُ، بِهِ هُدِيَتِ القُلُوبُ بَعْدَ خَوْضَاتِ الفِتَنِ وَالإِثْمِ، وَأَبْهَجَ مُوضِحَاتِ الأَعْلَامِ، وَنَائِرَاتِ الأَحْكَامِ، وَمُنِيرَاتِ الإِسْلَامِ، فَهُوَ أَمِينُكَ المَأْمُونُ، وَخَازِنُ عِلْمِكَ المَخْزُونِ، وَشَهِيدُكَ يَوْمَ الدِّينِ، وَبَعِيثُكَ نِعْمَةً، وَرَسُولُكَ بِالْحَقِّ رَحْمَةً",
+        "tr": "Allāhumma dāḥiya l-madḥūwāti wa bāri’a l-masmūkāti wa jabbāra l-qulūbi ʿalā fiṭratihā shaqiyyihā wa saʿīdihā, ijʿal sharā’ifa ṣalawātika wa nawāmi barakātika wa ra’fata taḥannunika ʿalā sayyidinā Muḥammadin ʿabdika wa rasūlika, al-fātiḥi limā ughliqa wa l-khātimi limā sabaqa wa l-muʿlini l-ḥaqqa bi-l-ḥaqqi wa d-dāmiġi li-jayshāti l-abāṭīli, kamā ḥummila fa-ḍṭalaʿa bi-amrika bi-ṭāʿatika, mustawfiẓan fī marḍātika, wāʿiyal li-waḥyika, ḥāfiẓan li-ʿahdika, māḍiyan ʿalā nafādhi amrika, ḥattā awrā qabasan li-qābisin, ālā’u llāhi taṣilu bi-ahlihi asbābahu, bihi hudiya ti l-qulūbu baʿda khawḍāti l-fitani wa l-ithmi, wa abhaja muḍiḥāti l-aʿlāmi, wa nā’irāti l-aḥkāmi, wa munīrāti l-islāmi, fa-huwa amīnuka l-ma’mūnu, wa khāzinu ʿilmika l-makhzūni, wa shahīduka yawma d-dīni, wa baʿīthuka niʿmatan wa rasūluka bi-l-ḥaqqi raḥmah.",
+        "en": "O Allah, the Leveller of the plains, the Maker of the firmament, and the Moulder of hearts into the good and the bad, grant Your noblest blessings, most fruitful favours, and most loving kindness to our master Muhammad, Your slave and Your Messenger, the Opener of what was locked and the Seal of what has gone before, the announcer of truth with truth, and the refuter of the forces of falsehood. He took upon himself the responsibility of Your command in obedience to You, speedily seeking Your pleasure, earnestly heeding Your revelation, keeping Your promise, carrying out and executing Your command, so that, by kindling a burning brand for the seeker, his family gain access through him to the blessings of Allah. Hearts were guided through him after having entered into discord and sin, and he gladdened with evident signs, with enlightening laws and illuminating Islam. And he is Your trustworthy one and safe custodian of Your secret knowledge, Your witness on the Day of Judgement and Your envoy, a favour for us and Your Messenger, in truth, a mercy for us."
+      },
+      {
+        "ar": "اَللَّهُمَّ افْسَحْ لَهُ فِي عَدْنِكَ، وَاجْزِهِ مُضَاعَفَاتِ الخَيْرِ مِن فَضْلِكَ مُهَنَّئَاتٍ لَهُ غَيْرَ مُكَدَّرَاتٍ، مِنْ فَوْزِ ثَوَابِكَ المَحْلُولِ، وَجَزِيلِ عَطَائِكَ المَعْلُولِ",
+        "tr": "Allāhumma ifsaḥ lahu fī ʿadnika, wa jzihi muḍāʿafāti l-khayri min faḍlika muhannātin lahu ghayra mukaddarātin min fawzi thawābika l-maḥlūli wa jazīli ʿaṭā’ika l-maʿlūl.",
+        "en": "O Allah, widen for him his place in Your Eden and reward him doubly with the goodness of Your favour, granting him untarnished felicitations from the victory of Your reward, which is plentiful and fitting, and from Your lofty gift."
+      },
+      {
+        "ar": "اَللَّهُمَّ أَعْلِ عَلَى بِنَاءِ النَّاسِ بِنَاءَهُ، وَأَكْرِمْ مَثْوَاهُ لَدَيْكَ وَنُزُلَهُ، وَأَتْمِمْ لَهُ نُورَهُ، وَاجْزِهِ مِنِ ابْتِعَاثِكَ لَهُ مَقْبُولَ الشَّهَادَةِ، وَمَرْضِيَّ المَقَالَةِ، ذَا مَنْطِقٍ عَدْلٍ، وَخُطَّةٍ فَصْلٍ، وَبُرْهَانٍ عَظِيمٍ، ﴿إِنَّ اللَّهَ وَمَلَـٰٓئِكَتَهُۥ يُصَلُّونَ عَلَى النَّبِىِّ ۚ يـٰٓأَيُّهَا الَّذِينَ ءَامَنُواْ صَلُّواْ عَلَيْهِ وَسَلِّمُواْ تَسْلِيمًا﴾، لَبَّيْكَ اللَّهُمَّ رَبِّى وَسَعْدَيْكَ صَلَوَاتُ اللَّهِ البَرِّ الرَّحِيمِ، وَالمَلَائِکَةِ المُقَرَّبِينَ، وَالنَّبِيِّينَ وَالصِّدِّيقِينَ، وَالشُّهَدَاءِ وَالصَّالِحِينَ، وَمَا سَبَّحَ لَكَ مِنْ شَيْءٍ يَا رَبَّ العَالَمِينَ، عَلَى سَيِّدِنَا مُحَمَّدِ بْنِ عَبْدِ اللَّهِ، خَاتِمِ النَّبِيِّينَ، وَسَيِّدِ المُرْسَلِينَ، وَإِمَامِ المُتَّقِينَ، وَرَسُولِ رَبِّ العَالَمِينَ، الشَّاهِدِ البَشِيرِ، الدَّاعِي إِلَيْكَ بِإِذْنِكَ، السِّرَاجِ المُنِيرِ، وَعَلَيْهِ السَّلَامُ",
+        "tr": "Allāhumma aʿli ʿalā binā’i n-nāsi binā’ahu, wa akrim mathwāhu ladayka wa nuzulahu, wa atmim lahu nūrahu, wa jzihi min ibʿāthika lahu maqbūla sh-shahādahi, wa marḍiyya l-maqālati, dhā manṭiqin ʿadlin wa khuṭṭatin faṣlin wa burhānin ʿaẓīm. Inna llāha wa malā’ikatahu yuṣallūna ʿalā n-nabiyyi, yā ayyuhā lladhīna āmanū ṣallū ʿalayhi wa sallimū taslīmā. Labbayka llāhumma rabbī wa saʿdayka, ṣalawātu llāhi l-barri r-raḥīmi, wa l-malā’ikati l-muqarrabīna, wa n-nabiyyīna wa ṣ-ṣiddīqīna, wa sh-shuhadā’i wa ṣ-ṣāliḥīna, wa mā sabbaḥa laka min shay’in yā rabba l-ʿālamīna, ʿalā sayyidinā Muḥammadin ibn ʿAbdillāh, khātami n-nabiyyīna, wa sayyidi l-mursalīna, wa imāmi l-muttaqīna, wa rasūli rabbi l-ʿālamīna, ash-shāhidi l-bashīri, ad-dāʿī ilayka bi-idhnika, as-sirāji l-munīri, wa ʿalayhi s-salām.",
+        "en": "O Allah, raise that which he has built up over all that mankind has built up, and ennoble his place and his sojourn with You, and complete for him his light and reward him with Your approval so that his testimony is accepted and his word is pleasing to You, making him the one whose utterance is just and whose course is distinct and whose argument is mighty. Verily, Allah and His Angels bless the Prophet. O you who believe, ask Allah to bless him and grant him abundant peace. I am here, O Allah, at Your service and at Your command, my Lord. The blessings of Allah, the Good, the Merciful, and of His closest angels and of the Prophets and of the sincere ones, and of the martyrs and of the good ones, and whatever else exists, which glorifies You, O Lord of the Worlds, are for our master Muhammad, son of Abdullah, the Seal of the Prophets and Master of the Messengers, the Leader of the Pious and the Messenger of the Lord of the Worlds, the Witness, the Bringer of Good Tidings, the Caller to You by Your leave, the Lamp, the illuminated one upon him be peace."
+      },
+      {
+        "ar": "اَللَّهُمَّ اجْعَلْ صَلَوَاتِكَ وَبَرَكَاتِكَ وَرَحْمَتَكَ عَلَى سَيِّدِ المُرْسَلِينَ، وَإِمَامِ المُتَّقِينَ، وَخَاتِمِ النَّبِيِّينَ، سَيِّدِنَا مُحَمَّدٍ عَبْدِكَ وَرَسُولِك، إِمَامِ الخَيْرِ، وَقَائِدِ الخَيْرِ، وَرَسُولِ الرَّحْمَةِ",
+        "tr": "Allāhumma ijʿal ṣalawātika wa barakātika wa raḥmataka ʿalā sayyidi l-mursalīna, wa imāmi l-muttaqīna, wa khātimi n-nabiyyīna, sayyidinā Muḥammadin ʿabdika wa rasūlika, imāmi l-khayri, wa qā’idi l-khayri, wa rasūli r-raḥmah.",
+        "en": "O Allah, grant Your blessings and Your favours and Your mercy to the Master of the Messengers and the Leader of the Pious and Seal of the Prophets, our master Muhammad, Your slave and Your Messenger, the Pioneer of Goodness and Guide to the Goodness, the Messenger of Mercy."
+      },
+      {
+        "ar": "اَللَّهُمَّ ابْعَثْهُ مَقَامًا مَّحْمُودًا يَغْبِطُهُ فِيهِ الأَوَّلُونَ وَالآخِرُونَ",
+        "tr": "Allāhumma ibʿathhu maqāman maḥmūdan yaghbiṭuhu fīhi l-awwalūna wa l-ākhirūna.",
+        "en": "O Allah, send him to the Most Praised Station, the envy of those who came first and those who came last."
+      },
+      {
+        "ar": "اَللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى سَيِّدِنَا إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammadin wa ʿalā āli sayyidinā Muḥammadin kamā ṣallayta ʿalā sayyidinā Ibrāhīma innaka Ḥamīdun Majīd.",
+        "en": "O Allah, bless our master Muhammad and the family of our master Muhammad, just as You blessed our master Abraham. For You are the Praiseworthy, the Mighty."
+      },
+      {
+        "ar": "اَللَّهُمَّ بَارِكْ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ كَمَا بَارَكْتَ عَلَى سَيِّدِنَا إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ",
+        "tr": "Allāhumma bārik ʿalā sayyidinā Muḥammadin wa-ʿalā āli sayyidinā Muḥammadin kamā bārakta ʿalā sayyidinā Ibrāhīma innaka ḥamīdun majīd.",
+        "en": "O Allah, sanctify our master Muhammad and the family of our master Muhammad, just as You sanctified our master Abraham. For You are the Praiseworthy, the Mighty."
+      },
+      {
+        "ar": "اَللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِهِ وَأَصْحَابِهِ وَأَوْلَادِهِ، وَأَزْوَاجِهِ وَذُرِّيَّتِهِ، وَأَهْلِ بَيْتِهِ وَأَصْهَارِهِ، وَأَنْصَارِهِ وَأَشْيَاعِهِ، وَمُحِبِّيهِ وَأُمَّتِهِ وَعَلَيْنَا مَعَهُمْ أَجْمَعِينَ يَا أَرْحَمَ الرَّاحِمِينَ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammadin wa-ʿalā ālihi wa-aṣḥābihi wa-awlādihi wa-azwājihi wa-dhurriyyatihi wa-ahl baytihi wa-aṣhārihi wa-anṣārihi wa-ashyāʿihi wa-muḥibbīhi wa-ummatihi wa-ʿalaynā maʿahum ajmaʿīna yā arḥama r-rāḥimeen.",
+        "en": "O Allah, bless our master Muhammad, his family, his Companions, his children, his wives, his descendants, the People of his House, his relations by marriage, his Helpers, his adherents, his lovers, his nation, and all of us along with them, O Most Merciful of the merciful."
+      },
+      {
+        "ar": "اَللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ عَدَدَ مَنْ صَلَّى عَلَيْهِ، وَصَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ عَدَدَ مَنْ لَّمْ يُصَلِّ عَلَيْهِ، وَصَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ كَمَا أَمَرْتَنَا بِالصَّلاةِ عَلَيْهِ ، وَصَلِّ عَلَيْهِ كَمَا تُحِبُّ أَنْ يُصَلَّى عَلَيْهِ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammadin ʿadada man ṣallā ʿalayhi wa-ṣalli ʿalā sayyidinā Muḥammadin ʿadada man lam yuṣalli ʿalayhi wa-ṣalli ʿalā sayyidinā Muḥammadin kamā amartanā biṣ-ṣalāti ʿalayhi wa-ṣalli ʿalayhi kamā tuḥibbu an yuṣallā ʿalayhi.",
+        "en": "O Allah, bless our master Muhammad as many times as those who have asked for his blessings upon him, and bless our master Muhammad as many times as those who have not asked for his blessings upon him. And bless him as we have been ordered to ask You to bless him, and bless him just as You like him to be blessed."
+      },
+      {
+        "ar": "اَللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ كَمَا أَمَرْتَنَا أَنْ نُصَلِّيَ عَلَيْهِ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammadin wa-ʿalā āli sayyidinā Muḥammadin kamā amartanā an nuʿsalliya ‘alayhi.",
+        "en": "O Allah, bless our master Muhammad and the family of our master Muhammad as we have been ordered to ask for blessings upon him."
+      },
+      {
+        "ar": "اَللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ كَمَا هُوَ أَهْلُهُ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammadin wa-ʿalā āli sayyidinā Muḥammadin kamā huwa ahluhu.",
+        "en": "O Allah, bless our master Muhammad and the family of our master Muhammad as he deserves."
+      },
+      {
+        "ar": "اَللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ كَمَا تُحِبُّ وَتَرْضَاهُ لَهُ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammadin wa-ʿalā āli sayyidinā Muḥammadin kamā tuḥibbu wa-tarḍāhu lahū.",
+        "en": "O Allah, bless our master Muhammad and the family of our master Muhammad just as You like and just as You are pleased with him."
+      },
+      {
+        "ar": "اَللَّهُمَّ يَا رَبَّ سَيِّدِنَا مُحَمَّدٍ وَآلِ سَيِّدِنَا مُحَمَّدٍ، صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَآلِ سَيِّدِنَا مُحَمَّدٍ وَأَعْطِ سَيِّدَنَا مُحَمَّدَ نِ الدَّرَجَةَ وَالوَسِيلَةَ فِي الجَنَّةِ",
+        "tr": "Allāhumma yā rabba sayyidinā Muḥammadin wa-āli sayyidinā Muḥammadin ṣalli ʿalā sayyidinā Muḥammadin wa-āli sayyidinā Muḥammadin wa-aʿṭi sayyidanā Muḥammadan ad-darajata wa-l-wasīlata fī l-jannati.",
+        "en": "O Allah, O Lord of our master Muhammad and the family of our master Muhammad, bless our master Muhammad and the family of our master Muhammad, and grant to our master Muhammad the rank of the Closest Access in the Garden."
+      },
+      {
+        "ar": "اَللَّهُمَّ يَا رَبَّ سَيِّدِنَا مُحَمَّدٍ وَآلِ سَيِّدِنَا مُحَمَّدٍ، اِجْزِ سَيِّدَنَا مُحَمَّدًا صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ مَا هُوَ أَهْلُهُ",
+        "tr": "Allāhumma yā rabba sayyidinā Muḥammadin wa-āli sayyidinā Muḥammadin ijzi sayyadinā Muḥammadan ṣallā llāhu ʿalayhi wa-sallama mā huwa ahluhu.",
+        "en": "O Allah, O Lord of our master Muhammad and the family of our master Muhammad, reward our master Muhammad, may Allah bless him and give him peace just as he is deserving."
+      },
+      {
+        "ar": "اَللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ وَعَلَى أَهْلِ بَيْتِهِ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammadin wa-ʿalā āli sayyidinā Muḥammadin wa-ʿalā ahl baytihi.",
+        "en": "O Allah, bless our master Muhammad and the family of our master Muhammad and the People of his House."
+      },
+      {
+        "ar": "اَللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ حَتَّى لَا يَبْقَى مِنَ الصَّلَاةِ شَيْءٌ، وَارْحَمْ سَيِّدَنَا مُحَمَّدًا وَآلَ سَيِّدِنَا مُحَمَّدٍ حَتَّى لَا يَبْقَى مِنَ الرَّحْمَةِ شَيْءٌ، وَبَارِكْ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ حَتَّى لَا يَبْقَى مِنَ الْبَرَكَةِ شَيْءٌ، وَسَلِّمْ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ حَتَّى لَا يَبْقَى مِنَ السَّلَامِ شَيْءٌ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammadin ḥattā lā yabqā mina ṣ-ṣalāti shayʾun, wa-rḥam sayyidinā Muḥammadan wa-āli sayyidinā Muḥammadin ḥattā lā yabqā mina r-raḥmati shayʾun, wa-bārik ʿalā sayyidinā Muḥammadin wa-ʿalā āli sayyidinā Muḥammadin ḥattā lā yabqā mina l-barakāti shayʾun, wa-sallim ʿalā sayyidinā Muḥammadin wa-ʿalā āli sayyidinā Muḥammadin ḥattā lā yabqā mina s-salāmi shayʾun.",
+        "en": "O Allah, bless our master Muhammad and the family of our master Muhammad until there remains not a single drop of blessings. O Allah, favour our master Muhammad and the family of our master Muhammad until there remains not a single drop of favour. O Allah, have mercy on our master Muhammad and the family of our master Muhammad until there remains not a single drop of mercy. O Allah, grant peace to our master Muhammad and the family of our master Muhammad until there remains not a single drop of peace."
+      },
+      {
+        "ar": "اَللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ فِي الْأَوَّلِينَ، وَصَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ فِي الْآخِرِينَ، وَصَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ فِي النَّبِيِّينَ، وَصَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ فِي الْمُرْسَلِينَ، وَصَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ فِي الْمَلَا الْأَعْلَى إِلَى يَوْمِ الدِّينِ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammadin fī l-awwalīna wa-ṣalli ʿalā sayyidinā Muḥammadin fī l-ākhirīna wa-ṣalli ʿalā sayyidinā Muḥammadin fī n-nabiyyīna wa-ṣalli ʿalā sayyidinā Muḥammadin fī l-mursalīna wa-ṣalli ʿalā sayyidinā Muḥammadin fī l-malaʾi l-aʿlā ilā yawmi d-dīn.",
+        "en": "O Allah, bless our master Muhammad among the first, bless our master Muhammad among the last, bless our master Muhammad among the Prophets, bless our master Muhammad among the Messengers, and bless our master Muhammad in the Heavenly Assembly until the Day of Reckoning."
+      },
+      {
+        "ar": "اَللَّهُمَّ أَعْطِ سَيِّدَنَا مُحَمَّدَ نِ الوَسِيلَةَ وَالْفَضِيلَةَ، وَالشَّرَفَ وَالدَّرَجَةَ الْكَبِيرَةَ",
+        "tr": "Allāhumma aʿṭi sayyidinā Muḥammadan al-wasīlata wa-l-faḍīlata wa-sh-sharafa wa-d-darajata l-kabīrata.",
+        "en": "O Allah grant our master Muhammad the position of the Closest Access the Pre-eminence and the noblest and greatest rank."
+      },
+      {
+        "ar": "اَللَّهُمَّ إِنِّي آمَنْتُ بِسَيِّدِنَا مُحَمَّدٍ وَلَمْ أَرَهُ، فَلَا تَحْرِمْنِي فِي الجِنَانِ رُؤْيَتَهُ، وَارْزُقْنِي صُحْبَتَهُ، وَتَوَفَّنِي عَلَى مِلَّتِهِ، وَاسْقِنِي مِنْ حَوْضِهِ مَشْرَبًا رَّوِيًّا، سَائِغًا هَنِيْئًا، لَا نَظْمَأُ بَعْدَهُ أَبَدًا، إِنَّكَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ",
+        "tr": "Allāhumma innī āmantu bi-sayyidinā Muḥammadin wa-lam arahu fa-lā taḥrimnī fī l-jināni ruʾyatahu wa-rzuqnī ṣuḥbatahu wa-tawaffanī ʿalā millatihi wa-sqinī min ḥawḍihi mashraban rawiyyān sāʾighan hanīʾan lā naẓmaʾu baʿdahu abadan innaka ʿalā kulli shayʾin qadīr.",
+        "en": "O Allah I have believed in our master Muhammad and I have not seen him so do not deprive my heart of a vision of him and provide me with his companionship and have me die on his way and lead me to drink after from his Pool plentifully, blissfully, heartily, a drink after which we will never feel thirst. Indeed, You have Power over all things."
+      },
+      {
+        "ar": "اَللَّهُمَّ أَبْلِغْ رُوحَ سَيِّدِنَا مُحَمَّدٍ مِنِّي تَحِيَّةً وَسَلَامًا",
+        "tr": "Allāhumma abliġ rūḥa sayyidinā Muḥammadin minnī taḥiyyatan wa-salāman.",
+        "en": "O Allah send to the soul of our master Muhammad my greetings and my salutations."
+      },
+      {
+        "ar": "اَللَّهُمَّ وَ كَمَا آمَنْتُ بِسَيِّدِنَا مُحَمَّدٍ وَلَمْ أَرَهُ، فَلَا تَحْرِمْنِي فِي الجِنَانِ رُؤْيَتَهُ",
+        "tr": "Allāhumma wa-kamā āmantu bi-sayyidinā Muḥammadin wa-lam arahu fa-lā taḥrimnī fī l-jināni ruʾyatahu.",
+        "en": "O Allah just as I have believed in our master Muhammad without seeing him, so do not deprive my heart of a vision of him."
+      },
+      {
+        "ar": "اَللَّهُمَّ تَقَبَّلْ شَفَاعَةَ سَيِّدِنَا مُحَمَّدِ نِ الكُبْرَى، وَارْفَعْ دَرَجَتَهُ العُلْيَا، وَآتِهِ سُؤْلَهُ فِي الْآخِرَةِ وَالْأُولَى، كَمَا آتَيْتَ سَيِّدَنَا إِبْرَاهِيمَ وَسَيِّدَنَا مُوسَى",
+        "tr": "Allāhumma taqabbal shafāʿata sayyidinā Muḥammadin al-kubrā wa-rfaʿ darajatahu l-ʿulyā wa-ātihi suʾlahu fī l-ākhirati wa-l-ūlā kamā ātayta sayyidinā Ibrāhīma wa-sayyidinā Mūsā.",
+        "en": "O Allah accept the great intercession of our master Muhammad, raise his rank high and give him that which asks for in the Hereafter and in this Present life just as You gave to our master Abraham and our liege-lord Moses."
+      },
+      {
+        "ar": "اَللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى سَيِّدِنَا إِبْرَاهِيمَ وَعَلَى آلِ سَيِّدِنَا إِبْرَاهِيمَ، وَبَارِكْ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ كَمَا بَارَكْتَ عَلَى سَيِّدِنَا إِبْرَاهِيمَ وَعَلَى آلِ سَيِّدِنَا إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammadin wa-ʿalā āli sayyidinā Muḥammadin kamā ṣallayta ʿalā sayyidinā Ibrāhīma wa-ʿalā āli sayyidinā Ibrāhīma wa-bārik ʿalā sayyidinā Muḥammadin wa-ʿalā āli sayyidinā Muḥammadin kamā bārakta ʿalā sayyidinā Ibrāhīma wa-ʿalā āli sayyidinā Ibrāhīma innaka ḥamīdun majīd.",
+        "en": "O Allah bless our master Muhammad and the family of our master Muhammad just as You blessed our master Abraham and the family of Abraham and sanctify our master Muhammad and the family of our master Muhammad just as You sanctified our master Abraham and the family of Abraham for are the Praiseworthy, the Mighty."
+      },
+      {
+        "ar": "اَللَّهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَى سَيِّدِنَا مُحَمَّدٍ نَبِيِّكَ وَرَسُولِكَ، وَسَيِّدِنَا إِبْرَاهِيمَ خَلِيلِكَ وَصَفِيِّكَ، وَسَيِّدِنَا مُوسَى كَلِيمِكَ وَنَجِيِّكَ، وَسَيِّدِنَا عِيسَى رُوحِكَ وَكَلِمَتِكَ، وَعَلَى جَمِيعِ مَلَائِكَتِكَ وَرُسُلِكَ وَأَنْبِيَائِكَ، وَخِيَرَتِكَ مِنْ خَلْقِكَ وَأَصْفِيَائِكَ، وَخَاصَّتِكَ وَأَوْلِيَائِكَ مِنْ أَهْلِ أَرْضِكَ وَسَمَائِكَ، وَصَلَّى اللَّهُ عَلَى سَيِّدِنَا مُحَمَّدٍ عَدَدَ خَلْقِهِ وَرِضَاءَ نَفْسِهِ، وَزِنَةَ عَرْشِهِ وَمِدَادَ كَلِمَاتِهِ، وَكَمَا هُوَ أَهْلُهُ، وَكُلَّمَا ذَكَرَهُ الذَّاكِرُونَ، وَغَفَلَ عَنْ ذِكْرِهِ الغَافِلُونَ، وَعَلَى أَهْلِ بَيْتِهِ، وَعِشْرَتِهِ الطَّاهِرِينَ وَسَلَّمَ تَسْلِيمًا",
+        "tr": "Allāhumma ṣalli wa-sallim wa-bārik ʿalā sayyidinā Muḥammadin nabiyyika wa-rasūlika wa-ʿalā sayyidinā Ibrāhīma khalīlika wa-ṣafiyyika wa-ʿalā sayyidinā Mūsā kalīmika wa-najiyyika wa-ʿalā sayyidinā ʿĪsā rūḥika wa-kalimatika wa-ʿalā jamīʿi malāʾikatika wa-rusulika wa-anbiyāʾika wa-khīratika min khalqika wa-aṣfiyāʾika wa-khāṣṣatika wa-awliyāʾika min ahli arḍika wa-samāʾika.Wa ṣallā llāhu ʿalā sayyidinā Muḥammadin ʿadada khalqihi wa riḍā nafsihi wa zinata ʿarshihi wa midāda kalimātihi, wa kamā huwa ahluhu, wa kullamā dhakarahu dh-dhākirūna wa ghafala ʿan dhikrihi l-ghāfilūna, wa ʿalā ahli baytihi wa ʿitratihi ṭ-ṭāhirīna, wa sallama taslīma.",
+        "en": "O Allah, bless, sanctify and grant peace to our master Muhammad Your prophet, Your Prophet, Your Messenger. And also our master Abraham, Your Friend and Pure one and our liege-lord Moses, Your Interlocutor and Intimate. And also our liege-lord Jesus, Your Spirit and Word, all the angels, Messengers and Prophets, the righteous ones from Your creation, the pure ones, the elected ones and Your saints from the folk of Your earth and Your heaven. And may Allah's blessings be for our master Muhammad in all of His creation, to the extent of His pleasure in the decoration of the Throne in the ink of His words, to the measure that he deserves, and whenever those who remember him do so and whenever those who neglect to remember him do so, and may these blessings be also for the People of his House and the pure perfumed descendants, on whom may there be peace, over and over again."
+      },
+      {
+        "ar": "اَللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى أَزْوَاجِهِ وَذُرِّيَّتِهِ، وَعَلَى جَمِيعِ النَّبِيِّينَ وَالْمُرْسَلِينَ، وَالْمَلَائِكَةِ وَالمُقَرَّبِينَ، وَجَمِيعِ عِبَادِ اللَّهِ الصَّالِحِينَ، عَدَدَ مَا أَمْطَرَتِ السَّمَاءُ مُنْذُ بَنَيْتَهَا، وَصَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ عَدَدَ مَا أَنْبَتَتِ الْأَرْضُ مُنْذُ دَحَوْتَهَا، وَصَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ عَدَدَ النُّجُومِ فِي السَّمَاءِ فَإِنَّكَ أَحْصَيْتَهَا، وَصَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ عَدَدَ مَا تَنَفَّسَتِ الأَرْوَاحُ مُنْذُ خَلَقْتَهَا، وَصَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ عَدَدَ مَا خَلَقْتَ وَمَا تَخْلُقُ، وَمَا أَحَاطَ بِهِ عِلْمُكَ وَأَضْعَافَ ذَالِكَ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammadin wa ʿalā azwājihi wa dhurriyyatihi, wa ʿalā jamīʿi n-nabiyyīna wa l-mursalīna, wa l-malā’ikati wa l-muqarrabīna, wa jamīʿi ʿibādi llāhi ṣ-ṣāliḥīna, ʿadada mā amṭarati s-samā’u mundhu banaytahā, wa ṣalli ʿalā sayyidinā Muḥammadin ʿadada mā anbata ti l-arḍu mundhu daḥawtahā, wa ṣalli ʿalā sayyidinā Muḥammadin ʿadada n-nujūmi fī s-samā’i, fa-innaka aḥṣaytahā, wa ṣalli ʿalā sayyidinā Muḥammadin ʿadada mā tanaffasati l-arwāḥu mundhu khalaqtahā, wa ṣalli ʿalā sayyidinā Muḥammadin ʿadada mā khalaqta wa mā takhluqu wa mā aḥāṭa bihi ʿilmuka wa aḍʿāfa dhālika.",
+        "en": "O Allah, bless our master Muhammad and his wives and progeny and all the Prophets and Messengers and closest angels and all the righteous slaves of Allah in all the rain sky has rained since it was formed and bless our master Muhammad in everything the earth has produced since it was spread out. And bless our master Muhammad as many times as there are stars in the sky and You alone are their counter. And bless our master Muhammad in every breath of every soul from the moment You created them. And bless our master Muhammad in everything You have already created and in what You will create and in whatever is encompassed by Your Knowledge and then double all of that."
+      },
+      {
+        "ar": "اَللَّهُمَّ صَلِّ عَلَيْهِمْ عَدَدَ خَلْقِكَ، وَرِضَاءَ نَفْسِكَ، وَزِنَةَ عَرْشِكَ، وَمِدَادَ كَلِمَاتِكَ، وَمَبْلَغَ عِلْمِكَ وَآيَاتِكَ",
+        "tr": "Allāhumma ṣalli ʿalayhim ʿadada khalqika, wa riḍā nafsika, wa zinata ʿarshika, wa midāda kalimātika, wa mablaġa ʿilmika, wa āyātik.",
+        "en": "O Allah, bless them in all of Your Creation and as much as it pleases Yourself, in the decoration of Your Throne, in the ink Your Words and to the extent of Your Knowledge and Signs."
+      },
+      {
+        "ar": "اَللَّهُمَّ صَلِّ عَلَيْهِمْ صَلَاةً تَفُوقُ وَتَفْضُلُ صَلَاةَ المُصَلِّينَ عَلَيْهِمْ مِنَ الخَلْقِ أَجْمَعِينَ، كَفَضْلِكَ عَلَى جَمِيعِ خَلْقِكَ",
+        "tr": "Allāhumma ṣalli ʿalayhim ṣalātan tafūqu wa tafḍulu ṣalāta l-muṣallīna ʿalayhim mina l-khalqi ajmaʿīna ka-faḍlika ʿalā jamīʿi khalqik.",
+        "en": "O Allah, bless them, with blessings excellent and more gracious, with blessings equal to all requests for blessings ever uttered by the whole of creation just as in like measure the whole of creation enjoys Your favour."
+      },
+      {
+        "ar": "اَللَّهُمَّ صَلِّ عَلَيْهِمْ صَلَاةً دَائِمَةً مُّسْتَمِرَّةَ الدَّوَامِ ، عَلَى مَرِّ اللَّيَالِي وَالأَيَّامِ، مُتَّصِلَةَ الدَّوَامِ، لَا انْقِضَاءَ لَهَا وَلَا انْصِرَامَ، عَلَى مَرِّ اللَّيَالِي وَالْأَيَّامِ، عَدَدَ كُلِّ وَابِلٍ وَطَلٍّ",
+        "tr": "Allāhumma ṣalli ʿalayhim ṣalātan dā’imatan mustamirra d-dawāmi, ʿalā marri l-layāli wa l-ayyāmi, muttasilata ad-dawām, lā inqiḍā’a lahā wa lā inṣirāma, ʿalā marri l-layāli wa-l-ayyām ʿadada kulli wābilin wa-ṭallin.",
+        "en": "O Allah, bless them, with eternal and permanent blessings, for as long as the duration of all future nights and days, never-ending and perpetual, with blessings equal to the duration of all the days and nights which have already passed with blessings as copious as the rain contained in every downpour and in every shower which have ever fallen."
+      },
+      {
+        "ar": "اَللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ نَبِيِّكَ، وَسَيِّدِنَا إِبْرَاهِيمَ خَلِيلِكَ، وَعَلَى جَمِيعِ أَنْبِيَائِكَ وَأَصْفِيَائِكَ، مِنْ أَهْلِ أَرْضِكَ وَسَمَائِكَ، عَدَدَ خَلْقِكَ وَرِضَاءَ نَفْسِكَ وَزِنَةَ عَرْشِكَ وَمِدَادَ كَلِمَاتِكَ وَمُنْتَهَى عِلْمِكَ، وَزِنَةَ جَمِيعِ مَخْلُوقَاتِكَ، صَلَاةً مُكَرَّرَةً أَبَدًا، عَدَدَ مَا أَحْصَى عِلْمُكَ، وَمِلْءَ مَا أَحْصَى عِلْمُكَ، وَأَضْعَافَ مَا أَحْصَى عِلْمُكَ، صَلَاةً تَزِيدُ وَتَفُوقُ وَتَفْضُلُ صَلَاةَ المُصَلِّينَ عَلَيْهِمْ مِنَ الخَلْقِ أَجْمَعِينَ، كَفَضْلِكَ عَلَى جَمِيعِ خَلْقِكَ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammadin nabiyyika wa sayyidinā Ibrāhīma khalīlika wa-ʿalā jamīʿi anbiyāʾika wa-aṣfiyāʾika min ahli arḍika wa-samāʾika ʿadada khalqika wa-riḍā nafsika wa-zinata ʿarshika wa-midāda kalimātika wa-muntahā ʿilmika wa-zinata jamīʿi makhlūqātika ṣalātan mukarraratan abadan ʿadada mā aḥṣā ʿilmuka wa-milʾa mā aḥṣā ʿilmuka wa-aḍʿāfa mā aḥṣā ʿilmuka ṣalātan tazīdu wa-tafūqu wa-tafḍulu ṣalāta l-muṣallīna ʿalayhim mina l-khalqi ajmaʿīna ka-faḍlika ʿalā jamīʿi khalqika.",
+        "en": "O Allah bless our master Muhammad Your Prophet, and our master Abraham, your Friend, and all the Prophets and pure ones from the folk of Your earth and Your heaven, in all of Your creation and as it pleases Yourself, in the decoration of Your Throne, in the ink of Your words, to the extent of Your Knowledge and Adornment of Your created beings with blessings repeated eternally as much as Your knowledge and to the depth of Your Knowledge and then double this with blessings, abundant and excellent and gracious, blessings equal to all the requests for blessings ever uttered by all of creation just as in like measure the whole of creation enjoys Your favour."
+      },
+      {
+        "ar": "ثُمَّ تَدْعُو بِهَذَا الدُّعَاءِ فَإِنَّهُ مَرْجُوٌّ الْإِجَابَةِ إِنْ شَاءَ اللَّهُ بَعْدَ الصَّلَاةِ عَلَى النَّبِيِّ صَلَى اللَّهُ عَلَيْهِ وَسَلَّمَ",
+        "tr": "Thumma tadʿū bihādhā d-duʿāʾi fa-innahu marjūwu l-ijābati in shāʾa llāhu ba'ada ṣ-ṣalāti ʿalā n-nabiyy ṣallā llāhu ʿalayhi wa-sallam.",
+        "en": "Then make this supplication, for it is to be hoped it will be answered, Allah willing after asking for blessings upon the Prophet, may Allah grant him peace."
+      },
+      {
+        "ar": "اَللَّهُمَّ اجْعَلْنِي مِمَّنْ لَزِمَ مِلَّةَ نَبِيِّكَ سَيِّدِنَا مُحَمَّدٍ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ، وَعَظَّمَ حُرْمَتَهُ، وَأَعَزَّ كَلِمَتَهُ، وَحَفِظَ عَهْدَهُ وَذِمَّتَهُ، وَنَصَرَ حِزْبَهُ وَدَعْوَتَهُ، وَكَثَّرَ تَابِعِيهِ وَفِرْقَتَهُ، وَوَافَى زُمْرَتَهُ، وَلَمْ يُخَالِفْ سَبِيلَهُ وَسُنَّتَهُ",
+        "tr": "Allāhumma ajʿalnī mimman lazima millata nabiyyika sayyidinā Muḥammadin ṣallā llāhu ʿalayhi wa-sallam wa-ʿaẓẓama ḥurmatahu wa-aʿazza kalimatuhu wa-ḥafiẓa ʿahdahu wa-dhimmatahu wa-naṣara ḥizbahu wa-daʿwatuhu wa-kaththara tābiʿīhi wa-firqatahu wa-wāfā zumratuhu wa-lam yukhālif sabīlahu wa-sunnatahu.",
+        "en": "O Allah grant me to be from among those who stick close to the way of Your Prophet, our master Muhammad, the blessings of Allah be always upon him. Strengthen his holiness, empower his words, protect his promise and security, and give victory to his party and calling and increase those who pledge him and his company allegiance. And grant that we may die in his company and do not allow us to stray from his path and way."
+      },
+      {
+        "ar": "اَللَّهُمَّ إِنِّي أَسْأَلُكَ الْاِسْتِمْسَاكَ بِسُنَّتِهِ، وَأَعُوذُ بِكَ مِنَ الْإِنْحِرَافِ عَمَّا جَاءَ بِهِ",
+        "tr": "Allāhumma innī asʾaluka al-istimsāka bi-sunnatihi wa-aʿūdhu bika mina l-inḥirāfi ʿammā jāʾa bihi.",
+        "en": "O Allah, I ask You the for loyalty to his way and seek refuge in You from all deviation from it."
+      },
+      {
+        "ar": "اَللَّهُمَّ إِنِّي أَسْأَلُكَ مِنْ خَيْرِ مَا سَأَلَكَ مِنْهُ سَيِّدُنَا مُحَمَّدٌ نَبِيُّكَ وَرَسُولُكَ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ، وَأَعُوذُ بِكَ مِنْ شَرِّ مَا اسْتَعَاذَكَ مِنْهُ سَيِّدُنَا مُحَمَّدٌ نَّبِيُّكَ وَرَسُولُكَ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ",
+        "tr": "Allāhumma innī asʾaluka min khayri mā saʾalaka minhu sayyidinā Muḥammadu nabiyyuka wa-rasūluka ṣallā llāhu ʿalayhi wa-sallam wa-aʿūdhu bika min sharri mā istaʿādaka minhu sayyidinā Muḥammadu nabiyyuka wa-rasūluka ṣallā llāhu ʿalayhi wa-sallam.",
+        "en": "O Allah I ask of You the good that our master Muhammad, Your Prophet and Your Messenger (may Allah grant him peace and bless him) asked of You, and I seek refuge in You from the evil from which our master Muhammad Your Prophet and Your Messenger (may Allah grant him peace and bless him) sought refuge."
+      },
+      {
+        "ar": "اَللَّهُمَّ اعْصِمْنِي مِنْ شَرِّ الْفِتَنِ، وَعَافِنِي مِنْ جَمِيعِ الْمِحَنِ، وَأَصْلِحْ مِنِّي مَا ظَهَرَ وَمَا بَطَنَ، وَنَقِّ قَلْبِي مِنَ الْحِقْدِ وَالْحَسَدِ، وَلَا تَجْعَلْ عَلَيَّ تِبَاعَةً لِّأَحَدٍ",
+        "tr": "Allāhumma iʿṣimnī min sharri l-fitani wa-ʿāfinī min jamīʿi l-miḥani wa-aṣliḥ minnī mā ẓahara wa-mā baṭana wa-naqqi qalbī mina l-ḥiqdi wa-l-ḥasadi wa-lā tajʿal ʿalayya tibāʿatan li-aḥadin.",
+        "en": "O Allah protect me from evil of discord and absolve me from all tests and purify me from within and without and cleanse my heart from hatred and envy and do not allow anyone to oppress me."
+      },
+      {
+        "ar": "اَللَّهُمَّ إِنِّي أَسْأَلُكَ الأَخْذَ بِأَحْسَنِ مَا تَعْلَمُ، وَالتَّرْكَ لِسَيِّئِ مَا تَعْلَمُ، وَأَسْأَلُكَ التَّكَفُّلَ بِالرِّزْقِ وَالزُّهْدَ فِي الكَفَافِ وَالمَخْرَجَ بِالْبَيَانِ مِنْ كُلِّ شُبْهَةٍ ، وَالْفَلَجَ بِالصَّوَابِ فِي كُلِّ حُجَّةِ، وَالْعَدْلَ فِي الْغَضَبِ وَالرِّضَى، وَالتَّسْلِيمَ لِمَا يَجْرِي بِهِ القَضَاءُ وَالْاِقْتِصَادَ فِي الْفَقْرِ وَالْغِنَى، وَالتَّوَاضُعَ فِي الْقَوْلِ وَالْفِعْلِ، وَالصِّدْقَ فِي الْجِدِّ وَالْهَزْلِ",
+        "tr": "Allāhumma innī asʾaluka al-akhdha bi-aḥsani mā taʿlamu wa-t-tarka li-sayyiʾi mā taʿlamu wa-asʾaluka at-takaffula bir-rizqi wa-z-zuhda fīl-kafāfi wal-makhraja bil-bayāni min kulli shubhatan wal-falaḥa bi-ṣ-ṣawābi fī kulli ḥujjah wal-ʿadla fīl-ghaḍabi war-riḍā wat-taslīma limā yajrī bihil-qaḍā wal-iqtiṣāda fī l-faqri wa-l-ghinā wa-t-tawāḍuʿa fī l-qawli wal-fiʿli waṣ-ṣidqa fīl-jiddi wal-hazli.",
+        "en": "O Allah I ask You for the good that You know and to let me pass by the evil that You know and I ask You to provide me with provision, for indifference to begin physically satisfied, a clear way out from every uncertainty, a proper stance in every argument, justice in anger and pleasure, peace whatever fate ordains, providence in thought and wealth, humility in my words and actions and sincerity in my seriousness and in my jesting."
+      },
+      {
+        "ar": "اللَّهُمَّ إِنَّ لِي ذُنُوبًا فِيمَا بَيْنِي وَبَيْنَكَ، وَذُنُوبًا فِيمَا بَيْنِي وَبَيْنَ خَلْقِكَ",
+        "tr": "Allāhumma inna lī dhunūban fīmā baynī wa-baynak wa-dhunūban fīmā baynī wa-bayna khalqik.",
+        "en": "O Allah, indeed there are sins between me and You and there are sins between me and Your creation."
+      },
+      {
+        "ar": "اللَّهُمَّ مَا كَانَ لَكَ مِنْهَا فَاغْفِرْهُ لِي، وَمَا كَانَ مِنْهَا لِخَلْقِكَ فَتَحَمَّلْهُ عَنِّي، وَأَغْنِنِي بِفَضْلِكَ إِنَّكَ وَاسِعُ المَغْفِرَةِ",
+        "tr": "Allāhumma mā kāna laka minhā fa-ghfirhu lī wa-mā kāna minhā li-khalqika fa-taḥammalhu ʿannī wa-aghninī bi-faḍlika innaka wāsiʿu l-maghfirati.",
+        "en": "O Allah, what is this for You, so forgive me my sins and whatever arises from them, bear them for me and enrich me with Your favour, for Your forgiveness spreads wide."
+      },
+      {
+        "ar": "اَللَّهُمَّ نَوِّرْ بِالْعِلْمِ قَلْبِي، وَاسْتَعْمِلْ بِطَاعَتِكَ بَدَنِي، وَخَلِّصْ مِنَ الْفِتَنِ سِرِّي، وَاشْغَلْ بِالْاِعْتِبَارِ فِكْرِي، وَقِنِي شَرَّ وَسَاوِسِ الشَّيْطَانِ، وَأَجِرْنِي مِنْهُ يَا رَحْمٰنُ حَتَّى لَا يَكُونَ لَهُ عَلَيَّ سُلْطَانٌ",
+        "tr": "Allāhumma nawwir bi-l-ʿilmi qalbī wa-staʿmil bi-ṭāʿatika badanī wa-khallis mina l-fitani sirrī wa-shghal bi-l-iʿtibāri fikrī wa-qinī sharra wasāwisi sh-shayṭāni wa-ajirnī minhu yā raḥmān ḥattā lā yakūna lahu ʿalayya sulṭānun.",
+        "en": "O Allah, enlighten the knowledge of my heart and render my body obedient to You and purify me from inner discord and occupy me with contemplation and protect me from the whisperings of Satan and save me from him, O Compassionate One, until he no longer has any power over me."
+      },
+    ]
   },
   {
     "titleArabic": "حِزْبُ يَوْمِ الثُّلَاثَاءِ",
     "titleEnglish": "Tuesday",
-    "verses": []
+    "cartouche": "حِزْبُ يَوْمِ الثُّلَاثَاءِ",
+    "note": "The second ḥizb, recited on Tuesday — a long litany of ṣalawāt naming the Prophet ﷺ by his stations and epithets, opening with the supplication for refuge and closing with peace upon him and praise of the Lord of the worlds. It ends with the opening of the second quarter, an addition recited beyond the day's portion.",
+    "folios": [
+      { "from": 0, "to": 3 },
+      { "from": 4, "to": 9 },
+      { "from": 10, "to": 13 },
+      { "from": 14, "to": 16 },
+      { "from": 17, "to": 25 },
+      { "from": 26, "to": 35 },
+      { "from": 36, "to": 50 },
+      { "from": 51, "to": 65 },
+      { "from": 66, "to": 82 },
+      { "from": 83, "to": 99 },
+      { "from": 100, "to": 116 },
+      { "from": 117, "to": 128 },
+      { "from": 129, "to": 133, "band": "ابْتِدَاءُ الرُّبْعِ الثَّانِي" },
+      { "from": 134, "to": 139 }
+    ],
+    "verses": [
+      {
+        "ar": "اللَّهُمَّ إِنِّي أَسْأَلُكَ مِنْ خَيْرِ مَا تَعْلَمُ، وَأَعُوذُ بِكَ مِنْ شَرِّ مَا تَعْلَمُ، وَأَسْتَغْفِرُكَ مِنْ كُلِّ مَا تَعْلَمُ، إِنَّكَ تَعْلَمُ وَلَا نَعْلَمُ، وَأَنْتَ عَلَّامُ الغُيُوبِ",
+        "tr": "Allāhumma innī asʾaluka min khayri mā taʿlamu, wa aʿūdhu bika min sharri mā taʿlamu, wa astaghfiruka min kulli mā taʿlamu, innaka taʿlamu wa lā naʿlamu, wa anta ʿallāmu l-ghuyūb.",
+        "en": "O Allah I ask You the good of what You know and I seek refuge in You from the evil of what You know and I seek Your forgiveness for everything You know, for You indeed know and we do not know and indeed You are the Knower of the Unseen."
+      },
+      {
+        "ar": "اللَّهُمَّ ارْحَمْنِي مِنْ زَمَانِي هَذَا وَإِحْدَاقِ الْفِتَنِ، وَتَطَاوُلِ أَهْلِ الْجُرْأَةِ عَلَيَّ وَاسْتِضْعَافِهِمْ إِيَّايَ",
+        "tr": "Allāhumma irḥamnī min zamānī hādhā wa iḥdāqi l-fitani, wa taṭāwuli ahli l-jurāʾati ʿalayya wa istisḍʿāfihim īyāya.",
+        "en": "O Allah, have mercy on me in this time from the encirclement of discord, from the oppression of the insolent and their deficiencies and all such ills."
+      },
+      {
+        "ar": "اللَّهُمَّ اجْعَلْنِي مِنْكَ فِي عِيَاذٍ مَنِيعٍ، وَحِرْزٍ حَصِينٍ، مِنْ جَمِيعِ خَلْقِكَ حَتَّى تُبَلِّغَنِي أَجَلِي مُعَافًى",
+        "tr": "Allāhumma ajʿalnī minka fī ʿiyādin manīʿin, wa ḥirzin ḥaṣīnin, min jamīʿi khalqika ḥattā tuballighanī ajalī muʿāfā.",
+        "en": "O Allah, give me an unassailable refuge in You, an impenetrable protection with You from all of Your creation until I come to a virtuous end."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ عَدَدَ مَنْ صَلَّى عَلَيْهِ، وَصَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ عَدَدَ مَنْ لَمْ يُصَلِّ عَلَيْهِ، وَصَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ كَمَا تَنْبَغِي الصَّلَاةُ عَلَيْهِ، وَصَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ كَمَا تَجِبُ الصَّلَاةُ عَلَيْهِ، وَصَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ كَمَا أَمَرْتَ أَنْ يُصَلَّى عَلَيْهِ، وَصَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدِ نِ الَّذِي نُورُهُ مِنْ نُورِ الأَنْوَارِ، وَأَشْرَقَ بِشُعَاعِ سِرِّهِ الْأَسْرَارُ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammadin wa ʿalā āli sayyidinā Muḥammadin ʿadada man ṣallā ʿalayhi, wa ṣalli ʿalā sayyidinā Muḥammadin wa ʿalā āli sayyidinā Muḥammadin ʿadada man lam yuṣalli ʿalayhi, wa ṣalli ʿalā sayyidinā Muḥammadin wa ʿalā āli sayyidinā Muḥammadin kamā tanbaghī ṣ-ṣalātu ʿalayhi, wa ṣalli ʿalā sayyidinā Muḥammadin wa ʿalā āli sayyidinā Muḥammadin kamā tajibu ṣ-ṣalātu ʿalayhi, wa ṣalli ʿalā sayyidinā Muḥammadin wa ʿalā āli sayyidinā Muḥammadin kamā amarta an yuṣallā ʿalayhi, wa ṣalli ʿalā sayyidinā Muḥammadin wa ʿalā āli sayyidinā Muḥammadin alladhī nūruhu min nūri l-anwār, wa ashraqa bi-shuʿāʿi sirrihi l-asrār.",
+        "en": "O Allah, bless our master Muhammad and the family of our master Muhammad as many times as those who have asked for blessings upon him. O Allah, bless our master Muhammad and the family of our master Muhammad as many times as those who have not asked for blessings upon him and bless our master Muhammad and the family of our master Muhammad with as much blessings as is fitting for him and bless our master Muhammad and the family of our master Muhammad with as much blessings as is his due. And bless our master Muhammad and the family of our master Muhammad as You have ordered him to be blessed. And, bless our master Muhammad and the family of our master Muhammad whose Light is from the Light of Lights and who with a ray from his Secrets illuminated all Secrets."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ وَعَلَى أَهْلِ بَيْتِهِ الْأَبْرَارِ أَجْمَعِينَ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammadin wa ʿalā āli sayyidinā Muḥammadin wa ʿalā ahli baytihi l-abrār ajmaʿīn.",
+        "en": "O Allah, bless our master Muhammad and the family of our master Muhammad and upon all of his righteous family members altogether."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِهِ بَحْرِ أَنْوَارِكَ، وَمَعْدِنِ أَسْرَارِكَ، وَلِسَانِ حُجَّتِكَ، وَعَرُوسِ مَمْلَكَتِكَ، وَإِمَامِ حَضْرَتِكَ، وَخَاتِمِ أَنْبِيَائِكَ، صَلَاةً تَدُومُ بِدَوَامِكَ، وَتَبْقَى بِبَقَائِكَ، صَلَاةً تُرْضِيكَ وَتُرْضِيهِ، وَتَرْضَى بِهَا عَنَّا يَا أَرْحَمَ الرَّاحِمِينَ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammadin wa ʿalā ālihi baḥri anwārika, wa maʿdini asrārika, wa lisāni ḥujjatika, wa ʿarusi mamlakatika, wa imāmi ḥaḍratika, wa khātami anbiyāʾika, ṣalātan tadūmu bi-dawāmika wa tabqā bi-baqāʾika, ṣalātan turḍīka wa turḍīhi, wa tarḍā bihā ʿannā yā arḥama r-rāḥimīn.",
+        "en": "O Allah, bless our master Muhammad and his family, the Sea of Your Lights, the Mine of Your Secrets, the Tongue of Your Proof, the Bridegroom of Your Kingdom, the Leader of Your Presence and the Seal of Your Prophets with blessings which last as long as You last and remain as long as You remain, blessings which please You which please him, and which make You pleased with us, O Lord of the Worlds."
+      },
+      {
+        "ar": "اللَّهُمَّ رَبَّ الْحِلِّ وَالْحَرَامِ، وَرَبَّ الْمَشْعَرِ الْحَرَامِ، وَرَبَّ الْبَيْتِ الحَرَامِ، وَرَبَّ الرُّكْنِ وَالمَقَامِ، أَبْلِغْ لِسَيِّدِنَا وَمَوْلَانَا مُحَمَّدٍ مِنَّا السَّلَامَ",
+        "tr": "Allāhumma rabba l-ḥilli wa l-ḥarām, wa rabba l-mashʿari l-ḥarām, wa rabba l-bayti l-ḥarām, wa rabba r-rukni wa l-maqām, abliġ li-sayyidina wa mawlana muhammadin minnas salaam.",
+        "en": "O Allah, Lord of the Hil and the Haram, Lord of the Sanctuary, Lord of the Sacred House, and Lord of the Corner and Station of Abraham (these are all places connected with pilgrimage of Mecca). Send peace from us to our liege-lord and master Muhammad."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا وَمَوْلَانَا مُحَمَّدٍ سَيِّدِ الْأَوَّلِينَ وَالآخِرِينَ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā wa mawlānā Muḥammadin sayyidi l-awwalīna wa l-ākhirīn.",
+        "en": "O Allah, bless our liege-lord and master Muhammad the master of the First and the Last."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا وَمَوْلَانَا مُحَمَّدٍ فِي كُلِّ وَقْتٍ وَحِينٍ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā wa mawlāna Muḥammadin fī kulli waqtin wa ḥī.",
+        "en": "O Allah, bless our liege-lord and master Muhammad at every moment and every instant."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا وَمَوْلَانَا مُحَمَّدٍ فِي الْمَلَإِ الْأَعْلَى إِلَى يَوْمِ الدِّينِ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā wa mawlānā Muḥammadin fī l-malaʾi l-aʿlā ilā yawm ad-dīn.",
+        "en": "O Allah, bless our liege-lord and master Muhammad in the Heavenly Assembly until the Day of Judgement."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا وَمَوْلَانَا مُحَمَّدٍ حَتَّى تَرِثَ الْأَرْضَ وَمَنْ عَلَيْهَا وَأَنْتَ خَيْرُ الْوَارِثِينَ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā wa mawlānā Muḥammadin ḥattā taritha l-arḍa wa man ʿalayhā wa anta khayru l-wārithīn.",
+        "en": "O Allah, bless our liege-lord and master Muhammad until the earth bequeaths itself and what is on it to You and You are the best of those who inherit."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدِ نِ النَّبِيِّ الأُمِّيِّ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى سَيِّدِنَا إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مَّجِيدٌ، وَبَارِكْ عَلَى سَيِّدِنَا مُحَمَّدٍ النَّبِيِّ الْأُمِّيِّ كَمَا بَارَكْتَ عَلَى سَيِّدِنَا إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَّجِيدٌ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammadin an-nabiyyi l-ummī wa ʿalā āli sayyidinā Muḥammadin kamā ṣallayta ʿalā sayyidinā Ibrāhīm, innaka ḥamīdun majīd, wa bārik ʿalā sayyidinā Muḥammadin an-nabiyyi l-ummī kamā bārakta ʿalā sayyidinā Ibrāhīm, innaka ḥamīdun majīd.",
+        "en": "O Allah, bless our liege-lord and master Muhammad, the Unlettered Prophet, and the family of Muhammad just as You blessed our master Abraham, for You are Praiseworthy, the Mighty. And bless our liege-lord and master Muhammad, the Unlettered Prophet, and the family of Muhammad just as You blessed our master Abraham, for You are Praiseworthy, the Mighty."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ عَدَدَ مَا أَحَاطَ بِهِ عِلْمُكَ، وَجَرَى بِهِ قَلَمُكَ، وَ سَبَقَتْ بِهِ مَشِيئَتُكَ، وَصَلَّتْ عَلَيْهِ مَلَائِكَتُكَ، صَلَاةً دَائِمَةً بِدَوَامِكَ، بَاقِيَةً بِفَضْلِكَ وَإِحْسَانِكَ، إِلَى أَبَدِ الْأَبَدِ، أَبَدًا، لَا نِهَايَةَ لِأَبَدِيَّتِهِ، وَلَا فَنَاءَ لِدَيْمُومِيَّتِهِ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammadin wa ʿalā āli sayyidinā Muḥammadin ʿadada mā aḥāṭa bihi ʿilmuka, wa jarā bihi qalamuka, wa sabaqat bihi mashīʾatuka, wa ṣallat ʿalayhi malāʾikatuka, ṣalātan dāʾimatan bi-dawāmika, bāqiyatan bi-faḍlika wa iḥsānika, ilā abad al-abad, lā nihāyata li-abadiyyatihā wa lā fanāʾa li-daymūmiyyatih.",
+        "en": "O Allah, bless our master Muhammad and the family of our master Muhammad in all that Your knowledge encompasses, in everything that Your pen writes, in all that Your Will preordains, and as often as Your angels have blessed him, with eternal blessings, lasting as long as You last, remaining, by Your Grace and Your Generosity, until the end of eternity, never-ending, with no beginning to them, and no disappearing of them, for ever and ever."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ عَدَدَ مَا أَحَاطَ بِهِ عِلْمُكَ، وَأَحْصَاهُ كِتَابُكَ، وَشَهِدَتْ بِهِ مَلَائِكَتُكَ، وَارْضَ عَنْ أَصْحَابِهِ، وَارْحَمْ أُمَّتَهُ إِنَّكَ حَمِيدٌ مَّجِيدٌ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammadin wa ʿalā āli sayyidinā Muḥammadin ʿadada mā aḥāṭa bihi ʿilmuka wa aḥṣāhu kitābuka wa shahidat bihi malāʾikatuka, wa-rḍa ʿan aṣḥābihi wa irḥam ummatahu innaka ḥamīdun majīd.",
+        "en": "O Allah, bless our master Muhammad and the family of our master Muhammad as much as You know him, as much as Your Book encompasses as the witnessing of Your angels and be pleased with his Companions and be merciful on his nations for You are Praiseworthy the Mighty."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ وَعَلَى جَمِيعِ أَصْحَابِ سَيِّدِنَا مُّحَمَّدٍ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammadin wa ʿalā āli sayyidinā Muḥammadin wa ʿalā jamīʿi aṣḥābihi sayyidinā Muḥammad.",
+        "en": "O Allah, bless our master Muhammad and the family of the lord Muhammad, and all the Companions of our master Muhammad."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى سَيِّدِنَا إِبْرَاهِيمَ، وَبَارِكْ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ كَمَا بَارَكْتَ عَلَى سَيِّدِنَا إِبْرَاهِيمَ وَعَلَى آلِ سَيِّدِنَا إِبْرَاهِيمَ فِي الْعَالَمِينَ إِنَّكَ حَمِيدٌ مَّجِيدٌ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammadin wa ʿalā āli sayyidinā Muḥammadin kamā ṣallayta ʿalā sayyidinā Ibrāhīm, wa bārik ʿalā sayyidinā Muḥammadin wa ʿalā āli sayyidinā Muḥammadin kamā bārakta ʿalā sayyidinā Ibrāhīm wa ʿalā āli sayyidinā Ibrāhīm fī l-ʿālamīn innaka ḥamīdun majīd.",
+        "en": "O Allah, bless our master Muhammad and the family of the lord Muhammad just as You blessed our master Abraham and bless our master Muhammad and the family of the lord Muhammad just as You blessed our master Abraham in all the worlds for You are the Praiseworthy, the Mighty."
+      },
+      {
+        "ar": "اللَّهُمَّ بِخُشُوعِ القَلْبِ عِندَ السُّجُودِ، لَكَ يَا سَيِّدِي بِغَيْرِ جُحُودٍ، وَبِكَ يَا اللَّهُ يَا جَلِيلُ فَلَا شَيْءَ يُدَانِيكَ فِي غَلِيظِ الْعُهُودِ، وَبِكُرْسِيِّكَ الْمُكَلَّلِ بِالنُّورِ إِلَى عَرْشِكَ الْعَظِيمِ الْمَجِيدِ، وَبِمَا كَانَ تَحْتَ عَرْشِكَ حَقًّا، قَبْلَ أَنْ تَخْلُقَ السَّمَاوَاتِ وَصَوْتَ الرُّعُودِ، ذَاكَ إِذْ كُنْتَ مِثْلَ مَا لَمْ تَزَلْ قَطُّ إِلٰهًا عُرِفْتَ بِالتَّوْحِيدِ، فَاجْعَلْنَا مِنَ الْمُحِبِّينَ الْمَحْبُوبِينَ الْمُقَرَّبِينَ الْعَارِفِیْنَ الْعَاشِقِينَ لَكَ يَا اللَّهُ يَا اللَّهُ يَا اللَّهُ يَا اللَّهُ يَا اللَّهُ يَا اللَّهُ يَا اللَّهُ يَا اللَّهُ يَا وَدُودُ",
+        "tr": "Allāhumma bi-khushūʿi l-qalbi ʿinda s-sujūd laka yā sayyidī bi-ghayri juḥūd wa bika yā Allāhu yā Jalīl fa-lā shayʾa yudānīka fī ghalīẓi l-ʿuhūd, wa bi-kursiyyika l-mukallali bi-n-nūr ilā ʿarshika l-ʿaẓīm al-majīd, wa bimā kāna taḥta ʿarshika ḥaqqan qabla an takhlaqa s-samāwāti wa ṣawta r-raʿūd, dhāka idh kunta mithla mā lam tazal qaṭṭ ilāhan ʿurifta bi-t-tawḥīd, fajʿalnā mina l-muḥibbīn al-maḥbūbīn al-muqarrabīn al arifeena al-ʿāshiqīn laka yā Allāhu yā Allāhu yā Allāhu yā Allāhu yā Allāhu yā Allāhu yā Allāhu yā Allāhu yā Wadūd.",
+        "en": "O Allah, with heart humbled in prostration before You, You my Lord, with no unbelief, and for Your sake, O Allah, O Sublime. Nothing can match You in inviolable promises. And for the sake of Your Footstool adorned with light as far as Your Mighty and Powerful Throne. And for the sake of that which lay beneath Your Throne truly before You created the Heavens and the sound of Your thunder. And since You are infinite, a deity to be known only through Unity, then count me among Your Lovers, Your Beloved ones, Your Near ones, Your Knowers and Your Desires, O Allah. O Allah, O Allah, O Allah, O Allah, O Allah, O Allah, O Allah, O Bestower of Love."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا وَمَوْلَانَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ عَدَدَ مَا أَحَاطَ بِهِ عِلْمُكَ",
+        "tr": "Allāhumma ṣalli ʿalā Sayyidinā wa Mawlana Muḥammadin wa alaa alii ʿadada mā aḥāṭa bihi ʿilmuka.",
+        "en": "O Allah, bless our Lord and our patron Muhammad, and the family of our master Muhammad, in a number equal to all that Your knowledge encompasses."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا وَمَوْلَانَا مُحَمَّدٍ عَدَدَ مَا أَحْصَاهُ كِتَابُكَ",
+        "tr": "Allāhumma ṣalli ʿalā Sayyidinā wa Mawlana Muḥammadin ʿadada mā aḥṣāhu kitābuka.",
+        "en": "O Allah, bless our lord and master Muhammad as much as Your Book has encompassed."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا وَمَوْلَانَا مُحَمَّدٍ عَدَدَ مَا نَفَذَتْ بِهِ قُدْرَتُكَ",
+        "tr": "Allāhumma ṣalli ʿalā Sayyidinā wa Mawlana Muḥammadin ʿadada mā nafadhat bihi qudratuka.",
+        "en": "O Allah, bless our lord and master Muhammad as much that would exhaust Your powers by doing so."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا وَمَوْلَانَا مُحَمَّدٍ عَدَدَ مَا خَصَّصَتْهُ إِرَادَتُكَ",
+        "tr": "Allāhumma ṣalli ʿalā Sayyidinā wa Mawlana Muḥammadin ʿadada mā khaṣṣaṣtahu irādatuka.",
+        "en": "O Allah, bless our lord and master Muhammad as much as he is distinguished by your will."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا وَمَوْلَانَا مُحَمَّدٍ عَدَدَ مَا تَوَجَّهَ إِلَيْهِ أَمْرُكَ وَنَهْيُكَ",
+        "tr": "Allāhumma ṣalli ʿalā Sayyidinā wa Mawlana Muḥammadin ʿadada mā tawajjaha ilayhi amruka wa nahyuka.",
+        "en": "O Allah, bless our lord and master Muhammad as much as he is crowned by Your command and Your prohibition."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا وَمَوْلَانَا مُحَمَّدٍ عَدَدَ مَا وَسِعَهُ سَمْعُكَ",
+        "tr": "Allāhumma ṣalli ʿalā Sayyidinā wa Mawlana Muḥammadin ʿadada mā wasiʿahu samʿuka.",
+        "en": "O Allah, bless our lord and master Muhammad as much as all that is within range of Your Hearing."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا وَمَوْلَانَا مُحَمَّدٍ عَدَدَ مَا أَحَاطَ بِهِ بَصَرُكَ",
+        "tr": "Allāhumma ṣalli ʿalā Sayyidinā wa Mawlana Muḥammadin ʿadada mā aḥāṭa bihi baṣaruka.",
+        "en": "O Allah, bless our lord and master Muhammad as much as all that is encompassed by Your Vision."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا وَمَوْلَانَا مُحَمَّدٍ عَدَدَ مَا ذَكَرَهُ الذَّاكِرُونَ",
+        "tr": "Allāhumma ṣalli ʿalā Sayyidinā wa Mawlana Muḥammadin ʿadada mā dhakarahudh-dhākirūn.",
+        "en": "O Allah, bless our lord and master Muhammad as many times as those who remember him do so."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا وَمَوْلَانَا مُحَمَّدٍ عَدَدَ مَا غَفَلَ عَنْ ذِكْرِهِ الْغَافِلُونَ",
+        "tr": "Allāhumma ṣalli ʿalā Sayyidinā wa Mawlana Muḥammadin ʿadada mā ghafala ʿan dhikrihi l-ghāfilūn.",
+        "en": "O Allah, bless our lord and master Muhammad as many times as those who neglect to remember him do so."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا وَمَوْلَانَا مُحَمَّدٍ عَدَدَ قَطْرِ الْأَمْطَارِ",
+        "tr": "Allāhumma ṣalli ʿalā Sayyidinā wa Mawlana Muḥammadin ʿadada qaṭri l-amṭār.",
+        "en": "O Allah, bless our lord and master Muhammad as many times as there are drops of rain."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا وَمَوْلَانَا مُحَمَّدٍ عَدَدَ أَوْرَاقِ الْأَشْجَارِ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā wa mawlānā Muḥammadin ʿadada awrāqi l-ashjār.",
+        "en": "O Allah, bless our lord and master Muhammad as many times as there are leaves on the trees."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا وَمَوْلَانَا مُحَمَّدٍ عَدَدَ دَوَابِّ الْقِفَارِ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā wa mawlānā Muḥammadin ʿadada dawābbi l-qifār.",
+        "en": "O Allah, bless our lord and master Muhammad as many times as there are beasts of the dessert."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا وَمَوْلَانَا مُحَمَّدٍ عَدَدَ دَوَابِّ الْبِحَارِ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā wa mawlānā Muḥammadin ʿadada dawābbi l-biḥār.",
+        "en": "O Allah, bless our lord and master Muhammad as many times as there are creatures in the sea."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا وَمَوْلَانَا مُحَمَّدٍ عَدَدَ مِيَاهِ البِحَارِ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā wa mawlānā Muḥammadin ʿadada miyāhi l-biḥār.",
+        "en": "O Allah, bless our lord and master Muhammad as much as all there is water in the sea."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا وَمَوْلَانَا مُحَمَّدٍ عَدَدَ مَا أَظْلَمَ عَلَيْهِ اللَّيْلُ وَأَضَاءَ عَلَيْهِ النَّهَارُ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā wa mawlānā Muḥammadin ʿadada mā aẓlama ʿalayhil-laylu wa aḍāʾa ʿalayhi n-nahār.",
+        "en": "O Allah, bless our lord and master Muhammad as much as all that the night has covered and the day has illuminated."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا وَمَوْلَانَا مُحَمَّدٍ بِالْغُدُوِّ وَالْآصَالِ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā wa mawlānā Muḥammadin bi-l-ghudūwi wa l-āṣāl.",
+        "en": "O Allah, bless our lord and master Muhammad by morning and by the evening."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا وَمَوْلَانَا مُحَمَّدٍ عَدَدَ الرِّمَالِ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā wa mawlānā Muḥammadin ʿadada r-rimāl.",
+        "en": "O Allah, bless our lord and master Muhammad as many times as there are grains of sand."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا وَمَوْلَانَا مُحَمَّدٍ عَدَدَ النِّسَاءِ وَالرِّجَالِ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā wa mawlānā Muḥammadin ʿadada an-nisāʾi wa r-rijāl.",
+        "en": "O Allah, bless our lord and master Muhammad as many times as there are men and women."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا وَمَوْلَانَا مُحَمَّدٍ رِضَاءَ نَفْسِكَ",
+        "tr": "Allahumma ṣalli ʿalā sayyidinā wa mawlānā Muḥammadin riḍāʾa nafsik.",
+        "en": "O Allah, bless our lord and master Muhammad as much as pleases You."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا وَمَوْلَانَا مُحَمَّدٍ مِدَادَ كَلِمَاتِكَ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā wa mawlānā Muḥammadin midāda kalimātik.",
+        "en": "O Allah, bless our lord and master Muhammad as much as the ink of Your words."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا وَمَوْلَانَا مُحَمَّدٍ مِلْءَ سَمَاوَاتِكَ وَأَرْضِكَ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā wa mawlānā Muḥammadin milʾa samāwātika wa arḍik.",
+        "en": "O Allah, bless our lord and master Muhammad to the fullness of Your heavens and Your earth."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا وَمَوْلَانَا مُحَمَّدٍ زِنَةَ عَرْشِكَ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā wa mawlānā Muḥammadin zina ta ʿarshik.",
+        "en": "O Allah, bless our lord and master Muhammad in the decoration of Your Throne."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا وَمَوْلَانَا مُحَمَّدٍ عَدَدَ مَخْلُوقَاتِكَ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā wa mawlānā Muḥammadin ʿadada makhlūqātik.",
+        "en": "O Allah, bless our lord and master Muhammad as many times as there are created beings."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا وَمَوْلَانَا مُحَمَّدٍ أَفْضَلَ صَلَوَاتِكَ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā wa mawlānā Muḥammadin afḍala ṣalawātik.",
+        "en": "O Allah, bless our lord and master Muhammad with the very best of Your blessings."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى نَبِيِّ الرَّحْمَةِ",
+        "tr": "Allāhumma ṣalli ʿalā nabiyyi r-raḥma.",
+        "en": "O Allah, bless the Prophet of Mercy."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى شَفِيعِ الأُمَّةِ",
+        "tr": "Allāhumma ṣalli ʿalā shafīʿi l-umma.",
+        "en": "O Allah, bless the Intercessor of his nation."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى كَاشِفِ الغُمَّةِ",
+        "tr": "Allāhumma ṣalli ʿalā kashifi l-ghumma.",
+        "en": "O Allah, bless the Remover of grief."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى مُجْلِي الظُّلْمَةِ",
+        "tr": "Allāhumma ṣalli ʿalā mujallī ẓ-ẓulma.",
+        "en": "O Allah, bless the Clarifier of darkness."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى مُولِي النِّعْمَةِ",
+        "tr": "Allāhumma ṣalli ʿalā mūlī n-niʿma.",
+        "en": "O Allah, bless the Master of Happiness."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى مُؤْتِي الرَّحْمَةِ",
+        "tr": "Allāhumma ṣalli ʿalā muʾtī r-raḥma.",
+        "en": "O Allah, bless the Granter of mercy."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى صَاحِبِ الْحَوْضِ الْمَوْرُودِ",
+        "tr": "Allāhumma ṣalli ʿalā ṣāḥibi l-ḥawḍi l-mawrūd.",
+        "en": "O Allah, bless the Owner of the Sacred Pool."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى صَاحِبِ الْمَقَامِ المَحْمُودِ",
+        "tr": "Allāhumma ṣalli ʿalā ṣāḥibi l-maqāmi l-maḥmūd.",
+        "en": "O Allah, bless the Owner of the Most Praised Station."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى صَاحِبِ اللِّوَاءِ الْمَعْقُودِ",
+        "tr": "Allāhumma ṣalli ʿalā ṣāḥibi l-liwāʾi l-maʿqūd.",
+        "en": "O Allah, bless the Owner of the Flag."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى صَاحِبِ الْمَكَانِ المَشْهُودِ",
+        "tr": "Allāhumma ṣalli ʿalā ṣāḥibi l-makāni l-mashhūd.",
+        "en": "O Allah, bless the Owner of the site of Witnessing."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى الْمَوْصُوفِ بِالْكَرَمِ وَالجُودِ",
+        "tr": "Allāhumma ṣalli ʿalā l-mawṣūfi bi-l-karami wa l-jūd.",
+        "en": "O Allah, bless the One dressed in nobility and generosity."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى مَنْ هُوَ فِي السَّمَاءِ سَيِّدُنَا مَحْمُودٌ، وَفِي الْأَرْضِ سَيِّدُنَا مُحَمَّدٌ",
+        "tr": "Allāhumma ṣalli ʿalā man huwa fī s-samāʾ sayyidinā Maḥmūd wa fī l-arḍ sayyidinā Muḥammad.",
+        "en": "O Allah, bless the One called Mahmud in the Heaven and Muhammad on the earth."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى صَاحِبِ الشَّامَةِ",
+        "tr": "Allāhumma ṣalli ʿalā ṣāḥibi sh-shāma.",
+        "en": "O Allah, bless the Possessor of the mole."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى صَاحِبِ الْعَلَامَةِ",
+        "tr": "Allāhumma ṣalli ʿalā ṣāḥibi l-ʿalāma.",
+        "en": "O Allah, bless the Possessor of the distinguishing mark."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى الْمَوْصُوفِ بِالْكَرَامَةِ",
+        "tr": "Allāhumma ṣalli ʿalā l-mawṣūfi bi-l-karāma.",
+        "en": "O Allah, bless the One dressed in miracles."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى الْمَخْصُوصِ بِالزَّعَامَةِ",
+        "tr": "Allāhumma ṣalli ʿalā l-makhṣūṣi bi-z-zaʿāma.",
+        "en": "O Allah, bless the One with special leadership."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى مَنْ كَانَ تُظِلُّهُ الْغَمَامَةُ",
+        "tr": "Allāhumma ṣalli ʿalā man kāna tuẓilluhu l-ghamāma.",
+        "en": "O Allah, bless the One shaded by the clouds."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى مَنْ كَانَ يَرَى مَنْ خَلْفَهُ كَمَا يَرَى مَنْ أَمَامَهُ",
+        "tr": "Allāhumma ṣalli ʿalā man kāna yarā man khalfahu kamā yarā man amāma.",
+        "en": "O Allah, bless the One who can see equally from behind him as before him."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى الشَّفِيعِ المُشَفَّعِ يَوْمَ الْقِيَامَةِ",
+        "tr": "Allāhumma ṣalli ʿalā sh-shafīʿi l-mushaffaʿi yawma l-qiyāma.",
+        "en": "O Allah, bless the One whose intercession is accepted on the Day of Resurrection."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى صَاحِبِ الضَّرَاعَةِ",
+        "tr": "Allāhumma ṣalli ʿalā ṣāḥibi ḍ-ḍarāʿa.",
+        "en": "O Allah, bless the Possessor of humility."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى صَاحِبِ الشَّفَاعَةِ",
+        "tr": "Allāhumma ṣalli ʿalā ṣāḥibi sh-shafāʿa.",
+        "en": "O Allah, bless the Possessor of Intercession."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى صَاحِبِ الْوَسِيلَةِ",
+        "tr": "Allāhumma ṣalli ʿalā ṣāḥibi l-wasīla.",
+        "en": "O Allah, bless the Possessor of the Closest Access."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى صَاحِبِ الفَضِيلَةِ",
+        "tr": "Allāhumma ṣalli ʿalā ṣāḥibi l-faḍīla.",
+        "en": "O Allah, bless the Possessor of Pre-eminence."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى صَاحِبِ الدَّرَجَةِ الرَّفِيعَةِ",
+        "tr": "Allāhumma ṣalli ʿalā ṣāḥibi d-darajati r-rafīʿa.",
+        "en": "O Allah, bless the Possessor of the Lofty Rank."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى صَاحِبِ الْهِرَاوَةِ",
+        "tr": "Allāhumma ṣalli ʿalā ṣāḥibi l-hirāwa.",
+        "en": "O Allah, bless the Owner of the stalwart staff."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى صَاحِبِ النَّعْلَيْنِ",
+        "tr": "Allāhumma ṣalli ʿalā ṣāḥibi n-naʿlayn.",
+        "en": "O Allah, bless the Owner of the sandals."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى صَاحِبِ الْحُجَّةِ",
+        "tr": "Allāhumma ṣalli ʿalā ṣāḥibi l-ḥujja.",
+        "en": "O Allah, bless the Possessor of sound argument."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى صَاحِبِ الْبُرْهَانِ",
+        "tr": "Allāhumma ṣalli ʿalā ṣāḥibi l-burhān.",
+        "en": "O Allah, bless the Possessor of convincing reason."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى صَاحِبِ السُّلْطَانِ",
+        "tr": "Allāhumma ṣalli ʿalā ṣāḥibi s-sulṭān.",
+        "en": "O Allah, bless the Possessor of authority."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى صَاحِبِ التَّاجِ",
+        "tr": "Allāhumma ṣalli ʿalā ṣāḥibi t-tāj.",
+        "en": "O Allah, bless the Owner of the turban."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى صَاحِبِ الْمِعْرَاجِ",
+        "tr": "Allāhumma ṣalli ʿalā ṣāḥibi l-miʿrāj.",
+        "en": "O Allah, bless the Master of the night journey."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى صَاحِبِ الْقَضِيب",
+        "tr": "Allāhumma ṣalli ʿalā ṣāḥibi l-qaḍīb.",
+        "en": "O Allah, bless the Owner of the sceptre."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى رَاكِبِ النَّجِيبِ",
+        "tr": "Allāhumma ṣalli ʿalā rāki bi n-najīb.",
+        "en": "O Allah, bless the Noble Rider."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى رَاكِبِ الْبُرَاقِ",
+        "tr": "Allāhumma ṣalli ʿalā rāki bi l-burāq.",
+        "en": "O Allah, bless the Rider of Buraq."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى مُخْتَرِقِ السَّبْعِ الطِّبَاقِ",
+        "tr": "Allāhumma ṣalli ʿalā mukhtariqi s-sabʿi ṭ-ṭibāq.",
+        "en": "O Allah, bless the One who traversed the seven heavens."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى الشَّفِيعِ فِي جَمِيعِ الْأَنَامِ",
+        "tr": "Allāhumma ṣalli ʿalā sh-shafīʿi fī jamīʿi l-anām.",
+        "en": "O Allah , bless the Intercession for all creatures."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى مَنْ سَبَّحَ فِي كَفِّهِ الطَّعَامُ",
+        "tr": "Allāhumma ṣalli ʿalā man sabbaḥa fī kaffihi ṭ-ṭaʿām.",
+        "en": "O Allah, bless the One for who held food in his hand which glorified Allah."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى مَنْ بَكَى إِلَيْهِ الْجِذْعُ وَ حَنَّ لِفِرَاقِهِ",
+        "tr": "Allāhumma ṣalli ʿalā man bakā ilayhi l-jidhʿu wa ḥanna li-firāqih.",
+        "en": "O Allah, bless the One for whom a palm trunk wept and sighed at its separation from him."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى مَنْ تَوَكَّلَ بِهِ طَيْرُ الْفَلَاةِ",
+        "tr": "Allāhumma ṣalli ʿalā man tawassala bihi ṭayru l-falāh.",
+        "en": "O Allah, bless the One whose mediation was sought by the birds of the desert."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى مَنْ سَبَّحَتْ فِي كَفِّهِ الْحَصَاةُ",
+        "tr": "Allāhumma ṣalli ʿalā man sabbaḥat fī kaffihi l-ḥaṣāh.",
+        "en": "O Allah, bless the One who held stones in his hand which glorified Allah."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى مَنْ تَشَفَّعَ إِلَيْهِ الظَّبْيُ بِأَفْصَحِ كَلَام",
+        "tr": "Allāhumma ṣalli ʿalā man tashaffaʿa ilayhi ḍ-ẓabyu bi-afṣaḥi kalām.",
+        "en": "O Allah, bless the One for whose intercession was sought by the gazelles and whose request was made in human speech."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى مَنْ كَلَّمَهُ الضَّبُّ فِي مَجْلِسِهِ مَعَ أَصْحَابِهِ الْأَعْلَامِ",
+        "tr": "Allāhumma ṣalli ʿalā man kallamahu ḍ-ḍabb fī majlisihi maʿa aṣḥābihi l-aʿlām.",
+        "en": "O Allah, bless the One to whom a lizard spoke at an open gathering of the most learned Companions."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى البَشِيرِ النَّذِيرِ",
+        "tr": "Allāhumma ṣalli ʿalā l-bashīri n-nadhīr.",
+        "en": "O Allah, bless the Bearer of glad tidings and the Warner."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى السِّرَاجِ الْمُنِيرِ",
+        "tr": "Allāhumma ṣalli ʿalā s-sirāji l-munīr.",
+        "en": "O Allah, bless the Brilliant Lamp."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى مَنْ شَكَا إِلَيْهِ الْبَعِيرُ",
+        "tr": "Allāhumma ṣalli ʿalā man shakā ilayhi l-baʿīr.",
+        "en": "O Allah, bless the One to whom a camel made its complaint."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى مَنْ تَفَجَّرَ مِنْ بَيْنِ أَصَابِعِهِ المَاءُ النَّمِيرُ",
+        "tr": "Allāhumma ṣalli ʿalā man tafajja ra min bayni aṣābiʿihi l-māʾu n-namīr.",
+        "en": "O Allah, bless the One for whom sparking water burst forth from his fingertips."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى الطَّاهِرِ الْمُطَهَّرِ",
+        "tr": "Allāhumma ṣalli ʿalā ṭ-ṭāhiri l-muṭahhar.",
+        "en": "O Allah, bless the Pure one, the Purifier."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى نُورِ الْأَنْوَارِ",
+        "tr": "Allāhumma ṣalli ʿalā nūri l-anwār.",
+        "en": "O Allah, bless the Lights of Lights."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى مَنِ انْشَقَّ لَهُ الْقَمَرُ",
+        "tr": "Allāhumma ṣalli ʿalā mani nshaqqa lahu l-qamar.",
+        "en": "O Allah, bless the One for whom the moon was split open."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى الطَّيِّبِ الْمُطَيَّبِ",
+        "tr": "Allāhumma ṣalli ʿalā ṭ-ṭayyibi l-muṭayyab.",
+        "en": "O Allah, bless the One who was good and did good."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى الرَّسُولِ الْمُقَرَّبِ",
+        "tr": "Allāhumma ṣalli ʿalā r-rasūli l-muqarrab.",
+        "en": "O Allah, bless the Messenger close to Allah."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى الفَجْرِ السَّاطِع",
+        "tr": "Allāhumma ṣalli ʿalā l-fajri s-sāṭiʿ.",
+        "en": "O Allah, bless the Breaking Dawn."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى النَّجْمِ الثَّاقِبِ",
+        "tr": "Allāhumma ṣalli ʿalā n-najmi th-thāqib.",
+        "en": "O Allah, bless the Shining Star."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى العُرْوَةِ الْوُثْقَى",
+        "tr": "Allāhumma ṣalli ʿalā l-ʿurwati l-wuthqā.",
+        "en": "O Allah, bless the Trusty Handhold."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى نَذِيرِ أَهْلِ الْأَرْضِ",
+        "tr": "Allāhumma ṣalli ʿalā nadhīri ahli l-arḍ.",
+        "en": "O Allah, bless the Warner of the folk of the earth"
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى الشَّفِيعِ يَوْمَ الْعَرْضِ",
+        "tr": "Allāhumma ṣalli ʿalā sh-shafīʿi yawma l-ʿarḍ.",
+        "en": "O Allah, bless the Intercessor of the Day of Petition."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى السَّاقِي لِلنَّاسِ مِنَ الْحَوْضِ",
+        "tr": "Allāhumma ṣalli ʿalā s-sāqī li-n-nāsi mina l-ḥawḍ.",
+        "en": "O Allah, bless the One who will give people to drink from the Sacred Pool."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى صَاحِبِ لِوَاءِ الْحَمْدِ",
+        "tr": "Allāhumma ṣalli ʿalā ṣāḥibi liwāʾi l-ḥamd.",
+        "en": "O Allah, bless the Owner of the Flag of Praise."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى الْمُشَمِّرِ عَنْ سَاعِدِ الْجِدِّ",
+        "tr": "Allāhumma ṣalli ʿalā l-mushammir ʿan sāʿidi l-jidd.",
+        "en": "O Allah, bless the One who was ever ready for Your service."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى المُسْتَعْمِلِ فِي مَرْضَاتِكَ غَايَةَ الْجُهْدِ",
+        "tr": "Allāhumma ṣalli ʿalā l-mustaʿmali fī marḍātika ghāyata l-juhd.",
+        "en": "O Allah, bless the One who strove his utmost for Your Pleasure."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى النَّبِيِّ الْخَاتِمِ",
+        "tr": "Allāhumma ṣalli ʿalā n-nabiyyi l-khātim.",
+        "en": "O Allah, bless the Prophet, the Seal."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى الرَّسُولِ الخَاتِمِ",
+        "tr": "Allāhumma ṣalli ʿalā r-rasūli l-khātim.",
+        "en": "O Allah, bless Your Messenger, the Seal."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى الْمُصْطَفَى القَائِمِ",
+        "tr": "Allāhumma ṣalli ʿalā l-muṣṭafā l-qāʾim.",
+        "en": "O Allah, bless the Chosen one the Upright one."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى رَسُولِكَ سَيِّدِنَا أَبِي الْقَاسِمِ",
+        "tr": "Allāhumma ṣalli ʿalā rasūlika Sayyidina Abī l-Qāsim.",
+        "en": "O Allah, bless the Messenger, father of Qasim."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى صَاحِبِ الْآيَاتِ",
+        "tr": "Allāhumma ṣalli ʿalā ṣāḥibi l-āyāt.",
+        "en": "O Allah, bless the Possessor of signs."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى صَاحِبِ الدَّلَالَاتِ",
+        "tr": "Allāhumma ṣalli ʿalā ṣāḥibi d-dalālāt.",
+        "en": "O Allah, bless the Possessor of portents."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى صَاحِبِ الْإِشَارَاتِ",
+        "tr": "Allāhumma ṣalli ʿalā ṣāḥibi l-ishārāt.",
+        "en": "O Allah, bless the Possessor of indicators."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى صَاحِبِ الْكَرَامَاتِ",
+        "tr": "Allāhumma ṣalli ʿalā ṣāḥibi l-karāmāt.",
+        "en": "O Allah, bless the Possessor of miracles."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى صَاحِبِ الْعَلَامَاتِ",
+        "tr": "Allāhumma ṣalli ʿalā ṣāḥibi l-ʿalāmāt.",
+        "en": "O Allah, bless the Possessor of marks."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى صَاحِبِ الْبَيِّنَاتِ",
+        "tr": "Allāhumma ṣalli ʿalā ṣāḥibi l-bayyināt.",
+        "en": "O Allah, bless the Possessor of proofs."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى صَاحِبِ الْمُعْجِزَاتِ﻿",
+        "tr": "Allāhumma ṣalli ʿalā ṣāḥibi l-muʿjizāt.",
+        "en": "O Allah, bless the Possessor of marvels."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى صَاحِبِ خَوَارِقِ الْعَادَاتِ",
+        "tr": "Allāhumma ṣalli ʿalā ṣāḥibi khawāriqi l-ʿādāt.",
+        "en": "O Allah, bless the Possessor of wondrous events."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى مَنْ سَلَّمَتْ عَلَيْهِ الْأَحْجَارُ",
+        "tr": "Allāhumma ṣalli ʿalā man sallamat ʿalayhi l-aḥjār.",
+        "en": "O Allah, bless the One who was greeted by rocks."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى مَنْ سَجَدَتْ بَيْنَ يَدَيْهِ الْأَشْجَارُ",
+        "tr": "Allāhumma ṣalli ʿalā man sajadat bayna yadayhi l-ashjār.",
+        "en": "O Allah, bless the One before whom trees prostrated."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى مَنْ تَفَتَّقَتْ مِنْ نُورِهِ الْأَزْهَارُ",
+        "tr": "Allāhumma ṣalli ʿalā man tafattaqat min nūrihi l-azhār.",
+        "en": "O Allah, bless the One from whose light blossom unfolds."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى مَنْ طَابَتْ بِبَرَكَتِهِ الثِّمَارُ",
+        "tr": "Allāhumma ṣalli ʿalā man ṭābat bi-barakatihi th-thimār.",
+        "en": "O Allah, bless the One from whose blessings fruit ripens."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى مَنِ اخْضَرَّتْ مِنْ بَقِيَّةِ وَضُوئِهِ الْأَشْجَارُ",
+        "tr": "Allāhumma ṣalli ʿalā man ikhḍarrat min baqiyyati wudhūʾihi l-ashjār.",
+        "en": "O Allah, bless the One from whose leftover ablution water trees become green."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى مَنْ فَاضَتْ مِنْ نُورِهِ جَمِيعُ الْأَنْوَارِ",
+        "tr": "Allāhumma ṣalli ʿalā man fāḍat min nūrihi jamīʿu l-anwār.",
+        "en": "O Allah, bless the One whose light engulfs all other lights."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى مَنْ بِالصَّلَاةِ عَلَيْهِ تُحَطُّ الأَوْزَارُ",
+        "tr": "Allāhumma ṣalli ʿalā man biṣ-ṣalāti ʿalayhi tuḥaṭṭu l-awzār.",
+        "en": "O Allah, bless the One, the request for blessings upon whom lightens our every load."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى مَنْ بِالصَّلَاةِ عَلَيْهِ تُنَالُ مَنَازِلُ الْأَبْرَارِ",
+        "tr": "Allāhumma ṣalli ʿalā man biṣ-ṣalāti ʿalayhi tunālu manāzilu l-abrār.",
+        "en": "O Allah, bless the One, the request for blessings upon whom attains the ranks of the righteous."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى مَنْ بِالصَّلَاةِ عَلَيْهِ يُرْحَمُ الكِبَارُ وَالصِّغَارُ",
+        "tr": "Allāhumma ṣalli ʿalā man biṣ-ṣalāti ʿalayhi yurḥamu l-kibār wa ṣ-ṣighār.",
+        "en": "O Allah, bless the One, the request for blessings upon whom grants mercy to young and old."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى مَنْ بِالصَّلَاةِ عَلَيْهِ نَتَنَعَّمُ فِي هٰذِهِ الدَّارِ وَفِي تِلْكَ الدَّارِ",
+        "tr": "Allāhumma ṣalli ʿalā man biṣ-ṣalāti ʿalayhi natanaʿʿamu fī hādhihi d-dār wa fī tilka d-dār.",
+        "en": "O Allah, bless the One, the request for blessings upon whom brings favour to this house and that house."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى مَنْ بِالصَّلَاةِ عَلَيْهِ تُنَالُ رَحْمَةُ العَزِيزِ الْغَفَّارِ",
+        "tr": "Allāhumma ṣalli ʿalā man biṣ-ṣalāti ʿalayhi tunālu raḥmatu l-ʿAzīzi l-Ghaffār.",
+        "en": "O Allah, bless the One, the request for blessings upon whom brings mercy from the Almighty, the Forgiving."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى الْمَنْصُورِ الْمُوَيَّدِ",
+        "tr": "Allāhumma ṣalli ʿalā l-manṣūri l-muʾayyad.",
+        "en": "O Allah, bless the Victorious one, the Confirmer."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى الْمُخْتَارِ الْمُمَجَّدِ",
+        "tr": "Allāhumma ṣalli ʿalā l-mukhtāri l-mumajjad.",
+        "en": "O Allah, bless the Chosen one, the Extolled."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا وَمَوْلَانَا مُحَمَّدٍ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā wa mawlānā Muḥammadin.",
+        "en": "O Allah, bless our Master and our Patron Muhammad."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى مَنْ كَانَ إِذَا مَشَى فِي البَرِّ الأَقْفَرِ تَعَلَّقَتِ الْوُحُوشُ بِأَذْيَالِهِ",
+        "tr": "Allāhumma ṣalli ʿalā man kāna idhā mashā fī l-barri l-aqfar taʿallaqati l-wuḥūshu bi-azyālihi.",
+        "en": "O Allah, bless the One when he walked in the desert wild creatures would cling to the hem of his cloak."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَيْهِ وَعَلَى آلِهِ وَصَحْبِهِ وَسَلِّمْ تَسْلِيمًا كَثِيرًا، وَالحَمْدُ لِلَّهِ رَبِّ العَالَمِينَ",
+        "tr": "Allāhumma ṣalli ʿalayhi wa ʿalā ālihi wa ṣaḥbihi wa sallim taslīman kathīran wa l-ḥamdu lillāhi rabbi l-ʿālamīn.",
+        "en": "O Allah, bless and grant abundant peace to him and his family and Companions, and praise be to Allah, Lord of all the worlds."
+      },
+      {
+        "note": "ابْتِدَاءُ الرُّبْعِ الثَّانِي · The Second Quarter — recited as an addition after the day's portion",
+        "ar": "اَلْحَمْدُ لِلَّهِ عَلَى حِلْمِهِ بَعْدَ عِلْمِهِ، وَعَلَى عَفْوِهِ بَعْدَ قُدْرَتِهِ",
+        "tr": "Al-ḥamdu li-Llāhi ʿalā ḥilmihi baʿda ʿilmihi, wa ʿalā ʿafwihi baʿda qudratihi.",
+        "en": "Praise be to Allah for His forbearance after His knowledge, and for His pardon after His power."
+      },
+      {
+        "ar": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الفَقْرِ إِلَّا إِلَيْكَ، وَمِنَ الذُّلِّ إِلَّا لَكَ، وَمِنَ الخَوْفِ إِلَّا مِنْكَ، وَأَعُوذُ بِكَ أَنْ أَقُولَ زُورًا، أَوْ أَغْشَى فُجُورًا، أَوْ أَكُونَ بِكَ مَغْرُورًا، وَأَعُوذُ بِكَ مِنْ شَمَاتَةِ الأَعْدَاءِ، وَعُضَالِ الدَّاءِ، وَخَيْبَةِ الرَّجَاءِ، وَزَوَالِ النِّعْمَةِ، وَفُجَاءَةِ النِّقْمَةِ",
+        "tr": "Allāhumma innī aʿūdhu bika mina l-faqri illā ilayka, wa mina dh-dhulli illā laka, wa mina l-khawfi illā minka, wa aʿūdhu bika an aqūla zūran, aw aghshā fujūran, aw akūna bika maghrūran, wa aʿūdhu bika min shamātati l-aʿdāʾi, wa ʿuḍāli d-dāʾi, wa khaybati r-rajāʾi, wa zawāli n-niʿmati, wa fujāʾati n-niqmati.",
+        "en": "O Allah, I seek refuge in You from poverty — except poverty before You; from abasement — except before You; and from fear — except the fear of You. And I seek refuge in You from speaking falsehood, from being immersed in sin, and from being deluded about You. And I seek refuge in You from the gloating of enemies, from grievous illness, from the failing of hope, from the passing of blessing, and from the sudden onset of retribution."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَسَلِّمْ عَلَيْهِ، وَاجْزِهِ عَنَّا مَا هُوَ أَهْلُهُ حَبِيبُكَ (3)",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammadin wa sallim ʿalayhi, wa-jzihi ʿannā mā huwa ahluhu ḥabībuka. (3)",
+        "en": "O Allah, bless our master Muhammad and grant him peace, and reward him on our behalf as he deserves, for he is Your Beloved. (3)"
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا إِبْرَاهِيمَ وَسَلِّمْ عَلَيْهِ، وَاجْزِهِ عَنَّا مَا هُوَ أَهْلُهُ خَلِيلُكَ (3)",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Ibrāhīma wa sallim ʿalayhi, wa-jzihi ʿannā mā huwa ahluhu khalīluka. (3)",
+        "en": "O Allah, bless our master Abraham and grant him peace, and reward him on our behalf as he deserves, for he is Your intimate friend. (3)"
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ كَمَا صَلَّيْتَ وَرَحِمْتَ وَبَارَكْتَ عَلَى سَيِّدِنَا إِبْرَاهِيمَ وَعَلَى آلِ سَيِّدِنَا إِبْرَاهِيمَ فِي العَالَمِينَ إِنَّكَ حَمِيدٌ مَجِيدٌ، عَدَدَ خَلْقِكَ وَرِضَاءَ نَفْسِكَ وَزِنَةَ عَرْشِكَ وَمِدَادَ كَلِمَاتِكَ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammadin wa ʿalā āli sayyidinā Muḥammadin kamā ṣallayta wa raḥimta wa bārakta ʿalā sayyidinā Ibrāhīma wa ʿalā āli sayyidinā Ibrāhīma fī l-ʿālamīna innaka Ḥamīdun Majīd, ʿadada khalqika wa riḍāʾa nafsika wa zinata ʿarshika wa midāda kalimātika.",
+        "en": "O Allah, bless our master Muhammad and the family of our master Muhammad just as You blessed, showed mercy to, and sanctified our master Abraham and the family of our master Abraham in all the worlds — for You are the Praiseworthy, the Glorious — to the number of Your creation, to the measure of Your good pleasure, to the weight of Your Throne, and to the ink of Your words."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ عَدَدَ مَنْ صَلَّى عَلَيْهِ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammadin ʿadada man ṣallā ʿalayhi.",
+        "en": "O Allah, bless our master Muhammad as many times as those who have sent blessings upon him."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ عَدَدَ مَنْ لَمْ يُصَلِّ عَلَيْهِ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammadin ʿadada man lam yuṣalli ʿalayhi.",
+        "en": "O Allah, bless our master Muhammad as many times as those who have not sent blessings upon him."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ عَدَدَ مَا صُلِّيَ عَلَيْهِ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammadin ʿadada mā ṣulliya ʿalayhi.",
+        "en": "O Allah, bless our master Muhammad as many times as blessings have been sent upon him."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ أَضْعَافَ مَا صُلِّيَ عَلَيْهِ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammadin aḍʿāfa mā ṣulliya ʿalayhi.",
+        "en": "O Allah, bless our master Muhammad manifold the blessings that have been sent upon him."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ كَمَا هُوَ أَهْلُهُ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammadin kamā huwa ahluhu.",
+        "en": "O Allah, bless our master Muhammad as he deserves."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ كَمَا تُحِبُّ وَتَرْضَى لَهُ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammadin kamā tuḥibbu wa tarḍā lahu.",
+        "en": "O Allah, bless our master Muhammad as You love and are pleased for him."
+      },
+    ]
   },
   {
     "titleArabic": "حِزْبُ يَوْمِ الأَرْبِعَاءِ",
     "titleEnglish": "Wednesday",
-    "verses": []
+    "cartouche": "حِزْبُ يَوْمِ الأَرْبِعَاءِ",
+    "note": "The third ḥizb, recited on Wednesday — blessings upon the Prophet ﷺ in soul, body and grave, upon the prophets and angels, and a closing munājāt describing his rank above all creation. Three verses are marked to be recited three times, and the second third of the Dalāʾil begins partway through.",
+    "folios": [
+      { "from": 0, "to": 4 },
+      { "from": 5, "to": 11 },
+      { "from": 12, "to": 17 },
+      { "from": 18, "to": 19 },
+      { "from": 20, "to": 25 },
+      { "from": 26, "to": 30 },
+      { "from": 31, "to": 32, "band": "ابْتِدَاءُ الثُّلُثِ الثَّانِي" },
+      { "from": 33, "to": 36 },
+      { "from": 37, "to": 39 },
+      { "from": 40, "to": 41 },
+      { "from": 42, "to": 42 },
+      { "from": 43, "to": 43 }
+    ],
+    "verses": [
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى رُوحِ سَيِّدِنَا مُحَمَّدٍ فِي الأَرْوَاحِ، وَعَلَى جَسَدِهِ فِي الأَجْسَادِ، وَعَلَى قَبْرِهِ فِي القُبُورِ، وَعَلَى آلِهِ وَصَحْبِهِ وَسَلِّمْ",
+        "tr": "Allāhumma ṣalli ʿalā rūḥi sayyidinā Muḥammad fī al-arwāḥ, wa ʿalā jasadihi fī al-ajsād, wa ʿalā qabrihi fī al-qubūr, wa ʿalā ālihi wa ṣaḥbihi wa sallim.",
+        "en": "O Allah, more than other soul in existence, bless the soul of our master Muhammad. And more than other body in existence, bless the body of our master Muhammad. And more than other grave in existence, bless the grave of our master Muhammad. And bless and grant abundant peace to him, his family and his Companions."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ كُلَّمَا ذَكَرَهُ الذَّاكِرُونَ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammad kullamā dhakarahu al-dhākirūn.",
+        "en": "O Allah, bless our master Muhammad whenever those who remember him do so."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ كُلَّمَا غَفَلَ عَنْ ذِكْرِهِ الْغَافِلُونَ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammad kullamā ghafala ʿan dhikrihi al-ghāfilūn.",
+        "en": "O Allah, bless our master Muhammad whenever those who neglect to remember him do so."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَى سَيِّدِنَا مُحَمَّدٍ النَّبِيِّ الأُمِّيِّ، وَأَزْوَاجِهِ أُمَّهَاتِ المُؤْمِنِينَ، وَذُرِّيَّتِهِ وَأَهْلِ بَيْتِهِ، صَلَاةً وَسَلَامًا لَا يُحْصَى عَدَدُهُمَا وَلَا يَنْقَطِعُ مَدَدُهُمَا",
+        "tr": "Allāhumma ṣalli wa sallim wa bārik ʿalā sayyidinā Muḥammad al-nabī al-ummī wa azwājihi ummahāt al-muʾminīn, wa dhurriyyatihi wa ahl baytihi, ṣalātan wa salāman lā yuḥṣā ʿadaduhumā wa lā yanqaṭiʿu madaduhumā.",
+        "en": "O Allah, bless grant peace to and sanctify our master Muhammad the Unlettered Prophet, and also his wives, the Mothers of the Believers, his descendants and the People of his House, such blessings and peace which are measureless and grant of which is incessant."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ عَدَدَ مَا أَحَاطَ بِهِ عِلْمُكَ، وَأَحْصَاهُ كِتَابُكَ، صَلَاةً تَكُونُ لَهُ رِضَاءً، وَلِحَقِّهِ أَدَاءً، وَأَعْطِهِ الْوَسِيلَةَ وَالْفَضِيلَةَ وَالدَّرَجَةَ الرَّفِيعَةَ، وَابْعَثْهُ اللَّهُمَّ المَقَامَ المَحْمُودَ الَّذِي وَعَدْتَّهُ، وَاجْزِهِ عَنَّا مَا هُوَ أَهْلُهُ، وَعَلَى جَمِيعِ إِخْوَانِهِ مِنَ النَّبِيِّينَ وَالصِّدِّيقِينَ وَالشُّهَدَاءِ وَالصَّالِحِينَ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammad ʿadada mā aḥāṭa bihi ʿilmuka, wa aḥṣāhu kitābuka, ṣalātan takūnu lahu riḍāʾan, wa li-ḥaqqihi adāʾan, wa aʿṭihi al-wasīlah wa al-faḍīlah wa al-darajah al-rafīʿah, wa ibʿathhu Allāhumma al-maqāma al-maḥmūda alladhī waʿadtahu, wa jzihi ʿannā mā huwa ahluh, wa ʿalā jamīʿ ikhwanihi mina al-nabiyyīn wa al-ṣiddīqīn wa al-shuhadāʾ wa al-ṣāliḥīn.",
+        "en": "O Allah, bless our master Muhammad in all that is encompassed by Your Knowledge, in all that is contained in Your Book, with blessings which are a Pleasure for You and which befit his legitimate right, and grant him the Closest Access, the Pre-eminence and the Lofty Rank, and send him, O Allah, to the Most Praised Station which You promised him, and reward him on our behalf as he deserves and likewise reward his Brother Prophets, and the truthful, the martyrs and the righteous ones."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَأَنْزِلْهُ المُنْزَلَ الْمُقَرَّبَ يَوْمَ القِيَامَةِ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammad wa anzilhu al-munzal al-muqarrab yawma al-qiyāmah.",
+        "en": "O Allah, bless our master Muhammad and bestow upon him the nearest position on the Day of Resurrection."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammad.",
+        "en": "O Allah, bless our master Muhammad."
+      },
+      {
+        "ar": "اللَّهُمَّ تَوِّجْهُ بِتَاجِ الْعِزِّ وَالرِّضَا وَالْكَرَامَةِ",
+        "tr": "Allāhumma tawwijhu bi-tāj al-ʿizz wa al-riḍā wa al-karāmah.",
+        "en": "O Allah, crown him with the crown of might, satisfaction and honor﻿."
+      },
+      {
+        "ar": "اللَّهُمَّ أَعْطِ لِسَيِّدِنَا مُحَمَّدٍ أَفْضَلَ مَا سَأَلَكَ لِنَفْسِهِ، وَأَعْطِ لِسَيِّدِنَا مُحَمَّدٍ أَفْضَلَ مَا سَأَلَكَ لَهُ أَحَدٌ مِنْ خَلْقِكَ، وَأَعْطِ لِسَيِّدِنَا مُحَمَّدٍ أَفْضَلَ مَا أَنْتَ مَسْئُولٌ لَهُ إِلَى يَوْمِ القِيَامَةِ",
+        "tr": "Allāhumma aʿṭi li-sayyidinā Muḥammad afḍala mā saʾalaka li-nafsihi, wa aʿṭi li-sayyidinā Muḥammad afḍala mā saʾalaka lahu aḥadun min khalqik, wa aʿṭi li-sayyidinā Muḥammad afḍala mā anta masʾūlun lahu ilā yawm al-qiyāmah.",
+        "en": "O Allah, grant our master Muhammad better than anyone of Your Creation has ever asked for himself, and grant our master Muhammad better than anyone of Your Creation has ever asked for him, and grant our master Muhammad better than You can be asked to grant him until Day of Resurrection."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَسَيِّدِنَا آدَمَ وَسَيِّدِنَا نُوحٍ وَسَيِّدِنَا إِبْرَاهِيمَ وَسَيِّدِنَا مُوسَى وَسَيِّدِنَا عِيسَى، وَمَا بَيْنَهُمْ مِنَ النَّبِيِّينَ وَالْمُرْسَلِينَ، صَلَوَاتُ اللَّهِ وَسَلَامُهُ عَلَيْهِمْ أَجْمَعِينَ (3)",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammad wa sayyidinā Ādam wa sayyidinā Nūḥ wa sayyidinā Ibrāhīm wa sayyidinā Mūsā wa sayyidinā ʿĪsā wa mā baynahum mina al-nabiyyīn wa al-mursalīn, ṣalawātu Allāhi wa salāmuhu ʿalayhim ajmaʿīn. (3)",
+        "en": "O Allah, bless our master Muhammad, and Adam, and Abraham. And Moses, and Jesus and all the Prophets and Messenger between them and the blessings and peace of Allah be upon all of them. (three times) (3)"
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى أَبِينَا سَيِّدِنَا آدَمَ وَأُمِّنَا سَیِّدَتِنَا حَوَّاءَ، صَلَاةَ مَلَائِكَتِكَ، وَأَعْطِهِمَا مِنَ الرِّضْوَانِ حَتَّى تُرْضِيَهُمَا، وَاجْزِهِمَا اللَّهُمَّ أَفْضَلَ مَا جَازَيْتَ بِهِ أَبًا وَأُمًّا عَنْ وَلَدَيْهِمَا (3)",
+        "tr": "Allāhumma ṣalli ʿalā abīnā sayyidinā Ādam wa umminā sayyidatinā Ḥawwāʾ, ṣalāta malāʾikatik, wa aʿṭihimā mina al-riḍwān ḥattā turiḍḍiyahumā, wa jzihimā Allāhumma afḍala mā jāzayta bihi aban wa umman ʿan waladayhimā. (3)",
+        "en": "O Allah bless our father Adam and our Mother Eve, with the blessings of Your angels, and grant them Your Pleasure until it pleases them and reward them, O Allah, better than You have rewarded any father and mother on behalf of their children. (recite three times) (3)"
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا جِبْرِيلَ وَسَيِّدِنَا مِيكَائِيلَ، وَسَيِّدِنَا إِسْرَافِيلَ وَسَيِّدِنَا عِزْرَائِيلَ، وَحَمَلَةِ العَرْشِ وَعَلَى الْمَلَائِكَةِ وَالْمُقَرَّبِينَ، وَعَلَى جَمِيعِ الأَنْبِيَاءِ وَالمُرْسَلِينَ، صَلَوَاتُ اللَّهِ وَسَلَامُهُ عَلَيْهِمْ أَجْمَعِينَ (3)",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Jibrīl wa sayyidinā Mīkāʾīl wa sayyidinā Isrāfīl wa sayyidinā ʿAzrāʾīl wa ḥamalat al-ʿarsh wa ʿalā al-malāʾikah wa al-muqarrabīn wa ʿalā jamīʿ al-anbiyāʾ wa al-mursalīn, ṣalawātu Allāhi wa salāmuhu ʿalayhim ajmaʿīn. (3)",
+        "en": "O Allah, bless our master Gabriel, and Mika’il, and Israfil and Azrail, and the Bearers of the Th rone, and the Angels of Intimacy and all the Prophets and Messengers, and the blessings and peace of Allah be upon all of them. (three times) (3)"
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ عَدَدَ مَا عَلِمْتَ، وَمِلْءَ مَا عَلِمْتَ، وَزِنَةَ مَا عَلِمْتَ، وَمِدَادَ كَلِمَاتِكَ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammad ʿadada mā ʿalimta, wa milʾa mā ʿalimta, wa zinata mā ʿalimta, wa midāda kalimātik.",
+        "en": "O Allah, bless our master Muhammad as much as Your Knowledge, as much as the depths of Your Knowledge, as much as the weight of Your Knowledge and as much as the ink of Your Words."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ صَلَاةً مَوْصُولَةً بِالْمَزِيدِ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammad ṣalātan mawṣūlatan bi-al-mazīd.",
+        "en": "O Allah, bless our master Muhammad with blessings which are continuously abundant."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ صَلَاةً لَا تَنْقَطِعُ أَبَدَ الْآبَادِ وَلَا تَبِيدُ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammad ṣalātan lā tanqaṭiʿu abadan al-ābād wa lā tabīd.",
+        "en": "O Allah, bless our master Muhammad with blessings never-ending and unceasing."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ صَلَاتَكَ الَّتِي صَلَّيْتَ عَلَيْهِ، وَسَلِّمْ عَلَى سَيِّدِنَا مُحَمَّدٍ سَلَامَكَ الَّذِي سَلَّمْتَ عَلَيْهِ، وَاجْزِهِ عَنَّا مَا هُوَ أَهْلُهُ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammad ṣalātaka allatī ṣallayta ʿalayh, wa sallim ʿalā sayyidinā Muḥammad salāmaka alladhī sallamta ʿalayh, wa jzihi ʿannā mā huwa ahluh.",
+        "en": "O Allah, bless our master Muhammad with as much blessings as all the blessings You have so far bestowed upon him and grant as much peace to our master Muhammad with as much peace a You have so far granted him and reward him on our behalf as he deserves."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ صَلَاةً تُرْضِيكَ وَتُرْضِيهِ، وَتَرْضَى بِهَا عَنَّا، وَاجْزِهِ عَنَّا مَا هُوَ أَهْلُهُ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammad ṣalātan turiḍḍīka wa turiḍḍīh, wa tarḍā bihā ʿannā, wa jzihi ʿannā mā huwa ahluh.",
+        "en": "O Allah, bless our master Muhammad with blessings which please You, which please him and by which You are pleased with us and reward him on our behalf as he deserves."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ بَحْرِ أَنْوَارِكَ، وَمَعْدِنِ أَسْرَارِكَ، وَلِسَانِ حُجَّتِكَ، وَعَرُوسِ مَمْلَكَتِكَ، وَإِمَامِ حَضْرَتِكَ، وَطِرَازِ مُلْكِكَ، وَخَزَائِنِ رَحْمَتِكَ، وَطَرِيقِ شَرِيعَتِكَ الْمُتَلَذِّذِ بِتَوْحِيدِكَ، إِنْسَانِ عَيْنِ الوُجُودِ، وَالسَّبَبِ فِي كُلِّ مَوْجُودٍ، عَيْنِ أَعْيَانِ خَلْقِكَ، اَلْمُتَقَدِّمِ مِنْ نُّورِ ضِيَائِكَ، صَلَاةً تَدُومُ بِدَوَامِكَ، وَتَبْقَى بِبَقَائِكَ، لَا مُنْتَهَى لَهَا دُونَ عِلْمِكَ، صَلَاةً تُرْضِيكَ وَتُرْضِيهِ، وَتَرْضَى بِهَا عَنَّا يَا رَبَّ العَالَمِينَ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammad baḥr anwārika, wa maʿdin asrārika, wa lisān ḥujjatika, wa ʿarūs mamlakatika, wa imām ḥaḍratika, wa ṭirāz mulkika, wa khazāʾin raḥmatika, wa ṭarīq sharīʿatika, al-mutaladhdhi bi-tawḥīdik, insān ʿayn al-wujūd, wa al-sabab fī kull mawjūd, ʿayn aʿyān khalqik, al-mutaqaddim min nūr ḍiyāʾik, ṣalātan tadūmu bi-dawāmik, wa tabqā bi-baqāʾik, lā muntahā lahā dūna ʿilmik, ṣalātan turiḍḍīka wa turiḍḍīh, wa tarḍā bihā ʿannā yā rabb al-ʿālamīn.",
+        "en": "O Allah, bless our master Muhammad, the Ocean of Your Lights, the Mine of Your Secrets the Tongue of Your Proof, the Bridegroom of Your Kingdoms, the Leader of Your Presence, the Embroidery of Your Dominion, the Vault of Your Mercy, the Way of Your Law, the Delight of Your Unity, the Pupil of the Eye of Existence, the Cause of all Existence, the Most Eminent of Your Creation, the Representative of the Light of Your Resplendence, with blessings which last for as long as You last and remain as long as You remain, blessings which are limitless apart from your knowledge thereof, blessings which please You, which please him and by which You are pleased with us, O Lord of the worlds."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ عَدَدَ مَا فِي عِلْمِ اللَّهِ صَلَاةً دَائِمَةً بِدَوَامِ مُلْكِ اللَّهِ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammad ʿadada mā fī ʿilm Allāh ṣalātan dāʾimatan bi-dawām mulk Allāh.",
+        "en": "O Allah, bless our master Muhammad as much as all that which is within the knowledge of Allah, blessings which are eternal and which last as long as the duration of the kingdom of Allah."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى سَيِّدِنَا إِبْرَاهِيمَ، وَبَارِكْ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ كَمَا بَارَكْتَ عَلَى آلِ سَيِّدِنَا إِبْرَاهِيمَ فِي الْعَالَمِينَ إِنَّكَ حَمِيدٌ مَّجِيدٌ، عَدَدَ خَلْقِكَ وَرِضَاءَ نَفْسِكَ وَزِنَةَ عَرْشِكَ وَمِدَادَ كَلِمَاتِكَ، وَعَدَدَ مَا ذَكَرَكَ بِهِ خَلْقُكَ فِيمَا مَضَى، وَعَدَدَ مَا هُمْ ذَاكِرُونَكَ بِهِ فِيمَا بَقَى، فِي كُلِّ سَنَةٍ وَشَهْرٍ وَجُمُعَةٍ وَيَوْمٍ وَلَيْلَةٍ وَسَاعَةٍ مِنَ السَّاعَاتِ وَشَمٍّ وَنَفْسٍ وَطَرْفَةٍ وَلَمْحَةٍ، مِنَ الْأَبَدِ إِلَى الْأَبَدِ، وَآبَادِ الدُّنْيَا وَآبَادِ الآخِرَةِ، وَأَكْثَرَ مِنْ ذَلِكَ، لَا يَنْقَطِعُ أَوَّلُهُ، وَلَا يَنْفَدُ آخِرُهُ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammad kamā ṣallayta ʿalā sayyidinā Ibrāhīm, wa bārik ʿalā sayyidinā Muḥammad wa ʿalā āli sayyidinā Muḥammad kamā bārakta ʿalā āli sayyidinā Ibrāhīm fī al-ʿālamīn innaka Ḥamīdun Majīd, ʿadada khalqik wa riḍā nafsik wa zinata ʿarshik wa midāda kalimātik, wa ʿadada mā dhakaraka bihi khalquk fīmā maḍā, wa ʿadada māhum dhākirūnaka bihi fīma baqā, fī kull sanah wa shahr wa jumʿah wa yawm wa laylah wa sāʿah mina al-sāʿāt wa shamm wa nafas wa ṭarfah wa lamḥah, mina al-abad ilā al-abad, wa ābād al-dunyā wa ābād al-ākhirah, wa akthar min dhālik, lā yanqaṭiʿu awwaluhu wa lā yanfad ākhiruhu.",
+        "en": "O Allah, bless our master Muhammad just as You blessed our master Abraham and sanctify our master Muhammad and the family of our master Muhammad just as You sanctified the family of our master Abraham, in all worlds, for You are the Praiseworthy, the Mighty (and bless him) As much as all of Your creation, to the extent of Your Pleasure, in the decoration of Your Th rone and in the ink of Your Words, and as often Your Creation has remembered You in the past and as often as they will remember You throughout the rest of time, and bless him in every year, in every month, in every week, in every day, in every night, in every hour, in every sniff , in every breath, in every blink and in every glance, for ever and ever, for the duration of this world and the duration of the next world, and for longer than this, with a beginning that never ends and an end which never finishes."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ عَلَى قَدْرِ حُبِّكَ فِيهِ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammad ʿalā qadr ḥubbik fīh.",
+        "en": "O Allah, bless our master Muhammad as much as Your love for him."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ عَلَى قَدْرِ عِنَايْتِكَ بِهِ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammad ʿalā qadr ʿināyatika bih.",
+        "en": "O Allah, bless our master Muhammad to the measure of your concern for him."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ حَقَّ قَدْرِهِ وَمِقْدَارِهِ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammad ḥaqqa qadrihi wa miqdārih.",
+        "en": "O Allah , bless our Master Muhammad as his worth and his stature merit."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ صَلَاةً تُنْجِينَا بِهَا مِنْ جَمِيعِ الْأَهْوَالِ وَالآفَاتِ، وَتَقْضِي لَنَا بِهَا جَمِيعَ الْحَاجَاتِ، وَتُطَهِّرُنَا بِهَا مِنْ جَمِيعِ السَّيِّئَاتِ، وَتَرْفَعُنَا بِهَا أَعْلَى الدَّرَجَاتِ، وَتُبُلِّغُنَا بِهَا أَقْصَى الْغَايَاتِ مِنْ جَمِيعِ الْخَيْرَاتِ، فِي الْحَيَاةِ وَبَعْدَ الْمَمَاتِ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammad ṣalātan tunjīnā bihā min jamīʿ al-ahwāl wa al-āfāt, wa taqḍī lanā bihā jamīʿ al-ḥājāt, wa tuṭahhirunā bihā min jamīʿ al-sayyiʾāt, wa tarfaʿunā bihā aʿlā al-darajāt, wa tuballighunā bihā aqṣā al-ghāyāt min jamīʿ al-khayrāt fī al-ḥayāh wa baʿd al-mamāt.",
+        "en": "O Allah, bless our master Muhammad, with blessings which serve as a sanctuary for us from all terrors and oppression, which settle all our aff airs, which purify us from all sins, which raise our ranks in Your Presence, and which allow us to attain ultimate goodness in the life and after death."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ صَلَاةَ الرِّضَا، وَارْضَ عَنْ أَصْحَابِهِ رِضَاءَ الرِّضَا",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammad ṣalāta al-riḍā, wa arḍa ʿan aṣḥābihi riḍā al-riḍā.",
+        "en": "O Allah, bless our master Muhammad, a blessings of contentment, and be pleased with his Companions, a pleasure of contentment."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ السَّابِقِ لِلْخَلْقِ نُورُهُ، وَرَحْمَةٌ لِّلْعَالَمِينَ ظُهُورُهُ، عَدَدَ مَنْ مَضَى مِنْ خَلْقِكَ وَمَنْ بَقِيَ، وَمَنْ سَعِدَ مِنْهُمْ وَمَنْ شَقِيَ، صَلَاةً تَسْتَغْرِقُ العَدَّ، وَتُحِيطُ بِالْحَدِّ، صَلَاةً لَا غَايَةَ لَهَا وَلَا مُنْتَهَى وَلَا انْقِضَاءَ، صَلَاةً دَائِمَةً بِدَوَامِكَ، وَعَلَى آلِهِ وَصَحْبِهِ وَسَلِّمْ تَسْلِيمًا مِّثْلَ ذَالِكَ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammad al-sābiq lil-khalq nūruhu wa raḥmatun lil-ʿālamīn ẓuhūruhu, ʿadada man maḍā min khalqik wa man baqiya wa man saʿida minhum wa man shaqiya, ṣalātan tastaghriqu al-ʿadd wa tuḥīṭu bil-ḥadd, ṣalātan lā ghāyata lahā wa lā muntahā wa lā inqiḍāʾ, ṣalātan dāʾimatan bi-dawāmik, wa ʿalā ālihi wa ṣaḥbihi, wa sallim taslīman mithla dhālik.",
+        "en": "O Allah, bless our master Muhammad, whose light preceded all creation, whose appearance is a Mercy to all the worlds, as much as all your Creation which has passed and as much as that which remains, as much as those of Your Creation who are fortunate and those who are not, blessings which exceed all enumeration and which encompass all limits, blessings with no utmost limit, boundless and ceaseless blessings which are eternal, as long as Your duration, and likewise bless his family, his Companions and grant him and them abundant peace in like measure."
+      },
+      {
+        "ar": "اللَّهمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدِ نِ الَّذِي مَلَأْتَ قَلْبَهُ مِنْ جَلَالِكَ، وَعَيْنَهُ مِنْ جَمَالِكَ، فَأَصْبَحَ فَرِحًا مُؤَيَّدًا مَنْصُورًا، وَعَلَى آلهِ وَصَحْبِهِ وَسَلِّمْ تَسْلِيمًا، وَالحَمْدُ لِلَّهِ عَلَى ذَالِكَ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammadin illadhī malaʾta qalbahu min jalālika wa ʿaynahu min jamālika, fa aṣbaḥa fariḥan muʾayyadan manṣūran, wa ʿalā ālihi wa ṣaḥbihi wa sallim taslīman wa al-ḥamdu lillāh ʿalā dhālik.",
+        "en": "O Allah, bless our master Muhammad, whose heart is so full with Your Glory ad whose eyes are so full of Your Beauty that he came to be overjoyed, supported and victorious, and bless likewise his family and Companions and grant him and them abundant peace, and praise be to Allah for all of that."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا وَمَوْلَانَا مُحَمَّدٍ عَدَدَ أَوْرَاقِ الزَّيْتُونِ وَجَمِيعِ الثِّمَارِ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā mawlana Muḥammad ʿadada awrāq al-zaytūn wa jamīʿ al-thimār.",
+        "en": "O Allah, bless our master Muhammad as many times as there are leaves on an olive tree and all of its fruit."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا وَمَوْلَانَا مُحَمَّدٍ عَدَدَ مَا كَانَ وَيَكُونُ، وَعَدَدَ مَا أَظْلَمَ عَلَيْهِ اللَّيلُ وَأَضَاءَ عَلَيْهِ النَّهَارُ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammad ʿadada mā kāna wa yakūn, wa ʿadada mā aẓlama ʿalayhi al-layl wa aḍāʾa ʿalayhi al-nahār.",
+        "en": "O Allah, bless our master Muhammad as much as all that has been and all that will be, and as much as all that the night has enshrouded in darkness and the day has enlightened with its radiance."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا وَمَوْلَانَا مُحَمَّدٍ وَعَلَى آلِهِ وَأَزْوَاجِهِ وَذُرِّيَّتِهِ عَدَدَ أَنْفَاسِ أُمَّتِهِ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā mawlana Muḥammad wa ʿalā ālihi wa azwājihi wa dhurriyyatihi ʿadada anfās ummatih.",
+        "en": "O Allah, bless our master Muhammad and his family, his wives and his descendants as many times as all the breaths of his nation."
+      },
+      {
+        "ar": "اللَّهُمَّ بِبَرَكَةِ الصَّلَاةِ عَلَيْهِ اجْعَلْنَا بِالصَّلَاةِ عَلَيْهِ مِنَ الْفَائِزِينَ، وَعَلَى حَوْضِهِ مِنَ الْوَارِدِينَ الشَّارِبِينَ، وَبِسُنَّتِهِ وَطَاعَتِهِ مِنَ الْعَامِلِينَ، وَلَا تَحُلْ بَيْنَنَا وَبَيْنَهُ يَوْمَ الْقِيَامَةِ يَا رَبَّ الْعَالَمِينَ، وَاغْفِرْ لَنَا وَلِوَالِدِينَا وَلِجَمِيعِ الْمُسْلِمِينَ، وَالْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ",
+        "tr": "Allāhumma bi-barakat al-ṣalāh ʿalayh ajʿalnā mina al-fāʾizīn, wa ʿalā ḥawḍihi mina al-wāridīn al-shāribīn, wa bi-sunnatihi wa ṭāʿatihi mina al-ʿāmilīn, wa lā taḥul baynanā wa baynahu yawma al-qiyāmah yā rabb al-ʿālamīn, wa ighfir lanā wa li-wālidīnā wa lijamīʿ al-muslimīn wa al-ḥamdu lillāh rabb al-ʿālamīn.",
+        "en": "O Allah, through the grace of this asking for blessings upon him, make us be numbered because of it among the victorious ones and at the Pool among the drinkers and waterier, And make us observe his way and his way and obey him. And do not untie the knot which binds us together on the Day of Resurrection O Lord of the Worlds. And forgive us and our parents and all those who have submitted themselves (i.e. Muslims) and praise be to Allah, the Lord of the Worlds."
+      },
+      {
+        "ar": "اللَّهُمَ صَلِّ وَسَلِّمْ وَبَارِْك عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ أَكْرَمِ خَلْقِكَ، وَسِرَاجِ أُفُقِكَ، وَأَفْضَلِ قَائِمٍ بِحَقِّكَ، المَبْعُوثِ بِتَيْسِيرِكَ وَرِفْقِكَ، صَلَاةً يَتَوَالَى تَكْرَارُهَا، وَتَلُوحُ عَلَى الأَكْوَانِ أَنْوَارُهَا",
+        "tr": "Allāhumma ṣalli wa sallim wa bārik ʿalā sayyidinā Muḥammad, wa ʿalā āli sayyidinā Muḥammad, akrama khalqika, wa sirāja ufuqika, wa afḍala qāʾimin bi-ḥaqqika, al-mabʿūthi bi-taysīrika wa rifqika, ṣalātan yatawālā takrāruhā, wa talūḥu ʿalā al-akwāni anwāruhā.",
+        "en": "O Allah, bless, grant peace to and sanctify our master Muhammad and the family of our master Muhammad, the Noblest of Your Creation, the Shining Lamp of the Horizons, the best Upholder of Your Reality, the Envoy of Your Relief and Kindness, with blessings which continue and repeat and permeate their light all over the universes."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ أَفْضَلِ مَمْدُوحٍ بِقَوْلِكَ، وَأَشْرَفِ دَاعٍ لِلْاِعْتِصَامِ بِحَبْلِكَ، وَخَاتِمِ أَنْبِيَائِكَ وَرُسُلِكَ، صَلَاةً تُبُلِّغُنَا فِي الدَّارَيْنِ عَمِيمَ فَضْلِكَ، وَكَرَامَةَ رِضْوَانِكَ وَوَصْلِكَ",
+        "tr": "Allāhumma ṣalli wa sallim wa bārik ʿalā sayyidinā Muḥammad wa ʿalā āli sayyidinā Muḥammad afḍali mamdūḥin bi-qawlika, wa ashrafi dāʿin lil-iʿtiṣāmi bi-ḥablika, wa khātami anbiyā’ika wa rusulika, ṣalātan tuballighunā fī al-dārayni ʿamīma faḍlika, wa karāmata riḍwānika wa waṣlika.",
+        "en": "O Allah, bless, grant peace to and sanctify our master Muhammad and the family of our master Muhammad, the One praised most by Your Words, the noble One calling to adherence to Your Bond, and seal of Your prophets and Messengers, with blessings which permit us to attain both here and hereafter Your general Favour and the honour of Your Pleasure and Union."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ أَكْرَمِ الكُرَمَاءِ مِنْ عِبَادِكَ، وَأَشْرَفِ الْمُنَادِينَ لِطُرُقِ رَشَادِكَ، وَسِرَاجِ أَقْطَارِكَ وَبِلَادِكَ، صَلَاةً لَا تَفْنَى وَلَا تَبِيدُ، وَتُبُلِّغُنَا بِهَا كَرَامَةَ الْمَزِيدِ",
+        "tr": "Allāhumma ṣalli wa sallim wa bārik ʿalā sayyidinā Muḥammad wa ʿalā āli sayyidinā Muḥammad akrami al-kuramā’i min ʿibādika, wa ashrafi al-munādīna li-ṭuruqi rashādika, wa sirāji aqṭārika wa bilādika, ṣalātan lā tafnā wa lā tabīd, wa tuballighunā bihā karāmata al-mazīd.",
+        "en": "O Allah, bless, grant peace to and sanctify our master Muhammad and the family of our master Muhammad, the Noblest of Your of Your Noble Salves, the most Distinguished of the Callers to the paths of Your Guidance and the Shining Lamp of all regions and countries with blessings which have no end and no beginning and which through them bring us great favours."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدِ نِ الرَّفِيعِ مَقَامُهُ، الوَاجِبِ تَعْظِيمُهُ وَاحْتِرَامُهُ، صَلَاةً لَا تَنْقَطِعُ أَبَدًا، وَلَا تَفْنَى سَرْمَدًا، وَلَا تَنْحَصِرُ عَدَدًا",
+        "tr": "Allāhumma ṣalli wa sallim wa bārik ʿalā sayyidinā Muḥammad wa ʿalā āli sayyidinā Muḥammad al-rafīʿi maqāmuhu, al-wājibi taʿẓīmuhu wa iḥtirāmuhu, ṣalātan lā tanqaṭiʿu abadan, wa lā tafnā sarmadan, wa lā tanḥaṣiru ʿadadan.",
+        "en": "O Allah, bless, grant peace to and sanctify our master Muhammad and the family of our master Muhammad, whose rank is high, whose exaltation and esteem are incumbent upon us, with blessings which are never curtailed and never finish, endless blessings which are immeasurable."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى سَيِّدِنَا إِبـرَاهِيمَ وَعَلَى آلِ سَيِّدِنَا إِبـرَاهِيمَ فِي الْعَالَمِيْنَ إِنَّكَ حَمِيدٌ مَّجِيدٌ، وَصَلِّ اللَّهُمَّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ كُلَّمَا ذَكَرَهُ الذَّاكِرُونَ، وَغَفَلَ عَنْ ذِكْرِهِ الْغَافِلُونَ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammad wa ʿalā āli sayyidinā Muḥammad kamā ṣallayta ʿalā sayyidinā Ibrāhīm wa ʿalā āli sayyidinā Ibrāhīm fī al-ʿālamīn innaka ḥamīdun majīd, wa ṣalli Allāhumma ʿalā sayyidinā Muḥammad wa ʿalā āli sayyidinā Muḥammad kulla mā dhakarahu al-dhākirūn, wa ghafala ʿan dhikrihi al-ghāfilūn.",
+        "en": "O Allah, bless, grant peace to and sanctify our master Muhammad and the family of our master Muhammad, just as You blessed Abraham and the family of Abraham in all the worlds, for You are the Praiseworthy, the Mighty. And bless, O Allah, our master Muhammad and the family of our master Muhammad whenever those who remember him do so and whenever those who neglect to remember him do so."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ، وَارْحَمْ سَيِّدَنَا مُحَمَّدًا وَآلَ سَيِّدِنَا مُحَمَّدٍ، وَبَارِكْ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ، كَمَا صَلَّيْتَ وَرَحِمْتَ وَبَارَكْتَ عَلَى سَيِّدِنَا إِبْرَاهِيمَ وَعَلَى آلِ سَيِّدِنَا إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَّجِيدٌ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammad wa ʿalā āli sayyidinā Muḥammad, wa irḥam sayyidanā Muḥammadan wa āla sayyidinā Muḥammad, wa bārik ʿalā sayyidinā Muḥammad wa ʿalā āli sayyidinā Muḥammad, kamā ṣallayta wa raḥimta wa bārakta ʿalā sayyidinā Ibrāhīm wa ʿalā āli sayyidinā Ibrāhīm innaka ḥamīdun majīd.",
+        "en": "O Allah, bless our master Muhammad and the family of our master Muhammad, and have mercy upon our master Muhammad and the family of our master Muhammad, and sanctify our master Muhammad and the family of our master Muhammad just as You blessed, had mercy upon and sanctified Abraham and the family of Abraham, for You are the Praiseworthy, the Mighty."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ النَّبيِّ الأُمِّيِّ الطَّاهِرِ الْمُطَهَّرِ وَعَلَى آلِهِ وَسَلِّمْ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā Muḥammad an-nabiyy al-ummiyy aṭ-ṭāhiri al-muṭahhar wa ʿalā ālihi wa sallim.",
+        "en": "O Allah, exalt and preserve our Master Muhammed, the Unlettered Prophet, the Pure, the Purified, and his Family."
+      },
+      {
+        "ar": "اللَّهمَّ صَلِّ عَلَى مَنْ خَتَمْتَ بِهِ الرِّسَالَةَ، وَأَيَّدْتَهُ بِالنَّصْرِ وَالكَؤْثَرِ وَالشَّفَاعَةِ",
+        "tr": "Allāhumma ṣalli ʿalā man khatamta bihi ar-risālah, wa ayyadta-hu bi-n-naṣri wal-kawthar wash-shafāʿah.",
+        "en": "O Allah, bless the one with whom You sealed the Message, and the One to whom You granted victory, the Pool known as Kawthar and the Intercession."
+      },
+      {
+        "ar": "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا وَمَوْلَانَا مُحَمَّدٍ نَبِيِّ الحُكْمِ وَالحِكْمَةِ السِّرَاجِ الوَهَّاجِ،المَخْصُوصِ بِالْخُلُقِ العَظِيمِ، وَخَتْمِ الرُّسُلِ ذِي المِعْرَاجِ، وَعَلَى آلِهِ وَأَصْحَابِهِ وَأَتْبَاعِهِ السَّالِكِينَ عَلَى مَنْهَجِهِ القَوِيمِ، فَأَعْظِمِ اللَّهُمَّ بِهِ مِنْهَاجَ نُجُومِ الإِسْلَامِ، وَمَصَابِيحِ الظَّلَامِ، المُهْتَدَى بِهِمْ فِي ظُلْمَةِ لَيْلِ الشَّكِّ الدَّاجِ، صَلَاةً دَائِمَةً مُسْتَمِرَّةً مَا تَلاطَمَتْ فِي الأَبحُرِ الأَمْوَاجِ، وَطَافَ بِالْبَيْتِ العَتِيقِ مِنْ كُلِّ فَجٍّ عَمِيقِ نِ الْحُجَّاجُ، وَأَفْضَلُ الصَّلَاةِ وَالتَّسْلِيمِ، عَلَى سَيِّدِنَا مُحَمَّدٍ رَّسُولِهِ الكَرِيمِ، وَصَفْوَتِهِ مِنَ العِبَادِ، وَشَفِيعِ الْخَلَائِقِ فِي الْمِيعَادِ، صَاحِبِ الْمَقَامِ الْمَحْمُودِ، وَالْحَوْضِ الْمَوْرُودِ، النَّاهِضِ بِأَعْبَاءِ الرِّسَالَةِ وَالتَّبلِيغِ الأَعَمِّ، وَالْمَخْصُوصِ بِشَرَفِ السِّعَايَةِ فِي الصَّلَاحِ الْأَعْظَمِ، صَلَّى اللَّهُ عَلَيْهِ وَعَلَى آلِهِ صَلَاةً دَائِمَةً مُسْتَمِرَّةَ الدَّوَامِ عَلَى مَرِّ اللَّيَالِي وَالأَيَّامِ",
+        "tr": "Allāhumma ṣalli ʿalā sayyidinā wa mawlānā Muḥammad nabiyy al-ḥukmi wal-ḥikmah as-sirāj al-wahhāj, al-makhṣūṣi bil-khuluqi al-ʿaẓīm, wa khatmi ar-rusul dhī al-miʿrāj, wa ʿalā ālihi wa aṣḥābihi wa atbāʿihi as-sālikīn ʿalā manhajihi al-qawīm, fa aʿẓimillāhumma bihi minhāja nujūmi al-islām, wa maṣābīḥi aẓ-ẓalām, al-muhtadā bihim fī ẓulmat layl ash-shakk ad-dāj, ṣalātan dā’imatan mustamirrat ad-dawām mā talāṭamat fī al-abḥur al-amwāj, wa ṭāfa bil-bayt al-ʿatīq min kulli fajj ʿamīq al-ḥujjāj, wa afḍal aṣ-ṣalāti wat-taslīm ʿalā sayyidinā Muḥammad rasūlillāh al-karīm, wa ṣafwatihi mina al-ʿibād, wa shafīʿ al-khalā’iq fī al-mīʿād, ṣāḥib al-maqām al-maḥmūd, wa al-ḥawḍ al-mawrūd, an-nāhiḍ bi-aʿbā’ ar-risālah wa at-tablīgh al-aʿamm, wa al-makhṣūṣ bi-sharaf as-siʿāyah fī aṣ-ṣalāḥ al-aʿẓam, ṣallā llāhu ʿalayhi wa ʿalā ālihi ṣalātan dā’imatan mustamirrat ad-dawām ʿalā marr al-layālī wal-ayyām",
+        "en": "O Allah, bless our lord and master Muhammad, the Prophet of Judiciousness and Wisdom, the Brilliant Lamp, the One destined for the Greatest Character, the Seal of the Messengers, the Master of the Night Journey, and likewise bless his family, his Companions, his Followers, the sincere travellers on the True Path. Magnify, O Allah, through him, the path of the Stars of Islam (i.e. the Companions) and the Lamps (i.e. the Followers), the path signposted by them, the path that dispels the darkness in the murky gloom of the night of doubt. And send blessings which are eternal and continuous and which last for as long as the waves crash in the oceans and the Ancient House (the Holy Kabba) is circumambulated from all sides by throngs of pilgrims. The best of all blessings and peace be upon our master Muhammad, the Generous Messenger, His Friend among all the slaves, the Intercessor for all created beings at the appointed time. Owner of the Most Praised Station and the Oft-visited Pool, the One who took on the burden of the Message and the responsibility of spreading it far and wide, the One destined for honour and One who strove for the greatest righteousness. The blessings of Allah be upon him and upon his family, eternal and continuous blessings, lasting as long as the passing of all nights and all days"
+      },
+      {
+        "ar": "فَهُوَ سَيِّدُ الْأَوَّلِينَ وَالْآخِرِينَ، وَأَفْضَلُ الْأَوَّلِينَ وَالآخِرِينَ، عَلَيْهِ أَفْضَلُ صَلَاةِ الْمُصَلِّينَ، وَأَزْكَى سَلَامِ الْمُسَلِّمِينَ، وَأَطْيَبُ ذِكْرِ الذَّاكِرِينَ",
+        "tr": "fa huwa sayyid al-awwalīn wal-ākhirīn, wa afḍal al-awwalīn wal-ākhirīn, ʿalayhi afḍal ṣalawāt al-muṣallīn, wa azkā salām al-musallimīn, wa aṭyab dhikr adh-dhākirīn",
+        "en": "For he is the master of the first and the last and best of the first and the last. The best blessings of those who ask for blessings upon him are for him. The purest peace of those who seek peace for him is for him. And the finest thoughts of those who remember him."
+      },
+      {
+        "ar": "وَأَفْضَلُ صَلَوَاتِ اللَّهِ، وَأَحْسَنُ صَلَوَاتِ اللَّهِ، وَأَجَلُّ صَلَوَاتِ اللَّهِ، وَأَجْمَلُ صَلَوَاتِ اللَّهِ، وَأَكْمَلُ صَلَوَاتِ اللَّهِ، وَأَسْبَغُ صَلَوَاتِ اللَّهِ، وَأَتَمُّ صَلَوَاتِ اللَّهِ، وَأَظْهَرُ صَلَوَاتِ اللَّهِ، وَأَعْظَمُ صَلَوَاتِ اللَّهِ، وَأَذْكَى صَلَوَاتِ اللَّهِ، وَأَطْيَبُ صَلَوَاتِ اللَّهِ، وَأَبْرَكُ صَلَوَاتِ اللَّهِ، وَأَزْكَى صَلَوَاتِ اللَّهِ، وَأَنْمَى صَلَوَاتِ اللَّهِ، وَأَوْفَى صَلَوَاتِ اللَّهِ، وَأَسْنَى صَلَوَاتِ اللَّهِ، وَأَعْلَى صَلَوَاتِ اللَّهِ، وَأَكْثَرُ صَلَوَاتِ اللَّهِ، وَأَجْمَعُ صَلَوَاتِ اللَّهِ، وَأَعَمُّ صَلَوَاتِ اللَّهِ، وَأَدْوَمُ صَلَوَاتِ اللَّهِ، وَأَبْقَى صَلَوَاتِ اللَّهِ، وَأَعَزُّ صَلَوَاتِ اللَّهِ، وَأَرْفَعُ صَلَوَاتِ اللَّهِ، وَأَعْظَمُ صَلَوَاتِ اللَّهِ",
+        "tr": "wa afḍal ṣalawāt Allāh, wa aḥsan ṣalawāt Allāh, wa ajall ṣalawāt Allāh, wa ajmal ṣalawāt Allāh, wa akmal ṣalawāt Allāh, wa asbagh ṣalawāt Allāh, wa atamm ṣalawāt Allāh, wa aẓhar ṣalawāt Allāh, wa aʿẓam ṣalawāt Allāh, wa adhkā ṣalawāt Allāh, wa aṭyab ṣalawāt Allāh, wa abarak ṣalawāt Allāh, wa azkā ṣalawāt Allāh, wa anmā ṣalawāt Allāh, wa awfā ṣalawāt Allāh, wa asnā ṣalawāt Allāh, wa aʿlā ṣalawāt Allāh, wa akthar ṣalawāt Allāh, wa ajmaʿ ṣalawāt Allāh, wa aʿamm ṣalawāt Allāh, wa adwam ṣalawāt Allāh, wa abqā ṣalawāt Allāh, wa aʿazz ṣalawāt Allāh, wa arfaʿ ṣalawāt Allāh, wa aʿẓam ṣalawāt Allāh",
+        "en": "And the finest blessings of Allah. And the choicest blessings of Allah. And the greatest blessings of Allah. And the fairest blessings of Allah. And the fullest blessings of Allah. And the most abundant blessings of Allah. And the utmost blessings of Allah. And the clearest blessings of Allah. And the mightiest blessings of Allah. And the sweetest blessings of Allah. And the freshest blessings of Allah. And the holiest blessings of Allah. And the purest blessings of Allah. And the richest blessings of Allah. And the most sincere blessings of Allah. And the matchless blessings of Allah. And the highest blessings of Allah. And the most lavish blessings of Allah. And the myriad blessings of Allah. And the universal blessings of Allah. And the longest lasting blessings of Allah. And the longest remaining blessings of Allah. And the strongest blessings of Allah. And the loftiest blessings of Allah. And the mightiest blessings of Allah."
+      },
+      {
+        "ar": "عَلَى أَفْضَلِ خَلْقِ اللَّهِ، وَأَحْسَنِ خَلْقِ اللَّهِ، وَأَجَلِّ خَلْقِ اللَّهِ، وَأَكْرَمِ خَلْقِ اللَّهِ، وَأَجْمَلِ خَلْقِ اللَّهِ، وأَكْمَلِ خَلْقِ اللَّهِ، وَأَتَمِّ خَلْقِ اللَّهِ، وَأَعْظَمِ خَلْقِ اللَّهِ، عِنْدَ اللَّهِ رَسُولِ اللَّهِ، وَنَبِيِّ اللَّهِ، وَحَبِيبِ اللَّهِ، وَصَفِيِّ اللَّهِ، وَنَجِيِّ اللَّهِ، وَخَلِيلِ اللَّهِ، وَوَلِيِّ اللَّهِ، وَأَمِينِ اللَّهِ، وَخِيرَةِ اللَّهِ مِنْ خَلْقِ اللَّهِ، وَنُخْبَةِ اللَّهِ مِنْ بَرِيَّةِ اللَّهِ، وَصَفْوَةِ اللَّهِ مِنْ أَنْبِيَـاءِ اللَّهِ، وَعُرْوَةِ اللَّهِ، وَعِصْمَةِ اللَّهِ، وَنِعْمَةِ اللَّهِ، وَمِفْتَاحِ رَحْمَةِ اللَّهِ، المُخْتَارِ مِنْ رُسُلِ اللَّهِ، المُنْتَخَبِ مِنْ خَلْقِ اللَّهِ، الفَائِزِ بِالْمَطْلَبِ، فِي الْمَرْهَبِ وَالمَرْغَبِ، الْمُخْلَصِ فِيمَا وُهِبَ",
+        "tr": "ʿalā afḍal khalqillāh, wa aḥsan khalqillāh, wa ajall khalqillāh, wa akram khalqillāh, wa ajmal khalqillāh, wa akmal khalqillāh, wa atamm khalqillāh, wa aʿẓam khalqillāh ʿinda Allāh, Rasūlillāh wa Nabiyyillāh wa Ḥabībillāh wa Ṣafiyyillāh wa Najiyyillāh wa Khalīlillāh wa Walīyillāh wa Amīnillāh, wa khīratillāh min khalqillāh, wa nukhbatillāh min barīyatillāh, wa ṣafwatillāh min anbiyā’illāh, wa ʿurwatillāh wa ʿiṣmatillāh wa niʿmatillāh wa miftāḥ raḥmatillāh, al-mukhtār min rusulillāh, al-muntaqab min khalqillāh,al-fā’izu bil-maṭlab, fī al-marhab wa al-marghab, al-mukhlaṣ fīmā wuhib",
+        "en": "Upon the best of Allah’s creation. The finest of Allah’s creation. The greatest of Allah’s creation. The noblest of Allah’s creation. The fairest of Allah’s creation. The most perfect of Allah’s creation. The most complete of Allah’s creation. The mightiest of Allah’s creation in the sight of Allah. The Messenger of Allah. The Prophet of Allah. The Beloved of Allah. The Intimate of Allah. The Confidant of Allah. The Friend of Allah. The Loved One of Allah. The Trustee of Allah. The Boon of Allah from the creation of Allah. The Choice of Allah from the innocent of Allah. The Confidant of Allah from Prophets of Allah. The Handhold of Allah. The Modesty of Allah. The Favour of Allah. The Key to the Mercy of Allah. The Chosen One from the Messengers of Allah. The Elected One from the Creation of Allah and the One who succeeds with his requests at times of fear and dread. The Sincere One in what he is granted."
+      },
+      {
+        "ar": "أَكْرَمِ مَبْعُوثٍ، أَصْدَقِ قَائِلٍ، أَنْجَحِ شَافِعٍ، أَفْضَلِ مُشَفَّعٍ، الأَمِينِ فِيمَا اسْتُوْدِعَ، الصَّادِقِ فِيمَا بَلَّغَ، الصَّادِعِ بِأَمْرِ رَبِّهِ، المُضْطَلِعِ بِمَا حُمِّلَ، أَقْرَبِ رُسُلِ اللَّهِ إِلَى اللَّهِ وَسِيلَةً، وَأَعْظَمِهِمْ غَدًا عِنْدَ اللَّهِ مَنْزِلَةً وَفَضِيلَةً، وَأَكْرَمِ أَنْبِيَاءِ اللَّهِ الْكِرَامِ الصَّفْوَةِ عَلَى اللَّهِ، وَأَحَبِّهِمْ إِلَى اللَّهِ، وَأَقْرَبِهِمْ زُلْفَى لَدَى اللَّهِ، وَأَكْرَمِ الخَلْقِ عَلَى اللَّهِ، وَأَحْظَاهُمْ وَأَرْضَاهُمْ لَدَى اللَّهِ، وَأَعْلَى النَّاسِ قَدْرًا، وَأَعْظَمِهِمْ مَحَلًّا، وَأَكْمَلِهِمْ مَحَاسِنًا وَفَضْلًا، وَأَفْضَلِ الأَنْبِيَاءِ دَرَجَةً، وَأَكْمَلِهِمْ شَرِيعَةً، وَأَشْرَفِ الأَنْبِيَاءِ نِصَابًا، وَأَبْيَنِهِمْ بَيَانًا وَخِطَابًا، وَأَفْضَلِهِمْ مَوْلِدًا وَمُهَاجَرًا وَعِتْرَةً وَأَصْحَابًا، وَأَكْرَمِ النَّاسِ أَرُومَةً، وَأَشْرَفِهِمْ جُرْثُومَةً، وَخَيْرِهِمْ نَفْسًا، وَأَطْهَرِهِمْ قَلْبًا، وَأَصْدَقِهِمْ قَوْلًا، وَأَزْكَاهُمْ فِعْلًا، وَأَثْبَتِهِمْ أَصْلًا، وَأَوْفَاهُمْ عَهْدًا، وَأَمْكَنِهِمْ مَجْدًا، وَأَكْرَمِهِمْ طَبْعًا، وَأَحْسَنِهِمْ صُنْعًا، وَأَطْيَبِهِمْ فَرْعًا، وَأَكْثَرِهِمْ طَاعَةً وَسَمْعًا، وَأَعْلَاهُمْ مَقَامًا، وَأَحْلَاهُمْ كَلَامًا، وَأَزْكَاهُمْ سَلَامًا، وَأَجَلِّهِمْ قَدْرًا، وَأَعْظَمِهِمْ فَخْرًا، وَأَسْنَاهُمْ فَخْرًا، وَأَرْفَعِهِمْ فِي المَلَاءِ الأَعْلَى ذِكْرًا، وَأَوْفَاهُمْ عَهْدًا، وَأَصْدَقِهِمْ وَعْدًا، وَأَكْثَرِهِمْ شُكْرًا، وَأَعْلَاهُم ْ أَمْرًا، وَأَجْمَلِهِمْ صَبْرًا، وَأَحْسَنِهِمْ خَيْرًا، وَأَقْرَبِهِمْ يُسْرًا، وَأَبْعَدِهِمْ مَكَانًا، وَأَعْظَمِهِمْ شَاْنًا، وَأَثْبَتِهِمْ بُرْهَانًا، وَأَرْجَحِهِمْ مِيزَانًا، وَأَوَّلِهِمْ إِيمَانًا، وَأَوْضَحِهِمْ بَيَانًا، وَأَفْصَحِهِمْ لِسَانًا، وَأَظْهَرِهِمْ سُلْطَانًا",
+        "tr": "akrami mabʿūth, aṣdaqi qā’il, anjaḥi shāfiʿ, afḍali mushaffaʿ, al-amīn fīmā ustūdiʿ, aṣ-ṣādiq fīmā ballagh, aṣ-ṣādiʿ bi-amri rabbihi, al-muḍṭaliʿ bimā ḥummila, aqrabi rusuli-llāh ilā-llāh wasīlah, wa aʿẓamihim ghadan ʿinda-llāh manzilah wa faḍīlah, wa akrami anbiyā’i-llāh al-kirām aṣ-ṣafwah ʿala-llāh, Wa aḥabbihim ilā-llāh, wa aqrabihim zulfā ladā-llāh, wa akrami al-khalqi ʿala-llāh, wa aḥẓāhum wa arḍāhum ladā-llāh, wa aʿlā an-nās qadran, wa aʿẓamihim maḥallan, wa akmalihim maḥāsinan wa faḍlan, wa afḍali al-anbiyā’ darajah, wa akmalihim sharīʿah, wa ashrafi al-anbiyā’ niṣāban, wa abyanihim bayānan wa khitāban, wa afḍalihim mawlidan wa muhājaran wa ʿitrah wa aṣḥāban, wa akrami an-nās arūmah, wa ashrafihim jurthūmah, wa khayrihim nafsan, wa aṭharahum qalban, wa aṣdaqihim qawlan, wa azkāhum fiʿlan, wa athbathihim aṣlan, wa awfāhum ʿahdan, wa amkanihim majdan, wa akramihim ṭabʿan, wa aḥsanihim ṣunʿan, wa aṭyabihim farʿan, wa aktharuhum ṭāʿatan wa samʿan, wa aʿlāhum maqāman, wa aḥlāhum kalāman, wa azkāhum salāman, wa ajallihim qadran, wa aʿẓamihim fakhran, wa asnāhum fakhran, wa arfaʿihim fī al-mala’i al-aʿlā dhikran, wa awfāhum ʿahdan, wa aṣdaqihim waʿdan, wa aktharuhum shukran, wa aʿlāhum amran, wa ajmalihim ṣabran, wa aḥsanihim khayran, wa aqrabihim yusrān, wa abʿadihim makānān, wa aʿẓamihim shānan, wa athbathihim burhānan, wa arjaḥihim mīzānān, wa awwalihim īmānān, wa awḍaḥihim bayānān, wa afṣaḥihim lisānān, wa aẓharihim sulṭānān.",
+        "en": "Most Honoured Envoy. Truest Speaker. Most successful Intercessor. The Best Intercessor, the One faithful to his pledge, the One true to his mission, the One who complied with the order of his Lord, and the One who bore his responsibility. The Messenger of Allah with the Closest Access to Allah and the one whose position and pre-eminence in the sight of Allah is greater than that of all Prophets and Messengers. The most honoured of Allah’s Honoured Prophets and the Loved one of the Allah. More in love with Allah than them and closer to Allah than them. The Most Honoured Creation in the sight of Allah. More fortunate and more satisfied than them in the presence of Allah. The Highest Ranking Human Being. With a position greater than theirs and a kindness and favour more perfect than theirs, and a rank better than all the Prophets. With a law greater than theirs and those origin is more noble than all Prophets. Whose Evidence and Preaching were clearer than theirs and whose birth, migration, perfumed descendants and companions were more gracious than theirs. The most tender human being. Whose origin was nobler than theirs, whose soul was better than theirs, whose heart was purer than theirs, whose word was truer than theirs, whose act was purer than theirs, whose descent was more solid than theirs, who was more faithful to his pledge than them, whose distinction was more weighty than theirs, whose disposition was more honoured than theirs, whose design was finer than theirs, whose branch was better than theirs, whose obedience and dutifulness were more than theirs, whose station was higher than theirs, whose speech was more beautiful than theirs, whose peace was purer than theirs, whose rank was more splendid than theirs, whose glory was greater than theirs, whose glory was more resplendent than theirs, whose mention in the Celestial Realm was loftier than theirs, whose promise was more sincere than theirs, whose gratitude was more profuse than theirs, whose authority was higher than theirs, whose patience was more beautiful than theirs, whose goodness was finer than theirs, whose ease was more accessible than theirs, whose position was loftier than theirs, whose value was greater than theirs, whose argument was sounder than theirs, whose judgement was more balanced than theirs, whose faith was more advanced than theirs, whose evidence was clearer than theirs, whose tongue was more eloquent than theirs, and whose authority was more obvious than theirs."
+      },
+    ]
   },
   {
     "titleArabic": "حِزْبُ يَوْمِ الْخَمِيسِ",
@@ -4547,6 +5790,7 @@ const PRAISE_SECTIONS = [
   { id:'litanies', ar:'الأوراد اليومية',    en:'Daily Litanies',  desc:'The awrād — litanies read as a daily practice.' },
 ];
 
+
 const MAWLID_COLLECTIONS = [
   { id:'mawlid',   ar:'مولد الديبعي',  en:'Mawlid ad-Daybaʿi',  desc:'The mawlid of Imam ad-Daybaʿī — read straight through, in order.' },
   { id:'barzanji', ar:'مولد البرزنجي', en:'Mawlid al-Barzanjī', desc:'The most widely recited mawlid in the world, with the qiyām at the birth.' },
@@ -4554,7 +5798,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v164';
+const APP_VERSION = 'v172';
 
 /* A very small build stamp: 'v110' shows as 'v11.0' (dot before the last digit),
    so you can tell at a glance which build a phone is running. Hidden on the
@@ -6914,7 +8158,7 @@ function readerHTML(q, backOnclick, kind, idx){
           ${v.en ? `<div class="v-en ${state.showEn?'':'hide'}">${v.en.replaceAll('\n','<br>')}</div>` : ''}
         </article>`).join('')}`}
     </main>
-    ${empty ? '' : autoScrollBar()}`;
+    ${empty || pageView ? '' : autoScrollBar()}`;
 }
 
 function openQasida(i){
@@ -7058,6 +8302,7 @@ function manuscriptPages(q, kind, idx){
       <div class="ms-runhead">${q.cartouche || q.titleArabic}</div>
       <div class="ms-page${closing ? ' ms-closing' : ''}">
         ${i === 0 ? `<div class="ms-band">${MS_BAND}<span class="ms-cartouche">${q.cartouche || q.titleArabic}</span></div>` : ''}
+        ${f.band ? `<div class="ms-band ms-band-div">${MS_BAND}<span class="ms-cartouche ms-cartouche-div">${f.band}</span></div>` : ''}
         ${closing ? `<div class="ms-orn tl">${MS_CORNER}</div><div class="ms-orn tr">${MS_CORNER}</div>
                      <div class="ms-orn bl">${MS_CORNER}</div><div class="ms-orn br">${MS_CORNER}</div>` : ''}
         <div class="ms-text">${head}${body}</div>
@@ -7179,6 +8424,7 @@ window.addEventListener('keydown', e => { if(e.key === 'Escape' && state.immersi
 function setPageView(on, kind, idx){
   if(state.pageView === on) return;
   state.pageView = on;
+  if(on) stopAutoScroll();
   if(!on) setImmersive(false);
   reopen(kind, idx);
   if(window.requestAnimationFrame) requestAnimationFrame(msFloatPosition);
