@@ -14,10 +14,30 @@ It is a **single self-contained app** — no build step, no server, no dependenc
 
 | File | What it is |
 |------|------------|
-| `index.html` | **Everything.** All content, styling (CSS), and logic (JS) live here. This is the only file you normally edit. |
+| `index.html` | **Everything.** All content, styling (CSS), and logic (JS) live here — including the bundled Arabic font. This is the only file you normally edit. |
 | `sw.js` | Service worker — makes the app work offline. Contains the cache version string (see below). |
 | `manifest.json` | PWA metadata (app name, icons, colours) so it installs to a phone home screen. |
 | `icon-192.png`, `icon-512.png` | Home-screen icons. |
+| `OFL.txt` | The SIL Open Font License for the bundled Arabic font. **Keep this file** — the licence requires it to travel with the font. |
+
+### The Arabic font
+
+The Arabic is set in **Amiri**, embedded directly in `index.html`
+as base64 — subset to Arabic + Latin and WOFF-compressed, Regular and Bold. It is *not* fetched
+from Google.
+
+This matters more than it sounds: the text is fully vocalised, and if the font failed
+to load, the harakat would fall back to whatever the phone happens to have — at
+exactly the moment someone is reciting aloud. Bundling means the Arabic renders
+correctly with no connection at all, and nothing is requested from Google for it.
+
+The font is licensed under the SIL OFL 1.1 (see `OFL.txt`), which permits bundling
+and redistribution. The Latin faces (Crimson Pro, Karla) still come from Google
+Fonts, but the service worker caches them after the first load.
+
+To swap the Arabic font, replace the two `@font-face` blocks at the top of the
+`<style>` and update the ten `font-family:'Amiri',serif` rules. Keep the
+matching `OFL.txt`.
 
 ---
 
@@ -120,6 +140,58 @@ files (the 5 app files must be at the top level). You get an instant public link
 Open the hosted link in Chrome (Android) or Safari (iOS) → menu → **Add to Home screen** /
 **Install app**. It then works fully offline. Bumping the cache version makes installed
 phones auto-update on next launch.
+
+---
+
+## Live sessions (optional — off by default)
+
+Lets a gathering follow whoever is leading: when they open a piece, every joined
+device opens it too. It's the only part of the app that uses the network.
+
+**It is off until you switch it on**, and the rest of the app never depends on it.
+The Supabase library is only fetched when someone taps Start/Join, so an offline
+launch never waits on it. If it can't connect, following stops and nothing else
+changes — you browse, search, bookmark and auto-scroll exactly as before.
+
+### Switching it on
+
+1. Make a free project at [supabase.com](https://supabase.com).
+2. In the dashboard go to **Project Settings → API** and copy the **Project URL**
+   and the **anon / public** key.
+3. In `index.html`, find `SESSION_CONFIG` near the top of the `<script>` and paste
+   them in:
+
+```js
+const SESSION_CONFIG = {
+  url: 'https://xxxxxxxx.supabase.co',
+  key: 'eyJhbGciOi…'      // the anon/public key
+};
+```
+
+4. Bump the cache version in `sw.js` and redeploy.
+
+The anon key is designed to be public — it's safe in a public repo. No database
+tables and no sign-in are needed: sessions use Realtime **Broadcast**, which just
+relays messages and stores nothing.
+
+### Using it
+
+- The leader opens **Live Session → Start a session**, then taps **Share link** and
+  sends it to the group (WhatsApp, SMS, wherever). Tapping the link joins them
+  straight away — no code to type.
+- The 4-digit code is still shown, so anyone who can't open the link can be told it
+  and enter it under **Join**.
+- Anyone who opens something themselves takes over; a **Resume** button in the
+  banner puts them back in step. Joining late jumps you to wherever the leader is.
+- A banner at the top shows whether you're leading, following, or paused.
+
+The link is just `…/#s=4821`. The code sits in the URL *fragment*, which browsers
+never send to a server, so sharing a link reveals nothing to the host.
+
+### The honest limits
+
+- Following needs internet at the gathering. Everything else works offline.
+- A device that is offline can't be told the leader moved — it simply stays put.
 
 ---
 
