@@ -1,4 +1,4 @@
-# Mawlid — Qasidas, Burdah, Shamāʾil & Sīrah, and Devotional Ilahis
+# Mawalid — Qasidas, Burdah, Shamāʾil & Sīrah, and Devotional Ilahis
 
 A small, offline-capable web app (PWA) for reciting Islamic devotional content:
 Qasidas & Duas, the Qaṣīda Burdah, the prose Shamāʾil & Sīrah from *Mawlid ad-Daybaʿī*,
@@ -20,24 +20,45 @@ It is a **single self-contained app** — no build step, no server, no dependenc
 | `icon-192.png`, `icon-512.png` | Home-screen icons. |
 | `OFL.txt` | The SIL Open Font License for the bundled Arabic font. **Keep this file** — the licence requires it to travel with the font. |
 
-### The Arabic font
+### The Arabic fonts
 
-The Arabic is set in **Amiri**, embedded directly in `index.html`
-as base64 — subset to Arabic + Latin and WOFF-compressed, Regular and Bold. It is *not* fetched
-from Google.
+Two Arabic faces are embedded directly in `index.html` as base64. Neither is
+fetched from Google.
 
-This matters more than it sounds: the text is fully vocalised, and if the font failed
-to load, the harakat would fall back to whatever the phone happens to have — at
-exactly the moment someone is reciting aloud. Bundling means the Arabic renders
-correctly with no connection at all, and nothing is requested from Google for it.
+**KFGQPC Uthmanic Script HAFS** sets the body Arabic — the mushaf hand from the
+King Fahd Glorious Qur'an Printing Complex, based on the calligraphy of Uthman
+Taha.
 
-The font is licensed under the SIL OFL 1.1 (see `OFL.txt`), which permits bundling
-and redistribution. The Latin faces (Crimson Pro, Karla) still come from Google
-Fonts, but the service worker caches them after the first load.
+**Amiri** (Regular and Bold, WOFF) sits underneath it as the fallback, and is
+what draws the rosettes.
 
-To swap the Arabic font, replace the two `@font-face` blocks at the top of the
-`<style>` and update the ten `font-family:'Amiri',serif` rules. Keep the
-matching `OFL.txt`.
+That pairing is deliberate, and the `unicode-range` on the Uthmani `@font-face`
+is load-bearing. The Uthmani font maps 171 codepoints — the Arabic comma,
+semicolon, question mark and full stop, the ۞ rosette, and every Persian letter
+among them — to an *empty placeholder glyph*, which renders as a black blob
+rather than as nothing. Checking whether a character is in the font's cmap is
+therefore misleading; it is there, it just isn't drawn. The `unicode-range`
+lists only the codepoints the font genuinely draws, so everything else falls
+through to Amiri and a comma still looks like a comma. If you ever replace or
+update the Uthmani file, recompute that range rather than trusting the cmap.
+
+Bundling matters more than it sounds: the text is fully vocalised, and if the
+font failed to load, the harakat would fall back to whatever the phone happens
+to have — at exactly the moment someone is reciting aloud. Bundling means the
+Arabic renders correctly with no connection at all. The Latin faces (Crimson
+Pro, Karla) still come from Google Fonts, but the service worker caches them
+after the first load.
+
+**Licences differ between the two, which matters if you change anything.** Amiri
+is under the SIL OFL 1.1 (see `OFL.txt`) — bundling, redistribution and
+modification are all permitted. The KFGQPC font is free to use, copy and
+distribute but **may not be modified**, which is why it is embedded byte-for-byte
+and *not* subset; that costs about 330KB and cannot be optimised away without
+breaching the licence.
+
+To swap the body Arabic, replace the `UthmanicHafs` `@font-face` block and the
+`font-family:'UthmanicHafs','Amiri',serif` rules. Leave the rosette rule
+(`.ms-r, .rosette`) pinned to Amiri, and keep `OFL.txt`.
 
 ---
 
