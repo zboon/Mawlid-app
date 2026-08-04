@@ -422,6 +422,13 @@
     pointer-events:none; z-index:40;
   }
   .ms-float .ms-arrow{ pointer-events:auto; }
+  /* On a narrow screen the floating arrows sit over the text itself rather than
+     beside it, so they are taken away there. The leaf still turns by swiping,
+     and the arrows beside the page dots below are untouched for anyone who
+     would rather tap. */
+  @media (max-width: 560px){
+    .ms-float{ display:none; }
+  }
   /* First page sits at the right, as the text is read. */
   .ms-dots{ display:flex; direction:rtl; gap:.45rem; }
   .ms-arrow{
@@ -7123,7 +7130,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v249';
+const APP_VERSION = 'v250';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
