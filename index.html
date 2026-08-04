@@ -354,9 +354,19 @@
     display:flex;align-items:center;justify-content:center;
     font-family:'UthmanicHafs','Amiri',serif;font-size:1.15rem;padding-top:2px;
   }
-  .qcard .titles{flex:1;min-width:0}
+  /* The two title lines were plain inline spans, so they only fell onto
+     separate lines when the Arabic happened to be long enough to wrap. A short
+     leading line (a day name) left room for the Arabic to ride up beside it.
+     Stacking them explicitly makes the break structural rather than accidental. */
+  .qcard .titles{flex:1;min-width:0;display:flex;flex-direction:column;align-items:stretch}
   .qcard .t-ar{font-family:'UthmanicHafs','Amiri',serif;font-size:1.35rem;line-height:1.4;direction:rtl;text-align:left;color:var(--ar-color)}
   .qcard .t-en{font-size:.85rem;color:var(--ink-soft);margin-top:.1rem}
+  /* Dalāʾil index only: the English day name leads and the Arabic ḥizb title
+     sits under it. A line that comes first has to carry the weight of a title,
+     so it takes ink colour and a little more size; the Arabic eases down a
+     step in turn, without giving up its place as the larger of the two. */
+  .qcard .t-en.lead{font-size:1rem;color:var(--ink);font-weight:600;margin-top:0}
+  .qcard .t-en.lead + .t-ar{font-size:1.2rem;margin-top:.15rem}
   .qcard .chev{color:var(--gold);font-size:1.2rem}
 
   /* ---------- reader ---------- */
@@ -569,6 +579,26 @@
     display:block;font-family:'UthmanicHafs','Amiri',serif;font-size:1.15rem;
     color:var(--gold-soft);direction:rtl;margin-top:.4rem;
   }
+  /* A long note is folded away by default. Short ones stay open — the fold is
+     there to keep the reader from scrolling past an essay to reach the prayer,
+     and a one-line note costs nothing to leave showing. */
+  details.qnote{ padding:0; overflow:hidden; }
+  details.qnote > summary{
+    list-style:none; cursor:pointer; padding:.72rem 1.1rem;
+    display:flex; align-items:center; justify-content:center; gap:.45rem;
+    font-size:.86rem; letter-spacing:.02em;
+  }
+  details.qnote > summary::-webkit-details-marker{ display:none; }
+  details.qnote > summary::marker{ content:''; }
+  .qnote-chev{
+    display:inline-block; color:var(--gold-soft); font-size:1.05rem; line-height:1;
+    transition:transform .18s ease;
+  }
+  details.qnote[open] > summary .qnote-chev{ transform:rotate(90deg); }
+  .qnote-body{
+    padding:0 1.1rem .95rem;
+    border-top:1px solid rgba(216,193,147,.28); margin-top:0; padding-top:.8rem;
+  }
   .qtune{
     display:flex;align-items:center;justify-content:center;gap:.4rem;
     background:var(--card);border:1.5px solid var(--gold);color:var(--green);
@@ -635,19 +665,50 @@
     color:var(--accent-green); opacity:.9; margin-bottom:.35rem;
     text-align:center;
   }
-  /* Instruction / rubric verses (not a prayer — a transitional note from the book) */
-  .v-instruction .v-ar{
-    color:var(--gold); font-size:calc(var(--ar-size) * .88);
+  /* Instruction / rubric verses (not a prayer — a transitional note from the
+     book). Set apart by a gold border and a faint gold wash, following the same
+     pattern as a refrain verse, so the eye doesn't read the rubric as part of
+     the supplication standing around it. */
+  .verse.v-instruction{
+    border-color:var(--gold); border-width:1.5px;
+    background-color:var(--card);
+    background-image:linear-gradient(rgba(184,147,74,.11), rgba(184,147,74,.03));
   }
+  .instruction-note{
+    text-align:center;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--gold);font-weight:700;margin:.2rem 0 1rem;
+  }
+  .v-instruction .v-ar{ color:var(--gold); }
   .v-instruction .v-en::before{ content:'('; }
   .v-instruction .v-en::after { content:')'; }
   .v-instruction .v-en{
     font-style:italic; color:var(--ink-soft);
   }
   .v-instruction .v-tr{ display:none; }  /* instructions shown only in Arabic + English */
-  /* Book version: instruction rendered in gold italic */
+  /* Book version: the rubric in gold italic, set off by hairline rules above and
+     below. Tapping it opens the English (showInstrBubble) rather than marking. */
   .ms-instruction{ color:var(--ms-gold); font-size:.92em; font-style:italic; display:block;
-    text-align:center; margin:.5rem 0; }
+    text-align:center; margin:.6rem 0; padding:.5rem 0;
+    border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); }
+  .ms-v.has-instr{ cursor:pointer; }
+  /* A blank the reader fills in: gold against the leaf's ink, and tappable for
+     the instruction, the same gesture the rubric below it answers to. */
+  .ms-gloss{ color:var(--gold); }
+  .ms-gloss.has-instr{ cursor:pointer; }
+  /* The bubble is fixed to the viewport and never inserted into the leaf: the
+     leaf is measured by msAutoFit, and anything added inside it would move
+     where the printed page breaks. */
+  .instr-bubble{
+    position:fixed; z-index:80; opacity:0; transform:translateY(4px);
+    transition:opacity .14s ease, transform .14s ease;
+  }
+  .instr-bubble.on{ opacity:1; transform:none; }
+  .instr-bubble-in{
+    background:var(--ms-paper); color:var(--ms-ink);
+    border:1px solid var(--rule); border-radius:12px;
+    padding:.7rem .9rem; font-size:.9rem; line-height:1.5; font-style:italic;
+    text-align:center; box-shadow:0 6px 22px rgba(11,36,27,.3);
+  }
   .v-ar{
     font-family:'UthmanicHafs','Amiri',serif;
     font-size:var(--ar-size);
@@ -1970,7 +2031,7 @@ const stripBreaks = s => String(s).replace(/\s*\u2016\s*/g, ' ').trim();
    uses — otherwise a font whose ۞ is a heavy disc sits next to one whose ۞ is a
    star, and the page looks inconsistent. */
 const withRosettes = s => String(s).replace(/\u06DE/g, '<span class="rosette">\u06DE</span>');
-const arHTML = s => withRosettes(stripBreaks(s).replaceAll('\n','<br>'));
+const arHTML = s => markInline(withRosettes(stripBreaks(s).replaceAll('\n','<br>')), false);
 
 /* ── Favourites ──────────────────────────────────────────────────
    Stored in this browser's localStorage, so they stay on the device and are
@@ -4628,7 +4689,8 @@ const DALAIL_CHAPTERS = [
       {
         "ar": "ثُمَّ تَدْعُو بِهَذَا الدُّعَاءِ فَإِنَّهُ مَرْجُوٌّ الْإِجَابَةِ إِنْ شَاءَ اللَّهُ بَعْدَ الصَّلَاةِ عَلَى النَّبِيِّ صَلَى اللَّهُ عَلَيْهِ وَسَلَّمَ",
         "tr": "Thumma tadʿū bihādhā d-duʿāʾi fa-innahu marjūwu l-ijābati in shāʾa llāhu ba'ada ṣ-ṣalāti ʿalā n-nabiyy ṣallā llāhu ʿalayhi wa-sallam.",
-        "en": "Then make this supplication, for it is to be hoped it will be answered, Allah willing after asking for blessings upon the Prophet, may Allah grant him peace."
+        "en": "Then make this supplication, for it is to be hoped it will be answered, Allah willing after asking for blessings upon the Prophet, may Allah grant him peace.",
+        "instruction": true
       },
       {
         "ar": "اَللَّهُمَّ اجْعَلْنِي مِمَّنْ لَزِمَ مِلَّةَ نَبِيِّكَ سَيِّدِنَا مُحَمَّدٍ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ ۞ وَعَظَّمَ حُرْمَتَهُ ۞ وَأَعَزَّ كَلِمَتَهُ ۞ وَحَفِظَ عَهْدَهُ وَذِمَّتَهُ ۞ وَنَصَرَ حِزْبَهُ ۞ وَدَعْوَتَهُ ۞ وَكَثَّرَ تَابِعِيهِ وَفِرْقَتَهُ ۞ وَوَافَى زُمْرَتَهُ ۞ وَلَمْ يُخَالِفْ سَبِيلَهُ وَسُنَّتَهُ",
@@ -6668,7 +6730,22 @@ const DALAIL_CHAPTERS = [
    interjected between them, and the gathering stands at the birth (al-qiyām).
    Pages are scaffolded empty — paste content in as it's verified. */
 const BARZANJI_CHAPTERS = [
-  { titleArabic:"الْمُقَدِّمَةُ",              titleEnglish:"Opening Praise", verses:[] },
+  {
+    "titleArabic": "الْمُقَدِّمَةُ",
+    "titleEnglish": "Opening Praise",
+    "verses": [
+      {
+        "ar": "أَبْتَدِئُ الْإِمْلَاءَ بِاسْمِ الذَّاتِ الْعَلِيَّةْ ۞ مُسْتَدِرًّا فَيْضَ الْبَرَكَاتِ عَلَى مَا أَنَالَهُ وَأَوْلَاهْ ۞ وَأُثَنِّي بِحَمْدٍ مَوَارِدُهُ سَائِغَةٌ هَنِيَّةْ ۞ مُمْتَطِيًا مِنَ الشُّكْرِ الْجَمِيلِ مَطَايَاهْ ۞ وَأُصَلِّي وَأُسَلِّمُ عَلَى النُّورِ الْمَوْصُوفِ بِالتَّقَدُّمِ وَالْأَوَّلِيَّةْ ۞ الْمُنْتَقِلِ فِي الْغُرَرِ الْكَرِيمَةِ وَالْجِبَاهْ ۞ وَأَسْتَمْنِحُ اللَّهَ تَعَالَى رِضْوَانًا يَخُصُّ الْعِتْرَةَ الطَّاهِرَةَ النَّبَوِيَّةْ ۞ وَيَعُمُّ الصَّحَابَةَ وَالْأَتْبَاعَ وَمَنْ وَالَاهْ ۞ وَأَسْتَجْدِيهِ هِدَايَةً لِسُلُوكِ السُّبُلِ الْوَاضِحَةِ الْجَلِيَّةْ ۞ وَحِفْظًا مِنَ الْغَوَايَةِ فِي خِطَطِ الْخَطَإِ وَخُطَاهْ ۞ وَأَنْشُرُ مِنْ قِصَّةِ الْمَوْلِدِ النَّبَوِيِّ الشَّرِيفِ بُرُودًا حِسَانًا عَبْقَرِيَّةْ ۞ نَاظِمًا مِنَ النَّسَبِ الشَّرِيفِ عِقْدًا تُحَلَّى الْمَسَامِعُ بِحُلَاهْ ۞ وَأَسْتَعِينُ بِحَوْلِ اللَّهِ تَعَالَى وَقُوَّتِهِ الْقَوِيَّةْ ۞ فَإِنَّهُ لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهْ",
+        "tr": "Abtadi'u l-imlā'a bi-smi dh-dhāti l-ʿaliyyah, mustadirran fayḍa l-barakāti ʿalā mā anālahu wa awlāh, wa uthannī bi-ḥamdin mawāriduhu sā'ighatun haniyyah, mumtaṭīyan mina sh-shukri l-jamīli maṭāyāh, wa uṣallī wa usallimu ʿalā n-nūri l-mawṣūfi bi-t-taqaddumi wa l-awwaliyyah, al-muntaqili fi l-ghurari l-karīmati wa l-jibāh, wa astamniḥu Llāha taʿālā riḍwānan yakhuṣṣu l-ʿitrata ṭ-ṭāhirata n-nabawiyyah, wa yaʿummu ṣ-ṣaḥābata wa l-atbāʿa wa man wālāh, wa astajdīhi hidāyatan li-sulūki s-subuli l-waḍiḥati l-jaliyyah, wa ḥifẓan mina l-ghawāyati fī khiṭaṭi l-khaṭa'i wa khuṭāh, wa anshuru min qiṣṣati l-mawlidi n-nabawiyyi sh-sharīfi burūdan ḥisānan ʿabqariyyah, nāẓiman mina n-nasabi sh-sharīfi ʿiqdan tuḥalla l-masāmiʿu bi-ḥulāh, wa astaʿīnu bi-ḥawli Llāhi taʿālā wa quwwatihi l-qawiyyah, fa-innahu lā ḥawla wa lā quwwata illā bi-Llāh.",
+        "en": "I commence [this] composition in the Name of the Supreme Being, seeking the outpouring of abundant blessings upon whatever He may enable it to achieve and bring about. Next, I extol [Him] and offer thanks whose sources are pure and refreshing, while mounted on the steed of comely thankfulness. Blessings and peace I invoke upon the Light described as first and foremost, passed on in features and upon brows most noble. I ask Allah Most High to bestow especial good pleasure upon the pure Prophetic family, embracing also his Companions, Followers, and all that truly follow them. I ask Allah for guidance in travelling by pathways clear and radiant; and for protection from straying into or approaching the tracts of error. I shall unfold, from the story of the Prophet's nativity, garments fair and vivid, assembling from [his] noble lineage a necklace whose beauty regales the listener. And I seek help from the strength and power of Allah Most Mighty; for truly there is no power or strength but through Allah."
+      },
+      {
+        "ar": "عَطِّرِ اللَّهُمَّ قَبْرَهُ الْكَرِيمَ بِعَرْفٍ شَذِيٍّ مِنْ صَلَاةٍ وَتَسْلِيمٍ\nاللَّهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَيْهِ",
+        "tr": "ʿAṭṭiri Llāhumma qabrahu l-karīma bi-ʿarfin shadhiyyin min ṣalātin wa taslīmin\nAllāhumma ṣalli wa sallim wa bārik ʿalayhi.",
+        "en": "Perfume, O Allah, his noble tomb with a fragrant scent of blessing and salutation.\n(O Allah, exalt him, preserve him and bless him.)"
+      }
+    ]
+  },
   { titleArabic:"النَّسَبُ الشَّرِيفُ",         titleEnglish:"The Noble Lineage", verses:[] },
   { titleArabic:"نَقْلُ النُّورِ",              titleEnglish:"The Passing of the Light", verses:[] },
   { titleArabic:"عَبْدُ اللهِ وَآمِنَةُ",        titleEnglish:"ʿAbdullāh and Āminah", verses:[] },
@@ -7046,7 +7123,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v239';
+const APP_VERSION = 'v249';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -7063,8 +7140,8 @@ function versionTag(){
 
 const TABS = [
   { id:'mawlids', label:'Mawlid Collections',   ar:'مجموعات الموالد' },
-  { id:'dalail',  label:'Dalāʾil al-Khayrāt',   ar:'دلائل الخيرات' },
   { id:'praises', label:'Nasheeds & Qasidas',   ar:'الأناشيد والقصائد' },
+  { id:'dalail',  label:'Dalāʾil al-Khayrāt',   ar:'دلائل الخيرات' },
   { id:'favs',    label:'Favorites',            ar:'المفضلة' },
 ];
 
@@ -8539,8 +8616,8 @@ function dalailCards(){
         <button class="qcard" onclick="openDalail(${n})">
           <span class="num">${toArNum(n+1)}</span>
           <span class="titles">
+            <span class="t-en lead">${c.titleEnglish}</span>
             <span class="t-ar">${c.titleArabic}</span>
-            <span class="t-en">${c.titleEnglish}</span>
           </span>
           <span class="chev">›</span>
         </button>`).join('');
@@ -8583,8 +8660,8 @@ function displayTitle(piece){
    computed live, so they stay right as content is added. */
 const HOME_CARDS = [
   { id:'mawlids', ar:'مجموعات الموالد', en:'Mawlid Collections', desc:'The mawlid texts and Qasida Burdah — choose a collection to recite from.' },
-  { id:'dalail',  ar:'دلائل الخيرات', en:'Dalāʾil al-Khayrāt', desc:'Imam al-Jazūlī’s book of blessings upon the Prophet ﷺ, divided for the week.' },
   { id:'praises', ar:'الأناشيد والقصائد', en:'Nasheeds & Qasidas', desc:'Nasheeds, qasidas, ilahis and qawwalis.' },
+  { id:'dalail',  ar:'دلائل الخيرات', en:'Dalāʾil al-Khayrāt', desc:'Imam al-Jazūlī’s book of blessings upon the Prophet ﷺ, divided for the week.' },
   { id:'favs',    ar:'المفضلة',       en:'Favorites',         desc:'Whatever you bookmark, kept on this device.' },
 ];
 
@@ -8868,6 +8945,11 @@ function updateScrollUI(){
   const spd = document.querySelector('.autoscroll-bar .spd');
   if(spd) spd.textContent = scrollSpeedLabel();
 }
+
+/* Auto-scroll suits a piece recited straight through at an even pace. The
+   Dalāʾil and the daily litanies are not read that way — they are worked
+   through at the reader's own pace, with pauses — so the bar is kept off both. */
+const NO_AUTOSCROLL = ['d', 'l'];
 
 function autoScrollBar(){
   return `
@@ -9355,6 +9437,23 @@ function sessionPanel(){
   </div>`;
 }
 
+/* The green chapter note. Anything past a couple of lines is folded behind a
+   disclosure so the reader meets the prayer first and opens the background only
+   if they want it; short notes are left showing, since hiding a single line
+   costs a tap and saves nothing. Length is measured on the text, not the
+   markup, because some notes carry an Arabic line in a span. */
+const NOTE_FOLD_AT = 160;
+
+function noteBlock(note){
+  if(!note) return '';
+  const plain = String(note).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  if(plain.length <= NOTE_FOLD_AT) return `<div class="qnote">${note}</div>`;
+  return `<details class="qnote">
+      <summary>About this section · نُبْذَة <span class="qnote-chev">›</span></summary>
+      <div class="qnote-body">${note}</div>
+    </details>`;
+}
+
 function readerHTML(q, backOnclick, kind, idx){
   const empty = !q.verses || q.verses.length === 0;
   /* Turkish ilahis carry their own name in both title fields, so the subheader
@@ -9403,7 +9502,7 @@ function readerHTML(q, backOnclick, kind, idx){
     </div>`}
     <main class="verses${pageView ? ' ms-view' : ''}">
       ${pageView ? manuscriptPages(q, kind, idx) : empty ? placeholder(q.titleEnglish) : `
-      ${q.note ? `<div class="qnote">${q.note}</div>` : ''}
+      ${noteBlock(q.note)}
       ${q.video ? `<a class="qtune" href="${q.video}" target="_blank" rel="noopener">▶ Listen to the tune</a>` : ''}
       ${q.video2 ? `<a class="qtune" href="${q.video2}" target="_blank" rel="noopener">▶ Listen — alternate version</a>` : ''}
       ${q.verses.map((v,n)=>`
@@ -9414,6 +9513,7 @@ function readerHTML(q, backOnclick, kind, idx){
             title="${placedVerse(idx,n)?'Remove my place':'Mark my place here'}">${bookmarkIcon(placedVerse(idx,n))}</button>` : ''}
           <div class="v-num">${toArNum(n+1)}</div>
           ${v.refrain?'<div class="refrain-note">Refrain · يُرَدَّد</div>':''}
+          ${v.instruction?'<div class="instruction-note">Instruction · إِرْشَاد</div>':''}
           ${v.note?`<div class="v-note">${v.note}</div>`:''}
           ${q.latin
             ? `<div class="v-latin">${stripBreaks(v.ar).replaceAll('\n','<br>')}</div>`
@@ -9428,7 +9528,7 @@ function readerHTML(q, backOnclick, kind, idx){
           ${v.en ? `<div class="v-en ${state.showEn?'':'hide'}">${v.en.replaceAll('\n','<br>')}</div>` : ''}
         </article>`).join('')}`}
     </main>
-    ${empty || pageView ? '' : autoScrollBar()}`;
+    ${empty || pageView || NO_AUTOSCROLL.includes(kind) ? '' : autoScrollBar()}`;
 }
 
 function openQasida(i){
@@ -9460,6 +9560,7 @@ function openNasheed(n){
 }
 
 function openLitany(n){
+  stopAutoScroll();   /* no bar in here to stop it with */
   document.documentElement.style.setProperty('--ar-size', (1.9*state.arScale)+'rem');
   document.documentElement.style.setProperty('--latin-scale', state.latinScale);
   app.innerHTML = readerHTML(LITANY_CHAPTERS[n], "selectTab('litanies')", 'l', n);
@@ -9478,6 +9579,7 @@ function openBarzanji(n){
 }
 
 function openDalail(n){
+  stopAutoScroll();   /* no bar in here to stop it with */
   document.documentElement.style.setProperty('--ar-size', (1.9*state.arScale)+'rem');
   document.documentElement.style.setProperty('--latin-scale', state.latinScale);
   document.documentElement.style.setProperty('--ms-zoom', state.msZoom);
@@ -9735,6 +9837,15 @@ function manuscriptPages(q, kind, idx){
       inner = `<span class="ms-instruction">${inner}</span>`;
     }
     inner = inner.replaceAll('\n', '<br>').replaceAll('۞', '<span class="ms-r">۞</span>');
+    /* Directions embedded in the passage go gold, and the ones that carry an
+       explanation become tappable — the leaf sets no English of its own. */
+    inner = markInline(inner, true);
+    /* A rubric is not a passage anyone wants to highlight, so its tap is given
+       over to showing the English — the leaf itself carries only Arabic. */
+    if(v.instruction){
+      return `<span class="ms-v has-instr" data-mk="${k}" data-en="${attrEsc(v.en || '')}"
+                  onclick="showInstrBubble(event, this)">${inner}</span>`;
+    }
     return `<span class="ms-v${marks[k] ? ' marked' : ''}" data-mk="${k}"
                   onclick="markVerse('${kind}',${idx},'${sub == null ? n : n + '.' + sub}')">${inner}</span>`;
   };
@@ -9823,7 +9934,7 @@ function manuscriptPages(q, kind, idx){
   const dots = expandedFolios.map((f, i) =>
     `<button class="ms-dot${i === 0 ? ' on' : ''}" data-pg="${i}" onclick="msGoTo(${i})"
              aria-label="Page ${i + 1}"></button>`).join('');
-  return `${q.note ? `<div class="qnote">${q.note}</div>` : ''}
+  return `${noteBlock(q.note)}
     <p class="ms-hint">Turn the leaf right to left · tap a phrase to mark your place</p>
     <div class="ms-book" id="ms-book" onscroll="msSyncDots()">${expandedFolios.map(sheet).join('')}</div>
     <div class="ms-nav">
@@ -9935,6 +10046,92 @@ function markVerse(kind, idx, n){
   if(el) el.classList.toggle('marked', !!m[k]);
 }
 
+/* ── The English of a rubric, on tap, in the Book Version ──────────────
+   The leaf sets only Arabic, so the translation of an instruction verse has
+   nowhere to live on the page. It appears in a bubble fixed to the viewport
+   instead of inside the leaf, because msAutoFit measures each leaf to size it
+   and anything added inside would shift where the page breaks. */
+/* Instructions that sit inside a passage rather than standing as a verse of
+   their own: a repeat count, the place where the gathering stands, a blank the
+   reader fills with their own name. They are set in gold wherever they appear,
+   in both readings, so the eye can tell at a glance what is prayer and what is
+   direction. Where an instruction needs explaining, the explanation lives here
+   rather than in the Arabic — the text stays as the book sets it — and in the
+   Book Version, which carries no English, it can be tapped for. */
+const INLINE_INSTRUCTIONS = [
+  { find: /\((?:[0-9]+|[\u0660-\u0669]+)\)/g },   /* repeat counts — (3), (14) */
+  { find: '(٤ مرات)' },                            /* …and the same spelled out */
+  { find: '(محل القيام)' },                        /* the standing */
+  { find: '(فُلَانِ بْن فُلَانٍ)',
+    en:   'So-and-so, son of so-and-so — say your own name and your father’s name here.' },
+];
+
+function markInline(html, interactive){
+  let out = String(html);
+  INLINE_INSTRUCTIONS.forEach(g => {
+    const wrap = m => (interactive && g.en)
+      ? `<span class="ms-gloss has-instr" data-en="${attrEsc(g.en)}"
+               onclick="showInstrBubble(event, this)">${m}</span>`
+      : `<span class="ms-gloss">${m}</span>`;
+    out = (typeof g.find === 'string')
+      ? out.split(g.find).join(wrap(g.find))
+      : out.replace(g.find, m => wrap(m));
+  });
+  return out;
+}
+
+function attrEsc(s){
+  return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+                  .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+function hideInstrBubble(){
+  const b = document.getElementById('instr-bubble');
+  if(b) b.remove();
+}
+
+function showInstrBubble(ev, el){
+  if(ev) ev.stopPropagation();
+  const open = document.getElementById('instr-bubble');
+  const key = el.getAttribute('data-mk') || '';
+  const same = !!open && open.getAttribute('data-for') === key;
+  hideInstrBubble();
+  if(same) return;                 /* tapping the same rubric again closes it */
+  const en = el.getAttribute('data-en') || '';
+  if(!en) return;
+
+  const b = document.createElement('div');
+  b.id = 'instr-bubble';
+  b.className = 'instr-bubble';
+  b.setAttribute('data-for', key);
+  b.innerHTML = '<div class="instr-bubble-in">' + en + '</div>';
+  document.body.appendChild(b);
+
+  const vw = document.documentElement.clientWidth;
+  const vh = document.documentElement.clientHeight;
+  const w = Math.min(320, vw - 24);
+  b.style.width = w + 'px';
+  const r = el.getBoundingClientRect();
+  const h = b.offsetHeight;
+  let left = r.left + r.width / 2 - w / 2;
+  left = Math.max(12, Math.min(left, vw - w - 12));
+  /* Above the rubric where there's room, below it where there isn't. */
+  let top = r.top - h - 10;
+  if(top < 12) top = Math.min(r.bottom + 10, vh - h - 12);
+  if(top < 12) top = 12;
+  b.style.left = left + 'px';
+  b.style.top = top + 'px';
+  requestAnimationFrame(() => b.classList.add('on'));
+}
+
+/* Anything that moves the page out from under the bubble dismisses it. */
+document.addEventListener('click', e => {
+  if(!e.target || !e.target.closest || !e.target.closest('.has-instr')) hideInstrBubble();
+});
+window.addEventListener('scroll', hideInstrBubble, { passive:true });
+window.addEventListener('resize', hideInstrBubble);
+window.addEventListener('keydown', e => { if(e.key === 'Escape') hideInstrBubble(); });
+
 /* Full screen is done with layout rather than the Fullscreen API, which iOS
    won't grant to anything but video. Everything but the leaf steps aside. */
 function setImmersive(on){
@@ -9995,13 +10192,34 @@ renderIndex();
 /* Pause auto-scroll the moment the user scrolls by hand (wheel or drag).
    Our own window.scrollBy doesn't fire these input events, so no false stops. */
 /* The bismillah heads the reading bar, then folds away as soon as you scroll in,
-   leaving a slim bar with Back and the bookmark. Recomputed rather than cached so
-   it stays right when a new piece is opened and the page jumps back to the top. */
+   leaving a slim bar with Back and the bookmark.
+
+   Two thresholds, not one, and deliberately far apart. The bar is sticky, so it
+   holds its place in the flow: folding the bismillah shortens it, everything
+   below rides up, the document itself gets shorter, and scrollY falls. With a
+   single line to cross, that fall can carry scrollY straight back under it —
+   which unfolds the bar, pushes the page down, and crosses the line again. The
+   result was the bismillah blinking in and out several times a second while the
+   header scrolled away. The gap here is wider than the height the fold removes,
+   so the bar can no longer scroll itself back over its own threshold. Read on a
+   rAF tick as well, so a burst of scroll events settles into one measurement. */
+const BAR_SLIM_ON = 88, BAR_SLIM_OFF = 32;
+let barTick = false;
+
 function updateReaderBar(){
   const bar = document.querySelector('.reader-bar');
-  if(bar) bar.classList.toggle('slim', (window.scrollY || 0) > 36);
+  if(!bar) return;
+  const y = window.scrollY || 0;
+  const slim = bar.classList.contains('slim');
+  if(!slim && y > BAR_SLIM_ON)       bar.classList.add('slim');
+  else if(slim && y < BAR_SLIM_OFF)  bar.classList.remove('slim');
 }
-window.addEventListener('scroll', updateReaderBar, { passive:true });
+
+window.addEventListener('scroll', () => {
+  if(barTick) return;
+  barTick = true;
+  requestAnimationFrame(() => { barTick = false; updateReaderBar(); });
+}, { passive:true });
 
 window.addEventListener('wheel',    () => { if(autoScrollActive) stopAutoScroll(); }, { passive:true });
 window.addEventListener('touchmove',() => { if(autoScrollActive) stopAutoScroll(); }, { passive:true });
