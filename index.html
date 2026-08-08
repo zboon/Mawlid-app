@@ -316,7 +316,7 @@
   .search-wrap.at-bottom{
     position:fixed;
     left:50%; transform:translateX(-50%);
-    bottom:calc(env(safe-area-inset-bottom, 0px) + .85rem);
+    bottom:calc(env(safe-area-inset-bottom, 0px) + .85rem + var(--player-h));
     width:min(605px, calc(100% - 2.2rem));
     margin:0;
     z-index:20;
@@ -930,7 +930,9 @@
   .fav-btn.on{ color:var(--gold); opacity:1; }
   .autoscroll-bar{
     position:fixed; left:50%; transform:translateX(-50%);
-    bottom:calc(env(safe-area-inset-bottom, 0px) + 1rem);
+    /* Rides above the docked reciter rather than under it. --player-h is 0
+       whenever the dock is closed, so this is the old position untouched. */
+    bottom:calc(env(safe-area-inset-bottom, 0px) + 1rem + var(--player-h));
     display:flex; align-items:center; gap:.45rem; z-index:60;
     background:var(--green-deep); color:var(--paper);
     padding:.4rem .5rem; border-radius:999px;
@@ -4507,7 +4509,7 @@ const DALAIL_CHAPTERS = [
   {
     "titleArabic": "حِزْبُ يَوْمِ الِاثْنَيْنِ — الْجُزْءُ الأَوَّلُ",
     "titleEnglish": "Monday — Part 1",
-    "video": "https://www.youtube.com/watch?v=rPTOOtWNsEw",
+    "video": "https://www.youtube.com/watch?v=NhkkVJX8gSg",
     "cartouche": "حِزْبُ يَوْمِ الِاثْنَيْنِ",
     "note": "The first portion of Monday's ḥizb, opening with the section on the manner of invoking blessings upon the Prophet ﷺ. A long sequence of ṣalawāt is followed by the duʿāʾ that is hoped to be answered, recited after the blessings.",
     "folios": [
@@ -4785,7 +4787,7 @@ const DALAIL_CHAPTERS = [
   {
     "titleArabic": "حِزْبُ يَوْمِ الثُّلَاثَاءِ",
     "titleEnglish": "Tuesday",
-    "video": "https://www.youtube.com/watch?v=bAWtqNBz7f8",
+    "video": "https://www.youtube.com/watch?v=Xva6aNt6brE",
     "cartouche": "حِزْبُ يَوْمِ الثُّلَاثَاءِ",
     "note": "The second ḥizb, recited on Tuesday — a long litany of ṣalawāt naming the Prophet ﷺ by his stations and epithets, opening with the supplication for refuge and closing with peace upon him and praise of the Lord of the worlds. It ends with the opening of the second quarter, an addition recited beyond the day's portion.",
     "folios": [
@@ -5500,7 +5502,7 @@ const DALAIL_CHAPTERS = [
   {
     "titleArabic": "حِزْبُ يَوْمِ الأَرْبِعَاءِ",
     "titleEnglish": "Wednesday",
-    "video": "https://www.youtube.com/watch?v=4mYtCAe-EQk",
+    "video": "https://www.youtube.com/watch?v=eZnex6kC2PY",
     "cartouche": "حِزْبُ يَوْمِ الأَرْبِعَاءِ",
     "note": "The third ḥizb, recited on Wednesday — blessings upon the Prophet ﷺ in soul, body and grave, upon the prophets and angels, and a closing munājāt describing his rank above all creation. Three verses are marked to be recited three times, and the second third of the Dalāʾil begins partway through.",
     "folios": [
@@ -5733,7 +5735,7 @@ const DALAIL_CHAPTERS = [
   {
     "titleArabic": "حِزْبُ يَوْمِ الْخَمِيسِ",
     "titleEnglish": "Thursday",
-    "video": "https://www.youtube.com/watch?v=slA_ZUBMh64",
+    "video": "https://www.youtube.com/watch?v=5jnV-pyfdis",
     "cartouche": "حِزْبُ يَوْمِ الْخَمِيسِ",
     "note": "The fourth ḥizb, recited on Thursday — blessings and intercession upon the Prophet ﷺ, prayers for the believers, and a supplication by the tremendous Names of God. Five verses are marked to be recited three times, and the third quarter of the Dalāʾil opens partway through.",
     "folios": [
@@ -5976,7 +5978,7 @@ const DALAIL_CHAPTERS = [
   {
     "titleArabic": "حِزْبُ يَوْمِ الْجُمُعَةِ",
     "titleEnglish": "Friday",
-    "video": "https://www.youtube.com/watch?v=GWq6zrqfH5w",
+    "video": "https://www.youtube.com/watch?v=N4y6oaZ03ow",
     "cartouche": "حِزْبُ يَوْمِ الْجُمُعَةِ",
     "note": "The fifth ḥizb, recited on Friday — opening with a long supplication invoking the Names by which every prophet called upon God, then an extended litany of ṣalawāt upon the Prophet ﷺ measured by all that exists. A hadith describing the great reward of this salawāt is included partway through. Closes with the familiar seal.",
     "folios": [
@@ -6244,7 +6246,7 @@ const DALAIL_CHAPTERS = [
   {
     "titleArabic": "حِزْبُ يَوْمِ السَّبْتِ",
     "titleEnglish": "Saturday",
-    "video": "https://www.youtube.com/watch?v=oJa889VJc1E",
+    "video": "https://www.youtube.com/watch?v=_PdcOX5dea8",
     "cartouche": "حِزْبُ يَوْمِ السَّبْتِ",
     "note": "The sixth ḥizb, recited on Saturday — blessings and intercession upon the Prophet ﷺ, an extended litany of ṣalawāt measured by all creation, and a closing supplication by the Names of God and the names of the prophets. Two verses are marked to be recited three times; the third third and the fourth quarter of the Dalāʾil open partway through.",
     "verses": [
@@ -6371,7 +6373,7 @@ const DALAIL_CHAPTERS = [
   {
     "titleArabic": "حِزْبُ يَوْمِ الأَحَدِ",
     "titleEnglish": "Sunday",
-    "video": "https://www.youtube.com/watch?v=luaPAAQvmQk",
+    "video": "https://www.youtube.com/watch?v=6fufs0LYFPY",
     "cartouche": "حِزْبُ يَوْمِ الأَحَدِ",
     "note": "The seventh ḥizb, recited on Sunday — a continuation of the great enumerative ṣalawāt begun the day before, invoking blessings as many times as every created thing, followed by the well-known Ibrāhīmī salawāt, a chain of salutations upon the angels and prophets, and an extended litany in praise of the Prophet ﷺ. The Book Version pagination is still to be set.",
     "verses": [
@@ -7841,7 +7843,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v262';
+const APP_VERSION = 'v264';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
