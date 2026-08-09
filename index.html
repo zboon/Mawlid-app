@@ -419,8 +419,8 @@
   }
   /* ── Two leaves at once, as an open book ─────────────────────────
      The scroller is already RTL, so the earlier leaf sits on the RIGHT and its
-     pair to the left, the way the printed book falls open — and on a Fold the
-     gutter between them lands on the crease. Pairs run from the first leaf.
+     pair to the left, the way the printed book falls open, with the gutter
+     falling between them. Pairs run from the first leaf.
      Snapping is put on the odd children only, so a swipe moves a whole spread
      rather than a single page; in RTL the odd child's start edge is its right
      edge, so aligning it to the container's start seats the pair exactly. */
@@ -428,7 +428,7 @@
     flex:0 0 50%; max-width:none; padding:0 .35rem; scroll-snap-align:none;
   }
   .ms-book.spread .ms-sheet:nth-child(odd){ scroll-snap-align:start; }
-  .ms-book.spread .ms-page{ min-height:min(72dvh, calc((50vw - 1.4rem) * 1.5)); }
+  .ms-book.spread .ms-page{ min-height:min(72dvh, calc((50vw - 1.4rem) * 1.2)); }
   .ms-nav{ display:flex; align-items:center; justify-content:center; gap:1rem; padding:.7rem 0 1.4rem; }
   .ms-nav .ms-arrow{ width:2.2rem; height:2.2rem; font-size:1.25rem; box-shadow:none; opacity:.95 }
   /* The arrows ride over the leaf, always within reach — top of the page or
@@ -7868,7 +7868,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v270';
+const APP_VERSION = 'v271';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -10966,15 +10966,14 @@ function playerHeight(){
 }
 
 /* ── The open-book spread ────────────────────────────────────────────
-   Offered only at the dimensions of a folding phone's inner screen. There is no
-   reliable way to ask "is this a Fold": the CSS viewport-segments feature only
-   reports two segments on dual-PANEL devices like the Surface Duo, while a
-   Fold's inner display is one continuous viewport and reports one. So the test
-   is the shape of the screen. The height floor rules out a phone held sideways,
-   and the aspect floor rules out a tablet in portrait, which is markedly
-   narrower in proportion than a Fold's near-square inner screen. */
+   Offered on a desktop window or a tablet held sideways — screens wide enough
+   that halving them still leaves a page worth reading. It was briefly offered
+   on a folding phone's inner screen instead and that was DROPPED at the user's
+   request: ~717px halved gives two columns too narrow to read comfortably.
+   The landscape test keeps out a tablet in portrait; the width floor keeps out
+   phones held sideways, and both fold screens. */
 const SPREAD_MQ = window.matchMedia(
-  '(min-width: 660px) and (max-width: 900px) and (min-height: 700px) and (min-aspect-ratio: 4/5)');
+  '(min-width: 900px) and (min-height: 600px) and (orientation: landscape)');
 const SPREAD_KEY = 'mawlid-spread';
 
 function spreadOffered(){ return SPREAD_MQ.matches; }
