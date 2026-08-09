@@ -152,6 +152,26 @@
     text-align:center;
     position:relative;
   }
+  /* Sticky top chrome that minimises on scroll — index/browse pages only
+     (readers render their own .reader-bar, no masthead). The whole header
+     block is pinned; when html.hdr-min is set (any downward scroll) the logo
+     and the home subhead collapse, leaving the corner buttons and, on tab
+     pages, the tab bar. */
+  .topbar{ position:sticky; top:0; z-index:40; }
+  html.is-home .topbar{ position:static; }            /* home: header scrolls away as before, no minimise */
+  html.immersive .topbar{ display:none; }
+  /* Stop the browser's scroll-anchoring from nudging the scroll position when
+     the header collapses — that feedback was the source of the flicker (same
+     class of bug as the v249 reader-bar loop). */
+  html{ overflow-anchor:none; }
+  /* A constant floor tall enough for the corner buttons, so collapsing the logo
+     never has to animate min-height (which was the visible jump). */
+  .masthead{ transition:padding .24s ease; min-height:calc(env(safe-area-inset-top, 0px) + 3.15rem); }
+  html:not(.is-home) .masthead .logo,
+  html:not(.is-home) .masthead .bismillah-mark{ transition:opacity .18s ease, max-height .24s ease, margin .24s ease; max-height:240px; }
+  html.hdr-min .masthead{ padding-top:calc(env(safe-area-inset-top, 0px) + .5rem); padding-bottom:.5rem; }
+  html.hdr-min .masthead .logo,
+  html.hdr-min .masthead .bismillah-mark{ opacity:0; max-height:0; margin-top:0; margin-bottom:0; pointer-events:none; }
   /* Star band straddling the header seam: pulled up half its height. */
   .head-band svg{display:block;width:100%}
   /* Small Bismillah at the very top of the header, on every page. */
@@ -7993,7 +8013,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v277';
+const APP_VERSION = 'v279';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -9792,6 +9812,7 @@ function renderIndex(){
   const home = onHome && !state.query;
   const sessionScreen = state.tab === 'session' && !state.query;
   app.innerHTML = `
+    <div class="topbar">
     <header class="masthead">
       <button class="header-mark" onclick="goHome()" aria-label="Home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v9.5a.5.5 0 0 0 .5.5H9.5v-6h5v6h4a.5.5 0 0 0 .5-.5V10"/></svg></button>
       <button class="session-mark${session.role ? ' live' : ''}" onclick="selectTab('session')" aria-label="Live session">Live</button>
@@ -9806,6 +9827,7 @@ function renderIndex(){
          </div>`
       : ''}
     ${(onHome || sessionScreen) ? '' : navBar()}
+    </div>
     <main class="index">
       ${(tabHasSearch() && !sessionScreen && !onHome) ? searchBox() : ''}
       <div id="results">${(home ? homeCards() : sessionScreen ? sessionPanel() : renderResults()) + versionTag()}</div>
@@ -9818,9 +9840,30 @@ function renderIndex(){
       <div class="feedback-sub">Corrections to the Arabic or translation are welcome · جزاكم الله خيراً</div>
     </div>` : ''}
     <footer>Works offline once added to your home screen.</footer>`;
+  document.documentElement.classList.toggle('is-home', state.tab === 'home');
   window.scrollTo(0,0);
+  updateHdrMin();
+  if(!window.__hdrScrollBound){ window.__hdrScrollBound = true; window.addEventListener('scroll', updateHdrMin, { passive:true }); }
   if(state.query){ const el=document.getElementById('search'); if(el){ el.focus(); el.setSelectionRange(el.value.length, el.value.length); } }
   centerActiveTab();
+}
+
+/* Collapse the sticky header (logo + home subhead) on any downward scroll of an
+   index/browse page, leaving the corner buttons and the tab bar pinned. */
+function updateHdrMin(){
+  if(window.__hdrTick) return;
+  window.__hdrTick = true;
+  requestAnimationFrame(() => {
+    window.__hdrTick = false;
+    const root = document.documentElement;
+    if(state.tab === 'home'){ root.classList.remove('hdr-min'); return; }   // never minimise on home
+    const y = window.scrollY || root.scrollTop || 0;
+    const on = root.classList.contains('hdr-min');
+    /* Hysteresis: collapse after a small scroll, expand only back near the top,
+       so the boundary can't oscillate. */
+    if(!on && y > 24) root.classList.add('hdr-min');
+    else if(on && y < 6) root.classList.remove('hdr-min');
+  });
 }
 
 /* The tab strip scrolls sideways on a phone, so the highlighted section can sit
