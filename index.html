@@ -417,6 +417,18 @@
     max-width:660px; margin:0 auto; padding:0 .7rem;
     display:flex; flex-direction:column;
   }
+  /* ── Two leaves at once, as an open book ─────────────────────────
+     The scroller is already RTL, so the earlier leaf sits on the RIGHT and its
+     pair to the left, the way the printed book falls open — and on a Fold the
+     gutter between them lands on the crease. Pairs run from the first leaf.
+     Snapping is put on the odd children only, so a swipe moves a whole spread
+     rather than a single page; in RTL the odd child's start edge is its right
+     edge, so aligning it to the container's start seats the pair exactly. */
+  .ms-book.spread .ms-sheet{
+    flex:0 0 50%; max-width:none; padding:0 .35rem; scroll-snap-align:none;
+  }
+  .ms-book.spread .ms-sheet:nth-child(odd){ scroll-snap-align:start; }
+  .ms-book.spread .ms-page{ min-height:min(72dvh, calc((50vw - 1.4rem) * 1.5)); }
   .ms-nav{ display:flex; align-items:center; justify-content:center; gap:1rem; padding:.7rem 0 1.4rem; }
   .ms-nav .ms-arrow{ width:2.2rem; height:2.2rem; font-size:1.25rem; box-shadow:none; opacity:.95 }
   /* The arrows ride over the leaf, always within reach — top of the page or
@@ -7856,7 +7868,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v269';
+const APP_VERSION = 'v270';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -10261,6 +10273,8 @@ function readerHTML(q, backOnclick, kind, idx){
         <button class="${pageView?'on':''}" onclick="setPageView(true,${controlsTarget})">Book Version</button>
         <button class="${pageView?'':'on'}" onclick="setPageView(false,${controlsTarget})">Study Version</button>
         </span>
+      ${pageView && spreadOffered() ? `<button class="chip ${spreadOn()?'on':'off'}"
+        onclick="toggleSpread(${controlsTarget})">Two pages</button>` : ''}
       ${pageView ? `<button class="chip icon" onclick="setImmersive(true)" aria-label="Full screen">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M9 3H3v6M15 3h6v6M9 21H3v-6M15 21h6v-6"/></svg>
@@ -10487,8 +10501,10 @@ function msAutoFit(){
   /* In full screen a leaf should at least fill the screen; in the normal reader
      it sits at book proportions. */
   const immersive = document.documentElement.classList.contains('immersive');
+  /* Width of one leaf, which is half the scroller in a spread. */
+  const leafW = (book.firstElementChild && book.firstElementChild.clientWidth) || book.clientWidth || 360;
   H = Math.max(H, immersive ? window.innerHeight - playerHeight()
-                            : Math.min(window.innerHeight * 0.72, (book.clientWidth || 360) * 1.5));
+                            : Math.min(window.innerHeight * 0.72, leafW * 1.5));
 
   leaves.forEach((o, i) => {
     o.p.style.minHeight = '0px';   // the fitted height is the height
@@ -10719,12 +10735,15 @@ function manuscriptPages(q, kind, idx){
     </div>`;
   };
 
-  const dots = expandedFolios.map((f, i) =>
+  /* One dot per spread when two leaves show at once, and it goes to the leaf
+     that opens the spread. */
+  const two = spreadOn();
+  const dots = expandedFolios.map((f, i) => (two && i % 2) ? '' :
     `<button class="ms-dot${i === 0 ? ' on' : ''}" data-pg="${i}" onclick="msGoTo(${i})"
-             aria-label="Page ${i + 1}"></button>`).join('');
+             aria-label="${two ? 'Pages ' + (i + 1) + '\u2013' + (i + 2) : 'Page ' + (i + 1)}"></button>`).join('');
   return `${noteBlock(q.note)}
     <p class="ms-hint">Turn the leaf right to left · tap a phrase to mark your place</p>
-    <div class="ms-book" id="ms-book" onscroll="msSyncDots()">${expandedFolios.map(sheet).join('')}</div>
+    <div class="ms-book${two ? ' spread' : ''}" id="ms-book" onscroll="msSyncDots()">${expandedFolios.map(sheet).join('')}</div>
     <div class="ms-nav">
       <button class="ms-arrow next" onclick="msStep(1)" aria-label="Next page">‹</button>
       <div class="ms-dots">${dots}</div>
@@ -10946,6 +10965,36 @@ function playerHeight(){
   return parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--player-h')) || 0;
 }
 
+/* ── The open-book spread ────────────────────────────────────────────
+   Offered only at the dimensions of a folding phone's inner screen. There is no
+   reliable way to ask "is this a Fold": the CSS viewport-segments feature only
+   reports two segments on dual-PANEL devices like the Surface Duo, while a
+   Fold's inner display is one continuous viewport and reports one. So the test
+   is the shape of the screen. The height floor rules out a phone held sideways,
+   and the aspect floor rules out a tablet in portrait, which is markedly
+   narrower in proportion than a Fold's near-square inner screen. */
+const SPREAD_MQ = window.matchMedia(
+  '(min-width: 660px) and (max-width: 900px) and (min-height: 700px) and (min-aspect-ratio: 4/5)');
+const SPREAD_KEY = 'mawlid-spread';
+
+function spreadOffered(){ return SPREAD_MQ.matches; }
+
+function spreadOn(){
+  try{ return spreadOffered() && localStorage.getItem(SPREAD_KEY) === '1'; }
+  catch(e){ return false; }
+}
+
+function toggleSpread(kind, idx){
+  try{ localStorage.setItem(SPREAD_KEY, spreadOn() ? '0' : '1'); }catch(e){}
+  reopen(kind, idx);
+}
+
+/* Fold or unfold the phone and the offer appears or disappears; if the spread
+   was on and there is no longer room for it, the reader falls back to one leaf. */
+if(SPREAD_MQ.addEventListener) SPREAD_MQ.addEventListener('change', () => {
+  if(msPiece && state.pageView) reopen(msPiece.kind, msPiece.idx);
+});
+
 /* Which piece the reader is showing, so the last leaf can carry on into the
    next section instead of dead-ending. Set by readerHTML. */
 let msPiece = null;
@@ -10964,6 +11013,20 @@ function msStep(d){
   if(!book) return;
   const n = book.children.length;
   const cur = msCurrentPage();
+  /* A spread turns two leaves at a time, and the last spread of an odd-length
+     chapter is reached once its first leaf is showing. */
+  if(book.classList.contains('spread')){
+    const from = cur - (cur % 2);
+    const next = from + d * 2;
+    if(d > 0 && next >= n){
+      const nx = nextPiece();
+      const fn = nx && window[openFnOf(nx.kind)];
+      if(typeof fn === 'function') fn(nx.idx);
+      return;
+    }
+    msGoTo(Math.max(0, Math.min(next, n - 1)));
+    return;
+  }
   if(d > 0 && cur >= n - 1){
     const nx = nextPiece();
     const fn = nx && window[openFnOf(nx.kind)];
@@ -10975,6 +11038,7 @@ function msStep(d){
 
 function msGoTo(i){
   const book = document.getElementById('ms-book');
+  if(book && book.classList.contains('spread')) i = i - (i % 2);
   if(!book || !book.children[i]) return;
   book.children[i].scrollIntoView({ behavior:'smooth', block:'nearest', inline:'center' });
   /* Land at the top of the leaf, not wherever the previous page was scrolled to. */
