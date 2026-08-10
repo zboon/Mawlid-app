@@ -152,26 +152,35 @@
     text-align:center;
     position:relative;
   }
-  /* Sticky top chrome that minimises on scroll — index/browse pages only
-     (readers render their own .reader-bar, no masthead). The whole header
-     block is pinned; when html.hdr-min is set (any downward scroll) the logo
-     and the home subhead collapse, leaving the corner buttons and, on tab
-     pages, the tab bar. */
+  /* Sticky top chrome. Home shows the large logo header; every page below home
+     shows a compact bar (see .masthead.compact) with no tab bar. Readers are
+     separate — they render their own .reader-bar. */
   .topbar{ position:sticky; top:0; z-index:40; }
-  html.is-home .topbar{ position:static; }            /* home: header scrolls away as before, no minimise */
+  html.is-home .topbar{ position:static; }   /* home keeps its large scroll-away header */
   html.immersive .topbar{ display:none; }
-  /* Stop the browser's scroll-anchoring from nudging the scroll position when
-     the header collapses — that feedback was the source of the flicker (same
-     class of bug as the v249 reader-bar loop). */
   html{ overflow-anchor:none; }
-  /* A constant floor tall enough for the corner buttons, so collapsing the logo
-     never has to animate min-height (which was the visible jump). */
-  .masthead{ transition:padding .24s ease; min-height:calc(env(safe-area-inset-top, 0px) + 3.15rem); }
-  html:not(.is-home) .masthead .logo,
-  html:not(.is-home) .masthead .bismillah-mark{ transition:opacity .18s ease, max-height .24s ease, margin .24s ease; max-height:240px; }
-  html.hdr-min .masthead{ padding-top:calc(env(safe-area-inset-top, 0px) + .5rem); padding-bottom:.5rem; }
-  html.hdr-min .masthead .logo,
-  html.hdr-min .masthead .bismillah-mark{ opacity:0; max-height:0; margin-top:0; margin-bottom:0; pointer-events:none; }
+  /* Section pages (everything below home) use a compact bar instead of the
+     large logo header: Home + Back on the left, the bismillah centred, Live +
+     theme on the right, and NO tab bar. */
+  .masthead.compact{
+    display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:.5rem;
+    padding:calc(env(safe-area-inset-top, 0px) + .55rem) .8rem .55rem;
+    min-height:0;
+  }
+  .masthead.compact .mh-left{ display:flex; gap:.35rem; justify-self:start; }
+  .masthead.compact .mh-right{ display:flex; gap:.35rem; justify-self:end; }
+  .masthead.compact .bismillah-mark{ justify-self:center; height:auto; width:auto; max-height:2.4rem; max-width:min(46vw,12.5rem); margin:0; opacity:.98; }
+  .masthead.compact .header-mark,
+  .masthead.compact .back-mark,
+  .masthead.compact .session-mark,
+  .masthead.compact .theme-toggle{ position:static; top:auto; left:auto; right:auto; }
+  .back-mark{
+    width:2.3rem; height:2.3rem; border-radius:50%; border:none; cursor:pointer;
+    background:rgba(250,245,234,.14); color:var(--paper);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .back-mark:active{ background:rgba(250,245,234,.28); }
+  .back-mark svg{ width:1.3rem; height:1.3rem; display:block; }
   /* Star band straddling the header seam: pulled up half its height. */
   .head-band svg{display:block;width:100%}
   /* Small Bismillah at the very top of the header, on every page. */
@@ -257,6 +266,7 @@
   }
   .header-mark:active{background:rgba(250,245,234,.28)}
   .header-mark svg{width:1.3rem;height:1.3rem;display:block}
+  .theme-toggle svg{width:1.3rem;height:1.3rem;display:block}
   .theme-toggle:active{background:rgba(250,245,234,.28)}
 
   /* ---------- top nav bar (sections, left-to-right) ---------- */
@@ -412,7 +422,7 @@
   .reader-bar .rside.end{ justify-content:flex-end }
   /* The bismillah sits in the green bar, set apart from the piece's own title. */
   .reader-bismillah{
-    display:block; width:min(118px, 32%); height:auto;
+    display:block; width:min(150px, 40%); height:auto;
     opacity:.94; flex:0 0 auto;
     transition:width .24s ease, opacity .18s ease;
   }
@@ -544,6 +554,18 @@
   .ms-v.placed{ background:var(--ms-mark); box-shadow:0 0 0 2px var(--ms-gold), 0 0 0 4px rgba(184,147,74,.18) }
   @keyframes msFlash{ 0%{ background:var(--ms-gold) } 100%{ background:var(--ms-mark) } }
   .ms-v.ms-flash{ animation:msFlash 1.1s ease-out 1; }
+  /* Verse-level search matches, listed under a chapter card. */
+  .hits{ margin:-.1rem 0 .6rem; padding-left:.9rem; display:flex; flex-direction:column; gap:.3rem; }
+  .hit{ display:flex; flex-direction:column; gap:.15rem; width:100%; text-align:right;
+        background:var(--card-alt); border:1px solid var(--paper-edge); border-left:2px solid var(--gold);
+        border-radius:10px; padding:.5rem .7rem; font:inherit; cursor:pointer; }
+  .hit:active{ transform:scale(.99); }
+  .hit .h-ar{ font-family:'UthmanicHafs','Amiri',serif; font-size:1.02rem; color:var(--ar-color); direction:rtl; line-height:1.5; }
+  .hit .h-tr{ font-size:.76rem; color:var(--ink-soft); direction:ltr; text-align:left; line-height:1.35; }
+  .hit mark{ background:rgba(201,165,94,.32); color:inherit; border-radius:3px; padding:0 .08em; }
+  .hit-more{ font-size:.66rem; color:var(--ink-soft); opacity:.85; padding:.1rem 0 .1rem .2rem; }
+  @keyframes hitFlash{ 0%{ box-shadow:0 0 0 2px var(--gold), 0 0 16px rgba(201,165,94,.55); } 100%{ box-shadow:0 0 0 0 rgba(201,165,94,0); } }
+  .verse.hit-flash{ animation:hitFlash 1.3s ease-out 1; }
   .ms-r{ color:var(--ms-rosette); font-size:.82em; padding:0 .18em; }
   /* Whatever face the Arabic body text is set in, the rosette keeps Amiri's
      star so every one on the page matches. */
@@ -653,7 +675,7 @@
 
   /* ── Dalāʾil index (Option E): today card + labelled bilingual bubbles ── */
   .dk-today{
-    display:flex; flex-direction:column; gap:.2rem; width:100%; text-align:left;
+    display:flex; flex-direction:column; align-items:center; gap:.2rem; width:100%; text-align:center;
     background:linear-gradient(160deg,var(--green),var(--accent-green)); color:var(--paper);
     border:1.5px solid var(--gold); border-radius:16px; padding:.85rem .95rem;
     margin-bottom:.5rem; font:inherit; cursor:pointer;
@@ -664,13 +686,14 @@
   .dk-today-go{ font-size:.82rem; color:var(--gold-soft); }
   /* Row labels: English in spaced caps, Arabic reset (letter-spacing breaks the
      cursive join) and set in the mushaf face. */
-  .dk-rowlab{ display:flex; align-items:baseline; gap:.4rem; margin:.85rem .15rem .35rem; }
+  .dk-rowlab{ display:flex; justify-content:center; align-items:baseline; gap:.4rem; margin:.85rem .15rem .35rem; }
   .dk-rowlab .l-en{ font-size:.72rem; letter-spacing:.13em; text-transform:uppercase; color:var(--gold); font-weight:700; }
   .dk-rowlab .l-ar{ font-family:'UthmanicHafs','Amiri',serif; font-size:1rem; letter-spacing:0; color:var(--gold-soft); direction:rtl; }
   /* Bubbles. Before-the-reading is a 2-col grid (long names), the days a 4-col
      grid (4 + 4, Mon² last), completion a single full-width line. */
   .dk-grid2{ display:grid; grid-template-columns:repeat(2,1fr); gap:.45rem; margin-bottom:.4rem; }
   .dk-grid4{ display:grid; grid-template-columns:repeat(4,1fr); gap:.4rem; margin-bottom:.4rem; }
+  .dk-sep{ height:1px; background:var(--rule-soft); margin:.9rem .2rem .7rem; }
   .dk-bubble{
     display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.12rem;
     background:var(--card); border:1px solid var(--paper-edge); color:var(--ink);
@@ -688,15 +711,15 @@
   .dk-full .b-ar{ font-size:1.15rem; }
   /* "Before the reading" is one bubble that opens its own sub-page. */
   .dk-nav{
-    display:flex; align-items:center; justify-content:space-between; gap:.6rem; width:100%;
+    display:flex; align-items:center; justify-content:center; gap:.6rem; width:100%; position:relative;
     background:var(--card); border:1px solid var(--paper-edge); color:var(--ink);
-    border-radius:16px; padding:.7rem .95rem; margin-bottom:.5rem; font:inherit; cursor:pointer; text-align:left;
+    border-radius:16px; padding:.7rem .95rem; margin-bottom:.5rem; font:inherit; cursor:pointer; text-align:center;
   }
   .dk-nav:active{ transform:scale(.99); }
-  .dk-nav-txt{ display:flex; flex-direction:column; gap:.1rem; min-width:0; }
+  .dk-nav-txt{ display:flex; flex-direction:column; align-items:center; gap:.1rem; min-width:0; }
   .dk-nav .b-en{ font-size:.9rem; font-weight:600; color:var(--ink); }
   .dk-nav .b-ar{ font-family:'UthmanicHafs','Amiri',serif; font-size:1.15rem; color:var(--ar-color); direction:rtl; }
-  .dk-nav-go{ flex:0 0 auto; color:var(--gold); font-size:1.35rem; line-height:1; }
+  .dk-nav-go{ position:absolute; right:.95rem; top:50%; transform:translateY(-50%); color:var(--gold); font-size:1.35rem; line-height:1; }
   .qtune{
     display:flex;align-items:center;justify-content:center;gap:.4rem;
     background:var(--card);border:1.5px solid var(--gold);color:var(--green);
@@ -980,8 +1003,11 @@
   @media (hover:hover){ .verse-place:hover{ opacity:.85; } }
 
   /* ── The place ribbon: one saved spot in the Dalāʾil ─────────────── */
+  /* Sits inside .index, which already caps width and pads 1.1rem — so this
+     wrapper must NOT re-apply them, or the Continue bar ends up ~2.2rem
+     narrower than the today card and the nav rows beside it. */
   .resume-wrap{
-    max-width:640px; margin:.2rem auto 1.1rem; padding:0 1.1rem;
+    margin:.2rem 0 .6rem; padding:0;
     display:flex; flex-direction:column; align-items:stretch; gap:.35rem;
   }
   .resume-card{
@@ -1018,6 +1044,22 @@
   .fav-btn:hover{ opacity:1; }
   .fav-btn:active{ transform:scale(.85); }
   .fav-btn.on{ color:var(--gold); opacity:1; }
+  /* Always-visible view swap in the pinned reader bar, so you can switch
+     Book/Study without scrolling up to the controls — it keeps your place. */
+  .view-swap{
+    display:inline-flex; align-items:center; gap:.24rem; border:none;
+    background:rgba(250,245,234,.14); color:var(--paper); cursor:pointer;
+    padding:.32rem .55rem; border-radius:9px; margin-right:.3rem;
+    font-family:'Crimson Pro',serif; font-size:.82rem; font-weight:700; letter-spacing:.01em;
+    opacity:.94; transition:transform .12s, opacity .12s;
+  }
+  .view-swap svg{ width:1rem; height:1rem; display:block; }
+  .view-swap:hover{ opacity:1; }
+  .view-swap:active{ transform:scale(.9); }
+  /* At the top the calligraphy is showing and the labelled Book/Study switch
+     is in the controls just below, so the little bar swap steps aside; it
+     appears once you scroll into the reading (the bar goes slim). */
+  .reader-bar:not(.slim) .view-swap{ display:none; }
   .autoscroll-bar{
     position:fixed; left:50%; transform:translateX(-50%);
     /* Rides above the docked reciter rather than under it. --player-h is 0
@@ -1036,6 +1078,7 @@
     font-size:1.05rem; line-height:1; padding:0;
   }
   .autoscroll-bar button:active{ transform:scale(.92); }
+  .autoscroll-bar button svg{ width:1.15rem; height:1.15rem; display:block; }
   .autoscroll-bar .play{ background:var(--gold); color:var(--green-deep); font-size:1rem; }
   .autoscroll-bar .spd{
     min-width:2.7rem; text-align:center; font-size:.82rem;
@@ -2540,6 +2583,99 @@ function matchesQuery(q, query){
   if(h.raw.includes(rawq)) return true;
   if(/[\u0600-\u06ff]/.test(query) && h.ar.includes(query.trim())) return true;
   return false;
+}
+
+/* ---------- Verse-level search: matching lines + jump-to-verse ---------- */
+function escHTML(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+/* A snippet of `text` windowed around the query, the match wrapped in <mark>.
+   Falls back to a plain truncation when the match was only via normalisation. */
+function hitSnippet(text, q, win){
+  const raw = String(text || ''); if(!raw) return '';
+  win = win || 110;
+  let i = -1, len = 0;
+  const ql = (q||'').toLowerCase().trim();
+  if(ql){ i = raw.toLowerCase().indexOf(ql); if(i>=0) len = ql.length; }
+  if(i < 0 && /[\u0600-\u06ff]/.test(q||'')){ const qa=q.trim(); i = raw.indexOf(qa); if(i>=0) len = qa.length; }
+  if(i < 0) return escHTML(raw.length > win ? raw.slice(0,win).trim()+'\u2026' : raw);
+  const half = Math.floor(win/2);
+  const a = Math.max(0, i-half), b = Math.min(raw.length, i+len+half);
+  return (a>0?'\u2026':'') + escHTML(raw.slice(a,i)) + '<mark>' + escHTML(raw.slice(i,i+len)) + '</mark>' + escHTML(raw.slice(i+len,b)) + (b<raw.length?'\u2026':'');
+}
+
+/* Which lines of a chapter match the current query, and in which field. */
+function verseHits(c){
+  const q = state.query;
+  if(!q || !c || !c.verses) return [];
+  const nq = normalize(q), tq = tighten(nq), rawq = q.toLowerCase().trim(), isAr = /[\u0600-\u06ff]/.test(q);
+  const test = raw => { if(!raw) return false; const nf = normalize(raw);
+    return (nq && nf.includes(nq)) || (tq && tighten(nf).includes(tq)) || raw.toLowerCase().includes(rawq) || (isAr && raw.includes(q.trim())); };
+  const out = [];
+  for(let n=0; n<c.verses.length; n++){
+    const v = c.verses[n], ar = stripBreaks(v.ar || '');
+    let f = null;
+    if(test(v.en)) f='en'; else if(test(v.tr)) f='tr'; else if(test(ar)) f='ar';
+    if(!f) continue;
+    out.push({ n, ar, sec: f==='ar' ? '' : (v[f]||'') });
+    if(out.length >= 40) break;
+  }
+  return out;
+}
+
+/* The matching-lines list rendered under a chapter card during a search. */
+function hitList(kind, idx){
+  if(!state.query) return '';
+  const arr = arrayOf(kind); if(!arr) return '';
+  const c = arr[idx]; if(!c) return '';
+  const hits = verseHits(c); if(!hits.length) return '';
+  const CAP = 6, shown = hits.slice(0, CAP);
+  const rows = shown.map(h => {
+    const ar = `<span class="h-ar">${hitSnippet(h.ar, state.query, 120)}</span>`;
+    const tr = h.sec ? `<span class="h-tr">${hitSnippet(h.sec, state.query, 130)}</span>` : '';
+    return `<button class="hit" onclick="jumpToVerse('${kind}',${idx},${h.n})">${ar}${tr}</button>`;
+  }).join('');
+  const extra = hits.length - CAP;
+  const more = extra > 0 ? `<div class="hit-more">+${extra} more line${extra>1?'s':''} in this reading</div>` : '';
+  return `<div class="hits">${rows}${more}</div>`;
+}
+
+/* Scroll to a specific verse in whichever view is open, and flash it. Both
+   views share the verse index, so the same n lands on the same line. */
+function scrollToVerse(kind, idx, n){
+  const book = document.getElementById('ms-book');
+  if(book){
+    const vEl = document.querySelector('[data-mk="'+kind+':'+idx+':'+n+'"]')
+             || document.querySelector('[data-mk^="'+kind+':'+idx+':'+n+'."]');
+    if(!vEl) return false;
+    const sheet = vEl.closest('.ms-sheet');
+    if(sheet){ sheet.scrollIntoView({ block:'nearest', inline:'center' }); if(typeof msSyncDots==='function') msSyncDots(); }
+    const r = vEl.getBoundingClientRect();
+    if(r.top < 84 || r.bottom > window.innerHeight - 8) window.scrollTo({ top: Math.max(0, r.top + window.scrollY - 96) });
+    vEl.classList.remove('ms-flash'); void vEl.offsetWidth; vEl.classList.add('ms-flash');
+    return true;
+  }
+  const el = document.querySelector('article.verse[data-v="'+n+'"]');
+  if(!el) return false;
+  window.scrollTo({ top: Math.max(0, el.getBoundingClientRect().top + window.scrollY - 84) });
+  el.classList.remove('hit-flash'); void el.offsetWidth; el.classList.add('hit-flash');
+  return true;
+}
+
+/* Run scrollToVerse once the (re)built leaves settle — the Book Version measures
+   and fits after the fonts land, which shifts everything, so retry once. */
+function afterViewScroll(kind, idx, n){
+  if(n == null) return;
+  const run = () => { if(!scrollToVerse(kind, idx, n)) setTimeout(() => scrollToVerse(kind, idx, n), 280); };
+  if(window.requestAnimationFrame) requestAnimationFrame(() => requestAnimationFrame(run));
+  else setTimeout(run, 40);
+}
+
+/* Open a reader at a specific verse and flash it — Book or Study, any kind. */
+function jumpToVerse(kind, idx, n){
+  const fn = window[openFnOf(kind)];
+  if(typeof fn !== 'function') return;
+  fn(idx);
+  afterViewScroll(kind, idx, n);
 }
 
 const CORNER_MOTIF = (cls, pid) => `<svg class="corner-motif ${cls}" viewBox="0 0 118 118" aria-hidden="true">
@@ -7990,7 +8126,7 @@ const LITANY_CHAPTERS = [
       }
     ]
   },
-  { titleArabic:"حِزْبُ الْوِقَايَةِ",     titleEnglish:"Ḥizb al-Wiqāyah", verses:[] },
+  {"titleArabic": "حِزْبُ الْوِقَايَةِ", "titleEnglish": "Ḥizb al-Wiqāyah", "folios": [{"from": 0, "to": 37}], "note": "Ḥizb al-Wiqāyah li-man arāda al-wilāyah — the Litany of Protection for whoever seeks nearness to Allah, known as al-Dawr al-Aʿlā (the Highest Cycle). Attributed to al-Shaykh al-Akbar Muḥyī ad-Dīn Ibn ʿArabī al-Ḥātimī aṭ-Ṭāʾī al-Andalusī (558–638 AH / 1164–1240 CE).", "verses": [{"ar": "بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ", "tr": "Bismi-Llāhi r-Raḥmāni r-Raḥīm", "en": "In the name of Allah, the All-Merciful, the Most Merciful."}, {"ar": "اَللّٰهُمَّ يَا حَيُّ يَا قَيُّومُ بِكَ تَحَصَّنْتُ فَاحْمِنِي بِحِمَايَةِ كِفَايَةِ وِقَايَةِ حَقِيقَةِ بُرْهَانِ حِرْزِ أَمَانٍ بِسْمِ اللهِ", "tr": "Allāhumma yā Ḥayyu yā Qayyūmu, bika taḥaṣṣantu fa-aḥminī bi-ḥimāyati kifāyati wiqāyati ḥaqīqati burhāni ḥirzi amānin, bismi-Llāh", "en": "O Allah, O Living, O Self-Subsisting: in You I have taken refuge, so shield me with a protection of sufficiency, a safeguard of true reality, a proof, a fortress of security — in the name of Allah."}, {"ar": "وَأَدْخِلْنِي يَا أَوَّلُ يَا آخِرُ مَكْنُونَ غَيْبِ سِرِّ دَائِرَةِ كَنْزِ مَا شَاءَ اللهُ لَا قُوَّةَ إِلَّا بِاللهِ", "tr": "Wa-adkhilnī yā Awwalu yā Ākhiru maknūna ghaybi sirri dāʾirati kanz — mā shāʾa Llāhu lā quwwata illā bi-Llāh", "en": "And admit me, O First, O Last, into the hidden treasure of the unseen secret of the circle — whatever Allah wills; there is no power save through Allah."}, {"ar": "وَأَسْبِلْ عَلَيَّ يَا حَلِيمُ يَا سَتَّارُ كَنَفَ سِتْرِ حِجَابِ صِيَانَةِ نَجَاةٍ وَاعْتَصِمُوا بِحَبْلِ اللهِ", "tr": "Wa-asbil ʿalayya yā Ḥalīmu yā Sattāru kanafa sitri ḥijābi ṣiyānati najāh — waʿtaṣimū bi-ḥabli-Llāh", "en": "And drape over me, O Forbearing, O Veiler, the shelter of a covering veil of preserving deliverance — and hold fast to the rope of Allah."}, {"ar": "وَابْنِ يَا مُحِيطُ يَا قَادِرُ عَلَيَّ سُورَ أَمَانِ إِحَاطَةِ مَجْدِ سُرَادِقِ عِزِّ عَظَمَةٍ ذٰلِكَ خَيْرٌ ذٰلِكَ مِنْ آيَاتِ اللهِ", "tr": "Wa-bni yā Muḥīṭu yā Qādiru ʿalayya sūra amāni iḥāṭati majdi surādiqi ʿizzi ʿaẓamah — dhālika khayrun, dhālika min āyāti-Llāh", "en": "And build about me, O All-Encompassing, O Powerful, a wall of security — the enclosing of glory, the pavilion of might and majesty — that is better; that is among the signs of Allah."}, {"ar": "وَأَعِذْنِي يَا رَقِيبُ يَا مُجِيبُ وَاحْرُسْنِي فِي نَفْسِي وَدِينِي وَأَهْلِي وَمَالِي وَوَلَدِي بِكَلَاءَةِ إِغَاثَةِ إِعَاذَةٍ وَمَا هُمْ بِضَآرِّينَ بِهِ مِنْ أَحَدٍ إِلَّا بِإِذْنِ اللهِ", "tr": "Wa-aʿidhnī yā Raqību yā Mujību waḥrusnī fī nafsī wa-dīnī wa-ahlī wa-mālī wa-waladī bi-kalāʾati ighāthati iʿādhah — wa-mā hum bi-ḍārrīna bihi min aḥadin illā bi-idhni-Llāh", "en": "And give me refuge, O Watchful, O Responsive, and guard me in my soul, my religion, my family, my wealth and my child with a sheltering succour of protection — and they cannot harm anyone thereby except by Allah's leave."}, {"ar": "وَقِنِي يَا مَانِعُ يَا نَافِعُ بِآيَاتِكَ وَأَسْمَآئِكَ وَكَلِمَاتِكَ شَرَّ ‖ الشَّيْطَانِ فَإِنْ بَغَى عَلَيَّ أَخَذَتْهُ غَاشِيَةٌ مِنْ عَذَابِ اللهِ", "tr": "Wa-qinī yā Māniʿu yā Nāfiʿu bi-āyātika wa-asmāʾika wa-kalimātika sharra sh-shayṭān — fa-in baghā ʿalayya akhadhat-hu ghāshiyatun min ʿadhābi-Llāh", "en": "And guard me, O Withholder, O Bestower of benefit, by Your signs, Your names and Your words from the evil of Satan — and if he transgresses against me, an overwhelming portion of Allah's punishment seizes him."}, {"ar": "وَنَجِّنِي يَا مُذِلُّ يَا مُنْتَقِمُ مِنْ عَبِيدِكَ الظَّالِمِينَ الْبَاغِينَ عَلَيَّ وَأَعْوَانِهِمْ فَإِنْ هَمَّ لِي أَحَدٌ مِنْهُمْ بِسُوءٍ خَذَلَهُ اللهُ", "tr": "Wa-najjinī yā Mudhillu yā Muntaqimu min ʿabīdika ẓ-ẓālimīna l-bāghīna ʿalayya wa-aʿwānihim — fa-in hamma lī aḥadun minhum bi-sūʾin khadhalahu Llāh", "en": "And deliver me, O Abaser, O Avenger, from Your servants who wrong and transgress against me, and their helpers — and if any of them intends me ill, Allah forsakes him."}, {"ar": "وَخَتَمَ عَلَى سَمْعِهِ وَقَلْبِهِ وَجَعَلَ عَلَى بَصَرِهِ غِشَاوَةً فَمَنْ يَهْدِيهِ مِنْ بَعْدِ اللهِ", "tr": "Wa-khatama ʿalā samʿihi wa-qalbihi wa-jaʿala ʿalā baṣarihi ghishāwah — fa-man yahdīhi min baʿdi-Llāh", "en": "And He seals his hearing and his heart and lays a covering over his sight — so who will guide him after Allah?"}, {"ar": "وَاكْفِنِي يَا قَابِضُ يَا قَهَّارُ خَدِيعَةَ مَكْرِهِمْ وَارْدُدْهُمْ عَنِّي مَذْمُومِينَ مَدْحُورِينَ بِتَخْسِيرِ تَغْيِيرِ تَدْمِيرٍ فَمَا كَانَ لَهُ مِنْ فِئَةٍ يَنْصُرُونَهُ مِنْ دُونِ اللهِ", "tr": "Wa-kfinī yā Qābiḍu yā Qahhāru khadīʿata makrihim wardud-hum ʿannī madhmūmīna madḥūrīna bi-takhsīri taghyīri tadmīr — fa-mā kāna lahu min fiʾatin yanṣurūnahu min dūni-Llāh", "en": "And spare me, O Constrictor, O Subduer, the deceit of their scheming, and turn them back from me blamed and banished — with loss, upheaval and ruin — for he had no party to help him besides Allah."}, {"ar": "وَأَذِقْنِي يَا سُبُّوحُ يَا قُدُّوسُ لَذَّةَ مُنَاجَاةٍ أَقْبِلْ وَلَا تَخَفْ إِنَّكَ مِنَ الْآمِنِينَ بِفَضْلِ اللهِ", "tr": "Wa-adhiqnī yā Subbūḥu yā Quddūsu ladhdhata munājāh — aqbil wa-lā takhaf innaka mina l-āminīna bi-faḍli-Llāh", "en": "And let me taste, O All-Glorified, O All-Holy, the sweetness of intimate discourse — come forward and fear not, you are of those made secure, by the grace of Allah."}, {"ar": "وَأَذِقْهُمْ يَا ضَآرُّ يَا مُمِيتُ نَكَالَ وَبَالِ زَوَالٍ فَقُطِعَ دَابِرُ الْقَوْمِ الَّذِينَ ظَلَمُوا وَالْحَمْدُ لِلّٰهِ", "tr": "Wa-adhiq-hum yā Ḍārru yā Mumītu nakāla wabāli zawāl — fa-quṭiʿa dābiru l-qawmi lladhīna ẓalamū wa-l-ḥamdu li-Llāh", "en": "And make them taste, O Bringer of harm, O Giver of death, the punishment of ruin and passing away — so the last remnant of the wrongdoing folk was cut off; and praise be to Allah."}, {"ar": "وَأَمِنِّي يَا سَلَامُ يَا مُؤْمِنُ صَوْلَةَ جَوْلَةِ دَوْلَةِ الْأَعْدَآءِ بِغَايَةِ بِدَايَةِ آيَةٍ لَهُمُ الْبُشْرَى فِي الْحَيٰوةِ ‖ الدُّنْيَا وَفِي الْآخِرَةِ لَا تَبْدِيلَ لِكَلِمَاتِ اللهِ", "tr": "Wa-amminnī yā Salāmu yā Muʾminu ṣawlata jawlati dawlati l-aʿdāʾ bi-ghāyati bidāyati āyah — lahumu l-bushrā fī l-ḥayāti d-dunyā wa-fī l-ākhirah, lā tabdīla li-kalimāti-Llāh", "en": "And secure me, O Peace, O Granter of safety, from the onslaught, sweep and turn of fortune of the enemies — theirs is the good tidings in the life of this world and in the Hereafter; there is no changing the words of Allah."}, {"ar": "وَتَوِّجْنِي يَا عَظِيمُ يَا مُعِزُّ بِتَاجِ مَهَابَةِ كِبْرِيَآءِ جَلَالِ سُلْطَانِ مَلَكُوتِ عِزِّ عَظَمَةٍ وَلَا يَحْزُنْكَ قَوْلُهُمْ إِنَّ الْعِزَّةَ لِلّٰهِ", "tr": "Wa-tawwijnī yā ʿAẓīmu yā Muʿizzu bi-tāji mahābati kibriyāʾi jalāli sulṭāni malakūti ʿizzi ʿaẓamah — wa-lā yaḥzunka qawluhum, inna l-ʿizzata li-Llāh", "en": "And crown me, O Magnificent, O Giver of honour, with the crown of awe, majesty, splendour, the dominion of the realm, might and grandeur — and let their speech not grieve you; indeed, all honour belongs to Allah."}, {"ar": "وَأَلْبِسْنِي يَا جَلِيلُ يَا كَبِيرُ خِلْعَةَ جَلَالِ جَمَالِ إِكْمَالِ إِقْبَالٍ فَلَمَّا رَأَيْنَهُ أَكْبَرْنَهُ وَقَطَّعْنَ أَيْدِيَهُنَّ وَقُلْنَ حَاشَ لِلّٰهِ", "tr": "Wa-albisnī yā Jalīlu yā Kabīru khilʿata jalāli jamāli ikmāli iqbāl — fa-lammā raʾaynahu akbarnahu wa-qaṭṭaʿna aydiyahunna wa-qulna ḥāsha li-Llāh", "en": "And robe me, O Majestic, O Great, in the mantle of majesty, beauty, perfection and favour — and when they saw him they exalted him, cut their hands, and said: Allah forbid!"}, {"ar": "وَأَلْقِ يَا عَزِيزُ يَا وَدُودُ عَلَيَّ مَحَبَّةً مِنْكَ فَتَنْقَادَ وَتَخْضَعَ لِي بِهَا قُلُوبُ عِبَادِكَ بِالْمَحَبَّةِ وَالْمَعَزَّةِ وَالْمَوَدَّةِ مِنْ تَعْطِيفِ تَأْلِيفٍ يُحِبُّونَهُمْ كَحُبِّ اللهِ وَالَّذِينَ آمَنُوا أَشَدُّ حُبًّا لِلّٰهِ", "tr": "Wa-alqi yā ʿAzīzu yā Wadūdu ʿalayya maḥabbatan minka fa-tanqāda wa-takhḍaʿa lī bihā qulūbu ʿibādika bi-l-maḥabbati wa-l-maʿazzati wa-l-mawaddati min taʿṭīfi taʾlīf — yuḥibbūnahum ka-ḥubbi-Llāh, wa-lladhīna āmanū ashaddu ḥubban li-Llāh", "en": "And cast upon me, O Mighty, O Loving, a love from You, so that the hearts of Your servants yield and bow to me with it — in love, honour and affection, out of a tender joining — they love them as Allah is loved; but those who believe are firmer in love of Allah."}, {"ar": "وَأَظْهِرْ عَلَيَّ يَا ظَاهِرُ يَا بَاطِنُ آثَارَ أَسْرَارِ أَنْوَارٍ يُحِبُّهُمْ وَيُحِبُّونَهُ أَذِلَّةٍ عَلَى الْمُؤْمِنِينَ أَعِزَّةٍ عَلَى الْكَافِرِينَ يُجَاهِدُونَ فِي سَبِيلِ اللهِ", "tr": "Wa-aẓhir ʿalayya yā Ẓāhiru yā Bāṭinu āthāra asrāri anwār — yuḥibbuhum wa-yuḥibbūnahu, adhillatin ʿalā l-muʾminīn, aʿizzatin ʿalā l-kāfirīn, yujāhidūna fī sabīli-Llāh", "en": "And manifest upon me, O Outward, O Inward, the traces of the secrets of lights — He loves them and they love Him; humble toward the believers, mighty against the disbelievers, striving in the way of Allah."}, {"ar": "وَوَجِّهِ اللّٰهُمَّ يَا صَمَدُ يَا نُورُ وَجْهِي بِصَفَآءِ جَمَالِ أُنْسِ إِشْرَاقٍ فَإِنْ حَآجُّوكَ ‖ فَقُلْ أَسْلَمْتُ وَجْهِيَ لِلّٰهِ", "tr": "Wa-wajjihi Llāhumma yā Ṣamadu yā Nūru wajhī bi-ṣafāʾi jamāli unsi ishrāq — fa-in ḥājjūka fa-qul aslamtu wajhiya li-Llāh", "en": "And turn my face, O Allah, O Eternal Refuge, O Light, with the purity of the beauty of intimacy and radiance — and if they dispute with you, say: I have submitted my face to Allah."}, {"ar": "وَجَمِّلْنِي يَا بَدِيعَ السَّمٰوَاتِ وَالْأَرْضِ يَا ذَا الْجَلَالِ وَالْإِكْرَامِ بِالْفَصَاحَةِ وَالْبَلَاغَةِ وَالْبَرَاعَةِ وَاحْلُلْ عُقْدَةً مِنْ لِسَانِي يَفْقَهُوا قَوْلِي بِرِقَّةِ رَأْفَةِ رَحْمَةٍ ثُمَّ تَلِينُ جُلُودُهُمْ وَقُلُوبُهُمْ إِلَى ذِكْرِ اللهِ", "tr": "Wa-jammilnī yā Badīʿa s-samāwāti wa-l-arḍi yā Dhā l-jalāli wa-l-ikrāmi bi-l-faṣāḥati wa-l-balāghati wa-l-barāʿah — waḥlul ʿuqdatan min lisānī yafqahū qawlī bi-riqqati raʾfati raḥmah, thumma talīnu julūduhum wa-qulūbuhum ilā dhikri-Llāh", "en": "And adorn me, O Originator of the heavens and the earth, O Possessor of majesty and honour, with eloquence, clarity and skill — and loosen a knot from my tongue that they may understand my speech, with gentleness, kindness and mercy; then their skins and hearts soften to the remembrance of Allah."}, {"ar": "وَقَلِّدْنِي يَا شَدِيدَ الْبَطْشِ يَا جَبَّارُ يَا قَهَّارُ سَيْفَ الْهَيْبَةِ وَالشِّدَّةِ وَالْقُوَّةِ وَالْمَنَعَةِ مِنْ بَأْسِ جَبَرُوتِ عِزَّةٍ وَمَا النَّصْرُ إِلَّا مِنْ عِنْدِ اللهِ", "tr": "Wa-qallidnī yā Shadīda l-baṭshi yā Jabbāru yā Qahhāru sayfa l-haybati wa-sh-shiddati wa-l-quwwati wa-l-manaʿati min baʾsi jabarūti ʿizzah — wa-mā n-naṣru illā min ʿindi-Llāh", "en": "And gird me, O Severe in grip, O Compeller, O Subduer, with the sword of awe, force, strength and defence, from the might of an overpowering glory — and victory is only from Allah."}, {"ar": "وَأَدِمْ عَلَيَّ يَا بَاسِطُ يَا فَتَّاحُ بَهْجَةَ مَسَرَّةٍ رَبِّ اشْرَحْ لِي صَدْرِي وَيَسِّرْ لِي أَمْرِي بِلَطَآئِفِ عَوَاطِفِ أَلَمْ نَشْرَحْ لَكَ صَدْرَكَ وَبِأَشَآئِرِ بَشَآئِرِ يَوْمَئِذٍ يَفْرَحُ الْمُؤْمِنُونَ بِنَصْرِ اللهِ", "tr": "Wa-adim ʿalayya yā Bāsiṭu yā Fattāḥu bahjata masarrah — rabbi shraḥ lī ṣadrī wa-yassir lī amrī — bi-laṭāʾifi ʿawāṭifi alam nashraḥ laka ṣadrak, wa-bi-ashāʾiri bashāʾiri yawmaʾidhin yafraḥu l-muʾminūna bi-naṣri-Llāh", "en": "And make lasting upon me, O Expander, O Opener, the delight of gladness — my Lord, expand my breast for me and ease my affair — through the subtleties of the tenderness of 'Did We not expand your breast for you?', and by the glad tidings that on that day the believers rejoice at the help of Allah."}, {"ar": "وَأَنْزِلِ اللّٰهُمَّ يَا لَطِيفُ يَا رَؤُوفُ بِقَلْبِي الْإِيمَانَ وَالْاِطْمِئْنَانَ وَالسَّكِينَةَ لِأَكُونَ مِنَ الَّذِينَ آمَنُوا وَتَطْمَئِنُّ قُلُوبُهُمْ ‖ بِذِكْرِ اللهِ", "tr": "Wa-anzili Llāhumma yā Laṭīfu yā Raʾūfu bi-qalbī l-īmāna wa-l-iṭmiʾnāna wa-s-sakīnata li-akūna mina lladhīna āmanū — wa-taṭmaʾinnu qulūbuhum bi-dhikri-Llāh", "en": "And send down, O Allah, O Subtle, O Compassionate, into my heart faith, tranquillity and serenity, that I may be of those who believe — and whose hearts find rest in the remembrance of Allah."}, {"ar": "وَأَفْرِغْ عَلَيَّ يَا صَبُورُ يَا شَكُورُ صَبْرَ الَّذِينَ تَدَرَّعُوا بِثَبَاتِ يَقِينٍ كَمْ مِنْ فِئَةٍ قَلِيلَةٍ غَلَبَتْ فِئَةً كَثِيرَةً بِإِذْنِ اللهِ", "tr": "Wa-afrigh ʿalayya yā Ṣabūru yā Shakūru ṣabra lladhīna tadarraʿū bi-thabāti yaqīn — kam min fiʾatin qalīlatin ghalabat fiʾatan kathīratan bi-idhni-Llāh", "en": "And pour upon me, O Patient, O Grateful, the steadfastness of those who armoured themselves with firm certainty — how many a small band has overcome a large band by Allah's leave."}, {"ar": "وَاحْفَظْنِي يَا حَفِيظُ يَا وَكِيلُ مِنْ بَيْنِ يَدَيَّ وَمِنْ خَلْفِي وَعَنْ يَمِينِي وَعَنْ شِمَالِي وَمِنْ فَوْقِي وَمِنْ تَحْتِي بِوُجُودِ شُهُودِ جُنُودٍ لَهُ مُعَقِّبَاتٌ مِنْ بَيْنِ يَدَيْهِ وَمِنْ خَلْفِهِ يَحْفَظُونَهُ مِنْ أَمْرِ اللهِ", "tr": "Wa-ḥfaẓnī yā Ḥafīẓu yā Wakīlu min bayni yadayya wa-min khalfī wa-ʿan yamīnī wa-ʿan shimālī wa-min fawqī wa-min taḥtī bi-wujūdi shuhūdi junūd — lahu muʿaqqibātun min bayni yadayhi wa-min khalfihi yaḥfaẓūnahu min amri-Llāh", "en": "And guard me, O Preserver, O Trustee, from before me, behind me, my right, my left, above me and below me, with the presence of witnessing hosts — he has attendant angels before him and behind him who guard him by the command of Allah."}, {"ar": "وَثَبِّتِ اللّٰهُمَّ يَا قَائِمُ يَا دَائِمُ قَدَمَيَّ كَمَا ثَبَّتَّ الْقَآئِلَ وَكَيْفَ أَخَافُ مَا أَشْرَكْتُمْ وَلَا تَخَافُونَ أَنَّكُمْ أَشْرَكْتُمْ بِاللهِ", "tr": "Wa-thabbiti Llāhumma yā Qāʾimu yā Dāʾimu qadamayya kamā thabbatta l-qāʾil — wa-kayfa akhāfu mā ashraktum wa-lā takhāfūna annakum ashraktum bi-Llāh", "en": "And make my feet firm, O Allah, O Ever-standing, O Everlasting, as You made firm the one who said: 'And how should I fear what you associate, while you fear not that you have associated with Allah?'"}, {"ar": "وَانْصُرْنِي يَا نِعْمَ الْمَوْلَى وَيَا نِعْمَ النَّصِيرُ عَلَى أَعْدَائِي نَصْرَ الَّذِي قِيلَ لَهُ أَتَتَّخِذُنَا هُزُوًا قَالَ أَعُوذُ بِاللهِ", "tr": "Wa-nṣurnī yā niʿma l-mawlā wa-yā niʿma n-naṣīru ʿalā aʿdāʾī naṣra lladhī qīla lahu — atattakhidhunā huzuwan qāla aʿūdhu bi-Llāh", "en": "And help me — O best of masters, O best of helpers — against my enemies, with the help of the one to whom it was said: 'Do you take us in ridicule?' He said: I seek refuge in Allah."}, {"ar": "وَأَيِّدْنِي يَا طَالِبُ يَا غَالِبُ بِتَأْيِيدِ نَبِيِّكَ مُحَمَّدٍ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ الْمُؤَيَّدِ بِتَعْزِيزِ تَوْقِيرٍ إِنَّآ أَرْسَلْنَاكَ شَاهِدًا وَمُبَشِّرًا وَنَذِيرًا ‖ لِتُؤْمِنُوا بِاللهِ", "tr": "Wa-ayyidnī yā Ṭālibu yā Ghālibu bi-taʾyīdi nabiyyika Muḥammadin ṣallā Llāhu ʿalayhi wa-sallama l-muʾayyadi bi-taʿzīzi tawqīr — innā arsalnāka shāhidan wa-mubashshiran wa-nadhīran li-tuʾminū bi-Llāh", "en": "And support me, O Seeker, O Victor, with the support of Your prophet Muḥammad ﷺ, the one aided with strengthening and reverence — 'We have sent you as a witness, a bearer of glad tidings and a warner,' that you may believe in Allah."}, {"ar": "وَاكْفِنِي يَا كَافِي يَا شَافِي الْأَعْدَآءَ وَالْأَسْوَآءَ بِعَوَآئِدِ فَوَآئِدِ لَوْ أَنْزَلْنَا هٰذَا الْقُرْآنَ عَلَى جَبَلٍ لَرَأَيْتَهُ خَاشِعًا مُتَصَدِّعًا مِنْ خَشْيَةِ اللهِ", "tr": "Wa-kfinī yā Kāfī yā Shāfī l-aʿdāʾa wa-l-aswāʾa bi-ʿawāʾidi fawāʾid — law anzalnā hādha l-qurʾāna ʿalā jabalin la-raʾaytahu khāshiʿan mutaṣaddiʿan min khashyati-Llāh", "en": "And spare me, O Sufficer, O Healer, from enemies and evils, through recurring benefits — 'Had We sent down this Qurʾān upon a mountain, you would have seen it humbled, split asunder from the fear of Allah.'"}, {"ar": "وَامْنُنْ عَلَيَّ يَا وَهَّابُ يَا رَزَّاقُ بِحُصُولِ وُصُولِ قَبُولِ تَيْسِيرِ تَسْخِيرٍ كُلُوا وَاشْرَبُوا مِنْ رِزْقِ اللهِ", "tr": "Wa-mnun ʿalayya yā Wahhābu yā Razzāqu bi-ḥuṣūli wuṣūli qabūli taysīri taskhīr — kulū washrabū min rizqi-Llāh", "en": "And bestow upon me, O Ever-Giving, O Provider, attainment, arrival, acceptance, facilitation and subjection — eat and drink from the provision of Allah."}, {"ar": "وَتَوَلَّنِي يَا وَلِيُّ يَا عَلِيُّ بِالْوِلَايَةِ وَالْعِنَايَةِ وَالرِّعَايَةِ وَالسَّلَامَةِ بِمَزِيدِ إِيرَادِ إِسْعَادِ إِمْدَادٍ ذٰلِكَ مِنْ فَضْلِ اللهِ", "tr": "Wa-tawallanī yā Waliyyu yā ʿAliyyu bi-l-wilāyati wa-l-ʿināyati wa-r-riʿāyati wa-s-salāmati bi-mazīdi īrādi isʿādi imdād — dhālika min faḍli-Llāh", "en": "And take me under Your care, O Patron, O Exalted, with guardianship, solicitude, protection and safety, with an increase of provision, blessing and support — that is from the bounty of Allah."}, {"ar": "وَأَكْرِمْنِي يَا غَنِيُّ يَا كَرِيمُ بِالسَّعَادَةِ وَالْكَرَامَةِ وَالْمَغْفِرَةِ كَمَا أَكْرَمْتَ الَّذِينَ يَغُضُّونَ أَصْوَاتَهُمْ عِنْدَ رَسُولِ اللهِ", "tr": "Wa-akrimnī yā Ghaniyyu yā Karīmu bi-s-saʿādati wa-l-karāmati wa-l-maghfirah — kamā akramta lladhīna yaghuḍḍūna aṣwātahum ʿinda rasūli-Llāh", "en": "And honour me, O Self-Sufficient, O Generous, with felicity, dignity and forgiveness — as You honoured those who lower their voices in the presence of the Messenger of Allah."}, {"ar": "وَتُبْ عَلَيَّ يَا تَوَّابُ يَا حَكِيمُ تَوْبَةً نَصُوحًا لِأَكُونَ مِنَ الَّذِينَ إِذَا فَعَلُوا فَاحِشَةً أَوْ ظَلَمُوا أَنْفُسَهُمْ ذَكَرُوا اللهَ فَاسْتَغْفَرُوا لِذُنُوبِهِمْ وَمَنْ يَغْفِرُ الذُّنُوبَ إِلَّا اللهُ", "tr": "Wa-tub ʿalayya yā Tawwābu yā Ḥakīmu tawbatan naṣūḥan li-akūna mina lladhīna idhā faʿalū fāḥishatan aw ẓalamū anfusahum dhakarū Llāha fa-staghfarū li-dhunūbihim — wa-man yaghfiru dh-dhunūba illā Llāh", "en": "And accept my repentance, O Ever-Relenting, O Wise — a sincere repentance — that I may be of those who, when they commit an indecency or wrong themselves, remember Allah and seek forgiveness for their sins — and who forgives sins but Allah?"}, {"ar": "وَأَلْزِمْنِي يَا وَاحِدُ يَا ‖ أَحَدُ كَلِمَةَ التَّقْوَى كَمَا أَلْزَمْتَ حَبِيبَكَ مُحَمَّدًا صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ حَيْثُ قُلْتَ فَاعْلَمْ أَنَّهُ لَا إِلٰهَ إِلَّا اللهُ", "tr": "Wa-alzimnī yā Wāḥidu yā Aḥadu kalimata t-taqwā kamā alzamta ḥabībaka Muḥammadan ṣallā Llāhu ʿalayhi wa-sallama ḥaythu qulta — faʿlam annahu lā ilāha illā Llāh", "en": "And bind me, O One, O Unique, to the word of God-consciousness, as You bound Your beloved Muḥammad ﷺ, when You said: 'Know that there is no god but Allah.'"}, {"ar": "وَاخْتِمْ لِي يَا رَحْمٰنُ يَا رَحِيمُ بِحُسْنِ خَاتِمَةِ النَّاجِينَ وَالرَّاجِينَ قُلْ يَا عِبَادِيَ الَّذِينَ أَسْرَفُوا عَلَى أَنْفُسِهِمْ لَا تَقْنَطُوا مِنْ رَحْمَةِ اللهِ", "tr": "Wa-khtim lī yā Raḥmānu yā Raḥīmu bi-ḥusni khātimati n-nājīna wa-r-rājīn — qul yā ʿibādiya lladhīna asrafū ʿalā anfusihim lā taqnaṭū min raḥmati-Llāh", "en": "And seal for me, O All-Merciful, O Ever-Merciful, a goodly end among the saved and the hopeful — say: 'O My servants who have transgressed against themselves, despair not of the mercy of Allah.'"}, {"ar": "وَأَسْكِنِّي يَا سَمِيعُ يَا قَرِيبُ جَنَّةً أُعِدَّتْ لِلْمُتَّقِينَ دَعْوٰيهُمْ فِيهَا سُبْحَانَكَ اللّٰهُمَّ وَتَحِيَّتُهُمْ فِيهَا سَلَامٌ وَآخِرُ دَعْوٰيهُمْ أَنِ الْحَمْدُ لِلّٰهِ", "tr": "Wa-askinnī yā Samīʿu yā Qarību jannatan uʿiddat li-l-muttaqīn — daʿwāhum fīhā subḥānaka Llāhumma wa-taḥiyyatuhum fīhā salām, wa-ākhiru daʿwāhum ani l-ḥamdu li-Llāh", "en": "And lodge me, O All-Hearing, O Near, in a Garden prepared for the God-fearing — their call therein is 'Glory be to You, O Allah', their greeting therein is 'Peace', and the close of their call is 'Praise be to Allah'."}, {"ar": "يَا اللهُ يَا اللهُ يَا اللهُ يَا اللهُ يَا رَبِّ يَا رَبِّ يَا نَافِعُ يَا رَحْمٰنُ يَا رَحِيمُ", "tr": "Yā Allāhu yā Allāhu yā Allāhu yā Allāhu, yā Rabbi yā Rabbi, yā Nāfiʿu yā Raḥmānu yā Raḥīm", "en": "O Allah, O Allah, O Allah, O Allah; O my Lord, O my Lord; O Bestower of benefit, O All-Merciful, O Ever-Merciful."}, {"ar": "أَسْأَلُكَ بِحُرْمَةِ هٰذِهِ الْأَسْمَآءِ وَالْآيَاتِ وَالْكَلِمَاتِ سُلْطَانًا نَصِيرًا وَرِزْقًا كَثِيرًا وَقَلْبًا قَرِيرًا وَقَبْرًا مُنِيرًا وَحِسَابًا يَسِيرًا وَأَجْرًا كَبِيرًا", "tr": "As-aluka bi-ḥurmati hādhihi l-asmāʾi wa-l-āyāti wa-l-kalimāti sulṭānan naṣīran wa-rizqan kathīran wa-qalban qarīran wa-qabran munīran wa-ḥisāban yasīran wa-ajran kabīrā", "en": "I ask You, by the sanctity of these names, signs and words, for a helping authority, abundant provision, a contented heart, a luminous grave, an easy reckoning and a great reward."}, {"ar": "وَصَلَّى اللهُ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِهِ وَصَحْبِهِ وَسَلَّمَ تَسْلِيمًا كَبِيرًا", "tr": "Wa-ṣallā Llāhu ʿalā sayyidinā Muḥammadin wa-ʿalā ālihi wa-ṣaḥbihi wa-sallama taslīman kabīrā", "en": "And may Allah bless our master Muḥammad and his family and companions, and grant them abundant peace."}]},
   { titleArabic:"حِزْبُ الاِسْتِغْفَارِ",   titleEnglish:"Ḥizb al-Istighfār", verses:[] },
   { titleArabic:"الْحِزْبُ الأَعْظَمُ",     titleEnglish:"Al-Ḥizb al-Aʿẓam", verses:[] },
 ];
@@ -8013,7 +8149,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v279';
+const APP_VERSION = 'v295';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -9328,7 +9464,7 @@ function mawlidCards(){
             <span class="t-en">${sectionOf(piece.titleEnglish).rest}</span>
           </span>
           <span class="chev">›</span>
-        </button>`).join('');
+        </button>` + hitList(kind, idx)).join('');
 }
 
 /* Qasidas that did not come from the Mawlid ad-Daybaʿi */
@@ -9350,7 +9486,7 @@ function additionalQasidaCards(){
             <span class="t-en">${qa.titleEnglish}</span>
           </span>
           <span class="chev">›</span>
-        </button>`).join('');
+        </button>` + hitList('q', i)).join('');
 }
 
 function groupCards(group){
@@ -9375,7 +9511,7 @@ function groupCards(group){
             <span class="t-en">${qa.titleEnglish}</span>
           </span>
           <span class="chev">›</span>
-        </button>`).join('');
+        </button>` + hitList('q', i)).join('');
 }
 
 function searchBox(atBottom){
@@ -9424,7 +9560,7 @@ function burdahCards(){
             <span class="t-en">${c.titleEnglish}</span>
           </span>
           <span class="chev">›</span>
-        </button>`).join('');
+        </button>` + hitList('b', n)).join('');
 }
 
 function nasheedCards(){
@@ -9438,11 +9574,11 @@ function nasheedCards(){
             <span class="t-en">${c.titleEnglish}</span>
           </span>
           <span class="chev">›</span>
-        </button>`).join('');
+        </button>` + hitList('n', n)).join('');
 }
 
 function litanyCards(){
-  const items = LITANY_CHAPTERS.map((c,n)=>({c,n})).filter(x=>matchesQuery(x.c, state.query));
+  const items = LITANY_CHAPTERS.map((c,n)=>({c,n})).filter(x=>x.c.verses && x.c.verses.length && matchesQuery(x.c, state.query));
   if(items.length === 0) return '';
   return items.map(({c,n})=>`
         <button class="qcard" onclick="openLitany(${n})">
@@ -9452,7 +9588,7 @@ function litanyCards(){
             <span class="t-en">${c.titleEnglish}</span>
           </span>
           <span class="chev">›</span>
-        </button>`).join('');
+        </button>` + hitList('l', n)).join('');
 }
 
 function praisesHub(){
@@ -9496,7 +9632,7 @@ function barzanjiCards(){
             <span class="t-en">${c.titleEnglish}</span>
           </span>
           <span class="chev">›</span>
-        </button>`).join('');
+        </button>` + hitList('z', n)).join('');
 }
 
 function diyaCards(){
@@ -9510,7 +9646,7 @@ function diyaCards(){
             <span class="t-en">${c.titleEnglish}</span>
           </span>
           <span class="chev">›</span>
-        </button>`).join('');
+        </button>` + hitList('y', n)).join('');
 }
 
 /* One Dalāʾil chapter as an index card. Shared by the flat search list and the
@@ -9533,7 +9669,7 @@ function dalailCard(n){
 function dalailCards(){
   const items = DALAIL_CHAPTERS.map((c,n)=>({c,n})).filter(x=>x.n !== 0 && matchesQuery(x.c, state.query));
   if(items.length === 0) return '';
-  return items.map(({n})=>dalailCard(n)).join('');
+  return items.map(({n})=>dalailCard(n) + hitList('d', n)).join('');
 }
 
 /* The daily portion for today — Monday opens Part 1; the second Monday portion
@@ -9568,20 +9704,21 @@ function dalailIndex(){
       <span class="dk-today-ar">${t.titleArabic}</span>
       <span class="dk-today-go">Open this portion ›</span></button>`;
   const rowlab = r => `<div class="dk-rowlab"><span class="l-en">${r.en}</span><span class="l-ar">${r.ar}</span></div>`;
-  const bubble = (idx, en, ar, cls) => `<button class="dk-bubble${cls || ''}" onclick="openDalail(${idx})"><span class="b-en">${en}</span><span class="b-ar">${ar}</span></button>`;
-  // Before the reading — one bubble that opens its own sub-page.
-  const beforeNav = `<button class="dk-nav" onclick="selectTab('before')">
-      <span class="dk-nav-txt"><span class="b-en">${DALAIL_ROWS.before.en}</span><span class="b-ar">${DALAIL_ROWS.before.ar}</span></span>
-      <span class="dk-nav-go">›</span></button>`;
-  // The daily portions — four to a line, Mon² last; today highlighted.
-  const days = DALAIL_DAYS.map(d => bubble(d.idx, d.en, d.ar, d.idx === today ? ' on' : '')).join('');
-  // On completion — one full-width line.
-  const cc = DALAIL_CHAPTERS[14];
-  const done = bubble(14, cc.titleEnglish, cc.titleArabic, ' dk-full');
+  // The daily portions grid comes first — four to a line, Mon² last; today highlighted.
+  const days = DALAIL_DAYS.map(d =>
+    `<button class="dk-bubble${d.idx === today ? ' on' : ''}" onclick="openDalail(${d.idx})"><span class="b-en">${d.en}</span><span class="b-ar">${d.ar}</span></button>`).join('');
+  // Secondary entries below a divider — one shared row style.
+  const navRow = (action, en, ar) => `<button class="dk-nav" onclick="${action}"><span class="dk-nav-txt"><span class="b-en">${en}</span><span class="b-ar">${ar}</span></span><span class="dk-nav-go">›</span></button>`;
+  const before = navRow("selectTab('before')", DALAIL_ROWS.before.en, DALAIL_ROWS.before.ar);
+  const rows =
+      navRow("openDalail(14)",        DALAIL_ROWS.done.en,   DALAIL_ROWS.done.ar)
+    + navRow("selectTab('litanies')", 'Daily Litanies',      'الْأَوْرَادُ الْيَوْمِيَّةُ')
+    + navRow("openDalail(0)",         'About Dalāʾil al-Khayrāt', 'دَلَائِلُ الْخَيْرَاتِ');
   return todayCard + resumeCard()
-    + beforeNav
+    + before
     + rowlab(DALAIL_ROWS.daily) + `<div class="dk-grid4">${days}</div>`
-    + rowlab(DALAIL_ROWS.done)  + done;
+    + `<div class="dk-sep"></div>`
+    + rows;
 }
 
 /* The Dalāʾil intro line, made tappable — it opens the book's title page, which
@@ -9614,7 +9751,7 @@ function ilahiCards(){
             <span class="t-en">${c.titleEnglish}</span>
           </span>
           <span class="chev">›</span>
-        </button>`).join('');
+        </button>` + hitList('i', n)).join('');
 }
 
 /* The reader opener for each kind, matching reopen()'s letters. */
@@ -9650,7 +9787,7 @@ function sectionCount(id){
   return id === 'mawlids' ? MAWLID_COLLECTIONS.length
        : id === 'praises' ? PRAISE_SECTIONS.length
        : id === 'nasheeds'? NASHEED_CHAPTERS.length
-       : id === 'litanies'? LITANY_CHAPTERS.length
+       : id === 'litanies'? LITANY_CHAPTERS.filter(c=>c.verses && c.verses.length).length
        : id === 'qawwalis'? 0
        : id === 'mawlid'  ? mawlidItems().length
        : id === 'qasidas' ? additionalQasidaItems().length
@@ -9789,7 +9926,7 @@ function renderResults(){
     return backToMawlids() + sectionIntro('diya') + label('Select a section · اختر فصلاً') + diyaCards();
   }
   if(tab === 'dalail'){
-    return dalailIntro() + dalailIndex() + `<div class="dalail-litanies"><button class="home-card" onclick="selectTab('litanies')"><span class="hc-ar">الأوراد اليومية</span><span class="hc-en">Daily Litanies</span><span class="hc-count">${countLabel('litanies', sectionCount('litanies'))}</span></button></div>`;
+    return dalailIndex();
   }
   return '';
 }
@@ -9797,6 +9934,56 @@ function renderResults(){
 /* Which tabs get a search box — all of them. */
 function tabHasSearch(){
   return true;
+}
+
+const HEADER_BISMILLAH = 'data:image/png;base64,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';
+const HOME_ICON_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v9.5a.5.5 0 0 0 .5.5H9.5v-6h5v6h4a.5.5 0 0 0 .5-.5V10"/></svg>';
+const BACK_ICON_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>';
+const SUN_ICON_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>';
+const MOON_ICON_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>';
+const PLAY_ICON_SVG = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
+const PAUSE_ICON_SVG = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6.5" y="5" width="3.8" height="14" rx="1"/><rect x="13.7" y="5" width="3.8" height="14" rx="1"/></svg>';
+const SWAP_ICON_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 4l3 3-3 3"/><path d="M20 7H9a4 4 0 0 0-4 4"/><path d="M7 20l-3-3 3-3"/><path d="M4 17h11a4 4 0 0 0 4-4"/></svg>';
+const LOGO_ALT = 'مُحَمَّدٌ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ';
+const BISMILLAH_ALT = 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+
+function themeGlyph(){ return document.documentElement.classList.contains('dark') ? SUN_ICON_SVG : MOON_ICON_SVG; }
+function liveClass(){ return session.role ? ' live' : ''; }
+
+/* Home keeps the large logo header + subhead. */
+function bigMasthead(){
+  return `<header class="masthead">
+      <button class="header-mark" onclick="goHome()" aria-label="Home">${HOME_ICON_SVG}</button>
+      <button class="session-mark${liveClass()}" onclick="selectTab('session')" aria-label="Live session">Live</button>
+      <button class="theme-toggle" onclick="toggleTheme()">${themeGlyph()}</button>
+      <img class="logo home-mark" src="${LOGO_INNER}" width="330" height="452" alt="${LOGO_ALT}">
+    </header>`;
+}
+
+/* Every page below home: compact bar, no large logo, no tab bar. */
+function compactMasthead(){
+  return `<header class="masthead compact">
+      <div class="mh-left">
+        <button class="header-mark" onclick="goHome()" aria-label="Home">${HOME_ICON_SVG}</button>
+        <button class="back-mark" onclick="goBack()" aria-label="Back">${BACK_ICON_SVG}</button>
+      </div>
+      <img class="bismillah-mark" src="${HEADER_BISMILLAH}" width="640" height="114" alt="${BISMILLAH_ALT}">
+      <div class="mh-right">
+        <button class="session-mark${liveClass()}" onclick="selectTab('session')" aria-label="Live session">Live</button>
+        <button class="theme-toggle" onclick="toggleTheme()">${themeGlyph()}</button>
+      </div>
+    </header>`;
+}
+
+/* Back = up one level: a section's child returns to its hub tab; a top-level
+   tab (or the session screen) returns home. There is no tab bar, so Home and
+   Back are the only way out of a section. */
+function goBack(){
+  const t = state.tab;
+  let parent = null;
+  for(const p in TAB_CHILDREN){ if(TAB_CHILDREN[p].indexOf(t) !== -1){ parent = p; break; } }
+  if(parent) selectTab(parent);
+  else goHome();
 }
 
 function renderIndex(){
@@ -9813,22 +10000,10 @@ function renderIndex(){
   const sessionScreen = state.tab === 'session' && !state.query;
   app.innerHTML = `
     <div class="topbar">
-    <header class="masthead">
-      <button class="header-mark" onclick="goHome()" aria-label="Home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v9.5a.5.5 0 0 0 .5.5H9.5v-6h5v6h4a.5.5 0 0 0 .5-.5V10"/></svg></button>
-      <button class="session-mark${session.role ? ' live' : ''}" onclick="selectTab('session')" aria-label="Live session">Live</button>
-      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">${document.documentElement.classList.contains('dark') ? '\u2600' : '\u263e'}</button>
-      <img class="logo${onHome ? ' home-mark' : ' tappable'}"${onHome ? '' : ' onclick="goHome()" title="Home"'} src="${LOGO_INNER}" width="330" height="452"
-             alt="\u0645\u064f\u062d\u064e\u0645\u0651\u064e\u062f\u064c \u0635\u064e\u0644\u0651\u064e\u0649 \u0627\u0644\u0644\u0647\u064f \u0639\u064e\u0644\u064e\u064a\u0652\u0647\u0650 \u0648\u064e\u0633\u064e\u0644\u0651\u064e\u0645\u064e">
-    </header>
-    ${onHome
-      ? `<div class="subhead">
-           <div class="head-en1">Mawalid</div>
-           <div class="head-en2">a collection of mawlids and a devotional companion</div>
-         </div>`
-      : ''}
+    ${onHome ? bigMasthead() : compactMasthead()}
     ${(onHome || sessionScreen) ? '' : navBar()}
     </div>
-    <main class="index">
+        <main class="index">
       ${(tabHasSearch() && !sessionScreen && !onHome) ? searchBox() : ''}
       <div id="results">${(home ? homeCards() : sessionScreen ? sessionPanel() : renderResults()) + versionTag()}</div>
       ${onHome ? searchBox(true) : ''}
@@ -9842,29 +10017,12 @@ function renderIndex(){
     <footer>Works offline once added to your home screen.</footer>`;
   document.documentElement.classList.toggle('is-home', state.tab === 'home');
   window.scrollTo(0,0);
-  updateHdrMin();
-  if(!window.__hdrScrollBound){ window.__hdrScrollBound = true; window.addEventListener('scroll', updateHdrMin, { passive:true }); }
   if(state.query){ const el=document.getElementById('search'); if(el){ el.focus(); el.setSelectionRange(el.value.length, el.value.length); } }
   centerActiveTab();
 }
 
 /* Collapse the sticky header (logo + home subhead) on any downward scroll of an
    index/browse page, leaving the corner buttons and the tab bar pinned. */
-function updateHdrMin(){
-  if(window.__hdrTick) return;
-  window.__hdrTick = true;
-  requestAnimationFrame(() => {
-    window.__hdrTick = false;
-    const root = document.documentElement;
-    if(state.tab === 'home'){ root.classList.remove('hdr-min'); return; }   // never minimise on home
-    const y = window.scrollY || root.scrollTop || 0;
-    const on = root.classList.contains('hdr-min');
-    /* Hysteresis: collapse after a small scroll, expand only back near the top,
-       so the boundary can't oscillate. */
-    if(!on && y > 24) root.classList.add('hdr-min');
-    else if(on && y < 6) root.classList.remove('hdr-min');
-  });
-}
 
 /* The tab strip scrolls sideways on a phone, so the highlighted section can sit
    off the edge — Favorites and Turkish Ilahis especially, being last. Bring the
@@ -9953,7 +10111,7 @@ function setScrollSpeed(delta){
 /* Update the floating bar without re-rendering (so scrolling isn't interrupted) */
 function updateScrollUI(){
   const play = document.querySelector('.autoscroll-bar .play');
-  if(play){ play.textContent = autoScrollActive ? '⏸' : '▶'; play.setAttribute('aria-label', autoScrollActive ? 'Pause auto-scroll' : 'Start auto-scroll'); }
+  if(play){ play.innerHTML = autoScrollActive ? PAUSE_ICON_SVG : PLAY_ICON_SVG; play.setAttribute('aria-label', autoScrollActive ? 'Pause auto-scroll' : 'Start auto-scroll'); }
   const spd = document.querySelector('.autoscroll-bar .spd');
   if(spd) spd.textContent = scrollSpeedLabel();
 }
@@ -9966,7 +10124,7 @@ const NO_AUTOSCROLL = ['d', 'l'];
 function autoScrollBar(){
   return `
     <div class="autoscroll-bar" role="group" aria-label="Auto-scroll">
-      <button class="play" onclick="toggleAutoScroll()" aria-label="${autoScrollActive?'Pause auto-scroll':'Start auto-scroll'}">${autoScrollActive?'⏸':'▶'}</button>
+      <button class="play" onclick="toggleAutoScroll()" aria-label="${autoScrollActive?'Pause auto-scroll':'Start auto-scroll'}">${autoScrollActive?PAUSE_ICON_SVG:PLAY_ICON_SVG}</button>
       <button onclick="setScrollSpeed(-1)" aria-label="Slower">−</button>
       <span class="spd">${scrollSpeedLabel()}</span>
       <button onclick="setScrollSpeed(1)" aria-label="Faster">+</button>
@@ -10502,9 +10660,9 @@ function readerHTML(q, backOnclick, kind, idx){
   return `
     <div class="reader-bar">
       <div class="rside"><button class="back" onclick="${backOnclick}">‹ Back</button></div>
-      <img class="reader-bismillah" src="${BISMILLAH_MARK}" width="520" height="211"
+      <img class="reader-bismillah" src="${HEADER_BISMILLAH}" width="640" height="114"
            alt="\u0628\u0650\u0633\u0652\u0645\u0650 \u0627\u0644\u0644\u0647\u0650 \u0627\u0644\u0631\u0651\u064e\u062d\u0652\u0645\u0670\u0646\u0650 \u0627\u0644\u0631\u0651\u064e\u062d\u0650\u064a\u0645\u0650">
-      <div class="rside end"><button class="fav-btn ${fav?'on':''}" onclick="toggleFav(${controlsTarget})"
+      <div class="rside end">${(hasPages && !empty) ? `<button class="view-swap" onclick="setPageView(${!pageView},${controlsTarget})" aria-label="Switch to ${pageView?'Study':'Book'} Version">${SWAP_ICON_SVG}<span>${pageView?'Study':'Book'}</span></button>` : ''}<button class="fav-btn ${fav?'on':''}" onclick="toggleFav(${controlsTarget})"
               aria-label="${fav?'Remove bookmark':'Bookmark this'}">${bookmarkIcon(fav)}</button></div>
     </div>
     <div class="piece-head">
@@ -11423,11 +11581,15 @@ window.addEventListener('keydown', e => { if(e.key === 'Escape' && state.immersi
    same text opened out line by line with transliteration and meaning. */
 function setPageView(on, kind, idx){
   if(state.pageView === on) return;
+  /* Keep your place across the switch: note the verse at the top of the current
+     view, then land on the same verse index in the other one. */
+  const keepVerse = state.pageView ? topVisibleMsVerse() : topVisibleVerse();
   state.pageView = on;
   if(on) stopAutoScroll();
   if(!on) setImmersive(false);
   reopen(kind, idx);
   if(window.requestAnimationFrame) requestAnimationFrame(msFloatPosition);
+  afterViewScroll(kind, idx, keepVerse);
 }
 
 function toggleEn(kind,i){ state.showEn = !state.showEn; reopen(kind,i); }
