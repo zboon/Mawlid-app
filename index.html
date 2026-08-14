@@ -2962,9 +2962,9 @@ const DALAIL_CHAPTERS = [
     ]
   },
   {
-    "titleArabic": "اَلْاَسْمَاءُ الْحُسْنَى",
-    "titleEnglish": "The Names of Allah",
-    "cartouche": "اَلْاَسْمَاءُ الْحُسْنَى",
+    "titleArabic": "اَلْاَسْمَاءُ الْحُسْنَى ﷻ",
+    "titleEnglish": "The Names of Allah ﷻ",
+    "cartouche": "اَلْاَسْمَاءُ الْحُسْنَى ﷻ",
     "note": "The ninety-nine Names, as set out in Dalāʾil al-Khayrāt.",
     "folios": [
       {
@@ -8168,7 +8168,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v316';
+const APP_VERSION = 'v318';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -10288,7 +10288,14 @@ function connectSession(code, role, opts){
       if(session.probing) session.probeHeard = true;   // someone is already here
       if(session.leaderless){ session.leaderless = false; setSessionStatus('Following the leader.'); }
       if(session.role !== 'follower' || session.paused) return;
-      applyRemoteNav(payload.kind, payload.idx);
+      applyRemoteNav(payload.kind, payload.idx, payload.book, payload.page);
+    });
+    /* Live page-turns inside the Book Version. */
+    channel.on('broadcast', { event: 'page' }, ({ payload }) => {
+      if(!payload || typeof payload.page !== 'number') return;
+      if(typeof payload.term === 'number' && payload.term < session.term) return;
+      if(session.role !== 'follower' || session.paused) return;
+      applyRemotePage(payload.kind, payload.idx, payload.page);
     });
     channel.on('broadcast', { event: 'lead' }, ({ payload }) => {
       if(session.probing) session.probeHeard = true;
@@ -10401,17 +10408,42 @@ function resumeFollowing(){
 }
 
 /* Apply a leader's move without echoing it back or counting it as manual. */
-function applyRemoteNav(kind, idx){
+function applyRemoteNav(kind, idx, book, page){
   const arr = arrayOf(kind);
   if(!arr || !arr[idx]) return;
   suppressNavSignals = true;
-  try { reopen(kind, idx); } finally { suppressNavSignals = false; }
+  try {
+    const c = arr[idx];
+    const hasPages = Array.isArray(c.folios) && c.folios.length > 0;
+    if(typeof book === 'boolean') state.pageView = book && hasPages;   // match the leader's view
+    reopen(kind, idx);
+  } finally { suppressNavSignals = false; }
   session.lastNav = { kind, idx };
-  session.leaderAt = { kind, idx };   // the leader's place, kept apart from our own wandering
+  session.leaderAt = { kind, idx, page: page || 0 };   // the leader's place, kept apart from our own wandering
+  if(page) msGoToWhenReady(page);   // land on the leader's page
+}
+
+/* A follower turns to the leader's Book-Version page. */
+function applyRemotePage(kind, idx, page){
+  session.leaderAt = { kind, idx, page };
+  if(!session.lastNav || session.lastNav.kind !== kind || session.lastNav.idx !== idx) return;
+  msGoToWhenReady(page);
+}
+function msGoToWhenReady(page, tries){
+  tries = tries || 0;
+  const book = document.getElementById('ms-book');
+  if(book && book.children[page]){
+    suppressNavSignals = true;
+    try { msGoTo(page); } finally { setTimeout(() => { suppressNavSignals = false; }, 400); }
+  } else if(tries < 12){
+    setTimeout(() => msGoToWhenReady(page, tries + 1), 120);
+  }
 }
 function sendNav(kind, idx){
   if(!session.channel) return;
-  try { session.channel.send({ type:'broadcast', event:'nav', payload:{ kind, idx, term: session.term } }); } catch(e){}
+  const page = (typeof msCurrentPage === 'function') ? msCurrentPage() : 0;
+  const book = !!state.pageView;
+  try { session.channel.send({ type:'broadcast', event:'nav', payload:{ kind, idx, page, book, term: session.term } }); } catch(e){}
 }
 /* ── Passing the mic ──────────────────────────────────────────────────────
    The leader releases; the session then has no leader and anyone may claim it.
@@ -11214,6 +11246,9 @@ function msSyncDots(){
      a tall page never opens scrolled halfway down. */
   if(cur !== msLastPage){
     msLastPage = cur;
+    if(!suppressNavSignals && session.role === 'leader' && session.channel && session.lastNav){
+      try { session.channel.send({ type:'broadcast', event:'page', payload:{ kind: session.lastNav.kind, idx: session.lastNav.idx, page: cur, term: session.term } }); } catch(e){}
+    }
     if(book){
       const top = book.getBoundingClientRect().top + window.scrollY - 8;
       if(window.scrollY > top + 4) window.scrollTo({ top: Math.max(0, top), behavior:'smooth' });
