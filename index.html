@@ -8168,7 +8168,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v315';
+const APP_VERSION = 'v316';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -8192,9 +8192,9 @@ const TABS = [
 
 /* A hub tab stays highlighted while you're inside any of its sections. */
 const TAB_CHILDREN = {
+  dalail:  ['before'],
   mawlids: ['mawlid','barzanji','diya','burdah'],
   praises: ['nasheeds','qasidas','ilahis','qawwalis'],
-  dalail:  ['before','litanies'],
 };
 
 function tabIsActive(id){
@@ -9731,7 +9731,6 @@ function dalailIndex(){
   const before = navRow("selectTab('before')", DALAIL_ROWS.before.en, DALAIL_ROWS.before.ar);
   const rows =
       navRow("openDalail(14)",        DALAIL_ROWS.done.en,   DALAIL_ROWS.done.ar)
-    + navRow("selectTab('litanies')", 'Daily Litanies',      'الْأَوْرَادُ الْيَوْمِيَّةُ')
     + navRow("openDalail(0)",         'About Dalāʾil al-Khayrāt', 'دَلَائِلُ الْخَيْرَاتِ');
   return todayCard + resumeCard()
     + before
@@ -9909,8 +9908,6 @@ function renderResults(){
     if(nash) html += label('Nasheeds · أناشيد', !!mawlid || !!barz || !!burd || !!qas || !!dal) + nash;
     const ilahis = ilahiCards();
     if(ilahis) html += label('Ilahis · الْإلهيات', !!mawlid || !!barz || !!burd || !!qas || !!dal || !!nash) + ilahis;
-    const lit = litanyCards();
-    if(lit) html += label('Daily Litanies · الْأوراد الْيومية', !!mawlid || !!barz || !!burd || !!qas || !!dal || !!nash || !!ilahis) + lit;
     if(!html) return `<div class="no-results">No matches for "${q.replace(/</g,'&lt;')}". Try a different spelling.</div>`;
     return html;
   }
