@@ -8203,7 +8203,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v334';
+const APP_VERSION = 'v335';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -10457,6 +10457,7 @@ function leftTheLeader(){
 }
 
 function pauseFollowing(){
+  spotStopAnim();
   if(session.role !== 'follower' || session.paused) return;
   session.paused = true;
   setSessionStatus('Paused — you moved on your own.');
@@ -10514,7 +10515,7 @@ let spotLastFrac = -1;
    that we scroll several times a second. */
 let spotExpectedY = null;
 const SPOT_PAD = 96;            /* matches topVisibleVerse's sticky-bar offset */
-const SPOT_MS = 120;            /* mirror rate; was 900 */
+const SPOT_MS = 80;             /* mirror rate; was 900, then 120 */
 
 /* The element for a verse in whichever view is open. */
 function verseEl(kind, idx, n){
@@ -10546,7 +10547,7 @@ function sendSpot(verse, frac){
   frac = typeof frac === 'number' ? frac : 0;
   /* Resend when the line changes, or when we have slid far enough within it
      to be worth a message. */
-  if(verse === spotLastVerse && Math.abs(frac - spotLastFrac) < 0.02) return;
+  if(verse === spotLastVerse && Math.abs(frac - spotLastFrac) < 0.005) return;
   spotLastVerse = verse; spotLastFrac = frac; spotLastSent = Date.now();
   const k = session.lastNav.kind, i = session.lastNav.idx;
   try { session.channel.send({ type:'broadcast', event:'spot',
@@ -10562,17 +10563,41 @@ function spotFracOf(kind, idx, n){
   return Math.max(0, Math.min(1, (SPOT_PAD - r.top) / r.height));
 }
 
-/* Put a follower exactly where the leader is, line and fraction together. */
-function spotGoTo(kind, idx, verse, frac){
-  const el = verseEl(kind, idx, verse);
-  if(!el) return;
+/* Where the follower's page should sit right now, recomputed from the DOM
+   each frame so it stays right even if the layout shifts under us. */
+let spotTarget = null, spotAnim = null;
+
+function spotTargetY(){
+  if(!spotTarget) return null;
+  const el = verseEl(spotTarget.kind, spotTarget.idx, spotTarget.verse);
+  if(!el) return null;
   const r = el.getBoundingClientRect();
-  const target = Math.round(window.scrollY + r.top + (frac || 0) * r.height - SPOT_PAD);
-  if(Math.abs(window.scrollY - target) < 2){ spotExpectedY = target; return; }
-  spotProgrammatic = true;
-  window.scrollTo(0, Math.max(0, target));
-  spotExpectedY = Math.max(0, target);
-  setTimeout(() => { spotProgrammatic = false; }, 60);
+  return Math.max(0, window.scrollY + r.top + (spotTarget.frac || 0) * r.height - SPOT_PAD);
+}
+
+/* Messages arrive in steps; the eye wants continuous motion. So rather than
+   snapping to each one, ease toward the latest position every frame. Between
+   two updates the page keeps gliding, which is what makes it read as the
+   leader's screen rather than a slideshow of his positions. */
+function spotStep(){
+  spotAnim = null;
+  if(session.role !== 'follower' || session.paused) return;
+  const target = spotTargetY();
+  if(target === null) return;
+  const cur = window.scrollY;
+  const d = target - cur;
+  if(Math.abs(d) < 0.6){ spotExpectedY = target; return; }
+  /* A big jump — a page turn, or a tap on a distant line — is taken at once;
+     ordinary reading movement is eased. */
+  const step = Math.abs(d) > window.innerHeight * 0.9 ? d : d * 0.34;
+  window.scrollTo(0, Math.max(0, cur + step));
+  spotExpectedY = window.scrollY;
+  spotAnim = requestAnimationFrame(spotStep);
+}
+
+function spotGoTo(kind, idx, verse, frac){
+  spotTarget = { kind, idx, verse, frac: frac || 0 };
+  if(!spotAnim) spotAnim = requestAnimationFrame(spotStep);
 }
 
 /* The leader's own scrolling, throttled: at most one message a second, and
@@ -10607,6 +10632,11 @@ function applyRemoteSpot(kind, idx, verse, frac){
 /* A follower who scrolls away far enough that the leader's line has left the
    screen has chosen to look elsewhere — stop dragging them back. Small
    adjustments are ignored, so glancing up a line doesn't break the link. */
+function spotStopAnim(){
+  if(spotAnim){ cancelAnimationFrame(spotAnim); spotAnim = null; }
+  spotTarget = null;
+}
+
 function spotWatchFollower(){
   if(session.role !== 'follower' || session.paused || spotProgrammatic) return;
   if(spotExpectedY === null) return;
