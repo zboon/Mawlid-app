@@ -8203,7 +8203,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v333';
+const APP_VERSION = 'v334';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -10316,6 +10316,7 @@ function connectSession(code, role, opts){
     const channel = client.channel('mawlid:' + code, { config: { broadcast: { self: false } } });
 
     channel.on('broadcast', { event: 'nav' }, ({ payload }) => {
+      noteLeaderAlive();
       if(!payload || typeof payload.idx !== 'number') return;
       if(typeof payload.term === 'number'){
         if(payload.term < session.term) return;          // a stale leader talking
@@ -10332,6 +10333,7 @@ function connectSession(code, role, opts){
     });
     /* Live page-turns inside the Book Version. */
     channel.on('broadcast', { event: 'page' }, ({ payload }) => {
+      noteLeaderAlive();
       if(!payload || typeof payload.page !== 'number') return;
       if(typeof payload.term === 'number' && payload.term < session.term) return;
       if(session.role !== 'follower' || session.paused) return;
@@ -10341,8 +10343,19 @@ function connectSession(code, role, opts){
     channel.on('broadcast', { event: 'spot' }, ({ payload }) => {
       if(!payload || typeof payload.verse !== 'number') return;
       if(typeof payload.term === 'number' && payload.term < session.term) return;
+      noteLeaderAlive();
       if(session.role !== 'follower' || session.paused) return;
-      applyRemoteSpot(payload.kind, payload.idx, payload.verse);
+      applyRemoteSpot(payload.kind, payload.idx, payload.verse, payload.frac);
+    });
+    /* The leader's heartbeat. Any message would do, but he may sit still on
+       one page for a long stretch, so he says so explicitly. */
+    channel.on('broadcast', { event: 'alive' }, ({ payload }) => {
+      if(payload && typeof payload.term === 'number' && payload.term < session.term) return;
+      noteLeaderAlive();
+      if(session.role === 'follower' && session.leaderless){
+        session.leaderless = false;
+        setSessionStatus('Following the leader.');
+      }
     });
     channel.on('broadcast', { event: 'lead' }, ({ payload }) => {
       if(session.probing) session.probeHeard = true;
@@ -10374,15 +10387,18 @@ function connectSession(code, role, opts){
             session.probing = false;
             if(session.probeHeard){
               session.role = 'follower'; session.leaderless = false;
+              noteLeaderAlive(); stopBeating(); startWatchingLeader();
               setSessionStatus(wantsLead
                 ? "Someone is already leading here — you've joined them. Take the lead if you need to."
                 : 'Following the leader.');
             } else if(wantsLead){
               session.role = 'leader'; session.leaderless = false;
+              stopWatchingLeader(); startBeating();
               rememberVenue(code);
               setSessionStatus('Leading — others can join with this code.');
             } else {
               session.role = 'follower'; session.leaderless = true;
+              stopBeating(); stopWatchingLeader();
               setSessionStatus("No one is leading here yet — take the lead when you're ready.");
             }
             renderSessionBanner();
@@ -10428,6 +10444,7 @@ function leaveSession(){
   session.role = null; session.code = null; session.channel = null;
   session.client = null; session.paused = false; session.lastNav = null;
   session.term = 0; session.leaderless = false; session.claiming = false; session.leaderAt = null;
+  session.lastBeat = 0; stopBeating(); stopWatchingLeader();
   session.probing = false; session.probeHeard = false; session.connecting = null;
   setSessionStatus('');
 }
@@ -10487,6 +10504,17 @@ function applyRemoteNav(kind, idx, book, page){
 
 let spotProgrammatic = false;   /* true while WE are doing the scrolling */
 let spotLastSent = 0, spotLastVerse = -1, spotTimer = null;
+/* Position within the top verse, 0 at its first line and 1 at its last, so a
+   leader nudging the page a few lines inside one long verse still moves his
+   followers. A fraction travels safely between devices where a pixel offset
+   would not: font size, translation toggles and screen height all differ. */
+let spotLastFrac = -1;
+/* Where we last put a follower. Compared against the real scroll position to
+   tell the app's own scrolling apart from the reader's — a timer can't, now
+   that we scroll several times a second. */
+let spotExpectedY = null;
+const SPOT_PAD = 96;            /* matches topVisibleVerse's sticky-bar offset */
+const SPOT_MS = 120;            /* mirror rate; was 900 */
 
 /* The element for a verse in whichever view is open. */
 function verseEl(kind, idx, n){
@@ -10513,13 +10541,38 @@ function spotScroll(fn){
   try { fn(); } finally { setTimeout(() => { spotProgrammatic = false; }, 700); }
 }
 
-function sendSpot(verse){
+function sendSpot(verse, frac){
   if(!session.channel || session.role !== 'leader' || !session.lastNav) return;
-  if(verse === spotLastVerse) return;
-  spotLastVerse = verse; spotLastSent = Date.now();
+  frac = typeof frac === 'number' ? frac : 0;
+  /* Resend when the line changes, or when we have slid far enough within it
+     to be worth a message. */
+  if(verse === spotLastVerse && Math.abs(frac - spotLastFrac) < 0.02) return;
+  spotLastVerse = verse; spotLastFrac = frac; spotLastSent = Date.now();
   const k = session.lastNav.kind, i = session.lastNav.idx;
   try { session.channel.send({ type:'broadcast', event:'spot',
-    payload:{ kind:k, idx:i, verse, term: session.term } }); } catch(e){}
+    payload:{ kind:k, idx:i, verse, frac, term: session.term } }); } catch(e){}
+}
+
+/* How far the viewport has travelled into the top visible verse. */
+function spotFracOf(kind, idx, n){
+  const el = verseEl(kind, idx, n);
+  if(!el) return 0;
+  const r = el.getBoundingClientRect();
+  if(!r.height) return 0;
+  return Math.max(0, Math.min(1, (SPOT_PAD - r.top) / r.height));
+}
+
+/* Put a follower exactly where the leader is, line and fraction together. */
+function spotGoTo(kind, idx, verse, frac){
+  const el = verseEl(kind, idx, verse);
+  if(!el) return;
+  const r = el.getBoundingClientRect();
+  const target = Math.round(window.scrollY + r.top + (frac || 0) * r.height - SPOT_PAD);
+  if(Math.abs(window.scrollY - target) < 2){ spotExpectedY = target; return; }
+  spotProgrammatic = true;
+  window.scrollTo(0, Math.max(0, target));
+  spotExpectedY = Math.max(0, target);
+  setTimeout(() => { spotProgrammatic = false; }, 60);
 }
 
 /* The leader's own scrolling, throttled: at most one message a second, and
@@ -10527,23 +10580,28 @@ function sendSpot(verse){
 function spotOnScroll(){
   if(session.role !== 'leader' || !session.lastNav || spotProgrammatic) return;
   if(spotTimer) return;
-  const wait = Math.max(0, 900 - (Date.now() - spotLastSent));
+  const wait = Math.max(0, SPOT_MS - (Date.now() - spotLastSent));
   spotTimer = setTimeout(() => {
     spotTimer = null;
     if(session.role !== 'leader' || !session.lastNav) return;
-    const n = state.pageView && typeof topVisibleMsVerse === 'function'
-            ? topVisibleMsVerse() : topVisibleVerse();
-    if(typeof n === 'number' && n >= 0) sendSpot(n);
+    const book = state.pageView && typeof topVisibleMsVerse === 'function';
+    const n = book ? topVisibleMsVerse() : topVisibleVerse();
+    if(typeof n !== 'number' || n < 0) return;
+    /* A Book-Version leaf doesn't scroll, so there is no fraction to send. */
+    const frac = book ? 0 : spotFracOf(session.lastNav.kind, session.lastNav.idx, n);
+    sendSpot(n, frac);
   }, wait);
 }
 
-function applyRemoteSpot(kind, idx, verse){
+function applyRemoteSpot(kind, idx, verse, frac){
   /* Only meaningful if we're on the same piece; otherwise the nav event
      that brings us there will carry its own position. */
   if(!session.lastNav || session.lastNav.kind !== kind || session.lastNav.idx !== idx) return;
-  session.leaderAt = Object.assign({}, session.leaderAt || {}, { kind, idx, verse });
-  if(verseOnScreen(kind, idx, verse)) return;          // already looking at it
-  spotScroll(() => scrollToVerse(kind, idx, verse));
+  session.leaderAt = Object.assign({}, session.leaderAt || {}, { kind, idx, verse, frac });
+  if(session.role !== 'follower' || session.paused) return;
+  /* Track him continuously rather than only when he leaves our screen — the
+     old "already on screen" test let a follower sit a whole page out of step. */
+  spotGoTo(kind, idx, verse, frac);
 }
 
 /* A follower who scrolls away far enough that the leader's line has left the
@@ -10551,9 +10609,10 @@ function applyRemoteSpot(kind, idx, verse){
    adjustments are ignored, so glancing up a line doesn't break the link. */
 function spotWatchFollower(){
   if(session.role !== 'follower' || session.paused || spotProgrammatic) return;
-  const at = session.leaderAt;
-  if(!at || typeof at.verse !== 'number') return;
-  if(!verseOnScreen(at.kind, at.idx, at.verse, window.innerHeight * 0.5)) pauseFollowing();
+  if(spotExpectedY === null) return;
+  /* Drifting more than half a screen from where we placed them means the
+     reader took hold of the page themselves. */
+  if(Math.abs(window.scrollY - spotExpectedY) > window.innerHeight * 0.5) pauseFollowing();
 }
 
 window.addEventListener('scroll', () => { spotOnScroll(); spotWatchFollower(); }, { passive:true });
@@ -10599,12 +10658,48 @@ function sendNav(kind, idx){
    Simultaneous taps are settled deterministically: claims are gathered for a
    short window and the lowest client id wins, so every device reaches the same
    answer without needing a server to arbitrate. */
+/* ── Liveness ─────────────────────────────────────────────────────────────
+   A leader who passes the mic says so. A leader whose phone locks, loses
+   signal or closes the app says nothing at all, and the session used to sit
+   there for ever with no one able to take over. So the leader beats quietly
+   and followers give up on him after a while, which opens the mic through the
+   claim machinery that already exists. */
+const BEAT_MS = 4000;         /* leader's heartbeat */
+const BEAT_LOST_MS = 14000;   /* followers wait this long before opening the mic */
+let beatTimer = null, beatWatch = null;
+
+function noteLeaderAlive(){ session.lastBeat = Date.now(); }
+
+function startBeating(){
+  stopBeating();
+  beatTimer = setInterval(() => {
+    if(session.role !== 'leader' || !session.channel) return;
+    try{ session.channel.send({ type:'broadcast', event:'alive',
+      payload:{ term: session.term } }); }catch(e){}
+  }, BEAT_MS);
+}
+function stopBeating(){ if(beatTimer){ clearInterval(beatTimer); beatTimer = null; } }
+
+function startWatchingLeader(){
+  stopWatchingLeader();
+  beatWatch = setInterval(() => {
+    if(session.role !== 'follower' || session.leaderless || !session.channel) return;
+    if(!session.lastBeat) return;
+    if(Date.now() - session.lastBeat < BEAT_LOST_MS) return;
+    session.leaderless = true;
+    session.paused = false;
+    setSessionStatus('The leader dropped out — the mic is open.');
+  }, 3000);
+}
+function stopWatchingLeader(){ if(beatWatch){ clearInterval(beatWatch); beatWatch = null; } }
+
 function releaseLead(){
   if(session.role !== 'leader' || !session.channel) return;
   session.term += 1;
   session.role = 'follower';
   session.leaderless = true;
   session.paused = false;
+  stopBeating(); stopWatchingLeader();
   try{ session.channel.send({ type:'broadcast', event:'lead', payload:{ t:'release', term: session.term } }); }catch(e){}
   setSessionStatus('You passed the mic — anyone can take the lead.');
 }
@@ -10640,6 +10735,7 @@ function settleClaims(){
   if(ids[0] === session.id){
     session.role = 'leader';
     session.paused = false;
+    stopWatchingLeader(); startBeating();
     try{ session.channel.send({ type:'broadcast', event:'lead', payload:{ t:'lead', term: session.term, id: session.id } }); }catch(e){}
     if(session.lastNav) sendNav(session.lastNav.kind, session.lastNav.idx);
     setSessionStatus('You have the lead.');
@@ -10657,6 +10753,7 @@ function handleLeadMsg(p){
     session.role = 'follower';
     session.leaderless = true;
     session.paused = false;
+    stopBeating(); stopWatchingLeader();
     session.claiming = false;
     setSessionStatus('The mic is open — anyone can take the lead.');
   } else if(p.t === 'claim'){
@@ -10672,6 +10769,9 @@ function handleLeadMsg(p){
     session.claiming = false;
     session.role = 'follower';
     session.paused = false;
+    /* A new leader has the mic — stop beating if we had it, and start
+       watching them instead. */
+    stopBeating(); noteLeaderAlive(); startWatchingLeader();
     setSessionStatus('Following the leader.');
   }
 }
