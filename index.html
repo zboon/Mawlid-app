@@ -2485,7 +2485,7 @@ function resumeCard(){
 
 const state = { showTr: true, showEn: true, arScale: 1, latinScale: 1, msZoom: 1, query: '', tab: 'home', burdahChapter: null, scrollSpeedIdx: 3, favs: loadFavs() , pageView:true, immersive:false};
 
-/* The four content arrays, keyed by the same letters reopen() uses. */
+/* The content arrays, keyed by the same letters as OPENERS. */
 function arrayOf(kind){
   return kind === 'q' ? QASIDAS
        : kind === 'b' ? BURDAH_CHAPTERS
@@ -5223,8 +5223,8 @@ const DALAIL_CHAPTERS = [
         "en": "O Allah, bless our master Muhammad and the family of the lord Muhammad just as You blessed our master Abraham and bless our master Muhammad and the family of the lord Muhammad just as You blessed our master Abraham in all the worlds for You are the Praiseworthy, the Mighty."
       },
       {
-        "ar": "اللّٰهُمَّ بِخُشُوعِ الْقَلْبِ عِندَ السُّجُودِ ۞ لَكَ يَا سَيِّدِي بِغَيْرِ جُحُودٍ ۞ وَبِكَ يَا اللّٰهُ يَا جَلِيلُ لَا شَيْءَ يُدَانِيكَ فِي غَلِيظِ الْعُهُودِ ۞ وَبِكُرْسِيِّكَ الْمُكَلَّلِ بِالنُّورِ إِلَى عَرْشِكَ الْعَظِيمِ الْمَجِيدِ ۞ وَبِمَا كَانَ تَحْتَ عَرْشِكَ حَقًّا ۞ قَبْلَ أَنْ تَخْلُقَ السَّمَاوَاتِ وَصَوْتَ الرُّعُودِ ۞ ذَاكَ إِذْ كُنْتَ مِثْلَ مَا لَمْ تَزَلْ قَطُّ إِلٰهًا عُرِفْتَ بِالتَّوْحِيدِ ۞ فَاجْعَلْنِي ‖ مِنَ الْمُحِبِّينَ الْمَحْبُوبِينَ الْمُقَرَّبِينَ الْعَارِفِيْنَ الْعَاشِقِينَ لَكَ ۞ يَا اللّٰهُ يَا اللّٰهُ يَا اللّٰهُ يَا اللّٰهُ يَا اللّٰهُ يَا اللّٰهُ يَا اللّٰهُ يَا اللّٰهُ يَا وَدُودُ",
-        "tr": "Allāhumma bi-khushūʿi l-qalbi ʿinda s-sujūd laka yā sayyidī bi-ghayri juḥūd wa bika yā Allāhu yā Jalīl lā shayʾa yudānīka fī ghalīẓi l-ʿuhūd, wa bi-kursiyyika l-mukallali bi-n-nūr ilā ʿarshika l-ʿaẓīm al-majīd, wa bimā kāna taḥta ʿarshika ḥaqqan qabla an takhlaqa s-samāwāti wa ṣawta r-raʿūd, dhāka idh kunta mithla mā lam tazal qaṭṭ ilāhan ʿurifta bi-t-tawḥīd, fajʿalnī mina l-muḥibbīn al-maḥbūbīn al-muqarrabīn al-ʿārifīn al-ʿāshiqīn laka yā Allāhu yā Allāhu yā Allāhu yā Allāhu yā Allāhu yā Allāhu yā Allāhu yā Allāhu yā Wadūd.",
+        "ar": "اللّٰهُمَّ بِخُشُوعِ الْقَلْبِ عِندَ السُّجُودِ ۞ لَكَ يَا سَيِّدِي بِغَيْرِ جُحُودٍ ۞ وَبِكَ يَا اللّٰهُ يَا جَلِيلُ فَلَا شَيْءَ يُدَانِيكَ فِي غَلِيظِ الْعُهُودِ ۞ وَبِكُرْسِيِّكَ الْمُكَلَّلِ بِالنُّورِ إِلَى عَرْشِكَ الْعَظِيمِ الْمَجِيدِ ۞ وَبِمَا كَانَ تَحْتَ عَرْشِكَ حَقًّا ۞ قَبْلَ أَنْ تَخْلُقَ السَّمَاوَاتِ وَصَوْتَ الرُّعُودِ ۞ ذَاكَ إِذْ كُنْتَ مِثْلَ مَا لَمْ تَزَلْ قَطُّ إِلٰهًا عُرِفْتَ بِالتَّوْحِيدِ ۞ فَاجْعَلْنِي ‖ مِنَ الْمُحِبِّينَ الْمَحْبُوبِينَ الْمُقَرَّبِينَ الْعَارِفِيْنَ الْعَاشِقِينَ لَكَ ۞ يَا اللّٰهُ يَا اللّٰهُ يَا اللّٰهُ يَا اللّٰهُ يَا اللّٰهُ يَا اللّٰهُ يَا اللّٰهُ يَا اللّٰهُ يَا وَدُودُ",
+        "tr": "Allāhumma bi-khushūʿi l-qalbi ʿinda s-sujūd laka yā sayyidī bi-ghayri juḥūd wa bika yā Allāhu yā Jalīl fa-lā shayʾa yudānīka fī ghalīẓi l-ʿuhūd, wa bi-kursiyyika l-mukallali bi-n-nūr ilā ʿarshika l-ʿaẓīm al-majīd, wa bimā kāna taḥta ʿarshika ḥaqqan qabla an takhlaqa s-samāwāti wa ṣawta r-raʿūd, dhāka idh kunta mithla mā lam tazal qaṭṭ ilāhan ʿurifta bi-t-tawḥīd, fajʿalnī mina l-muḥibbīn al-maḥbūbīn al-muqarrabīn al-ʿārifīn al-ʿāshiqīn laka yā Allāhu yā Allāhu yā Allāhu yā Allāhu yā Allāhu yā Allāhu yā Allāhu yā Allāhu yā Wadūd.",
         "en": "O Allah, with heart humbled in prostration before You, You my Lord, with no unbelief, and for Your sake, O Allah, O Sublime. Nothing can match You in inviolable promises. And for the sake of Your Footstool adorned with light as far as Your Mighty and Powerful Throne. And for the sake of that which lay beneath Your Throne truly before You created the Heavens and the sound of Your thunder. And since You are infinite, a deity to be known only through Unity, then count me among Your Lovers, Your Beloved ones, Your Near ones, Your Knowers and Your Desires, O Allah. O Allah, O Allah, O Allah, O Allah, O Allah, O Allah, O Allah, O Bestower of Love."
       },
       {
@@ -8203,7 +8203,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v331';
+const APP_VERSION = 'v333';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -9807,18 +9807,16 @@ function ilahiCards(){
         </button>` + hitList('i', n)).join('');
 }
 
-/* The reader opener for each kind, matching reopen()'s letters. */
-function openFnOf(kind){
-  return kind === 'q' ? 'openQasida'
-       : kind === 'b' ? 'openBurdah'
-       : kind === 's' ? 'openSirah'
-       : kind === 'd' ? 'openDalail'
-       : kind === 'z' ? 'openBarzanji'
-       : kind === 'n' ? 'openNasheed'
-       : kind === 'l' ? 'openLitany'
-       : kind === 'y' ? 'openDiya'
-       : 'openIlahi';
-}
+/* ONE table of reader openers, keyed by kind. openFnOf() and reopen() both
+   read it, so the two can no longer drift — which is exactly how the Ḍiyāʾ
+   ('y') came to be missing from reopen() while openFnOf() had it, sending
+   every Ḍiyāʾ control and every follower in a live session into QASIDAS. */
+const OPENERS = {
+  q: 'openQasida',  b: 'openBurdah',   s: 'openSirah',
+  i: 'openIlahi',   d: 'openDalail',   z: 'openBarzanji',
+  y: 'openDiya',    n: 'openNasheed',  l: 'openLitany'
+};
+function openFnOf(kind){ return OPENERS[kind] || 'openQasida'; }
 /* Mawlid pieces carry their kitab number in the title; drop it for display. */
 function displayTitle(piece){
   const s = sectionOf(piece.titleEnglish);
@@ -10038,6 +10036,9 @@ function goBack(){
 }
 
 function renderIndex(){
+  /* The index is about to replace whatever was on screen, so no reader is
+     showing any more. See readerOpen's use in setSessionStatus below. */
+  readerOpen = false;
   stopAutoScroll();
   document.documentElement.style.setProperty('--ar-size', '1.9rem');
   document.documentElement.style.setProperty('--latin-scale', 1);
@@ -10239,7 +10240,11 @@ function loadSupabase(){
 
 function newSessionCode(){ return String(Math.floor(1000 + Math.random() * 9000)); }
 
-function setSessionStatus(msg){ session.status = msg; renderSessionBanner(); if(state.tab === 'session') renderIndex(); }
+function setSessionStatus(msg){
+  session.status = msg;
+  renderSessionBanner();                       /* the banner lives outside #app */
+  if(state.tab === 'session' && !readerOpen) renderIndex();
+}
 
 /* The last session this device joined, kept on the device. An accidental Leave
    — or the app being closed mid-gathering — shouldn't strand someone who never
@@ -10332,6 +10337,13 @@ function connectSession(code, role, opts){
       if(session.role !== 'follower' || session.paused) return;
       applyRemotePage(payload.kind, payload.idx, payload.page);
     });
+    /* The leader's place within the piece, line by line. */
+    channel.on('broadcast', { event: 'spot' }, ({ payload }) => {
+      if(!payload || typeof payload.verse !== 'number') return;
+      if(typeof payload.term === 'number' && payload.term < session.term) return;
+      if(session.role !== 'follower' || session.paused) return;
+      applyRemoteSpot(payload.kind, payload.idx, payload.verse);
+    });
     channel.on('broadcast', { event: 'lead' }, ({ payload }) => {
       if(session.probing) session.probeHeard = true;
       handleLeadMsg(payload);
@@ -10374,7 +10386,7 @@ function connectSession(code, role, opts){
               setSessionStatus("No one is leading here yet — take the lead when you're ready.");
             }
             renderSessionBanner();
-            if(state.tab === 'session') renderIndex();
+            if(state.tab === 'session' && !readerOpen) renderIndex();
           }, 1400);
         } else {
           setSessionStatus('Leading — others can join with this code.');
@@ -10437,7 +10449,14 @@ function resumeFollowing(){
   session.paused = false;
   /* Go straight back to where the leader was, so Resume works even if they're
      mid-recitation and slow to answer; the 'where' reply then confirms it. */
-  if(session.leaderAt) applyRemoteNav(session.leaderAt.kind, session.leaderAt.idx);
+  if(session.leaderAt){
+    applyRemoteNav(session.leaderAt.kind, session.leaderAt.idx);
+    /* Come back to the leader's LINE, not just his chapter. */
+    if(typeof session.leaderAt.verse === 'number'){
+      const at = session.leaderAt;
+      spotScroll(() => afterViewScroll(at.kind, at.idx, at.verse));
+    }
+  }
   setSessionStatus('Following the leader.');
   if(session.channel) session.channel.send({ type:'broadcast', event:'where', payload:{} });
 }
@@ -10457,6 +10476,101 @@ function applyRemoteNav(kind, idx, book, page){
   session.leaderAt = { kind, idx, page: page || 0 };   // the leader's place, kept apart from our own wandering
   if(page) msGoToWhenReady(page);   // land on the leader's page
 }
+
+/* ── Following the leader within a piece ──────────────────────────────────
+   Page sync moves everyone between leaves; this moves them between LINES.
+   The unit sent is a verse index, never a scroll offset: followers differ in
+   text size, in whether translation and transliteration are showing, and in
+   screen height, so the same pixel — or the same percentage down the page —
+   is a different place on every device. A verse index is the same line
+   everywhere, and both views already share it. */
+
+let spotProgrammatic = false;   /* true while WE are doing the scrolling */
+let spotLastSent = 0, spotLastVerse = -1, spotTimer = null;
+
+/* The element for a verse in whichever view is open. */
+function verseEl(kind, idx, n){
+  return document.querySelector('article.verse[data-v="' + n + '"]')
+      || document.querySelector('[data-mk="' + kind + ':' + idx + ':' + n + '"]')
+      || document.querySelector('[data-mk^="' + kind + ':' + idx + ':' + n + '."]');
+}
+
+/* Comfortably on screen — not merely intersecting it by a pixel. Followers
+   stay put while the leader is reading the same lines they are; the screen
+   only moves once he has genuinely gone past. */
+function verseOnScreen(kind, idx, n, slack){
+  const el = verseEl(kind, idx, n);
+  if(!el) return false;
+  const r = el.getBoundingClientRect();
+  const pad = slack || 0;
+  return r.bottom > 84 - pad && r.top < window.innerHeight - 24 + pad;
+}
+
+/* Wrap any scroll we perform ourselves, so the follower's own-movement
+   watcher below doesn't mistake it for the reader wandering off. */
+function spotScroll(fn){
+  spotProgrammatic = true;
+  try { fn(); } finally { setTimeout(() => { spotProgrammatic = false; }, 700); }
+}
+
+function sendSpot(verse){
+  if(!session.channel || session.role !== 'leader' || !session.lastNav) return;
+  if(verse === spotLastVerse) return;
+  spotLastVerse = verse; spotLastSent = Date.now();
+  const k = session.lastNav.kind, i = session.lastNav.idx;
+  try { session.channel.send({ type:'broadcast', event:'spot',
+    payload:{ kind:k, idx:i, verse, term: session.term } }); } catch(e){}
+}
+
+/* The leader's own scrolling, throttled: at most one message a second, and
+   only when the top line actually changes. */
+function spotOnScroll(){
+  if(session.role !== 'leader' || !session.lastNav || spotProgrammatic) return;
+  if(spotTimer) return;
+  const wait = Math.max(0, 900 - (Date.now() - spotLastSent));
+  spotTimer = setTimeout(() => {
+    spotTimer = null;
+    if(session.role !== 'leader' || !session.lastNav) return;
+    const n = state.pageView && typeof topVisibleMsVerse === 'function'
+            ? topVisibleMsVerse() : topVisibleVerse();
+    if(typeof n === 'number' && n >= 0) sendSpot(n);
+  }, wait);
+}
+
+function applyRemoteSpot(kind, idx, verse){
+  /* Only meaningful if we're on the same piece; otherwise the nav event
+     that brings us there will carry its own position. */
+  if(!session.lastNav || session.lastNav.kind !== kind || session.lastNav.idx !== idx) return;
+  session.leaderAt = Object.assign({}, session.leaderAt || {}, { kind, idx, verse });
+  if(verseOnScreen(kind, idx, verse)) return;          // already looking at it
+  spotScroll(() => scrollToVerse(kind, idx, verse));
+}
+
+/* A follower who scrolls away far enough that the leader's line has left the
+   screen has chosen to look elsewhere — stop dragging them back. Small
+   adjustments are ignored, so glancing up a line doesn't break the link. */
+function spotWatchFollower(){
+  if(session.role !== 'follower' || session.paused || spotProgrammatic) return;
+  const at = session.leaderAt;
+  if(!at || typeof at.verse !== 'number') return;
+  if(!verseOnScreen(at.kind, at.idx, at.verse, window.innerHeight * 0.5)) pauseFollowing();
+}
+
+window.addEventListener('scroll', () => { spotOnScroll(); spotWatchFollower(); }, { passive:true });
+
+/* Tap a line while leading and everyone jumps to it. Study view only: in the
+   Book Version a tap already places the gold ring, and pages are synced
+   anyway. Buttons inside a verse keep their own actions. */
+document.addEventListener('click', (e) => {
+  if(session.role !== 'leader' || !session.lastNav) return;
+  if(e.target.closest('button, a')) return;
+  const art = e.target.closest('main.verses article.verse[data-v]');
+  if(!art) return;
+  const n = +art.dataset.v;
+  spotLastVerse = -1;                       // a deliberate tap always sends
+  sendSpot(n);
+  art.classList.remove('hit-flash'); void art.offsetWidth; art.classList.add('hit-flash');
+}, true);
 
 /* A follower turns to the leader's Book-Version page. */
 function applyRemotePage(kind, idx, page){
@@ -10565,7 +10679,10 @@ function handleLeadMsg(p){
 /* Called by every open*() — the single place navigation is signalled. */
 function onNavigated(kind, idx){
   if(suppressNavSignals) return;
-  if(session.role) session.lastNav = { kind, idx };   // so whoever takes the mic can resync
+  /* Recorded even before a session exists: a leader who opened the piece
+     first and started the session second would otherwise have nothing to
+     answer a joiner's 'where' with. */
+  session.lastNav = { kind, idx };
   if(session.role === 'leader'){ sendNav(kind, idx); }
   else if(session.role === 'follower' && !session.leaderless){ pauseFollowing(); }
 }
@@ -10726,7 +10843,14 @@ function noteBlock(note){
     </details>`;
 }
 
+/* Opening a reader swaps #app's contents without touching state.tab, so a
+   follower who joined from the session tab still counts as being "on" it.
+   Session-status updates used to re-render the index on that basis and paint
+   over the piece the leader had just sent them to — about a second after they
+   arrived. This flag lets those re-renders tell the difference. */
+let readerOpen = false;
 function readerHTML(q, backOnclick, kind, idx){
+  readerOpen = true;
   msPiece = { kind, idx };
   const empty = !q.verses || q.verses.length === 0;
   /* Turkish ilahis carry their own name in both title fields, so the subheader
@@ -11065,9 +11189,14 @@ function openIlahi(n){
 /* Re-render the current piece (control toggles, remote applies). Signals are
    suppressed so toggling translation never counts as navigating away. */
 function reopen(kind, i){
+  const fn = window[OPENERS[kind]];
+  /* An unrecognised kind used to fall through to openQasida(), which silently
+     teleported the reader into an unrelated piece. Staying put is the safe
+     failure. */
+  if(typeof fn !== 'function') return;
   const prev = suppressNavSignals;
   suppressNavSignals = true;
-  try { kind==='b' ? openBurdah(i) : kind==='s' ? openSirah(i) : kind==='i' ? openIlahi(i) : kind==='d' ? openDalail(i) : kind==='z' ? openBarzanji(i) : kind==='n' ? openNasheed(i) : kind==='l' ? openLitany(i) : openQasida(i); }
+  try { fn(i); }
   finally { suppressNavSignals = prev; }
 }
 function toggle(kind,i){ state.showTr = !state.showTr; reopen(kind,i); }
