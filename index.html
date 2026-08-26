@@ -8224,7 +8224,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v339';
+const APP_VERSION = 'v340';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -10563,6 +10563,17 @@ function applyRemoteNav(kind, idx, book, page){
   session.leaderAt = Object.assign({}, samePiece ? session.leaderAt : {}, { kind, idx, page: page || 0 });
   /* We just moved the page ourselves, so any previous expectation is void. */
   spotExpectedY = null;
+  /* Landed on his piece but with no line for it — ask, rather than waiting
+     for him to move. The beat would answer within four seconds anyway; this
+     makes the join feel immediate. */
+  if(session.role === 'follower' && session.channel && !session.paused
+     && !(session.leaderAt && typeof session.leaderAt.verse === 'number')){
+    setTimeout(() => {
+      if(session.role !== 'follower' || !session.channel) return;
+      if(session.leaderAt && typeof session.leaderAt.verse === 'number') return;
+      try{ session.channel.send({ type:'broadcast', event:'where', payload:{} }); }catch(e){}
+    }, 400);
+  }
   if(page) msGoToWhenReady(page);   // land on the leader's page
 }
 
@@ -10590,9 +10601,22 @@ const SPOT_MS = 80;             /* mirror rate; was 900, then 120 */
 
 /* The element for a verse in whichever view is open. */
 function verseEl(kind, idx, n){
-  return document.querySelector('article.verse[data-v="' + n + '"]')
-      || document.querySelector('[data-mk="' + kind + ':' + idx + ':' + n + '"]')
-      || document.querySelector('[data-mk^="' + kind + ':' + idx + ':' + n + '."]');
+  /* Study first, scoped to the verse flow so a hidden Book leaf elsewhere in
+     the DOM can't win and hand back a zero-height rectangle. Then the Book
+     wrapper, then its first segment — the segment key is colon-separated
+     (d:idx:n:sg), and this last selector had a full stop, so it never matched
+     anything and Book-Version targets fell through to nothing. */
+  const tries = [
+    'main.verses article.verse[data-v="' + n + '"]',
+    '[data-mk="' + kind + ':' + idx + ':' + n + '"]',
+    '[data-mk^="' + kind + ':' + idx + ':' + n + ':"]'
+  ];
+  for(const sel of tries){
+    const el = document.querySelector(sel);
+    /* An element that isn't laid out has no position to scroll to. */
+    if(el && el.offsetParent !== null) return el;
+  }
+  return null;
 }
 
 /* Comfortably on screen — not merely intersecting it by a pixel. Followers
@@ -10631,7 +10655,7 @@ function sendSpot(verse, frac){
    One definition, used by the scroll sampler, the heartbeat and the reply to
    a joiner's 'where' — they used to disagree. */
 function currentSpot(){
-  if(!session.lastNav) return null;
+  if(!session.lastNav || !readerOpen) return null;   /* nothing open, nothing to say */
   const book = state.pageView && typeof topVisibleMsVerse === 'function';
   const v = book ? topVisibleMsVerse() : topVisibleVerse();
   if(typeof v !== 'number' || v < 0) return null;
@@ -10643,6 +10667,24 @@ function currentSpot(){
    scrolling and WRONG for anyone who has just walked in: a leader sitting
    still on one line had nothing to say, so a joiner landed on the piece and
    then sat at the top of it. This says it anyway. */
+/* The leader's position was published only from a scroll handler. If those
+   events don't arrive — a momentum gesture that fires nothing until it
+   settles, a view whose scrolling isn't the window's — followers never hear
+   anything and sit still. A timer doesn't care how the page moved. sendSpot
+   still drops unchanged positions, so a leader sitting still costs nothing. */
+let spotTick = null;
+function startSpotTicker(){
+  stopSpotTicker();
+  spotTick = setInterval(() => {
+    if(session.role !== 'leader' || !session.channel || !session.lastNav) return;
+    const c = currentSpot();
+    if(!c) return;
+    session.dbgSpot = c.verse + '@' + (c.frac||0).toFixed(2);
+    sendSpot(c.verse, c.frac);
+  }, 250);
+}
+function stopSpotTicker(){ if(spotTick){ clearInterval(spotTick); spotTick = null; } }
+
 function sendSpotNow(){
   if(session.role !== 'leader') return;
   const c = currentSpot();
@@ -10808,6 +10850,7 @@ function sendAlive(){
 }
 function startBeating(){
   stopBeating();
+  startSpotTicker();
   beatTimer = setInterval(() => {
     if(session.role !== 'leader' || !session.channel) return;
     sendAlive();
@@ -10817,7 +10860,8 @@ function startBeating(){
     sendSpotNow();
   }, BEAT_MS);
 }
-function stopBeating(){ if(beatTimer){ clearInterval(beatTimer); beatTimer = null; } }
+function stopBeating(){
+  stopSpotTicker(); if(beatTimer){ clearInterval(beatTimer); beatTimer = null; } }
 
 function startWatchingLeader(){
   stopWatchingLeader();
@@ -10971,7 +11015,10 @@ function toggleSessionDbg(){ session.dbg = !session.dbg; renderSessionBanner(); 
 function dbgLine(){
   const t = spotTarget ? (spotTarget.verse + '@' + (spotTarget.frac||0).toFixed(2)) : '—';
   const el = spotTarget ? (verseEl(spotTarget.kind, spotTarget.idx, spotTarget.verse) ? 'found' : 'MISSING') : '—';
-  return 's' + (session.dbgSent||0) + ' r' + (session.dbgRecv||0) + ' · ' + (session.dbgLast||'—') + ' · tgt ' + t + ' ' + el;
+  const view = state.pageView ? 'book' : 'study';
+  if(session.role === 'leader')
+    return 's' + (session.dbgSent||0) + ' · at ' + (session.dbgSpot||'—') + ' · ' + view;
+  return 'r' + (session.dbgRecv||0) + ' · ' + (session.dbgLast||'—') + ' · tgt ' + t + ' ' + el + ' · ' + view;
 }
 
 /* A shareable link that drops someone straight into the session — the code
