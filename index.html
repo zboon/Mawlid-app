@@ -957,6 +957,26 @@
   .session-banner.paused .dot{ background:var(--gold); box-shadow:none; }
   /* Open mic: gold rim, so it reads across the room as needing someone. */
   .session-banner.open-mic{ border-color:var(--gold); }
+  .qr-wrap{
+    position:fixed; inset:0; z-index:120; display:flex; align-items:center;
+    justify-content:center; padding:1.2rem; background:rgba(10,26,20,.72);
+    -webkit-backdrop-filter:blur(3px); backdrop-filter:blur(3px);
+  }
+  .qr-card{
+    background:var(--paper); color:var(--ink); border:1px solid var(--gold);
+    border-radius:16px; padding:1.3rem 1.2rem 1.1rem; text-align:center;
+    max-width:min(340px,92vw); box-shadow:0 18px 46px rgba(0,0,0,.4);
+  }
+  .qr-t{ font-family:'Crimson Pro',serif; font-size:1.15rem; color:var(--green); margin-bottom:.8rem; }
+  .qr-code{ line-height:0; }
+  .qr-code svg{ width:min(260px,72vw); height:auto; border-radius:8px; }
+  .qr-fail{ font-size:.85rem; padding:2rem 0; }
+  .qr-num{
+    font-size:1.6rem; letter-spacing:.16em; margin:.7rem 0 .15rem;
+    color:var(--green); font-variant-numeric:tabular-nums;
+  }
+  .qr-link{ font-size:.7rem; opacity:.6; word-break:break-all; margin-bottom:.9rem; }
+  .qr-btns{ display:flex; gap:.5rem; justify-content:center; flex-wrap:wrap; }
   .session-banner .txt.dbg{ font-size:.68rem; opacity:.75; font-variant-numeric:tabular-nums; }
   .session-banner button.mic{ background:var(--gold); color:var(--green); }
   .session-banner button{
@@ -8204,7 +8224,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v338';
+const APP_VERSION = 'v339';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -10957,11 +10977,339 @@ function dbgLine(){
 /* A shareable link that drops someone straight into the session — the code
    lives in the URL fragment, so it never reaches a server. Sending this over
    WhatsApp reaches the whole room at once, which a QR code can't do. */
+/* ── QR encoder ───────────────────────────────────────────────────────────
+   Byte mode, error-correction level M, versions 1–10 (up to 216 bytes) —
+   ample for a session link. Written out in full because the app must work
+   with no network at all, so a CDN library is not an option. */
+
+const QR_TOTAL = [0,26,44,70,100,134,172,196,242,292,346];
+/* per version: [EC codewords per block, blocks in group 1, data codewords in
+   each, blocks in group 2, data codewords in each] — level M only. */
+const QR_M = [null,
+  [10,1,16,0,0], [16,1,28,0,0], [26,1,44,0,0], [18,2,32,0,0], [24,2,43,0,0],
+  [16,4,27,0,0], [18,4,31,0,0], [22,2,38,2,39], [22,3,36,2,37], [26,4,43,1,44]];
+const QR_ALIGN = [null,[],[6,18],[6,22],[6,26],[6,30],[6,34],
+  [6,22,38],[6,24,42],[6,26,46],[6,28,50]];
+
+/* GF(256) with the QR primitive polynomial 0x11D. */
+const GF_EXP = new Uint8Array(512), GF_LOG = new Uint8Array(256);
+(function(){
+  let x = 1;
+  for(let i=0;i<255;i++){
+    GF_EXP[i] = x; GF_LOG[x] = i;
+    x <<= 1; if(x & 0x100) x ^= 0x11D;
+  }
+  for(let i=255;i<512;i++) GF_EXP[i] = GF_EXP[i-255];
+})();
+function gfMul(a,b){ return (a===0||b===0) ? 0 : GF_EXP[GF_LOG[a]+GF_LOG[b]]; }
+
+/* Generator polynomial for n error-correction codewords. */
+function qrGenPoly(n){
+  let p = [1];
+  for(let i=0;i<n;i++){
+    const q = new Array(p.length+1).fill(0);
+    for(let j=0;j<p.length;j++){
+      q[j] ^= gfMul(p[j], 1);
+      q[j+1] ^= gfMul(p[j], GF_EXP[i]);
+    }
+    p = q;
+  }
+  return p;
+}
+
+/* Remainder of the data polynomial divided by the generator. */
+function qrEC(data, n){
+  const gen = qrGenPoly(n);
+  const rem = new Array(data.length + n).fill(0);
+  for(let i=0;i<data.length;i++) rem[i] = data[i];
+  for(let i=0;i<data.length;i++){
+    const c = rem[i];
+    if(!c) continue;
+    for(let j=0;j<gen.length;j++) rem[i+j] ^= gfMul(gen[j], c);
+  }
+  return rem.slice(data.length);
+}
+
+function qrBytes(str){
+  const out = [];
+  for(let i=0;i<str.length;i++){
+    let c = str.codePointAt(i);
+    if(c > 0xFFFF) i++;
+    if(c < 0x80) out.push(c);
+    else if(c < 0x800){ out.push(0xC0|(c>>6), 0x80|(c&63)); }
+    else if(c < 0x10000){ out.push(0xE0|(c>>12), 0x80|((c>>6)&63), 0x80|(c&63)); }
+    else { out.push(0xF0|(c>>18), 0x80|((c>>12)&63), 0x80|((c>>6)&63), 0x80|(c&63)); }
+  }
+  return out;
+}
+
+function qrDataCapacity(v){
+  const s = QR_M[v];
+  return s[1]*s[2] + s[3]*s[4];
+}
+
+/* ── The bit stream ─────────────────────────────────────────────────────── */
+function qrBitStream(bytes, v){
+  const bits = [];
+  const push = (val, len) => { for(let i=len-1;i>=0;i--) bits.push((val>>i)&1); };
+  push(0b0100, 4);                       /* byte mode */
+  push(bytes.length, v < 10 ? 8 : 16);   /* character count */
+  for(const b of bytes) push(b, 8);
+  const cap = qrDataCapacity(v) * 8;
+  for(let i=0;i<4 && bits.length<cap;i++) bits.push(0);   /* terminator */
+  while(bits.length % 8) bits.push(0);
+  const pads = [0xEC, 0x11];
+  for(let i=0; bits.length < cap; i++) push(pads[i%2], 8);
+  const cw = [];
+  for(let i=0;i<bits.length;i+=8){
+    let b = 0;
+    for(let j=0;j<8;j++) b = (b<<1) | bits[i+j];
+    cw.push(b);
+  }
+  return cw;
+}
+
+/* Split into blocks, add error correction, then interleave — the spread that
+   lets a torn or shadowed corner lose part of every block rather than all of
+   one. */
+function qrCodewords(str, v){
+  const cw = qrBitStream(qrBytes(str), v);
+  const [ecLen, g1, d1, g2, d2] = QR_M[v];
+  const blocks = [], ecs = [];
+  let at = 0;
+  for(let i=0;i<g1;i++){ blocks.push(cw.slice(at, at+d1)); at += d1; }
+  for(let i=0;i<g2;i++){ blocks.push(cw.slice(at, at+d2)); at += d2; }
+  for(const b of blocks) ecs.push(qrEC(b, ecLen));
+  const out = [];
+  const maxData = Math.max(d1, d2);
+  for(let i=0;i<maxData;i++) for(const b of blocks) if(i < b.length) out.push(b[i]);
+  for(let i=0;i<ecLen;i++) for(const e of ecs) out.push(e[i]);
+  return out;
+}
+
+/* ── The grid ───────────────────────────────────────────────────────────── */
+function qrBlank(size){
+  const m = [], f = [];
+  for(let i=0;i<size;i++){ m.push(new Array(size).fill(0)); f.push(new Array(size).fill(0)); }
+  return { m, f };
+}
+
+function qrFunctions(m, f, v, size){
+  const set = (r,c,val) => { if(r<0||c<0||r>=size||c>=size) return; m[r][c]=val; f[r][c]=1; };
+  /* finders + their separators */
+  const finder = (R,C) => {
+    for(let r=-1;r<=7;r++) for(let c=-1;c<=7;c++){
+      const inner = r>=0&&r<=6&&c>=0&&c<=6;
+      const on = inner && (r===0||r===6||c===0||c===6||(r>=2&&r<=4&&c>=2&&c<=4));
+      set(R+r, C+c, on ? 1 : 0);
+    }
+  };
+  finder(0,0); finder(0,size-7); finder(size-7,0);
+  /* timing */
+  for(let i=8;i<size-8;i++){ set(6,i,(i%2===0)?1:0); set(i,6,(i%2===0)?1:0); }
+  /* alignment, skipping the three finder corners */
+  const ap = QR_ALIGN[v];
+  for(const r of ap) for(const c of ap){
+    if((r<=8&&c<=8)||(r<=8&&c>=size-9)||(r>=size-9&&c<=8)) continue;
+    for(let dr=-2;dr<=2;dr++) for(let dc=-2;dc<=2;dc++){
+      const on = Math.max(Math.abs(dr),Math.abs(dc)) !== 1;
+      set(r+dr, c+dc, on ? 1 : 0);
+    }
+  }
+  /* the always-dark module, and space reserved for format info */
+  set(size-8, 8, 1);
+  for(let i=0;i<=8;i++){ if(i!==6) set(8,i,0); if(i!==6) set(i,8,0); }
+  for(let i=0;i<8;i++){ set(8,size-1-i,0); set(size-1-i,8,0); }
+  /* version blocks, v7 and up */
+  if(v >= 7){
+    const bits = qrVersionBits(v);
+    for(let i=0;i<18;i++){
+      const b = (bits >> i) & 1;
+      set(Math.floor(i/3), size-11+(i%3), b);
+      set(size-11+(i%3), Math.floor(i/3), b);
+    }
+  }
+}
+
+function qrVersionBits(v){
+  let d = v << 12;
+  for(let i=0;i<6;i++) if((d >> (17-i)) & 1) d ^= 0x1F25 << (5-i);
+  return (v << 12) | d;
+}
+
+function qrFormatBits(mask){
+  const data = (0b00 << 3) | mask;          /* 00 = level M */
+  let d = data << 10;
+  for(let i=0;i<5;i++) if((d >> (14-i)) & 1) d ^= 0x537 << (4-i);
+  return ((data << 10) | d) ^ 0x5412;
+}
+
+function qrPlaceFormat(m, v, size, mask){
+  const bits = qrFormatBits(mask);
+  const bit = i => (bits >> i) & 1;
+  for(let i=0;i<=5;i++) m[8][i] = bit(i);
+  m[8][7] = bit(6); m[8][8] = bit(7); m[7][8] = bit(8);
+  for(let i=9;i<15;i++) m[14-i][8] = bit(i);
+  for(let i=0;i<8;i++) m[size-1-i][8] = bit(i);
+  for(let i=8;i<15;i++) m[8][size-15+i] = bit(i);
+  m[size-8][8] = 1;
+}
+
+function qrMaskFn(k){
+  return [
+    (i,j)=>((i+j)%2)===0,
+    (i,j)=>(i%2)===0,
+    (i,j)=>(j%3)===0,
+    (i,j)=>((i+j)%3)===0,
+    (i,j)=>((Math.floor(i/2)+Math.floor(j/3))%2)===0,
+    (i,j)=>(((i*j)%2)+((i*j)%3))===0,
+    (i,j)=>((((i*j)%2)+((i*j)%3))%2)===0,
+    (i,j)=>((((i+j)%2)+((i*j)%3))%2)===0
+  ][k];
+}
+
+/* Walk the data up and down in pairs of columns, right to left, stepping over
+   the vertical timing line. */
+function qrPlaceData(m, f, size, cw){
+  let bit = 0;
+  const total = cw.length * 8;
+  const next = () => {
+    if(bit >= total) return 0;
+    const b = (cw[bit >> 3] >> (7 - (bit & 7))) & 1;
+    bit++;
+    return b;
+  };
+  let upward = true;
+  for(let right=size-1; right>0; right-=2){
+    if(right === 6) right = 5;             /* the timing column is not data */
+    for(let k=0;k<size;k++){
+      const r = upward ? size-1-k : k;
+      for(let c of [right, right-1]){
+        if(f[r][c]) continue;
+        m[r][c] = next();
+      }
+    }
+    upward = !upward;
+  }
+}
+
+function qrPenalty(m, size){
+  let p = 0;
+  /* runs of five or more */
+  for(let i=0;i<size;i++){
+    for(const row of [true,false]){
+      let run = 1, prev = row ? m[i][0] : m[0][i];
+      for(let j=1;j<size;j++){
+        const v = row ? m[i][j] : m[j][i];
+        if(v === prev) run++;
+        else { if(run >= 5) p += 3 + (run-5); run = 1; prev = v; }
+      }
+      if(run >= 5) p += 3 + (run-5);
+    }
+  }
+  /* solid two-by-two squares */
+  for(let i=0;i<size-1;i++) for(let j=0;j<size-1;j++){
+    const v = m[i][j];
+    if(v===m[i][j+1] && v===m[i+1][j] && v===m[i+1][j+1]) p += 3;
+  }
+  /* the finder-lookalike sequence, either way round */
+  const A = [1,0,1,1,1,0,1,0,0,0,0], B = [0,0,0,0,1,0,1,1,1,0,1];
+  const runs = (get) => {
+    for(let i=0;i<size;i++) for(let j=0;j<=size-11;j++){
+      let a = true, b = true;
+      for(let k=0;k<11;k++){ const v = get(i,j+k); if(v!==A[k]) a=false; if(v!==B[k]) b=false; }
+      if(a) p += 40; if(b) p += 40;
+    }
+  };
+  runs((i,j)=>m[i][j]); runs((i,j)=>m[j][i]);
+  /* balance of dark to light */
+  let dark = 0;
+  for(let i=0;i<size;i++) for(let j=0;j<size;j++) dark += m[i][j];
+  const pct = dark * 100 / (size*size);
+  p += Math.floor(Math.abs(pct - 50) / 5) * 10;
+  return p;
+}
+
+/* The matrix for a string: smallest version that fits, best of the eight
+   masks. Returns { size, m } with m[row][col] as 0 or 1. */
+function qrMatrix(str){
+  const bytes = qrBytes(str);
+  let v = 0;
+  for(let i=1;i<=10;i++){
+    const head = 4 + (i < 10 ? 8 : 16);
+    if(qrDataCapacity(i)*8 >= head + bytes.length*8){ v = i; break; }
+  }
+  if(!v) return null;                      /* too long — caller falls back */
+  const size = 17 + 4*v;
+  const cw = qrCodewords(str, v);
+  let best = null;
+  for(let mask=0; mask<8; mask++){
+    const { m, f } = qrBlank(size);
+    qrFunctions(m, f, v, size);
+    qrPlaceData(m, f, size, cw);
+    for(let i=0;i<size;i++) for(let j=0;j<size;j++)
+      if(!f[i][j] && qrMaskFn(mask)(i,j)) m[i][j] ^= 1;
+    qrPlaceFormat(m, v, size, mask);
+    const p = qrPenalty(m, size);
+    if(!best || p < best.p) best = { p, m, mask };
+  }
+  return { size, m: best.m, version: v, mask: best.mask };
+}
+
+/* An SVG of the matrix, with the quiet zone the spec requires — without it
+   many scanners simply will not see the code. */
+function qrSVG(str, px){
+  const q = qrMatrix(str);
+  if(!q) return '';
+  const quiet = 4, dim = q.size + quiet*2;
+  let path = '';
+  for(let r=0;r<q.size;r++) for(let c=0;c<q.size;c++)
+    if(q.m[r][c]) path += 'M' + (c+quiet) + ' ' + (r+quiet) + 'h1v1h-1z';
+  return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + dim + ' ' + dim + '"'
+       + ' width="' + (px||220) + '" height="' + (px||220) + '" shape-rendering="crispEdges" role="img" aria-label="Session QR code">'
+       + '<rect width="' + dim + '" height="' + dim + '" fill="#FAF5EA"/>'
+       + '<path d="' + path + '" fill="#123528"/></svg>';
+}
+
+/* ── Scan to join ─────────────────────────────────────────────────────────
+   In a hall, reading a code aloud is slow and a link needs a group chat that
+   not everyone is in. A code on the leader's screen is the shortest path from
+   "can I follow?" to following. */
+function showSessionQR(){
+  hideSessionQR();
+  const url = sessionLink();
+  const svg = qrSVG(url, 260);
+  const wrap = document.createElement('div');
+  wrap.id = 'qr-wrap';
+  wrap.className = 'qr-wrap';
+  wrap.innerHTML = `<div class="qr-card">
+      <div class="qr-t">Scan to join</div>
+      <div class="qr-code">${svg || '<div class="qr-fail">Show the code instead.</div>'}</div>
+      <div class="qr-num">${attrEsc(session.code || '')}</div>
+      <div class="qr-link">${attrEsc(url)}</div>
+      <div class="qr-btns">
+        <button class="session-btn" onclick="copySessionLink()">Copy link</button>
+        ${navigator.share ? '<button class="session-btn" onclick="nativeShare()">Share\u2026</button>' : ''}
+        <button class="session-btn primary" onclick="hideSessionQR()">Done</button>
+      </div>
+    </div>`;
+  wrap.addEventListener('click', e => { if(e.target === wrap) hideSessionQR(); });
+  document.body.appendChild(wrap);
+}
+function hideSessionQR(){
+  const el = document.getElementById('qr-wrap');
+  if(el) el.remove();
+}
+document.addEventListener('keydown', e => { if(e.key === 'Escape') hideSessionQR(); });
+
 function sessionLink(code){
   const c = code || session.code;
   return location.origin + location.pathname + '#s=' + c;
 }
-function shareSession(){
+/* Share now shows the code on screen; the phone's own share sheet is one tap
+   further in, for sending it to someone who isn't in the room. */
+function shareSession(){ showSessionQR(); }
+function nativeShare(){
   const url = sessionLink();
   if(navigator.share){
     navigator.share({ title: 'Mawlid session', text: 'Follow along with the gathering:', url })
