@@ -8203,7 +8203,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v336';
+const APP_VERSION = 'v337';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -10354,6 +10354,21 @@ function connectSession(code, role, opts){
     channel.on('broadcast', { event: 'alive' }, ({ payload }) => {
       if(payload && typeof payload.term === 'number' && payload.term < session.term) return;
       noteLeaderAlive();
+      /* A beat proves someone is leading, so it ends a probe just as a nav
+         does. Without this a leader sitting still on one page was invisible
+         to anyone joining. */
+      if(session.probing) session.probeHeard = true;
+      /* Two leaders can only arise if both probed a room that sounded empty
+         at the same moment. Settle it the same way a contested claim is
+         settled: the lower client id keeps the mic, and both sides reach that
+         answer alone. */
+      if(session.role === 'leader' && payload && payload.id && payload.id < session.id
+         && (typeof payload.term !== 'number' || payload.term === session.term)){
+        session.role = 'follower'; session.leaderless = false; session.paused = false;
+        stopBeating(); startWatchingLeader();
+        setSessionStatus('Following the leader.');
+        return;
+      }
       if(session.role === 'follower' && session.leaderless){
         session.leaderless = false;
         setSessionStatus('Following the leader.');
@@ -10365,7 +10380,13 @@ function connectSession(code, role, opts){
     });
     /* A late joiner asks where everyone is; the leader answers. */
     channel.on('broadcast', { event: 'where' }, () => {
-      if(session.role === 'leader' && session.lastNav) sendNav(session.lastNav.kind, session.lastNav.idx);
+      if(session.role !== 'leader') return;
+      /* Answer FIRST with a bare "I'm here". A leader who hasn't opened a
+         piece yet has no lastNav and used to answer NOTHING AT ALL — which
+         told the joiner the room was empty, so it offered itself the mic and
+         never moved. The place, if there is one, follows. */
+      sendAlive();
+      if(session.lastNav) sendNav(session.lastNav.kind, session.lastNav.idx);
     });
 
     channel.subscribe(status => {
@@ -10382,9 +10403,12 @@ function connectSession(code, role, opts){
         session.role = wantsLead ? 'follower' : role;
         session.probing = listens; session.probeHeard = false; session.leaderless = false;
         if(listens){
-          channel.send({ type:'broadcast', event:'where', payload:{} });
           setSessionStatus(wantsLead ? 'Checking whether anyone is already leading…' : 'Joining…');
-          setTimeout(() => {
+          const askWhere = () => {
+            if(!session.probing || session.code !== code) return;
+            try{ channel.send({ type:'broadcast', event:'where', payload:{} }); }catch(e){}
+          };
+          const decide = () => {
             if(!session.probing || session.code !== code) return;
             session.probing = false;
             if(session.probeHeard){
@@ -10405,7 +10429,20 @@ function connectSession(code, role, opts){
             }
             renderSessionBanner();
             if(state.tab === 'session' && !readerOpen) renderIndex();
-          }, 1400);
+          };
+          /* One 'where' used to be the entire handshake. If that packet or the
+             reply was dropped — routine on a phone network — the joiner
+             concluded nobody was leading, which is both halves of the bug the
+             user reported: the mic offered while a leader sits there, and a
+             joiner left on its own page. Ask again, and settle the moment
+             anyone answers. */
+          askWhere();
+          PROBE_TRIES.forEach(t => setTimeout(() => {
+            if(!session.probing || session.code !== code) return;
+            if(session.probeHeard) return decide();
+            askWhere();
+          }, t));
+          setTimeout(decide, PROBE_MS);
         } else {
           setSessionStatus('Leading — others can join with this code.');
         }
@@ -10706,18 +10743,24 @@ function sendNav(kind, idx){
    there for ever with no one able to take over. So the leader beats quietly
    and followers give up on him after a while, which opens the mic through the
    claim machinery that already exists. */
+const PROBE_TRIES = [350, 800, 1400, 2100];   /* re-ask at these marks */
+const PROBE_MS = 2800;        /* only then is the room really empty */
 const BEAT_MS = 4000;         /* leader's heartbeat */
 const BEAT_LOST_MS = 14000;   /* followers wait this long before opening the mic */
 let beatTimer = null, beatWatch = null;
 
 function noteLeaderAlive(){ session.lastBeat = Date.now(); }
 
+function sendAlive(){
+  if(!session.channel) return;
+  try{ session.channel.send({ type:'broadcast', event:'alive',
+    payload:{ term: session.term, id: session.id } }); }catch(e){}
+}
 function startBeating(){
   stopBeating();
   beatTimer = setInterval(() => {
     if(session.role !== 'leader' || !session.channel) return;
-    try{ session.channel.send({ type:'broadcast', event:'alive',
-      payload:{ term: session.term } }); }catch(e){}
+    sendAlive();
   }, BEAT_MS);
 }
 function stopBeating(){ if(beatTimer){ clearInterval(beatTimer); beatTimer = null; } }
@@ -10734,6 +10777,21 @@ function startWatchingLeader(){
   }, 3000);
 }
 function stopWatchingLeader(){ if(beatWatch){ clearInterval(beatWatch); beatWatch = null; } }
+
+/* A locked phone suspends both the timers and the socket. On waking, the
+   watchdog measures a clock that stopped minutes ago and declares the mic open
+   while the leader is still reciting. So on waking we reset the clock and ask
+   where everyone is, rather than trusting a measurement taken across a gap. */
+function sessionWake(){
+  if(!session.channel || !session.code) return;
+  noteLeaderAlive();
+  if(session.role === 'leader') sendAlive();
+  else { try{ session.channel.send({ type:'broadcast', event:'where', payload:{} }); }catch(e){} }
+}
+try{
+  document.addEventListener('visibilitychange', () => { if(!document.hidden) sessionWake(); });
+  window.addEventListener('online', sessionWake);
+}catch(e){}
 
 function releaseLead(){
   if(session.role !== 'leader' || !session.channel) return;
