@@ -8203,7 +8203,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v335';
+const APP_VERSION = 'v336';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -10344,7 +10344,9 @@ function connectSession(code, role, opts){
       if(!payload || typeof payload.verse !== 'number') return;
       if(typeof payload.term === 'number' && payload.term < session.term) return;
       noteLeaderAlive();
-      if(session.role !== 'follower' || session.paused) return;
+      if(session.role !== 'follower') return;
+      /* Note it even while paused — applyRemoteSpot records his place and
+         then declines to move us. That way Resume lands on his current line. */
       applyRemoteSpot(payload.kind, payload.idx, payload.verse, payload.frac);
     });
     /* The leader's heartbeat. Any message would do, but he may sit still on
@@ -10458,6 +10460,7 @@ function leftTheLeader(){
 
 function pauseFollowing(){
   spotStopAnim();
+  spotExpectedY = null;
   if(session.role !== 'follower' || session.paused) return;
   session.paused = true;
   setSessionStatus('Paused — you moved on your own.');
@@ -10467,14 +10470,14 @@ function resumeFollowing(){
   session.paused = false;
   /* Go straight back to where the leader was, so Resume works even if they're
      mid-recitation and slow to answer; the 'where' reply then confirms it. */
-  if(session.leaderAt){
-    applyRemoteNav(session.leaderAt.kind, session.leaderAt.idx);
+  spotExpectedY = null;          /* or the watcher re-pauses us at once */
+  const at = session.leaderAt;   /* read before applyRemoteNav rewrites it */
+  if(at){
+    applyRemoteNav(at.kind, at.idx);
     /* Come back to the leader's LINE, not just his chapter. */
-    if(typeof session.leaderAt.verse === 'number'){
-      const at = session.leaderAt;
-      spotScroll(() => afterViewScroll(at.kind, at.idx, at.verse));
-    }
+    if(typeof at.verse === 'number') spotGoTo(at.kind, at.idx, at.verse, at.frac);
   }
+  spotExpectedY = null;
   setSessionStatus('Following the leader.');
   if(session.channel) session.channel.send({ type:'broadcast', event:'where', payload:{} });
 }
@@ -10491,7 +10494,12 @@ function applyRemoteNav(kind, idx, book, page){
     reopen(kind, idx);
   } finally { suppressNavSignals = false; }
   session.lastNav = { kind, idx };
-  session.leaderAt = { kind, idx, page: page || 0 };   // the leader's place, kept apart from our own wandering
+  /* Keep any line/fraction we already knew for this same piece — a nav event
+     that repeats the current chapter must not erase where in it he is. */
+  const samePiece = session.leaderAt && session.leaderAt.kind === kind && session.leaderAt.idx === idx;
+  session.leaderAt = Object.assign({}, samePiece ? session.leaderAt : {}, { kind, idx, page: page || 0 });
+  /* We just moved the page ourselves, so any previous expectation is void. */
+  spotExpectedY = null;
   if(page) msGoToWhenReady(page);   // land on the leader's page
 }
 
@@ -10590,8 +10598,12 @@ function spotStep(){
   /* A big jump — a page turn, or a tap on a distant line — is taken at once;
      ordinary reading movement is eased. */
   const step = Math.abs(d) > window.innerHeight * 0.9 ? d : d * 0.34;
-  window.scrollTo(0, Math.max(0, cur + step));
-  spotExpectedY = window.scrollY;
+  const want = Math.max(0, cur + step);
+  window.scrollTo(0, want);
+  /* Record what we ASKED for. Reading scrollY back here is unreliable —
+     Safari updates it asynchronously, so we would store the old position and
+     then mistake our own scroll for the reader grabbing the page. */
+  spotExpectedY = want;
   spotAnim = requestAnimationFrame(spotStep);
 }
 
