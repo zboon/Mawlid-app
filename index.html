@@ -22,6 +22,11 @@
 <meta name="application-name" content="Mawalid">
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#123528">
+<!-- Plain-HTML copy of APP_VERSION below. The number lives inside the
+     script, where nothing that reads the page without running it can see
+     it — so "which version is actually live?" could only be answered from
+     a phone. Keep the two in step when bumping. -->
+<meta name="app-version" content="v343">
 <!-- YouTube's embedded player refuses to configure itself unless the host page
      sends a Referer (Error 153 / embedder.identity.missing.referrer). This is
      the browser default in most cases, but a standalone PWA or a WebView may
@@ -8224,7 +8229,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v340';
+const APP_VERSION = 'v343';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -10402,6 +10407,9 @@ function connectSession(code, role, opts){
     /* A late joiner asks where everyone is; the leader answers. */
     channel.on('broadcast', { event: 'where' }, () => {
       if(session.role !== 'leader') return;
+      /* A leader that isn't beating can't be heard. Cheap net against any
+         future path that sets the role without starting the clock. */
+      if(!beatTimer) startBeating();
       /* Answer FIRST with a bare "I'm here". A leader who hasn't opened a
          piece yet has no lastNav and used to answer NOTHING AT ALL — which
          told the joiner the room was empty, so it offered itself the mic and
@@ -10444,9 +10452,7 @@ function connectSession(code, role, opts){
                 ? "Someone is already leading here — you've joined them. Take the lead if you need to."
                 : 'Following the leader.');
             } else if(wantsLead){
-              session.role = 'leader'; session.leaderless = false;
-              stopWatchingLeader(); startBeating();
-              rememberVenue(code);
+              becomeLeader(code);
               setSessionStatus('Leading — others can join with this code.');
             } else {
               session.role = 'follower'; session.leaderless = true;
@@ -10470,6 +10476,7 @@ function connectSession(code, role, opts){
           }, t));
           setTimeout(decide, PROBE_MS);
         } else {
+          becomeLeader(code);
           setSessionStatus('Leading — others can join with this code.');
         }
       } else if(status === 'CHANNEL_ERROR' || status === 'TIMED_OUT'){
@@ -10848,6 +10855,23 @@ function sendAlive(){
   try{ session.channel.send({ type:'broadcast', event:'alive',
     payload:{ term: session.term, id: session.id } }); }catch(e){}
 }
+/* Every path that puts the mic in this device's hands runs through here.
+   It used to be written out three times, and the copy for "start a new
+   session" — the ordinary case — left out startBeating() altogether. That
+   leader never sent a heartbeat, and once the position sampler was hung off
+   the same call it never sent its place either: followers landed on the
+   leader's page and then sat there. Taking the mic and handing it back goes
+   through one of the other two copies, which is why one pass appeared to
+   fix it. */
+function becomeLeader(code){
+  session.role = 'leader';
+  session.leaderless = false;
+  session.paused = false;
+  stopWatchingLeader();
+  startBeating();
+  if(code) rememberVenue(code);
+}
+
 function startBeating(){
   stopBeating();
   startSpotTicker();
@@ -10931,9 +10955,7 @@ function settleClaims(){
   session.leaderless = false;
   session.claiming = false;
   if(ids[0] === session.id){
-    session.role = 'leader';
-    session.paused = false;
-    stopWatchingLeader(); startBeating();
+    becomeLeader();
     try{ session.channel.send({ type:'broadcast', event:'lead', payload:{ t:'lead', term: session.term, id: session.id } }); }catch(e){}
     if(session.lastNav) sendNav(session.lastNav.kind, session.lastNav.idx);
     setSessionStatus('You have the lead.');
