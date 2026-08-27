@@ -26,7 +26,7 @@
      script, where nothing that reads the page without running it can see
      it — so "which version is actually live?" could only be answered from
      a phone. Keep the two in step when bumping. -->
-<meta name="app-version" content="v348">
+<meta name="app-version" content="v350">
 <!-- YouTube's embedded player refuses to configure itself unless the host page
      sends a Referer (Error 153 / embedder.identity.missing.referrer). This is
      the browser default in most cases, but a standalone PWA or a WebView may
@@ -984,7 +984,7 @@
   .qr-btns{ display:flex; gap:.5rem; justify-content:center; flex-wrap:wrap; }
   .qr-card .rep{
     text-align:left; font-family:ui-monospace,Menlo,Consolas,monospace; font-size:.62rem;
-    line-height:1.5; white-space:pre; overflow-x:auto; margin:0 0 .9rem;
+    line-height:1.5; white-space:pre; overflow:auto; max-height:52vh; margin:0 0 .9rem;
     background:rgba(18,53,40,.06); border-radius:8px; padding:.6rem .7rem;
     user-select:text; -webkit-user-select:text;
   }
@@ -8235,7 +8235,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v348';
+const APP_VERSION = 'v350';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -10254,6 +10254,29 @@ function myClientId(){
 const session = { role:null, code:null, client:null, channel:null, paused:false, status:'',
                   lastNav:null, leaderAt:null, id:myClientId(), term:0, leaderless:false, claiming:false, probing:false, probeHeard:false, connecting:null };
 let claimState = { term:0, ids:[], timer:null };
+
+/* A short history of what the session machinery actually did. The faults left
+   are transient — by the time anyone can open a panel to look, the moment has
+   passed — so record as it happens and read it afterwards. Forty lines is
+   about a minute of ordinary activity. */
+const sesLog = [];
+function slog(msg){
+  try{
+    const d = new Date();
+    sesLog.push(String(d.getMinutes()).padStart(2,'0') + ':'
+      + String(d.getSeconds()).padStart(2,'0') + '.'
+      + String(d.getMilliseconds()).padStart(3,'0') + '  ' + msg);
+    if(sesLog.length > 40) sesLog.shift();
+  }catch(e){}
+}
+/* An exception inside a click handler kills the rest of that handler silently.
+   If that is what is happening, it will show up here and nowhere else. */
+try{
+  window.addEventListener('error', e => slog('ERROR ' + (e.message || '?')
+    + ' @' + (e.lineno || '?') + ':' + (e.colno || '?')));
+  window.addEventListener('unhandledrejection', e => slog('REJECT '
+    + String((e.reason && e.reason.message) || e.reason || '?')));
+}catch(e){}
 let suppressNavSignals = false;   // true during re-renders and remote-driven navigation
 
 function sessionConfigured(){ return !!(SESSION_CONFIG.url && SESSION_CONFIG.key); }
@@ -10281,7 +10304,10 @@ function setSessionStatus(msg){
      and dropped you back on the index. Taking the mic sets a status, so the
      first tap bounced you out and the second, from the index, looked like it
      "worked". Same DOM question as everywhere else. */
-  if(state.tab === 'session' && renderedView() === 'none') renderIndex();
+  const repaint = state.tab === 'session' && renderedView() === 'none';
+  slog('status "' + String(msg).slice(0,34) + '" role=' + session.role
+    + ' view=' + renderedView() + ' repaint=' + repaint);
+  if(repaint) renderIndex();
 }
 
 /* The last session this device joined, kept on the device. An accidental Leave
@@ -10361,7 +10387,10 @@ function connectSession(code, role, opts){
         if(payload.term > session.term){                 // someone took the mic
           session.term = payload.term;
           session.leaderless = false;
-          if(session.role === 'leader'){ session.role = 'follower'; setSessionStatus('Following the leader.'); }
+          if(session.role === 'leader'){
+            slog('DEMOTE nav higher term ' + payload.term + ' > ' + session.term);
+            session.role = 'follower'; setSessionStatus('Following the leader.');
+          }
         }
       }
       if(session.probing) session.probeHeard = true;   // someone is already here
@@ -10402,6 +10431,8 @@ function connectSession(code, role, opts){
          answer alone. */
       if(session.role === 'leader' && payload && payload.id && payload.id < session.id
          && (typeof payload.term !== 'number' || payload.term === session.term)){
+        slog('DEMOTE alive tiebreak: other=' + String(payload.id).slice(0,6)
+          + ' me=' + String(session.id).slice(0,6) + ' term=' + payload.term);
         session.role = 'follower'; session.leaderless = false; session.paused = false;
         stopBeating(); startWatchingLeader();
         setSessionStatus('Following the leader.');
@@ -10516,6 +10547,7 @@ function joinSession(){
   connectSession(code, 'follower');
 }
 function leaveSession(){
+  slog('leaveSession CALLED');
   /* Hand the mic back to the room rather than leaving everyone following a ghost. */
   if(session.role === 'leader' && session.channel){
     try{ session.channel.send({ type:'broadcast', event:'lead', payload:{ t:'release', term: session.term + 1 } }); }catch(e){}
@@ -10905,6 +10937,7 @@ function sendAlive(){
    through one of the other two copies, which is why one pass appeared to
    fix it. */
 function becomeLeader(code){
+  slog('becomeLeader');
   session.role = 'leader';
   session.leaderless = false;
   session.paused = false;
@@ -10968,7 +11001,10 @@ function releaseLead(){
 }
 
 function takeLead(){
-  if(!session.channel || session.role === 'leader') return;
+  slog('takeLead tap: role=' + session.role + ' leaderless=' + session.leaderless
+    + ' term=' + session.term + ' claimTerm=' + claimState.term
+    + ' chan=' + !!session.channel);
+  if(!session.channel || session.role === 'leader'){ slog('takeLead REFUSED'); return; }
   /* Works whether or not we heard the release: the term simply moves past
      whatever the old leader was on, and their later messages are ignored. */
   /* Past the highest term anyone has claimed, not just our own — claimState
@@ -10982,7 +11018,8 @@ function takeLead(){
 }
 
 function addClaim(term, id){
-  if(term < claimState.term) return;
+  if(term < claimState.term){ slog('addClaim DROPPED t=' + term + ' < ' + claimState.term); return; }
+  slog('addClaim t=' + term + ' id=' + String(id).slice(0,6));
   if(term > claimState.term){ claimState.term = term; claimState.ids = []; }
   if(claimState.ids.indexOf(id) === -1) claimState.ids.push(id);
   if(claimState.timer) clearTimeout(claimState.timer);
@@ -10993,6 +11030,8 @@ function settleClaims(){
   claimState.timer = null;
   const term = claimState.term;
   const ids = claimState.ids.slice().sort();
+  slog('settle t=' + term + ' ids=' + ids.length + ' winner='
+    + (ids.length ? (ids[0] === session.id ? 'ME' : 'other') : 'NONE'));
   claimState.ids = [];
   if(!ids.length || !session.channel) return;
   session.term = Math.max(session.term, term);
@@ -11000,19 +11039,28 @@ function settleClaims(){
   session.claiming = false;
   if(ids[0] === session.id){
     becomeLeader();
+    slog('WON lead t=' + session.term);
     try{ session.channel.send({ type:'broadcast', event:'lead', payload:{ t:'lead', term: session.term, id: session.id } }); }catch(e){}
     if(session.lastNav) sendNav(session.lastNav.kind, session.lastNav.idx);
     setSessionStatus('You have the lead.');
   } else {
+    /* Every other route to follower stops the beat and starts the watchdog.
+       This one didn't: the device went on holding a leader's timers while
+       calling itself a follower, and never noticed if the new leader went
+       quiet. */
+    slog('DEMOTE settleClaims lost claim');
     session.role = 'follower';
     session.paused = false;
+    stopBeating(); noteLeaderAlive(); startWatchingLeader();
     setSessionStatus('Following the leader.');
   }
 }
 
 function handleLeadMsg(p){
-  if(!p || typeof p.term !== 'number' || p.term < session.term) return;
+  slog('lead msg ' + (p && p.t) + ' t=' + (p && p.term) + ' mine=' + session.term);
+  if(!p || typeof p.term !== 'number' || p.term < session.term){ slog('lead msg IGNORED'); return; }
   if(p.t === 'release'){
+    if(session.role === 'leader') slog('DEMOTE release t=' + p.term);
     session.term = p.term;
     session.role = 'follower';
     session.leaderless = true;
@@ -11025,7 +11073,11 @@ function handleLeadMsg(p){
   } else if(p.t === 'lead'){
     /* If we both think we won the same term, the lower id wins — same rule
        everywhere, so the disagreement resolves itself. */
-    if(session.role === 'leader' && p.term === session.term && p.id > session.id) return;
+    if(session.role === 'leader' && p.term === session.term && p.id > session.id){
+      slog('kept lead over ' + String(p.id).slice(0,6)); return;
+    }
+    if(session.role === 'leader') slog('DEMOTE lead msg from '
+      + String(p.id).slice(0,6) + ' t=' + p.term + ' mine=' + session.term);
     if(claimState.timer){ clearTimeout(claimState.timer); claimState.timer = null; }
     claimState.ids = [];
     session.term = p.term;
@@ -11489,7 +11541,10 @@ function sessionReport(){
       + '   why ' + (session.dbgWhy || '—'),
     'counts    sent ' + (session.dbgSent || 0) + '   recv ' + (session.dbgRecv || 0)
       + '   last ' + (session.dbgLast || '—'),
-    'target    ' + JSON.stringify(spotTarget || null)
+    'target    ' + JSON.stringify(spotTarget || null),
+    '',
+    'recent — newest last',
+    (sesLog.length ? sesLog.join('\n') : '(nothing recorded)')
   ].join('\n');
 }
 
