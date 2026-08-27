@@ -26,7 +26,7 @@
      script, where nothing that reads the page without running it can see
      it — so "which version is actually live?" could only be answered from
      a phone. Keep the two in step when bumping. -->
-<meta name="app-version" content="v347">
+<meta name="app-version" content="v348">
 <!-- YouTube's embedded player refuses to configure itself unless the host page
      sends a Referer (Error 153 / embedder.identity.missing.referrer). This is
      the browser default in most cases, but a standalone PWA or a WebView may
@@ -8235,7 +8235,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v347';
+const APP_VERSION = 'v348';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -10275,7 +10275,13 @@ function newSessionCode(){ return String(Math.floor(1000 + Math.random() * 9000)
 function setSessionStatus(msg){
   session.status = msg;
   renderSessionBanner();                       /* the banner lives outside #app */
-  if(state.tab === 'session' && !readerOpen) renderIndex();
+  /* Only paint the index when no reader is actually showing. This used to ask
+     readerOpen, which is set while BUILDING reader markup and cleared by
+     renderIndex — a stale false meant a status change threw the reader away
+     and dropped you back on the index. Taking the mic sets a status, so the
+     first tap bounced you out and the second, from the index, looked like it
+     "worked". Same DOM question as everywhere else. */
+  if(state.tab === 'session' && renderedView() === 'none') renderIndex();
 }
 
 /* The last session this device joined, kept on the device. An accidental Leave
@@ -10466,7 +10472,7 @@ function connectSession(code, role, opts){
               setSessionStatus("No one is leading here yet — take the lead when you're ready.");
             }
             renderSessionBanner();
-            if(state.tab === 'session' && !readerOpen) renderIndex();
+            if(state.tab === 'session' && renderedView() === 'none') renderIndex();
           };
           /* One 'where' used to be the entire handshake. If that packet or the
              reply was dropped — routine on a phone network — the joiner
@@ -10965,7 +10971,10 @@ function takeLead(){
   if(!session.channel || session.role === 'leader') return;
   /* Works whether or not we heard the release: the term simply moves past
      whatever the old leader was on, and their later messages are ignored. */
-  const term = session.term + 1;
+  /* Past the highest term anyone has claimed, not just our own — claimState
+     outlives a session, and a leftover higher term made addClaim discard the
+     claim silently. */
+  const term = Math.max(session.term, claimState.term) + 1;
   session.claiming = true;
   addClaim(term, session.id);
   try{ session.channel.send({ type:'broadcast', event:'lead', payload:{ t:'claim', term, id: session.id } }); }catch(e){}
