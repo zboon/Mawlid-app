@@ -26,7 +26,7 @@
      script, where nothing that reads the page without running it can see
      it — so "which version is actually live?" could only be answered from
      a phone. Keep the two in step when bumping. -->
-<meta name="app-version" content="v344">
+<meta name="app-version" content="v345">
 <!-- YouTube's embedded player refuses to configure itself unless the host page
      sends a Referer (Error 153 / embedder.identity.missing.referrer). This is
      the browser default in most cases, but a standalone PWA or a WebView may
@@ -8229,7 +8229,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v344';
+const APP_VERSION = 'v345';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -10662,8 +10662,18 @@ function sendSpot(verse, frac){
    One definition, used by the scroll sampler, the heartbeat and the reply to
    a joiner's 'where' — they used to disagree. */
 function currentSpot(){
-  if(!session.lastNav || !readerOpen) return null;   /* nothing open, nothing to say */
+  if(!session.lastNav) return null;
   const book = state.pageView && typeof topVisibleMsVerse === 'function';
+  /* Ask the DOM whether a reader is on screen rather than trusting a flag.
+     readerOpen is set while BUILDING the markup and cleared by renderIndex, so
+     any path that renders out of that order leaves it lying — and a stale
+     false silenced this sampler entirely, while a deliberate tap on a line,
+     which checks the DOM instead, went on working. Hence the reported split:
+     tapping a verse moved every follower, scrolling moved none. Same question,
+     asked the same way, in both places now. */
+  const onScreen = book ? document.querySelector('.ms-v[data-mk]')
+                        : document.querySelector('main.verses article.verse[data-v]');
+  if(!onScreen) return null;
   const v = book ? topVisibleMsVerse() : topVisibleVerse();
   if(typeof v !== 'number' || v < 0) return null;
   /* A Book-Version leaf doesn't scroll, so there is no fraction to send. */
@@ -10686,7 +10696,8 @@ function startSpotTicker(){
     if(session.role !== 'leader' || !session.channel || !session.lastNav) return;
     const c = currentSpot();
     if(!c){
-      session.dbgWhy = !session.lastNav ? 'noNav' : (!readerOpen ? 'noReader' : 'noVerse');
+      session.dbgWhy = !session.lastNav ? 'noNav'
+        : (!document.querySelector('main.verses article.verse[data-v], .ms-v[data-mk]') ? 'noReader' : 'noVerse');
       return;
     }
     session.dbgWhy = '';
