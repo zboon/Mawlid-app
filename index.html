@@ -26,7 +26,7 @@
      script, where nothing that reads the page without running it can see
      it — so "which version is actually live?" could only be answered from
      a phone. Keep the two in step when bumping. -->
-<meta name="app-version" content="v350">
+<meta name="app-version" content="v351">
 <!-- YouTube's embedded player refuses to configure itself unless the host page
      sends a Referer (Error 153 / embedder.identity.missing.referrer). This is
      the browser default in most cases, but a standalone PWA or a WebView may
@@ -8235,7 +8235,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v350';
+const APP_VERSION = 'v351';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -10487,7 +10487,15 @@ function connectSession(code, role, opts){
           };
           const decide = () => {
             if(!session.probing || session.code !== code) return;
+            /* Belt and braces: if anything has settled the role since the
+               probe began, its answer stands, not ours. */
+            if(session.role === 'leader' || session.claiming){
+              session.probing = false;
+              slog('probe expired — role already settled, ignoring');
+              return;
+            }
             session.probing = false;
+            slog('probe decided: heard=' + session.probeHeard);
             if(session.probeHeard){
               session.role = 'follower'; session.leaderless = false;
               noteLeaderAlive(); stopBeating(); startWatchingLeader();
@@ -10936,8 +10944,19 @@ function sendAlive(){
    leader's page and then sat there. Taking the mic and handing it back goes
    through one of the other two copies, which is why one pass appeared to
    fix it. */
+/* A probe is a question: "is anyone leading here?" Once this device has
+   answered it by ACTING — claiming the mic, or being handed it — the question
+   is moot, and the timer still counting down must not be allowed to answer it
+   later. It was: the probe fired a second after a won claim and reset the
+   device to "No one is leading here yet", losing the lead the user had just
+   taken. */
+function cancelProbe(){
+  if(session.probing){ session.probing = false; slog('probe cancelled by action'); }
+}
+
 function becomeLeader(code){
   slog('becomeLeader');
+  cancelProbe();
   session.role = 'leader';
   session.leaderless = false;
   session.paused = false;
@@ -11005,6 +11024,9 @@ function takeLead(){
     + ' term=' + session.term + ' claimTerm=' + claimState.term
     + ' chan=' + !!session.channel);
   if(!session.channel || session.role === 'leader'){ slog('takeLead REFUSED'); return; }
+  /* Cancel here as well as in becomeLeader: the claim window is 700ms and the
+     probe could otherwise expire inside it. */
+  cancelProbe();
   /* Works whether or not we heard the release: the term simply moves past
      whatever the old leader was on, and their later messages are ignored. */
   /* Past the highest term anyone has claimed, not just our own — claimState
