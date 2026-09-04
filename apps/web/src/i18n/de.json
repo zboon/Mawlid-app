@@ -40,7 +40,8 @@
     "langFallback": "Übersetzung auf {lang} — {want} liegt noch nicht vor.",
     "empty": "Dieses Werk hat noch keinen Text.",
     "aboutSection": "Über diesen Abschnitt",
-    "listenHizb": "Diesen Ḥizb anhören"
+    "listenHizb": "Diesen Ḥizb anhören",
+    "twoPages": "Zwei Seiten"
   },
   "today": {
     "label": "Heute",

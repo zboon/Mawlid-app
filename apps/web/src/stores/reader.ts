@@ -21,6 +21,7 @@ interface Saved {
   latinScale?: number
   showTransliteration?: boolean
   showTranslation?: boolean
+  twoPages?: boolean
 }
 
 function load(): Saved {
@@ -48,13 +49,18 @@ export const useReader = defineStore('reader', () => {
   const latinScale = ref(clamp(saved.latinScale ?? 1, LATIN_MIN, LATIN_MAX))
   const showTransliteration = ref(saved.showTransliteration ?? true)
   const showTranslation = ref(saved.showTranslation ?? true)
+  /* Die Doppelseite ist eine WAHL, keine Automatik: die Vorlage bietet sie ab
+     900 px Breite an („Two pages") und lässt sie aus, bis jemand sie
+     einschaltet (localStorage SPREAD_KEY). Eine Automatik halbierte auf
+     einem Laptop ungefragt die Blattbreite — genau so fiel es auf. */
+  const twoPages = ref(saved.twoPages ?? false)
 
   /* Vollbild wird bewusst NICHT gespeichert. Wer die App öffnet und sofort im
      Vollbild landet, ohne zu wissen warum, sucht den Ausgang. */
   const immersive = ref(false)
 
   watch(
-    [view, arScale, latinScale, showTransliteration, showTranslation],
+    [view, arScale, latinScale, showTransliteration, showTranslation, twoPages],
     () => {
       try {
         localStorage.setItem(
@@ -65,6 +71,7 @@ export const useReader = defineStore('reader', () => {
             latinScale: latinScale.value,
             showTransliteration: showTransliteration.value,
             showTranslation: showTranslation.value,
+            twoPages: twoPages.value,
           } satisfies Saved),
         )
       } catch {
@@ -98,6 +105,7 @@ export const useReader = defineStore('reader', () => {
     latinScale,
     showTransliteration,
     showTranslation,
+    twoPages,
     immersive,
 
     setView: (v: ReaderView) => (view.value = v),

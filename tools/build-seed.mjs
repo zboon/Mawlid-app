@@ -154,10 +154,14 @@ function addWork(piece, collection_id, sortOrder) {
     primary_script: latin ? 'latn' : 'arab',
     primary_lang: latin ? 'tr' : 'ar',
     has_folios: Array.isArray(piece.folios) && piece.folios.length > 0 ? 1 : 0,
-    /* Ein Werk ohne Verse wird angelegt, aber nicht veröffentlicht. Nichts geht
-       verloren, und den Lesenden begegnet kein leeres Kapitel. Ein UPDATE
-       macht es sichtbar, sobald Inhalt da ist. */
-    status: verses.length ? 'published' : 'draft',
+    /* Auch ein Werk ohne Verse wird veröffentlicht — so macht es die Vorlage:
+       die 16 leeren Barzanjī-Kapitel stehen dort im Index und öffnen eine
+       Platzhalterseite. Damit stimmen auch die Zählungen („17 Kapitel").
+       Das war offene Frage 1/7 in docs/architecture/07-migration.md; die
+       Vorgabe „alles wie das Original" hat sie entschieden. Wer leere
+       Kapitel verbergen will, setzt sie per UPDATE auf 'draft' zurück —
+       die API blendet Entwürfe von selbst aus. */
+    status: 'published',
   });
 
   if (piece.titleArabic) {
@@ -467,12 +471,27 @@ const cIlahis = addCollection({
     en: (D.PRAISE_SECTIONS.find((c) => c.id === 'ilahis') || {}).desc ?? null,
   },
 });
+/* Beide leeren Bereiche erscheinen wie in der Vorlage als „Demnächst"-Kacheln
+   — die Struktur ist sichtbar, der Inhalt kommt später. */
 const cNasheeds = addCollection({
   module_id: mPraises,
   slug: 'nasheeds',
   sortOrder: 30,
-  published: false,
+  published: true,
   titles: { ar: 'أَنَاشِيدُ', en: 'Nasheeds', de: 'Nasheeds' },
+  descriptions: {
+    en: (D.PRAISE_SECTIONS.find((c) => c.id === 'nasheeds') || {}).desc ?? null,
+  },
+});
+addCollection({
+  module_id: mPraises,
+  slug: 'qawwalis',
+  sortOrder: 40,
+  published: true,
+  titles: { ar: 'قَوَالِي', en: 'Qawwalis', de: 'Qawwalis' },
+  descriptions: {
+    en: (D.PRAISE_SECTIONS.find((c) => c.id === 'qawwalis') || {}).desc ?? null,
+  },
 });
 
 /* Qasidas OHNE Nummer gehören nicht zum Mawlid und bilden die eigene Sammlung. */

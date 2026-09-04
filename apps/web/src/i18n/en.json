@@ -40,7 +40,8 @@
     "langFallback": "Translation in {lang} — {want} is not available yet.",
     "empty": "This work has no text yet.",
     "aboutSection": "About this section",
-    "listenHizb": "Listen to this ḥizb"
+    "listenHizb": "Listen to this ḥizb",
+    "twoPages": "Two pages"
   },
   "today": {
     "label": "Today",

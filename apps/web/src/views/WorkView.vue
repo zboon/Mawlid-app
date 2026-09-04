@@ -18,6 +18,7 @@ import ManuscriptBook from '@/components/manuscript/ManuscriptBook.vue'
 import { ApiError } from '@/api/client'
 import { useWork } from '@/api/queries'
 import { useSlimBar } from '@/composables/useSlimBar'
+import { useSpread } from '@/composables/useSpread'
 import { arabic, latin } from '@/lib/localized'
 import { useReader } from '@/stores/reader'
 
@@ -26,6 +27,7 @@ const router = useRouter()
 const { t, locale } = useI18n()
 const reader = useReader()
 const { slim } = useSlimBar()
+const { offered: spreadOffered } = useSpread()
 
 const workSlug = computed(() => String(route.params.work ?? ''))
 const moduleSlug = computed(() => String(route.params.module ?? ''))
@@ -112,7 +114,10 @@ const goTo = (slug: string) => router.push(`/m/${moduleSlug.value}/${collectionS
         <h1 v-if="!latinScript && arabic(work.titles)" class="title-ar" lang="ar" dir="rtl">
           {{ arabic(work.titles) }}
         </h1>
-        <p class="title-latin">{{ latin(work.titles, locale) }}</p>
+        <p class="title-latin">
+          <template v-if="work.ordinal !== null">{{ work.ordinal }} · </template
+          >{{ latin(work.titles, locale) }}
+        </p>
       </header>
 
       <p v-if="work.langFallback" class="reader-fallback">
@@ -131,6 +136,13 @@ const goTo = (slug: string) => router.push(`/m/${moduleSlug.value}/${collectionS
           :labels="{ study: t('reader.study'), book: t('reader.book') }"
           :group-label="t('reader.viewSwitch')"
           @select="reader.setView($event)"
+        />
+
+        <ControlChip
+          v-if="view === 'book' && spreadOffered"
+          :label="t('reader.twoPages')"
+          :on="reader.twoPages"
+          @click="reader.twoPages = !reader.twoPages"
         />
 
         <ControlChip
@@ -216,7 +228,12 @@ const goTo = (slug: string) => router.push(`/m/${moduleSlug.value}/${collectionS
 
       <EmptyState v-if="work.verses.length === 0" :message="t('reader.empty')" />
 
-      <ManuscriptBook v-else-if="view === 'book'" :work="work" :locale="locale" />
+      <ManuscriptBook
+        v-else-if="view === 'book'"
+        :work="work"
+        :locale="locale"
+        @continue="work.next && goTo(work.next.slug)"
+      />
 
       <section v-else class="verses">
         <VerseCard
@@ -231,16 +248,6 @@ const goTo = (slug: string) => router.push(`/m/${moduleSlug.value}/${collectionS
           :show-translation="reader.showTranslation"
         />
       </section>
-
-      <nav class="reader-siblings">
-        <button v-if="work.prev" class="sib" type="button" @click="goTo(work.prev.slug)">
-          ‹ {{ latin(work.prev.titles, locale) }}
-        </button>
-        <span v-else />
-        <button v-if="work.next" class="sib end" type="button" @click="goTo(work.next.slug)">
-          {{ latin(work.next.titles, locale) }} ›
-        </button>
-      </nav>
     </template>
   </main>
 
@@ -346,25 +353,6 @@ const goTo = (slug: string) => router.push(`/m/${moduleSlug.value}/${collectionS
 
 .qtune:active {
   background: var(--surface-press);
-}
-
-.reader-siblings {
-  display: flex;
-  justify-content: space-between;
-  gap: var(--space-md);
-  margin-top: var(--space-3xl);
-}
-
-.sib {
-  font-family: var(--font-serif);
-  font-size: var(--text-md);
-  color: var(--ink-accent);
-  text-align: start;
-  max-width: 46%;
-}
-
-.sib.end {
-  text-align: end;
 }
 
 /* Der Ausgang aus dem Vollbild. Fest am Bildschirm, nicht am Blatt: wer weit

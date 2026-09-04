@@ -10,8 +10,16 @@ import ManuscriptLeaf from './ManuscriptLeaf.vue'
 
 const props = defineProps<{ work: WorkDetail; locale: string }>()
 
+/* Am letzten Blatt geht es in den nächsten Abschnitt weiter, statt tot zu
+   enden — wie msStep() der Vorlage über nextPiece(). Die Navigation macht
+   die Ansicht darüber; hier wird nur gemeldet, dass das Buch zu Ende ist. */
+const emit = defineEmits<{ continue: [] }>()
+
 const reader = useReader()
-const { spread } = useSpread()
+const { offered } = useSpread()
+/* Angeboten UND gewählt — wie spreadOn() der Vorlage. Fällt das Angebot weg
+   (Fenster schmaler), fällt die Ansicht von selbst auf ein Blatt zurück. */
+const spread = computed(() => offered.value && reader.twoPages)
 
 const leaves = computed(() => buildLeaves(props.work))
 const head = computed(() => runningHead(props.work))
@@ -30,14 +38,37 @@ function goTo(index: number) {
   el.scrollTo({ left: sheet.offsetLeft, behavior: 'smooth' })
 }
 
+/* Blättern, wortgleich mit msStep() der Vorlage: die Doppelseite wendet zwei
+   Blätter auf einmal und rastet auf gerade Blätter ein; das letzte Blatt
+   vorwärts öffnet den nächsten Abschnitt. */
 function step(delta: number) {
-  goTo(
-    Math.min(
-      leaves.value.length - 1,
-      Math.max(0, current.value + (spread.value ? delta * 2 : delta)),
-    ),
-  )
+  const count = leaves.value.length
+  if (spread.value) {
+    const from = current.value - (current.value % 2)
+    const next = from + delta * 2
+    if (delta > 0 && next >= count) {
+      emit('continue')
+      return
+    }
+    goTo(Math.max(0, Math.min(next, count - 1)))
+    return
+  }
+  if (delta > 0 && current.value >= count - 1) {
+    emit('continue')
+    return
+  }
+  goTo(Math.max(0, Math.min(current.value + delta, count - 1)))
 }
+
+const atStart = computed(() => current.value === 0)
+const atEnd = computed(() =>
+  spread.value
+    ? current.value - (current.value % 2) + 2 >= leaves.value.length
+    : current.value >= leaves.value.length - 1,
+)
+/* Der Weiter-Pfeil bleibt am Ende aktiv, wenn es einen nächsten Abschnitt
+   gibt — genau dann führt er dorthin. */
+const nextDisabled = computed(() => atEnd.value && !props.work.next)
 
 /* Welches Blatt liegt vorn? In RTL sind die Offsets negativ, deshalb wird mit
    Beträgen gerechnet statt mit Vorzeichen. */
@@ -80,7 +111,7 @@ watch(
       <button
         class="arrow"
         type="button"
-        :disabled="current >= leaves.length - 1"
+        :disabled="nextDisabled"
         aria-label="Nächstes Blatt"
         @click="step(1)"
       >
@@ -101,7 +132,33 @@ watch(
       <button
         class="arrow"
         type="button"
-        :disabled="current === 0"
+        :disabled="atStart"
+        aria-label="Vorheriges Blatt"
+        @click="step(-1)"
+      >
+        ›
+      </button>
+    </div>
+
+    <!-- Die schwebenden Pfeile — immer in Reichweite, oben wie unten auf dem
+         Blatt. Ohne sie ist die Buchansicht am Rechner nicht blätterbar: Wischen
+         gibt es dort nicht, und die Leiste unten liegt unter einem blatthohen
+         Bild. Auf schmalen Bildschirmen lägen sie ÜBER dem Text und gehen weg —
+         dort wischt man. Wortgleich mit .ms-float der Vorlage. -->
+    <div class="ms-float">
+      <button
+        class="arrow"
+        type="button"
+        :disabled="nextDisabled"
+        aria-label="Nächstes Blatt"
+        @click="step(1)"
+      >
+        ‹
+      </button>
+      <button
+        class="arrow"
+        type="button"
+        :disabled="atStart"
         aria-label="Vorheriges Blatt"
         @click="step(-1)"
       >
@@ -164,6 +221,28 @@ watch(
   justify-content: center;
   gap: var(--space-xl);
   padding: var(--space-md) 0 var(--space-2xl);
+}
+
+.ms-float {
+  position: fixed;
+  top: 50%;
+  inset-inline: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 var(--space-sm);
+  pointer-events: none;
+  z-index: var(--z-nav);
+}
+
+.ms-float .arrow {
+  pointer-events: auto;
+}
+
+@media (max-width: 560px) {
+  .ms-float {
+    display: none;
+  }
 }
 
 /* Die erste Seite liegt rechts, so wie der Text gelesen wird. */

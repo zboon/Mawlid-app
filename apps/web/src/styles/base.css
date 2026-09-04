@@ -132,7 +132,6 @@ html.immersive .qnote,
 html.immersive .reader-fallback,
 html.immersive .reader-controls,
 html.immersive .reader-media,
-html.immersive .reader-siblings,
 html.immersive .ms-hint {
   display: none !important;
 }

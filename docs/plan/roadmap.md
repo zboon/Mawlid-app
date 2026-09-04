@@ -241,11 +241,35 @@ mit ausgemessenen Stilwerten statt Augenmaß. Ergebnis:
   (`src/lib/scheduleIndex.test.ts`): die achte Blase hieß „So ²", und das
   Abschlussgebet rutschte als neunte ins Raster.
 
+Die zweite Runde des Abgleichs (am Rechner aufgefallen):
+
+- **Die schwebenden Blätterpfeile** (`.ms-float`): fest in Bildschirmmitte,
+  unter 560 px ausgeblendet. Ohne sie war die Buchansicht am Rechner nicht
+  blätterbar — Wischen gibt es dort nicht, und die untere Leiste liegt unter
+  einem blatthohen Bild.
+- **Das letzte Blatt fließt in den nächsten Abschnitt** (msStep → nextPiece
+  der Vorlage): der Weiter-Pfeil bleibt am Ende aktiv und öffnet das nächste
+  Werk. Die Fußzeilen-Links Vorher/Weiter sind dafür entfallen — die Vorlage
+  hat sie nicht.
+- **Die Doppelseite ist eine WAHL** („Zwei Seiten"-Chip, gespeichert), keine
+  Automatik ab 900 px. Die Automatik halbierte auf einem Laptop ungefragt die
+  Blattbreite. Angeboten wird sie wie in der Vorlage ab
+  `(min-width: 900px) and (min-height: 600px) and (orientation: landscape)`.
+- **Leere Kapitel sind veröffentlicht** — damit ist Frage 1/7 aus
+  `07-migration.md` im Sinne der Vorlage entschieden: Barzanjī zeigt
+  „17 Werke", ein leeres Kapitel öffnet eine Platzhalterseite, Nasheeds und
+  Qawwalis stehen als „Demnächst"-Kacheln da. Rückweg: `status='draft'`
+  setzen, die API blendet Entwürfe von selbst aus.
+- Das Teilerband erscheint nur noch in der Buchansicht (die Lesefassung der
+  Vorlage zeigt es nicht), der Leserkopf trägt die laufende Nummer
+  („12 · …"), die Blattzahl ihre Goldstriche.
+- **52 Interaktionsprüfungen** über die ganze App (jede Seite, jeder Knopf,
+  schmal und breit) laufen grün.
+
 **Absichtlich noch anders als die Vorlage** (mit Grund, nicht aus Versehen):
 Suchfeld (Phase 4), Favoriten-Tab (Phase 4), „Save my place" und
 Wiederaufnahme-Karte (Phase 4), Downloads-Zeile (Phase 4),
-„Works offline"-Fußzeile (Phase 7), Zählungen leerer Kapitel
-(offene Frage 7 in `07-migration.md`).
+„Works offline"-Fußzeile (Phase 7).
 
 ### Was der Entwurf nicht vorsah
 

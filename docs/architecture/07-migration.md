@@ -360,6 +360,9 @@ Diese Fragen kann nur der Inhaber beantworten:
 1. **Barzanjī** — 17 Kapitel, davon 16 leer. Sollen die leeren Kapitel als
    Platzhalter mitwandern (dann in der Oberfläche als „in Arbeit" kennzeichnen),
    oder wird nur das eine gefüllte importiert?
+   *Entschieden (Phase 3, Treue-Runde): alle 17 veröffentlicht, wie in der
+   Vorlage — leere Kapitel öffnen eine Platzhalterseite. Rückweg: UPDATE auf
+   `status='draft'`, die API blendet Entwürfe von selbst aus.*
 
 2. **Nasheeds und Qawwalis** — beide vollständig leer. Als Module anlegen und
    ausgeblendet lassen (`is_published = 0`), oder erst dann, wenn es Inhalt gibt?
@@ -386,10 +389,10 @@ Diese Fragen kann nur der Inhaber beantworten:
    kann. *Empfehlung: bei Phase 6 mitnehmen, nicht vorher — ein Schemawechsel
    zwingt heute zum erneuten Laden und Gegenprüfen des ganzen Bestandes.*
 
-7. **Die 16 leeren Werke** sind als `draft` importiert und in der API damit
-   unsichtbar (`404`). In der alten App waren sie sichtbar und leer. Von 109
-   Werken sind so 93 lesbar. *Das ist die Umsetzung von Frage 1 — bitte
-   bestätigen oder widersprechen.*
+7. **Die 16 leeren Werke** waren zunächst als `draft` importiert und damit
+   unsichtbar. *In der Treue-Runde umgestellt: veröffentlicht, wie in der
+   Vorlage (siehe Frage 1). Die Anweisung „alles wie das Original" hat
+   entschieden.*
 
 ---
 

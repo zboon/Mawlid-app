@@ -35,7 +35,8 @@ const withTransliteration = computed(
     <p v-else-if="verse.kind === 'instruction'" class="v-label">Instruction · إِرْشَاد</p>
 
     <p v-if="verse.noteLabel" class="v-note">{{ verse.noteLabel }}</p>
-    <p v-if="verse.bandLabel" class="v-band" lang="ar" dir="rtl">{{ verse.bandLabel }}</p>
+    <!-- verse.bandLabel wird hier bewusst NICHT gesetzt: das Teilerband ist
+         Mobiliar der Buchansicht. Die Lesefassung der Vorlage zeigt es nicht. -->
 
     <template v-if="latinScript">
       <!-- Türkische Ilahis: der Originaltext ist lateinisch und wird als
@@ -170,16 +171,6 @@ const withTransliteration = computed(
   opacity: 0.9;
   margin-bottom: var(--space-xs);
   text-align: center;
-}
-
-.v-band {
-  font-family: var(--font-arabic);
-  font-size: var(--text-lg);
-  line-height: var(--leading-arabic-title);
-  letter-spacing: var(--tracking-none);
-  color: var(--accent);
-  text-align: center;
-  margin-bottom: var(--space-sm);
 }
 
 .v-ar {
