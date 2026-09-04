@@ -7,9 +7,15 @@
     "seed:build": "node tools/build-seed.mjs",
     "db:load": "node tools/load-seed.mjs",
     "db:verify": "node tools/verify-migration.mjs",
-    "db:all": "npm run extract && npm run seed:build && npm run db:load && npm run db:verify"
+    "db:all": "npm run extract && npm run seed:build && npm run db:load && npm run db:verify",
+    "api": "npm --prefix apps/api run dev",
+    "web": "npm --prefix apps/web run dev",
+    "api:verify": "npm --prefix apps/api run verify",
+    "web:verify": "npm --prefix apps/web run verify",
+    "api:check": "node tools/verify-api.mjs"
   },
   "devDependencies": {
-    "mysql2": "^3.11.5"
+    "mysql2": "^3.11.5",
+    "zod": "^3.24.1"
   }
 }

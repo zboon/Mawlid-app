@@ -1,0 +1,683 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model article_links {
+  from_article_id                                  Int      @db.UnsignedInt
+  to_article_id                                    Int      @db.UnsignedInt
+  relation                                         String   @default("related") @db.VarChar(64)
+  articles_article_links_from_article_idToarticles articles @relation("article_links_from_article_idToarticles", fields: [from_article_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_allink_from")
+  articles_article_links_to_article_idToarticles   articles @relation("article_links_to_article_idToarticles", fields: [to_article_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_allink_to")
+
+  @@id([from_article_id, to_article_id, relation])
+  @@index([to_article_id], map: "fk_allink_to")
+}
+
+model article_translations {
+  article_id  Int       @db.UnsignedInt
+  lang        String    @db.VarChar(8)
+  title       String    @db.VarChar(500)
+  summary     String?   @db.Text
+  body_md     String?   @db.MediumText
+  body_html   String?   @db.MediumText
+  body_search String?   @db.MediumText
+  articles    articles  @relation(fields: [article_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_arttr_art")
+  languages   languages @relation(fields: [lang], references: [code], onDelete: NoAction, onUpdate: NoAction, map: "fk_arttr_lang")
+
+  @@id([article_id, lang])
+  @@index([lang], map: "fk_arttr_lang")
+  @@fulltext([title, body_search], map: "ft_articles_search")
+}
+
+model article_works {
+  article_id Int      @db.UnsignedInt
+  work_id    Int      @db.UnsignedInt
+  relation   String   @default("about") @db.VarChar(64)
+  articles   articles @relation(fields: [article_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_aw_article")
+  works      works    @relation(fields: [work_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_aw_work")
+
+  @@id([article_id, work_id, relation])
+  @@index([work_id], map: "fk_aw_work")
+}
+
+model articles {
+  id                                                    Int                    @id @default(autoincrement()) @db.UnsignedInt
+  module_id                                             Int                    @db.UnsignedInt
+  parent_id                                             Int?                   @db.UnsignedInt
+  slug                                                  String                 @db.VarChar(160)
+  sort_order                                            Int                    @default(0) @db.SmallInt
+  status                                                articles_status        @default(draft)
+  lifespan_from                                         String?                @db.VarChar(32)
+  lifespan_to                                           String?                @db.VarChar(32)
+  cover_url                                             String?                @db.VarChar(1024)
+  published_at                                          DateTime?              @db.Timestamp(0)
+  created_at                                            DateTime               @default(now()) @db.Timestamp(0)
+  updated_at                                            DateTime               @default(now()) @db.Timestamp(0)
+  article_links_article_links_from_article_idToarticles article_links[]        @relation("article_links_from_article_idToarticles")
+  article_links_article_links_to_article_idToarticles   article_links[]        @relation("article_links_to_article_idToarticles")
+  article_translations                                  article_translations[]
+  article_works                                         article_works[]
+  modules                                               modules                @relation(fields: [module_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_art_module")
+  articles                                              articles?              @relation("articlesToarticles", fields: [parent_id], references: [id], onUpdate: NoAction, map: "fk_art_parent")
+  other_articles                                        articles[]             @relation("articlesToarticles")
+
+  @@unique([module_id, slug], map: "uq_articles_slug")
+  @@index([module_id, status, sort_order], map: "ix_articles_module")
+  @@index([parent_id, sort_order], map: "ix_articles_tree")
+}
+
+model audit_log {
+  id          BigInt   @id @default(autoincrement()) @db.UnsignedBigInt
+  user_id     Int?     @db.UnsignedInt
+  action      String   @db.VarChar(64)
+  entity_type String?  @db.VarChar(64)
+  entity_id   BigInt?  @db.UnsignedBigInt
+  meta        Json?
+  created_at  DateTime @default(now()) @db.Timestamp(0)
+  users       users?   @relation(fields: [user_id], references: [id], onUpdate: NoAction, map: "fk_audit_user")
+
+  @@index([created_at], map: "ix_audit_time")
+  @@index([user_id, created_at], map: "ix_audit_user")
+}
+
+model auth_sessions {
+  id         String   @id @db.Char(36)
+  user_id    Int      @db.UnsignedInt
+  token_hash String   @unique(map: "uq_authsess_token") @db.Char(64)
+  expires_at DateTime @db.Timestamp(0)
+  user_agent String?  @db.VarChar(512)
+  ip_hash    String?  @db.Char(64)
+  created_at DateTime @default(now()) @db.Timestamp(0)
+  users      users    @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_authsess_user")
+
+  @@index([user_id, expires_at], map: "ix_authsess_user")
+}
+
+model collection_translations {
+  collection_id Int         @db.UnsignedInt
+  lang          String      @db.VarChar(8)
+  title         String      @db.VarChar(255)
+  subtitle      String?     @db.VarChar(255)
+  description   String?     @db.Text
+  collections   collections @relation(fields: [collection_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_colltr_coll")
+  languages     languages   @relation(fields: [lang], references: [code], onDelete: NoAction, onUpdate: NoAction, map: "fk_colltr_lang")
+
+  @@id([collection_id, lang])
+  @@index([lang], map: "fk_colltr_lang")
+}
+
+model collections {
+  id                      Int                       @id @default(autoincrement()) @db.UnsignedInt
+  module_id               Int                       @db.UnsignedInt
+  parent_id               Int?                      @db.UnsignedInt
+  slug                    String                    @db.VarChar(96)
+  sort_order              Int                       @default(0) @db.SmallInt
+  is_published            Boolean                   @default(false)
+  content_version         BigInt                    @default(1) @db.UnsignedBigInt
+  created_at              DateTime                  @default(now()) @db.Timestamp(0)
+  updated_at              DateTime                  @default(now()) @db.Timestamp(0)
+  collection_translations collection_translations[]
+  modules                 modules                   @relation(fields: [module_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_coll_module")
+  collections             collections?              @relation("collectionsTocollections", fields: [parent_id], references: [id], onUpdate: NoAction, map: "fk_coll_parent")
+  other_collections       collections[]             @relation("collectionsTocollections")
+  schedules               schedules[]
+  sequences               sequences[]
+  works                   works[]
+
+  @@unique([module_id, slug], map: "uq_collections_slug")
+  @@index([module_id, is_published, sort_order], map: "ix_collections_module")
+  @@index([parent_id, sort_order], map: "ix_collections_parent")
+}
+
+model content_revisions {
+  id          BigInt                        @id @default(autoincrement()) @db.UnsignedBigInt
+  entity_type content_revisions_entity_type
+  entity_id   BigInt                        @db.UnsignedBigInt
+  revision    Int                           @db.UnsignedInt
+  payload     Json
+  author_id   Int?                          @db.UnsignedInt
+  note        String?                       @db.VarChar(500)
+  created_at  DateTime                      @default(now()) @db.Timestamp(0)
+  users       users?                        @relation(fields: [author_id], references: [id], onUpdate: NoAction, map: "fk_rev_author")
+
+  @@unique([entity_type, entity_id, revision], map: "uq_rev")
+  @@index([author_id, created_at], map: "ix_rev_author")
+}
+
+model corrections {
+  id            BigInt             @id @default(autoincrement()) @db.UnsignedBigInt
+  work_id       Int?               @db.UnsignedInt
+  verse_id      BigInt?            @db.UnsignedBigInt
+  reporter_name String?            @db.VarChar(160)
+  reporter_mail String?            @db.VarChar(255)
+  body          String             @db.Text
+  status        corrections_status @default(new)
+  handled_by    Int?               @db.UnsignedInt
+  handled_at    DateTime?          @db.Timestamp(0)
+  created_at    DateTime           @default(now()) @db.Timestamp(0)
+  users         users?             @relation(fields: [handled_by], references: [id], onUpdate: NoAction, map: "fk_corr_handler")
+  verses        verses?            @relation(fields: [verse_id], references: [id], onUpdate: NoAction, map: "fk_corr_verse")
+  works         works?             @relation(fields: [work_id], references: [id], onUpdate: NoAction, map: "fk_corr_work")
+
+  @@index([handled_by], map: "fk_corr_handler")
+  @@index([verse_id], map: "fk_corr_verse")
+  @@index([work_id], map: "fk_corr_work")
+  @@index([status, created_at], map: "ix_corr_status")
+}
+
+model devices {
+  id                Int                 @id @default(autoincrement()) @db.UnsignedInt
+  public_id         String              @unique(map: "uq_devices_public") @db.Char(36)
+  user_id           Int?                @db.UnsignedInt
+  label             String?             @db.VarChar(160)
+  last_seen_at      DateTime?           @db.Timestamp(0)
+  created_at        DateTime            @default(now()) @db.Timestamp(0)
+  users             users?              @relation(fields: [user_id], references: [id], onUpdate: NoAction, map: "fk_devices_user")
+  favorites         favorites[]
+  reading_positions reading_positions[]
+  verse_marks       verse_marks[]
+
+  @@index([user_id], map: "ix_devices_user")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model favorites {
+  id         BigInt   @id @default(autoincrement()) @db.UnsignedBigInt
+  user_id    Int?     @db.UnsignedInt
+  device_id  Int?     @db.UnsignedInt
+  work_id    Int      @db.UnsignedInt
+  sort_order Int      @default(0) @db.SmallInt
+  created_at DateTime @default(now()) @db.Timestamp(0)
+  devices    devices? @relation(fields: [device_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_fav_device")
+  users      users?   @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_fav_user")
+  works      works    @relation(fields: [work_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_fav_work")
+
+  @@unique([device_id, work_id], map: "uq_fav_device")
+  @@unique([user_id, work_id], map: "uq_fav_user")
+  @@index([work_id], map: "fk_fav_work")
+}
+
+model folios {
+  id           Int     @id @default(autoincrement()) @db.UnsignedInt
+  work_id      Int     @db.UnsignedInt
+  position     Int     @db.UnsignedSmallInt
+  verse_from   Int     @db.UnsignedSmallInt
+  verse_to     Int     @db.UnsignedSmallInt
+  has_sections Boolean @default(false)
+  band_label   String? @db.VarChar(255)
+  works        works   @relation(fields: [work_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_folios_work")
+
+  @@unique([work_id, position], map: "uq_folios_position")
+}
+
+model languages {
+  code                         String                         @id @db.VarChar(8)
+  name_native                  String                         @db.VarChar(64)
+  name_en                      String                         @db.VarChar(64)
+  direction                    languages_direction            @default(ltr)
+  default_script               languages_default_script       @default(latn)
+  is_ui_language               Boolean                        @default(false)
+  sort_order                   Int                            @default(0) @db.SmallInt
+  article_translations         article_translations[]
+  collection_translations      collection_translations[]
+  module_translations          module_translations[]
+  tag_translations             tag_translations[]
+  text_annotation_translations text_annotation_translations[]
+  users                        users[]
+  verse_texts                  verse_texts[]
+  work_translations            work_translations[]
+  works                        works[]
+}
+
+model live_sessions {
+  id            String                  @id @db.Char(36)
+  join_code     String                  @db.Char(4)
+  leader_device String                  @db.VarChar(64)
+  work_id       Int?                    @db.UnsignedInt
+  verse_id      BigInt?                 @db.UnsignedBigInt
+  view_mode     live_sessions_view_mode @default(study)
+  active_flag   Boolean?                @default(true)
+  expires_at    DateTime                @db.Timestamp(0)
+  created_at    DateTime                @default(now()) @db.Timestamp(0)
+  updated_at    DateTime                @default(now()) @db.Timestamp(0)
+  verses        verses?                 @relation(fields: [verse_id], references: [id], onUpdate: NoAction, map: "fk_live_verse")
+  works         works?                  @relation(fields: [work_id], references: [id], onUpdate: NoAction, map: "fk_live_work")
+
+  @@unique([join_code, active_flag], map: "uq_live_code_active")
+  @@index([verse_id], map: "fk_live_verse")
+  @@index([work_id], map: "fk_live_work")
+  @@index([expires_at], map: "ix_live_expiry")
+}
+
+model media {
+  id               Int            @id @default(autoincrement()) @db.UnsignedInt
+  work_id          Int            @db.UnsignedInt
+  kind             media_kind
+  provider         media_provider
+  url              String         @db.VarChar(1024)
+  start_seconds    Int?           @db.UnsignedInt
+  end_seconds      Int?           @db.UnsignedInt
+  duration_seconds Int?           @db.UnsignedInt
+  reciter_id       Int?           @db.UnsignedInt
+  label            String?        @db.VarChar(160)
+  sort_order       Int            @default(0) @db.SmallInt
+  reciters         reciters?      @relation(fields: [reciter_id], references: [id], onUpdate: NoAction, map: "fk_media_reciter")
+  works            works          @relation(fields: [work_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_media_work")
+
+  @@index([reciter_id], map: "fk_media_reciter")
+  @@index([work_id, kind, sort_order], map: "ix_media_work")
+}
+
+model module_translations {
+  module_id   Int       @db.UnsignedInt
+  lang        String    @db.VarChar(8)
+  title       String    @db.VarChar(255)
+  subtitle    String?   @db.VarChar(255)
+  description String?   @db.Text
+  languages   languages @relation(fields: [lang], references: [code], onDelete: NoAction, onUpdate: NoAction, map: "fk_modtr_lang")
+  modules     modules   @relation(fields: [module_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_modtr_module")
+
+  @@id([module_id, lang])
+  @@index([lang], map: "fk_modtr_lang")
+}
+
+model modules {
+  id                  Int                   @id @default(autoincrement()) @db.UnsignedInt
+  slug                String                @unique(map: "uq_modules_slug") @db.VarChar(64)
+  view_type           modules_view_type
+  icon_key            String?               @db.VarChar(64)
+  sort_order          Int                   @default(0) @db.SmallInt
+  is_published        Boolean               @default(false)
+  external_url        String?               @db.VarChar(512)
+  created_at          DateTime              @default(now()) @db.Timestamp(0)
+  updated_at          DateTime              @default(now()) @db.Timestamp(0)
+  articles            articles[]
+  collections         collections[]
+  module_translations module_translations[]
+
+  @@index([is_published, sort_order], map: "ix_modules_order")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model reading_positions {
+  id            BigInt                      @id @default(autoincrement()) @db.UnsignedBigInt
+  user_id       Int?                        @db.UnsignedInt
+  device_id     Int?                        @db.UnsignedInt
+  work_id       Int                         @db.UnsignedInt
+  verse_id      BigInt?                     @db.UnsignedBigInt
+  segment_index Int?                        @db.UnsignedSmallInt
+  view_mode     reading_positions_view_mode @default(study)
+  updated_at    DateTime                    @default(now()) @db.Timestamp(0)
+  devices       devices?                    @relation(fields: [device_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_pos_device")
+  users         users?                      @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_pos_user")
+  verses        verses?                     @relation(fields: [verse_id], references: [id], onUpdate: NoAction, map: "fk_pos_verse")
+  works         works                       @relation(fields: [work_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_pos_work")
+
+  @@unique([device_id, work_id], map: "uq_pos_device")
+  @@unique([user_id, work_id], map: "uq_pos_user")
+  @@index([verse_id], map: "fk_pos_verse")
+  @@index([work_id], map: "fk_pos_work")
+}
+
+model reciters {
+  id         Int     @id @default(autoincrement()) @db.UnsignedInt
+  slug       String  @unique(map: "uq_reciters_slug") @db.VarChar(64)
+  name_ar    String? @db.VarChar(160)
+  name_latin String  @db.VarChar(160)
+  media      media[]
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model schedule_slots {
+  id          Int       @id @default(autoincrement()) @db.UnsignedInt
+  schedule_id Int       @db.UnsignedInt
+  weekday     Int       @db.UnsignedTinyInt
+  slot_index  Int       @default(0) @db.UnsignedTinyInt
+  work_id     Int       @db.UnsignedInt
+  schedules   schedules @relation(fields: [schedule_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_slot_sched")
+  works       works     @relation(fields: [work_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_slot_work")
+
+  @@unique([schedule_id, weekday, slot_index], map: "uq_slots")
+  @@index([work_id], map: "ix_slots_work")
+}
+
+model schedules {
+  id             Int              @id @default(autoincrement()) @db.UnsignedInt
+  collection_id  Int              @db.UnsignedInt
+  slug           String           @db.VarChar(96)
+  cycle          schedules_cycle  @default(weekly)
+  schedule_slots schedule_slots[]
+  collections    collections      @relation(fields: [collection_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_sched_coll")
+
+  @@unique([collection_id, slug], map: "uq_schedules_slug")
+}
+
+model sequence_items {
+  id           Int       @id @default(autoincrement()) @db.UnsignedInt
+  sequence_id  Int       @db.UnsignedInt
+  work_id      Int       @db.UnsignedInt
+  ordinal      Int       @db.UnsignedSmallInt
+  source_label String?   @db.VarChar(16)
+  sequences    sequences @relation(fields: [sequence_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_seqit_seq")
+  works        works     @relation(fields: [work_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_seqit_work")
+
+  @@unique([sequence_id, ordinal], map: "uq_seqitems_ordinal")
+  @@unique([sequence_id, work_id], map: "uq_seqitems_work")
+  @@index([work_id], map: "fk_seqit_work")
+}
+
+model sequences {
+  id             Int              @id @default(autoincrement()) @db.UnsignedInt
+  collection_id  Int              @db.UnsignedInt
+  slug           String           @db.VarChar(96)
+  sequence_items sequence_items[]
+  collections    collections      @relation(fields: [collection_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_seq_coll")
+
+  @@unique([collection_id, slug], map: "uq_sequences_slug")
+}
+
+model tag_translations {
+  tag_id    Int       @db.UnsignedInt
+  lang      String    @db.VarChar(8)
+  label     String    @db.VarChar(128)
+  languages languages @relation(fields: [lang], references: [code], onDelete: NoAction, onUpdate: NoAction, map: "fk_tagtr_lang")
+  tags      tags      @relation(fields: [tag_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_tagtr_tag")
+
+  @@id([tag_id, lang])
+  @@index([lang], map: "fk_tagtr_lang")
+}
+
+model taggables {
+  tag_id      Int                   @db.UnsignedInt
+  entity_type taggables_entity_type
+  entity_id   Int                   @db.UnsignedInt
+  tags        tags                  @relation(fields: [tag_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_taggables_tag")
+
+  @@id([tag_id, entity_type, entity_id])
+  @@index([entity_type, entity_id], map: "ix_taggables_entity")
+}
+
+model tags {
+  id               Int                @id @default(autoincrement()) @db.UnsignedInt
+  slug             String             @unique(map: "uq_tags_slug") @db.VarChar(64)
+  tag_translations tag_translations[]
+  taggables        taggables[]
+}
+
+model text_annotation_translations {
+  annotation_id    Int              @db.UnsignedInt
+  lang             String           @db.VarChar(8)
+  gloss            String           @db.Text
+  text_annotations text_annotations @relation(fields: [annotation_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_anntr_ann")
+  languages        languages        @relation(fields: [lang], references: [code], onDelete: NoAction, onUpdate: NoAction, map: "fk_anntr_lang")
+
+  @@id([annotation_id, lang])
+  @@index([lang], map: "fk_anntr_lang")
+}
+
+model text_annotations {
+  id                           Int                            @id @default(autoincrement()) @db.UnsignedInt
+  match_kind                   text_annotations_match_kind    @default(literal)
+  pattern                      String                         @db.VarChar(1000)
+  style                        text_annotations_style         @default(gloss)
+  work_id                      Int?                           @db.UnsignedInt
+  is_active                    Boolean                        @default(true)
+  sort_order                   Int                            @default(0) @db.SmallInt
+  text_annotation_translations text_annotation_translations[]
+  works                        works?                         @relation(fields: [work_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_annot_work")
+
+  @@index([work_id, is_active, sort_order], map: "ix_annot_work")
+}
+
+model users {
+  id                Int                 @id @default(autoincrement()) @db.UnsignedInt
+  email             String              @unique(map: "uq_users_email") @db.VarChar(255)
+  password_hash     String              @db.VarChar(255)
+  display_name      String              @db.VarChar(160)
+  role              users_role          @default(reader)
+  locale            String              @default("de") @db.VarChar(8)
+  is_active         Boolean             @default(true)
+  last_login_at     DateTime?           @db.Timestamp(0)
+  created_at        DateTime            @default(now()) @db.Timestamp(0)
+  updated_at        DateTime            @default(now()) @db.Timestamp(0)
+  audit_log         audit_log[]
+  auth_sessions     auth_sessions[]
+  content_revisions content_revisions[]
+  corrections       corrections[]
+  devices           devices[]
+  favorites         favorites[]
+  reading_positions reading_positions[]
+  languages         languages           @relation(fields: [locale], references: [code], onDelete: NoAction, onUpdate: NoAction, map: "fk_users_locale")
+  verse_marks       verse_marks[]
+
+  @@index([locale], map: "fk_users_locale")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model verse_marks {
+  id            BigInt   @id @default(autoincrement()) @db.UnsignedBigInt
+  user_id       Int?     @db.UnsignedInt
+  device_id     Int?     @db.UnsignedInt
+  verse_id      BigInt   @db.UnsignedBigInt
+  segment_index Int      @default(0) @db.UnsignedSmallInt
+  created_at    DateTime @default(now()) @db.Timestamp(0)
+  devices       devices? @relation(fields: [device_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_mark_device")
+  users         users?   @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_mark_user")
+  verses        verses   @relation(fields: [verse_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_mark_verse")
+
+  @@unique([device_id, verse_id, segment_index], map: "uq_mark_device")
+  @@unique([user_id, verse_id, segment_index], map: "uq_mark_user")
+  @@index([verse_id], map: "fk_mark_verse")
+}
+
+model verse_texts {
+  id          BigInt             @id @default(autoincrement()) @db.UnsignedBigInt
+  verse_id    BigInt             @db.UnsignedBigInt
+  lang        String             @db.VarChar(8)
+  role        verse_texts_role
+  script      verse_texts_script
+  body        String             @db.Text
+  body_search String?            @db.Text
+  created_at  DateTime           @default(now()) @db.Timestamp(0)
+  updated_at  DateTime           @default(now()) @db.Timestamp(0)
+  languages   languages          @relation(fields: [lang], references: [code], onDelete: NoAction, onUpdate: NoAction, map: "fk_vt_lang")
+  verses      verses             @relation(fields: [verse_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_vt_verse")
+
+  @@unique([verse_id, lang, role], map: "uq_versetexts")
+  @@index([lang, role], map: "ix_versetexts_lang")
+  @@fulltext([body_search], map: "ft_versetexts_search")
+}
+
+model verses {
+  id                BigInt              @id @default(autoincrement()) @db.UnsignedBigInt
+  work_id           Int                 @db.UnsignedInt
+  position          Int                 @db.UnsignedSmallInt
+  verse_kind        verses_verse_kind   @default(verse)
+  band_label        String?             @db.VarChar(255)
+  note_label        String?             @db.VarChar(255)
+  separator_mark    String?             @db.VarChar(16)
+  no_rosette        Boolean             @default(false)
+  short_page        Boolean             @default(false)
+  created_at        DateTime            @default(now()) @db.Timestamp(0)
+  updated_at        DateTime            @default(now()) @db.Timestamp(0)
+  corrections       corrections[]
+  live_sessions     live_sessions[]
+  reading_positions reading_positions[]
+  verse_marks       verse_marks[]
+  verse_texts       verse_texts[]
+  works             works               @relation(fields: [work_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_verses_work")
+
+  @@unique([work_id, position], map: "uq_verses_position")
+}
+
+model work_translations {
+  work_id      Int       @db.UnsignedInt
+  lang         String    @db.VarChar(8)
+  title        String    @db.VarChar(500)
+  note         String?   @db.Text
+  title_search String?   @db.VarChar(500)
+  languages    languages @relation(fields: [lang], references: [code], onDelete: NoAction, onUpdate: NoAction, map: "fk_worktr_lang")
+  works        works     @relation(fields: [work_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_worktr_work")
+
+  @@id([work_id, lang])
+  @@index([lang], map: "fk_worktr_lang")
+  @@index([title_search(length: 191)], map: "ix_worktr_search")
+}
+
+model works {
+  id                Int                  @id @default(autoincrement()) @db.UnsignedInt
+  collection_id     Int                  @db.UnsignedInt
+  slug              String               @db.VarChar(160)
+  sort_order        Int                  @default(0) @db.SmallInt
+  cartouche         String?              @db.VarChar(255)
+  primary_script    works_primary_script @default(arab)
+  primary_lang      String               @default("ar") @db.VarChar(8)
+  has_folios        Boolean              @default(false)
+  status            works_status         @default(draft)
+  published_at      DateTime?            @db.Timestamp(0)
+  created_at        DateTime             @default(now()) @db.Timestamp(0)
+  updated_at        DateTime             @default(now()) @db.Timestamp(0)
+  article_works     article_works[]
+  corrections       corrections[]
+  favorites         favorites[]
+  folios            folios[]
+  live_sessions     live_sessions[]
+  media             media[]
+  reading_positions reading_positions[]
+  schedule_slots    schedule_slots[]
+  sequence_items    sequence_items[]
+  text_annotations  text_annotations[]
+  verses            verses[]
+  work_translations work_translations[]
+  collections       collections          @relation(fields: [collection_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_works_coll")
+  languages         languages            @relation(fields: [primary_lang], references: [code], onDelete: NoAction, onUpdate: NoAction, map: "fk_works_lang")
+
+  @@unique([collection_id, slug], map: "uq_works_slug")
+  @@index([primary_lang], map: "fk_works_lang")
+  @@index([collection_id, status, sort_order], map: "ix_works_collection")
+}
+
+enum content_revisions_entity_type {
+  work
+  verse
+  verse_text
+  article
+  collection
+  module
+}
+
+enum taggables_entity_type {
+  work
+  article
+  collection
+}
+
+enum text_annotations_match_kind {
+  literal
+  regex
+}
+
+enum media_kind {
+  video
+  audio
+}
+
+enum modules_view_type {
+  recitation
+  article
+  wiki
+  tree
+  media
+  link
+}
+
+enum languages_direction {
+  ltr
+  rtl
+}
+
+enum media_provider {
+  youtube
+  file
+  external
+}
+
+enum schedules_cycle {
+  weekly
+  monthly
+  yearly
+  none
+}
+
+enum text_annotations_style {
+  gloss
+}
+
+enum verse_texts_role {
+  original
+  transliteration
+  translation
+}
+
+enum verses_verse_kind {
+  verse
+  refrain
+  instruction
+  basmala
+}
+
+enum languages_default_script {
+  arab
+  latn
+}
+
+enum users_role {
+  reader
+  contributor
+  editor
+  admin
+}
+
+enum verse_texts_script {
+  arab
+  latn
+}
+
+enum articles_status {
+  draft
+  review
+  published
+}
+
+enum live_sessions_view_mode {
+  study
+  book
+}
+
+enum works_primary_script {
+  arab
+  latn
+}
+
+enum corrections_status {
+  new
+  accepted
+  rejected
+  applied
+}
+
+enum reading_positions_view_mode {
+  study
+  book
+}
+
+enum works_status {
+  draft
+  review
+  published
+}

@@ -1,0 +1,28 @@
+{
+  "name": "@mawalid/api",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch --env-file-if-exists=.env src/server.ts",
+    "start": "tsx --env-file-if-exists=.env src/server.ts",
+    "typecheck": "tsc -p tsconfig.json",
+    "db:pull": "prisma db pull",
+    "db:generate": "prisma generate",
+    "verify": "npm run typecheck"
+  },
+  "prisma": {
+    "schema": "prisma/schema.prisma"
+  },
+  "dependencies": {
+    "@fastify/cors": "^10.0.1",
+    "@prisma/client": "^6.1.0",
+    "fastify": "^5.2.0",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "prisma": "^6.1.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

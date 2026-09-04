@@ -47,6 +47,8 @@ services:
       NODE_ENV: development
       DATABASE_URL: mysql://${MYSQL_USER:-mawalid}:${MYSQL_PASSWORD:-mawalid-dev}@mysql:3306/${MYSQL_DATABASE:-mawalid}?charset=utf8mb4
       SESSION_SECRET: ${SESSION_SECRET:?SESSION_SECRET muss in .env gesetzt sein}
+      CORS_ORIGIN: ${CORS_ORIGIN:-http://localhost:5173}
+      HOST: 0.0.0.0
       PORT: 3000
     ports:
       - "${API_PORT:-3000}:3000"
