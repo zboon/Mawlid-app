@@ -26,7 +26,7 @@
      script, where nothing that reads the page without running it can see
      it — so "which version is actually live?" could only be answered from
      a phone. Keep the two in step when bumping. -->
-<meta name="app-version" content="v380">
+<meta name="app-version" content="v381">
 <!-- YouTube's embedded player refuses to configure itself unless the host page
      sends a Referer (Error 153 / embedder.identity.missing.referrer). This is
      the browser default in most cases, but a standalone PWA or a WebView may
@@ -191,13 +191,14 @@
     text-align:center;
     position:relative;
   }
-  /* Ottoman rosette medallion atop the home header, above the icon row and
-     the calligraphic logo. Home only — compactMasthead never renders it. */
+  /* Ottoman rosette medallion: the home page's sole logo, above the icon
+     row. Home only — compactMasthead keeps the bismillah strip instead,
+     and other readers keep their own bismillah, untouched by this. */
   .masthead .medallion-mark{
     display:block;
-    width:min(108px, 30%);
+    width:min(210px, 50%);
     height:auto;
-    margin:0 auto .5rem;
+    margin:.3rem auto .6rem;
   }
   /* Sticky top chrome. Home shows the large logo header; every page below home
      shows a compact bar (see .masthead.compact) with no tab bar. Readers are
@@ -239,12 +240,6 @@
     margin:0 auto .9rem;
     opacity:.92;
   }
-  .masthead .logo{
-    display:block;
-    width:min(165px, 39%);
-    height:auto;
-    margin:.3rem auto .5rem;
-  }
   /* The English name sits in its own band below the calligraphy, ruled off
      from the header above and the section cards below. */
   .subhead{
@@ -265,11 +260,6 @@
     font-size:1.1rem;
     color:var(--gold-soft);
     margin-top:.2rem;
-  }
-  /* On the landing page the same calligraphy stands a little larger. */
-  .masthead .logo.home-mark{
-    width:min(200px, 47%);
-    margin:.2rem auto .6rem;
   }
   .star-band{display:block;margin:1.1rem auto 0;width:min(240px,70%)}
   .theme-toggle{
@@ -11078,7 +11068,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v380';
+const APP_VERSION = 'v381';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -13083,12 +13073,11 @@ function favMark(){
 
 function bigMasthead(){
   return `<header class="masthead">
-      <img class="medallion-mark" src="${MEDALLION_ICON}" width="220" height="226" alt="" aria-hidden="true">
       <button class="header-mark" onclick="goHome()" aria-label="Home">${HOME_ICON_SVG}</button>
       ${favMark()}
       <button class="session-mark${liveClass()}" onclick="selectTab('session')" aria-label="Live session">Live</button>
       <button class="theme-toggle" onclick="toggleTheme()">${themeGlyph()}</button>
-      <img class="logo home-mark" src="${LOGO_INNER}" width="330" height="452" alt="${LOGO_ALT}">
+      <img class="medallion-mark" src="${MEDALLION_ICON}" width="320" height="328" alt="Mawalid">
     </header>`;
 }
 
