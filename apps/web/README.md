@@ -13,11 +13,27 @@ npm install
 npm run dev                    # http://localhost:5173
 ```
 
-`VITE_API_URL` sagt, wohin die Anfragen gehen (Vorgabe: `http://localhost:3000`
-über `.env.example`). **`localhost` und `127.0.0.1` sind für den Browser
-verschiedene Herkünfte** — passt `CORS_ORIGIN` der API nicht dazu, bleibt die
-Seite leer, und im Serverprotokoll steht kein Wort davon. Beide Schreibweisen
-stehen deshalb in der Vorgabe.
+### Wohin die Anfragen gehen
+
+Im Entwicklungsbetrieb **leitet Vite `/api` an die API weiter**
+(`server.proxy` in `vite.config.ts`, Ziel aus `API_PORT`). Alles läuft damit
+über eine Herkunft: kein CORS, keine zweite Adresse in der Konfiguration, und
+`http://localhost:5173/api/content/modules` lässt sich im Browser direkt
+aufrufen.
+
+`VITE_API_URL` braucht man nur, wenn die API woanders steht. Ist sie gesetzt,
+gilt sie, und die Weiterleitung bleibt ungenutzt — dann muss `CORS_ORIGIN` der
+API zur Adresse passen, unter der die Seite geöffnet wird. **`localhost` und
+`127.0.0.1` sind für den Browser verschiedene Herkünfte**; passt es nicht,
+bleibt die Seite leer und im Serverprotokoll steht kein Wort davon. Beide
+Schreibweisen stehen deshalb in der Vorgabe.
+
+### Die `.env` liegt im Wurzelverzeichnis
+
+`envDir` in `vite.config.ts` zeigt dorthin. Ohne diese Zeile sucht Vite die
+Datei hier in `apps/web`, findet nichts, `VITE_API_URL` bleibt leer — und ohne
+Weiterleitung ging dann jede Anfrage an den Vite-Server selbst und kam als
+**404** zurück. Genau so ist es beim ersten Aufsetzen passiert.
 
 Oder über den Compose-Verbund aus dem Projektwurzelverzeichnis:
 
