@@ -23,7 +23,22 @@ const parsed = Schema.safeParse(process.env)
 
 if (!parsed.success) {
   const fields = parsed.error.issues.map((i) => `  ${i.path.join('.')}: ${i.message}`).join('\n')
-  console.error(`Konfiguration unvollständig:\n${fields}\n\nVorlage: .env.example`)
+  /* Der Pfad steht ausgeschrieben da, weil die Vorlage im Wurzelverzeichnis
+     liegt, die Datei aber HIER erwartet wird — und weil `.env` nicht im
+     Repository ist. Nach dem Klonen ist das der erste Stolperstein. */
+  console.error(
+    [
+      'Konfiguration unvollständig:',
+      fields,
+      '',
+      'Es fehlt die Datei  apps/api/.env  — sie liegt absichtlich nicht im',
+      'Repository. Einmal anlegen:',
+      '',
+      '    cp .env.example apps/api/.env      (Windows: copy .env.example apps\\api\\.env)',
+      '',
+      'und darin DATABASE_URL auf die eigene Datenbank zeigen lassen.',
+    ].join('\n'),
+  )
   process.exit(1)
 }
 

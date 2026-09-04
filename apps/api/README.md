@@ -5,15 +5,46 @@ steht in `docs/architecture/04-backend-api.md`; hier steht, wie man sie startet.
 
 ## Starten
 
+Aus dem **Projektwurzelverzeichnis**, einmal:
+
 ```bash
-cp ../../.env.example .env          # DATABASE_URL anpassen
-npm install
-npm run db:generate                 # Prisma-Client aus prisma/schema.prisma
+cp .env.example .env                # Windows: copy .env.example .env
+```
+
+Dann hier:
+
+```bash
+npm install                         # erzeugt dabei den Prisma-Client
 npm run dev                         # http://127.0.0.1:3000
 ```
 
-Ohne laufende Datenbank endet der Start sofort mit einer Meldung — nicht erst
-beim ersten Leser.
+**`.env` liegt absichtlich nicht im Repository** und muss nach dem Klonen
+einmal angelegt werden. Fehlt sie, endet der Start sofort mit einer Meldung,
+die den Pfad nennt — nicht erst beim ersten Leser. Dasselbe gilt für eine nicht
+laufende Datenbank.
+
+Gelesen werden **zwei** Dateien, in dieser Reihenfolge: die im
+Wurzelverzeichnis und danach `apps/api/.env`. Die eine im Wurzelverzeichnis
+reicht für alles — Datenbank, API und Compose-Verbund teilen sie sich. Eine
+Datei hier daneben überschreibt einzelne Werte, falls die API einmal woanders
+hinzeigen soll.
+
+### „@prisma/client did not initialize yet"
+
+Der Prisma-Client ist **erzeugter** Code: `prisma generate` liest
+`prisma/schema.prisma` und schreibt daraus die getypte Fassung nach
+`node_modules/.prisma/client`. Vor dem ersten Lauf liegt dort nur ein Platzhalter,
+der genau diese Meldung wirft.
+
+`npm install` erledigt das über `postinstall` mit. Wer die Meldung trotzdem
+sieht — weil `npm install` mit `--ignore-scripts` lief oder `node_modules`
+von Hand angefasst wurde:
+
+```bash
+npm run db:generate
+```
+
+Das braucht **keine** laufende Datenbank und kein `.env`.
 
 ## Endpunkte (Phase 3)
 

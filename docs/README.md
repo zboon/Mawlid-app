@@ -80,12 +80,15 @@ Stand: **Phase 3 abgeschlossen.** Man kann in der neuen App lesen — in der
 Lese- und in der Buchansicht, mit Ton.
 
 ```bash
-cp .env.example .env               # DATABASE_URL anpassen
-npm install
+cp .env.example .env               # einmalig; .env ist NICHT im Repository
+npm install                        # dann je einmal in apps/api und apps/web
 npm run db:all                     # extrahieren, aufbereiten, laden, prüfen
 npm run api                        # http://127.0.0.1:3000
 npm run web                        # http://localhost:5173
 ```
+
+Die `.env` im Wurzelverzeichnis reicht für alles — Datenbank, API und der
+Compose-Verbund teilen sie sich.
 
 Die drei Prüfungen, die den Bestand absichern:
 
