@@ -105,17 +105,42 @@ Diskussion.
 
 | Schrift | Lizenz | Was erlaubt ist |
 |---|---|---|
-| **Amiri** | SIL OFL 1.1 | Einbetten, weitergeben, ändern. `OFL.txt` **muss** mitgeliefert werden. |
+| **Amiri** | SIL OFL 1.1 | Einbetten, weitergeben, ändern — **aber:** siehe Reserved Font Name unten. `OFL.txt` **muss** mitgeliefert werden. |
 | **KFGQPC Uthmanic Hafs** | frei nutzbar, **Änderung verboten** | Byte-für-Byte weitergeben. Kein Subsetting, keine Konvertierung nach WOFF2, keine Optimierung. |
 | **Crimson Pro, Karla** | SIL OFL 1.1 | wie Amiri |
 
 Die Lizenzdateien wandern nach `public/fonts/LICENSES/` und werden im Impressum
 verlinkt.
 
-> **Falle:** Ein Build-Werkzeug, das Schriften automatisch subsetzt
-> (`vite-plugin-font-subset`, `subfont` und Ähnliche), verletzt bei der
-> Uthmani-Schrift die Lizenz **und** zerstört die `unicode-range`-Logik. Es darf
-> auf `public/fonts/` nicht angewandt werden.
+### Zwei Lizenzfallen, die man leicht übersieht
+
+**1 · Uthmani darf nicht subgesetzt werden.** Ein Build-Werkzeug, das
+Schriften automatisch verkleinert (`vite-plugin-font-subset`, `subfont` und
+Ähnliche), verletzt hier die Lizenz **und** zerstört die
+`unicode-range`-Logik. Es darf auf `public/fonts/` nicht angewandt werden.
+
+Ob das bloße Umverpacken nach WOFF2 (gleiche Glyphen, anderer Container) schon
+eine „Änderung" ist, ist nicht eindeutig. Im Zweifel: die OTF-Datei so
+ausliefern, wie sie ist. Sie ist rund 246 KB — der Preis für Rechtssicherheit
+bei einem Text, den Menschen laut rezitieren.
+
+**2 · Amiri subsetzen heißt umbenennen.** Die OFL erlaubt Änderungen, aber
+Abschnitt 5 (*Reserved Font Name*) verbietet, eine geänderte Fassung weiterhin
+unter dem Originalnamen auszuliefern. Wer Amiri subsetzt — was sich anbietet,
+die beiden Schnitte sind zusammen etwa 500 KB base64 —, muss die Familie
+umbenennen:
+
+```css
+@font-face { font-family: 'AmiriMawalid'; src: url('/fonts/amiri-mawalid.woff2'); }
+```
+
+Und dann **jede** `font-family`-Regel mit anpassen, auch die
+`!important`-Regel der Rosette. Wer nur die eine vergisst, bekommt eine
+Rosette in einer Systemschrift.
+
+> Die drei base64-Blöcke sind zusammen rund 831 KB Zeichen im HTML, was etwa
+> 623 KB tatsächlichen Schriftdaten entspricht — gut ein Drittel der ganzen
+> Datei. Gepackt gehen etwa 521 KB über die Leitung.
 
 ---
 

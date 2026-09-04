@@ -62,6 +62,7 @@ Dokumenten und dem Code hat die Dokumentation recht.
 | [`architecture/06-auth-roles.md`](architecture/06-auth-roles.md) | Anmeldung, Rollen, Versionierung |
 | [`architecture/07-migration.md`](architecture/07-migration.md) | 111 Werke, 2.512 Verse — ohne Zeichenverlust |
 | [`architecture/08-live-sessions.md`](architecture/08-live-sessions.md) | Führen und Folgen bei einer Versammlung |
+| [`architecture/09-offline-pwa.md`](architecture/09-offline-pwa.md) | Was offline verloren geht, welche Fehler tödlich wären, wie es zurückkommt |
 
 ### Plan
 

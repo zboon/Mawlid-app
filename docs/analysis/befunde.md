@@ -144,6 +144,22 @@ zuschnappt.
 
 ---
 
+### 🟠 B6b · Live-Sitzung: drei Schwachstellen
+
+| | |
+|---|---|
+| **Vier Ziffern sind der einzige Schutz** | `takeLead()` prüft nur, ob der Kanal existiert. Zehntausend Möglichkeiten sind in Minuten durchprobiert; wer drin ist, kann die Führung einer fremden Versammlung übernehmen. |
+| **Falscher Code meldet keinen Fehler** | Supabase-Broadcast-Kanäle entstehen bei Bedarf. Ein Tippfehler legt stillschweigend einen leeren Privatraum an, in dem man auf jemanden wartet, der nie kommt. |
+| **Verbindungen werden nicht abgeräumt** | `connectSession()` ruft bei jedem Aufruf `createClient()` und `channel()`, entsorgt aber die vorherige Verbindung nicht. Nur `leaveSession()` räumt auf; wiederholtes Verbinden sammelt an. |
+
+Dazu eine Feststellung ohne Fehlercharakter: `SESSION_CONFIG` ist **befüllt** —
+eine echte Projekt-URL und ein echter anonymer Schlüssel sind eingecheckt. Beim
+anonymen Schlüssel ist das vorgesehen, er ist zur Veröffentlichung gedacht.
+Bemerkenswert ist nur, dass das README die Funktion als „off by default"
+beschreibt; sie ist aktiv.
+
+---
+
 ### 🟡 B7 · Weitere Kleinigkeiten
 
 | # | Befund | Ort |
@@ -222,6 +238,21 @@ das Ergebnis von Erfahrung mit echtem Gebrauch und nicht offensichtlich:
 9. **Kein `letter-spacing` auf Arabisch.** Wird eingehalten und an einer Stelle
    sogar kommentiert.
 
+10. **Das Mitgleiten der Folgenden in der Live-Sitzung.** Die führende Person
+    schickt ihre Position bis zu zwölf Mal je Sekunde (`SPOT_MS = 80`; der
+    Kommentar hält fest: war erst 900, dann 120). Die Folgenden **springen
+    nicht** darauf, sondern nähern sich je Bild um 34 % des Abstands an — nur
+    Sprünge über 90 % Bildschirmhöhe werden sofort genommen. Dadurch liest es
+    sich wie sein Bildschirm und nicht wie eine Diashow seiner Positionen.
+    Gespeichert wird dabei das *gewünschte* Ziel, nicht der zurückgelesene
+    `scrollY`: Safari aktualisiert den asynchron, und wer ihn ausliest, hält die
+    eigene Bewegung für ein Eingreifen und bricht die Verfolgung ab.
+
+11. **Die Zeitkonstanten der Live-Sitzung sind erarbeitet, nicht gewählt.**
+    `PROBE_MS` wurde von 2800 auf 5200 heraufgesetzt, damit die Suche nach einer
+    führenden Person einen vollen Vier-Sekunden-Netzausfall überdauert. Wer sie
+    beim Umbau neu würfelt, holt sich den Fehler zurück.
+
 ---
 
 ## Teil 4 — Kennzahlen
@@ -240,4 +271,5 @@ das Ergebnis von Erfahrung mit echtem Gebrauch und nicht offensichtlich:
 | Verse | 2.512 |
 | davon unerreichbar | 950 (38 %) |
 | localStorage-Schlüssel | 10 |
+| Live-Sitzung, Zeilen | ~1.000, davon ~350 Führungswahl |
 | Ansichtstypen (Kürzel) | 9 (`q b s i d z y n l`) |
