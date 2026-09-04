@@ -9,6 +9,32 @@ verschiedenen Render-Funktionen erzeugt. Genau das ist das Ziel.
 
 ---
 
+## Zwei globale Regeln, auf die alles aufbaut
+
+Sie stehen am Anfang des alten Stylesheets, werden nirgends erwähnt, und **fast
+jede Komponente hängt von ihnen ab**:
+
+```css
+*      { margin: 0; padding: 0; box-sizing: border-box; }
+button { font-family: inherit; cursor: pointer; border: none;
+         background: none; color: inherit; }
+```
+
+Der zweite ist der wichtigere. Praktisch jedes antippbare Element der App ist ein
+nacktes `<button>` — Listenkarte, Startkachel, Trefferzeile, Wochentagsblase,
+Chip. Ohne diese Regel bekämen sie alle den Browser-Standard: graue Fläche,
+Rahmen, andere Schrift.
+
+Beide wandern unverändert nach `src/styles/base.css`. Wer sie weglässt, sucht
+danach an dreißig Stellen nach dem Grund, warum Karten plötzlich aussehen wie
+Formularknöpfe.
+
+> **Aber:** `button { border: none }` entfernt auch den Fokusrahmen-Anker. Deshalb
+> ist die `:focus-visible`-Regel aus `06-accessibility.md` kein Extra, sondern
+> die Gegenbuchung dazu.
+
+---
+
 ## Konventionen
 
 - Dateien liegen unter `src/components/<Bereich>/<Name>.vue`.
@@ -387,23 +413,33 @@ Volle Breite, zweizeilige Beschriftung, goldener `›` absolut rechts positionie
 | `MsBand` | Das Kopfband: Muster plus zwei Goldlinien | ✅ |
 | `MsCorner` | Eckrosette für das Schlussblatt | ✅ |
 | `Rosette` | Der Versteiler ۞ | ⚠️ heute zwei Bilder, im Neuaufbau Inline-SVG mit `currentColor` |
-| `StarBand` | Sternenband über der Kopfnaht | ❌ heute fest gold. **Zu reparieren.** |
+
+> **Warum die Rosette als Inline-SVG mehr ist als eine Verschönerung:** Ihre
+> heutige Umsetzung braucht `font-family: 'Amiri', serif !important` und
+> `color: transparent !important`. Das sind die einzigen `!important`-Farb- und
+> Schriftregeln im ganzen Stylesheet — und in Vue kollidieren sie mit
+> `<style scoped>`: eine gescopte Regel kann ein `!important` aus dem globalen
+> Stylesheet nicht überschreiben. Als Komponente mit `fill="currentColor"`
+> entfällt das Problem ersatzlos.
+| `StarBand` | Sternenband über der Kopfnaht | ❌ **heute gar nicht gerendert** |
 | `CornerMotif` | Gitter-Dreieck | ❌ definiert, nie benutzt |
 | `Bismillah` | Kalligrafie-Bild | Raster |
 | `Logo` | محمد-Kalligrafie | Raster |
 
 **Aufgaben beim Übertragen:**
 
-1. `StarBand` liegt als fest goldenes Inline-SVG im Code und reagiert nicht auf
-   den Dunkelmodus. Die drei Tokens `--ornament-star-*` existieren und sind
-   ungenutzt. Beides zusammenführen.
-2. `CornerMotif` ist definiert, wird nirgends verwendet und hat keine CSS-Regel.
-   Entweder bewusst einsetzen oder löschen.
-3. Die beiden Kalligrafien liegen als base64-PNG (~54 KB und ~50 KB) im
+1. `StarBand` und `CornerMotif` sind **beide definiert und werden beide nie
+   benutzt** — die Konstanten stehen im Code, werden aber in kein Template
+   eingesetzt. Beim Sternenband hängen zusätzlich drei ungenutzte Tokens
+   (`--ornament-star-*`) daran. Entweder bewusst zurückholen — dann als
+   Inline-SVG mit `currentColor` bzw. den Tokens, damit sie dem Thema folgen —
+   oder Konstanten und Tokens streichen. Was nicht geht: sie unbesehen
+   mitschleppen.
+2. Die beiden Kalligrafien liegen als base64-PNG (~54 KB und ~50 KB) im
    Quelltext. Sie werden echte Dateien unter `public/img/`. **Idealerweise als
    SVG nachgezeichnet** — dann folgen sie dem Thema und sind auf jedem
    Bildschirm scharf.
-4. Ein drittes Bismillah-Bild (~10 KB) liegt im Code und wird nie benutzt.
+3. Ein drittes Bismillah-Bild (~10 KB) liegt im Code und wird nie benutzt.
    Löschen.
 
 ---

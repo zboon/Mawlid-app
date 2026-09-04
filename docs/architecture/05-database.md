@@ -159,6 +159,63 @@ Daraus folgen zwei Dinge:
 > vorhandene Positionsangabe entwerten. Falls das später gewünscht ist, ist es
 > eine eigene Migration mit eigener Gegenprüfung.
 
+### Wie viele Blätter daraus wirklich werden
+
+Nachgerechnet: **46 Folio-Einträge werden zu 272 Blättern.** Eine
+Versechsfachung, und sie entsteht ausschließlich durch das `‖`.
+
+Ein Folio ist also **nicht** ein Blatt, sondern ein Bündel von Blättern. Wer die
+Tabelle `folios` als „ein Datensatz je gedruckter Seite" liest, liegt um den
+Faktor sechs daneben.
+
+Zwei Regeln hängen daran und dürfen nicht verlorengehen:
+
+**1 · Leere Abschnitte erzeugen kein Blatt.** Ein `‖` am Anfang, ein doppeltes
+`‖`, oder eines, das ein Folio eröffnet, wird übersprungen. Sonst entstünden
+leere Blätter.
+
+**2 · Nur der letzte Abschnitt eines geteilten Verses bekommt die Rosette.**
+Im Code heißt das Feld `cont` (*continues*): endet ein Abschnitt mitten im Vers,
+wird der Versteiler unterdrückt und erscheint erst am tatsächlichen Versende auf
+dem nächsten Blatt. Ohne diese Regel steht mitten in einem Satz eine Rosette,
+die ein Versende behauptet, das keines ist.
+
+Da der Umbruch im Text bleibt, bleiben auch diese Regeln in der Darstellung.
+Sollte der Umbruch später in eigene Zeilen wandern, braucht `verse_segments`
+zusätzlich ein `is_continuation`.
+
+---
+
+## 3a · Eine Darstellungsregel, die Daten werden muss
+
+In der Buchansicht steht:
+
+```js
+const arDisplay = (kind === 'd' || kind === 'l')
+  ? String(v.ar)                              // Dalāʾil und Litaneien: Kommas bleiben
+  : String(v.ar).replace(/\s*،\s*/g, ' ');   // alle anderen: Kommas raus
+```
+
+Der Kommentar erklärt es: das Manuskript setzt keine Kommas, deshalb entfernt die
+Buchansicht sie — *außer* bei den Dalāʾil und den Litaneien, „weil das lange,
+ununterbrochene Litaneien sind und die Kommas das sind, was sie folgbar macht".
+
+Das ist eine **redaktionelle Entscheidung je Sammlung**, die heute als
+Buchstabenvergleich im Renderer steht. Ein neues Modul erbt sie stillschweigend
+falsch. Sie gehört deshalb in die Datenbank:
+
+```sql
+ALTER TABLE collections
+  ADD COLUMN book_keeps_commas TINYINT(1) NOT NULL DEFAULT 0;
+```
+
+Beim Import auf `1` für die Dalāʾil und die Aḥzāb, auf `0` für alles andere.
+
+> Das ist ein Beispiel für ein Muster, das im ganzen Altcode wiederkehrt:
+> **eine Fallunterscheidung über ein Kürzel ist fast immer eine fehlende
+> Spalte.** Beim Übertragen lohnt es sich, auf `kind === '…'` zu grepen und jede
+> Fundstelle zu fragen, ob dahinter Daten stecken.
+
 ---
 
 ## 4 · Zeichensatz und Kollation
@@ -257,6 +314,45 @@ Verlust.
 - Das Frontend benutzt dieselbe Funktion für lokale Vorfilterung.
 
 Eine Funktion, zwei Aufrufer, kein Auseinanderlaufen.
+
+### Aber nicht für Deutsch
+
+Die Faltungsregeln sind für **arabische Umschrift** gebaut, und für die sind sie
+richtig. Auf deutschen Text angewandt richten sie Schaden an — vor allem `w→u`,
+`y→i` und das Zusammenziehen von Doppelbuchstaben:
+
+| Eingabe | wird zu |
+|---|---|
+| `Wissen` | `uisen` |
+| `Woche` | `uoche` |
+| `Wüste` | `uste` |
+| `weiß` | `ueiß` |
+| `Schwester` | `schuester` |
+| `Qualität` | `kualitat` |
+
+`Wüste` und `Uste` fallen dadurch zusammen, und wer „Wissen" sucht, sucht in
+Wahrheit nach „uisen". Für arabische Umschrift ist genau das erwünscht — dort
+soll `Qasida` und `Kaseeda` dasselbe finden. Für deutsche Artikel- und
+Wiki-Texte ist es Unsinn.
+
+**Konsequenz:** Die Normalisierung ist **sprachabhängig**.
+
+```ts
+normalizeFor('ar', text)   // volle Faltung — wie heute, Zeichen für Zeichen
+normalizeFor('de', text)   // nur Kleinschreibung, NFD-Diakritika, Umlaut-
+                           // Auflösung (ü→ue), Satzzeichen. KEINE Lautfaltung.
+normalizeFor('en', text)   // wie de
+normalizeFor('tr', text)   // wie de, plus ı/i-Behandlung
+```
+
+`verse_texts.body_search` wird mit der Variante gefüllt, die zu `lang` und
+`role` der Zeile passt: Originaltext und Umschrift arabisch, Übersetzungen nach
+ihrer Zielsprache. Die Suchanfrage wird für jede Sprache in ihrer eigenen
+Variante normalisiert und gegen die passenden Zeilen geprüft.
+
+Ohne diese Trennung passiert eines von beidem: entweder die deutsche Suche
+verhält sich unsinnig, oder jemand „repariert" die Faltung und die arabische
+Suche verliert ihre Unschärfe. Beides ist teurer als eine Fallunterscheidung.
 
 **Die Abfrage selbst:**
 

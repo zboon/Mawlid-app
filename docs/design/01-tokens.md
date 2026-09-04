@@ -143,9 +143,9 @@ Dunkelfassung.
 
 ### 3.5 Durchscheinende Flächen auf Grün
 
-Das sind die 49 `rgba()`-Literale der alten CSS, zusammengefasst. Fünf Stellen
-benutzten denselben Wert, vier weitere denselben Aktivzustand — jetzt einmal
-benannt.
+Das sind die 43 `rgba()`-Literale, die außerhalb von `:root` verstreut liegen,
+zusammengefasst. Sie haben nur 31 verschiedene Werte: fünf Stellen benutzen
+denselben Wert, vier weitere denselben Aktivzustand — jetzt einmal benannt.
 
 | Token | Wert | Wofür |
 |---|---|---|
@@ -174,10 +174,11 @@ benannt.
 | `--ornament-star-fill` | `#BCD6E4` | `#7FA3B8` | Sternfüllung im Nahtband |
 | `--ornament-star-stroke` | `#CB8090` | `#D793A2` | Sternkontur |
 
-> **Zu reparieren:** Die drei Stern-Tokens sind in der alten App tot — das
-> Sternenband ist ein fest goldenes Inline-SVG (`app.js:1613`) und reagiert
-> nicht auf den Dunkelmodus. Im Neuaufbau wird das SVG auf `currentColor` bzw.
-> diese Tokens umgestellt. Siehe `04-components.md`, Abschnitt Ornamente.
+> **Zu entscheiden:** Die drei Stern-Tokens sind in der alten App tot, weil das
+> Sternenband **gar nicht gerendert wird** — die Konstante `STAR` (`app.js:1613`)
+> ist definiert und wird nie benutzt. Entweder bewusst wiederbeleben (dann als
+> Inline-SVG mit `currentColor` bzw. diesen Tokens, damit es dem Thema folgt)
+> oder Tokens und Konstante streichen. Siehe `04-components.md`, Ornamente.
 
 ---
 
@@ -216,9 +217,9 @@ siehe `04-components.md`.
 
 ## 5. Abstände
 
-Die alte App benutzt **44 verschiedene Abstandswerte**. Das ist kein System,
-sondern gewachsener Zufall. Ersetzt durch acht Stufen, abgeleitet aus den
-tatsächlich dominierenden Werten:
+Die alte App benutzt **42 verschiedene Abstandswerte** in `padding`, `margin`
+und `gap`. Das ist kein System, sondern gewachsener Zufall. Ersetzt durch zehn
+Stufen, abgeleitet aus den tatsächlich dominierenden Werten:
 
 ```css
 :root {
@@ -306,6 +307,25 @@ Zwanzig Definitionen werden zu sechs plus zwei Sonderfällen:
 /* Der Trefferblitz beim Springen zu einem Suchergebnis. */
 --shadow-flash: 0 0 0 2px var(--accent), 0 0 16px rgb(from var(--accent) r g b / .55);
 ```
+
+---
+
+## 7a. Ein Pflichtfeld, das heute fehlt: `color-scheme`
+
+Im alten Stylesheet steht **nirgends** `color-scheme`. Der Dunkelmodus ist reine
+CSS-Kosmetik und erreicht die native Oberfläche des Browsers nicht: Scrollbalken,
+Formularfelder, die Textauswahlfarbe und Datumsauswahlen bleiben hell, während
+die Seite dunkel ist.
+
+Zwei Zeilen beheben das:
+
+```css
+:root       { color-scheme: light; }
+:root.dark  { color-scheme: dark;  }
+```
+
+Sie gehören direkt neben die Tokenblöcke, damit beim Umschalten nichts vergessen
+wird.
 
 ---
 

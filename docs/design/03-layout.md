@@ -254,8 +254,10 @@ Kindes seine rechte Kante, was das Paar genau richtig setzt.
 Werken mit Folios haben 26 genau eines, das das ganze Kapitel umfasst. Der
 tatsächliche Umbruch ist das Zeichen `‖` (U+2016) **im Verstext**, 226 Mal im
 Bestand. Ein langer Vers wird dort in Abschnitte geteilt, die auf mehrere
-Blätter wandern. Wer beim Umbau nur die Folios auswertet, bekommt eine Handvoll
-sehr voller Blätter statt eines Buches.
+Blätter wandern.
+
+Konkret: **aus 46 Folio-Einträgen werden 272 Blätter.** Wer beim Umbau nur die
+Folios auswertet, bekommt 46 sehr volle Seiten statt eines Buches.
 
 **Die Höhenanpassung ist keine CSS-Angelegenheit.** Ein Algorithmus misst nach
 dem Rendern alle Blätter, wählt eine gemeinsame Höhe im **80. Perzentil** der

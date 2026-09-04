@@ -75,7 +75,7 @@ Menschen Umschriften unterschiedlich schreiben.
 
 ## 3 · Zustände einer Liste
 
-Vier, immer alle vier bedenken:
+Fünf, immer alle fünf bedenken:
 
 | Zustand | Darstellung |
 |---|---|
@@ -89,6 +89,17 @@ Vier, immer alle vier bedenken:
 > sind beide keine Randfälle, sondern Alltag. Wer sie vergisst, zeigt einer
 > Person mit schlechtem Netz eine leere Liste, die aussieht, als wären ihre
 > Texte weg.
+
+### Der fünfte Zustand: die unbekannte Route
+
+Die alte App hat ihn nicht. `renderResults()` prüft siebzehn Bereichs-IDs und
+endet mit `return ''` — eine unbekannte ID liefert eine **leere Seite**. Zusammen
+mit der Zählangabe, die auf die Favoritenzahl durchfällt, heißt das: ein
+Tippfehler in einer Bereichs-ID erzeugt eine leere Seite mit einer falschen Zahl
+darüber, ohne Fehlermeldung.
+
+Die neue App braucht eine echte 404-Route: „Diese Seite gibt es nicht" plus einen
+Weg zurück. Der Vue Router macht das über `path: '/:pathMatch(.*)*'`.
 
 ### Leere Zustände formulieren
 

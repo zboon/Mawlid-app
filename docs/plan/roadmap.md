@@ -175,8 +175,12 @@ zumutbar.
 
 ### Aufgaben
 
-- [ ] `packages/shared/normalize.ts` — die Normalisierung **Zeichen für Zeichen**
-      übernommen
+- [ ] `packages/shared/normalize.ts` — die arabische Normalisierung **Zeichen
+      für Zeichen** übernommen
+- [ ] **Sprachabhängige Varianten.** Die Faltungsregeln sind für arabische
+      Umschrift gebaut und zerstören Deutsch (`Wissen` → `uisen`, `Wüste` →
+      `uste`). Deutsch, Englisch und Türkisch bekommen eine milde Variante ohne
+      Lautfaltung — siehe `05-database.md` §6
 - [ ] Beim Speichern `body_search` füllen
 - [ ] `GET /api/content/search?q=…` — Vierfach-ODER, Treffer mit
       Vers und Segment, sechs je Werk

@@ -33,6 +33,20 @@ Damit es nicht verloren geht:
 
 ## 2 · Was fehlt und ergänzt werden muss
 
+### 🔴 `color-scheme` fehlt — der Dunkelmodus bleibt an der Seite stehen
+
+Im ganzen Stylesheet steht kein `color-scheme`. Der Dunkelmodus ist dadurch
+reine CSS-Kosmetik und erreicht die native Oberfläche nicht: Scrollbalken,
+Formularfelder, die Textauswahlfarbe und Datumsauswahlen bleiben hell, während
+die Seite dunkel ist.
+
+```css
+:root      { color-scheme: light; }
+:root.dark { color-scheme: dark;  }
+```
+
+Zwei Zeilen. Sie gehören neben die Tokenblöcke.
+
 ### 🔴 Fokuszustände — die größte Lücke
 
 Die heutige App hat **keinen einzigen `:focus`- oder `:focus-visible`-Zustand**.

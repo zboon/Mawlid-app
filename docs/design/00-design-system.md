@@ -86,7 +86,8 @@ Die Ornamentik folgt einer strengen Zuordnung, die nicht aufgeweicht werden darf
 - **Grün** — Flächen, die die Anwendung strukturieren.
 - **Rot** (`--ms-rosette`) — ausschließlich die Rosette ۞, der Versteiler.
   Sie ist kein Fehlerrot und wird nie für etwas anderes benutzt.
-- **Blau/Rosa** — die Sterne im Kopfband. Reines Ornament.
+- **Blau/Rosa** — die Sterne im Nahtband. Reines Ornament. (Heute nicht
+  gerendert; siehe unten.)
 
 ### 5. Nichts springt
 
@@ -141,22 +142,26 @@ Fehler.
 - Die gesamte Farbpalette, Wert für Wert.
 - Die drei Schriftstimmen (arabisch / serif / sans) und ihre Zuordnung.
 - Der doppelte Goldrahmen der Manuskriptseite.
-- Das Sternenband über der Kopfnaht, die Eckornamente, die Rosette.
+- Die Eckornamente und die Rosette. (Das Sternenband über der Kopfnaht ist im
+  Quelltext vorhanden, wird aber nicht gerendert — beim Neuaufbau ist zu
+  entscheiden, ob es zurückkommt.)
 - Der Dunkelmodus als Klassenumschalter (nicht als reine Media-Query), damit die
   Wahl der Person Vorrang vor der Systemeinstellung hat.
 
 ## Was bewusst geändert wird
 
 - **Abstände, Radien, Schatten und Übergänge werden tokenisiert.** Heute sind es
-  44 verschiedene Abstandswerte, 14 Radien und 20 Schattendefinitionen, alle als
+  42 verschiedene Abstandswerte, 14 Radien und 20 Schattendefinitionen, alle als
   Literale verstreut. Das wird auf je einen kleinen Satz reduziert
   (siehe [`01-tokens.md`](01-tokens.md)).
-- **Die 49 `rgba()`-Literale** werden zu benannten Tokens. Sie sind alle
-  Alpha-Varianten vorhandener Farben; sechs davon backen versehentlich das
-  Dunkelmodus-Gold in die Hell-Ansicht ein.
+- **Die 43 `rgba()`-Literale außerhalb von `:root`** werden zu benannten
+  Tokens. Sie sind alle Alpha-Varianten vorhandener Farben und reduzieren sich
+  auf 31 verschiedene Werte — fünf Stellen benutzen denselben Wert, vier
+  weitere denselben Aktivzustand.
 - **Die `--ms-*`-Tokens** werden zum umbenannten Thema (Prinzip 3).
 - **Drei tote Tokens** (`--star-fill`, `--band-field`, `--star-stroke`) werden
-  entweder wiederbelebt oder entfernt — das Sternenband ist heute ein fest
-  goldenes SVG und reagiert nicht auf den Dunkelmodus.
+  entweder wiederbelebt oder entfernt. Das Sternenband, das sie färben sollten,
+  wird heute gar nicht gerendert: die Konstante `STAR` ist definiert und wird
+  nie benutzt.
 - **Die Startseite** wird vom umbrechenden Kartenstapel zum festen 3×3-Raster
   mit der Kalligrafie in der Mitte (siehe [`03-layout.md`](03-layout.md)).

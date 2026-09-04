@@ -23,9 +23,16 @@ Zählwerte — alles ist da und korrekt. Nur führt kein Weg hin:
 - `litanies` steht nicht in `TABS`, nicht in `HOME_CARDS`, nicht in
   `MAWLID_COLLECTIONS`, nicht in `PRAISE_SECTIONS`.
 - Der Dalāʾil-Index (`dalailIndex()`) hat keine Zeile dafür.
-- Das **einzige** `selectTab('litanies')` in der ganzen Datei steht in
-  `backToLitanies()` — und das wird nur auf den Bildschirmen `azam` und
-  `istighfar` gerendert, die ihrerseits nur von `litanies` aus erreichbar sind.
+- Es gibt genau **zwei** Stellen, die auf `litanies` zurückführen, und beide
+  liegen *innerhalb* der Schleife:
+  - `backToLitanies()` (Zeile 11499) — gerendert nur auf den Bildschirmen
+    `azam` und `istighfar`, die ihrerseits nur von `litanies` aus erreichbar
+    sind.
+  - `openLitany(n)` (Zeile 13606) setzt es als Rücksprungziel für die Kapitel
+    0–3 zusammen. Das findet ein einfaches `grep` nicht, weil die Zeichenkette
+    aus Teilen gebaut wird. Aber `openLitany` erreicht man nur über
+    `litanyCards()` — also wieder von `litanies` aus.
+
   Eine geschlossene Schleife ohne Eingang.
 - Auch die Suche findet nichts davon: in der globalen Suchzusammenstellung
   (Zeile 11666 ff.) fehlt `litanyCards()` als einzige der neun Sammlungen.
@@ -95,16 +102,24 @@ Zwischen Zeile 888 und 889 fehlt ein Selektor. Vermutlich stand dort
 
 ---
 
-### 🟠 B3 · Das Sternenband folgt dem Dunkelmodus nicht
+### 🟠 B3 · Das Sternenband existiert gar nicht mehr
 
-Die drei Tokens `--star-fill`, `--band-field` und `--star-stroke` sind in beiden
-Themen definiert — und werden von **keiner einzigen CSS-Regel gelesen**. Das
-Sternenband ist stattdessen ein Inline-SVG mit fest eingetragenem `#B8934A`
-(Zeile 1613). Es bleibt im Dunkelmodus hellgold.
+Drei Tokens — `--star-fill`, `--band-field`, `--star-stroke` — sind in beiden
+Themen definiert und werden von **keiner einzigen CSS-Regel gelesen**.
 
-Zusatzbefund: die Konstante `STAR` wird **überhaupt nicht benutzt**, ebenso
-`CORNER_MOTIF`. Beide sind Ornamente, die es einmal gab und die
-zurückgeblieben sind.
+Der Grund: Das Sternenband, das sie färben sollten, wird **nirgends
+gerendert**. Die Konstante `STAR` (Zeile 1613) enthält das SVG, wird aber in
+kein Template eingesetzt und nie ins DOM geschrieben — `grep -w STAR` findet
+genau einen Treffer, die Deklaration selbst. Die zugehörige Regel
+`.star-band` (app.css:185) hat entsprechend nichts zu formatieren.
+
+Dasselbe gilt für `CORNER_MOTIF`: definiert, nie benutzt, und ohne
+CSS-Regel.
+
+Also kein Darstellungsfehler, sondern drei Ornamente, die es einmal gab und
+deren Reste zurückgeblieben sind. Beim Neuaufbau ist zu entscheiden: bewusst
+wiederbeleben (dann mit `currentColor` statt fest eingetragenem Gold, damit
+sie dem Thema folgen) oder ersatzlos streichen.
 
 ---
 
@@ -176,6 +191,10 @@ beschreibt; sie ist aktiv.
 | B7j | Zwei Stellen benutzen `'UthmanicHafs', serif` ohne Amiri-Fallback | 810, 826 |
 | B7k | `video2Start` / `video2End` werden gelesen, kein Datensatz trägt sie | 14554 |
 | B7l | `cartouche` steht auf allen acht Ḍiyāʾ-Kapiteln, wird dort aber nie gerendert (Ḍiyāʾ hat keine Folios) | — |
+| B7m | **`font-weight: 600` wird an fünf Stellen benutzt, aber Karla wird nur mit 400, 500 und 700 geladen.** Der Browser erzeugt daraus einen künstlichen Halbfett-Schnitt | 362, 680, 697, 908, 1148 |
+| B7n | **Kein `color-scheme` im ganzen Stylesheet.** Der Dunkelmodus erreicht dadurch die native Oberfläche nicht: Scrollbalken, Formularfelder und die Auswahlfarbe bleiben hell | — |
+| B7o | Ein unbekannter `state.tab` liefert eine **leere Seite** — `renderResults()` endet nach 17 Prüfungen mit `return ''`. Zusammen mit B6 (Favoritenzahl) heißt das: ein Tippfehler in einer Bereichs-ID erzeugt eine leere Seite mit einer falschen Zählangabe, ohne Fehlermeldung | 11710 |
+| B7p | Nur eine der sechzehn `env(safe-area-inset-*)`-Stellen lässt den `0px`-Rückfallwert weg | 740 |
 
 ---
 
@@ -263,11 +282,14 @@ das Ergebnis von Erfahrung mit echtem Gebrauch und nicht offensichtlich:
 | Größe | 2,4 MB |
 | davon base64-Schriften | ~830 KB (3 Zeilen) |
 | davon base64-Bilder | ~115 KB |
-| CSS | 1.160 Zeilen, ~230 Regeln, 4 Media-Queries |
+| CSS | 1.160 Zeilen, ~351 Regelblöcke, 4 Media-Queries, 3 Keyframes |
 | JavaScript | ~14.940 Zeilen, ~60 globale Funktionen |
-| Design-Tokens | 29 hell / 26 dunkel |
-| Untokenisiert | 44 Abstände, 36 Schriftgrößen, 14 Radien, 20 Schatten, 49 rgba-Literale |
-| Inhaltsobjekte | 149 |
+| Design-Tokens | 29 in `:root` + `--player-h` später / 26 im Dunkelmodus überschrieben |
+| Manuskript | 46 Folio-Einträge → **272 Blätter** (Aufteilung durch `‖`) |
+| Untokenisiert | 42 Abstandswerte, 36 Schriftgrößen, 14 Radien, 20 Schatten |
+| rgba-Literale | 49 gesamt, davon **43 außerhalb** von `:root` (31 verschiedene Werte) |
+| Werke (Inhaltsobjekte) | 111 |
+| Navigationskonstanten | 38 Einträge in 7 Konstanten |
 | Verse | 2.512 |
 | davon unerreichbar | 950 (38 %) |
 | localStorage-Schlüssel | 10 |

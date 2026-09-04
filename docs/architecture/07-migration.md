@@ -310,6 +310,9 @@ if (dbBody !== srcBody) {
 - [ ] Folio-Bereiche decken jeden Vers genau einmal ab, keine Lücke, keine
       Überschneidung
 - [ ] **226 `‖`-Zeichen** im Bestand, Quelle und Datenbank gleich viele
+- [ ] Aus 46 Folio-Einträgen entstehen **272 Blätter** — die Buchansicht der
+      neuen App muss auf dieselbe Zahl kommen
+- [ ] `collections.book_keeps_commas` ist für Dalāʾil und Aḥzāb gesetzt, sonst nicht
 - [ ] Jeder `schedule_slot` zeigt auf das Werk, das die alte
       `*_TODAY_IDX`-Tabelle für diesen Wochentag ergab
 - [ ] Die `sequence_items`-Reihenfolge ist identisch mit `mawlidItems()`
