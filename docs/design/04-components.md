@@ -171,11 +171,24 @@ Die Kachel des 3×3-Startrasters. Quadratisch, drei Textzeilen, kein Icon.
 
 Zustände: `:hover` → Rand auf `--accent-soft`; `:active` → `scale(.98)`.
 
-### `HomeMedallion`
+**Varianten (Zayd-Entwurf):** `theme` trägt den Farbschlüssel des Bereichs
+(`modules.theme_key`) — die Kachel füllt sich mit `--tile-<schlüssel>`,
+Arabisch geht auf `--accent-soft`, Latein auf `--brand-on`. `theme="more"`
+ist die offene „Bald mehr"-Kachel: gestrichelter Goldrand, Kartengrund,
+gedämpfte Schrift.
 
-Die Kalligrafie in der Mittelzelle. Reine Anzeige, nicht klickbar (oder als
-Verknüpfung zur Info-Seite, falls gewünscht). Kreisförmig, dünner Goldring,
-radialer Verlauf nach außen ins Nichts.
+### `PlaceholderNote`
+
+Der Platzhalter eines Bereichs im Aufbau: Rosette (2,4 rem), Name in
+`--brand` (folgt der Bereichsfarbe), ein erklärender Satz. Kein Marketing —
+der Satz sagt, dass der Bereich vorbereitet ist und Inhalte jederzeit
+ergänzt werden können.
+
+### `HomeMedallion` *(entfallen im Zayd-Entwurf)*
+
+Die Kalligrafie-Mittelzelle des ersten Rasters ist entfallen: das Medaillon
+aus osmanischer Illumination steht jetzt als Hauptlogo im Kopf der Startseite
+(`AppMasthead`, Variante `large`), und alle neun Rasterzellen sind Kacheln.
 
 ### `SectionIntro`
 

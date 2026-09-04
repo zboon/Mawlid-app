@@ -25,6 +25,11 @@ const routes: RouteRecordRaw[] = [
     component: () => import('@/views/WorkView.vue'),
   },
   {
+    path: '/mehr',
+    name: 'more',
+    component: () => import('@/views/MoreView.vue'),
+  },
+  {
     path: '/:pathMatch(.*)*',
     name: 'not-found',
     component: () => import('@/views/NotFoundView.vue'),

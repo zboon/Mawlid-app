@@ -6,6 +6,7 @@ import type { CollectionSummary } from '@mawalid/shared'
 import BackLink from '@/components/BackLink.vue'
 import ContentCard from '@/components/ContentCard.vue'
 import EmptyState from '@/components/EmptyState.vue'
+import PlaceholderNote from '@/components/PlaceholderNote.vue'
 import ErrorState from '@/components/ErrorState.vue'
 import RowLabel from '@/components/RowLabel.vue'
 import SectionIntro from '@/components/SectionIntro.vue'
@@ -207,6 +208,13 @@ const crossModule = useModule(computed(() => (crossLink.value ? AHZAB_FROM_DALAI
           @open="openCollection(c.slug)"
         />
       </div>
+    </template>
+
+    <!-- Bereich im Aufbau (Silsila, Turuqs, Sohbets, Biographien, Osmanische
+         Geschichte): Einleitungssatz und Platzhalter, wie im Zayd-Entwurf. -->
+    <template v-else-if="mod.data.value && collections.length === 0">
+      <SectionIntro :text="latin(mod.data.value.descriptions, locale)" />
+      <PlaceholderNote :title="latin(mod.data.value.titles, locale)" />
     </template>
 
     <!-- Eine Sammlung ohne Wochenplan: direkt die Werkliste. -->

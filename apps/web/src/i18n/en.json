@@ -84,7 +84,10 @@
     "litanies": "Select a litany",
     "portions": "Select a portion",
     "comingSoon": "Coming soon",
-    "dailyPortions": "{n} daily portions"
+    "dailyPortions": "{n} daily portions",
+    "moreSoon": "More Soon",
+    "moreSoonCount": "More sections soon",
+    "placeholder": "No entries here yet. This section is ready — its contents can be added whenever you like."
   },
   "weekdayShort": {
     "0": "Sun",

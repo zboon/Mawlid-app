@@ -48,8 +48,17 @@ CREATE TABLE modules (
   -- Menge — ein neues Modul mit bekanntem Muster ist ein Datensatz, kein Code.
   view_type     ENUM('recitation','article','wiki','tree','media','link') NOT NULL,
   icon_key      VARCHAR(64)  NULL,
+  -- Die Kachelfarbe des Bereichs aus der osmanischen Palette (Zayd-Entwurf):
+  -- green, navy, maroon, teal, ochre, plum, rust, indigo, neutral. Sie färbt
+  -- die Kachel UND das gesamte Chrom des Bereichs (Kopf, Tabs, Leseleiste).
+  -- NULL = green, die Markenfarbe.
+  theme_key     VARCHAR(24)  NULL,
   sort_order    SMALLINT     NOT NULL DEFAULT 0,     -- Platz im 3x3-Raster
   is_published  TINYINT(1)   NOT NULL DEFAULT 0,
+  -- Veröffentlicht, aber nicht im Startmenü: Al-Aḥzāb wird über die Karte am
+  -- Fuß des Dalāʾil-Index erreicht, nicht über eine eigene Kachel — so ist es
+  -- im Zayd-Entwurf und in der Vorlage. Erreichbar bleibt der Bereich immer.
+  in_menu       TINYINT(1)   NOT NULL DEFAULT 1,
   external_url  VARCHAR(512) NULL,                   -- nur für view_type='link'
   created_at    TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_at    TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,

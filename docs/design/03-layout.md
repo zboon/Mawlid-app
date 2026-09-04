@@ -120,95 +120,35 @@ Scroll-Ereignis.
 
 ---
 
-## 3. Die Startseite — das 3×3-Raster
+## 3. Die Startseite — das 3×3-Menü (Zayd-Entwurf)
 
-Das ist der einzige Teil des Layouts, der **neu** ist. Die Skizze zeigt neun
-Zellen, mit der Kalligrafie in der Mitte.
+Der Kopf trägt das **Medaillon aus osmanischer Illumination** als Hauptlogo
+(`min(210px, 46vw)`, mittig); die Kalligrafie `logo-inner.png` bleibt als
+Asset erhalten, wird aber nicht mehr gesetzt.
 
-```
-┌─────────┬─────────┬─────────┐
-│         │ Dalāʾil │ Mawlid  │
-│         │ Khayrāt │         │
-├─────────┼─────────┼─────────┤
-│         │  ﴾محمد﴿  │ Silsila │
-│         │  Medail-│         │
-│         │   lon   │         │
-├─────────┼─────────┼─────────┤
-│         │ Sohbets │ Ottoman │
-└─────────┴─────────┴─────────┘
-```
-
-### Aufbau
-
-```css
-.home-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 1fr;              /* quadratische Zellen */
-  gap: var(--space-sm);
-  max-width: 600px;
-  margin: 0 auto;
-  padding: var(--space-xl);
-}
-
-/* Das Medaillon sitzt fest in der Mitte, egal wie viele Module es gibt. */
-.home-medallion {
-  grid-column: 2;
-  grid-row: 2;
-  display: grid;
-  place-items: center;
-  border-radius: var(--radius-circle);
-  border: 1px solid var(--accent-line-soft);
-  background: radial-gradient(circle, var(--surface-card), transparent 70%);
-}
-```
-
-Die Kacheln fließen mit `grid-auto-flow: dense` um das Medaillon herum. Sie
-werden nicht einzeln positioniert — sonst müsste bei jedem neuen Modul das CSS
-angefasst werden. Stattdessen: das Medaillon belegt fest Zelle (2,2), alle
-anderen füllen die verbleibenden Zellen in ihrer `sort_order`.
-
-### Was in eine Kachel gehört
+Darunter das Menü: **neun Kacheln in drei Spalten** (unter 460 px zwei), jede
+in der Kachelfarbe ihres Bereichs (siehe `01-tokens.md` §3.8), in Buchordnung:
 
 ```
-┌──────────────────┐
-│                  │
-│   دلائل الخيرات    │   ← arabischer Titel, UthmanicHafs, --ink-accent
-│  Dalāʾil Khayrāt │   ← lateinischer Titel, 700, --ink
-│    15 Teile      │   ← Zählwert, klein, gold, Versalien
-│                  │
-└──────────────────┘
+Mawlid (green)      Dalāʾil (navy)      Silsila (maroon)
+Turuqs (teal)       Sohbets (ochre)     Ilahi (plum)
+Biographien (rust)  Osmanisch (indigo)  Bald mehr (gestrichelt)
 ```
 
-Kein Icon, keine Illustration, keine Beschreibung. Die Beschreibung
-(`desc`) erscheint erst auf der Seite des Bereichs selbst, als
-`.section-intro` — so bleibt die Startseite ruhig. Diese Regel gilt schon in der
-alten App und wird beibehalten.
+Die Kacheln kommen aus `GET /api/content/modules` (`in_menu = 1`, nach
+`sort_order`); die neunte — „Bald mehr" — ist Möbel der Oberfläche, kein
+Modul. Al-Aḥzāb hat **keine** Kachel (`in_menu = 0`): es wird wie in der
+Vorlage über die Karte am Fuß des Dalāʾil-Index erreicht und trägt Navy, die
+Farbe der Dalāʾil.
 
-### Wenn es mehr oder weniger als acht Module gibt
+Bereiche im Aufbau zeigen „DEMNÄCHST" als Zählzeile und öffnen eine
+Platzhalterseite (Rosette, Name, ein Satz) — sichtbare Struktur, ehrlicher
+Zustand.
 
-- **Weniger als acht:** leere Zellen bleiben leer. Kein Platzhalter, keine
-  „Demnächst"-Kachel — ein leerer Rasterplatz ist ruhiger als eine graue Box.
-  Die Skizze zeigt genau das: drei leere Zellen in der linken Spalte.
-- **Mehr als acht:** das Raster wächst nach unten. Das Medaillon bleibt in Zeile
-  2, Spalte 2. Ab neun Modulen wird eine vierte Zeile angehängt.
-- **Reihenfolge** kommt aus `modules.sort_order` in der Datenbank und ist ohne
-  Deploy änderbar.
-
-### Auf schmalen Bildschirmen
-
-Unter 460 px wird das Raster **zweispaltig**, und das Medaillon wandert an den
-Kopf über das Raster statt in eine Zelle. Ein Medaillon in einem 2×N-Raster
-sitzt nicht mehr „in der Mitte" und wäre sinnlos.
-
-```css
-@media (max-width: 460px) {
-  .home-grid { grid-template-columns: repeat(2, 1fr); }
-  .home-medallion { grid-column: 1 / -1; grid-row: 1; aspect-ratio: auto; }
-}
-```
-
----
+Die Kachel selbst: Bereichsfarbe als Fläche, weicher Goldrand, Arabisch in
+`--accent-soft`, Latein in `--brand-on`, Zählzeile in Elfenbein bei 78 %
+Deckkraft. „Bald mehr": gestrichelter Goldrand auf gewöhnlichem Kartengrund,
+Text in `--ink-soft`.
 
 ## 4. Der Leser: zwei Ansichten
 

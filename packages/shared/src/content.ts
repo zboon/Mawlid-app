@@ -67,10 +67,30 @@ export type Counts = z.infer<typeof Counts>
 
 /* ── Module ────────────────────────────────────────────────────────────── */
 
+/* Die Kachelfarbe eines Bereichs — osmanische Palette aus dem Zayd-Entwurf.
+   Sie färbt die Startkachel und das gesamte Chrom des Bereichs. */
+export const ThemeKey = z.enum([
+  'green',
+  'navy',
+  'maroon',
+  'teal',
+  'ochre',
+  'plum',
+  'rust',
+  'indigo',
+  'neutral',
+])
+export type ThemeKey = z.infer<typeof ThemeKey>
+
 export const ModuleSummary = z.object({
   slug: z.string(),
   viewType: ViewType,
   iconKey: z.string().nullable(),
+  /* NULL heißt green — die Markenfarbe. */
+  theme: ThemeKey.nullable(),
+  /* Veröffentlicht, aber ohne Menükachel (Al-Aḥzāb): erreichbar über
+     Querverweise, nicht über Startseite oder Tableiste. */
+  inMenu: z.boolean(),
   sortOrder: z.number().int(),
   externalUrl: z.string().nullable(),
   titles: Localized,

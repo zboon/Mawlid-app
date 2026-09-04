@@ -47,6 +47,27 @@
   --c-leaf-ink-dark: #eadec2;
   --c-leaf-rule: #6b4e2a;
 
+  /* Osmanische Palette (Zayd-Entwurf): eine Kachelfarbe je Bereich, mit
+     tiefer Schwesterfarbe für Tableiste und Docks. Die Dunkelwerte stehen im
+     .dark-Block, die Zuweisung an --brand in den data-theme-Blöcken am Ende
+     der Datei. */
+  --c-navy: #1b2a54;
+  --c-navy-deep: #101a38;
+  --c-maroon: #6b1e2e;
+  --c-maroon-deep: #4a121f;
+  --c-teal: #0f5c56;
+  --c-teal-deep: #0a3f3a;
+  --c-ochre: #8a5a20;
+  --c-ochre-deep: #5e3c12;
+  --c-plum: #5a2450;
+  --c-plum-deep: #3c1836;
+  --c-rust: #8a3324;
+  --c-rust-deep: #5e2118;
+  --c-indigo: #332b6b;
+  --c-indigo-deep: #221d48;
+  --c-neutral: #6b6355;
+  --c-neutral-deep: #4a4438;
+
   --c-rosette: #b23a2e;
   --c-rosette-dark: #d9705f;
   --c-band-teal: #2e6b63;
@@ -88,6 +109,19 @@
   --accent-line: rgb(from var(--accent) r g b / 0.5);
   --accent-line-soft: rgb(from var(--accent) r g b / 0.3);
   --accent-wash: rgb(from var(--accent) r g b / 0.28);
+
+  /* ---- Die Startkacheln ---------------------------------------------------
+     Jede Menükachel trägt die Farbe ihres Bereichs (modules.theme_key). Die
+     Kachel liest diese semantischen Namen, nie die Primitive. */
+  --tile-green: var(--c-green-700);
+  --tile-navy: var(--c-navy);
+  --tile-maroon: var(--c-maroon);
+  --tile-teal: var(--c-teal);
+  --tile-ochre: var(--c-ochre);
+  --tile-plum: var(--c-plum);
+  --tile-rust: var(--c-rust);
+  --tile-indigo: var(--c-indigo);
+  --tile-neutral: var(--c-neutral);
 
   /* ---- Durchscheinende Flächen auf Grün ---------------------------------
      Fasst die 43 rgba-Literale zusammen, die im alten Stylesheet außerhalb
@@ -225,6 +259,23 @@
 :root.dark {
   --brand: var(--c-green-600);
   --brand-deep: var(--c-green-800);
+  --c-navy: #2a3d70;
+  --c-navy-deep: #16234a;
+  --c-maroon: #7a2836;
+  --c-maroon-deep: #551a24;
+  --c-teal: #166e66;
+  --c-teal-deep: #0e4f48;
+  --c-ochre: #9c6b2c;
+  --c-ochre-deep: #6e4a1a;
+  --c-plum: #6e3064;
+  --c-plum-deep: #4a2044;
+  --c-rust: #9c4130;
+  --c-rust-deep: #6e2a1e;
+  --c-indigo: #433a82;
+  --c-indigo-deep: #2c255c;
+  --c-neutral: #7c7364;
+  --c-neutral-deep: #564f42;
+  --tile-green: var(--c-green-600);
   /* --brand-on bleibt hell, siehe oben. */
 
   --surface-page: var(--c-night-900);
@@ -274,4 +325,59 @@
   --surface-border: var(--c-gold-600);
   --accent: var(--c-gold-400);
   --accent-wash: rgb(from var(--accent) r g b / 0.26);
+}
+
+/* ============================================================================
+   Bereichs-Theming (Zayd-Entwurf)
+   ----------------------------------------------------------------------------
+   Die Anwendung setzt data-theme am Wurzelelement auf die Kachelfarbe des
+   aktuellen Bereichs (modules.theme_key). Umgefärbt wird NUR --brand und
+   --brand-deep — alles Chrom (Kopfleiste, Tableiste, Leseleiste, Heute-Karte,
+   Hinweis, Docks) liest ohnehin diese beiden Namen und folgt von selbst, in
+   beiden Themen: die Primitive wechseln ihre Werte im .dark-Block.
+
+   „green" hat absichtlich KEINEN Block: Grün ist die Voreinstellung von
+   --brand, und ein eigener Block müsste die Hell/Dunkel-Weiche duplizieren.
+   Diese Blöcke stehen NACH :root.dark — bei gleicher Spezifität gewinnt die
+   spätere Regel, sonst bliebe das Chrom im Dunkelmodus grün.
+   ========================================================================= */
+
+:root[data-theme='navy'] {
+  --brand: var(--c-navy);
+  --brand-deep: var(--c-navy-deep);
+}
+
+:root[data-theme='maroon'] {
+  --brand: var(--c-maroon);
+  --brand-deep: var(--c-maroon-deep);
+}
+
+:root[data-theme='teal'] {
+  --brand: var(--c-teal);
+  --brand-deep: var(--c-teal-deep);
+}
+
+:root[data-theme='ochre'] {
+  --brand: var(--c-ochre);
+  --brand-deep: var(--c-ochre-deep);
+}
+
+:root[data-theme='plum'] {
+  --brand: var(--c-plum);
+  --brand-deep: var(--c-plum-deep);
+}
+
+:root[data-theme='rust'] {
+  --brand: var(--c-rust);
+  --brand-deep: var(--c-rust-deep);
+}
+
+:root[data-theme='indigo'] {
+  --brand: var(--c-indigo);
+  --brand-deep: var(--c-indigo-deep);
+}
+
+:root[data-theme='neutral'] {
+  --brand: var(--c-neutral);
+  --brand-deep: var(--c-neutral-deep);
 }

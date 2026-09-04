@@ -195,6 +195,44 @@ dunklen dunkler. Das ist kein Versehen, sondern der Wert aus der Vorlage.
 
 ---
 
+## 3.8 Die osmanische Palette und das Bereichs-Theming (Zayd-Entwurf)
+
+Jeder Bereich der App trägt eine eigene Kachelfarbe aus einer Palette
+osmanischer Buchmalerei. Sie färbt **zweierlei**: die Menükachel auf der
+Startseite und das gesamte Chrom des Bereichs — Kopfleiste, Tableiste,
+Leseleiste, Heute-Karte, Hinweis-Klappe, Docks.
+
+| Schlüssel | Hell | Tief (hell) | Dunkel | Tief (dunkel) | Bereich |
+|---|---|---|---|---|---|
+| `green` | `#123528` | `#0B241B` | `#1B3A2C` | `#0E2318` | Mawlid (Markenfarbe) |
+| `navy` | `#1B2A54` | `#101A38` | `#2A3D70` | `#16234A` | Dalāʾil, Al-Aḥzāb |
+| `maroon` | `#6B1E2E` | `#4A121F` | `#7A2836` | `#551A24` | Silsila |
+| `teal` | `#0F5C56` | `#0A3F3A` | `#166E66` | `#0E4F48` | Turuqs |
+| `ochre` | `#8A5A20` | `#5E3C12` | `#9C6B2C` | `#6E4A1A` | Sohbets |
+| `plum` | `#5A2450` | `#3C1836` | `#6E3064` | `#4A2044` | Ilahi |
+| `rust` | `#8A3324` | `#5E2118` | `#9C4130` | `#6E2A1E` | Biographien |
+| `indigo` | `#332B6B` | `#221D48` | `#433A82` | `#2C255C` | Osmanische Geschichte |
+| `neutral` | `#6B6355` | `#4A4438` | `#7C7364` | `#564F42` | „Mehr in Kürze" |
+
+**Wie der Mechanismus funktioniert.** Die Farbe steht als `theme_key` am
+Modul (Datenbank), die Anwendung setzt sie als `data-theme` ans Wurzelelement.
+`tokens.css` belegt darüber **nur** `--brand` und `--brand-deep` neu — alles
+Chrom liest ohnehin diese beiden Namen und folgt von selbst, in beiden Themen.
+Kein Bauteil kennt die Bereichsfarben; wer eine Kachel färbt, benutzt die
+semantischen `--tile-*`-Namen.
+
+Drei Regeln daran:
+
+1. **`green` hat keinen `data-theme`-Block.** Grün ist die Voreinstellung von
+   `--brand`; ein eigener Block müsste die Hell/Dunkel-Weiche duplizieren.
+2. **Die `data-theme`-Blöcke stehen NACH `:root.dark`.** Gleiche Spezifität —
+   die spätere Regel gewinnt, sonst bliebe das Chrom im Dunkelmodus grün.
+3. **Gold, Tinte und Papier wechseln NICHT mit.** `--accent`, `--ink`,
+   `--surface-*` bleiben in jedem Bereich gleich — die Bereiche unterscheiden
+   sich in der Rahmenfarbe, nicht im Inhalt.
+
+---
+
 ## 4. Das Manuskript-Thema
 
 Die Buchansicht ist **kein zweiter Tokensatz**, sondern ein Block, der dieselben

@@ -268,3 +268,41 @@ es nicht; es gibt `npm run typecheck`.
 - Wenn die API je öffentlich laufen soll, ist das der Moment, das noch einmal
   anzusehen — dann aber zusammen mit allem anderen, was ein öffentlicher
   Betrieb verlangt.
+
+---
+
+## ADR-011 · Bereichsfarben als Daten, Theming über zwei Tokens
+
+**Status:** akzeptiert · 2026-09-04 (Übernahme des Zayd-Entwurfs)
+
+**Kontext.** Der Branch `Zayd` führt eine osmanische Palette ein: jede
+Startkachel hat ihre Farbe, und das gesamte Chrom eines Bereichs (Kopf,
+Tabs, Leseleiste, Docks) folgt ihr. Die Vorlage löst das mit einer
+`--theme`-Variable, die per `data-theme` umgeschaltet wird, und Listen im
+Quelltext (`TABS`, `SECTION_THEME`), die Bereiche auf Farben abbilden.
+
+**Entscheidung.** Die Farbe ist eine **Spalte am Modul** (`theme_key`),
+nicht eine Liste im Quelltext — ein neuer Bereich mit eigener Farbe ist
+damit ein Datensatz, kein Code (ADR-007). Dazu `in_menu`: veröffentlicht,
+aber ohne Menükachel (Al-Aḥzāb, erreichbar über den Dalāʾil-Index).
+
+Im CSS belegt `:root[data-theme=…]` ausschließlich `--brand` und
+`--brand-deep` neu. Kein zweiter Tokensatz, keine Regel je Bereich je
+Bauteil: alles Chrom liest ohnehin diese zwei Namen.
+
+**Konsequenzen.**
+- Die Blöcke stehen NACH `:root.dark` (gleiche Spezifität, spätere Regel
+  gewinnt), die Palette-Primitive wechseln ihre Werte im Dunkelblock —
+  dadurch funktioniert jede Bereichsfarbe in beiden Themen ohne
+  Duplizierung.
+- `green` hat keinen Block: es IST die Voreinstellung von `--brand`.
+- Der Preis: wer `--brand` in einem Bauteil benutzt, färbt künftig mit dem
+  Bereich mit. Das ist fast immer richtig (deshalb funktioniert der
+  Mechanismus so billig) — wo es falsch wäre, gehört `--ink-accent` oder
+  ein eigenes Token hin, nicht `--brand`.
+- Abweichung vom Zayd-Entwurf, mit Absicht: Der Entwurf nahm
+  „Nasheeds & Qasidas" vom Menü, ohne den Qasidas einen neuen Ort zu geben —
+  ohne Suche wären drei Werke unerreichbar geworden, exakt der Fehler, der
+  Al-Aḥzāb jahrelang versteckt hat (Befund B1). Hier heißt der Bereich
+  jetzt „Ilahi" (Plum, wie im Entwurf), und Qasidas, Nasheeds und Qawwalis
+  ziehen als Sammlungen mit um.

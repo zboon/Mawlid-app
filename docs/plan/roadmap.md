@@ -266,6 +266,17 @@ Die zweite Runde des Abgleichs (am Rechner aufgefallen):
 - **52 Interaktionsprüfungen** über die ganze App (jede Seite, jeder Knopf,
   schmal und breit) laufen grün.
 
+### Der Zayd-Entwurf ist übernommen
+
+Aus dem Branch `Zayd` (Commits f1a9a8b, 156c15d, 86aff6d): die osmanische
+Palette mit Bereichs-Theming (`modules.theme_key`, ADR-011), das neue
+3×3-Startmenü mit neun farbigen Kacheln samt „Bald mehr", die fünf Bereiche
+im Aufbau (Silsila, Turuqs, Sohbets, Biographien, Osmanische Geschichte) mit
+Platzhalterseiten, und das Medaillon aus osmanischer Illumination als
+Hauptlogo. Al-Aḥzāb bleibt ohne Menükachel (`in_menu = 0`) und wird über den
+Dalāʾil-Index erreicht. Das Favoriten-Kopfsymbol des Entwurfs kommt mit den
+Favoriten selbst in Phase 4.
+
 **Absichtlich noch anders als die Vorlage** (mit Grund, nicht aus Versehen):
 Suchfeld (Phase 4), Favoriten-Tab (Phase 4), „Save my place" und
 Wiederaufnahme-Karte (Phase 4), Downloads-Zeile (Phase 4),

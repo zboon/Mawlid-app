@@ -36,7 +36,10 @@ const { t } = useI18n()
       alt=""
       aria-hidden="true"
     />
-    <img v-else class="logo" src="/img/logo-inner.png" alt="Mawalid" />
+    <!-- Das Medaillon aus osmanischer Illumination ist das Hauptlogo der
+         Startseite (Zayd-Entwurf, Commit 86aff6d). Die Kalligrafie
+         logo-inner.png bleibt als Asset erhalten. -->
+    <img v-else class="medallion" src="/img/medallion.png" alt="Mawalid" />
 
     <div class="mh-right">
       <IconButton :label="t('nav.live')" variant="pill">{{ t('nav.live') }}</IconButton>
@@ -78,11 +81,11 @@ const { t } = useI18n()
   justify-self: end;
 }
 
-.logo {
+.medallion {
   /* Die mittlere Spalte ist auto-breit, ein Prozentwert hätte hier also keinen
      verlässlichen Bezug — deshalb eine feste Obergrenze plus vw für schmale
-     Geräte, was auf dem Telefon dieselbe Größe ergibt wie in der alten App. */
-  width: min(200px, 42vw);
+     Geräte. Maß aus dem Zayd-Entwurf (.medallion-mark: min(210px, 50%)). */
+  width: min(210px, 46vw);
   height: auto;
   margin: var(--space-2xs) auto var(--space-md);
   justify-self: center;

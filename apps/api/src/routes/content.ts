@@ -103,6 +103,8 @@ function toModuleSummary(
     slug: string
     view_type: string
     icon_key: string | null
+    theme_key: string | null
+    in_menu: boolean
     sort_order: number
     external_url: string | null
     module_translations: TranslationRow[]
@@ -114,6 +116,8 @@ function toModuleSummary(
     slug: m.slug,
     viewType: m.view_type as ModuleSummary['viewType'],
     iconKey: m.icon_key,
+    theme: m.theme_key as ModuleSummary['theme'],
+    inMenu: m.in_menu,
     sortOrder: m.sort_order,
     externalUrl: m.external_url,
     titles: localized(m.module_translations, 'title'),

@@ -91,14 +91,16 @@ let moduleId = 0,
   seqItemId = 0,
   annotationId = 0;
 
-function addModule({ slug: s, viewType, sortOrder, published, titles, descriptions }) {
+function addModule({ slug: s, viewType, sortOrder, published, titles, descriptions, theme, inMenu }) {
   const id = ++moduleId;
   out.modules.push({
     id,
     slug: s,
     view_type: viewType,
+    theme_key: theme ?? null,
     sort_order: sortOrder,
     is_published: published ? 1 : 0,
+    in_menu: inMenu === false ? 0 : 1,
   });
   for (const [lang, title] of Object.entries(titles)) {
     out.module_translations.push({
@@ -287,49 +289,136 @@ function addVerse(v, work_id, position, latin) {
 
 /* ── Module und Sammlungen ──────────────────────────────────────────────── */
 
-const mDalail = addModule({
-  slug: 'dalail',
-  viewType: 'recitation',
-  sortOrder: 10,
-  published: true,
-  titles: { ar: 'دَلَائِلُ الْخَيْرَاتِ', en: 'Dalāʾil al-Khayrāt', de: 'Dalāʾil al-Khayrāt' },
-  descriptions: {
-    en: "Imam al-Jazūlī's book of blessings upon the Prophet ﷺ, divided for the week.",
-    de: 'Das Segensbuch des Imām al-Jazūlī über den Propheten ﷺ, auf die Woche verteilt.',
-  },
-});
+/* Das Startmenü nach dem Zayd-Entwurf (Branch Zayd, Commit 156c15d):
+   neun Kacheln in der osmanischen Palette. Die Reihenfolge ist die des
+   Entwurfs; die Kachelfarbe (theme_key) färbt auch das gesamte Chrom des
+   Bereichs. Die „Mehr in Kürze"-Kachel ist KEIN Modul — sie ist Möbel der
+   Startseite und lebt in der Oberfläche. */
 
 const mMawlid = addModule({
   slug: 'mawlid',
   viewType: 'recitation',
-  sortOrder: 20,
+  sortOrder: 10,
   published: true,
-  titles: { ar: 'مَجْمُوعَاتُ الْمَوَالِدِ', en: 'Mawlid Collections', de: 'Mawlid' },
+  theme: 'green',
+  titles: { ar: 'الْمَوَالِد', en: 'Mawlid', de: 'Mawlid' },
   descriptions: {
     en: 'The mawlid texts and Qasida Burdah — choose a collection to recite from.',
     de: 'Die Mawlid-Texte und die Qaṣīda Burda — eine Sammlung zum Rezitieren wählen.',
   },
 });
 
-const mPraises = addModule({
-  slug: 'praises',
+const mDalail = addModule({
+  slug: 'dalail',
   viewType: 'recitation',
-  sortOrder: 30,
+  sortOrder: 20,
   published: true,
-  titles: { ar: 'الْأَنَاشِيدُ وَالْقَصَائِدُ', en: 'Nasheeds & Qasidas', de: 'Nasheeds & Qasidas' },
+  theme: 'navy',
+  titles: { ar: 'دلائل الْخيرات', en: 'Dalāʾil al-Khayrāt', de: 'Dalāʾil al-Khayrāt' },
   descriptions: {
-    en: 'Nasheeds, qasidas, ilahis and qawwalis.',
-    de: 'Nasheeds, Qasidas, Ilahis und Qawwalis.',
+    en: "Imam al-Jazūlī's book of blessings upon the Prophet ﷺ, divided for the week.",
+    de: 'Das Segensbuch des Imām al-Jazūlī über den Propheten ﷺ, auf die Woche verteilt.',
   },
 });
 
-/* Al-Aḥzāb bekommt ein eigenes Modul. In der alten App war der Bereich von
-   nirgendwo aus erreichbar — 18 Kapitel mit 950 Versen, 38 % des Bestandes. */
+addModule({
+  slug: 'silsila',
+  viewType: 'tree',
+  sortOrder: 30,
+  published: true,
+  theme: 'maroon',
+  titles: {
+    ar: 'السِّلْسِلَة النَّقْشَبَنْدِيَّة',
+    en: 'Naqshbandi Silsila',
+    de: 'Naqshbandi-Silsila',
+  },
+  descriptions: {
+    en: 'The chain of transmission connecting the Naqshbandi masters, shaykh to shaykh, back to the Prophet ﷺ.',
+    de: 'Die Überlieferungskette der Naqschbandi-Meister, Schaykh für Schaykh, zurück bis zum Propheten ﷺ.',
+  },
+});
+
+addModule({
+  slug: 'turuqs',
+  viewType: 'article',
+  sortOrder: 40,
+  published: true,
+  theme: 'teal',
+  titles: { ar: 'الطُّرُق الصُّوفِيَّة', en: 'Turuqs', de: 'Turuqs' },
+  descriptions: {
+    en: 'An introduction to the Sufi orders (ṭuruq) and their paths of devotion.',
+    de: 'Eine Einführung in die Sufi-Orden (Ṭuruq) und ihre Wege der Hingabe.',
+  },
+});
+
+addModule({
+  slug: 'sohbets',
+  viewType: 'article',
+  sortOrder: 50,
+  published: true,
+  theme: 'ochre',
+  titles: { ar: 'الصُّحْبَة', en: 'Sohbets', de: 'Sohbets' },
+  descriptions: {
+    en: 'Talks and spiritual counsel from the shaykhs, for reflection and practice.',
+    de: 'Vorträge und geistlicher Rat der Schuyūkh, zum Nachdenken und Üben.',
+  },
+});
+
+/* Ilahi ist im Zayd-Entwurf ein eigener Bereich auf der Startseite. Die
+   übrigen Sammlungen des früheren „Nasheeds & Qasidas"-Bereichs (Qasidas,
+   Nasheeds, Qawwalis) ziehen MIT um, statt zu verwaisen — der Entwurf nahm
+   den alten Bereich vom Menü, ohne den Inhalten einen neuen Ort zu geben;
+   ohne Suche (Phase 4) wären die drei Qasidas sonst unerreichbar, und genau
+   so ist seinerzeit Al-Aḥzāb verloren gegangen (Befund B1). */
+const mPraises = addModule({
+  slug: 'ilahi',
+  viewType: 'recitation',
+  sortOrder: 60,
+  published: true,
+  theme: 'plum',
+  titles: { ar: 'الْإلهيات', en: 'Ilahi', de: 'Ilahi' },
+  descriptions: {
+    en: 'Devotional songs in Turkish, with translation — and the qasida collection.',
+    de: 'Geistliche Lieder auf Türkisch, mit Übersetzung — und die Qasida-Sammlung.',
+  },
+});
+
+addModule({
+  slug: 'biographies',
+  viewType: 'article',
+  sortOrder: 70,
+  published: true,
+  theme: 'rust',
+  titles: { ar: 'التَّرَاجِم', en: 'Biographies', de: 'Biographien' },
+  descriptions: {
+    en: 'Lives of the awliyāʾ and scholars of the silsila, in brief.',
+    de: 'Die Leben der Awliyāʾ und Gelehrten der Silsila, in Kürze.',
+  },
+});
+
+addModule({
+  slug: 'ottoman',
+  viewType: 'article',
+  sortOrder: 80,
+  published: true,
+  theme: 'indigo',
+  titles: { ar: 'التَّارِيخ الْعُثْمَانِي', en: 'Ottoman History', de: 'Osmanische Geschichte' },
+  descriptions: {
+    en: "The Ottoman caliphate's history and its place in the transmission of the dīn.",
+    de: 'Die Geschichte des osmanischen Kalifats und sein Platz in der Weitergabe des Dīn.',
+  },
+});
+
+/* Veröffentlicht, aber ohne Menükachel: Al-Aḥzāb wird wie im Entwurf (und in
+   der Vorlage) über die Karte am Fuß des Dalāʾil-Index erreicht. Das Chrom
+   trägt Navy — die Litaneien gehören farblich zu den Dalāʾil. */
 const mAhzab = addModule({
   slug: 'ahzab',
   viewType: 'recitation',
-  sortOrder: 40,
+  sortOrder: 90,
   published: true,
+  theme: 'navy',
+  inMenu: false,
   titles: { ar: 'الْأَحْزَابُ', en: 'Al-Aḥzāb', de: 'Al-Aḥzāb' },
   descriptions: {
     en: 'The daily litanies.',
@@ -337,24 +426,14 @@ const mAhzab = addModule({
   },
 });
 
-/* Die vier neuen Bereiche aus der Skizze. Struktur steht, Inhalt fehlt —
-   deshalb unveröffentlicht. */
-for (const [i, m] of [
-  ['silsila', 'tree', { ar: 'السِّلْسِلَة', en: 'Silsila', de: 'Silsila' }],
-  ['sohbets', 'article', { ar: 'الصُّحْبَة', en: 'Sohbets', de: 'Sohbets' }],
-  ['ottoman', 'article', { ar: 'الْعُثْمَانِيَّة', en: 'Ottoman', de: 'Osmanisch' }],
-  ['wiki', 'wiki', { ar: 'الْمَعْرِفَة', en: 'Wiki', de: 'Wiki' }],
-].entries()) {
-  addModule({
-    slug: m[0],
-    viewType: m[1],
-    sortOrder: 50 + i * 10,
-    published: false,
-    titles: m[2],
-  });
-}
-
-/* ── Dalāʾil ────────────────────────────────────────────────────────────── */
+/* Nur das Wiki bleibt unveröffentlicht — es steht in keiner Skizze. */
+addModule({
+  slug: 'wiki',
+  viewType: 'wiki',
+  sortOrder: 100,
+  published: false,
+  titles: { ar: 'الْمَعْرِفَة', en: 'Wiki', de: 'Wiki' },
+});
 
 const cDalailParts = addCollection({
   module_id: mDalail,
@@ -451,10 +530,11 @@ D.BURDAH_CHAPTERS.forEach((c, i) => addWork(c, cBurdah, i));
 
 /* ── Nasheeds & Qasidas ─────────────────────────────────────────────────── */
 
+/* Im Ilahi-Bereich führen die Ilahis — die übrigen Sammlungen folgen. */
 const cQasidas = addCollection({
   module_id: mPraises,
   slug: 'qasidas',
-  sortOrder: 10,
+  sortOrder: 20,
   published: true,
   titles: { ar: 'قَصَائِدُ', en: 'Qasidas', de: 'Qasidas' },
   descriptions: {
@@ -464,7 +544,7 @@ const cQasidas = addCollection({
 const cIlahis = addCollection({
   module_id: mPraises,
   slug: 'ilahis',
-  sortOrder: 20,
+  sortOrder: 10,
   published: true,
   titles: { ar: 'الْإِلٰهِيَّاتُ', en: 'Ilahis', de: 'Ilahis' },
   descriptions: {

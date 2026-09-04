@@ -84,7 +84,10 @@
     "litanies": "Litanei wählen",
     "portions": "Teil wählen",
     "comingSoon": "Demnächst",
-    "dailyPortions": "{n} Tagesteile"
+    "dailyPortions": "{n} Tagesteile",
+    "moreSoon": "Bald mehr",
+    "moreSoonCount": "Weitere Bereiche folgen",
+    "placeholder": "Hier steht noch nichts. Der Bereich ist vorbereitet — Inhalte können jederzeit ergänzt werden."
   },
   "weekdayShort": {
     "0": "So",
