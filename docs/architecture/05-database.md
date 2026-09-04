@@ -129,10 +129,35 @@ JSON-Spalte — sie ist redaktionell zu pflegen.
 
 `has_sections` und `band_label` stammen aus den optionalen Feldern der Vorlage.
 
-**Achtung bei der Migration:** Verse tragen zusätzlich das Zeichen `‖` (U+2016)
-als weichen Trenner mitten im Text. Das ist eine zweite, feinere
-Umbruchinformation. `stripBreaks()` entfernt es vor der Anzeige. Es muss den
-Import überleben — siehe `07-migration.md`.
+### Aber: `folios` ist nicht mehr der Hauptumbruch
+
+Das ist wichtig und beim Lesen der Daten leicht zu übersehen.
+
+Von **31** Werken mit Folio-Angaben haben **26 genau ein Folio**, das das ganze
+Kapitel umfasst — also gar keine Unterteilung. Nur fünf sind wirklich mehrfach
+geteilt.
+
+Der tatsächliche Seitenumbruch steckt heute **im Verstext**: das Zeichen `‖`
+(U+2016), **226 Mal** im Bestand. Die Manuskriptansicht teilt einen langen Vers
+dort in Abschnitte und verteilt sie auf mehrere Blätter.
+
+Daraus folgen zwei Dinge:
+
+1. **`‖` ist Umbruchinformation ersten Ranges, keine Randnotiz.** Es wird vor
+   der Anzeige entfernt (`stripBreaks()`), muss aber in `body` stehen bleiben.
+   Geht es beim Import verloren, verliert die Buchansicht die Mehrzahl ihrer
+   Seitengrenzen — und zwar lautlos: der Text erscheint weiterhin, nur auf
+   weniger und volleren Blättern.
+2. **Die Markierungsschlüssel haben deshalb eine Unterstufe.** `"d:7:129.1:2"`
+   heißt: Vers 129, **zweiter Abschnitt** (nach dem `‖`), Segment 2. Wer die
+   Positionsangaben migriert, muss das kennen.
+
+> **Entwurfsentscheidung:** Der Umbruch bleibt zunächst im Text, weil er dort
+> redaktionell gepflegt wird und die Darstellung ihn ohnehin zur Laufzeit
+> auswertet. Ihn beim Import in eigene Zeilen aufzulösen wäre sauberer, würde
+> aber die Verszählung gegenüber der Vorlage verschieben und damit jede
+> vorhandene Positionsangabe entwerten. Falls das später gewünscht ist, ist es
+> eine eigene Migration mit eigener Gegenprüfung.
 
 ---
 
