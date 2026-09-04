@@ -31,11 +31,24 @@ const current = ref(0)
    Werk, Vollbild, die Doppelseite, das Audio-Dock. */
 useManuscriptFit(book, () => [props.work.slug, reader.immersive, spread.value, leaves.value.length])
 
+/* Blättern wie msGoTo() der Vorlage: scrollIntoView, KEINE
+   scrollLeft-Arithmetik. Der erste Wurf rechnete mit `sheet.offsetLeft` —
+   das bezieht sich mangels positioniertem Vorfahren auf den Seitenkörper,
+   nicht auf den Scroller, und je nach Fensterbreite schnappte der
+   Einrastzwang aufs alte Blatt zurück: der Knopf wirkte tot. Auf der
+   Testbreite fiel die Rundung zufällig richtig — deshalb hat es der
+   Prüflauf zuerst nicht gesehen. */
 function goTo(index: number) {
   const el = book.value
-  const sheet = el?.children[index] as HTMLElement | undefined
+  const target = spread.value ? index - (index % 2) : index
+  const sheet = el?.children[target] as HTMLElement | undefined
   if (!el || !sheet) return
-  el.scrollTo({ left: sheet.offsetLeft, behavior: 'smooth' })
+  sheet.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
+  /* Oben am Blatt landen, nicht dort, wo das vorige hingescrollt war. */
+  requestAnimationFrame(() => {
+    const top = el.getBoundingClientRect().top + window.scrollY - 8
+    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' })
+  })
 }
 
 /* Blättern, wortgleich mit msStep() der Vorlage: die Doppelseite wendet zwei
@@ -70,13 +83,25 @@ const atEnd = computed(() =>
    gibt — genau dann führt er dorthin. */
 const nextDisabled = computed(() => atEnd.value && !props.work.next)
 
-/* Welches Blatt liegt vorn? In RTL sind die Offsets negativ, deshalb wird mit
-   Beträgen gerechnet statt mit Vorzeichen. */
+/* Welches Blatt liegt vorn? Wie msCurrentPage() der Vorlage: das Blatt,
+   dessen Mitte der Mitte des Scrollers am nächsten liegt. Reine Geometrie —
+   keine scrollLeft-Deutung, deren Vorzeichen in RTL je nach Browser
+   verschieden ausfällt. */
 function syncDots() {
   const el = book.value
   if (!el) return
-  const width = (el.firstElementChild as HTMLElement | null)?.clientWidth || el.clientWidth || 1
-  current.value = Math.round(Math.abs(el.scrollLeft) / width)
+  const mid = el.getBoundingClientRect().left + el.clientWidth / 2
+  let best = 0
+  let bestDistance = Infinity
+  for (const [i, sheet] of [...el.children].entries()) {
+    const r = sheet.getBoundingClientRect()
+    const d = Math.abs(r.left + r.width / 2 - mid)
+    if (d < bestDistance) {
+      bestDistance = d
+      best = i
+    }
+  }
+  current.value = best
 }
 
 watch(
