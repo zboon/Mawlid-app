@@ -1,11 +1,9 @@
-# Lokaler Betrieb (ADR-006). Drei Dienste: Datenbank, API, Oberfläche.
+# Lokaler Betrieb (ADR-006). Datenbank, API und Oberfläche.
 #
-#   docker compose up -d mysql     nur die Datenbank (für Phase 2)
-#   docker compose up              alles
-#
-# Die Dienste `api` und `web` verweisen auf Verzeichnisse, die erst in Phase 1
-# bzw. Phase 3 entstehen. Bis dahin ist `mysql` der einzige, der startet — das
-# ist Absicht: die Datenbank wird zuerst gebraucht.
+# `web` (Phase 1) und `mysql` laufen ohne Profil. `api` entsteht erst in
+# Phase 3 und liegt deshalb hinter einem Profil:
+#     docker compose up                    → mysql + web
+#     docker compose --profile full up     → zusätzlich api
 
 services:
   mysql:
@@ -61,18 +59,16 @@ services:
     build:
       context: .
       dockerfile: apps/web/Dockerfile
-    profiles: ["full"]
     restart: unless-stopped
-    depends_on:
-      - api
     environment:
       VITE_API_URL: http://localhost:${API_PORT:-3000}
     ports:
       - "${WEB_PORT:-5173}:5173"
     volumes:
       - ./apps/web:/app/apps/web
-      - ./packages:/app/packages
-      - /app/node_modules
+      # Anonymes Volume: die im Image installierten Module dürfen nicht von
+      # denen des Hosts überschrieben werden, sonst kollidieren die Binaries.
+      - /app/apps/web/node_modules
 
 volumes:
   mysql-data:

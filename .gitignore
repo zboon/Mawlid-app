@@ -12,3 +12,6 @@ test-results/
 # Erzeugte Importdateien. data/extracted/ wird bewusst mitversioniert:
 # es ist der Beleg dafür, was aus der alten App herausgekommen ist.
 db/seed/
+
+# Vite
+apps/web/dist/

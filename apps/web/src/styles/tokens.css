@@ -1,0 +1,261 @@
+/* ============================================================================
+   Design-Tokens
+   ----------------------------------------------------------------------------
+   Umsetzung von docs/design/01-tokens.md. Weichen die beiden voneinander ab,
+   ist DIESE Datei falsch und die Dokumentation hat recht.
+
+   In Komponenten stehen nur Token-Namen. Kein #123528, kein rgba(...), kein
+   .95rem. Fehlt ein Wert, wird er erst dort eingetragen und dann hier.
+   ========================================================================= */
+
+:root {
+  /* ---- Farb-Primitive ---------------------------------------------------
+     Die rohen Werte. NICHT direkt in Komponenten verwenden — sie existieren
+     nur, damit die semantischen Tokens darauf verweisen können. */
+  --c-green-900: #0b241b;
+  --c-green-800: #0e2318;
+  --c-green-700: #123528;
+  --c-green-600: #1b3a2c;
+  --c-green-500: #1e5540;
+  --c-green-400: #618b77;
+
+  --c-gold-600: #a98a55;
+  --c-gold-500: #b8934a;
+  --c-gold-400: #c9a55e;
+  --c-gold-300: #d8c193;
+
+  --c-paper-050: #ffffff;
+  --c-paper-100: #faf5ea;
+  --c-paper-200: #fcf8ef;
+  --c-paper-300: #efe6d2;
+
+  --c-ink-900: #26281f;
+  --c-ink-600: #6b6a5c;
+  --c-ink-200: #c7c3af;
+  --c-ink-100: #ece7d6;
+  --c-ink-075: #efe7cf;
+  --c-ink-050: #f3ecd8;
+
+  --c-night-900: #12150e;
+  --c-night-800: #191510;
+  --c-night-700: #1e2318;
+  --c-night-600: #232819;
+  --c-night-500: #2e3324;
+
+  --c-leaf-100: #fbf4de;
+  --c-leaf-ink: #2a2118;
+  --c-leaf-ink-dark: #eadec2;
+  --c-leaf-rule: #6b4e2a;
+
+  --c-rosette: #b23a2e;
+  --c-rosette-dark: #d9705f;
+  --c-band-teal: #2e6b63;
+  --c-band-teal-dark: #24504b;
+  --c-band-terra: #8c3b2f;
+  --c-band-terra-dark: #6b2e26;
+  --c-star-fill: #bcd6e4;
+  --c-star-fill-dark: #7fa3b8;
+  --c-star-stroke: #cb8090;
+  --c-star-stroke-dark: #d793a2;
+
+  /* ---- Marke — das Grün, die Rahmung ------------------------------------ */
+  --brand: var(--c-green-700);
+  --brand-deep: var(--c-green-900);
+  /* Der EINZIGE erlaubte Vordergrund auf der Marke. Bleibt in beiden Themen
+     hell: die Kopfleiste ist auch im Dunkelmodus grün, nur dunkler, und
+     Elfenbein darauf bleibt richtig. Es ist Schriftfarbe, keine Fläche. */
+  --brand-on: var(--c-paper-100);
+
+  /* ---- Flächen — das Papier, der Inhalt --------------------------------- */
+  --surface-page: var(--c-paper-100);
+  --surface-card: var(--c-paper-050);
+  --surface-card-alt: var(--c-paper-200);
+  --surface-border: var(--c-paper-300);
+  --surface-press: var(--c-paper-300);
+
+  /* ---- Tinte ------------------------------------------------------------ */
+  --ink: var(--c-ink-900);
+  --ink-soft: var(--c-ink-600);
+  /* Die einzige Art, Grün auf Papier zu setzen. --brand als Textfarbe auf
+     einer Karte ergibt im Dunkelmodus 1,5:1 und ist unsichtbar. */
+  --ink-accent: var(--c-green-500);
+  --ink-arabic: var(--c-green-900);
+  --ink-chip: var(--c-green-700);
+
+  /* ---- Akzent — Gold ---------------------------------------------------- */
+  --accent: var(--c-gold-500);
+  --accent-soft: var(--c-gold-300);
+  --accent-line: rgb(from var(--accent) r g b / 0.5);
+  --accent-line-soft: rgb(from var(--accent) r g b / 0.3);
+  --accent-wash: rgb(from var(--accent) r g b / 0.28);
+
+  /* ---- Durchscheinende Flächen auf Grün ---------------------------------
+     Fasst die 43 rgba-Literale zusammen, die im alten Stylesheet außerhalb
+     von :root verstreut lagen. Fünf Stellen benutzten denselben Wert, vier
+     weitere denselben Aktivzustand — und zwei eine zweite Basisfarbe für
+     genau dieselbe Aufgabe. */
+  --on-brand-fill-subtle: rgb(from var(--brand-on) r g b / 0.08);
+  --on-brand-fill: rgb(from var(--brand-on) r g b / 0.14);
+  --on-brand-fill-active: rgb(from var(--brand-on) r g b / 0.28);
+
+  /* ---- Ornament --------------------------------------------------------- */
+  --ornament-rosette: var(--c-rosette);
+  --ornament-band-a: var(--c-band-teal);
+  --ornament-band-b: var(--c-band-terra);
+  --ornament-star-fill: var(--c-star-fill);
+  --ornament-star-stroke: var(--c-star-stroke);
+
+  /* ---- Abstände ---------------------------------------------------------
+     Die alte App benutzte 42 verschiedene Werte. Das war kein System,
+     sondern gewachsener Zufall. */
+  --space-3xs: 0.1rem;
+  --space-2xs: 0.2rem;
+  --space-xs: 0.35rem;
+  --space-sm: 0.5rem;
+  --space-md: 0.7rem;
+  --space-lg: 0.95rem;
+  --space-xl: 1.1rem; /* der Seitenrand — der wichtigste Wert */
+  --space-2xl: 1.4rem;
+  --space-3xl: 2.4rem;
+  --space-4xl: 3rem;
+
+  /* Zwei zusammengesetzte Werte, die im Original wörtlich wiederkehren. */
+  --pad-row: var(--space-md) var(--space-lg);
+  --pad-row-tall: 0.85rem var(--space-lg);
+
+  /* ---- Radien ----------------------------------------------------------- */
+  --radius-pill: 999px;
+  --radius-circle: 50%;
+  --radius-lg: 16px;
+  --radius-md: 14px;
+  --radius-sm: 12px;
+  --radius-xs: 8px;
+  --radius-mark: 3px;
+  --radius-leaf: 2px; /* die Manuskriptseite — fast eckig, mit Absicht */
+
+  /* ---- Schatten --------------------------------------------------------- */
+  --shadow-xs: 0 1px 2px rgb(from var(--brand) r g b / 0.06);
+  --shadow-sm: 0 2px 8px rgb(from var(--brand-deep) r g b / 0.25);
+  --shadow-md: 0 2px 10px rgb(from var(--brand-deep) r g b / 0.28);
+  --shadow-lg: 0 4px 16px rgb(from var(--brand-deep) r g b / 0.35);
+  --shadow-xl: 0 6px 22px rgb(from var(--brand-deep) r g b / 0.3);
+  --shadow-up: 0 -6px 22px rgb(0 0 0 / 0.32);
+
+  /* Der Doppel-Goldrahmen des Manuskriptblattes — die Signatur des Designs. */
+  --shadow-leaf:
+    0 0 0 3px var(--surface-card) inset, 0 0 0 4.5px var(--accent) inset,
+    0 3px 14px rgb(from var(--brand-deep) r g b / 0.18);
+  --shadow-flash: 0 0 0 2px var(--accent), 0 0 16px rgb(from var(--accent) r g b / 0.55);
+
+  /* ---- Schrift ---------------------------------------------------------- */
+  --font-arabic: 'UthmanicHafs', 'Amiri', serif;
+  /* Amiri steht in beiden lateinischen Stacks ganz hinten. Nicht als vierte
+     Schriftstimme, sondern als Auffanglinie: in deutschem und englischem Text
+     stehen immer wieder einzelne arabische Zeichen — ﷺ, ﷻ, der Name in
+     Klammern. Ohne diesen Eintrag fallen sie auf irgendeine Systemschrift und
+     sehen neben dem übrigen Text fremd aus. */
+  --font-serif: 'Crimson Pro', Georgia, 'Amiri', serif;
+  --font-ui: 'Karla', system-ui, -apple-system, 'Amiri', sans-serif;
+
+  --text-2xs: 0.6rem;
+  --text-xs: 0.72rem;
+  --text-sm: 0.8rem;
+  --text-md: 0.85rem;
+  --text-base: 0.95rem;
+  --text-lg: 1.1rem;
+  --text-xl: 1.35rem;
+  --text-2xl: 1.45rem;
+  --text-3xl: 1.9rem;
+
+  /* Vokalisiertes Arabisch braucht deutlich mehr Durchschuss: die Harakat
+     stehen über und unter der Grundlinie und berühren sonst die Nachbarzeile.
+     Unter 1,9 wird bei Fließtext nicht gegangen. */
+  --leading-arabic-verse: 2.1;
+  --leading-arabic-ms: 2.15;
+  --leading-arabic-title: 1.6;
+  --leading-body: 1.5;
+  --leading-tight: 1.3;
+
+  /* Auf arabischen Text kommt NIEMALS letter-spacing — es bricht die
+     Ligaturen auf und macht aus einem Wort eine Kette von Einzelbuchstaben. */
+  --tracking-caps: 0.13em;
+  --tracking-wide: 0.07em;
+  --tracking-none: 0;
+
+  /* ---- Bewegung --------------------------------------------------------- */
+  --ease: cubic-bezier(0.2, 0.8, 0.3, 1);
+  --duration-tap: 0.1s;
+  --duration-fast: 0.12s;
+  --duration-base: 0.24s;
+
+  /* ---- Ebenen ----------------------------------------------------------- */
+  --z-base: 0;
+  --z-sticky: 10;
+  --z-nav: 40;
+  --z-dock: 50;
+  --z-banner: 60;
+  --z-overlay: 80;
+  --z-toast: 90;
+
+  /* ---- Laufzeit-Tokens --------------------------------------------------
+     Werden vom Code gesetzt, deshalb hier nur die Ausgangswerte. */
+  --ar-size: 1.9rem; /* Regler: 0,7 – 1,6 × */
+  --latin-scale: 1; /* Regler: 0,8 – 1,8 */
+  --player-h: 0px;
+
+  /* Ohne das erreicht der Dunkelmodus die native Oberfläche nicht:
+     Scrollbalken, Formularfelder und die Auswahlfarbe blieben hell. */
+  color-scheme: light;
+}
+
+:root.dark {
+  --brand: var(--c-green-600);
+  --brand-deep: var(--c-green-800);
+  /* --brand-on bleibt hell, siehe oben. */
+
+  --surface-page: var(--c-night-900);
+  --surface-card: var(--c-night-700);
+  --surface-card-alt: var(--c-night-600);
+  --surface-border: var(--c-night-500);
+  --surface-press: var(--c-night-500);
+
+  --ink: var(--c-ink-100);
+  --ink-soft: var(--c-ink-200);
+  --ink-accent: var(--c-green-400);
+  --ink-arabic: var(--c-ink-050);
+  --ink-chip: var(--c-ink-075);
+
+  --accent: var(--c-gold-400);
+  /* --accent-soft ist in beiden Themen derselbe Wert. */
+  --accent-line-soft: rgb(from var(--accent) r g b / 0.28);
+  --accent-wash: rgb(from var(--accent) r g b / 0.26);
+
+  --ornament-rosette: var(--c-rosette-dark);
+  --ornament-band-a: var(--c-band-teal-dark);
+  --ornament-band-b: var(--c-band-terra-dark);
+  --ornament-star-fill: var(--c-star-fill-dark);
+  --ornament-star-stroke: var(--c-star-stroke-dark);
+
+  color-scheme: dark;
+}
+
+/* Das Manuskriptblatt ist kein zweiter Tokensatz, sondern ein Block, der
+   dieselben semantischen Namen neu belegt. Alles darin schreibt weiterhin
+   --surface-card und --ink und funktioniert automatisch mit. */
+.theme-manuscript {
+  --surface-card: var(--c-leaf-100);
+  --ink: var(--c-leaf-ink);
+  --ink-soft: var(--c-leaf-rule);
+  --surface-border: var(--c-leaf-rule);
+  --accent: var(--c-gold-500);
+  --accent-wash: rgb(from var(--accent) r g b / 0.28);
+}
+
+:root.dark .theme-manuscript {
+  --surface-card: var(--c-night-800);
+  --ink: var(--c-leaf-ink-dark);
+  --ink-soft: var(--c-gold-600);
+  --surface-border: var(--c-gold-600);
+  --accent: var(--c-gold-400);
+  --accent-wash: rgb(from var(--accent) r g b / 0.26);
+}

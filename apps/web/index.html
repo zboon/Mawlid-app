@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Mawalid</title>
+    <meta name="theme-color" content="#123528" />
+
+    <!-- Die arabischen Schnitte vorladen: sie sind zusammen rund 620 KB und
+         dürfen das erste Rendern nicht blockieren, müssen aber früh da sein —
+         vokalisierter Text in einer Ersatzschrift sieht falsch aus. -->
+    <link rel="preload" href="/fonts/uthmanichafs-400.otf" as="font" type="font/otf" crossorigin />
+    <link rel="preload" href="/fonts/amiri-400.woff" as="font" type="font/woff" crossorigin />
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

@@ -72,22 +72,32 @@ docker-compose.yml
 
 ### Aufgaben
 
-- [ ] `npm create vite@latest` — Vue + TypeScript
-- [ ] Vue Router, Pinia, vue-i18n einrichten
-- [ ] ESLint, Prettier, `vue-tsc` einrichten
-- [ ] **Die base64-Blöcke aus `index.html` herauslösen** — drei Schriftdateien
-      (~830 KB), drei Bilder (~115 KB). Lizenzdateien mit
-- [ ] `tokens.css` aus der Dokumentation schreiben, hell und dunkel
-- [ ] Theme-Umschalter mit `localStorage` und `prefers-color-scheme` als Startwert
-- [ ] `AppMasthead`, `IconButton`, `TabBar`, `ContentCard`, `HomeTile`
-- [ ] Das 3×3-Startraster mit dem Medaillon in der Mitte
-- [ ] `docker-compose.yml` mit dem `web`-Dienst
+- [x] `npm create vite@latest` — Vue + TypeScript
+- [x] Vue Router, Pinia, vue-i18n einrichten
+- [x] ESLint, Prettier, `vue-tsc` einrichten
+- [x] **Die base64-Blöcke aus `index.html` herauslösen** — drei Schriftdateien
+      (623 KB), drei Bilder (85 KB). Lizenzdateien mit
+- [x] Crimson Pro und Karla selbst hosten statt von Google
+- [x] `tokens.css` aus der Dokumentation schreiben, hell und dunkel
+- [x] Theme-Umschalter mit `localStorage` und `prefers-color-scheme` als Startwert
+- [x] `AppMasthead`, `IconButton`, `HomeTile`, `HomeMedallion`, `EmptyState`,
+      `SkeletonCard`
+- [x] Das 3×3-Startraster mit dem Medaillon in der Mitte
+- [x] `docker-compose.yml` mit dem `web`-Dienst
+- [x] **`tools/check-tokens.mjs`** — macht die Token-Regel prüfbar statt
+      nur dokumentiert
+- [ ] `TabBar` und `ContentCard` — erst ab Phase 3 sichtbar, wenn es Sammlungen
+      und Werke gibt
 
 ### Fertig, wenn
 
 Die Startseite lässt sich neben der alten App öffnen und der Unterschied fällt
 nur auf, weil das Raster jetzt 3×3 ist. Dunkelmodus stimmt. Arabische Schrift
 sitzt richtig.
+
+**Erreicht.** `npm run verify` läuft durch (Typen, Lint, Token-Prüfung), der
+Build erzeugt 158 KB JS (58 KB gepackt) gegenüber 976 KB gepackt bei der alten
+App, und die Startseite ist in beiden Themen und beiden Breakpoints geprüft.
 
 ### Warum diese Reihenfolge
 

@@ -1,0 +1,16 @@
+{
+  "app": { "name": "Mawalid" },
+  "nav": {
+    "home": "Home",
+    "back": "Back",
+    "live": "Live",
+    "skipToContent": "Skip to content",
+    "backToHome": "Back to the home page"
+  },
+  "theme": { "toLight": "Switch to the light theme", "toDark": "Switch to the dark theme" },
+  "empty": {
+    "module": "There is no such section.",
+    "notFound": "This page does not exist.",
+    "comingFromDb": "Content arrives from the database in phase 3."
+  }
+}
