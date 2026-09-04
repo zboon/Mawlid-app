@@ -1,0 +1,15 @@
+{
+  "name": "mawalid",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "extract": "node tools/extract-content.mjs",
+    "seed:build": "node tools/build-seed.mjs",
+    "db:load": "node tools/load-seed.mjs",
+    "db:verify": "node tools/verify-migration.mjs",
+    "db:all": "npm run extract && npm run seed:build && npm run db:load && npm run db:verify"
+  },
+  "devDependencies": {
+    "mysql2": "^3.11.5"
+  }
+}

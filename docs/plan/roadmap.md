@@ -113,19 +113,26 @@ eigentliche Anforderung („einheitlich und trotzdem seine spezielle Aufgabe").
 
 ### Aufgaben
 
-- [ ] MySQL 8.4 im Compose-Verbund, `utf8mb4` durchgängig
-- [ ] `prisma/schema.prisma` aus `db/schema.sql` ableiten
-- [ ] Erste Migration
-- [ ] `tools/build-seed.mjs` — Zuordnung nach `07-migration.md`
-- [ ] `npm run db:seed`
-- [ ] **`tools/verify-migration.mjs`** — die Gegenprüfung
-- [ ] Prüfbericht archivieren
+- [x] MySQL im Compose-Verbund, `utf8mb4` durchgängig
+- [x] `db/schema.sql` gegen eine echte MySQL-8-Instanz geladen — 34 Tabellen,
+      3 Ansichten. Dabei kam heraus, dass `separator` ein reserviertes Wort ist
+- [x] `tools/build-seed.mjs` — Zuordnung nach `07-migration.md`
+- [x] `tools/load-seed.mjs` — in einer Transaktion, idempotent
+- [x] **`tools/verify-migration.mjs`** — die Gegenprüfung, 12 Prüfungen
+- [x] Prüfbericht archiviert: `docs/analysis/migrationsbericht.txt`
+- [ ] `prisma/schema.prisma` aus `db/schema.sql` ableiten — erst in Phase 3
+      nötig, wenn die API Typen braucht
 
 ### Fertig, wenn
 
-Der Prüfbericht meldet **null** Abweichungen: 111 Werke, 2.512 Verse, jeder
-Verstext bytegleich mit der Quelle, Folio-Bereiche lückenlos,
-Wochentagszuordnung identisch, Mawlid-Reihenfolge identisch.
+Der Prüfbericht meldet **null** Abweichungen: 2.512 Verse, jeder Verstext
+bytegleich mit der Quelle, Folio-Bereiche lückenlos, Wochentagszuordnung
+identisch, Mawlid-Reihenfolge identisch.
+
+**Erreicht.** 8.900 Zeilen in MySQL, alle 12 Prüfungen bestanden. Aus den 111
+Stücken wurden 109 Werke: `LITANY_CHAPTERS[2]` und `[3]` tragen nur Namen und
+sind in Wahrheit die Überschriften ihrer Wochengruppen — sie wurden Sammlungen,
+nicht Werke.
 
 ### Der wunde Punkt
 
@@ -185,12 +192,12 @@ zumutbar.
 
 ### Aufgaben
 
-- [ ] `packages/shared/normalize.ts` — die arabische Normalisierung **Zeichen
-      für Zeichen** übernommen
-- [ ] **Sprachabhängige Varianten.** Die Faltungsregeln sind für arabische
-      Umschrift gebaut und zerstören Deutsch (`Wissen` → `uisen`, `Wüste` →
-      `uste`). Deutsch, Englisch und Türkisch bekommen eine milde Variante ohne
-      Lautfaltung — siehe `05-database.md` §6
+- [x] `tools/lib/normalize.mjs` — die Normalisierung **Zeichen für Zeichen**
+      übernommen, gegen die Vorlage auf allen 5.834 Verstexten geprüft:
+      null Abweichungen. Wandert in Phase 4 nach `packages/shared/`
+- [x] **Eine Faltung für alle Sprachen**, wie in der Vorlage. Die
+      sprachabhängige Variante wurde gebaut und wieder verworfen: sie kostet
+      Treffer, statt welche zu retten — siehe `05-database.md` §6
 - [ ] Beim Speichern `body_search` füllen
 - [ ] `GET /api/content/search?q=…` — Vierfach-ODER, Treffer mit
       Vers und Segment, sechs je Werk

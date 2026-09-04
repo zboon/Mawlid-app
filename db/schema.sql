@@ -144,7 +144,16 @@ CREATE TABLE work_translations (
   title     VARCHAR(500) NOT NULL,
   -- Der grüne Hinweisbanner oben im Leser (heute: piece.note).
   note      TEXT         NULL,
+
+  -- Der Titel in derselben Normalisierung wie verse_texts.body_search.
+  -- Ohne diese Spalte findet die Suche ein Werk nicht, dessen Titel den
+  -- Begriff trägt, dessen Verse aber nicht — bei "Burdah" oder "Qasida"
+  -- genau der Regelfall. Die alte App nimmt die Titel in denselben
+  -- Heuhaufen wie die Verse; das muss so bleiben.
+  title_search VARCHAR(500) NULL,
+
   PRIMARY KEY (work_id, lang),
+  KEY ix_worktr_search (title_search(191)),
   CONSTRAINT fk_worktr_work FOREIGN KEY (work_id) REFERENCES works(id) ON DELETE CASCADE,
   CONSTRAINT fk_worktr_lang FOREIGN KEY (lang)    REFERENCES languages(code)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -175,7 +184,9 @@ CREATE TABLE verses (
   note_label   VARCHAR(255) NULL,
 
   -- Ein Trennzeichen, das hinter dem Vers steht (Flag `sep`), z. B. "ﷺ".
-  separator    VARCHAR(16)  NULL,
+  -- NICHT `separator` nennen: das ist in MySQL ein reserviertes Wort
+  -- (GROUP_CONCAT ... SEPARATOR) und bricht die CREATE TABLE ohne Backticks.
+  separator_mark VARCHAR(16) NULL,
 
   -- Keine Rosetten in diesem Vers rendern (Flag `noRosette`).
   no_rosette   TINYINT(1)   NOT NULL DEFAULT 0,

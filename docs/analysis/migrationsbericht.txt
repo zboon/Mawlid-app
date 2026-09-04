@@ -1,0 +1,27 @@
+Migrationsbericht — Phase 2
+==========================
+
+Erzeugt am 2026-09-04 mit MySQL 8.0.46, Zeichensatz utf8mb4,
+Kollation utf8mb4_0900_ai_ci.
+
+Erzeugen mit:  npm run db:all
+Nur prüfen:    npm run db:verify
+
+Der Vergleich ist byteweise. Kein trim(), keine Unicode-Normalisierung,
+keine Toleranz — bei handvokalisiertem arabischem Text wäre alles andere
+Selbstbetrug.
+
+  ✓ Versanzahl                                    Quelle 2512, Datenbank 2512
+  ✓ Werkanzahl                                    erwartet 109, Datenbank 109
+  ✓ Jedes Werk hat einen Titel                    0 ohne Titel
+  ✓ Verstexte bytegleich                          5834 geprüft, 0 fehlen, 0 weichen ab
+  ✓ Keine überzähligen Texte                      Quelle 5834, Datenbank 5834
+  ✓ ۞ Rosetten                                    Quelle 1055, Datenbank 1055
+  ✓ ‖ Seitenumbrüche                              Quelle 226, Datenbank 226
+  ✓ Zeilenumbrüche                                Quelle 323, Datenbank 323
+  ✓ Folios decken jeden Vers genau einmal         
+  ✓ Wochentag zeigt auf dasselbe Werk wie vorher  0 Abweichungen
+  ✓ Mawlid-Lesereihenfolge identisch              29 Einträge, erwartet 29
+  ✓ Suche findet weiterhin alles (43 Begriffe)    
+
+Alle 12 Prüfungen bestanden.

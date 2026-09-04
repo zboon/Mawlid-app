@@ -315,66 +315,61 @@ Verlust.
 
 Eine Funktion, zwei Aufrufer, kein Auseinanderlaufen.
 
-### Aber nicht für Deutsch
+### Eine Faltung für alle Sprachen — und warum nicht mehr
 
-Die Faltungsregeln sind für **arabische Umschrift** gebaut, und für die sind sie
-richtig. Auf deutschen Text angewandt richten sie Schaden an — vor allem `w→u`,
-`y→i` und das Zusammenziehen von Doppelbuchstaben:
+Es liegt nahe, die Faltung sprachabhängig zu machen: Die Regeln sind für
+arabische Umschrift gebaut, und auf Deutsch angewandt sehen sie erst einmal
+zerstörerisch aus.
 
-| Eingabe | wird zu |
+| Eingabe | gefaltet |
 |---|---|
 | `Wissen` | `uisen` |
-| `Woche` | `uoche` |
 | `Wüste` | `uste` |
-| `weiß` | `ueiß` |
 | `Schwester` | `schuester` |
-| `Qualität` | `kualitat` |
 
-`Wüste` und `Uste` fallen dadurch zusammen, und wer „Wissen" sucht, sucht in
-Wahrheit nach „uisen". Für arabische Umschrift ist genau das erwünscht — dort
-soll `Qasida` und `Kaseeda` dasselbe finden. Für deutsche Artikel- und
-Wiki-Texte ist es Unsinn.
+**Das täuscht.** Die Faltung ist *selbstkonsistent*: Text und Anfrage laufen
+durch dieselbe Funktion. Wer „Wissen" sucht, sucht nach `uisen`, und der Text
+steht als `uisen` da — sie treffen sich. Was wirklich passiert, ist ein
+**Präzisionsverlust**: `Wüste` und `Uste` fallen zusammen. Genau das ist bei
+einer unscharfen Suche der Sinn der Sache; deshalb faltet die Vorlage ja
+überhaupt `q→k`.
 
-**Konsequenz:** Die Normalisierung ist **sprachabhängig**.
+Eine Aufteilung nach Sprachen kostet dagegen etwas Echtes: **Treffer.** Die
+englischen Übersetzungen stünden dann mild normalisiert da, und ein Tippfehler
+fände sie nicht mehr.
 
-```ts
-normalizeFor('ar', text)   // volle Faltung — wie heute, Zeichen für Zeichen
-normalizeFor('de', text)   // nur Kleinschreibung, NFD-Diakritika, Umlaut-
-                           // Auflösung (ü→ue), Satzzeichen. KEINE Lautfaltung.
-normalizeFor('en', text)   // wie de
-normalizeFor('tr', text)   // wie de, plus ı/i-Behandlung
+```
+Übersetzung „Muhammad"  →  arabisch gefaltet: muhamad   mild: muhammad
+Anfrage     „muhamad"   →  arabisch gefaltet: muhamad   mild: muhamad
+                                        trifft ✓                trifft ✗
 ```
 
-`verse_texts.body_search` wird mit der Variante gefüllt, die zu `lang` und
-`role` der Zeile passt: Originaltext und Umschrift arabisch, Übersetzungen nach
-ihrer Zielsprache. Die Suchanfrage wird für jede Sprache in ihrer eigenen
-Variante normalisiert und gegen die passenden Zeilen geprüft.
+Beim Aufbau der Prüfung ist genau das aufgetreten: mit sprachabhängiger
+Normalisierung verloren `muhamad`, `qasida`, `kaseeda` und `qaseeda` Treffer,
+die die alte App findet.
 
-Ohne diese Trennung passiert eines von beidem: entweder die deutsche Suche
-verhält sich unsinnig, oder jemand „repariert" die Faltung und die arabische
-Suche verliert ihre Unschärfe. Beides ist teurer als eine Fallunterscheidung.
+**Also: eine Faltung, für alle Sprachen, wie in der Vorlage.** `normalizeLatin()`
+bleibt in `tools/lib/normalize.mjs` liegen, falls die Präzision auf deutschen
+Wiki-Texten später doch stört — dann als *zweite* Spalte neben der ersten,
+nicht als Ersatz.
 
-**Die Abfrage selbst:**
+### Titel gehören in die Suche
+
+`work_translations` trägt neben `title` eine Spalte `title_search` in derselben
+Normalisierung.
+
+Ohne sie findet die Suche ein Werk nicht, dessen **Titel** den Begriff trägt,
+dessen Verse aber nicht. Bei „Burdah" oder „Qasida" ist das der Regelfall — die
+Prüfung hat drei solche Werke gemeldet, bevor die Spalte existierte. Die alte
+App legt Titel und Verse in denselben Heuhaufen; das muss so bleiben.
+
+Die Abfrage ist deshalb eine Vereinigung über beide:
 
 ```sql
-SELECT vt.verse_id, vt.body, vt.role, vt.lang
-FROM verse_texts vt
-JOIN verses v ON v.id = vt.verse_id
-JOIN works  w ON w.id = v.work_id
-WHERE w.status = 'published'
-  AND vt.body_search LIKE CONCAT('%', ?, '%')
-LIMIT 500;
+SELECT ... FROM verse_texts WHERE body_search LIKE CONCAT('%', ?, '%')
+UNION
+SELECT ... FROM work_translations WHERE title_search LIKE CONCAT('%', ?, '%')
 ```
-
-Ein `LIKE '%…%'` kann keinen Index benutzen — bei 6.500 Zeilen im
-Arbeitsspeicher liegt das trotzdem im Bereich weniger Millisekunden. Das
-`FULLTEXT`-Index im Schema ist vorbereitet und wird eingeschaltet, wenn der
-Bestand in die Hunderttausende wächst, was auf absehbare Zeit nicht passiert.
-
-> Wenn `FULLTEXT` später gebraucht wird: mit `WITH PARSER ngram` anlegen und
-> `ngram_token_size = 2` setzen. Der Standardparser trennt an Leerzeichen, was
-> für Arabisch grundsätzlich funktioniert, aber `innodb_ft_min_token_size` (3)
-> schluckt kurze arabische Wörter.
 
 ### Was die Suche zusätzlich liefern muss
 
