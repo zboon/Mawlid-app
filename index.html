@@ -21,12 +21,12 @@
 <meta name="twitter:image" content="https://zboon.github.io/Mawlid-app/icon-512.png">
 <meta name="application-name" content="Mawalid">
 <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#123528">
+<meta name="theme-color" content="#6B1E2E">
 <!-- Plain-HTML copy of APP_VERSION below. The number lives inside the
      script, where nothing that reads the page without running it can see
      it — so "which version is actually live?" could only be answered from
      a phone. Keep the two in step when bumping. -->
-<meta name="app-version" content="v371">
+<meta name="app-version" content="v372">
 <!-- YouTube's embedded player refuses to configure itself unless the host page
      sends a Referer (Error 153 / embedder.identity.missing.referrer). This is
      the browser default in most cases, but a standalone PWA or a WebView may
@@ -78,6 +78,8 @@
   :root{
     --green:#123528;
     --green-deep:#0B241B;
+    --maroon:#6B1E2E;
+    --maroon-deep:#4A121F;
     --paper:#FAF5EA;
     --bg:#FAF5EA;
     --card:#ffffff;
@@ -109,6 +111,8 @@
   :root.dark{
     --green:#1B3A2C;
     --green-deep:#0E2318;
+    --maroon:#7A2836;
+    --maroon-deep:#551A24;
     /* --paper stays light: it's the text colour on the green header/bars */
     --bg:#12150E;
     --card:#1E2318;
@@ -151,7 +155,7 @@
 
   /* ---------- header ---------- */
   .masthead{
-    background:var(--green);
+    background:var(--maroon);
     color:var(--paper);
     padding:calc(env(safe-area-inset-top, 0px) + 1.7rem) 1.4rem 1.3rem;
     text-align:center;
@@ -205,7 +209,7 @@
   /* The English name sits in its own band below the calligraphy, ruled off
      from the header above and the section cards below. */
   .subhead{
-    background:var(--green); color:var(--paper); text-align:center;
+    background:var(--maroon); color:var(--paper); text-align:center;
     padding:.8rem 1.1rem .85rem;
     border-top:1px solid var(--rule);
     border-bottom:1px solid var(--rule);
@@ -277,7 +281,7 @@
   /* ---------- top nav bar (sections, left-to-right) ---------- */
   .tabbar{
     display:flex;gap:.5rem;overflow-x:auto;-webkit-overflow-scrolling:touch;
-    padding:.9rem 1rem;background:var(--green-deep);
+    padding:.9rem 1rem;background:var(--maroon-deep);
     border-bottom:1px solid var(--rule);
     scrollbar-width:none;
     justify-content:flex-start;
@@ -297,7 +301,7 @@
     border:1.5px solid transparent;transition:background .12s,border-color .12s;
     min-width:5.2rem;
   }
-  .tab.active{background:var(--gold);border-color:var(--gold-soft);color:var(--green-deep)}
+  .tab.active{background:var(--gold);border-color:var(--gold-soft);color:var(--maroon-deep)}
   .tab-en{font-size:.78rem;font-weight:700;line-height:1.15;text-align:center;white-space:nowrap}
   .tab-ar{font-family:'UthmanicHafs','Amiri',serif;font-size:1rem;line-height:1;opacity:.85}
   .tab.active .tab-ar{opacity:1}
@@ -413,7 +417,7 @@
   .reader-bar{
     position:sticky;top:0;z-index:10;
     transition:padding .24s ease;
-    background:var(--green);color:var(--paper);
+    background:var(--maroon);color:var(--paper);
     padding:calc(env(safe-area-inset-top,0px) + .6rem) .8rem .6rem;
     display:flex;align-items:center;gap:.6rem;
     box-shadow:0 2px 8px rgba(11,36,27,.25);
@@ -10956,7 +10960,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v371';
+const APP_VERSION = 'v372';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
