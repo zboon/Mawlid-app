@@ -1,0 +1,3604 @@
+[
+  {
+    "titleArabic": "حِزْبُ الْغَايَاتِ",
+    "titleEnglish": "Ḥizb al-Ghāyāt",
+    "folios": [
+      {
+        "from": 0,
+        "to": 13
+      },
+      {
+        "from": 14,
+        "to": 32
+      },
+      {
+        "from": 33,
+        "to": 51
+      },
+      {
+        "from": 52,
+        "to": 58
+      },
+      {
+        "from": 59,
+        "to": 59
+      }
+    ],
+    "note": "Al-Wird al-Sharīf known as Ḥizb al-Ghāyāt — the litany of ultimate ends, for declaring the oneness of Allah, who fulfils all needs. Attributed to Mawlānā Jalāl ad-Dīn Muḥammad al-Balkhī ar-Rūmī (604–672 AH / 1207–1273 CE).",
+    "verses": [
+      {
+        "ar": "بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيمِ",
+        "tr": "Bismi-Llāhi r-Raḥmāni r-Raḥīm",
+        "en": "In the name of Allah, the All-Merciful, the Most Merciful."
+      },
+      {
+        "ar": "اَلْحَمْدُ لِلّٰهِ رَبِّ الْعَالَمِينَ ۞ وَالصَّلٰوةُ وَالسَّلَامُ عَلٰى رَسُولِنَا مُحَمَّدٍ وَعَلٰى اٰلِهِ وَصَحْبِهِ اَجْمَعِينَ",
+        "tr": "Al-ḥamdu li-Llāhi Rabbi l-ʿālamīn · Wa-ṣ-ṣalātu wa-s-salāmu ʿalā Rasūlinā Muḥammadin wa-ʿalā ālihi wa-ṣaḥbihi ajmaʿīn",
+        "en": "Praise belongs to Allah, Lord of the worlds. Blessings and peace be upon our Messenger Muhammad, and upon his family and his companions, all of them."
+      },
+      {
+        "ar": "لَآ اِلٰهَ اِلَّا اللّٰهُ مُحَمَّدٌ رَسُولُ اللّٰهِ ۞ اَللّٰهُمَّ يَآ اِلٰهِى ۞ اَنَا الْعَبْدُ وَاَنْتَ اللّٰهُ",
+        "tr": "Lā ilāha illā-Llāh, Muḥammadun Rasūlu-Llāh · Allāhumma yā Ilāhī · Anā l-ʿabdu wa-Anta-Llāh",
+        "en": "There is no god but Allah; Muhammad is the Messenger of Allah. O Allah, O my God. I am the servant, and You are Allah."
+      },
+      {
+        "ar": "وَاَنَا الْمُوَحِّدُ وَاَنْتَ الْوَاحِدُ",
+        "tr": "Wa-anā l-muwaḥḥidu wa-Anta l-Wāḥid",
+        "en": "I am the one who affirms Your oneness, and You are the One."
+      },
+      {
+        "ar": "وَاَنَا الْعُبَيْدُ وَاَنْتَ الْمَعْبُودُ",
+        "tr": "Wa-anā l-ʿubaydu wa-Anta l-Maʿbūd",
+        "en": "I am the lowly little servant, and You are the One worshipped."
+      },
+      {
+        "ar": "وَاَنَا مُمْكِنُ الْوُجُودِ وَاَنْتَ وَاجِبُ الْوُجُودِ",
+        "tr": "Wa-anā mumkinu l-wujūdi wa-Anta wājibu l-wujūd",
+        "en": "I am contingent in being, and You are necessary in being."
+      },
+      {
+        "ar": "وَاَنَا الْمَخْلُوقُ وَاَنْتَ الْخَالِقُ",
+        "tr": "Wa-anā l-makhlūqu wa-Anta l-Khāliq",
+        "en": "I am the created, and You are the Creator."
+      },
+      {
+        "ar": "وَاَنَا الْمَوْجُودُ وَاَنْتَ الْمُوجِدُ",
+        "tr": "Wa-anā l-mawjūdu wa-Anta l-Mūjid",
+        "en": "I am the one brought into being, and You are the One who brings into being."
+      },
+      {
+        "ar": "وَاَنَا الْمُحْدَثُ وَاَنْتَ الْمُحْدِثُ الْاَزَلِىُّ",
+        "tr": "Wa-anā l-muḥdathu wa-Anta l-Muḥdithu l-Azalī",
+        "en": "I am the newly originated, and You are the Originator, the Beginningless."
+      },
+      {
+        "ar": "وَاَنَا الْهَالِكُ وَاَنْتَ الْبَاقِى بِلَا زَوَالٍ",
+        "tr": "Wa-anā l-hāliku wa-Anta l-Bāqī bi-lā zawāl",
+        "en": "I am the one who perishes, and You are the Abiding, without ceasing."
+      },
+      {
+        "ar": "وَاَنَا الْفَانِى وَاَنْتَ الدَّآئِمُ الْبَاقِى",
+        "tr": "Wa-anā l-fānī wa-Anta d-Dāʾimu l-Bāqī",
+        "en": "I am the one who passes away, and You are the Everlasting, the Abiding."
+      },
+      {
+        "ar": "وَاَنَا الْمَيِّتُ وَاَنْتَ الْمُمِيتُ الْحَىُّ الَّذِى لَا يَمُوتُ",
+        "tr": "Wa-anā l-mayyitu wa-Anta l-Mumītu l-Ḥayyu lladhī lā yamūt",
+        "en": "I am the one who dies, and You are the Giver of death, the Living who does not die."
+      },
+      {
+        "ar": "وَاَنَا الْعَاجِزُ وَاَنْتَ الْقَادِرُ الْمُقْتَدِرُ",
+        "tr": "Wa-anā l-ʿājizu wa-Anta l-Qādiru l-Muqtadir",
+        "en": "I am the powerless, and You are the Able, the Omnipotent."
+      },
+      {
+        "ar": "وَاَنَا الْفَقِيرُ وَاَنْتَ الْغَنِىُّ الْمُغْنِى",
+        "tr": "Wa-anā l-faqīru wa-Anta l-Ghaniyyu l-Mughnī",
+        "en": "I am the poor, and You are the Rich, the Enricher."
+      },
+      {
+        "ar": "وَاَنَا الذَّلِيلُ وَاَنْتَ الْجَلِيلُ الْعَزِيزُ",
+        "tr": "Wa-anā dh-dhalīlu wa-Anta l-Jalīlu l-ʿAzīz",
+        "en": "I am the lowly, and You are the Majestic, the Mighty."
+      },
+      {
+        "ar": "وَاَنَا الْعَلِيلُ وَاَنْتَ الشَّافِى",
+        "tr": "Wa-anā l-ʿalīlu wa-Anta sh-Shāfī",
+        "en": "I am the ailing, and You are the Healer."
+      },
+      {
+        "ar": "وَاَنَا الْمُحْتَاجُ وَاَنْتَ الصَّمَدُ الْوَاحِدُ",
+        "tr": "Wa-anā l-muḥtāju wa-Anta ṣ-Ṣamadu l-Wāḥid",
+        "en": "I am the needy, and You are the Self-Sufficient, the One."
+      },
+      {
+        "ar": "وَاَنَا الْحَقِيرُ وَاَنْتَ الْعَظِيمُ الْوَاحِدُ",
+        "tr": "Wa-anā l-ḥaqīru wa-Anta l-ʿAẓīmu l-Wāḥid",
+        "en": "I am the paltry, and You are the Magnificent, the One."
+      },
+      {
+        "ar": "وَاَنَا الصَّغِيرُ وَاَنْتَ الْكَبِيرُ الْمُتَعَالِ",
+        "tr": "Wa-anā ṣ-ṣaghīru wa-Anta l-Kabīru l-Mutaʿāl",
+        "en": "I am the small, and You are the Great, the Exalted."
+      },
+      {
+        "ar": "وَاَنَا الْمَغْلُوبُ وَاَنْتَ الْغَالِبُ",
+        "tr": "Wa-anā l-maghlūbu wa-Anta l-Ghālib",
+        "en": "I am the overcome, and You are the Prevailing."
+      },
+      {
+        "ar": "وَاَنَا الْمُسْتَعِينُ وَاَنْتَ الْمُعِينُ",
+        "tr": "Wa-anā l-mustaʿīnu wa-Anta l-Muʿīn",
+        "en": "I am the one who seeks help, and You are the Helper."
+      },
+      {
+        "ar": "وَاَنَا الضَّالُّ وَاَنْتَ الْهَادِى الرَّشِيدُ",
+        "tr": "Wa-anā ḍ-ḍāllu wa-Anta l-Hādī r-Rashīd",
+        "en": "I am the one astray, and You are the Guide, sure in guidance."
+      },
+      {
+        "ar": "وَاَنَا الظَّالِمُ وَاَنْتَ الْمُقْسِطُ الْعَادِلُ",
+        "tr": "Wa-anā ẓ-ẓālimu wa-Anta l-Muqsiṭu l-ʿĀdil",
+        "en": "I am the wrongdoer, and You are the Equitable, the Just."
+      },
+      {
+        "ar": "وَاَنَا الْخَاسِرُ وَاَنْتَ الْمُنْجِى",
+        "tr": "Wa-anā l-khāsiru wa-Anta l-Munjī",
+        "en": "I am the loser, and You are the Deliverer."
+      },
+      {
+        "ar": "وَاَنَا النَّاقِصُ وَاَنْتَ الْكَامِلُ",
+        "tr": "Wa-anā n-nāqiṣu wa-Anta l-Kāmil",
+        "en": "I am the deficient, and You are the Complete."
+      },
+      {
+        "ar": "وَاَنَا السُّفْلَى وَاَنْتَ الرَّافِعُ الْمُعِزُّ",
+        "tr": "Wa-anā s-suflā wa-Anta r-Rāfiʿu l-Muʿizz",
+        "en": "I am the lowest, and You are the Raiser, the Giver of honour."
+      },
+      {
+        "ar": "وَاَنَا النُّقْصَانُ وَاَنْتَ سُبْحَانُ",
+        "tr": "Wa-anā n-nuqṣānu wa-Anta Subḥān",
+        "en": "I am want itself, and You are the Glorified."
+      },
+      {
+        "ar": "وَاَنَا الْجَاهِلُ وَاَنْتَ الْعَالِمُ",
+        "tr": "Wa-anā l-jāhilu wa-Anta l-ʿĀlim",
+        "en": "I am the ignorant, and You are the Knowing."
+      },
+      {
+        "ar": "وَاَنَا الْعَاصِى وَاَنْتَ الْغَفَّارُ",
+        "tr": "Wa-anā l-ʿāṣī wa-Anta l-Ghaffār",
+        "en": "I am the disobedient, and You are the Ever-Forgiving."
+      },
+      {
+        "ar": "وَاَنَا الْعَجُولُ وَاَنْتَ الصَّبُورُ",
+        "tr": "Wa-anā l-ʿajūlu wa-Anta ṣ-Ṣabūr",
+        "en": "I am the hasty, and You are the Patient."
+      },
+      {
+        "ar": "وَاَنَا الْمُذْنِبُ وَاَنْتَ الْغَفُورُ",
+        "tr": "Wa-anā l-mudhnibu wa-Anta l-Ghafūr",
+        "en": "I am the sinner, and You are the Forgiving."
+      },
+      {
+        "ar": "وَاَنَا الْقِنُّ وَاَنْتَ الْمَالِكُ",
+        "tr": "Wa-anā l-qinnu wa-Anta l-Mālik",
+        "en": "I am the bondsman, and You are the Owner."
+      },
+      {
+        "ar": "وَاَنَا الدَّاعِى وَاَنْتَ الْمُجِيبُ بِلَآ اِيجَابٍ",
+        "tr": "Wa-anā d-dāʿī wa-Anta l-Mujību bi-lā ījāb",
+        "en": "I am the one who calls, and You are the One who answers, bound by no obligation."
+      },
+      {
+        "ar": "وَاَنَا السَّآئِلُ وَاَنْتَ الْمُعْطِى الْمُفَضِّلُ",
+        "tr": "Wa-anā s-sāʾilu wa-Anta l-Muʿṭī l-Mufaḍḍil",
+        "en": "I am the asker, and You are the Giver, the Bestower of favour."
+      },
+      {
+        "ar": "وَاَنَا التَّآئِبُ وَاَنْتَ التَّوَّابُ",
+        "tr": "Wa-anā t-tāʾibu wa-Anta t-Tawwāb",
+        "en": "I am the repentant, and You are the Ever-Relenting."
+      },
+      {
+        "ar": "وَاَنَا الْبَخِيلُ وَاَنْتَ الْكَرِيمُ",
+        "tr": "Wa-anā l-bakhīlu wa-Anta l-Karīm",
+        "en": "I am the miserly, and You are the Generous."
+      },
+      {
+        "ar": "وَاَنَا الشَّاكِرُ وَاَنْتَ الشَّكُورُ",
+        "tr": "Wa-anā sh-shākiru wa-Anta sh-Shakūr",
+        "en": "I am the one who gives thanks, and You are the Most Appreciative."
+      },
+      {
+        "ar": "وَاَنَا الْحَامِدُ وَاَنْتَ الْحَمِيدُ",
+        "tr": "Wa-anā l-ḥāmidu wa-Anta l-Ḥamīd",
+        "en": "I am the one who praises, and You are the Praiseworthy."
+      },
+      {
+        "ar": "وَاَنَا الْمَادِحُ وَاَنْتَ الْمَمْدُوحُ",
+        "tr": "Wa-anā l-mādiḥu wa-Anta l-Mamdūḥ",
+        "en": "I am the one who extols, and You are the Extolled."
+      },
+      {
+        "ar": "وَاَنَا الذَّاكِرُ وَاَنْتَ الْمَذْكُورُ",
+        "tr": "Wa-anā dh-dhākiru wa-Anta l-Madhkūr",
+        "en": "I am the one who remembers, and You are the Remembered."
+      },
+      {
+        "ar": "وَاَنَا الطَّالِبُ وَاَنْتَ الْمَطْلُوبُ",
+        "tr": "Wa-anā ṭ-ṭālibu wa-Anta l-Maṭlūb",
+        "en": "I am the seeker, and You are the Sought."
+      },
+      {
+        "ar": "وَاَنَا الْحَبِيبُ وَاَنْتَ الْمَحْبُوبُ",
+        "tr": "Wa-anā l-ḥabību wa-Anta l-Maḥbūb",
+        "en": "I am the loving one, and You are the Beloved."
+      },
+      {
+        "ar": "وَاَنَا الْعَاشِقُ الصُّورِىُّ وَاَنْتَ الْمَعْشُوقُ الْحَقِيقِىُّ",
+        "tr": "Wa-anā l-ʿāshiqu ṣ-ṣūriyyu wa-Anta l-maʿshūqu l-ḥaqīqī",
+        "en": "I am the lover of outward forms, and You are the truly Beloved."
+      },
+      {
+        "ar": "وَاَنَا الْقَاصِدُ وَاَنْتَ الْمَقْصُودُ لِاَنَّهُ لَا مَقْصُودَ سِوَاكَ",
+        "tr": "Wa-anā l-qāṣidu wa-Anta l-maqṣūdu li-annahu lā maqṣūda siwāk",
+        "en": "I am the one who aims, and You are the aim — for there is no goal but You."
+      },
+      {
+        "ar": "اَللّٰهُمَّ لَا قَدْرَ لِى اِلَّا قَدْرُكَ",
+        "tr": "Allāhumma lā qadra lī illā qadruk",
+        "en": "O Allah, I have no worth but the worth You give,"
+      },
+      {
+        "ar": "وَلَا هِدَايَةَ لِى اِلَّا هِدَايَتُكَ",
+        "tr": "Wa-lā hidāyata lī illā hidāyatuk",
+        "en": "and no guidance but Your guidance,"
+      },
+      {
+        "ar": "وَلَا فَضْلَ لِى اِلَّا فَضْلُكَ",
+        "tr": "Wa-lā faḍla lī illā faḍluk",
+        "en": "and no bounty but Your bounty,"
+      },
+      {
+        "ar": "وَلَا تَوْفِيقَ لِى اِلَّا تَوْفِيقُكَ وَلَا نِعَمَ لِى اِلَّا نَعْمَآؤُكَ",
+        "tr": "Wa-lā tawfīqa lī illā tawfīquk, wa-lā niʿama lī illā naʿmāʾuk",
+        "en": "and no success but that You grant it, and no blessings but Your blessings,"
+      },
+      {
+        "ar": "وَلَا حَوْلَ لِى اِلَّا حَوْلُكَ",
+        "tr": "Wa-lā ḥawla lī illā ḥawluk",
+        "en": "and no power but Your power,"
+      },
+      {
+        "ar": "وَلَا قُوَّةَ لِى اِلَّا قُوَّتُكَ",
+        "tr": "Wa-lā quwwata lī illā quwwatuk",
+        "en": "and no strength but Your strength,"
+      },
+      {
+        "ar": "وَلَا فَيْضَ لِى اِلَّا فَيْضُكَ وَكُلٌّ مِنْ عِنْدِكَ",
+        "tr": "Wa-lā fayḍa lī illā fayḍuk, wa-kullun min ʿindik",
+        "en": "and no outpouring but Your outpouring — all of it is from You."
+      },
+      {
+        "ar": "تَوَكَّلْتُ عَلَيْكَ وَاعْتَصَمْتُ بِكَ",
+        "tr": "Tawakkaltu ʿalayka wa-ʿtaṣamtu bik",
+        "en": "I place my trust in You and hold fast to You."
+      },
+      {
+        "ar": "وَاَنْتَ اللّٰهُ الصَّمَدُ الَّذِى لَمْ يَلِدْ وَلَمْ يُولَدْ وَلَمْ يَكُنْ لَهُ كُفُوًا اَحَدٌ",
+        "tr": "Wa-Anta-Llāhu ṣ-Ṣamadu lladhī lam yalid wa-lam yūlad wa-lam yakun lahu kufuwan aḥad",
+        "en": "And You are Allah, the Self-Sufficient upon whom all depend, who neither begets nor is begotten, and to whom none is comparable."
+      },
+      {
+        "ar": "اِلٰهِى مَقْصُودِى رِضَاكَ وَلِقَاؤُكَ يَسِّرْهُمَا لِى",
+        "tr": "Ilāhī maqṣūdī riḍāka wa-liqāʾuka yassirhumā lī",
+        "en": "My God, what I seek is Your good pleasure and to meet You — make them easy for me."
+      },
+      {
+        "ar": "اَللّٰهُمَّ اَعْطِنِى سُؤْلِى اَنْتَ تَعْلَمُ مَا فِى قَلْبِى وَلَا تَحْتَاجُ اِلٰى مَقَالِى",
+        "tr": "Allāhumma aʿṭinī suʾlī, Anta taʿlamu mā fī qalbī wa-lā taḥtāju ilā maqālī",
+        "en": "O Allah, grant me my request. You know what is in my heart and have no need of my speech."
+      },
+      {
+        "ar": "يَا غِيَاثَ الْمُسْتَغِيثِينَ اَغِثْنَا",
+        "tr": "Yā Ghiyātha l-mustaghīthīna aghithnā",
+        "en": "O Succour of all who cry for succour, come to our aid."
+      },
+      {
+        "ar": "اِسْتَجِبْ دُعَآءَنَا وَتَضَرُّعَنَا",
+        "tr": "Istajib duʿāʾanā wa-taḍarruʿanā",
+        "en": "Answer our supplication and our pleading,"
+      },
+      {
+        "ar": "بِرَحْمَتِكَ يَا اَرْحَمَ الرَّاحِمِينَ",
+        "tr": "Bi-raḥmatika yā Arḥama r-rāḥimīn",
+        "en": "by Your mercy, O Most Merciful of those who show mercy."
+      },
+      {
+        "ar": "وَصَلَّى اللّٰهُ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَاٰلِهِ وَصَحْبِهِ اَجْمَعِينَ",
+        "tr": "Wa-ṣallā-Llāhu ʿalā sayyidinā Muḥammadin wa-ālihi wa-ṣaḥbihi ajmaʿīn",
+        "en": "And may Allah bless our master Muhammad, his family and his companions, all of them."
+      },
+      {
+        "ar": "تَمَّ بِحَمْدِ اللّٰهِ ۞ وَمِنَ اللّٰهِ التَّوْفِيقُ ۞ اَلْفَاتِحَةُ",
+        "tr": "Tamma bi-ḥamdi-Llāh · Wa-mina-Llāhi t-tawfīq · Al-Fātiḥah",
+        "en": "Completed with the praise of Allah. Success is from Allah alone. — al-Fātiḥah."
+      }
+    ]
+  },
+  {
+    "titleArabic": "حِزْبُ الْوِقَايَةِ",
+    "titleEnglish": "Ḥizb al-Wiqāyah",
+    "video": "https://www.youtube.com/watch?v=58476RJVQc0",
+    "folios": [
+      {
+        "from": 0,
+        "to": 37
+      }
+    ],
+    "note": "Ḥizb al-Wiqāyah li-man arāda al-wilāyah — the Litany of Protection for whoever seeks nearness to Allah, known as al-Dawr al-Aʿlā (the Highest Cycle). Attributed to al-Shaykh al-Akbar Muḥyī ad-Dīn Ibn ʿArabī al-Ḥātimī aṭ-Ṭāʾī al-Andalusī (558–638 AH / 1164–1240 CE).",
+    "verses": [
+      {
+        "ar": "بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيمِ",
+        "tr": "Bismi-Llāhi r-Raḥmāni r-Raḥīm",
+        "en": "In the name of Allah, the All-Merciful, the Most Merciful."
+      },
+      {
+        "ar": "اَللّٰهُمَّ يَا حَيُّ يَا قَيُّومُ بِكَ تَحَصَّنْتُ فَاحْمِنِي بِحِمَايَةِ كِفَايَةِ وِقَايَةِ حَقِيقَةِ بُرْهَانِ حِرْزِ أَمَانٍ بِسْمِ اللّٰهِ",
+        "tr": "Allāhumma yā Ḥayyu yā Qayyūmu, bika taḥaṣṣantu fa-aḥminī bi-ḥimāyati kifāyati wiqāyati ḥaqīqati burhāni ḥirzi amānin, bismi-Llāh",
+        "en": "O Allah, O Living, O Self-Subsisting: in You I have taken refuge, so shield me with a protection of sufficiency, a safeguard of true reality, a proof, a fortress of security — in the name of Allah."
+      },
+      {
+        "ar": "وَأَدْخِلْنِي يَا أَوَّلُ يَا آخِرُ مَكْنُونَ غَيْبِ سِرِّ دَائِرَةِ كَنْزِ مَا شَاءَ اللّٰهُ لَا قُوَّةَ إِلَّا بِاللّٰهِ",
+        "tr": "Wa-adkhilnī yā Awwalu yā Ākhiru maknūna ghaybi sirri dāʾirati kanz — mā shāʾa Llāhu lā quwwata illā bi-Llāh",
+        "en": "And admit me, O First, O Last, into the hidden treasure of the unseen secret of the circle — whatever Allah wills; there is no power save through Allah."
+      },
+      {
+        "ar": "وَأَسْبِلْ عَلَيَّ يَا حَلِيمُ يَا سَتَّارُ كَنَفَ سِتْرِ حِجَابِ صِيَانَةِ نَجَاةٍ وَاعْتَصِمُوا بِحَبْلِ اللّٰهِ",
+        "tr": "Wa-asbil ʿalayya yā Ḥalīmu yā Sattāru kanafa sitri ḥijābi ṣiyānati najāh — waʿtaṣimū bi-ḥabli-Llāh",
+        "en": "And drape over me, O Forbearing, O Veiler, the shelter of a covering veil of preserving deliverance — and hold fast to the rope of Allah."
+      },
+      {
+        "ar": "وَابْنِ يَا مُحِيطُ يَا قَادِرُ عَلَيَّ سُورَ أَمَانِ إِحَاطَةِ مَجْدِ سُرَادِقِ عِزِّ عَظَمَةٍ ذٰلِكَ خَيْرٌ ذٰلِكَ مِنْ آيَاتِ اللّٰهِ",
+        "tr": "Wa-bni yā Muḥīṭu yā Qādiru ʿalayya sūra amāni iḥāṭati majdi surādiqi ʿizzi ʿaẓamah — dhālika khayrun, dhālika min āyāti-Llāh",
+        "en": "And build about me, O All-Encompassing, O Powerful, a wall of security — the enclosing of glory, the pavilion of might and majesty — that is better; that is among the signs of Allah."
+      },
+      {
+        "ar": "وَأَعِذْنِي يَا رَقِيبُ يَا مُجِيبُ وَاحْرُسْنِي فِي نَفْسِي وَدِينِي وَأَهْلِي وَمَالِي وَوَلَدِي بِكَلَاءَةِ إِغَاثَةِ إِعَاذَةٍ وَمَا هُمْ بِضَآرِّينَ بِهِ مِنْ أَحَدٍ إِلَّا بِإِذْنِ اللّٰهِ",
+        "tr": "Wa-aʿidhnī yā Raqību yā Mujību waḥrusnī fī nafsī wa-dīnī wa-ahlī wa-mālī wa-waladī bi-kalāʾati ighāthati iʿādhah — wa-mā hum bi-ḍārrīna bihi min aḥadin illā bi-idhni-Llāh",
+        "en": "And give me refuge, O Watchful, O Responsive, and guard me in my soul, my religion, my family, my wealth and my child with a sheltering succour of protection — and they cannot harm anyone thereby except by Allah's leave."
+      },
+      {
+        "ar": "وَقِنِي يَا مَانِعُ يَا نَافِعُ بِآيَاتِكَ وَأَسْمَآئِكَ وَكَلِمَاتِكَ شَرَّ ‖ الشَّيْطَانِ فَإِنْ بَغَى عَلَيَّ أَخَذَتْهُ غَاشِيَةٌ مِنْ عَذَابِ اللّٰهِ",
+        "tr": "Wa-qinī yā Māniʿu yā Nāfiʿu bi-āyātika wa-asmāʾika wa-kalimātika sharra sh-shayṭān — fa-in baghā ʿalayya akhadhat-hu ghāshiyatun min ʿadhābi-Llāh",
+        "en": "And guard me, O Withholder, O Bestower of benefit, by Your signs, Your names and Your words from the evil of Satan — and if he transgresses against me, an overwhelming portion of Allah's punishment seizes him."
+      },
+      {
+        "ar": "وَنَجِّنِي يَا مُذِلُّ يَا مُنْتَقِمُ مِنْ عَبِيدِكَ الظَّالِمِينَ الْبَاغِينَ عَلَيَّ وَأَعْوَانِهِمْ فَإِنْ هَمَّ لِي أَحَدٌ مِنْهُمْ بِسُوءٍ خَذَلَهُ اللّٰهُ",
+        "tr": "Wa-najjinī yā Mudhillu yā Muntaqimu min ʿabīdika ẓ-ẓālimīna l-bāghīna ʿalayya wa-aʿwānihim — fa-in hamma lī aḥadun minhum bi-sūʾin khadhalahu Llāh",
+        "en": "And deliver me, O Abaser, O Avenger, from Your servants who wrong and transgress against me, and their helpers — and if any of them intends me ill, Allah forsakes him."
+      },
+      {
+        "ar": "وَخَتَمَ عَلَى سَمْعِهِ وَقَلْبِهِ وَجَعَلَ عَلَى بَصَرِهِ غِشَاوَةً فَمَنْ يَهْدِيهِ مِنْ بَعْدِ اللّٰهِ",
+        "tr": "Wa-khatama ʿalā samʿihi wa-qalbihi wa-jaʿala ʿalā baṣarihi ghishāwah — fa-man yahdīhi min baʿdi-Llāh",
+        "en": "And He seals his hearing and his heart and lays a covering over his sight — so who will guide him after Allah?"
+      },
+      {
+        "ar": "وَاكْفِنِي يَا قَابِضُ يَا قَهَّارُ خَدِيعَةَ مَكْرِهِمْ وَارْدُدْهُمْ عَنِّي مَذْمُومِينَ مَدْحُورِينَ بِتَخْسِيرِ تَغْيِيرِ تَدْمِيرٍ فَمَا كَانَ لَهُ مِنْ فِئَةٍ يَنْصُرُونَهُ مِنْ دُونِ اللّٰهِ",
+        "tr": "Wa-kfinī yā Qābiḍu yā Qahhāru khadīʿata makrihim wardud-hum ʿannī madhmūmīna madḥūrīna bi-takhsīri taghyīri tadmīr — fa-mā kāna lahu min fiʾatin yanṣurūnahu min dūni-Llāh",
+        "en": "And spare me, O Constrictor, O Subduer, the deceit of their scheming, and turn them back from me blamed and banished — with loss, upheaval and ruin — for he had no party to help him besides Allah."
+      },
+      {
+        "ar": "وَأَذِقْنِي يَا سُبُّوحُ يَا قُدُّوسُ لَذَّةَ مُنَاجَاةٍ أَقْبِلْ وَلَا تَخَفْ إِنَّكَ مِنَ الْآمِنِينَ بِفَضْلِ اللّٰهِ",
+        "tr": "Wa-adhiqnī yā Subbūḥu yā Quddūsu ladhdhata munājāh — aqbil wa-lā takhaf innaka mina l-āminīna bi-faḍli-Llāh",
+        "en": "And let me taste, O All-Glorified, O All-Holy, the sweetness of intimate discourse — come forward and fear not, you are of those made secure, by the grace of Allah."
+      },
+      {
+        "ar": "وَأَذِقْهُمْ يَا ضَآرُّ يَا مُمِيتُ نَكَالَ وَبَالِ زَوَالٍ فَقُطِعَ دَابِرُ الْقَوْمِ الَّذِينَ ظَلَمُوا وَالْحَمْدُ لِلّٰهِ",
+        "tr": "Wa-adhiq-hum yā Ḍārru yā Mumītu nakāla wabāli zawāl — fa-quṭiʿa dābiru l-qawmi lladhīna ẓalamū wa-l-ḥamdu li-Llāh",
+        "en": "And make them taste, O Bringer of harm, O Giver of death, the punishment of ruin and passing away — so the last remnant of the wrongdoing folk was cut off; and praise be to Allah."
+      },
+      {
+        "ar": "وَأَمِنِّي يَا سَلَامُ يَا مُؤْمِنُ صَوْلَةَ جَوْلَةِ دَوْلَةِ الْأَعْدَآءِ بِغَايَةِ بِدَايَةِ آيَةٍ لَهُمُ الْبُشْرَى فِي الْحَيٰوةِ ‖ الدُّنْيَا وَفِي الْآخِرَةِ لَا تَبْدِيلَ لِكَلِمَاتِ اللّٰهِ",
+        "tr": "Wa-amminnī yā Salāmu yā Muʾminu ṣawlata jawlati dawlati l-aʿdāʾ bi-ghāyati bidāyati āyah — lahumu l-bushrā fī l-ḥayāti d-dunyā wa-fī l-ākhirah, lā tabdīla li-kalimāti-Llāh",
+        "en": "And secure me, O Peace, O Granter of safety, from the onslaught, sweep and turn of fortune of the enemies — theirs is the good tidings in the life of this world and in the Hereafter; there is no changing the words of Allah."
+      },
+      {
+        "ar": "وَتَوِّجْنِي يَا عَظِيمُ يَا مُعِزُّ بِتَاجِ مَهَابَةِ كِبْرِيَآءِ جَلَالِ سُلْطَانِ مَلَكُوتِ عِزِّ عَظَمَةٍ وَلَا يَحْزُنْكَ قَوْلُهُمْ إِنَّ الْعِزَّةَ لِلّٰهِ",
+        "tr": "Wa-tawwijnī yā ʿAẓīmu yā Muʿizzu bi-tāji mahābati kibriyāʾi jalāli sulṭāni malakūti ʿizzi ʿaẓamah — wa-lā yaḥzunka qawluhum, inna l-ʿizzata li-Llāh",
+        "en": "And crown me, O Magnificent, O Giver of honour, with the crown of awe, majesty, splendour, the dominion of the realm, might and grandeur — and let their speech not grieve you; indeed, all honour belongs to Allah."
+      },
+      {
+        "ar": "وَأَلْبِسْنِي يَا جَلِيلُ يَا كَبِيرُ خِلْعَةَ جَلَالِ جَمَالِ إِكْمَالِ إِقْبَالٍ فَلَمَّا رَأَيْنَهُ أَكْبَرْنَهُ وَقَطَّعْنَ أَيْدِيَهُنَّ وَقُلْنَ حَاشَ لِلّٰهِ",
+        "tr": "Wa-albisnī yā Jalīlu yā Kabīru khilʿata jalāli jamāli ikmāli iqbāl — fa-lammā raʾaynahu akbarnahu wa-qaṭṭaʿna aydiyahunna wa-qulna ḥāsha li-Llāh",
+        "en": "And robe me, O Majestic, O Great, in the mantle of majesty, beauty, perfection and favour — and when they saw him they exalted him, cut their hands, and said: Allah forbid!"
+      },
+      {
+        "ar": "وَأَلْقِ يَا عَزِيزُ يَا وَدُودُ عَلَيَّ مَحَبَّةً مِنْكَ فَتَنْقَادَ وَتَخْضَعَ لِي بِهَا قُلُوبُ عِبَادِكَ بِالْمَحَبَّةِ وَالْمَعَزَّةِ وَالْمَوَدَّةِ مِنْ تَعْطِيفِ تَأْلِيفٍ يُحِبُّونَهُمْ كَحُبِّ اللّٰهِ وَالَّذِينَ آمَنُوا أَشَدُّ حُبًّا لِلّٰهِ",
+        "tr": "Wa-alqi yā ʿAzīzu yā Wadūdu ʿalayya maḥabbatan minka fa-tanqāda wa-takhḍaʿa lī bihā qulūbu ʿibādika bi-l-maḥabbati wa-l-maʿazzati wa-l-mawaddati min taʿṭīfi taʾlīf — yuḥibbūnahum ka-ḥubbi-Llāh, wa-lladhīna āmanū ashaddu ḥubban li-Llāh",
+        "en": "And cast upon me, O Mighty, O Loving, a love from You, so that the hearts of Your servants yield and bow to me with it — in love, honour and affection, out of a tender joining — they love them as Allah is loved; but those who believe are firmer in love of Allah."
+      },
+      {
+        "ar": "وَأَظْهِرْ عَلَيَّ يَا ظَاهِرُ يَا بَاطِنُ آثَارَ أَسْرَارِ أَنْوَارٍ يُحِبُّهُمْ وَيُحِبُّونَهُ أَذِلَّةٍ عَلَى الْمُؤْمِنِينَ أَعِزَّةٍ عَلَى الْكَافِرِينَ يُجَاهِدُونَ فِي سَبِيلِ اللّٰهِ",
+        "tr": "Wa-aẓhir ʿalayya yā Ẓāhiru yā Bāṭinu āthāra asrāri anwār — yuḥibbuhum wa-yuḥibbūnahu, adhillatin ʿalā l-muʾminīn, aʿizzatin ʿalā l-kāfirīn, yujāhidūna fī sabīli-Llāh",
+        "en": "And manifest upon me, O Outward, O Inward, the traces of the secrets of lights — He loves them and they love Him; humble toward the believers, mighty against the disbelievers, striving in the way of Allah."
+      },
+      {
+        "ar": "وَوَجِّهِ اللّٰهُمَّ يَا صَمَدُ يَا نُورُ وَجْهِي بِصَفَآءِ جَمَالِ أُنْسِ إِشْرَاقٍ فَإِنْ حَآجُّوكَ ‖ فَقُلْ أَسْلَمْتُ وَجْهِيَ لِلّٰهِ",
+        "tr": "Wa-wajjihi Llāhumma yā Ṣamadu yā Nūru wajhī bi-ṣafāʾi jamāli unsi ishrāq — fa-in ḥājjūka fa-qul aslamtu wajhiya li-Llāh",
+        "en": "And turn my face, O Allah, O Eternal Refuge, O Light, with the purity of the beauty of intimacy and radiance — and if they dispute with you, say: I have submitted my face to Allah."
+      },
+      {
+        "ar": "وَجَمِّلْنِي يَا بَدِيعَ السَّمٰوَاتِ وَالْأَرْضِ يَا ذَا الْجَلَالِ وَالْإِكْرَامِ بِالْفَصَاحَةِ وَالْبَلَاغَةِ وَالْبَرَاعَةِ وَاحْلُلْ عُقْدَةً مِنْ لِسَانِي يَفْقَهُوا قَوْلِي بِرِقَّةِ رَأْفَةِ رَحْمَةٍ ثُمَّ تَلِينُ جُلُودُهُمْ وَقُلُوبُهُمْ إِلَى ذِكْرِ اللّٰهِ",
+        "tr": "Wa-jammilnī yā Badīʿa s-samāwāti wa-l-arḍi yā Dhā l-jalāli wa-l-ikrāmi bi-l-faṣāḥati wa-l-balāghati wa-l-barāʿah — waḥlul ʿuqdatan min lisānī yafqahū qawlī bi-riqqati raʾfati raḥmah, thumma talīnu julūduhum wa-qulūbuhum ilā dhikri-Llāh",
+        "en": "And adorn me, O Originator of the heavens and the earth, O Possessor of majesty and honour, with eloquence, clarity and skill — and loosen a knot from my tongue that they may understand my speech, with gentleness, kindness and mercy; then their skins and hearts soften to the remembrance of Allah."
+      },
+      {
+        "ar": "وَقَلِّدْنِي يَا شَدِيدَ الْبَطْشِ يَا جَبَّارُ يَا قَهَّارُ سَيْفَ الْهَيْبَةِ وَالشِّدَّةِ وَالْقُوَّةِ وَالْمَنَعَةِ مِنْ بَأْسِ جَبَرُوتِ عِزَّةٍ وَمَا النَّصْرُ إِلَّا مِنْ عِنْدِ اللّٰهِ",
+        "tr": "Wa-qallidnī yā Shadīda l-baṭshi yā Jabbāru yā Qahhāru sayfa l-haybati wa-sh-shiddati wa-l-quwwati wa-l-manaʿati min baʾsi jabarūti ʿizzah — wa-mā n-naṣru illā min ʿindi-Llāh",
+        "en": "And gird me, O Severe in grip, O Compeller, O Subduer, with the sword of awe, force, strength and defence, from the might of an overpowering glory — and victory is only from Allah."
+      },
+      {
+        "ar": "وَأَدِمْ عَلَيَّ يَا بَاسِطُ يَا فَتَّاحُ بَهْجَةَ مَسَرَّةٍ رَبِّ اشْرَحْ لِي صَدْرِي وَيَسِّرْ لِي أَمْرِي بِلَطَآئِفِ عَوَاطِفِ أَلَمْ نَشْرَحْ لَكَ صَدْرَكَ وَبِأَشَآئِرِ بَشَآئِرِ يَوْمَئِذٍ يَفْرَحُ الْمُؤْمِنُونَ بِنَصْرِ اللّٰهِ",
+        "tr": "Wa-adim ʿalayya yā Bāsiṭu yā Fattāḥu bahjata masarrah — rabbi shraḥ lī ṣadrī wa-yassir lī amrī — bi-laṭāʾifi ʿawāṭifi alam nashraḥ laka ṣadrak, wa-bi-ashāʾiri bashāʾiri yawmaʾidhin yafraḥu l-muʾminūna bi-naṣri-Llāh",
+        "en": "And make lasting upon me, O Expander, O Opener, the delight of gladness — my Lord, expand my breast for me and ease my affair — through the subtleties of the tenderness of 'Did We not expand your breast for you?', and by the glad tidings that on that day the believers rejoice at the help of Allah."
+      },
+      {
+        "ar": "وَأَنْزِلِ اللّٰهُمَّ يَا لَطِيفُ يَا رَؤُوفُ بِقَلْبِي الْإِيمَانَ وَالْاِطْمِئْنَانَ وَالسَّكِينَةَ لِأَكُونَ مِنَ الَّذِينَ آمَنُوا وَتَطْمَئِنُّ قُلُوبُهُمْ ‖ بِذِكْرِ اللّٰهِ",
+        "tr": "Wa-anzili Llāhumma yā Laṭīfu yā Raʾūfu bi-qalbī l-īmāna wa-l-iṭmiʾnāna wa-s-sakīnata li-akūna mina lladhīna āmanū — wa-taṭmaʾinnu qulūbuhum bi-dhikri-Llāh",
+        "en": "And send down, O Allah, O Subtle, O Compassionate, into my heart faith, tranquillity and serenity, that I may be of those who believe — and whose hearts find rest in the remembrance of Allah."
+      },
+      {
+        "ar": "وَأَفْرِغْ عَلَيَّ يَا صَبُورُ يَا شَكُورُ صَبْرَ الَّذِينَ تَدَرَّعُوا بِثَبَاتِ يَقِينٍ كَمْ مِنْ فِئَةٍ قَلِيلَةٍ غَلَبَتْ فِئَةً كَثِيرَةً بِإِذْنِ اللّٰهِ",
+        "tr": "Wa-afrigh ʿalayya yā Ṣabūru yā Shakūru ṣabra lladhīna tadarraʿū bi-thabāti yaqīn — kam min fiʾatin qalīlatin ghalabat fiʾatan kathīratan bi-idhni-Llāh",
+        "en": "And pour upon me, O Patient, O Grateful, the steadfastness of those who armoured themselves with firm certainty — how many a small band has overcome a large band by Allah's leave."
+      },
+      {
+        "ar": "وَاحْفَظْنِي يَا حَفِيظُ يَا وَكِيلُ مِنْ بَيْنِ يَدَيَّ وَمِنْ خَلْفِي وَعَنْ يَمِينِي وَعَنْ شِمَالِي وَمِنْ فَوْقِي وَمِنْ تَحْتِي بِوُجُودِ شُهُودِ جُنُودٍ لَهُ مُعَقِّبَاتٌ مِنْ بَيْنِ يَدَيْهِ وَمِنْ خَلْفِهِ يَحْفَظُونَهُ مِنْ أَمْرِ اللّٰهِ",
+        "tr": "Wa-ḥfaẓnī yā Ḥafīẓu yā Wakīlu min bayni yadayya wa-min khalfī wa-ʿan yamīnī wa-ʿan shimālī wa-min fawqī wa-min taḥtī bi-wujūdi shuhūdi junūd — lahu muʿaqqibātun min bayni yadayhi wa-min khalfihi yaḥfaẓūnahu min amri-Llāh",
+        "en": "And guard me, O Preserver, O Trustee, from before me, behind me, my right, my left, above me and below me, with the presence of witnessing hosts — he has attendant angels before him and behind him who guard him by the command of Allah."
+      },
+      {
+        "ar": "وَثَبِّتِ اللّٰهُمَّ يَا قَائِمُ يَا دَائِمُ قَدَمَيَّ كَمَا ثَبَّتَّ الْقَآئِلَ وَكَيْفَ أَخَافُ مَا أَشْرَكْتُمْ وَلَا تَخَافُونَ أَنَّكُمْ أَشْرَكْتُمْ بِاللّٰهِ",
+        "tr": "Wa-thabbiti Llāhumma yā Qāʾimu yā Dāʾimu qadamayya kamā thabbatta l-qāʾil — wa-kayfa akhāfu mā ashraktum wa-lā takhāfūna annakum ashraktum bi-Llāh",
+        "en": "And make my feet firm, O Allah, O Ever-standing, O Everlasting, as You made firm the one who said: 'And how should I fear what you associate, while you fear not that you have associated with Allah?'"
+      },
+      {
+        "ar": "وَانْصُرْنِي يَا نِعْمَ الْمَوْلَى وَيَا نِعْمَ النَّصِيرُ عَلَى أَعْدَائِي نَصْرَ الَّذِي قِيلَ لَهُ أَتَتَّخِذُنَا هُزُوًا قَالَ أَعُوذُ بِاللّٰهِ",
+        "tr": "Wa-nṣurnī yā niʿma l-mawlā wa-yā niʿma n-naṣīru ʿalā aʿdāʾī naṣra lladhī qīla lahu — atattakhidhunā huzuwan qāla aʿūdhu bi-Llāh",
+        "en": "And help me — O best of masters, O best of helpers — against my enemies, with the help of the one to whom it was said: 'Do you take us in ridicule?' He said: I seek refuge in Allah."
+      },
+      {
+        "ar": "وَأَيِّدْنِي يَا طَالِبُ يَا غَالِبُ بِتَأْيِيدِ نَبِيِّكَ مُحَمَّدٍ صَلَّى اللّٰهُ عَلَيْهِ وَسَلَّمَ الْمُؤَيَّدِ بِتَعْزِيزِ تَوْقِيرٍ إِنَّآ أَرْسَلْنَاكَ شَاهِدًا وَمُبَشِّرًا وَنَذِيرًا ‖ لِتُؤْمِنُوا بِاللّٰهِ",
+        "tr": "Wa-ayyidnī yā Ṭālibu yā Ghālibu bi-taʾyīdi nabiyyika Muḥammadin ṣallā Llāhu ʿalayhi wa-sallama l-muʾayyadi bi-taʿzīzi tawqīr — innā arsalnāka shāhidan wa-mubashshiran wa-nadhīran li-tuʾminū bi-Llāh",
+        "en": "And support me, O Seeker, O Victor, with the support of Your prophet Muḥammad ﷺ, the one aided with strengthening and reverence — 'We have sent you as a witness, a bearer of glad tidings and a warner,' that you may believe in Allah."
+      },
+      {
+        "ar": "وَاكْفِنِي يَا كَافِي يَا شَافِي الْأَعْدَآءَ وَالْأَسْوَآءَ بِعَوَآئِدِ فَوَآئِدِ لَوْ أَنْزَلْنَا هٰذَا الْقُرْآنَ عَلَى جَبَلٍ لَرَأَيْتَهُ خَاشِعًا مُتَصَدِّعًا مِنْ خَشْيَةِ اللّٰهِ",
+        "tr": "Wa-kfinī yā Kāfī yā Shāfī l-aʿdāʾa wa-l-aswāʾa bi-ʿawāʾidi fawāʾid — law anzalnā hādha l-qurʾāna ʿalā jabalin la-raʾaytahu khāshiʿan mutaṣaddiʿan min khashyati-Llāh",
+        "en": "And spare me, O Sufficer, O Healer, from enemies and evils, through recurring benefits — 'Had We sent down this Qurʾān upon a mountain, you would have seen it humbled, split asunder from the fear of Allah.'"
+      },
+      {
+        "ar": "وَامْنُنْ عَلَيَّ يَا وَهَّابُ يَا رَزَّاقُ بِحُصُولِ وُصُولِ قَبُولِ تَيْسِيرِ تَسْخِيرٍ كُلُوا وَاشْرَبُوا مِنْ رِزْقِ اللّٰهِ",
+        "tr": "Wa-mnun ʿalayya yā Wahhābu yā Razzāqu bi-ḥuṣūli wuṣūli qabūli taysīri taskhīr — kulū washrabū min rizqi-Llāh",
+        "en": "And bestow upon me, O Ever-Giving, O Provider, attainment, arrival, acceptance, facilitation and subjection — eat and drink from the provision of Allah."
+      },
+      {
+        "ar": "وَتَوَلَّنِي يَا وَلِيُّ يَا عَلِيُّ بِالْوِلَايَةِ وَالْعِنَايَةِ وَالرِّعَايَةِ وَالسَّلَامَةِ بِمَزِيدِ إِيرَادِ إِسْعَادِ إِمْدَادٍ ذٰلِكَ مِنْ فَضْلِ اللّٰهِ",
+        "tr": "Wa-tawallanī yā Waliyyu yā ʿAliyyu bi-l-wilāyati wa-l-ʿināyati wa-r-riʿāyati wa-s-salāmati bi-mazīdi īrādi isʿādi imdād — dhālika min faḍli-Llāh",
+        "en": "And take me under Your care, O Patron, O Exalted, with guardianship, solicitude, protection and safety, with an increase of provision, blessing and support — that is from the bounty of Allah."
+      },
+      {
+        "ar": "وَأَكْرِمْنِي يَا غَنِيُّ يَا كَرِيمُ بِالسَّعَادَةِ وَالْكَرَامَةِ وَالْمَغْفِرَةِ كَمَا أَكْرَمْتَ الَّذِينَ يَغُضُّونَ أَصْوَاتَهُمْ عِنْدَ رَسُولِ اللّٰهِ",
+        "tr": "Wa-akrimnī yā Ghaniyyu yā Karīmu bi-s-saʿādati wa-l-karāmati wa-l-maghfirah — kamā akramta lladhīna yaghuḍḍūna aṣwātahum ʿinda rasūli-Llāh",
+        "en": "And honour me, O Self-Sufficient, O Generous, with felicity, dignity and forgiveness — as You honoured those who lower their voices in the presence of the Messenger of Allah."
+      },
+      {
+        "ar": "وَتُبْ عَلَيَّ يَا تَوَّابُ يَا حَكِيمُ تَوْبَةً نَصُوحًا لِأَكُونَ مِنَ الَّذِينَ إِذَا فَعَلُوا فَاحِشَةً أَوْ ظَلَمُوا أَنْفُسَهُمْ ذَكَرُوا اللّٰهَ فَاسْتَغْفَرُوا لِذُنُوبِهِمْ وَمَنْ يَغْفِرُ الذُّنُوبَ إِلَّا اللّٰهُ",
+        "tr": "Wa-tub ʿalayya yā Tawwābu yā Ḥakīmu tawbatan naṣūḥan li-akūna mina lladhīna idhā faʿalū fāḥishatan aw ẓalamū anfusahum dhakarū Llāha fa-staghfarū li-dhunūbihim — wa-man yaghfiru dh-dhunūba illā Llāh",
+        "en": "And accept my repentance, O Ever-Relenting, O Wise — a sincere repentance — that I may be of those who, when they commit an indecency or wrong themselves, remember Allah and seek forgiveness for their sins — and who forgives sins but Allah?"
+      },
+      {
+        "ar": "وَأَلْزِمْنِي يَا وَاحِدُ يَا ‖ أَحَدُ كَلِمَةَ التَّقْوَى كَمَا أَلْزَمْتَ حَبِيبَكَ مُحَمَّدًا صَلَّى اللّٰهُ عَلَيْهِ وَسَلَّمَ حَيْثُ قُلْتَ فَاعْلَمْ أَنَّهُ لَا إِلٰهَ إِلَّا اللّٰهُ",
+        "tr": "Wa-alzimnī yā Wāḥidu yā Aḥadu kalimata t-taqwā kamā alzamta ḥabībaka Muḥammadan ṣallā Llāhu ʿalayhi wa-sallama ḥaythu qulta — faʿlam annahu lā ilāha illā Llāh",
+        "en": "And bind me, O One, O Unique, to the word of God-consciousness, as You bound Your beloved Muḥammad ﷺ, when You said: 'Know that there is no god but Allah.'"
+      },
+      {
+        "ar": "وَاخْتِمْ لِي يَا رَحْمٰنُ يَا رَحِيمُ بِحُسْنِ خَاتِمَةِ النَّاجِينَ وَالرَّاجِينَ قُلْ يَا عِبَادِيَ الَّذِينَ أَسْرَفُوا عَلَى أَنْفُسِهِمْ لَا تَقْنَطُوا مِنْ رَحْمَةِ اللّٰهِ",
+        "tr": "Wa-khtim lī yā Raḥmānu yā Raḥīmu bi-ḥusni khātimati n-nājīna wa-r-rājīn — qul yā ʿibādiya lladhīna asrafū ʿalā anfusihim lā taqnaṭū min raḥmati-Llāh",
+        "en": "And seal for me, O All-Merciful, O Ever-Merciful, a goodly end among the saved and the hopeful — say: 'O My servants who have transgressed against themselves, despair not of the mercy of Allah.'"
+      },
+      {
+        "ar": "وَأَسْكِنِّي يَا سَمِيعُ يَا قَرِيبُ جَنَّةً أُعِدَّتْ لِلْمُتَّقِينَ دَعْوٰيهُمْ فِيهَا سُبْحَانَكَ اللّٰهُمَّ وَتَحِيَّتُهُمْ فِيهَا سَلَامٌ وَآخِرُ دَعْوٰيهُمْ أَنِ الْحَمْدُ لِلّٰهِ",
+        "tr": "Wa-askinnī yā Samīʿu yā Qarību jannatan uʿiddat li-l-muttaqīn — daʿwāhum fīhā subḥānaka Llāhumma wa-taḥiyyatuhum fīhā salām, wa-ākhiru daʿwāhum ani l-ḥamdu li-Llāh",
+        "en": "And lodge me, O All-Hearing, O Near, in a Garden prepared for the God-fearing — their call therein is 'Glory be to You, O Allah', their greeting therein is 'Peace', and the close of their call is 'Praise be to Allah'."
+      },
+      {
+        "ar": "يَا اللّٰهُ يَا اللّٰهُ يَا اللّٰهُ يَا اللّٰهُ يَا رَبِّ يَا رَبِّ يَا نَافِعُ يَا رَحْمٰنُ يَا رَحِيمُ",
+        "tr": "Yā Allāhu yā Allāhu yā Allāhu yā Allāhu, yā Rabbi yā Rabbi, yā Nāfiʿu yā Raḥmānu yā Raḥīm",
+        "en": "O Allah, O Allah, O Allah, O Allah; O my Lord, O my Lord; O Bestower of benefit, O All-Merciful, O Ever-Merciful."
+      },
+      {
+        "ar": "أَسْأَلُكَ بِحُرْمَةِ هٰذِهِ الْأَسْمَآءِ وَالْآيَاتِ وَالْكَلِمَاتِ سُلْطَانًا نَصِيرًا وَرِزْقًا كَثِيرًا وَقَلْبًا قَرِيرًا وَقَبْرًا مُنِيرًا وَحِسَابًا يَسِيرًا وَأَجْرًا كَبِيرًا",
+        "tr": "As-aluka bi-ḥurmati hādhihi l-asmāʾi wa-l-āyāti wa-l-kalimāti sulṭānan naṣīran wa-rizqan kathīran wa-qalban qarīran wa-qabran munīran wa-ḥisāban yasīran wa-ajran kabīrā",
+        "en": "I ask You, by the sanctity of these names, signs and words, for a helping authority, abundant provision, a contented heart, a luminous grave, an easy reckoning and a great reward."
+      },
+      {
+        "ar": "وَصَلَّى اللّٰهُ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِهِ وَصَحْبِهِ وَسَلَّمَ تَسْلِيمًا كَبِيرًا",
+        "tr": "Wa-ṣallā Llāhu ʿalā sayyidinā Muḥammadin wa-ʿalā ālihi wa-ṣaḥbihi wa-sallama taslīman kabīrā",
+        "en": "And may Allah bless our master Muḥammad and his family and companions, and grant them abundant peace."
+      }
+    ]
+  },
+  {
+    "titleArabic": "حِزْبُ الْاِسْتِغْفَارِ",
+    "titleEnglish": "Ḥizb al-Istighfār",
+    "verses": []
+  },
+  {
+    "titleArabic": "الْحِزْبُ الْأَعْظَمُ",
+    "titleEnglish": "Al-Ḥizb al-Aʿẓam",
+    "verses": []
+  },
+  {
+    "titleArabic": "وِرْدُ يَوْمِ السَّبْتِ",
+    "titleEnglish": "Al-Ḥizb al-Aʿẓam · Saturday",
+    "cartouche": "وِرْدُ يَوْمِ السَّبْتِ",
+    "note": "The Saturday portion of al-Ḥizb al-Aʿẓam of Mullā ʿAlī al-Qārī (d. 1014 AH) — the Qurʾānic supplications, the ninety-nine Names, and the morning adhkār. Set page for page after the printed edition, pp. 134–146.",
+    "folios": [
+      {
+        "from": 0,
+        "to": 212
+      }
+    ],
+    "verses": [
+      {
+        "ar": "اَعُوذُ بِاللّٰهِ مِنَ الشَّيْطَانِ الرَّجِيمِ ۞ بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيمِ",
+        "noRosette": true
+      },
+      {
+        "ar": "اَلْحَمْدُ لِلّٰهِ رَبِّ الْعَالَمِينَ"
+      },
+      {
+        "ar": "اَلرَّحْمٰنِ الرَّحِيمِ"
+      },
+      {
+        "ar": "مَالِكِ يَوْمِ الدِّينِ"
+      },
+      {
+        "ar": "اِيَّاكَ نَعْبُدُ وَاِيَّاكَ نَسْتَعِينُ"
+      },
+      {
+        "ar": "اِهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ"
+      },
+      {
+        "ar": "صِرَاطَ الَّذِينَ اَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ"
+      },
+      {
+        "ar": "رَبَّنَا تَقَبَّلْ مِنَّا اِنَّكَ اَنْتَ السَّمِيعُ الْعَلِيمُ"
+      },
+      {
+        "ar": "رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ"
+      },
+      {
+        "ar": "رَبَّنَا اَفْرِغْ عَلَيْنَا صَبْرًا وَثَبِّتْ اَقْدَامَنَا وَانْصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ"
+      },
+      {
+        "ar": "سَمِعْنَا وَاَطَعْنَا غُفْرَانَكَ رَبَّنَا وَاِلَيْكَ الْمَصِيرُ"
+      },
+      {
+        "ar": "رَبَّنَا لَا تُؤَاخِذْنَا اِنْ نَسِينَا اَوْ اَخْطَأْنَا، رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَا اِصْرًا كَمَا حَمَلْتَهُ عَلَى الَّذِينَ مِنْ قَبْلِنَا ‖ رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِهِ وَاعْفُ عَنَّا وَاغْفِرْ لَنَا وَارْحَمْنَا اَنْتَ مَوْلَانَا فَانْصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ"
+      },
+      {
+        "ar": "رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ اِذْ هَدَيْتَنَا وَهَبْ لَنَا مِنْ لَدُنْكَ رَحْمَةً اِنَّكَ اَنْتَ الْوَهَّابُ"
+      },
+      {
+        "ar": "رَبَّنَا اِنَّكَ جَامِعُ النَّاسِ لِيَوْمٍ لَا رَيْبَ فِيهِ اِنَّ اللّٰهَ لَا يُخْلِفُ الْمِيعَادَ"
+      },
+      {
+        "ar": "رَبَّنَا اِنَّنَا آمَنَّا فَاغْفِرْ لَنَا ذُنُوبَنَا وَقِنَا عَذَابَ النَّارِ"
+      },
+      {
+        "ar": "قُلِ اللّٰهُمَّ مَالِكَ الْمُلْكِ تُؤْتِي الْمُلْكَ مَنْ تَشَاءُ وَتَنْزِعُ الْمُلْكَ مِمَّنْ تَشَاءُ وَتُعِزُّ مَنْ تَشَاءُ وَتُذِلُّ مَنْ تَشَاءُ بِيَدِكَ الْخَيْرُ اِنَّكَ عَلٰى كُلِّ شَيْءٍ قَدِيرٌ"
+      },
+      {
+        "ar": "تُولِجُ اللَّيْلَ فِي النَّهَارِ وَتُولِجُ النَّهَارَ فِي اللَّيْلِ وَتُخْرِجُ الْحَيَّ مِنَ الْمَيِّتِ وَتُخْرِجُ الْمَيِّتَ مِنَ الْحَيِّ وَتَرْزُقُ مَنْ تَشَاءُ بِغَيْرِ حِسَابٍ"
+      },
+      {
+        "ar": "رَبَّنَا آمَنَّا بِمَا اَنْزَلْتَ وَاتَّبَعْنَا الرَّسُولَ فَاكْتُبْنَا مَعَ الشَّاهِدِينَ"
+      },
+      {
+        "ar": "رَبَّنَا اغْفِرْ لَنَا ‖ ذُنُوبَنَا وَاِسْرَافَنَا فِي اَمْرِنَا وَثَبِّتْ اَقْدَامَنَا وَانْصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ"
+      },
+      {
+        "ar": "رَبَّنَا مَا خَلَقْتَ هٰذَا بَاطِلًا سُبْحَانَكَ فَقِنَا عَذَابَ النَّارِ"
+      },
+      {
+        "ar": "رَبَّنَا اِنَّكَ مَنْ تُدْخِلِ النَّارَ فَقَدْ اَخْزَيْتَهُ وَمَا لِلظَّالِمِينَ مِنْ اَنْصَارٍ"
+      },
+      {
+        "ar": "رَبَّنَا اِنَّنَا سَمِعْنَا مُنَادِيًا يُنَادِي لِلْاِيمَانِ اَنْ آمِنُوا بِرَبِّكُمْ فَآمَنَّا رَبَّنَا فَاغْفِرْ لَنَا ذُنُوبَنَا وَكَفِّرْ عَنَّا سَيِّئَاتِنَا وَتَوَفَّنَا مَعَ الْاَبْرَارِ"
+      },
+      {
+        "ar": "رَبَّنَا وَآتِنَا مَا وَعَدْتَنَا عَلٰى رُسُلِكَ وَلَا تُخْزِنَا يَوْمَ الْقِيَامَةِ اِنَّكَ لَا تُخْلِفُ الْمِيعَادَ"
+      },
+      {
+        "ar": "رَبَّنَا اَنْزِلْ عَلَيْنَا مَائِدَةً مِنَ السَّمَاءِ تَكُونُ لَنَا عِيدًا لِاَوَّلِنَا وَآخِرِنَا وَآيَةً مِنْكَ وَارْزُقْنَا وَاَنْتَ خَيْرُ الرَّازِقِينَ"
+      },
+      {
+        "ar": "رَبَّنَا ظَلَمْنَا اَنْفُسَنَا وَاِنْ لَمْ تَغْفِرْ لَنَا وَتَرْحَمْنَا لَنَكُونَنَّ مِنَ الْخَاسِرِينَ"
+      },
+      {
+        "ar": "رَبَّنَا افْتَحْ بَيْنَنَا وَبَيْنَ قَوْمِنَا بِالْحَقِّ وَاَنْتَ خَيْرُ الْفَاتِحِينَ"
+      },
+      {
+        "ar": "رَبَّنَا اَفْرِغْ ‖ عَلَيْنَا صَبْرًا وَتَوَفَّنَا مُسْلِمِينَ"
+      },
+      {
+        "ar": "رَبِّ اغْفِرْ لِي وَلِاَخِي وَاَدْخِلْنَا فِي رَحْمَتِكَ وَاَنْتَ اَرْحَمُ الرَّاحِمِينَ"
+      },
+      {
+        "ar": "عَلَى اللّٰهِ تَوَكَّلْنَا رَبَّنَا لَا تَجْعَلْنَا فِتْنَةً لِلْقَوْمِ الظَّالِمِينَ وَنَجِّنَا بِرَحْمَتِكَ مِنَ الْقَوْمِ الْكَافِرِينَ"
+      },
+      {
+        "ar": "رَبِّ اِنِّي اَعُوذُ بِكَ اَنْ اَسْأَلَكَ مَا لَيْسَ لِي بِهِ عِلْمٌ وَاِلَّا تَغْفِرْ لِي وَتَرْحَمْنِي اَكُنْ مِنَ الْخَاسِرِينَ"
+      },
+      {
+        "ar": "فَاطِرَ السَّمَاوَاتِ وَالْاَرْضِ اَنْتَ وَلِيِّي فِي الدُّنْيَا وَالْآخِرَةِ تَوَفَّنِي مُسْلِمًا وَاَلْحِقْنِي بِالصَّالِحِينَ"
+      },
+      {
+        "ar": "رَبِّ اجْعَلْنِي مُقِيمَ الصَّلَاةِ وَمِنْ ذُرِّيَّتِي رَبَّنَا وَتَقَبَّلْ دُعَاءِ"
+      },
+      {
+        "ar": "رَبَّنَا اغْفِرْ لِي وَلِوَالِدَيَّ وَلِلْمُؤْمِنِينَ يَوْمَ يَقُومُ الْحِسَابُ"
+      },
+      {
+        "ar": "رَبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا"
+      },
+      {
+        "ar": "رَبِّ اَدْخِلْنِي مُدْخَلَ صِدْقٍ وَاَخْرِجْنِي مُخْرَجَ صِدْقٍ وَاجْعَلْ لِي مِنْ لَدُنْكَ سُلْطَانًا نَصِيرًا"
+      },
+      {
+        "ar": "رَبَّنَا آتِنَا مِنْ لَدُنْكَ رَحْمَةً وَهَيِّئْ لَنَا ‖ مِنْ اَمْرِنَا رَشَدًا"
+      },
+      {
+        "ar": "رَبِّ اشْرَحْ لِي صَدْرِي وَيَسِّرْ لِي اَمْرِي"
+      },
+      {
+        "ar": "رَبِّ زِدْنِي عِلْمًا"
+      },
+      {
+        "ar": "اَنِّي مَسَّنِيَ الضُّرُّ وَاَنْتَ اَرْحَمُ الرَّاحِمِينَ"
+      },
+      {
+        "ar": "لَا اِلٰهَ اِلَّا اَنْتَ سُبْحَانَكَ اِنِّي كُنْتُ مِنَ الظَّالِمِينَ"
+      },
+      {
+        "ar": "رَبِّ لَا تَذَرْنِي فَرْدًا وَاَنْتَ خَيْرُ الْوَارِثِينَ"
+      },
+      {
+        "ar": "رَبِّ احْكُمْ بِالْحَقِّ وَرَبُّنَا الرَّحْمٰنُ الْمُسْتَعَانُ عَلٰى مَا تَصِفُونَ"
+      },
+      {
+        "ar": "رَبِّ اَنْزِلْنِي مُنْزَلًا مُبَارَكًا وَاَنْتَ خَيْرُ الْمُنْزِلِينَ"
+      },
+      {
+        "ar": "رَبِّ فَلَا تَجْعَلْنِي فِي الْقَوْمِ الظَّالِمِينَ"
+      },
+      {
+        "ar": "رَبِّ اَعُوذُ بِكَ مِنْ هَمَزَاتِ الشَّيَاطِينِ وَاَعُوذُ بِكَ رَبِّ اَنْ يَحْضُرُونِ"
+      },
+      {
+        "ar": "رَبَّنَا آمَنَّا فَاغْفِرْ لَنَا وَارْحَمْنَا وَاَنْتَ خَيْرُ الرَّاحِمِينَ"
+      },
+      {
+        "ar": "رَبِّ اغْفِرْ وَارْحَمْ وَاَنْتَ خَيْرُ الرَّاحِمِينَ"
+      },
+      {
+        "ar": "رَبَّنَا اصْرِفْ عَنَّا عَذَابَ جَهَنَّمَ اِنَّ عَذَابَهَا كَانَ غَرَامًا"
+      },
+      {
+        "ar": "اِنَّهَا سَاءَتْ مُسْتَقَرًّا وَمُقَامًا"
+      },
+      {
+        "ar": "رَبَّنَا هَبْ لَنَا مِنْ اَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ اَعْيُنٍ وَاجْعَلْنَا ‖ لِلْمُتَّقِينَ اِمَامًا"
+      },
+      {
+        "ar": "رَبِّ هَبْ لِي حُكْمًا وَاَلْحِقْنِي بِالصَّالِحِينَ"
+      },
+      {
+        "ar": "وَاجْعَلْ لِي لِسَانَ صِدْقٍ فِي الْآخِرِينَ"
+      },
+      {
+        "ar": "وَاجْعَلْنِي مِنْ وَرَثَةِ جَنَّةِ النَّعِيمِ"
+      },
+      {
+        "ar": "وَلَا تُخْزِنِي يَوْمَ يُبْعَثُونَ"
+      },
+      {
+        "ar": "يَوْمَ لَا يَنْفَعُ مَالٌ وَلَا بَنُونَ اِلَّا مَنْ اَتَى اللّٰهَ بِقَلْبٍ سَلِيمٍ"
+      },
+      {
+        "ar": "رَبِّ نَجِّنِي وَاَهْلِي مِمَّا يَعْمَلُونَ"
+      },
+      {
+        "ar": "رَبِّ اَوْزِعْنِي اَنْ اَشْكُرَ نِعْمَتَكَ الَّتِي اَنْعَمْتَ عَلَيَّ وَعَلٰى وَالِدَيَّ وَاَنْ اَعْمَلَ صَالِحًا تَرْضَاهُ وَاَدْخِلْنِي بِرَحْمَتِكَ فِي عِبَادِكَ الصَّالِحِينَ"
+      },
+      {
+        "ar": "رَبِّ اِنِّي ظَلَمْتُ نَفْسِي فَاغْفِرْ لِي"
+      },
+      {
+        "ar": "رَبِّ اِنِّي لِمَا اَنْزَلْتَ اِلَيَّ مِنْ خَيْرٍ فَقِيرٌ"
+      },
+      {
+        "ar": "رَبِّ انْصُرْنِي عَلَى الْقَوْمِ الْمُفْسِدِينَ"
+      },
+      {
+        "ar": "فَسُبْحَانَ اللّٰهِ حِينَ تُمْسُونَ وَحِينَ تُصْبِحُونَ"
+      },
+      {
+        "ar": "وَلَهُ الْحَمْدُ فِي السَّمَاوَاتِ وَالْاَرْضِ وَعَشِيًّا وَحِينَ تُظْهِرُونَ"
+      },
+      {
+        "ar": "يُخْرِجُ الْحَيَّ مِنَ الْمَيِّتِ وَيُخْرِجُ الْمَيِّتَ مِنَ الْحَيِّ وَيُحْيِي ‖ الْاَرْضَ بَعْدَ مَوْتِهَا وَكَذٰلِكَ تُخْرَجُونَ"
+      },
+      {
+        "ar": "رَبِّ هَبْ لِي مِنَ الصَّالِحِينَ"
+      },
+      {
+        "ar": "قُلِ اللّٰهُمَّ فَاطِرَ السَّمَاوَاتِ وَالْاَرْضِ عَالِمَ الْغَيْبِ وَالشَّهَادَةِ اَنْتَ تَحْكُمُ بَيْنَ عِبَادِكَ فِيمَا كَانُوا فِيهِ يَخْتَلِفُونَ"
+      },
+      {
+        "ar": "رَبِّ اَوْزِعْنِي اَنْ اَشْكُرَ نِعْمَتَكَ الَّتِي اَنْعَمْتَ عَلَيَّ وَعَلٰى وَالِدَيَّ وَاَنْ اَعْمَلَ صَالِحًا تَرْضَاهُ وَاَصْلِحْ لِي فِي ذُرِّيَّتِي اِنِّي تُبْتُ اِلَيْكَ وَاِنِّي مِنَ الْمُسْلِمِينَ"
+      },
+      {
+        "ar": "رَبَّنَا اغْفِرْ لَنَا وَلِاِخْوَانِنَا الَّذِينَ سَبَقُونَا بِالْاِيمَانِ وَلَا تَجْعَلْ فِي قُلُوبِنَا غِلًّا لِلَّذِينَ آمَنُوا رَبَّنَا اِنَّكَ رَؤُوفٌ رَحِيمٌ"
+      },
+      {
+        "ar": "رَبَّنَا عَلَيْكَ تَوَكَّلْنَا وَاِلَيْكَ اَنَبْنَا وَاِلَيْكَ الْمَصِيرُ"
+      },
+      {
+        "ar": "رَبَّنَا لَا تَجْعَلْنَا فِتْنَةً لِلَّذِينَ كَفَرُوا وَاغْفِرْ لَنَا رَبَّنَا اِنَّكَ اَنْتَ الْعَزِيزُ الْحَكِيمُ"
+      },
+      {
+        "ar": "رَبَّنَا اَتْمِمْ لَنَا نُورَنَا وَاغْفِرْ لَنَا اِنَّكَ عَلٰى كُلِّ شَيْءٍ قَدِيرٌ"
+      },
+      {
+        "ar": "رَبِّ اغْفِرْ لِي وَلِوَالِدَيَّ وَلِمَنْ دَخَلَ ‖ بَيْتِيَ مُؤْمِنًا وَلِلْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ"
+      },
+      {
+        "ar": "بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيمِ"
+      },
+      {
+        "ar": "قُلْ اَعُوذُ بِرَبِّ الْفَلَقِ"
+      },
+      {
+        "ar": "مِنْ شَرِّ مَا خَلَقَ"
+      },
+      {
+        "ar": "وَمِنْ شَرِّ غَاسِقٍ اِذَا وَقَبَ"
+      },
+      {
+        "ar": "وَمِنْ شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ"
+      },
+      {
+        "ar": "وَمِنْ شَرِّ حَاسِدٍ اِذَا حَسَدَ"
+      },
+      {
+        "ar": "بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيمِ"
+      },
+      {
+        "ar": "قُلْ اَعُوذُ بِرَبِّ النَّاسِ"
+      },
+      {
+        "ar": "مَلِكِ النَّاسِ"
+      },
+      {
+        "ar": "اِلٰهِ النَّاسِ"
+      },
+      {
+        "ar": "مِنْ شَرِّ الْوَسْوَاسِ الْخَنَّاسِ"
+      },
+      {
+        "ar": "الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ"
+      },
+      {
+        "ar": "مِنَ الْجِنَّةِ وَالنَّاسِ"
+      },
+      {
+        "ar": "سُبْحَانَكَ اللّٰهُمَّ وَتَحِيَّتُهُمْ فِيهَا سَلَامٌ وَآخِرُ دَعْوَاهُمْ اَنِ الْحَمْدُ لِلّٰهِ رَبِّ الْعَالَمِينَ"
+      },
+      {
+        "ar": "قَالَ اللّٰهُ تَعَالَى"
+      },
+      {
+        "ar": "وَلِلّٰهِ الْاَسْمَاءُ الْحُسْنَى فَادْعُوهُ بِهَا"
+      },
+      {
+        "ar": "وَقَالَ صَلَّى اللّٰهُ تَعَالَى عَلَيْهِ وَسَلَّمَ"
+      },
+      {
+        "ar": "اِنَّ لِلّٰهِ تِسْعَةً وَتِسْعِينَ اِسْمًا مَنْ اَحْصَاهَا دَخَلَ الْجَنَّةَ"
+      },
+      {
+        "ar": "وَفِي رِوَايَةٍ مَنْ حَفِظَهَا ‖",
+        "noRosette": true,
+        "shortPage": true
+      },
+      {
+        "ar": "هُوَ اللّٰهُ الَّذِى لَا اِلٰهَ اِلَّا هُوَ",
+        "sep": "ﷻ",
+        "tr": "Huwa-Llāhu lladhī lā ilāha illā Hū",
+        "en": "He is Allah, other than whom there is no god.",
+        "band": "اَلْاَسْمَاءُ الْحُسْنَى"
+      },
+      {
+        "ar": "الرَّحْمٰنُ",
+        "sep": "ﷻ",
+        "tr": "Ar-Raḥmān",
+        "en": "The All-Merciful"
+      },
+      {
+        "ar": "الرَّحِيمُ",
+        "sep": "ﷻ",
+        "tr": "Ar-Raḥīm",
+        "en": "The Most Merciful"
+      },
+      {
+        "ar": "الْمَلِكُ",
+        "sep": "ﷻ",
+        "tr": "Al-Malik",
+        "en": "The Sovereign"
+      },
+      {
+        "ar": "الْقُدُّوسُ",
+        "sep": "ﷻ",
+        "tr": "Al-Quddūs",
+        "en": "The Most Holy"
+      },
+      {
+        "ar": "السَّلَامُ",
+        "sep": "ﷻ",
+        "tr": "As-Salām",
+        "en": "The Source of Peace"
+      },
+      {
+        "ar": "الْمُؤْمِنُ",
+        "sep": "ﷻ",
+        "tr": "Al-Muʾmin",
+        "en": "The Giver of Faith and Safety"
+      },
+      {
+        "ar": "الْمُهَيْمِنُ",
+        "sep": "ﷻ",
+        "tr": "Al-Muhaymin",
+        "en": "The Guardian over all"
+      },
+      {
+        "ar": "الْعَزِيزُ",
+        "sep": "ﷻ",
+        "tr": "Al-ʿAzīz",
+        "en": "The Almighty"
+      },
+      {
+        "ar": "الْجَبَّارُ",
+        "sep": "ﷻ",
+        "tr": "Al-Jabbār",
+        "en": "The Compeller"
+      },
+      {
+        "ar": "الْمُتَكَبِّرُ",
+        "sep": "ﷻ",
+        "tr": "Al-Mutakabbir",
+        "en": "The Supreme in Greatness"
+      },
+      {
+        "ar": "الْخَالِقُ",
+        "sep": "ﷻ",
+        "tr": "Al-Khāliq",
+        "en": "The Creator"
+      },
+      {
+        "ar": "الْبَارِئُ",
+        "sep": "ﷻ",
+        "tr": "Al-Bāriʾ",
+        "en": "The Maker"
+      },
+      {
+        "ar": "الْمُصَوِّرُ",
+        "sep": "ﷻ",
+        "tr": "Al-Muṣawwir",
+        "en": "The Fashioner of Forms"
+      },
+      {
+        "ar": "الْغَفَّارُ",
+        "sep": "ﷻ",
+        "tr": "Al-Ghaffār",
+        "en": "The Ever-Forgiving"
+      },
+      {
+        "ar": "الْقَهَّارُ",
+        "sep": "ﷻ",
+        "tr": "Al-Qahhār",
+        "en": "The Subduer"
+      },
+      {
+        "ar": "الْوَهَّابُ",
+        "sep": "ﷻ",
+        "tr": "Al-Wahhāb",
+        "en": "The Bestower"
+      },
+      {
+        "ar": "الرَّزَّاقُ",
+        "sep": "ﷻ",
+        "tr": "Ar-Razzāq",
+        "en": "The Provider"
+      },
+      {
+        "ar": "الْفَتَّاحُ",
+        "sep": "ﷻ",
+        "tr": "Al-Fattāḥ",
+        "en": "The Opener"
+      },
+      {
+        "ar": "الْعَلِيمُ",
+        "sep": "ﷻ",
+        "tr": "Al-ʿAlīm",
+        "en": "The All-Knowing"
+      },
+      {
+        "ar": "الْقَابِضُ",
+        "sep": "ﷻ",
+        "tr": "Al-Qābiḍ",
+        "en": "The Constrictor"
+      },
+      {
+        "ar": "الْبَاسِطُ",
+        "sep": "ﷻ",
+        "tr": "Al-Bāsiṭ",
+        "en": "The Expander"
+      },
+      {
+        "ar": "الْخَافِضُ",
+        "sep": "ﷻ",
+        "tr": "Al-Khāfiḍ",
+        "en": "The Abaser"
+      },
+      {
+        "ar": "الرَّافِعُ",
+        "sep": "ﷻ",
+        "tr": "Ar-Rāfiʿ",
+        "en": "The Exalter"
+      },
+      {
+        "ar": "الْمُعِزُّ",
+        "sep": "ﷻ",
+        "tr": "Al-Muʿizz",
+        "en": "The Giver of Honour"
+      },
+      {
+        "ar": "الْمُذِلُّ",
+        "sep": "ﷻ",
+        "tr": "Al-Mudhill",
+        "en": "The Giver of Abasement"
+      },
+      {
+        "ar": "السَّمِيعُ",
+        "sep": "ﷻ",
+        "tr": "As-Samīʿ",
+        "en": "The All-Hearing"
+      },
+      {
+        "ar": "الْبَصِيرُ",
+        "sep": "ﷻ",
+        "tr": "Al-Baṣīr",
+        "en": "The All-Seeing"
+      },
+      {
+        "ar": "الْحَكَمُ",
+        "sep": "ﷻ",
+        "tr": "Al-Ḥakam",
+        "en": "The Judge"
+      },
+      {
+        "ar": "الْعَدْلُ",
+        "sep": "ﷻ",
+        "tr": "Al-ʿAdl",
+        "en": "The Utterly Just"
+      },
+      {
+        "ar": "اللَّطِيفُ",
+        "sep": "ﷻ",
+        "tr": "Al-Laṭīf",
+        "en": "The Subtle and Kind"
+      },
+      {
+        "ar": "الْخَبِيرُ",
+        "sep": "ﷻ",
+        "tr": "Al-Khabīr",
+        "en": "The All-Aware"
+      },
+      {
+        "ar": "الْحَلِيمُ",
+        "sep": "ﷻ",
+        "tr": "Al-Ḥalīm",
+        "en": "The Forbearing"
+      },
+      {
+        "ar": "الْعَظِيمُ",
+        "sep": "ﷻ",
+        "tr": "Al-ʿAẓīm",
+        "en": "The Magnificent"
+      },
+      {
+        "ar": "الْغَفُورُ",
+        "sep": "ﷻ",
+        "tr": "Al-Ghafūr",
+        "en": "The Forgiving"
+      },
+      {
+        "ar": "الشَّكُورُ",
+        "sep": "ﷻ",
+        "tr": "Ash-Shakūr",
+        "en": "The Most Appreciative"
+      },
+      {
+        "ar": "الْعَلِىُّ",
+        "sep": "ﷻ",
+        "tr": "Al-ʿAliyy",
+        "en": "The Most High"
+      },
+      {
+        "ar": "الْكَبِيرُ",
+        "sep": "ﷻ",
+        "tr": "Al-Kabīr",
+        "en": "The Most Great"
+      },
+      {
+        "ar": "الْحَفِيظُ",
+        "sep": "ﷻ",
+        "tr": "Al-Ḥafīẓ",
+        "en": "The Preserver"
+      },
+      {
+        "ar": "الْمُقِيتُ",
+        "sep": "ﷻ",
+        "tr": "Al-Muqīt",
+        "en": "The Sustainer"
+      },
+      {
+        "ar": "الْحَسِيبُ",
+        "sep": "ﷻ",
+        "tr": "Al-Ḥasīb",
+        "en": "The Reckoner"
+      },
+      {
+        "ar": "الْجَلِيلُ",
+        "sep": "ﷻ",
+        "tr": "Al-Jalīl",
+        "en": "The Majestic"
+      },
+      {
+        "ar": "الْكَرِيمُ",
+        "sep": "ﷻ",
+        "tr": "Al-Karīm",
+        "en": "The Generous"
+      },
+      {
+        "ar": "الرَّقِيبُ",
+        "sep": "ﷻ",
+        "tr": "Ar-Raqīb",
+        "en": "The Watchful"
+      },
+      {
+        "ar": "الْمُجِيبُ",
+        "sep": "ﷻ",
+        "tr": "Al-Mujīb",
+        "en": "The Responsive"
+      },
+      {
+        "ar": "الْوَاسِعُ",
+        "sep": "ﷻ",
+        "tr": "Al-Wāsiʿ",
+        "en": "The All-Encompassing"
+      },
+      {
+        "ar": "الْحَكِيمُ",
+        "sep": "ﷻ",
+        "tr": "Al-Ḥakīm",
+        "en": "The All-Wise"
+      },
+      {
+        "ar": "الْوَدُودُ",
+        "sep": "ﷻ",
+        "tr": "Al-Wadūd",
+        "en": "The Loving"
+      },
+      {
+        "ar": "الْمَجِيدُ",
+        "sep": "ﷻ",
+        "tr": "Al-Majīd",
+        "en": "The Glorious"
+      },
+      {
+        "ar": "الْبَاعِثُ",
+        "sep": "ﷻ",
+        "tr": "Al-Bāʿith",
+        "en": "The Raiser of the Dead"
+      },
+      {
+        "ar": "الشَّهِيدُ",
+        "sep": "ﷻ",
+        "tr": "Ash-Shahīd",
+        "en": "The Witness"
+      },
+      {
+        "ar": "الْحَقُّ",
+        "sep": "ﷻ",
+        "tr": "Al-Ḥaqq",
+        "en": "The Truth"
+      },
+      {
+        "ar": "الْوَكِيلُ",
+        "sep": "ﷻ",
+        "tr": "Al-Wakīl",
+        "en": "The Trustee"
+      },
+      {
+        "ar": "الْقَوِىُّ",
+        "sep": "ﷻ",
+        "tr": "Al-Qawiyy",
+        "en": "The Most Strong"
+      },
+      {
+        "ar": "الْمَتِينُ",
+        "sep": "ﷻ",
+        "tr": "Al-Matīn",
+        "en": "The Firm"
+      },
+      {
+        "ar": "الْوَلِىُّ",
+        "sep": "ﷻ",
+        "tr": "Al-Waliyy",
+        "en": "The Protecting Friend"
+      },
+      {
+        "ar": "الْحَمِيدُ ‖",
+        "sep": "ﷻ",
+        "tr": "Al-Ḥamīd",
+        "en": "The Praiseworthy"
+      },
+      {
+        "ar": "الْمُحْصِى",
+        "sep": "ﷻ",
+        "tr": "Al-Muḥṣī",
+        "en": "The Reckoner of all things"
+      },
+      {
+        "ar": "الْمُبْدِئُ",
+        "sep": "ﷻ",
+        "tr": "Al-Mubdiʾ",
+        "en": "The Originator"
+      },
+      {
+        "ar": "الْمُعِيدُ",
+        "sep": "ﷻ",
+        "tr": "Al-Muʿīd",
+        "en": "The Restorer"
+      },
+      {
+        "ar": "الْمُحْيِى",
+        "sep": "ﷻ",
+        "tr": "Al-Muḥyī",
+        "en": "The Giver of Life"
+      },
+      {
+        "ar": "الْمُمِيتُ",
+        "sep": "ﷻ",
+        "tr": "Al-Mumīt",
+        "en": "The Giver of Death"
+      },
+      {
+        "ar": "الْحَىُّ",
+        "sep": "ﷻ",
+        "tr": "Al-Ḥayy",
+        "en": "The Ever-Living"
+      },
+      {
+        "ar": "الْقَىُّومُ",
+        "sep": "ﷻ",
+        "tr": "Al-Qayyūm",
+        "en": "The Self-Subsisting"
+      },
+      {
+        "ar": "الْوَاجِدُ",
+        "sep": "ﷻ",
+        "tr": "Al-Wājid",
+        "en": "The Finder"
+      },
+      {
+        "ar": "الْمَاجِدُ",
+        "sep": "ﷻ",
+        "tr": "Al-Mājid",
+        "en": "The Noble"
+      },
+      {
+        "ar": "الْوَاحِدُ",
+        "sep": "ﷻ",
+        "tr": "Al-Wāḥid",
+        "en": "The One"
+      },
+      {
+        "ar": "الْاَحَدُ",
+        "sep": "ﷻ",
+        "tr": "Al-Aḥad",
+        "en": "The Unique"
+      },
+      {
+        "ar": "الصَّمَدُ",
+        "sep": "ﷻ",
+        "tr": "Aṣ-Ṣamad",
+        "en": "Upon whom all depend"
+      },
+      {
+        "ar": "الْقَادِرُ",
+        "sep": "ﷻ",
+        "tr": "Al-Qādir",
+        "en": "The Able"
+      },
+      {
+        "ar": "الْمُقْتَدِرُ",
+        "sep": "ﷻ",
+        "tr": "Al-Muqtadir",
+        "en": "The Omnipotent"
+      },
+      {
+        "ar": "الْمُقَدِّمُ",
+        "sep": "ﷻ",
+        "tr": "Al-Muqaddim",
+        "en": "The Expediter"
+      },
+      {
+        "ar": "الْمُؤَخِّرُ",
+        "sep": "ﷻ",
+        "tr": "Al-Muʾakhkhir",
+        "en": "The Delayer"
+      },
+      {
+        "ar": "الْاَوَّلُ",
+        "sep": "ﷻ",
+        "tr": "Al-Awwal",
+        "en": "The First"
+      },
+      {
+        "ar": "الْاٰخِرُ",
+        "sep": "ﷻ",
+        "tr": "Al-Ākhir",
+        "en": "The Last"
+      },
+      {
+        "ar": "الظَّاهِرُ",
+        "sep": "ﷻ",
+        "tr": "Aẓ-Ẓāhir",
+        "en": "The Manifest"
+      },
+      {
+        "ar": "الْبَاطِنُ",
+        "sep": "ﷻ",
+        "tr": "Al-Bāṭin",
+        "en": "The Hidden"
+      },
+      {
+        "ar": "الْوَالِى",
+        "sep": "ﷻ",
+        "tr": "Al-Wālī",
+        "en": "The Governor"
+      },
+      {
+        "ar": "الْمُتَعَالِى",
+        "sep": "ﷻ",
+        "tr": "Al-Mutaʿālī",
+        "en": "The Most Exalted"
+      },
+      {
+        "ar": "الْبَرُّ",
+        "sep": "ﷻ",
+        "tr": "Al-Barr",
+        "en": "The Source of Goodness"
+      },
+      {
+        "ar": "التَّوَّابُ",
+        "sep": "ﷻ",
+        "tr": "At-Tawwāb",
+        "en": "The Ever-Relenting"
+      },
+      {
+        "ar": "الْمُنْتَقِمُ",
+        "sep": "ﷻ",
+        "tr": "Al-Muntaqim",
+        "en": "The Avenger"
+      },
+      {
+        "ar": "الْعَفُوُّ",
+        "sep": "ﷻ",
+        "tr": "Al-ʿAfuww",
+        "en": "The Pardoner"
+      },
+      {
+        "ar": "الرَّءُوفُ",
+        "sep": "ﷻ",
+        "tr": "Ar-Raʾūf",
+        "en": "The Compassionate"
+      },
+      {
+        "ar": "مَالِكُ الْمُلْكِ",
+        "sep": "ﷻ",
+        "tr": "Mālik al-Mulk",
+        "en": "Master of the Kingdom"
+      },
+      {
+        "ar": "ذُو الْجَلَالِ وَالْاِكْرَامِ",
+        "sep": "ﷻ",
+        "tr": "Dhū l-Jalāli wa-l-Ikrām",
+        "en": "Possessor of Majesty and Generosity"
+      },
+      {
+        "ar": "الْمُقْسِطُ",
+        "sep": "ﷻ",
+        "tr": "Al-Muqsiṭ",
+        "en": "The Equitable"
+      },
+      {
+        "ar": "الْجَامِعُ",
+        "sep": "ﷻ",
+        "tr": "Al-Jāmiʿ",
+        "en": "The Gatherer"
+      },
+      {
+        "ar": "الْغَنِىُّ",
+        "sep": "ﷻ",
+        "tr": "Al-Ghaniyy",
+        "en": "The Self-Sufficient"
+      },
+      {
+        "ar": "الْمُغْنِى",
+        "sep": "ﷻ",
+        "tr": "Al-Mughnī",
+        "en": "The Enricher"
+      },
+      {
+        "ar": "الْمَانِعُ",
+        "sep": "ﷻ",
+        "tr": "Al-Māniʿ",
+        "en": "The Preventer"
+      },
+      {
+        "ar": "الضَّارُّ",
+        "sep": "ﷻ",
+        "tr": "Aḍ-Ḍārr",
+        "en": "The Bringer of Harm"
+      },
+      {
+        "ar": "النَّافِعُ",
+        "sep": "ﷻ",
+        "tr": "An-Nāfiʿ",
+        "en": "The Bringer of Benefit"
+      },
+      {
+        "ar": "النُّورُ",
+        "sep": "ﷻ",
+        "tr": "An-Nūr",
+        "en": "The Light"
+      },
+      {
+        "ar": "الْهَادِى",
+        "sep": "ﷻ",
+        "tr": "Al-Hādī",
+        "en": "The Guide"
+      },
+      {
+        "ar": "الْبَدِيعُ",
+        "sep": "ﷻ",
+        "tr": "Al-Badīʿ",
+        "en": "The Originator without precedent"
+      },
+      {
+        "ar": "الْبَاقِى",
+        "sep": "ﷻ",
+        "tr": "Al-Bāqī",
+        "en": "The Everlasting"
+      },
+      {
+        "ar": "الْوَارِثُ",
+        "sep": "ﷻ",
+        "tr": "Al-Wārith",
+        "en": "The Inheritor"
+      },
+      {
+        "ar": "الرَّشِيدُ",
+        "sep": "ﷻ",
+        "tr": "Ar-Rashīd",
+        "en": "The Guide to the right way"
+      },
+      {
+        "ar": "الصَّبُورُ",
+        "sep": "ﷻ",
+        "tr": "Aṣ-Ṣabūr",
+        "en": "The Patient"
+      },
+      {
+        "ar": "وَاسْمُ اللّٰهِ الْاَعْظَمُ الَّذِي اِذَا دُعِيَ بِهِ اَجَابَ وَاِذَا سُئِلَ بِهِ اَعْطٰى"
+      },
+      {
+        "ar": "لَا اِلٰهَ اِلَّا اَنْتَ سُبْحَانَكَ اِنِّي كُنْتُ مِنَ الظَّالِمِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ بِاَنِّي اَشْهَدُ اَنَّكَ اَنْتَ اللّٰهُ لَا اِلٰهَ اِلَّا اَنْتَ الْاَحَدُ الصَّمَدُ الَّذِي لَمْ يَلِدْ وَلَمْ يُولَدْ وَلَمْ ‖ يَكُنْ لَهُ كُفُوًا اَحَدٌ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ بِاَنَّ لَكَ الْحَمْدَ لَا اِلٰهَ اِلَّا اَنْتَ وَحْدَكَ لَا شَرِيكَ لَكَ الْحَنَّانُ الْمَنَّانُ بَدِيعُ السَّمَاوَاتِ وَالْاَرْضِ يَا ذَا الْجَلَالِ وَالْاِكْرَامِ"
+      },
+      {
+        "ar": "يَا حَيُّ يَا قَيُّومُ يَا اَرْحَمَ الرَّاحِمِينَ"
+      },
+      {
+        "ar": "سُبْحَانَ رَبِّيَ الْعَلِيِّ الْاَعْلَى الْوَهَّابِ"
+      },
+      {
+        "ar": "اَعُوذُ بِكَلِمَاتِ اللّٰهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ"
+      },
+      {
+        "ar": "بِسْمِ اللّٰهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْاَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ"
+      },
+      {
+        "ar": "اَصْبَحْنَا وَاَصْبَحَ الْمُلْكُ لِلّٰهِ وَالْحَمْدُ لِلّٰهِ لَا اِلٰهَ اِلَّا اللّٰهُ وَحْدَهُ لَا شَرِيكَ لَهُ لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلٰى كُلِّ شَيْءٍ قَدِيرٌ"
+      },
+      {
+        "ar": "رَبِّ اَسْأَلُكَ خَيْرَ مَا فِي هٰذَا الْيَوْمِ وَخَيْرَ مَا بَعْدَهُ وَاَعُوذُ بِكَ مِنْ شَرِّ مَا فِي هٰذَا الْيَوْمِ وَشَرِّ مَا بَعْدَهُ، رَبِّ اَعُوذُ بِكَ مِنَ الْكَسَلِ وَسُوءِ الْكِبَرِ، رَبِّ اَعُوذُ بِكَ مِنْ ‖ عَذَابٍ فِي النَّارِ وَعَذَابٍ فِي الْقَبْرِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ فَاطِرَ السَّمَاوَاتِ وَالْاَرْضِ عَالِمَ الْغَيْبِ وَالشَّهَادَةِ رَبَّ كُلِّ شَيْءٍ وَمَلِيكَهُ اَشْهَدُ اَنْ لَا اِلٰهَ اِلَّا اَنْتَ وَحْدَكَ لَا شَرِيكَ لَكَ اَعُوذُ بِكَ مِنْ شَرِّ نَفْسِي وَشَرِّ الشَّيْطَانِ وَشَرَكِهِ وَاَنْ اَقْتَرِفَ عَلٰى نَفْسِي سُوءًا اَوْ اَجُرَّهُ اِلٰى مُسْلِمٍ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَصْبَحْتُ اُشْهِدُكَ وَاُشْهِدُ حَمَلَةَ عَرْشِكَ وَمَلَائِكَتَكَ وَجَمِيعَ خَلْقِكَ بِاَنَّكَ لَا اِلٰهَ اِلَّا اَنْتَ وَحْدَكَ لَا شَرِيكَ لَكَ وَاَنَّ مُحَمَّدًا عَبْدُكَ وَرَسُولُكَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ الْعَافِيَةَ فِي الدُّنْيَا وَالْآخِرَةِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي دِينِي وَدُنْيَايَ وَاَهْلِي وَمَالِي"
+      },
+      {
+        "ar": "اللّٰهُمَّ اسْتُرْ عَوْرَاتِي وَآمِنْ رَوْعَاتِي"
+      },
+      {
+        "ar": "اللّٰهُمَّ احْفَظْنِي مِنْ بَيْنِ يَدَيَّ وَمِنْ خَلْفِي وَعَنْ يَمِينِي وَعَنْ شِمَالِي وَمِنْ فَوْقِي وَاَعُوذُ بِكَ اَنْ ‖ اُغْتَالَ مِنْ تَحْتِي"
+      },
+      {
+        "ar": "رَضِينَا بِاللّٰهِ رَبًّا وَبِالْاِسْلَامِ دِينًا وَبِمُحَمَّدٍ صَلَّى اللّٰهُ تَعَالَى عَلَيْهِ وَسَلَّمَ رَسُولًا نَبِيًّا"
+      },
+      {
+        "ar": "اللّٰهُمَّ مَا اَصْبَحَ بِي مِنْ نِعْمَةٍ اَوْ بِاَحَدٍ مِنْ خَلْقِكَ فَمِنْكَ وَحْدَكَ لَا شَرِيكَ لَكَ فَلَكَ الْحَمْدُ وَلَكَ الشُّكْرُ"
+      },
+      {
+        "ar": "اللّٰهُمَّ عَافِنِي فِي بَدَنِي، اللّٰهُمَّ عَافِنِي فِي سَمْعِي، اللّٰهُمَّ عَافِنِي فِي بَصَرِي، لَا اِلٰهَ اِلَّا اَنْتَ (3)"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَعُوذُ بِكَ مِنَ الْكُفْرِ وَالْفَقْرِ، اللّٰهُمَّ اِنِّي اَعُوذُ بِكَ مِنْ عَذَابِ الْقَبْرِ، لَا اِلٰهَ اِلَّا اَنْتَ (3)"
+      },
+      {
+        "ar": "سُبْحَانَ اللّٰهِ وَبِحَمْدِهِ لَا قُوَّةَ اِلَّا بِاللّٰهِ مَا شَاءَ اللّٰهُ كَانَ وَمَا لَمْ يَشَأْ لَمْ يَكُنْ اَعْلَمُ اَنَّ اللّٰهَ عَلٰى كُلِّ شَيْءٍ قَدِيرٌ وَاَنَّ اللّٰهَ قَدْ اَحَاطَ بِكُلِّ شَيْءٍ عِلْمًا"
+      },
+      {
+        "ar": "يَا حَيُّ يَا قَيُّومُ بِرَحْمَتِكَ اَسْتَغِيثُ"
+      },
+      {
+        "ar": "اَصْلِحْ لِي شَأْنِي كُلَّهُ وَلَا تَكِلْنِي اِلٰى نَفْسِي طَرْفَةَ عَيْنٍ"
+      }
+    ]
+  },
+  {
+    "titleArabic": "وِرْدُ يَوْمِ الْاَحَدِ",
+    "titleEnglish": "Al-Ḥizb al-Aʿẓam · Sunday",
+    "cartouche": "وِرْدُ يَوْمِ الْاَحَدِ",
+    "note": "The Sunday portion of al-Ḥizb al-Aʿẓam of Mullā ʿAlī al-Qārī (d. 1014 AH) — the prophetic supplications of morning and evening, closing with the Qurʾānic rabbanā duʿāʾs. Set page for page after the printed edition, pp. 147–159.",
+    "folios": [
+      {
+        "from": 0,
+        "to": 71
+      }
+    ],
+    "verses": [
+      {
+        "ar": "اللّٰهُمَّ اَنْتَ رَبِّي لَا اِلٰهَ اِلَّا اَنْتَ خَلَقْتَنِي وَاَنَا عَبْدُكَ وَاَنَا عَلٰى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ اَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ اَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ وَاَبُوءُ بِذَنْبِي فَاغْفِرْ لِي فَاِنَّهُ لَا يَغْفِرُ الذُّنُوبَ اِلَّا اَنْتَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اَنْتَ اَحَقُّ مَنْ ذُكِرَ وَاَحَقُّ مَنْ عُبِدَ وَاَنْصَرُ مَنِ ابْتُغِيَ وَاَرْاَفُ مَنْ مَلَكَ وَاَجْوَدُ مَنْ سُئِلَ وَاَوْسَعُ مَنْ اَعْطٰى"
+      },
+      {
+        "ar": "اللّٰهُمَّ اَنْتَ الْمَلِكُ لَا شَرِيكَ لَكَ وَالْفَرْدُ لَا نِدَّ لَكَ كُلُّ شَيْءٍ هَالِكٌ اِلَّا وَجْهَكَ لَنْ تُطَاعَ اِلَّا بِاِذْنِكَ وَلَنْ تُعْصٰى اِلَّا بِعِلْمِكَ تُطَاعُ فَتَشْكُرُ وَتُعْصٰى فَتَغْفِرُ اَقْرَبُ شَهِيدٍ وَاَدْنٰى حَفِيظٍ حُلْتَ دُونَ النُّفُوسِ وَاَخَذْتَ بِالنَّوَاصِي وَكَتَبْتَ الْآثَارَ وَنَسَخْتَ الْآجَالَ الْقُلُوبُ لَكَ مُفْضِيَةٌ وَالسِّرُّ عِنْدَكَ عَلَانِيَةٌ ‖ الْحَلَالُ مَا اَحْلَلْتَ وَالْحَرَامُ مَا حَرَّمْتَ وَالدِّينُ مَا شَرَعْتَ وَالْاَمْرُ مَا قَضَيْتَ وَالْخَلْقُ خَلْقُكَ وَالْعَبْدُ عَبْدُكَ وَاَنْتَ اللّٰهُ الرَّؤُوفُ الرَّحِيمُ اَسْأَلُكَ بِنُورِ وَجْهِكَ الَّذِي اَشْرَقَتْ لَهُ السَّمَاوَاتُ وَالْاَرْضُ وَبِكُلِّ حَقٍّ هُوَ لَكَ وَبِحَقِّ السَّائِلِينَ عَلَيْكَ اَنْ تُقِيلَنِي وَاَنْ تُجِيرَنِي مِنَ النَّارِ بِقُدْرَتِكَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحُزْنِ وَاَعُوذُ بِكَ مِنَ الْعَجْزِ وَالْكَسَلِ وَاَعُوذُ بِكَ مِنَ الْجُبْنِ وَالْبُخْلِ وَاَعُوذُ بِكَ مِنْ غَلَبَةِ الدَّيْنِ وَقَهْرِ الرِّجَالِ"
+      },
+      {
+        "ar": "لَبَّيْكَ اللّٰهُمَّ لَبَّيْكَ لَبَّيْكَ وَسَعْدَيْكَ وَالْخَيْرُ فِي يَدَيْكَ وَمِنْكَ وَاِلَيْكَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ مَا قُلْتُ مِنْ قَوْلٍ اَوْ حَلَفْتُ مِنْ حَلْفٍ اَوْ نَذَرْتُ مِنْ نَذْرٍ فَمَشِيئَتُكَ بَيْنَ يَدَيْ ذٰلِكَ كُلِّهِ مَا شِئْتَ كَانَ وَمَا لَمْ تَشَأْ لَا يَكُونُ وَلَا حَوْلَ وَلَا قُوَّةَ اِلَّا بِكَ ‖ اِنَّكَ عَلٰى كُلِّ شَيْءٍ قَدِيرٌ"
+      },
+      {
+        "ar": "اللّٰهُمَّ مَا صَلَّيْتُ مِنْ صَلَاةٍ فَعَلٰى مَنْ صَلَّيْتَ وَمَا لَعَنْتُ مِنْ لَعْنٍ فَعَلٰى مَنْ لَعَنْتَ اَنْتَ وَلِيِّي فِي الدُّنْيَا وَالْآخِرَةِ تَوَفَّنِي مُسْلِمًا وَاَلْحِقْنِي بِالصَّالِحِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ الرِّضَاءَ بَعْدَ الْقَضَاءِ وَبَرْدَ الْعَيْشِ بَعْدَ الْمَوْتِ وَلَذَّةَ النَّظَرِ اِلٰى وَجْهِكَ وَالشَّوْقَ اِلٰى لِقَائِكَ فِي غَيْرِ ضَرَّاءَ مُضِرَّةٍ وَلَا فِتْنَةٍ مُضِلَّةٍ وَاَعُوذُ بِكَ اَنْ اَظْلِمَ اَوْ اُظْلَمَ اَوْ اَعْتَدِيَ اَوْ يُعْتَدٰى عَلَيَّ اَوْ اَكْسِبَ خَطِيئَةً اَوْ ذَنْبًا لَا تَغْفِرُهُ"
+      },
+      {
+        "ar": "اللّٰهُمَّ فَاطِرَ السَّمَاوَاتِ وَالْاَرْضِ عَالِمَ الْغَيْبِ وَالشَّهَادَةِ ذَا الْجَلَالِ وَالْاِكْرَامِ فَاِنِّي اَعْهَدُ اِلَيْكَ فِي هٰذِهِ الْحَيَاةِ الدُّنْيَا وَاُشْهِدُكَ وَكَفٰى بِكَ شَهِيدًا اَنِّي اَشْهَدُ اَنْ لَا اِلٰهَ اِلَّا اَنْتَ وَحْدَكَ لَا شَرِيكَ لَكَ لَكَ الْمُلْكُ وَلَكَ الْحَمْدُ وَاَنْتَ عَلٰى كُلِّ شَيْءٍ قَدِيرٌ ‖ وَاَشْهَدُ اَنَّ مُحَمَّدًا عَبْدُكَ وَرَسُولُكَ وَاَشْهَدُ اَنَّ وَعْدَكَ حَقٌّ وَلِقَاءَكَ حَقٌّ وَالسَّاعَةَ آتِيَةٌ لَا رَيْبَ فِيهَا وَاَنَّكَ تَبْعَثُ مَنْ فِي الْقُبُورِ وَاَنَّكَ اِنْ تَكِلْنِي اِلٰى نَفْسِي تَكِلْنِي اِلٰى ضَعْفٍ وَعَوْرَةٍ وَذَنْبٍ وَخَطِيئَةٍ وَاِنِّي لَا اَثِقُ اِلَّا بِرَحْمَتِكَ فَاغْفِرْ لِي ذُنُوبِي كُلَّهَا اِنَّهُ لَا يَغْفِرُ الذُّنُوبَ اِلَّا اَنْتَ وَتُبْ عَلَيَّ اِنَّكَ اَنْتَ التَّوَّابُ الرَّحِيمُ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ صِحَّةً فِي اِيمَانٍ وَاِيمَانًا فِي حُسْنِ خُلُقٍ وَنَجَاةً يَتْبَعُهَا فَلَاحٌ وَرَحْمَةً مِنْكَ وَعَافِيَةً وَمَغْفِرَةً مِنْكَ وَرِضْوَانًا"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَعُوذُ بِوَجْهِكَ الْكَرِيمِ وَكَلِمَاتِكَ التَّامَّةِ مِنْ شَرِّ مَا اَنْتَ آخِذٌ بِنَاصِيَتِهِ، اللّٰهُمَّ اَنْتَ تَكْشِفُ الْمَغْرَمَ وَالْمَأْثَمَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ لَا يُهْزَمُ جُنْدُكَ وَلَا يُخْلَفُ وَعْدُكَ وَلَا يَنْفَعُ ذَا الْجَدِّ مِنْكَ الْجَدُّ"
+      },
+      {
+        "ar": "سُبْحَانَكَ وَبِحَمْدِكَ لَا اِلٰهَ ‖ اِلَّا اَنْتَ وَحْدَكَ لَا شَرِيكَ لَكَ سُبْحَانَكَ اللّٰهُمَّ اَسْتَغْفِرُكَ لِذَنْبِي وَاَسْأَلُكَ رَحْمَتَكَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ زِدْنِي عِلْمًا وَلَا تُزِغْ قَلْبِي بَعْدَ اِذْ هَدَيْتَنِي وَهَبْ لِي مِنْ لَدُنْكَ رَحْمَةً اِنَّكَ اَنْتَ الْوَهَّابُ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اغْفِرْ لِي ذَنْبِي وَوَسِّعْ لِي فِي دَارِي وَبَارِكْ لِي فِي رِزْقِي"
+      },
+      {
+        "ar": "اللّٰهُمَّ اجْعَلْنِي مِنَ التَّوَّابِينَ وَاجْعَلْنِي مِنَ الْمُتَطَهِّرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ رَبَّ السَّمَاوَاتِ السَّبْعِ وَرَبَّ الْاَرْضِ وَرَبَّ الْعَرْشِ الْعَظِيمِ رَبَّنَا وَرَبَّ كُلِّ شَيْءٍ"
+      },
+      {
+        "ar": "فَالِقَ الْحَبِّ وَالنَّوٰى وَمُنْزِلَ التَّوْرَاةِ وَالْاِنْجِيلِ وَالْفُرْقَانِ"
+      },
+      {
+        "ar": "اَعُوذُ بِكَ مِنْ شَرِّ كُلِّ شَيْءٍ اَنْتَ آخِذٌ بِنَاصِيَتِهِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اَنْتَ الْاَوَّلُ فَلَيْسَ قَبْلَكَ شَيْءٌ وَاَنْتَ الْآخِرُ فَلَيْسَ بَعْدَكَ شَيْءٌ وَاَنْتَ الظَّاهِرُ فَلَيْسَ فَوْقَكَ شَيْءٌ وَاَنْتَ الْبَاطِنُ فَلَيْسَ دُونَكَ شَيْءٌ"
+      },
+      {
+        "ar": "اِقْضِ عَنَّا الدَّيْنَ ‖ وَاَغْنِنَا مِنَ الْفَقْرِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ رَبَّ السَّمَاوَاتِ السَّبْعِ وَمَا اَظَلَّتْ وَرَبَّ الْاَرَضِينَ وَمَا اَقَلَّتْ وَرَبَّ الشَّيَاطِينِ وَمَا اَضَلَّتْ كُنْ لِي جَارًا مِنْ شَرِّ خَلْقِكَ اَجْمَعِينَ اَنْ يَفْرُطَ عَلَيَّ اَحَدٌ مِنْهُمْ اَوْ اَنْ يَطْغٰى عَزَّ جَارُكَ وَتَبَارَكَ اسْمُكَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ لَكَ الْحَمْدُ اَنْتَ قَيِّمُ السَّمَاوَاتِ وَالْاَرْضِ وَمَنْ فِيهِنَّ وَلَكَ الْحَمْدُ اَنْتَ مَلِكُ السَّمَاوَاتِ وَالْاَرْضِ وَمَنْ فِيهِنَّ وَلَكَ الْحَمْدُ اَنْتَ نُورُ السَّمَاوَاتِ وَالْاَرْضِ وَمَنْ فِيهِنَّ وَلَكَ الْحَمْدُ اَنْتَ الْحَقُّ وَوَعْدُكَ الْحَقُّ وَلِقَاؤُكَ حَقٌّ وَقَوْلُكَ حَقٌّ وَالْجَنَّةُ حَقٌّ وَالنَّارُ حَقٌّ وَالنَّبِيُّونَ حَقٌّ وَمُحَمَّدٌ حَقٌّ وَالسَّاعَةُ حَقٌّ، اللّٰهُمَّ لَكَ اَسْلَمْتُ وَبِكَ آمَنْتُ وَعَلَيْكَ تَوَكَّلْتُ وَاِلَيْكَ اَنَبْتُ وَبِكَ خَاصَمْتُ وَاِلَيْكَ حَاكَمْتُ فَاغْفِرْ لِي مَا قَدَّمْتُ وَمَا اَخَّرْتُ وَمَا اَسْرَرْتُ وَمَا اَعْلَنْتُ ‖ وَمَا اَنْتَ اَعْلَمُ بِهِ مِنِّي اَنْتَ الْمُقَدِّمُ وَاَنْتَ الْمُؤَخِّرُ لَا اِلٰهَ اِلَّا اَنْتَ وَلَا حَوْلَ وَلَا قُوَّةَ اِلَّا بِاللّٰهِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اغْفِرْ لِي وَارْحَمْنِي وَعَافِنِي وَاهْدِنِي وَارْزُقْنِي وَاجْبُرْنِي وَارْفَعْنِي اِنِّي لِمَا اَنْزَلْتَ اِلَيَّ مِنْ خَيْرٍ فَقِيرٌ"
+      },
+      {
+        "ar": "اللّٰهُمَّ رَبَّ جِبْرِيلَ وَمِيكَائِيلَ وَإِسْرَافِيلَ فَاطِرَ السَّمَاوَاتِ وَالْاَرْضِ عَالِمَ الْغَيْبِ وَالشَّهَادَةِ اَنْتَ تَحْكُمُ بَيْنَ عِبَادِكَ فِيمَا كَانُوا فِيهِ يَخْتَلِفُونَ"
+      },
+      {
+        "ar": "اِهْدِنِي لِمَا اخْتُلِفَ فِيهِ مِنَ الْحَقِّ بِاِذْنِكَ"
+      },
+      {
+        "ar": "اِنَّكَ تَهْدِي مَنْ تَشَاءُ اِلٰى صِرَاطٍ مُسْتَقِيمٍ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اهْدِنِي فِيمَنْ هَدَيْتَ وَعَافِنِي فِيمَنْ عَافَيْتَ وَتَوَلَّنِي فِيمَنْ تَوَلَّيْتَ وَبَارِكْ لِي فِيمَا اَعْطَيْتَ وَقِنِي شَرَّ مَا قَضَيْتَ اِنَّكَ تَقْضِي وَلَا يُقْضٰى عَلَيْكَ وَاِنَّهُ لَا يَذِلُّ مَنْ وَالَيْتَ وَلَا يَعِزُّ مَنْ عَادَيْتَ تَبَارَكْتَ رَبَّنَا وَتَعَالَيْتَ نَسْتَغْفِرُكَ وَنَتُوبُ ‖ اِلَيْكَ وَصَلَّى اللّٰهُ عَلَى النَّبِيِّ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اغْفِرْ لَنَا وَلِلْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ وَالْمُسْلِمِينَ وَالْمُسْلِمَاتِ وَاَلِّفْ بَيْنَ قُلُوبِهِمْ وَاَصْلِحْ ذَاتَ بَيْنِهِمْ وَانْصُرْهُمْ عَلٰى عَدُوِّكَ وَعَدُوِّهِمْ"
+      },
+      {
+        "ar": "اللّٰهُمَّ الْعَنِ الْكَفَرَةَ الَّذِينَ يَصُدُّونَ عَنْ سَبِيلِكَ وَيُكَذِّبُونَ رُسُلَكَ وَيُقَاتِلُونَ اَوْلِيَاءَكَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ خَالِفْ بَيْنَ كَلِمَتِهِمْ وَزَلْزِلْ اَقْدَامَهُمْ وَاَنْزِلْ بِهِمْ بَأْسَكَ الَّذِي لَا تَرُدُّهُ عَنِ الْقَوْمِ الْمُجْرِمِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنَّا نَسْتَعِينُكَ وَنَسْتَغْفِرُكَ وَنَسْتَهْدِيكَ وَنُؤْمِنُ بِكَ وَنَتُوبُ اِلَيْكَ وَنَتَوَكَّلُ عَلَيْكَ وَنُثْنِي عَلَيْكَ الْخَيْرَ كُلَّهُ نَشْكُرُكَ وَلَا نَكْفُرُكَ وَنَخْلَعُ وَنَتْرُكُ مَنْ يَفْجُرُكَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِيَّاكَ نَعْبُدُ وَلَكَ نُصَلِّي وَنَسْجُدُ وَاِلَيْكَ نَسْعٰى وَنَحْفِدُ نَرْجُوا رَحْمَتَكَ وَنَخْشٰى عَذَابَكَ اِنَّ عَذَابَكَ الْجِدَّ بِالْكُفَّارِ مُلْحَقٌ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَعُوذُ بِرِضَاكَ مِنْ ‖ سَخَطِكَ وَبِمُعَافَاتِكَ مِنْ عُقُوبَتِكَ وَاَعُوذُ بِكَ مِنْكَ لَا اُحْصِي ثَنَاءً عَلَيْكَ اَنْتَ كَمَا اَثْنَيْتَ عَلٰى نَفْسِكَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ رَبَّ جِبْرِيلَ وَمِيكَائِيلَ وَإِسْرَافِيلَ وَمُحَمَّدٍ صَلَّى اللّٰهُ تَعَالَى عَلَيْهِ وَسَلَّمَ"
+      },
+      {
+        "ar": "اَعُوذُ بِكَ مِنَ النَّارِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَعُوذُ بِكَ اَنْ اَضِلَّ اَوْ اُضَلَّ اَوْ اَزِلَّ اَوْ اُزَلَّ اَوْ اَظْلِمَ اَوْ اُظْلَمَ اَوْ اَجْهَلَ اَوْ يُجْهَلَ عَلَيَّ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اجْعَلْ فِي قَلْبِي نُورًا وَفِي بَصَرِي نُورًا وَفِي سَمْعِي نُورًا وَعَنْ يَمِينِي نُورًا وَعَنْ شِمَالِي نُورًا وَمِنْ خَلْفِي نُورًا وَمِنْ اَمَامِي نُورًا وَمِنْ فَوْقِي نُورًا وَمِنْ تَحْتِي نُورًا، اللّٰهُمَّ اَعْطِنِي نُورًا وَاجْعَلْ لِي نُورًا وَفِي عَصَبِي نُورًا وَفِي لَحْمِي نُورًا وَفِي دَمِي نُورًا وَفِي شَعْرِي نُورًا وَفِي بَشَرِي نُورًا وَفِي لِسَانِي نُورًا وَاجْعَلْ فِي نَفْسِي نُورًا وَاَعْظِمْ لِي نُورًا"
+      },
+      {
+        "ar": "وَاجْعَلْنِي نُورًا"
+      },
+      {
+        "ar": "اللّٰهُمَّ ‖ افْتَحْ لَنَا اَبْوَابَ رَحْمَتِكَ وَسَهِّلْ لَنَا اَبْوَابَ رِزْقِكَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اعْصِمْنِي مِنَ الشَّيْطَانِ الرَّجِيمِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اهْدِنِي لِاَحْسَنِ الْاَخْلَاقِ لَا يَهْدِي لِاَحْسَنِهَا اِلَّا اَنْتَ وَاصْرِفْ عَنِّي سَيِّئَهَا لَا يَصْرِفُ عَنِّي سَيِّئَهَا اِلَّا اَنْتَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ بَاعِدْ بَيْنِي وَبَيْنَ خَطَايَايَ كَمَا بَاعَدْتَ بَيْنَ الْمَشْرِقِ وَالْمَغْرِبِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اغْسِلْ خَطَايَايَ بِالْمَاءِ وَالثَّلْجِ وَالْبَرَدِ وَنَقِّنِي مِنَ الْخَطَايَا كَمَا نَقَّيْتَ الثَّوْبَ مِنَ الدَّنَسِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ لَكَ الْحَمْدُ مِلْءَ السَّمَاوَاتِ وَمِلْءَ الْاَرْضِ وَمِلْءَ مَا بَيْنَهُمَا وَمِلْءَ مَا شِئْتَ مِنْ شَيْءٍ بَعْدُ"
+      },
+      {
+        "ar": "اَهْلَ الثَّنَاءِ وَالْكِبْرِيَاءِ وَالْمَجْدِ اَحَقُّ مَا قَالَ الْعَبْدُ وَكُلُّنَا لَكَ عَبْدٌ لَا مَانِعَ لِمَا اَعْطَيْتَ وَلَا مُعْطِيَ لِمَا مَنَعْتَ وَلَا يَنْفَعُ ذَا الْجَدِّ مِنْكَ الْجَدُّ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اغْفِرْ لِي ذَنْبِي كُلَّهُ دِقَّهُ وَجِلَّهُ وَاَوَّلَهُ وَآخِرَهُ وَعَلَانِيَتَهُ وَسِرَّهُ ‖ رَبِّ اَعْطِ نَفْسِي تَقْوَاهَا زَكِّهَا اَنْتَ خَيْرُ مَنْ زَكَّاهَا اَنْتَ وَلِيُّهَا وَمَوْلَاهَا"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي ظَلَمْتُ نَفْسِي ظُلْمًا كَثِيرًا وَلَا يَغْفِرُ الذُّنُوبَ اِلَّا اَنْتَ فَاغْفِرْ لِي مَغْفِرَةً مِنْ عِنْدِكَ وَارْحَمْنِي اِنَّكَ اَنْتَ الْغَفُورُ الرَّحِيمُ"
+      },
+      {
+        "ar": "اللّٰهُمَّ حَاسِبْنِي حِسَابًا يَسِيرًا"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ مِنَ الْخَيْرِ كُلِّهِ مَا عَلِمْتُ مِنْهُ وَمَا لَمْ اَعْلَمْ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ مِنَ الْخَيْرِ مَا سَأَلَكَ مِنْهُ عِبَادُكَ الصَّالِحُونَ وَاَعُوذُ بِكَ مِنْ شَرِّ مَا عَاذَ مِنْهُ عِبَادُكَ الصَّالِحُونَ"
+      },
+      {
+        "ar": "رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ"
+      },
+      {
+        "ar": "رَبَّنَا اِنَّنَا آمَنَّا فَاغْفِرْ لَنَا ذُنُوبَنَا وَقِنَا عَذَابَ النَّارِ"
+      },
+      {
+        "ar": "رَبَّنَا وَآتِنَا مَا وَعَدْتَنَا عَلٰى رُسُلِكَ وَلَا تُخْزِنَا يَوْمَ الْقِيَامَةِ اِنَّكَ لَا تُخْلِفُ الْمِيعَادَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَعُوذُ بِكَ مِنْ عَذَابِ جَهَنَّمَ وَاَعُوذُ بِكَ مِنْ ‖ عَذَابِ الْقَبْرِ وَاَعُوذُ بِكَ مِنْ فِتْنَةِ الْمَسِيحِ الدَّجَّالِ"
+      },
+      {
+        "ar": "وَاَعُوذُ بِكَ مِنْ فِتْنَةِ الْمَحْيَا وَالْمَمَاتِ وَاَعُوذُ بِكَ مِنَ الْمَأْثَمِ وَالْمَغْرَمِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اَعِنِّي عَلٰى ذِكْرِكَ وَشُكْرِكَ وَحُسْنِ عِبَادَتِكَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ رَبَّنَا وَرَبَّ كُلِّ شَيْءٍ اَنَا شَهِيدٌ اَنَّكَ اَنْتَ الرَّبُّ وَحْدَكَ لَا شَرِيكَ لَكَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ رَبَّنَا وَرَبَّ كُلِّ شَيْءٍ اَنَا شَهِيدٌ اَنَّ مُحَمَّدًا صَلَّى اللّٰهُ تَعَالَى عَلَيْهِ وَسَلَّمَ عَبْدُكَ وَرَسُولُكَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ رَبَّنَا وَرَبَّ كُلِّ شَيْءٍ اَنَا شَهِيدٌ اَنَّ الْعِبَادَ كُلَّهُمْ اِخْوَةٌ"
+      },
+      {
+        "ar": "اللّٰهُمَّ رَبَّنَا وَرَبَّ كُلِّ شَيْءٍ اجْعَلْنِي مُخْلِصًا لَكَ وَاَهْلِي فِي كُلِّ سَاعَةٍ فِي الدُّنْيَا وَالْآخِرَةِ ذَا الْجَلَالِ وَالْاِكْرَامِ"
+      },
+      {
+        "ar": "اِسْمَعْ وَاسْتَجِبْ"
+      },
+      {
+        "ar": "اللّٰهُ اَكْبَرُ الْاَكْبَرِ اللّٰهُ نُورُ السَّمَاوَاتِ وَالْاَرْضِ اللّٰهُ اَكْبَرُ الْاَكْبَرِ حَسْبِيَ اللّٰهُ وَنِعْمَ الْوَكِيلُ اللّٰهُ اَكْبَرُ الْاَكْبَرِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اَصْلِحْ لِي ‖ دِينِيَ الَّذِي هُوَ عِصْمَةُ اَمْرِي وَاَصْلِحْ لِي دُنْيَايَ الَّتِي فِيهَا مَعَاشِي وَاَصْلِحْ لِي آخِرَتِي الَّتِي فِيهَا مَعَادِي وَاَحْيِنِي مَا كَانَتِ الْحَيَاةُ خَيْرًا لِي"
+      },
+      {
+        "ar": "وَتَوَفَّنِي اِذَا كَانَتِ الْوَفَاةُ خَيْرًا لِي"
+      },
+      {
+        "ar": "وَاجْعَلِ الْحَيَاةَ زِيَادَةً لِي فِي كُلِّ خَيْرٍ وَاجْعَلِ الْمَوْتَ رَاحَةً لِي مِنْ كُلِّ شَرٍّ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ رِزْقًا طَيِّبًا وَعِلْمًا نَافِعًا وَعَمَلًا مُتَقَبَّلًا"
+      },
+      {
+        "ar": "اللّٰهُمَّ اَشْبَعْتَ وَاَرْوَيْتَ فَهَنِّئْنَا وَرَزَقْتَنَا فَاَكْثَرْتَ وَاَطَبْتَ فَزِدْنَا"
+      },
+      {
+        "ar": "اللّٰهُمَّ قَنِّعْنِي بِمَا رَزَقْتَنِي وَبَارِكْ لِي فِيهِ وَاخْلُفْ عَلٰى كُلِّ غَائِبَةٍ لِي بِخَيْرٍ"
+      },
+      {
+        "ar": "رَبِّ اغْفِرْ وَارْحَمْ اَنْتَ الْاَعَزُّ الْاَكْرَمُ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اشْرَحْ لِي صَدْرِي وَيَسِّرْ لِي اَمْرِي وَاَعُوذُ بِكَ مِنْ وَسَاوِسِ الصَّدْرِ وَشَتَاتِ الْاَمْرِ وَفِتْنَةِ الْقَبْرِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَعُوذُ بِكَ مِنْ شَرِّ مَا يَلِجُ فِي اللَّيْلِ وَمِنْ شَرِّ مَا يَلِجُ فِي النَّهَارِ وَمِنْ شَرِّ مَا تَهُبُّ بِهِ الرِّيَاحُ"
+      }
+    ]
+  },
+  {
+    "titleArabic": "وِرْدُ يَوْمِ الْاِثْنَيْنِ",
+    "titleEnglish": "Al-Ḥizb al-Aʿẓam · Monday",
+    "cartouche": "وِرْدُ يَوْمِ الْاِثْنَيْنِ",
+    "note": "The Monday portion of al-Ḥizb al-Aʿẓam of Mullā ʿAlī al-Qārī (d. 1014 AH) — prophetic supplications for guidance, refuge and well-being. Set page for page after the printed edition, pp. 160–171.",
+    "folios": [
+      {
+        "from": 0,
+        "to": 74
+      }
+    ],
+    "verses": [
+      {
+        "ar": "اللّٰهُمَّ اهْدِنِي بِالْهُدٰى"
+      },
+      {
+        "ar": "وَنَقِّنِي بِالتَّقْوٰى"
+      },
+      {
+        "ar": "وَاغْفِرْ لِي فِي الْآخِرَةِ وَالْاُولٰى"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ عِلْمًا نَافِعًا وَرِزْقًا وَاسِعًا وَشِفَاءً مِنْ كُلِّ دَاءٍ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اَنْتَ عَضُدِي وَنَصِيرِي بِكَ اَحُولُ وَبِكَ اَصُولُ وَبِكَ اُقَاتِلُ وَلَا حَوْلَ وَلَا قُوَّةَ اِلَّا بِكَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ لَكَ الْحَمْدُ كُلُّهُ لَا قَابِضَ لِمَا بَسَطْتَ وَلَا بَاسِطَ لِمَا قَبَضْتَ وَلَا هَادِيَ لِمَنْ اَضْلَلْتَ وَلَا مُضِلَّ لِمَنْ هَدَيْتَ وَلَا مُعْطِيَ لِمَا مَنَعْتَ وَلَا مَانِعَ لِمَا اَعْطَيْتَ"
+      },
+      {
+        "ar": "وَلَا مُقَرِّبَ لِمَا بَاعَدْتَ وَلَا مُبَاعِدَ لِمَا قَرَّبْتَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ ابْسُطْ عَلَيْنَا مِنْ بَرَكَاتِكَ وَرَحْمَتِكَ وَفَضْلِكَ وَرِزْقِكَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ النَّعِيمَ الْمُقِيمَ الَّذِي لَا يَحُولُ وَلَا يَزُولُ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ الْاَمْنَ يَوْمَ الْخَوْفِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي عَائِذٌ ‖ بِكَ مِنْ شَرِّ مَا اَعْطَيْتَنَا وَمِنْ شَرِّ مَا مَنَعْتَنَا"
+      },
+      {
+        "ar": "اللّٰهُمَّ حَبِّبْ اِلَيْنَا الْاِيمَانَ وَزَيِّنْهُ فِي قُلُوبِنَا وَكَرِّهْ اِلَيْنَا الْكُفْرَ وَالْفُسُوقَ وَالْعِصْيَانَ وَاجْعَلْنَا مِنَ الرَّاشِدِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ تَوَفَّنَا مُسْلِمِينَ وَاَلْحِقْنَا بِالصَّالِحِينَ غَيْرَ خَزَايَا وَلَا مَفْتُونِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ قَاتِلِ الْكَفَرَةَ الَّذِينَ يُكَذِّبُونَ رُسُلَكَ وَيَصُدُّونَ عَنْ سَبِيلِكَ وَاجْعَلْ عَلَيْهِمْ رِجْزَكَ وَعَذَابَكَ اِلٰهَ الْحَقِّ آمِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ مُنْزِلَ الْكِتَابِ وَمُجْرِيَ السَّحَابِ وَهَازِمَ الْاَحْزَابِ اهْزِمْهُمْ وَانْصُرْنَا عَلَيْهِمْ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنَّا نَجْعَلُكَ فِي نُحُورِهِمْ وَنَعُوذُ بِكَ مِنْ شُرُورِهِمْ"
+      },
+      {
+        "ar": "اللّٰهُمَّ رَحْمَتَكَ اَرْجُو فَلَا تَكِلْنِي اِلٰى نَفْسِي طَرْفَةَ عَيْنٍ وَاَصْلِحْ لِي شَأْنِي كُلَّهُ لَا اِلٰهَ اِلَّا اَنْتَ يَا حَيُّ يَا قَيُّومُ بِرَحْمَتِكَ اَسْتَغِيثُ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي عَبْدُكَ وَابْنُ عَبْدِكَ وَابْنُ ‖ اَمَتِكَ نَاصِيَتِي بِيَدِكَ مَاضٍ فِيَّ حُكْمُكَ عَدْلٌ فِيَّ قَضَاؤُكَ اَسْأَلُكَ بِكُلِّ اسْمٍ هُوَ لَكَ سَمَّيْتَ بِهِ نَفْسَكَ اَوْ اَنْزَلْتَهُ فِي كِتَابِكَ اَوْ عَلَّمْتَهُ اَحَدًا مِنْ خَلْقِكَ اَوِ اسْتَأْثَرْتَ بِهِ فِي عِلْمِ الْغَيْبِ عِنْدَكَ اَنْ تَجْعَلَ الْقُرْآنَ الْعَظِيمَ رَبِيعَ قَلْبِي وَنُورَ بَصَرِي وَجِلَاءَ حُزْنِي وَذَهَابَ هَمِّي"
+      },
+      {
+        "ar": "اللّٰهُمَّ لَا سَهْلَ اِلَّا مَا جَعَلْتَهُ سَهْلًا وَاَنْتَ تَجْعَلُ الْحَزَنَ سَهْلًا اِذَا شِئْتَ"
+      },
+      {
+        "ar": "لَا اِلٰهَ اِلَّا اللّٰهُ الْحَلِيمُ الْكَرِيمُ"
+      },
+      {
+        "ar": "سُبْحَانَ اللّٰهِ رَبِّ الْعَرْشِ الْعَظِيمِ"
+      },
+      {
+        "ar": "اَلْحَمْدُ لِلّٰهِ رَبِّ الْعَالَمِينَ"
+      },
+      {
+        "ar": "اَسْأَلُكَ مُوجِبَاتِ رَحْمَتِكَ وَعَزَائِمَ مَغْفِرَتِكَ وَالْعِصْمَةَ مِنْ كُلِّ ذَنْبٍ وَالْغَنِيمَةَ مِنْ كُلِّ بِرٍّ وَالسَّلَامَةَ مِنْ كُلِّ اِثْمٍ لَا تَدَعْ لِي ذَنْبًا اِلَّا غَفَرْتَهُ وَلَا هَمًّا اِلَّا فَرَّجْتَهُ وَلَا كَرْبًا اِلَّا نَفَّسْتَهُ وَلَا ضُرًّا اِلَّا كَشَفْتَهُ وَلَا حَاجَةً ‖ هِيَ لَكَ رِضًى اِلَّا قَضَيْتَهَا يَا اَرْحَمَ الرَّاحِمِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ ارْحَمْنِي بِتَرْكِ الْمَعَاصِي اَبَدًا مَا اَبْقَيْتَنِي وَارْحَمْنِي اَنْ اَتَكَلَّفَ مَا لَا يَعْنِينِي وَارْزُقْنِي حُسْنَ النَّظَرِ فِيمَا يُرْضِيكَ عَنِّي"
+      },
+      {
+        "ar": "اللّٰهُمَّ بَدِيعَ السَّمَاوَاتِ وَالْاَرْضِ ذَا الْجَلَالِ وَالْاِكْرَامِ وَالْعِزَّةِ الَّتِي لَا تُرَامُ"
+      },
+      {
+        "ar": "اَسْأَلُكَ يَا اللّٰهُ يَا رَحْمٰنُ بِجَلَالِكَ وَنُورِ وَجْهِكَ اَنْ تُلْزِمَ قَلْبِي حِفْظَ كِتَابِكَ كَمَا عَلَّمْتَنِي وَارْزُقْنِي اَنْ اَتْلُوَهُ عَلَى النَّحْوِ الَّذِي يُرْضِيكَ عَنِّي"
+      },
+      {
+        "ar": "اللّٰهُمَّ بَدِيعَ السَّمَاوَاتِ وَالْاَرْضِ ذَا الْجَلَالِ وَالْاِكْرَامِ وَالْعِزَّةِ الَّتِي لَا تُرَامُ اَسْأَلُكَ يَا اللّٰهُ يَا رَحْمٰنُ بِجَلَالِكَ وَنُورِ وَجْهِكَ اَنْ تُنَوِّرَ بِكِتَابِكَ بَصَرِي وَاَنْ تُطْلِقَ بِهِ لِسَانِي وَاَنْ تُفَرِّجَ بِهِ عَنْ قَلْبِي وَاَنْ تَشْرَحَ بِهِ صَدْرِي وَاَنْ تَسْتَعْمِلَ بِهِ بَدَنِي فَاِنَّهُ لَا يُعِينُنِي عَلَى الْحَقِّ غَيْرُكَ ‖ وَلَا يُؤْتِيهِ اِلَّا اَنْتَ وَلَا حَوْلَ وَلَا قُوَّةَ اِلَّا بِاللّٰهِ الْعَلِيِّ الْعَظِيمِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَتُوبُ اِلَيْكَ مِنَ الْمَعَاصِي لَا اَرْجِعُ اِلَيْهَا اَبَدًا"
+      },
+      {
+        "ar": "اللّٰهُمَّ مَغْفِرَتُكَ اَوْسَعُ مِنْ ذُنُوبِي وَرَحْمَتُكَ اَرْجٰى عِنْدِي مِنْ عَمَلِي"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنَّا"
+      },
+      {
+        "ar": "اللّٰهُمَّ اكْفِنِي بِحَلَالِكَ عَنْ حَرَامِكَ وَاَغْنِنِي بِفَضْلِكَ عَمَّنْ سِوَاكَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ فَارِجَ الْهَمِّ كَاشِفَ الْغَمِّ مُجِيبَ دَعْوَةِ الْمُضْطَرِّينَ رَحْمٰنَ الدُّنْيَا وَالْآخِرَةِ وَرَحِيمَهُمَا اَنْتَ تَرْحَمُنِي فَارْحَمْنِي بِرَحْمَةٍ تُغْنِينِي بِهَا عَنْ رَحْمَةِ مَنْ سِوَاكَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ رَبَّ السَّمَاوَاتِ وَالْاَرْضِ عَالِمَ الْغَيْبِ وَالشَّهَادَةِ اِنِّي اَعْهَدُ اِلَيْكَ فِي هٰذِهِ الْحَيَاةِ الدُّنْيَا اَنِّي اَشْهَدُ اَنْ لَا اِلٰهَ اِلَّا اَنْتَ اللّٰهُ وَحْدَكَ لَا شَرِيكَ لَكَ وَاَنَّ مُحَمَّدًا عَبْدُكَ وَرَسُولُكَ فَاِنَّكَ اِنْ تَكِلْنِي ‖ اِلٰى نَفْسِي تُقَرِّبْنِي مِنَ الشَّرِّ وَتُبَاعِدْنِي مِنَ الْخَيْرِ وَاِنِّي لَا اَثِقُ اِلَّا بِرَحْمَتِكَ فَاجْعَلْ لِي عِنْدَكَ عَهْدًا تُوَفِّينِيهِ يَوْمَ الْقِيَامَةِ اِنَّكَ لَا تُخْلِفُ الْمِيعَادَ"
+      },
+      {
+        "ar": "اَسْتَغْفِرُ اللّٰهَ الَّذِي لَا اِلٰهَ اِلَّا هُوَ الْحَيَّ الْقَيُّومَ وَاَتُوبُ اِلَيْهِ رَبِّ اغْفِرْ لِي وَتُبْ عَلَيَّ اِنَّكَ اَنْتَ التَّوَّابُ الرَّحِيمُ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَعُوذُ بِكَ مِنَ الْكَسَلِ وَالْهَرَمِ وَالْمَغْرَمِ وَالْمَأْثَمِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَعُوذُ بِكَ مِنْ عَذَابِ النَّارِ وَفِتْنَةِ النَّارِ وَفِتْنَةِ الْقَبْرِ وَعَذَابِ الْقَبْرِ وَشَرِّ فِتْنَةِ الْغِنٰى وَشَرِّ فِتْنَةِ الْفَقْرِ"
+      },
+      {
+        "ar": "وَاَعُوذُ بِكَ مِنَ الْقَسْوَةِ وَالْغَفْلَةِ وَالْعَيْلَةِ وَالذِّلَّةِ وَالْمَسْكَنَةِ وَاَعُوذُ بِكَ مِنَ الْفَقْرِ وَالْكُفْرِ وَالْفُسُوقِ وَالشِّقَاقِ وَالسُّمْعَةِ وَالرِّيَاءِ وَاَعُوذُ بِكَ مِنَ الصَّمَمِ وَالْبَكَمِ وَالْبَرَصِ وَالْجُنُونِ وَالْجُذَامِ وَسَيِّئِ الْاَسْقَامِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَعُوذُ بِعِزَّتِكَ لَا اِلٰهَ ‖ اِلَّا اَنْتَ اَنْ تُضِلَّنِي اَنْتَ الْحَيُّ لَا تَمُوتُ وَالْجِنُّ وَالْاِنْسُ يَمُوتُونَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنَّا نَعُوذُ بِكَ مِنْ جَهْدِ الْبَلَاءِ وَدَرَكِ الشَّقَاءِ وَسُوءِ الْقَضَاءِ وَشَمَاتَةِ الْاَعْدَاءِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَعُوذُ بِكَ مِنْ شَرِّ مَا عَلِمْتُ وَمِنْ شَرِّ مَا لَمْ اَعْلَمْ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَعُوذُ بِكَ مِنْ شَرِّ مَا عَمِلْتُ وَمِنْ شَرِّ مَا لَمْ اَعْمَلْ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَعُوذُ بِكَ مِنْ زَوَالِ نِعْمَتِكَ وَتَحَوُّلِ عَافِيَتِكَ وَفُجَاءَةِ نِقْمَتِكَ وَجَمِيعِ سَخَطِكَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَعُوذُ بِكَ مِنْ شَرِّ سَمْعِي وَمِنْ شَرِّ بَصَرِي وَمِنْ شَرِّ لِسَانِي وَمِنْ شَرِّ قَلْبِي وَمِنْ شَرِّ مَنِيِّي"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَعُوذُ بِكَ مِنَ الْهَدْمِ وَالتَّرَدِّي وَاَعُوذُ بِكَ مِنَ الْغَرَقِ وَالْحَرَقِ وَالْهَرَمِ وَاَعُوذُ بِكَ اَنْ يَتَخَبَّطَنِيَ الشَّيْطَانُ عِنْدَ الْمَوْتِ وَاَعُوذُ بِكَ مِنْ اَنْ اَمُوتَ فِي سَبِيلِكَ مُدْبِرًا وَاَعُوذُ بِكَ اَنْ ‖ اَمُوتَ لَدِيغًا"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَعُوذُ بِكَ مِنْ مُنْكَرَاتِ الْاَخْلَاقِ وَالْاَعْمَالِ وَالْاَهْوَاءِ وَالْاَدْوَاءِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ مِنْ خَيْرِ مَا سَأَلَكَ مِنْهُ نَبِيُّكَ مُحَمَّدٌ صَلَّى اللّٰهُ تَعَالَى عَلَيْهِ وَسَلَّمَ"
+      },
+      {
+        "ar": "وَاَعُوذُ بِكَ مِنْ شَرِّ مَا اسْتَعَاذَكَ مِنْهُ نَبِيُّكَ مُحَمَّدٌ صَلَّى اللّٰهُ تَعَالَى عَلَيْهِ وَسَلَّمَ وَاَنْتَ الْمُسْتَعَانُ وَعَلَيْكَ الْبَلَاغُ وَلَا حَوْلَ وَلَا قُوَّةَ اِلَّا بِاللّٰهِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَعُوذُ بِكَ مِنْ جَارِ السُّوءِ فِي دَارِ الْمُقَامَةِ فَاِنَّ جَارَ الْبَادِيَةِ يَتَحَوَّلُ"
+      },
+      {
+        "ar": "وَمِنَ الْجُوعِ فَاِنَّهُ بِئْسَ الضَّجِيعُ وَمِنَ الْخِيَانَةِ فَبِئْسَتِ الْبِطَانَةُ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَعُوذُ بِكَ مِنْ عِلْمٍ لَا يَنْفَعُ وَقَلْبٍ لَا يَخْشَعُ وَدُعَاءٍ لَا يُسْمَعُ وَنَفْسٍ لَا تَشْبَعُ وَمِنْ هٰؤُلَاءِ الْاَرْبَعِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنَّا نَعُوذُ بِكَ اَنْ نَرْجِعَ عَلٰى اَعْقَابِنَا اَوْ نُفْتَنَ عَنْ دِينِنَا"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَعُوذُ بِكَ مِنْ يَوْمِ السُّوءِ ‖ وَمِنْ لَيْلَةِ السُّوءِ وَمِنْ سَاعَةِ السُّوءِ وَمِنْ صَاحِبِ السُّوءِ وَمِنْ جَارِ السُّوءِ فِي دَارِ الْمُقَامَةِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَعُوذُ بِكَ مِنَ الشِّقَاقِ وَالنِّفَاقِ وَسُوءِ الْاَخْلَاقِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اغْفِرْ لِي جِدِّي وَهَزْلِي وَخَطَايَايَ وَعَمْدِي وَكُلُّ ذٰلِكَ عِنْدِي"
+      },
+      {
+        "ar": "اللّٰهُمَّ مُصَرِّفَ الْقُلُوبِ صَرِّفْ قُلُوبَنَا عَلٰى طَاعَتِكَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ الْهُدٰى وَالتُّقٰى وَالْعَفَافَ وَالْغِنٰى"
+      },
+      {
+        "ar": "رَبِّ اَعِنِّي وَلَا تُعِنْ عَلَيَّ وَانْصُرْنِي وَلَا تَنْصُرْ عَلَيَّ وَامْكُرْ لِي وَلَا تَمْكُرْ عَلَيَّ وَاهْدِنِي وَيَسِّرِ الْهُدٰى لِي وَانْصُرْنِي عَلٰى مَنْ بَغٰى عَلَيَّ رَبِّ اجْعَلْنِي لَكَ ذَكَّارًا لَكَ شَكَّارًا لَكَ رَهَّابًا لَكَ مِطْوَاعًا لَكَ مُخْبِتًا اِلَيْكَ اَوَّاهًا مُنِيبًا"
+      },
+      {
+        "ar": "رَبِّ تَقَبَّلْ تَوْبَتِي وَاغْسِلْ حَوْبَتِي وَاَجِبْ دَعْوَتِي وَثَبِّتْ حُجَّتِي وَسَدِّدْ لِسَانِي وَاهْدِ قَلْبِي وَاسْلُلْ سَخِيمَةَ صَدْرِي"
+      },
+      {
+        "ar": "اللّٰهُمَّ اغْفِرْ لَنَا ‖ وَارْحَمْنَا وَارْضَ عَنَّا وَتَقَبَّلْ مِنَّا وَاَدْخِلْنَا الْجَنَّةَ وَنَجِّنَا مِنَ النَّارِ وَاَصْلِحْ لَنَا شَأْنَنَا كُلَّهُ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ الثَّبَاتَ فِي الْاَمْرِ وَاَسْأَلُكَ عَزِيمَةَ الرُّشْدِ وَاَسْأَلُكَ شُكْرَ نِعْمَتِكَ وَحُسْنَ عِبَادَتِكَ وَاَسْأَلُكَ لِسَانًا صَادِقًا وَقَلْبًا سَلِيمًا وَخُلُقًا مُسْتَقِيمًا وَاَعُوذُ بِكَ مِنْ شَرِّ مَا تَعْلَمُ وَاَسْأَلُكَ مِنْ خَيْرِ مَا تَعْلَمُ وَاَسْتَغْفِرُكَ مِمَّا تَعْلَمُ اِنَّكَ اَنْتَ عَلَّامُ الْغُيُوبِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اَلِّفْ بَيْنَ قُلُوبِنَا وَاَصْلِحْ ذَاتَ بَيْنِنَا وَاهْدِنَا سُبُلَ السَّلَامِ وَنَجِّنَا مِنَ الظُّلُمَاتِ اِلَى النُّورِ وَجَنِّبْنَا الْفَوَاحِشَ مَا ظَهَرَ مِنْهَا وَمَا بَطَنَ وَبَارِكْ لَنَا فِي اَسْمَاعِنَا وَاَبْصَارِنَا وَقُلُوبِنَا وَاَزْوَاجِنَا وَذُرِّيَّاتِنَا وَتُبْ عَلَيْنَا اِنَّكَ اَنْتَ التَّوَّابُ الرَّحِيمُ"
+      },
+      {
+        "ar": "وَاجْعَلْنَا شَاكِرِينَ لِنِعْمَتِكَ مُثْنِينَ بِهَا قَابِلِيهَا وَاَتِمَّهَا عَلَيْنَا"
+      },
+      {
+        "ar": "اللّٰهُمَّ اقْسِمْ ‖ لَنَا مِنْ خَشْيَتِكَ مَا تَحُولُ بِهِ بَيْنَنَا وَبَيْنَ مَعَاصِيكَ وَمِنْ طَاعَتِكَ مَا تُبَلِّغُنَا بِهِ جَنَّتَكَ وَمِنَ الْيَقِينِ مَا تُهَوِّنُ بِهِ عَلَيْنَا مَصَائِبَ الدُّنْيَا وَمَتِّعْنَا بِاَسْمَاعِنَا وَاَبْصَارِنَا وَقُوَّتِنَا مَا اَحْيَيْتَنَا وَاجْعَلْهُ الْوَارِثَ مِنَّا وَاجْعَلْ ثَأْرَنَا عَلٰى مَنْ ظَلَمَنَا وَانْصُرْنَا عَلٰى مَنْ عَادَانَا وَلَا تَجْعَلْ مُصِيبَتَنَا فِي دِينِنَا وَلَا تَجْعَلِ الدُّنْيَا اَكْبَرَ هَمِّنَا وَلَا مَبْلَغَ عِلْمِنَا وَلَا تُسَلِّطْ عَلَيْنَا مَنْ لَا يَرْحَمُنَا"
+      },
+      {
+        "ar": "اللّٰهُمَّ زِدْنَا وَلَا تَنْقُصْنَا وَاَكْرِمْنَا وَلَا تُهِنَّا وَاَعْطِنَا وَلَا تَحْرِمْنَا وَآثِرْنَا وَلَا تُؤْثِرْ عَلَيْنَا وَاَرْضِنَا وَارْضَ عَنَّا"
+      },
+      {
+        "ar": "اللّٰهُمَّ اَلْهِمْنِي رُشْدِي وَاَعِذْنِي مِنْ شَرِّ نَفْسِي"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ فِعْلَ الْخَيْرَاتِ وَتَرْكَ الْمُنْكَرَاتِ وَحُبَّ الْمَسَاكِينِ وَاَنْ تَغْفِرَ لِي وَتَرْحَمَنِي وَاِذَا اَرَدْتَ بِقَوْمٍ فِتْنَةً فَتَوَفَّنِي غَيْرَ مَفْتُونٍ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي ‖ اَسْأَلُكَ حُبَّكَ وَحُبَّ مَنْ يُحِبُّكَ وَالْعَمَلَ الَّذِي يُبَلِّغُنِي حُبَّكَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اجْعَلْ حُبَّكَ اَحَبَّ اِلَيَّ مِنْ نَفْسِي وَاَهْلِي وَمِنَ الْمَاءِ الْبَارِدِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ ارْزُقْنِي حُبَّكَ وَحُبَّ مَنْ يَنْفَعُنِي حُبُّهُ عِنْدَكَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ فَكَمَا رَزَقْتَنِي مِمَّا اُحِبُّ فَاجْعَلْهُ قُوَّةً لِي فِيمَا تُحِبُّ"
+      },
+      {
+        "ar": "اللّٰهُمَّ وَمَا زَوَيْتَ عَنِّي مِمَّا اُحِبُّ فَاجْعَلْهُ فَرَاغًا لِي فِيمَا تُحِبُّ"
+      },
+      {
+        "ar": "يَا مُقَلِّبَ الْقُلُوبِ ثَبِّتْ قَلْبِي عَلٰى دِينِكَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ اِيمَانًا لَا يَرْتَدُّ وَنَعِيمًا لَا يَنْفَدُ وَمُرَافَقَةَ نَبِيِّنَا مُحَمَّدٍ صَلَّى اللّٰهُ تَعَالَى عَلَيْهِ وَسَلَّمَ فِي اَعْلٰى دَرَجَاتِ الْجَنَّةِ جَنَّةِ الْخُلْدِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ انْفَعْنِي بِمَا عَلَّمْتَنِي وَعَلِّمْنِي مَا يَنْفَعُنِي وَزِدْنِي عِلْمًا"
+      },
+      {
+        "ar": "اَلْحَمْدُ لِلّٰهِ عَلٰى كُلِّ حَالٍ وَاَعُوذُ بِاللّٰهِ مِنْ حَالِ اَهْلِ النَّارِ"
+      }
+    ]
+  },
+  {
+    "titleArabic": "وِرْدُ يَوْمِ الثُّلَاثَاءِ",
+    "titleEnglish": "Al-Ḥizb al-Aʿẓam · Tuesday",
+    "cartouche": "وِرْدُ يَوْمِ الثُّلَاثَاءِ",
+    "note": "The Tuesday portion of al-Ḥizb al-Aʿẓam of Mullā ʿAlī al-Qārī (d. 1014 AH) — the longest of the seven, a chain of prophetic petitions for this world and the next. Set page for page after the printed edition, pp. 172–186.",
+    "folios": [
+      {
+        "from": 0,
+        "to": 86
+      }
+    ],
+    "verses": [
+      {
+        "ar": "اللّٰهُمَّ بِعِلْمِكَ الْغَيْبَ وَقُدْرَتِكَ عَلَى الْخَلْقِ اَحْيِنِي مَا عَلِمْتَ الْحَيَاةَ خَيْرًا لِي وَتَوَفَّنِي اِذَا عَلِمْتَ الْوَفَاةَ خَيْرًا لِي وَاَسْأَلُكَ خَشْيَتَكَ فِي الْغَيْبِ وَالشَّهَادَةِ وَكَلِمَةَ الْاِخْلَاصِ فِي الرِّضٰى وَالْغَضَبِ وَاَسْأَلُكَ الْقَصْدَ فِي الْفَقْرِ وَالْغِنٰى وَاَسْأَلُكَ نَعِيمًا لَا يَنْفَدُ وَقُرَّةَ عَيْنٍ لَا تَنْقَطِعُ وَاَسْأَلُكَ الرِّضٰى بِالْقَضَاءِ وَبَرْدَ الْعَيْشِ بَعْدَ الْمَوْتِ وَلَذَّةَ النَّظَرِ اِلٰى وَجْهِكَ وَالشَّوْقَ اِلٰى لِقَائِكَ وَاَعُوذُ بِكَ مِنْ ضَرَّاءَ مُضِرَّةٍ وَفِتْنَةٍ مُضِلَّةٍ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ مِنَ الْخَيْرِ كُلِّهِ عَاجِلِهِ وَآجِلِهِ مَا عَلِمْتُ مِنْهُ وَمَا لَمْ اَعْلَمْ وَاَعُوذُ بِكَ مِنَ الشَّرِّ كُلِّهِ عَاجِلِهِ وَآجِلِهِ مَا عَلِمْتُ مِنْهُ وَمَا لَمْ اَعْلَمْ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ الْجَنَّةَ وَمَا قَرَّبَ اِلَيْهَا مِنْ قَوْلٍ اَوْ عَمَلٍ"
+      },
+      {
+        "ar": "وَاَعُوذُ بِكَ مِنَ ‖ النَّارِ وَمَا قَرَّبَ اِلَيْهَا مِنْ قَوْلٍ اَوْ عَمَلٍ"
+      },
+      {
+        "ar": "وَاَسْأَلُكَ اَنْ تَجْعَلَ كُلَّ قَضَاءٍ لِي خَيْرًا وَاَسْأَلُكَ مَا قَضَيْتَ لِي مِنْ اَمْرٍ اَنْ تَجْعَلَ عَاقِبَتَهُ رُشْدًا"
+      },
+      {
+        "ar": "اللّٰهُمَّ اَحْسِنْ عَاقِبَتَنَا فِي الْاُمُورِ كُلِّهَا وَاَجِرْنَا مِنْ خِزْيِ الدُّنْيَا وَعَذَابِ الْآخِرَةِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ احْفَظْنِي بِالْاِسْلَامِ قَائِمًا وَاحْفَظْنِي بِالْاِسْلَامِ قَاعِدًا وَاحْفَظْنِي بِالْاِسْلَامِ رَاقِدًا وَلَا تُشْمِتْ بِي عَدُوًّا وَلَا حَاسِدًا"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ مِنْ كُلِّ خَيْرٍ خَزَائِنُهُ بِيَدِكَ"
+      },
+      {
+        "ar": "وَاَعُوذُ بِكَ مِنْ كُلِّ شَرٍّ مَا اَنْتَ آخِذٌ بِنَاصِيَتِهِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ عِيشَةً نَقِيَّةً وَمِيتَةً سَوِيَّةً وَمَرَدًّا غَيْرَ مُخْزٍ وَلَا فَاضِحٍ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي ضَعِيفٌ فَقَوِّ فِي رِضَاكَ ضَعْفِي وَخُذْ اِلَى الْخَيْرِ بِنَاصِيَتِي وَاجْعَلِ الْاِسْلَامَ مُنْتَهٰى رِضَايَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي ضَعِيفٌ فَقَوِّنِي وَاِنِّي ذَلِيلٌ فَاَعِزَّنِي ‖ وَاِنِّي فَقِيرٌ فَارْزُقْنِي"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ خَيْرَ الْمَسْأَلَةِ وَخَيْرَ الدُّعَاءِ وَخَيْرَ النَّجَاحِ وَخَيْرَ الْعَمَلِ وَخَيْرَ الثَّوَابِ وَخَيْرَ الْحَيَاةِ وَخَيْرَ الْمَمَاتِ وَثَبِّتْنِي وَثَقِّلْ مَوَازِينِي وَحَقِّقْ اِيمَانِي وَارْفَعْ دَرَجَتِي وَتَقَبَّلْ صَلَاتِي وَاغْفِرْ خَطِيئَتِي وَاَسْأَلُكَ الدَّرَجَاتِ الْعُلٰى مِنَ الْجَنَّةِ آمِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ فَوَاتِحَ الْخَيْرِ وَخَوَاتِمَهُ وَجَوَامِعَهُ وَاَوَّلَهُ وَآخِرَهُ وَظَاهِرَهُ وَبَاطِنَهُ وَالدَّرَجَاتِ الْعُلٰى مِنَ الْجَنَّةِ آمِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ وَنَجِّنِي مِنَ النَّارِ وَمَغْفِرَةً بِاللَّيْلِ وَالنَّهَارِ وَالْمَنْزِلَ الصَّالِحَ مِنَ الْجَنَّةِ آمِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ خَلَاصًا مِنَ النَّارِ سَالِمًا وَاَنْ تُدْخِلَنِي الْجَنَّةَ آمِنًا"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ خَيْرَ مَا آتِي وَخَيْرَ مَا اَفْعَلُ وَخَيْرَ مَا اَعْمَلُ وَخَيْرَ مَا بَطَنَ وَخَيْرَ مَا ظَهَرَ وَالدَّرَجَاتِ الْعُلٰى مِنَ الْجَنَّةِ ‖ آمِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ اَنْ تَرْفَعَ ذِكْرِي وَتَضَعَ وِزْرِي وَتُصْلِحَ اَمْرِي وَتُطَهِّرَ قَلْبِي وَتُحَصِّنَ فَرْجِي"
+      },
+      {
+        "ar": "وَتُنَوِّرَ لِي فِي قَبْرِي وَتَغْفِرَ لِي ذَنْبِي وَاَسْأَلُكَ الدَّرَجَاتِ الْعُلٰى مِنَ الْجَنَّةِ آمِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ اَنْ تُبَارِكَ لِي فِي سَمْعِي وَفِي بَصَرِي وَفِي رُوحِي وَفِي خَلْقِي وَفِي خُلُقِي وَفِي اَهْلِي وَفِي مَحْيَايَ وَفِي مَمَاتِي وَفِي عَمَلِي"
+      },
+      {
+        "ar": "اللّٰهُمَّ وَتَقَبَّلْ حَسَنَاتِي وَاَسْأَلُكَ الدَّرَجَاتِ الْعُلٰى مِنَ الْجَنَّةِ آمِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اجْعَلْ اَوْسَعَ رِزْقِكَ عَلَيَّ عِنْدَ كِبَرِ سِنِّي وَانْقِطَاعِ عُمْرِي"
+      },
+      {
+        "ar": "يَا مَنْ لَا تَرَاهُ الْعُيُونُ وَلَا تُخَالِطُهُ الظُّنُونُ وَلَا يَصِفُهُ الْوَاصِفُونَ وَلَا تُغَيِّرُهُ الْحَوَادِثُ وَلَا يَخْشَى الدَّوَائِرَ يَعْلَمُ مَثَاقِيلَ الْجِبَالِ وَمَكَايِيلَ الْبِحَارِ وَعَدَدَ قَطْرِ الْاَمْطَارِ وَعَدَدَ وَرَقِ الْاَشْجَارِ وَعَدَدَ مَا اَظْلَمَ عَلَيْهِ اللَّيْلُ ‖ وَاَشْرَقَ عَلَيْهِ النَّهَارُ"
+      },
+      {
+        "ar": "وَلَا تُوَارِي مِنْهُ سَمَاءٌ سَمَاءً وَلَا اَرْضٌ اَرْضًا وَلَا بَحْرٌ مَا فِي قَعْرِهِ وَلَا جَبَلٌ مَا فِي وَعْرِهِ اجْعَلْ خَيْرَ عُمْرِي آخِرَهُ وَخَيْرَ عَمَلِي خَوَاتِمَهُ وَخَيْرَ اَيَّامِي يَوْمَ اَلْقَاكَ فِيهِ"
+      },
+      {
+        "ar": "يَا وَلِيَّ الْاِسْلَامِ وَاَهْلِهِ ثَبِّتْنِي بِهِ حَتّٰى اَلْقَاكَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ غِنَايَ وَغِنٰى مَوْلَايَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اغْفِرْ لِي وَارْحَمْنِي وَاَدْخِلْنِي الْجَنَّةَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اجْعَلْنِي صَبُورًا وَاجْعَلْنِي شَكُورًا وَاجْعَلْنِي فِي عَيْنِي صَغِيرًا وَفِي اَعْيُنِ النَّاسِ كَبِيرًا"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ عِلْمًا نَافِعًا وَعَمَلًا مُتَقَبَّلًا وَرِزْقًا حَلَالًا طَيِّبًا"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِذَنْبِي وَاَسْتَهْدِيكَ لِمَرَاشِدِ اَمْرِي وَاَسْتَجِيرُكَ مِنْ شَرِّ نَفْسِي وَاَتُوبُ اِلَيْكَ فَتُبْ عَلَيَّ اِنَّكَ اَنْتَ رَبِّي اللّٰهُمَّ وَاجْعَلْ رَغْبَتِي اِلَيْكَ وَاجْعَلْ غِنَايَ فِي ‖ صَدْرِي وَبَارِكْ لِي فِيمَا رَزَقْتَنِي وَتَقَبَّلْ مِنِّي اِنَّكَ اَنْتَ رَبِّي"
+      },
+      {
+        "ar": "يَا مَنْ اَظْهَرَ الْجَمِيلَ وَسَتَرَ الْقَبِيحَ يَا مَنْ لَا يُؤَاخِذُ بِالْجَرِيرَةِ وَلَا يَهْتِكُ السِّتْرَ يَا عَظِيمَ الْعَفْوِ يَا حَسَنَ التَّجَاوُزِ يَا وَاسِعَ الْمَغْفِرَةِ يَا بَاسِطَ الْيَدَيْنِ بِالرَّحْمَةِ يَا صَاحِبَ كُلِّ نَجْوٰى يَا مُنْتَهٰى كُلِّ شَكْوٰى يَا كَرِيمَ الصَّفْحِ يَا عَظِيمَ الْمَنِّ يَا مُبْتَدِئَ النِّعَمِ قَبْلَ اسْتِحْقَاقِهَا يَا رَبَّنَا وَيَا سَيِّدَنَا وَيَا مَوْلَانَا وَيَا غَايَةَ رَغْبَتِنَا اَسْأَلُكَ يَا اللّٰهُ اَنْ لَا تَشْوِيَ خَلْقِي بِالنَّارِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ مَنْ فَضْلِكَ وَرَحْمَتِكَ فَاِنَّهُ لَا يَمْلِكُهَا اِلَّا اَنْتَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ كَمَا اَحْسَنْتَ خَلْقِي فَاَحْسِنْ خُلُقِي"
+      },
+      {
+        "ar": "رَبِّ اغْفِرْ وَارْحَمْ وَاهْدِنِي السَّبِيلَ الْاَقْوَمَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ رَبَّ النَّبِيِّ مُحَمَّدٍ اغْفِرْ لِي ذَنْبِي وَاَذْهِبْ غَيْظَ قَلْبِي وَاَجِرْنِي مِنْ مُضِلَّاتِ الْفِتَنِ ‖ مَا اَحْيَيْتَنَا"
+      },
+      {
+        "ar": "اللّٰهُمَّ ارْزُقْنِي طَيِّبًا وَاسْتَعْمِلْنِي طَيِّبًا"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ مِنْ فُجَاءَةِ الْخَيْرِ وَاَعُوذُ بِكَ مِنْ فُجَاءَةِ الشَّرِّ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اَنْتَ السَّلَامُ وَمِنْكَ السَّلَامُ وَاِلَيْكَ يَعُودُ السَّلَامُ اَسْأَلُكَ يَا ذَا الْجَلَالِ وَالْاِكْرَامِ اَنْ تَسْتَجِيبَ لَنَا دَعْوَتَنَا وَاَنْ تُعْطِيَنَا رَغْبَتَنَا وَاَنْ تُغْنِيَنَا عَمَّنْ اَغْنَيْتَهُ عَنَّا مِنْ خَلْقِكَ"
+      },
+      {
+        "ar": "رَبِّ قِنِي عَذَابَكَ يَوْمَ تَبْعَثُ عِبَادَكَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ خِرْ لِي وَاخْتَرْ لِي"
+      },
+      {
+        "ar": "وَفِي الصَّحِيحِ كَانَ اَكْثَرُ دُعَاءِ النَّبِيِّ صَلَّى اللّٰهُ تَعَالَى عَلَيْهِ وَسَلَّمَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ"
+      },
+      {
+        "ar": "بِسْمِ اللّٰهِ عَلٰى نَفْسِي وَمَالِي وَدِينِي"
+      },
+      {
+        "ar": "اللّٰهُمَّ رَضِّنِي بِقَضَائِكَ وَبَارِكْ لِي فِيمَا قُدِّرَ لِي حَتّٰى لَا اُحِبَّ تَعْجِيلَ مَا اَخَّرْتَ وَلَا تَأْخِيرَ مَا عَجَّلْتَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ لَا عَيْشَ اِلَّا ‖ عَيْشَ الْآخِرَةِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اَحْيِنِي مِسْكِينًا وَتَوَفَّنِي مِسْكِينًا وَاحْشُرْنِي فِي زُمْرَةِ الْمَسَاكِينِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اجْعَلْنِي مِنَ الَّذِينَ اِذَا اَحْسَنُوا اسْتَبْشَرُوا وَاِذَا اَسَاءُوا اسْتَغْفَرُوا"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ رَحْمَةً مِنْ عِنْدِكَ تَهْدِي بِهَا قَلْبِي وَتَجْمَعُ بِهَا اَمْرِي وَتَلُمُّ بِهَا شَعْثِي وَتُصْلِحُ بِهَا غَائِبِي وَتَرْفَعُ بِهَا شَاهِدِي وَتُزَكِّي بِهَا عَمَلِي وَتُلْهِمُنِي بِهَا رُشْدِي وَتَرُدُّ بِهَا اُلْفَتِي وَتَعْصِمُنِي بِهَا مِنْ كُلِّ سُوءٍ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اَعْطِنِي اِيمَانًا لَا يَرْتَدُّ وَيَقِينًا لَيْسَ بَعْدَهُ كُفْرٌ وَرَحْمَةً اَنَالُ بِهَا شَرَفَ كَرَامَتِكَ فِي الدُّنْيَا وَالْآخِرَةِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ الْفَوْزَ فِي الْقَضَاءِ وَنُزُلَ الشُّهَدَاءِ وَعَيْشَ السُّعَدَاءِ وَمُرَافَقَةَ الْاَنْبِيَاءِ وَالنَّصْرَ عَلَى الْاَعْدَاءِ اِنَّكَ سَمِيعُ الدُّعَاءِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اُنْزِلُ بِكَ حَاجَتِي وَاِنْ قَصُرَ رَأْيِي وَضَعُفَ ‖ عَمَلِي افْتَقَرْتُ اِلٰى رَحْمَتِكَ فَاَسْأَلُكَ يَا قَاضِيَ الْاُمُورِ وَيَا شَافِيَ الصُّدُورِ كَمَا تُجِيرُ بَيْنَ الْبُحُورِ اَنْ تُجِيرَنِي مِنْ عَذَابِ السَّعِيرِ وَمِنْ دَعْوَةِ الثُّبُورِ وَمِنْ فِتْنَةِ الْقُبُورِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ مَا قَصُرَ عَنْهُ رَأْيِي وَلَمْ تَبْلُغْهُ نِيَّتِي وَمَسْأَلَتِي مِنْ خَيْرٍ وَعَدْتَهُ اَحَدًا مِنْ خَلْقِكَ اَوْ خَيْرٍ اَنْتَ مُعْطِيهِ اَحَدًا مِنْ عِبَادِكَ فَاِنِّي اَرْغَبُ اِلَيْكَ فِيهِ وَاَسْأَلُكَهُ بِرَحْمَتِكَ رَبَّ الْعَالَمِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ ذَا الْحَبْلِ الشَّدِيدِ وَالْاَمْرِ الرَّشِيدِ اَسْأَلُكَ الْاَمْنَ يَوْمَ الْوَعِيدِ وَالْجَنَّةَ يَوْمَ الْخُلُودِ مَعَ الْمُقَرَّبِينَ الشُّهُودِ الرُّكَّعِ السُّجُودِ الْمُوفِينَ بِالْعُهُودِ اِنَّكَ رَحِيمٌ وَدُودٌ اِنَّكَ تَفْعَلُ مَا تُرِيدُ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اجْعَلْنَا هَادِينَ مُهْتَدِينَ غَيْرَ ضَالِّينَ وَلَا مُضِلِّينَ"
+      },
+      {
+        "ar": "سِلْمًا لِاَوْلِيَائِكَ وَحَرْبًا لِاَعْدَائِكَ نُحِبُّ بِحُبِّكَ مَنْ اَحَبَّكَ وَنُعَادِي بِعَدَاوَتِكَ ‖ مَنْ خَالَفَكَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ هٰذَا الدُّعَاءُ وَعَلَيْكَ الْاِجَابَةُ وَهٰذَا الْجُهْدُ وَعَلَيْكَ التُّكْلَانُ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اجْعَلْ لِي نُورًا فِي قَلْبِي وَنُورًا فِي قَبْرِي وَنُورًا بَيْنَ يَدَيَّ وَنُورًا مِنْ خَلْفِي وَنُورًا عَنْ يَمِينِي وَنُورًا عَنْ شِمَالِي وَنُورًا مِنْ فَوْقِي وَنُورًا مِنْ تَحْتِي وَنُورًا فِي سَمْعِي وَنُورًا فِي بَصَرِي وَنُورًا فِي شَعْرِي وَنُورًا فِي بَشَرِي وَنُورًا فِي لَحْمِي وَنُورًا فِي دَمِي وَنُورًا فِي عِظَامِي"
+      },
+      {
+        "ar": "اللّٰهُمَّ اَعْظِمْ لِي نُورًا وَاَعْطِنِي نُورًا وَاجْعَلْ لِي نُورًا وَزِدْنِي نُورًا وَزِدْنِي نُورًا وَزِدْنِي نُورًا"
+      },
+      {
+        "ar": "سُبْحَانَ الَّذِي تَعَطَّفَ بِالْعِزِّ وَقَالَ بِهِ سُبْحَانَ الَّذِي لَبِسَ الْمَجْدَ وَتَكَرَّمَ بِهِ سُبْحَانَ الَّذِي لَا يَنْبَغِي التَّسْبِيحُ اِلَّا لَهُ سُبْحَانَ مَنْ اَحْصٰى كُلَّ شَيْءٍ بِعِلْمِهِ سُبْحَانَ ذِي الْفَضْلِ وَالطَّوْلِ سُبْحَانَ ذِي الْفَضْلِ وَالنِّعَمِ سُبْحَانَ ذِي الْمَجْدِ ‖ وَالْكَرَمِ سُبْحَانَ ذِي الْجَلَالِ وَالْاِكْرَامِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ لَا تَكِلْنِي اِلٰى نَفْسِي طَرْفَةَ عَيْنٍ وَلَا تَنْزِعْ مِنِّي صَالِحَ مَا اَعْطَيْتَنِي"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنَّكَ لَسْتَ بِاِلٰهٍ اسْتَحْدَثْنَاهُ وَلَا بِرَبٍّ يَبِيدُ ذِكْرُهُ ابْتَدَعْنَاهُ وَلَا عَلَيْكَ شُرَكَاءُ يَقْضُونَ مَعَكَ وَلَا كَانَ لَنَا قَبْلَكَ مِنْ اِلٰهٍ نَلْجَأُ اِلَيْهِ وَنَذَرُكَ وَلَا اَعَانَكَ عَلٰى خَلْقِنَا اَحَدٌ فَنُشْرِكَهُ فِيكَ تَبَارَكْتَ وَتَعَالَيْتَ فَنَسْأَلُكَ لَا اِلٰهَ اِلَّا اَنْتَ اغْفِرْ لِي"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنَّكَ تَسْمَعُ كَلَامِي وَتَرٰى مَكَانِي وَتَعْلَمُ سِرِّي وَعَلَانِيَتِي لَا يَخْفٰى عَلَيْكَ شَيْءٌ مِنْ اَمْرِي وَاَنَا الْبَائِسُ الْفَقِيرُ الْمُسْتَغِيثُ الْمُسْتَجِيرُ الْوَجِلُ الْمُشْفِقُ الْمُقِرُّ الْمُعْتَرِفُ بِذَنْبِهِ اَسْأَلُكَ مَسْأَلَةَ الْمِسْكِينِ وَاَبْتَهِلُ اِلَيْكَ ابْتِهَالَ الْمُذْنِبِ الذَّلِيلِ وَاَدْعُوكَ دُعَاءَ الْخَائِفِ الضَّرِيرِ مَنْ خَضَعَتْ ‖ لَكَ رَقَبَتُهُ وَفَاضَتْ لَكَ عَبْرَتُهُ وَذَلَّ لَكَ جِسْمُهُ وَرَغِمَ لَكَ اَنْفُهُ"
+      },
+      {
+        "ar": "اللّٰهُمَّ لَا تَجْعَلْنِي بِدُعَائِكَ شَقِيًّا وَكُنْ بِي رَؤُوفًا رَحِيمًا يَا خَيْرَ الْمَسْؤُولِينَ وَيَا خَيْرَ الْمُعْطِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِلَيْكَ اَشْكُو ضَعْفَ قُوَّتِي وَقِلَّةَ حِيلَتِي وَهَوَانِي عَلَى النَّاسِ يَا اَرْحَمَ الرَّاحِمِينَ"
+      },
+      {
+        "ar": "اِلٰى مَنْ تَكِلْنِي اِلٰى عَدُوٍّ يَتَجَهَّمُنِي اَمْ اِلٰى قَرِيبٍ مَلَّكْتَهُ اَمْرِي اِنْ لَمْ تَكُنْ سَاخِطًا عَلَيَّ فَلَا اُبَالِي غَيْرَ اَنَّ عَافِيَتَكَ اَوْسَعُ لِي اَعُوذُ بِنُورِ وَجْهِكَ الْكَرِيمِ الَّذِي اَضَاءَتْ لَهُ السَّمَاوَاتُ وَاَشْرَقَتْ لَهُ الظُّلُمَاتُ وَصَلُحَ عَلَيْهِ اَمْرُ الدُّنْيَا وَالْآخِرَةِ اَنْ تُحِلَّ عَلَيَّ غَضَبَكَ اَوْ تُنْزِلَ عَلَيَّ سَخَطَكَ وَلَكَ الْعُتْبٰى حَتّٰى تَرْضٰى وَلَا حَوْلَ وَلَا قُوَّةَ اِلَّا بِكَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ وَاقِيَةً كَوَاقِيَةِ الْوَلِيدِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنَّا نَسْأَلُكَ قُلُوبًا اَوَّاهَةً مُخْبِتَةً مُنِيبَةً فِي ‖ سَبِيلِكَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ اِيمَانًا يُبَاشِرُ قَلْبِي حَتّٰى اَعْلَمَ اَنَّهُ لَا يُصِيبُنِي اِلَّا مَا كَتَبْتَ لِي وَرِضًى مِنَ الْمَعِيشَةِ بِمَا قَسَمْتَ لِي"
+      },
+      {
+        "ar": "اللّٰهُمَّ لَكَ الْحَمْدُ كَالَّذِي نَقُولُ وَخَيْرًا مِمَّا نَقُولُ"
+      },
+      {
+        "ar": "اللّٰهُمَّ لَكَ صَلَاتِي وَنُسُكِي وَمَحْيَايَ وَمَمَاتِي وَاِلَيْكَ مَآبِي وَلَكَ رَبِّ تُرَاثِي"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَعُوذُ بِكَ مِنْ عَذَابِ الْقَبْرِ وَوَسْوَسَةِ الصَّدْرِ وَشَتَاتِ الْاَمْرِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ مِنْ خَيْرِ مَا تَجِيءُ بِهِ الرِّيَاحُ وَاَعُوذُ بِكَ مِنْ شَرِّ مَا تَجِيءُ بِهِ الرِّيحُ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اجْعَلْنِي اُعَظِّمُ شُكْرَكَ وَاُكْثِرُ ذِكْرَكَ وَاَتَّبِعُ نَصِيحَتَكَ وَاَحْفَظُ وَصِيَّتَكَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنَّ قُلُوبَنَا وَنَوَاصِيَنَا وَجَوَارِحَنَا بِيَدِكَ لَمْ تُمَلِّكْنَا مِنْهَا شَيْئًا فَاِذَا فَعَلْتَ ذٰلِكَ بِنَا فَكُنْ اَنْتَ وَلِيَّنَا وَاهْدِنَا اِلٰى سَوَاءِ السَّبِيلِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اجْعَلْ حُبَّكَ اَحَبَّ الْاَشْيَاءِ اِلَيَّ ‖ وَاجْعَلْ خَشْيَتَكَ اَخْوَفَ الْاَشْيَاءِ عِنْدِي وَاقْطَعْ عَنِّي حَاجَاتِ الدُّنْيَا بِالشَّوْقِ اِلٰى لِقَائِكَ وَاِذَا اَقْرَرْتَ اَعْيُنَ اَهْلِ الدُّنْيَا مِنْ دُنْيَاهُمْ فَاَقْرِرْ عَيْنِي مِنْ عِبَادَتِكَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَعُوذُ بِكَ مِنْ شَرِّ الْاَعْمَيَيْنِ السَّيْلِ وَالْبَعِيرِ الصَّؤُولِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ الصِّحَّةَ وَالْعِفَّةَ وَالْاَمَانَةَ وَحُسْنَ الْخُلُقِ وَالرِّضَاءَ بِالْقَدَرِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ لَكَ الْحَمْدُ شُكْرًا وَلَكَ الْمَنُّ فَضْلًا"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ التَّوْفِيقَ لِمَحَابِّكَ مِنَ الْاَعْمَالِ وَصِدْقَ التَّوَكُّلِ عَلَيْكَ وَحُسْنَ الظَّنِّ بِكَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ افْتَحْ مَسَامِعَ قَلْبِي لِذِكْرِكَ وَارْزُقْنِي طَاعَتَكَ وَطَاعَةَ رَسُولِكَ وَعَمَلًا بِكِتَابِكَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اجْعَلْنِي اَخْشَاكَ كَاَنِّي اَرَاكَ اَبَدًا حَتّٰى اَلْقَاكَ وَاَسْعِدْنِي بِتَقْوَاكَ وَلَا تُشْقِنِي بِمَعْصِيَتِكَ وَخِرْ لِي فِي قَضَائِكَ وَبَارِكْ لِي ‖ فِي قَدَرِكَ حَتّٰى لَا اُحِبَّ تَعْجِيلَ مَا اَخَّرْتَ وَلَا تَأْخِيرَ مَا عَجَّلْتَ وَاجْعَلْ غِنَايَ فِي نَفْسِي"
+      },
+      {
+        "ar": "اللّٰهُمَّ الْطُفْ بِي فِي تَيْسِيرِ كُلِّ عَسِيرٍ فَاِنَّ تَيْسِيرَ كُلِّ عَسِيرٍ عَلَيْكَ يَسِيرٌ"
+      },
+      {
+        "ar": "وَاَسْأَلُكَ الْيُسْرَ وَالْمُعَافَاةَ فِي الدُّنْيَا وَالْآخِرَةِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اعْفُ عَنِّي فَاِنَّكَ عَفُوٌّ كَرِيمٌ"
+      },
+      {
+        "ar": "اللّٰهُمَّ طَهِّرْ قَلْبِي مِنَ النِّفَاقِ وَعَمَلِي مِنَ الرِّيَاءِ وَلِسَانِي مِنَ الْكَذِبِ وَعَيْنَيَّ مِنَ الْخِيَانَةِ فَاِنَّكَ تَعْلَمُ خَائِنَةَ الْاَعْيُنِ وَمَا تُخْفِي الصُّدُورُ"
+      },
+      {
+        "ar": "اللّٰهُمَّ ارْزُقْنِي عَيْنَيْنِ هَطَّالَتَيْنِ تَشْفِيَانِ الْقَلْبَ بِذُرُوفِ الدُّمُوعِ مِنْ خَشْيَتِكَ قَبْلَ اَنْ تَكُونَ الدُّمُوعُ دَمًا وَالْاَضْرَاسُ جَمْرًا"
+      },
+      {
+        "ar": "اللّٰهُمَّ عَافِنِي فِي قُدْرَتِكَ وَاَدْخِلْنِي فِي رَحْمَتِكَ وَاقْضِ اَجَلِي فِي طَاعَتِكَ وَاخْتِمْ لِي بِخَيْرِ عَمَلِي وَاجْعَلْ ثَوَابَهُ الْجَنَّةَ"
+      }
+    ]
+  },
+  {
+    "titleArabic": "وِرْدُ يَوْمِ الْاَرْبِعَاءِ",
+    "titleEnglish": "Al-Ḥizb al-Aʿẓam · Wednesday",
+    "cartouche": "وِرْدُ يَوْمِ الْاَرْبِعَاءِ",
+    "note": "The Wednesday portion of al-Ḥizb al-Aʿẓam of Mullā ʿAlī al-Qārī (d. 1014 AH) — prayers for the community, for the Qurʾān, and the long litany of divine names. Set page for page after the printed edition, pp. 187–200.",
+    "folios": [
+      {
+        "from": 0,
+        "to": 68
+      }
+    ],
+    "verses": [
+      {
+        "ar": "اللّٰهُمَّ اَغْنِنِي بِالْعِلْمِ وَزَيِّنِّي بِالْحِلْمِ وَاَكْرِمْنِي بِالتَّقْوٰى وَجَمِّلْنِي بِالْعَافِيَةِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَعُوذُ بِكَ مِنْ خَلِيلٍ مَاكِرٍ عَيْنَاهُ تَرَيَانِي وَقَلْبُهُ يَرْعَانِي اِنْ رَاٰى حَسَنَةً دَفَنَهَا وَاِنْ رَاٰى سَيِّئَةً اَذَاعَهَا"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَعُوذُ بِكَ مِنَ الْبُؤْسِ وَالتَّبَاؤُسِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ لَا يُدْرِكْنِي زَمَانٌ وَلَا يُدْرِكُوا زَمَانًا لَا يُتَّبَعُ فِيهِ الْعَلِيمُ وَلَا يُسْتَحْيٰى فِيهِ مِنَ الْحَلِيمِ قُلُوبُهُمْ قُلُوبُ الْاَعَاجِمِ وَاَلْسِنَتُهُمْ اَلْسِنَةُ الْعَرَبِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَعُوذُ بِكَ مِنْ غَلَبَةِ الدَّيْنِ وَغَلَبَةِ الْعَدُوِّ وَمِنْ بَوَارِ الْاَيِّمِ وَمِنْ فِتْنَةِ الْمَسِيحِ الدَّجَّالِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَعُوذُ بِكَ مِنْ فِتْنَةِ النِّسَاءِ وَاَعُوذُ بِكَ مِنْ عَذَابِ الْقَبْرِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَتَّخِذُ عِنْدَكَ عَهْدًا لَنْ تُخْلِفَنِيهِ فَاِنَّمَا اَنَا بَشَرٌ فَاَيُّمَا مُؤْمِنٍ ‖ آذَيْتُهُ اَوْ شَتَمْتُهُ اَوْ جَلَدْتُهُ اَوْ لَعَنْتُهُ فَاجْعَلْهَا لَهُ صَلَاةً وَزَكَاةً وَقُرْبَةً تُقَرِّبُهُ بِهَا اِلَيْكَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اَنْتَ خَلَقْتَ نَفْسِي وَاَنْتَ تَوَفَّاهَا لَكَ مَمَاتُهَا وَمَحْيَاهَا اِنْ اَحْيَيْتَهَا فَاحْفَظْهَا بِمَا تَحْفَظُ بِهِ عِبَادَكَ الصَّالِحِينَ وَاِنْ اَمَتَّهَا فَاغْفِرْ لَهَا وَارْحَمْهَا"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ الْعَافِيَةَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ حَصِّنْ فَرْجِي وَيَسِّرْ لِي اَمْرِي"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ تَمَامَ الْوُضُوءِ وَتَمَامَ الصَّلَاةِ وَتَمَامَ رِضْوَانِكَ وَتَمَامَ مَغْفِرَتِكَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اَعْطِنِي كِتَابِي بِيَمِينِي"
+      },
+      {
+        "ar": "اللّٰهُمَّ بَيِّضْ وَجْهِي يَوْمَ تَبْيَضُّ الْوُجُوهُ"
+      },
+      {
+        "ar": "اللّٰهُمَّ غَشِّنِي بِرَحْمَتِكَ وَجَنِّبْنِي عَذَابَكَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ ثَبِّتْ قَدَمَيَّ يَوْمَ تَزِلُّ فِيهِ الْاَقْدَامُ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اجْعَلْنَا مُفْلِحِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ افْتَحْ اَقْفَالَ قُلُوبِنَا بِذِكْرِكَ وَاَتْمِمْ عَلَيْنَا نِعْمَتَكَ وَاَسْبِغْ عَلَيْنَا مِنْ فَضْلِكَ ‖ وَاجْعَلْنَا مِنْ عِبَادِكَ الصَّالِحِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَعُوذُ بِكَ مِنْ اِبْلِيسَ وَجُنُودِهِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ آتِنِي اَفْضَلَ مَا تُؤْتِي عِبَادَكَ الصَّالِحِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَعُوذُ بِكَ اَنْ تَصُدَّ عَنِّي وَجْهَكَ يَوْمَ الْقِيَامَةِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اَحْيِنِي مُسْلِمًا وَاَمِتْنِي مُسْلِمًا"
+      },
+      {
+        "ar": "اللّٰهُمَّ عَذِّبِ الْكَفَرَةَ وَاَلْقِ فِي قُلُوبِهِمُ الرُّعْبَ وَخَالِفْ بَيْنَ كَلِمَتِهِمْ وَاَنْزِلْ عَلَيْهِمْ رِجْزَكَ وَعَذَابَكَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ عَذِّبْ كَفَرَةَ اَهْلِ الْكِتَابِ وَالْمُشْرِكِينَ الَّذِينَ يَجْحَدُونَ آيَاتِكَ وَيُكَذِّبُونَ رُسُلَكَ وَيَصُدُّونَ عَنْ سَبِيلِكَ وَيَتَعَدَّوْنَ حُدُودَكَ وَيَدْعُونَ مَعَكَ اِلٰهًا آخَرَ لَا اِلٰهَ اِلَّا اَنْتَ تَبَارَكْتَ وَتَعَالَيْتَ عَمَّا يَقُولُ الظَّالِمُونَ عُلُوًّا كَبِيرًا"
+      },
+      {
+        "ar": "اللّٰهُمَّ اغْفِرْ لِلْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ وَالْمُسْلِمِينَ وَالْمُسْلِمَاتِ وَاَصْلِحْهُمْ وَاَصْلِحْ ذَاتَ بَيْنِهِمْ وَاَلِّفْ بَيْنَ قُلُوبِهِمْ وَاجْعَلْ ‖ فِي قُلُوبِهِمُ الْاِيمَانَ وَالْحِكْمَةَ وَثَبِّتْهُمْ عَلٰى مِلَّةِ رَسُولِكَ وَاَوْزِعْهُمْ اَنْ يَشْكُرُوا نِعْمَتَكَ الَّتِي اَنْعَمْتَ عَلَيْهِمْ وَاَنْ يُوفُوا بِعَهْدِكَ الَّذِي عَاهَدْتَهُمْ عَلَيْهِ وَانْصُرْهُمْ عَلٰى عَدُوِّكَ وَعَدُوِّهِمْ اِلٰهَ الْحَقِّ"
+      },
+      {
+        "ar": "سُبْحَانَكَ لَا اِلٰهَ غَيْرُكَ اغْفِرْ لِي ذَنْبِي وَاَصْلِحْ لِي عَمَلِي اِنَّكَ تَغْفِرُ الذُّنُوبَ لِمَنْ تَشَاءُ وَاَنْتَ الْغَفُورُ الرَّحِيمُ"
+      },
+      {
+        "ar": "يَا غَفَّارُ اغْفِرْ لِي يَا تَوَّابُ تُبْ عَلَيَّ يَا رَحْمٰنُ ارْحَمْنِي يَا عَفُوُّ اعْفُ عَنِّي يَا رَؤُوفُ ارْؤُفْ بِي يَا رَبِّ اَوْزِعْنِي اَنْ اَشْكُرَ نِعْمَتَكَ الَّتِي اَنْعَمْتَ عَلَيَّ وَطَوِّقْنِي حُسْنَ عِبَادَتِكَ يَا رَبِّ اَسْأَلُكَ مِنَ الْخَيْرِ كُلِّهِ يَا رَبِّ افْتَحْ لِي بِخَيْرٍ وَاخْتِمْ لِي بِخَيْرٍ وَآتِنِي تَشَوُّقًا اِلٰى لِقَائِكَ مِنْ غَيْرِ ضَرَّاءَ مُضِرَّةٍ وَلَا فِتْنَةٍ مُضِلَّةٍ وَقِنِي السَّيِّئَاتِ وَمَنْ تَقِ السَّيِّئَاتِ يَوْمَئِذٍ فَقَدْ رَحِمْتَهُ وَذٰلِكَ هُوَ الْفَوْزُ الْعَظِيمُ ‖"
+      },
+      {
+        "ar": "اللّٰهُمَّ لَكَ الْحَمْدُ كُلُّهُ وَلَكَ الشُّكْرُ كُلُّهُ وَلَكَ الْمُلْكُ كُلُّهُ"
+      },
+      {
+        "ar": "وَلَكَ الْخَلْقُ كُلُّهُ بِيَدِكَ الْخَيْرُ كُلُّهُ وَاِلَيْكَ يَرْجِعُ الْاَمْرُ كُلُّهُ اَسْأَلُكَ مِنَ الْخَيْرِ كُلِّهِ وَاَعُوذُ بِكَ مِنَ الشَّرِّ كُلِّهِ"
+      },
+      {
+        "ar": "بِسْمِ اللّٰهِ الَّذِي لَا اِلٰهَ غَيْرُهُ اللّٰهُمَّ اَذْهِبْ عَنِّي الْهَمَّ وَالْحَزَنَ اللّٰهُمَّ بِحَمْدِكَ انْصَرَفْتُ وَبِذَنْبِي اعْتَرَفْتُ اَعُوذُ بِكَ مِنْ شَرِّ مَا اقْتَرَفْتُ وَاَعُوذُ بِكَ مِنْ جَهْدِ الْبَلَاءِ وَمِنْ عَذَابِ الْآخِرَةِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَعُوذُ بِكَ مِنْ كُلِّ عَمَلٍ يُخْزِينِي وَاَعُوذُ بِكَ مِنْ كُلِّ صَاحِبٍ يُؤْذِينِي وَاَعُوذُ بِكَ مِنْ كُلِّ اَمَلٍ يُلْهِينِي وَاَعُوذُ بِكَ مِنْ كُلِّ فَقْرٍ يُنْسِينِي وَاَعُوذُ بِكَ مِنْ كُلِّ غِنًى يُطْغِينِي"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِلٰهِي وَاِلٰهَ إِبْرَاهِيمَ وَإِسْحَاقَ وَيَعْقُوبَ وَاِلٰهَ جِبْرِيلَ وَمِيكَائِيلَ وَإِسْرَافِيلَ اَسْأَلُكَ اَنْ تَسْتَجِيبَ دَعْوَتِي فَاَنَا مُضْطَرٌّ وَتَعْصِمَنِي فِي ‖ دِينِي فَاِنِّي مُبْتَلًى وَتَنَالَنِي بِرَحْمَتِكَ فَاِنِّي مُذْنِبٌ وَتَنْفِيَ عَنِّي الْفَقْرَ فَاِنِّي مُتَمَسْكِنٌ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ بِحَقِّ السَّائِلِينَ عَلَيْكَ فَاِنَّ لِلسَّائِلِ عَلَيْكَ حَقًّا اَيَّمَا عَبْدٍ اَوْ اَمَةٍ مِنْ اَهْلِ الْبَرِّ وَالْبَحْرِ تَقَبَّلْتَ دَعْوَتَهُمْ وَاسْتَجَبْتَ دُعَاءَهُمْ اَنْ تُشْرِكَنَا فِي صَالِحِ مَا يَدْعُونَكَ فِيهِ وَاَنْ تُشْرِكَهُمْ فِي صَالِحِ مَا نَدْعُوكَ فِيهِ وَاَنْ تُعَافِيَنَا وَاِيَّاهُمْ وَاَنْ تَقَبَّلَ مِنَّا وَمِنْهُمْ وَاَنْ تَجَاوَزَ عَنَّا وَعَنْهُمْ فَاِنَّنَا آمَنَّا بِمَا اَنْزَلْتَ وَاتَّبَعْنَا الرَّسُولَ فَاكْتُبْنَا مَعَ الشَّاهِدِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اَعْطِ مُحَمَّدًا الْوَسِيلَةَ وَاجْعَلْ فِي الْمُصْطَفَيْنَ مَحَبَّتَهُ وَفِي الْعَالِينَ دَرَجَتَهُ وَفِي الْمُقَرَّبِينَ ذِكْرَهُ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اهْدِنِي مِنْ عِنْدِكَ وَاَفِضْ عَلَيَّ مِنْ فَضْلِكَ وَاَسْبِغْ عَلَيَّ مِنْ رَحْمَتِكَ وَاَنْزِلْ عَلَيَّ مِنْ بَرَكَاتِكَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اغْفِرْ لِي ‖ وَارْحَمْنِي وَتُبْ عَلَيَّ اِنَّكَ اَنْتَ التَّوَّابُ الرَّحِيمُ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ تَوْفِيقَ اَهْلِ الْهُدٰى وَاَعْمَالَ اَهْلِ الْيَقِينِ وَمُنَاصَحَةَ اَهْلِ التَّوْبَةِ وَعَزْمَ اَهْلِ الصَّبْرِ وَجِدَّ اَهْلِ الْخَشْيَةِ وَطَلَبَ اَهْلِ الرَّغْبَةِ وَتَعَبُّدَ اَهْلِ الْوَرَعِ وَعِرْفَانَ اَهْلِ الْعِلْمِ حَتّٰى اَخَافُكَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ مَخَافَةً تَحْجُزُنِي عَنْ مَعَاصِيكَ حَتّٰى اَعْمَلَ بِطَاعَتِكَ عَمَلًا اَسْتَحِقُّ بِهِ رِضَاكَ وَحَتّٰى اُنَاصِحَكَ بِالتَّوْبَةِ خَوْفًا مِنْكَ وَحَتّٰى اُخْلِصَ لَكَ النَّصِيحَةَ حَيَاءً مِنْكَ وَحَتّٰى اَتَوَكَّلَ عَلَيْكَ فِي الْاُمُورِ كُلِّهَا حُسْنَ ظَنٍّ بِكَ سُبْحَانَ خَالِقِ النَّارِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ لَا تُهْلِكْنَا فُجَاءَةً وَلَا تَأْخُذْنَا بَغْتَةً وَلَا تَجْعَلْنَا زَائِغِينَ عَنْ حَقٍّ وَلَا وَصِيَّةٍ"
+      },
+      {
+        "ar": "اللّٰهُمَّ آنِسْ وَحْشَتِي فِي قَبْرِي"
+      },
+      {
+        "ar": "اللّٰهُمَّ ارْحَمْنِي بِالْقُرْآنِ الْعَظِيمِ وَاجْعَلْهُ لِي اِمَامًا ‖ وَنُورًا وَهُدًى وَرَحْمَةً"
+      },
+      {
+        "ar": "اللّٰهُمَّ ذَكِّرْنِي مِنْهُ مَا نَسِيتُ وَعَلِّمْنِي مِنْهُ مَا جَهِلْتُ وَارْزُقْنِي تِلَاوَتَهُ آنَاءَ اللَّيْلِ وَآنَاءَ النَّهَارِ وَاجْعَلْهُ لِي حُجَّةً يَا رَبَّ الْعَالَمِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اَنَا عَبْدُكَ ابْنُ عَبْدِكَ ابْنُ اَمَتِكَ نَاصِيَتِي بِيَدِكَ اَتَقَلَّبُ فِي قَبْضَتِكَ مَاضٍ فِيَّ حُكْمُكَ نَافِذٌ فِيَّ قَضَاؤُكَ وَاُصَدِّقُ بِلِقَائِكَ وَاُومِنُ بِوَعْدِكَ اَمَرْتَنِي فَعَصَيْتُ وَنَهَيْتَنِي فَاَتَيْتُ هٰذَا مَكَانُ الْعَائِذِ بِكَ مِنَ النَّارِ لَا اِلٰهَ اِلَّا اَنْتَ سُبْحَانَكَ ظَلَمْتُ نَفْسِي فَاغْفِرْ لِي اِنَّهُ لَا يَغْفِرُ الذُّنُوبَ اِلَّا اَنْتَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ لَكَ الْحَمْدُ وَاِلَيْكَ الْمُشْتَكٰى وَبِكَ الْمُسْتَغَاثُ وَاَنْتَ الْمُسْتَعَانُ وَلَا حَوْلَ وَلَا قُوَّةَ اِلَّا بِاللّٰهِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ بِمُحَمَّدٍ نَبِيِّكَ وَإِبْرَاهِيمَ خَلِيلِكَ وَمُوسَى نَجِيِّكَ وَعِيسَى رُوحِكَ وَكَلِمَتِكَ وَبِكَلَامِ مُوسَى ‖ وَاِنْجِيلِ عِيسَى وَزَبُورِ دَاوُدَ وَفُرْقَانِ مُحَمَّدٍ صَلَّى اللّٰهُ تَعَالَى عَلَيْهِ وَسَلَّمَ"
+      },
+      {
+        "ar": "وَبِكُلِّ وَحْيٍ اَوْحَيْتَهُ اَوْ قَضَاءٍ قَضَيْتَهُ اَوْ سَائِلٍ اَعْطَيْتَهُ اَوْ فَقِيرٍ اَغْنَيْتَهُ اَوْ غَنِيٍّ اَفْقَرْتَهُ اَوْ ضَالٍّ هَدَيْتَهُ وَاَسْأَلُكَ بِاسْمِكَ الَّذِي اَنْزَلْتَهُ عَلٰى مُوسَى وَاَسْأَلُكَ بِاسْمِكَ الَّذِي وَضَعْتَهُ عَلَى الْاَرْضِ فَاسْتَقَرَّتْ وَعَلَى السَّمَاوَاتِ فَاسْتَقَلَّتْ وَعَلَى الْجِبَالِ فَرَسَتْ"
+      },
+      {
+        "ar": "وَاَسْأَلُكَ بِاسْمِكَ الَّذِي اسْتَقَرَّ بِهِ عَرْشُكَ وَاَسْأَلُكَ بِاسْمِكَ الطَّاهِرِ الْمُطَهَّرِ الْمُنْزَلِ فِي كِتَابِكَ مِنْ لَدُنْكَ وَبِالْاِسْمِ الَّذِي وَضَعْتَهُ عَلَى النَّهَارِ فَاسْتَنَارَ وَعَلَى اللَّيْلِ فَاَظْلَمَ وَبِعَظَمَتِكَ وَكِبْرِيَائِكَ وَبِنُورِ وَجْهِكَ اَنْ تَرْزُقَنِي الْقُرْآنَ الْعَظِيمَ وَتَخْلِطَهُ بِلَحْمِي وَدَمِي وَسَمْعِي وَبَصَرِي وَتَسْتَعْمِلَ بِهِ جَسَدِي بِحَوْلِكَ وَقُوَّتِكَ فَاِنَّهُ لَا حَوْلَ وَلَا قُوَّةَ ‖ اِلَّا بِكَ"
+      },
+      {
+        "ar": "بِسْمِ اللّٰهِ ذِي الشَّانِ عَظِيمِ الْبُرْهَانِ شَدِيدِ السُّلْطَانِ كُلَّ يَوْمٍ هُوَ فِي شَأْنٍ"
+      },
+      {
+        "ar": "مَا شَاءَ اللّٰهُ كَانَ اَعُوذُ بِاللّٰهِ مِنَ الشَّيْطَانِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ بَارِكْ لِي فِي الْمَوْتِ وَفِيمَا بَعْدَ الْمَوْتِ (25)"
+      },
+      {
+        "ar": "اللّٰهُمَّ لَا تُؤْمِنَّا مَكْرَكَ وَلَا تُنْسِنَا ذِكْرَكَ وَلَا تَهْتِكْ عَنَّا سِتْرَكَ وَلَا تَجْعَلْنَا مِنَ الْغَافِلِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَعُوذُ بِكَ مِنْ ضِيقِ الدُّنْيَا وَضِيقِ يَوْمِ الْقِيَامَةِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ تَعْجِيلَ عَافِيَتِكَ وَصَبْرًا عَلٰى بَلَائِكَ وَخُرُوجًا مِنَ الدُّنْيَا اِلٰى رَحْمَتِكَ"
+      },
+      {
+        "ar": "يَا مَنْ يَكْفِي عَنْ كُلِّ اَحَدٍ وَلَا يَكْفِي مِنْهُ اَحَدٌ يَا اَحَدَ مَنْ لَا اَحَدَ لَهُ"
+      },
+      {
+        "ar": "يَا سَنَدَ مَنْ لَا سَنَدَ لَهُ انْقَطَعَ الرَّجَاءُ اِلَّا مِنْكَ نَجِّنِي مِمَّا اَنَا فِيهِ وَاَعِنِّي عَلٰى مَا اَنَا عَلَيْهِ مِمَّا قَدْ نَزَلَ بِي بِجَاهِ وَجْهِكَ الْكَرِيمِ وَبِحَقِّ مُحَمَّدٍ عَلَيْكَ آمِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ احْرُسْنِي ‖ بِعَيْنِكَ الَّتِي لَا تَنَامُ وَاكْنُفْنِي بِرُكْنِكَ الَّذِي لَا يُرَامُ وَارْحَمْنِي بِقُدْرَتِكَ عَلَيَّ فَلَا اَهْلِكَ وَاَنْتَ رَجَائِي فَكَمْ مِنْ نِعْمَةٍ اَنْعَمْتَ بِهَا عَلَيَّ قَلَّ لَكَ بِهَا شُكْرِي وَكَمْ مِنْ بَلِيَّةٍ ابْتَلَيْتَنِي بِهَا قَلَّ لَكَ بِهَا صَبْرِي فَيَا مَنْ قَلَّ عِنْدَ نِعْمَتِهِ شُكْرِي فَلَمْ يَحْرِمْنِي وَيَا مَنْ قَلَّ عِنْدَ بَلِيَّتِهِ صَبْرِي فَلَمْ يَخْذُلْنِي وَيَا مَنْ رَآنِي عَلَى الْخَطَايَا فَلَمْ يَفْضَحْنِي يَا ذَا الْمَعْرُوفِ الَّذِي لَا يَنْقَضِي اَبَدًا وَيَا ذَا النَّعْمَاءِ الَّتِي لَا تُحْصٰى اَبَدًا اَسْأَلُكَ اَنْ تُصَلِّيَ عَلٰى مُحَمَّدٍ وَعَلٰى آلِ مُحَمَّدٍ وَبِكَ اَدْرَاُ فِي نُحُورِ الْاَعْدَاءِ وَالْجَبَابِرَةِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اَعِنِّي عَلٰى دِينِي بِالدُّنْيَا وَعَلٰى آخِرَتِي بِالتَّقْوٰى وَاحْفَظْنِي فِيمَا غِبْتُ عَنْهُ وَلَا تَكِلْنِي اِلٰى نَفْسِي فِيمَا حَضَرْتُهُ يَا مَنْ لَا تَضُرُّهُ الذُّنُوبُ وَلَا تَنْقُصُهُ الْمَغْفِرَةُ هَبْ لِي ‖ مَا لَا يَنْقُصُكَ وَاغْفِرْ لِي مَا لَا يَضُرُّكَ اِنَّكَ وَهَّابٌ اَسْأَلُكَ فَرَجًا قَرِيبًا وَصَبْرًا جَمِيلًا وَرِزْقًا وَاسِعًا وَالْعَافِيَةَ مِنْ جَمِيعِ الْبَلَاءِ وَاَسْأَلُكَ تَمَامَ الْعَافِيَةِ وَاَسْأَلُكَ دَوَامَ الْعَافِيَةِ وَاَسْأَلُكَ الشُّكْرَ عَلَى الْعَافِيَةِ وَاَسْأَلُكَ الْغِنٰى عَنِ النَّاسِ وَلَا حَوْلَ وَلَا قُوَّةَ اِلَّا بِاللّٰهِ الْعَلِيِّ الْعَظِيمِ"
+      },
+      {
+        "ar": "يَا رَبِّ يَا رَبِّ يَا رَبِّ يَا رَبِّ"
+      },
+      {
+        "ar": "اللّٰهُمَّ يَا كَبِيرُ يَا سَمِيعُ يَا بَصِيرُ يَا مَنْ لَا شَرِيكَ لَهُ وَلَا وَزِيرَ يَا خَالِقَ الشَّمْسِ وَالْقَمَرِ الْمُنِيرِ يَا عِصْمَةَ الْبَائِسِ الْخَائِفِ الْمُسْتَجِيرِ يَا رَازِقَ الطِّفْلِ الصَّغِيرِ يَا جَابِرَ الْعَظْمِ الْكَسِيرِ اَدْعُوكَ دُعَاءَ الْبَائِسِ الْفَقِيرِ كَدُعَاءِ الْمُضْطَرِّ الضَّرِيرِ اَسْأَلُكَ بِمَعَاقِدِ الْعِزِّ مِنْ عَرْشِكَ وَبِمَفَاتِيحِ الرَّحْمَةِ مِنْ كِتَابِكَ وَبِالْاَسْمَاءِ الثَّمَانِيَةِ الْمَكْتُوبَةِ عَلٰى قَرْنِ الشَّمْسِ ‖ اَنْ تَجْعَلَ كَذَا وَكَذَا يَا مُونِسَ كُلِّ وَحِيدٍ وَيَا صَاحِبَ كُلِّ فَرِيدٍ وَيَا قَرِيبًا غَيْرَ بَعِيدٍ وَيَا شَاهِدًا غَيْرَ غَائِبٍ وَيَا غَالِبًا غَيْرَ مَغْلُوبٍ"
+      },
+      {
+        "ar": "يَا حَيُّ يَا قَيُّومُ يَا ذَا الْجَلَالِ وَالْاِكْرَامِ"
+      },
+      {
+        "ar": "يَا نُورَ السَّمَاوَاتِ وَالْاَرْضِ يَا زَيْنَ السَّمَاوَاتِ وَالْاَرْضِ يَا جَبَّارَ السَّمَاوَاتِ وَالْاَرْضِ يَا عِمَادَ السَّمَاوَاتِ وَالْاَرْضِ يَا بَدِيعَ السَّمَاوَاتِ وَالْاَرْضِ يَا قَيَّامَ السَّمَاوَاتِ وَالْاَرْضِ يَا ذَا الْجَلَالِ وَالْاِكْرَامِ يَا صَرِيخَ الْمُسْتَصْرِخِينَ وَمُنْتَهَى الْعَابِدِينَ وَالْمُفَرِّجَ عَنِ الْمَكْرُوبِينَ وَالْمُرَوِّحَ عَنِ الْمَغْمُومِينَ وَمُجِيبَ دُعَاءِ الْمُضْطَرِّينَ وَيَا كَاشِفَ الْكَرْبِ يَا اِلٰهَ الْعَالَمِينَ وَيَا اَرْحَمَ الرَّاحِمِينَ مَنْزُولٌ بِكَ كُلُّ حَاجَةٍ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَعُوذُ بِكَ مِنْ مَوْتِ الْهَمِّ وَاَعُوذُ بِكَ مِنْ مَوْتِ الْغَمِّ ‖ وَاَعُوذُ بِكَ مِنَ الْجُوعِ فَاِنَّهُ بِئْسَ الضَّجِيعُ وَاَعُوذُ بِكَ مِنَ الْخِيَانَةِ فَاِنَّهَا بِئْسَتِ الْبِطَانَةُ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اجْعَلْ سَرِيرَتِي خَيْرًا مِنْ عَلَانِيَتِي وَاجْعَلْ عَلَانِيَتِي صَالِحَةً"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ مِنْ صَالِحِ مَا تُؤْتِي النَّاسَ مِنَ الْمَالِ وَالْاَهْلِ وَالْوَلَدِ غَيْرَ ضَالٍّ وَلَا مُضِلٍّ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اجْعَلْنَا مِنْ عِبَادِكَ الْمُنْتَخَبِينَ الْغُرِّ الْمُحَجَّلِينَ الْوَفْدِ الْمُتَقَبَّلِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَعُوذُ بِكَ اَنْ اُشْرِكَ بِكَ شَيْئًا وَاَنَا اَعْلَمُ وَاَسْتَغْفِرُكَ لِمَا لَا اَعْلَمُ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَعُوذُ بِوَجْهِكَ الْكَرِيمِ وَبِاسْمِكَ الْعَظِيمِ مِنَ الْكُفْرِ وَالْفَقْرِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ قِنِي شَرَّ نَفْسِي وَاعْزِمْ لِي عَلٰى اَرْشَدِ اَمْرِي"
+      },
+      {
+        "ar": "اللّٰهُمَّ لَا تَكِلْنِي اِلٰى نَفْسِي طَرْفَةَ عَيْنٍ وَلَا تَنْزِعْ مِنِّي صَالِحَ مَا اَعْطَيْتَنِي فَاِنَّهُ لَا نَازِعَ لِمَا اَعْطَيْتَ"
+      },
+      {
+        "ar": "وَلَا يَعْصِمُ ذَا الْجَدِّ مِنْكَ الْجَدُّ",
+        "noRosette": true
+      }
+    ]
+  },
+  {
+    "titleArabic": "وِرْدُ يَوْمِ الْخَمِيسِ",
+    "titleEnglish": "Al-Ḥizb al-Aʿẓam · Thursday",
+    "cartouche": "وِرْدُ يَوْمِ الْخَمِيسِ",
+    "note": "The Thursday portion of al-Ḥizb al-Aʿẓam of Mullā ʿAlī al-Qārī (d. 1014 AH) — refuge, contentment and the ḥasbiya-Llāh litany, closing on the Prophet’s last supplication. Set page for page after the printed edition, pp. 201–211.",
+    "folios": [
+      {
+        "from": 0,
+        "to": 58
+      }
+    ],
+    "verses": [
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ غِنَى الْاَهْلِ وَالْمَوْلٰى وَاَعُوذُ بِكَ اَنْ يَدْعُوَ عَلَيَّ رَحِمٌ قَطَعْتُهَا"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ نَفْسًا بِكَ مُطْمَئِنَّةً تُؤْمِنُ بِلِقَائِكَ وَتَرْضٰى بِقَضَائِكَ وَتَقْنَعُ بِعَطَائِكَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَعُوذُ بِكَ مِنْ شَرِّ مَنْ يَمْشِي عَلٰى بَطْنِهِ وَمِنْ شَرِّ مَنْ يَمْشِي عَلٰى رِجْلَيْنِ وَمِنْ شَرِّ مَنْ يَمْشِي عَلٰى اَرْبَعٍ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَعُوذُ بِكَ مِنِ امْرَاَةٍ تُشَيِّبُنِي قَبْلَ الْمَشِيبِ وَاَعُوذُ بِكَ مِنْ وَلَدٍ يَكُونُ عَلَيَّ وَبَالًا وَاَعُوذُ بِكَ مِنْ مَالٍ يَكُونُ عَلَيَّ عَذَابًا وَاَعُوذُ بِكَ مِنْ صَاحِبِ خَدِيعَةٍ اِنْ رَاٰى حَسَنَةً دَفَنَهَا وَاِنْ رَاٰى سَيِّئَةً اَفْشَاهَا"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنَّكَ تَعْلَمُ سِرِّي وَعَلَانِيَتِي فَاقْبَلْ مَعْذِرَتِي وَتَعْلَمُ حَاجَتِي فَاَعْطِنِي سُؤْلِي وَتَعْلَمُ مَا فِي نَفْسِي فَاغْفِرْ لِي ‖ ذَنْبِي"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ اِيمَانًا يُبَاشِرُ قَلْبِي وَيَقِينًا صَادِقًا حَتّٰى اَعْلَمَ اَنَّهُ لَا يُصِيبُنِي اِلَّا مَا كَتَبْتَ لِي وَرِضًى بِمَا قَسَمْتَ لِي"
+      },
+      {
+        "ar": "اللّٰهُمَّ لَكَ الْحَمْدُ حَمْدًا دَائِمًا مَعَ خُلُودِكَ وَلَكَ الْحَمْدُ حَمْدًا دَائِمًا لَا مُنْتَهٰى لَهُ دُونَ مَشِيئَتِكَ وَلَكَ الْحَمْدُ حَمْدًا لَا يُرِيدُ قَائِلُهُ اِلَّا رِضَاكَ وَلَكَ الْحَمْدُ حَمْدًا عِنْدَ كُلِّ طَرْفَةِ عَيْنٍ وَتَنَفُّسِ كُلِّ نَفْسٍ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اَقْبِلْ بِقَلْبِي اِلٰى دِينِكَ وَاحْفَظْ مَنْ وَرَاءَنَا بِرَحْمَتِكَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ ثَبِّتْنِي اَنْ اَزِلَّ وَاهْدِنِي اَنْ اَضِلَّ"
+      },
+      {
+        "ar": "اللّٰهُمَّ كَمَا حُلْتَ بَيْنِي وَبَيْنَ قَلْبِي فَحُلْ بَيْنِي وَبَيْنَ الشَّيْطَانِ وَعَمَلِهِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ ارْزُقْنَا مِنْ فَضْلِكَ وَلَا تَحْرِمْنَا رِزْقَكَ وَبَارِكْ لَنَا فِيمَا رَزَقْتَنَا وَاجْعَلْ غِنَانَا فِي اَنْفُسِنَا وَاجْعَلْ رَغْبَتَنَا فِيمَا عِنْدَكَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنَّكَ خَلَّاقٌ عَظِيمٌ اِنَّكَ سَمِيعٌ ‖ عَلِيمٌ اِنَّكَ غَفُورٌ رَحِيمٌ"
+      },
+      {
+        "ar": "اِنَّكَ رَبُّ الْعَرْشِ الْعَظِيمِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنَّكَ الْبَرُّ الْجَوَادُ الْكَرِيمُ اغْفِرْ لِي وَارْحَمْنِي وَعَافِنِي وَارْزُقْنِي وَاسْتُرْنِي وَاجْبُرْنِي وَارْفَعْنِي وَاهْدِنِي وَلَا تُضِلَّنِي وَاَدْخِلْنِي الْجَنَّةَ بِرَحْمَتِكَ يَا اَرْحَمَ الرَّاحِمِينَ"
+      },
+      {
+        "ar": "اِلَيْكَ يَا رَبِّ فَحَبِّبْنِي وَفِي نَفْسِي لَكَ رَبِّ فَذَلِّلْنِي وَفِي اَعْيُنِ النَّاسِ فَعَظِّمْنِي وَمِنْ سَيِّئِ الْاَخْلَاقِ فَجَنِّبْنِي"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنَّكَ سَاَلْتَنَا مِنْ اَنْفُسِنَا مَا لَا نَمْلِكُهُ اِلَّا بِكَ فَاَعْطِنَا مِنْهَا مَا يُرْضِيكَ عَنَّا"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ اِيمَانًا دَائِمًا وَاَسْأَلُكَ قَلْبًا خَاشِعًا وَاَسْأَلُكَ يَقِينًا صَادِقًا وَاَسْأَلُكَ دِينًا قَيِّمًا وَاَسْأَلُكَ الْعَافِيَةَ مِنْ كُلِّ بَلِيَّةٍ وَاَسْأَلُكَ تَمَامَ الْعَافِيَةِ وَاَسْأَلُكَ الشُّكْرَ عَلَى الْعَافِيَةِ وَاَسْأَلُكَ الْغِنٰى عَنِ النَّاسِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَعُوذُ بِكَ مِنْ بَطَرِ ‖ الْغِنٰى وَمَذَلَّةِ الْفَقْرِ"
+      },
+      {
+        "ar": "يَا مَنْ وَعَدَ فَوَفٰى وَاَوْعَدَ فَعَفَا اغْفِرْ لِمَنْ ظَلَمَ وَاَسَاءَ يَا مَنْ يَسُرُّهُ طَاعَتِي وَلَا تَضُرُّهُ مَعْصِيَتِي هَبْ لِي مَا يَسُرُّكَ وَاغْفِرْ لِي مَا لَا يَضُرُّكَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَعُوذُ بِكَ مِنَ الشَّكِّ فِي الْحَقِّ بَعْدَ الْيَقِينِ وَاَعُوذُ بِكَ مِنَ الشَّيْطَانِ الرَّجِيمِ وَاَعُوذُ بِكَ مِنْ شَرِّ يَوْمِ الدِّينِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِمَا تُبْتُ اِلَيْكَ مِنْهُ ثُمَّ عُدْتُ فِيهِ وَاَسْتَغْفِرُكَ لِمَا اَعْطَيْتُكَ مِنْ نَفْسِي ثُمَّ لَمْ اُوفِ لَكَ بِهِ وَاَسْتَغْفِرُكَ لِلنِّعَمِ الَّتِي تَقَوَّيْتُ بِهَا عَلٰى مَعْصِيَتِكَ وَاَسْتَغْفِرُكَ لِكُلِّ خَيْرٍ اَرَدْتُ بِهِ وَجْهَكَ فَخَالَطَنِي فِيهِ مَا لَيْسَ لَكَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ لَا تُخْزِنِي فَاِنَّكَ بِي عَالِمٌ وَلَا تُعَذِّبْنِي فَاِنَّكَ عَلَيَّ قَادِرٌ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اجْعَلْنِي مِمَّنْ تَوَكَّلَ عَلَيْكَ فَكَفَيْتَهُ وَاسْتَهْدَاكَ فَهَدَيْتَهُ وَاسْتَنْصَرَكَ ‖ فَنَصَرْتَهُ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اجْعَلْ وَسَاوِسَ قَلْبِي خَشْيَتَكَ وَذِكْرَكَ"
+      },
+      {
+        "ar": "وَاجْعَلْ هِمَّتِي وَهَوَايَ فِيمَا تُحِبُّ وَتَرْضٰى"
+      },
+      {
+        "ar": "اللّٰهُمَّ وَمَا ابْتَلَيْتَنِي بِهِ مِنْ رَخَاءٍ وَشِدَّةٍ فَمَسِّكْنِي بِسُنَّةِ الْحَقِّ وَشَرِيعَةِ الْاِسْلَامِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ تَمَامَ النِّعْمَةِ فِي الْاَشْيَاءِ كُلِّهَا وَالشُّكْرَ لَكَ عَلَيْهَا حَتّٰى تَرْضٰى وَبَعْدَ الرِّضٰى وَالْخِيَرَةَ فِي جَمِيعِ مَا يَكُونُ فِيهِ الْخِيَرَةُ وَبِجَمِيعِ مَيْسُورِ الْاُمُورِ كُلِّهَا لَا بِمَعْسُورِهَا يَا كَرِيمُ"
+      },
+      {
+        "ar": "اللّٰهُمَّ فَالِقَ الْاِصْبَاحِ وَجَاعِلَ اللَّيْلِ سَكَنًا وَالشَّمْسِ وَالْقَمَرِ حُسْبَانًا اقْضِ عَنِّي الدَّيْنَ وَاَغْنِنِي مِنَ الْفَقْرِ وَقَوِّنِي عَلَى الْجِهَادِ فِي سَبِيلِكَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ لَكَ الْحَمْدُ فِي بَلَائِكَ وَصَنِيعِكَ اِلٰى خَلْقِكَ وَلَكَ الْحَمْدُ فِي بَلَائِكَ وَصَنِيعِكَ اِلٰى اَهْلِ بُيُوتِنَا وَلَكَ الْحَمْدُ فِي بَلَائِكَ وَصَنِيعِكَ اِلٰى ‖ اَنْفُسِنَا خَاصَّةً وَلَكَ الْحَمْدُ بِمَا هَدَيْتَنَا وَلَكَ الْحَمْدُ بِمَا اَكْرَمْتَنَا وَلَكَ الْحَمْدُ بِمَا سَتَرْتَنَا وَلَكَ الْحَمْدُ بِالْقُرْآنِ وَلَكَ الْحَمْدُ بِالْاَهْلِ وَالْمَالِ وَلَكَ الْحَمْدُ بِالْمُعَافَاةِ وَلَكَ الْحَمْدُ حَتّٰى تَرْضٰى وَلَكَ الْحَمْدُ اِذَا رَضِيتَ يَا اَهْلَ التَّقْوٰى وَاَهْلَ الْمَغْفِرَةِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ وَفِّقْنِي لِمَا تُحِبُّ وَتَرْضٰى مِنَ الْقَوْلِ وَالْعَمَلِ وَالْفِعْلِ وَالنِّيَّةِ وَالْهُدٰى اِنَّكَ عَلٰى كُلِّ شَيْءٍ قَدِيرٌ"
+      },
+      {
+        "ar": "اللّٰهُمَّ رَبَّ السَّمَاوَاتِ السَّبْعِ وَرَبَّ الْعَرْشِ الْعَظِيمِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اكْفِنِي كُلَّ مُهِمٍّ مِنْ حَيْثُ شِئْتَ وَمِنْ اَيْنَ شِئْتَ حَسْبِيَ اللّٰهُ لِدِينِي"
+      },
+      {
+        "ar": "حَسْبِيَ اللّٰهُ لِدُنْيَايَ حَسْبِيَ اللّٰهُ لِمَا اَهَمَّنِي حَسْبِيَ اللّٰهُ لِمَنْ بَغٰى عَلَيَّ حَسْبِيَ اللّٰهُ لِمَنْ حَسَدَنِي حَسْبِيَ اللّٰهُ لِمَنْ كَادَنِي بِسُوءٍ حَسْبِيَ اللّٰهُ عِنْدَ الْمَوْتِ حَسْبِيَ اللّٰهُ عِنْدَ الْمَسْأَلَةِ فِي ‖ الْقَبْرِ حَسْبِيَ اللّٰهُ عِنْدَ الْمِيزَانِ حَسْبِيَ اللّٰهُ عِنْدَ الصِّرَاطِ حَسْبِيَ اللّٰهُ لَا اِلٰهَ اِلَّا هُوَ عَلَيْهِ تَوَكَّلْتُ وَهُوَ رَبُّ الْعَرْشِ الْعَظِيمِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ حَبِّبِ الْمَوْتَ اِلٰى مَنْ يَعْلَمُ اَنَّ مُحَمَّدًا رَسُولُكَ (اَنِّي رَسُولُكَ فِي دُعَائِهِ ﷺ)"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنَّكَ رَبٌّ عَظِيمٌ لَا يَسَعُكَ شَيْءٌ مِمَّا خَلَقْتَ وَاَنْتَ تَرٰى وَلَا تُرٰى وَاَنْتَ بِالْمَنْظَرِ الْاَعْلٰى وَاِنَّ لَكَ الْآخِرَةَ وَالْاُولٰى وَلَكَ الْمَمَاتُ وَالْمَحْيَا وَاِلَيْكَ الْمُنْتَهٰى وَالرُّجْعٰى نَعُوذُ بِكَ اَنْ نَذِلَّ وَنَخْزٰى"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ ثَوَابَ الشَّاكِرِينَ وَنُزُلَ الْمُقَرَّبِينَ وَمُرَافَقَةَ النَّبِيِّينَ وَيَقِينَ الصِّدِّيقِينَ وَذِلَّةَ الْمُتَّقِينَ وَاِخْبَاتَ الْمُوقِنِينَ حَتّٰى تَوَفَّانِي عَلٰى ذٰلِكَ يَا اَرْحَمَ الرَّاحِمِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ بِنِعْمَتِكَ السَّابِغَةِ عَلَيَّ وَبَلَائِكَ الْحَسَنِ الَّذِي آتَيْتَنِي بِهِ وَفَضْلِكَ الَّذِي ‖ فَضَّلْتَ عَلَيَّ اَنْ تُدْخِلَنِيَ الْجَنَّةَ بِمَنِّكَ وَفَضْلِكَ وَرَحْمَتِكَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ بِوَجْهِكَ الْكَرِيمِ وَاَمْرِكَ الْعَظِيمِ اَنْ تُجِيرَنِي مِنَ النَّارِ وَالْكُفْرِ وَالْفَقْرِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَعُوذُ بِكَ مِنْ مَوْتِ الْفُجَاءَةِ وَمِنْ لَدْغَةِ الْحَيَّةِ وَمِنَ السَّبُعِ وَمِنَ الْحَرَقِ وَمِنَ الْغَرَقِ وَمِنْ اَنْ اَخِرَّ عَلٰى شَيْءٍ وَمِنَ الْقَتْلِ عِنْدَ فِرَارِ الزَّحْفِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ اِيمَانًا دَائِمًا وَهُدًى قَيِّمًا وَعِلْمًا نَافِعًا"
+      },
+      {
+        "ar": "اللّٰهُمَّ لَا تَجْعَلْ لِفَاجِرٍ عِنْدِي نِعْمَةً اُكَافِيهِ بِهَا فِي الدُّنْيَا وَالْآخِرَةِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اغْفِرْ لِي ذَنْبِي وَوَسِّعْ لِي خُلُقِي وَطَيِّبْ لِي كَسْبِي وَقَنِّعْنِي بِمَا رَزَقْتَنِي وَلَا تُذْهِبْ طَلَبِي اِلٰى شَيْءٍ صَرَفْتَهُ عَنِّي"
+      },
+      {
+        "ar": "اللّٰهُ اَكْبَرُ اللّٰهُ اَكْبَرُ اللّٰهُ اَكْبَرُ"
+      },
+      {
+        "ar": "بِسْمِ اللّٰهِ عَلٰى نَفْسِي وَدِينِي بِسْمِ اللّٰهِ عَلٰى اَهْلِي وَمَالِي بِسْمِ اللّٰهِ عَلٰى كُلِّ شَيْءٍ ‖ اَعْطَانِي رَبِّي بِسْمِ اللّٰهِ خَيْرِ الْاَسْمَاءِ بِسْمِ اللّٰهِ رَبِّ الْاَرْضِ وَالسَّمَاءِ بِسْمِ اللّٰهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ دَاءٌ بِسْمِ اللّٰهِ افْتَتَحْتُ وَعَلَى اللّٰهِ تَوَكَّلْتُ"
+      },
+      {
+        "ar": "اللّٰهُ رَبِّي لَا اُشْرِكُ بِهِ اَحَدًا"
+      },
+      {
+        "ar": "اَسْأَلُكَ اللّٰهُمَّ بِخَيْرِكَ مِنْ خَيْرِكَ الَّذِي لَا يُعْطِيهِ غَيْرُكَ عَزَّ جَارُكَ وَجَلَّ ثَنَاؤُكَ وَلَا اِلٰهَ اِلَّا اَنْتَ اجْعَلْنِي فِي عِيَاذِكَ وَجِوَارِكَ مِنْ كُلِّ سُوءٍ وَمِنَ الشَّيْطَانِ الرَّجِيمِ اللّٰهُمَّ اِنِّي اَسْتَجِيرُكَ مِنْ جَمِيعِ كُلِّ شَيْءٍ خَلَقْتَ وَاَحْتَرِسُ بِكَ مِنْهُنَّ وَاُقَدِّمُ بَيْنَ يَدَيَّ"
+      },
+      {
+        "ar": "بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيمِ"
+      },
+      {
+        "ar": "قُلْ هُوَ اللّٰهُ اَحَدٌ"
+      },
+      {
+        "ar": "اَللّٰهُ الصَّمَدُ"
+      },
+      {
+        "ar": "لَمْ يَلِدْ وَلَمْ يُولَدْ"
+      },
+      {
+        "ar": "وَلَمْ يَكُنْ لَهُ كُفُوًا اَحَدٌ"
+      },
+      {
+        "ar": "مِنْ اَمَامِي وَمِنْ خَلْفِي وَعَنْ يَمِينِي وَعَنْ شِمَالِي وَمِنْ فَوْقِي وَمِنْ تَحْتِي خَلَقْتَ رَبَّنَا فَسَوَّيْتَ وَقَدَّرْتَ رَبَّنَا ‖ فَقَضَيْتَ وَعَلٰى عَرْشِكَ اسْتَوَيْتَ وَاَمَتَّ فَاَحْيَيْتَ وَاَطْعَمْتَ فَاَشْبَعْتَ وَاَسْقَيْتَ فَاَرْوَيْتَ وَحَمَلْتَ فِي بَرِّكَ وَبَحْرِكَ عَلٰى فُلْكِكَ وَعَلٰى دَوَابِّكَ وَعَلٰى اَنْعَامِكَ فَاجْعَلْ لِي عِنْدَكَ وَلِيجَةً وَاجْعَلْ لِي عِنْدَكَ زُلْفٰى وَحُسْنَ مَآبٍ وَاجْعَلْنِي مِمَّنْ يَخَافُ مَقَامَكَ وَوَعِيدَكَ وَيَرْجُو لِقَاءَكَ وَاجْعَلْنِي اَتُوبُ اِلَيْكَ تَوْبَةً نَصُوحًا وَاَسْأَلُكَ عَمَلًا مُتَقَبَّلًا وَعِلْمًا نَجِيحًا وَسَعْيًا مَشْكُورًا وَتِجَارَةً لَنْ تَبُورَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَشْهَدُ بِمَا شَهِدْتَ بِهِ عَلٰى نَفْسِكَ وَشَهِدَتْ بِهِ مَلَائِكَتُكَ وَاَنْبِيَاؤُكَ وَاُولُوا الْعِلْمِ وَمَنْ لَمْ يَشْهَدْ بِمَا شَهِدْتَ بِهِ فَاكْتُبْ شَهَادَتِي مَكَانَ شَهَادَتِهِ اَنْتَ السَّلَامُ وَمِنْكَ السَّلَامُ تَبَارَكْتَ يَا ذَا الْجَلَالِ وَالْاِكْرَامِ اللّٰهُمَّ اِنِّي اَسْأَلُكَ فِكَاكَ رَقَبَتِي مِنَ النَّارِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اَعِنِّي عَلٰى غَمَرَاتِ الْمَوْتِ ‖ وَسَكَرَاتِ الْمَوْتِ"
+      },
+      {
+        "ar": "وَآخِرُ دُعَائِهِ صَلَّى اللّٰهُ عَلَيْهِ وَسَلَّمَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اغْفِرْ لِي وَارْحَمْنِي وَاَلْحِقْنِي بِالرَّفِيقِ الْاَعْلٰى"
+      },
+      {
+        "ar": "سُبْحَانَ رَبِّكَ رَبِّ الْعِزَّةِ عَمَّا يَصِفُونَ"
+      },
+      {
+        "ar": "وَسَلَامٌ عَلَى الْمُرْسَلِينَ"
+      },
+      {
+        "ar": "وَالْحَمْدُ لِلّٰهِ رَبِّ الْعَالَمِينَ"
+      }
+    ]
+  },
+  {
+    "titleArabic": "وِرْدُ يَوْمِ الْجُمُعَةِ",
+    "titleEnglish": "Al-Ḥizb al-Aʿẓam · Friday",
+    "cartouche": "وِرْدُ يَوْمِ الْجُمُعَةِ",
+    "note": "The Friday portion of al-Ḥizb al-Aʿẓam of Mullā ʿAlī al-Qārī (d. 1014 AH) — the khātima, given entirely to the wordings of the ṣalāt upon the Seal of the Prophets ﷺ. Set page for page after the printed edition, pp. 212–229.",
+    "folios": [
+      {
+        "from": 0,
+        "to": 121
+      }
+    ],
+    "verses": [
+      {
+        "ar": "خَاتِمَةٌ فِي اَلْفَاظِ الصَّلَاةِ عَلٰى خَاتَمِ النَّبِيِّينَ عَلَيْهِ الصَّلَاةُ وَالسَّلَامُ وَاَفْضَلُهَا مَا وَرَدَ عَقِيبَ التَّشَهُّدِ اللّٰهُمَّ صَلِّ عَلٰى مُحَمَّدٍ وَعَلٰى آلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلٰى إِبْرَاهِيمَ وَعَلٰى آلِ إِبْرَاهِيمَ اِنَّكَ حَمِيدٌ مَجِيدٌ"
+      },
+      {
+        "ar": "اللّٰهُمَّ بَارِكْ عَلٰى مُحَمَّدٍ وَعَلٰى آلِ مُحَمَّدٍ كَمَا بَارَكْتَ عَلٰى إِبْرَاهِيمَ وَعَلٰى آلِ إِبْرَاهِيمَ اِنَّكَ حَمِيدٌ مَجِيدٌ"
+      },
+      {
+        "ar": "وَفِي بَعْضِ الرِّوَايَاتِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ وَتَرَحَّمْ عَلٰى مُحَمَّدٍ وَعَلٰى آلِ مُحَمَّدٍ كَمَا تَرَحَّمْتَ عَلٰى إِبْرَاهِيمَ وَعَلٰى آلِ إِبْرَاهِيمَ اِنَّكَ حَمِيدٌ مَجِيدٌ"
+      },
+      {
+        "ar": "اللّٰهُمَّ وَتَحَنَّنْ عَلٰى مُحَمَّدٍ وَعَلٰى آلِ مُحَمَّدٍ كَمَا تَحَنَّنْتَ عَلٰى إِبْرَاهِيمَ وَعَلٰى آلِ إِبْرَاهِيمَ اِنَّكَ حَمِيدٌ مَجِيدٌ"
+      },
+      {
+        "ar": "اللّٰهُمَّ وَسَلِّمْ عَلٰى مُحَمَّدٍ وَعَلٰى آلِ مُحَمَّدٍ كَمَا سَلَّمْتَ عَلٰى إِبْرَاهِيمَ وَعَلٰى آلِ إِبْرَاهِيمَ اِنَّكَ حَمِيدٌ مَجِيدٌ"
+      },
+      {
+        "ar": "اللّٰهُمَّ صَلِّ ‖ عَلٰى مُحَمَّدٍ النَّبِيِّ الْاُمِّيِّ وَاَزْوَاجِهِ اُمَّهَاتِ الْمُؤْمِنِينَ وَذُرِّيَّتِهِ وَاَهْلِ بَيْتِهِ كَمَا صَلَّيْتَ عَلٰى إِبْرَاهِيمَ وَعَلٰى آلِ إِبْرَاهِيمَ وَبَارِكْ عَلٰى مُحَمَّدٍ النَّبِيِّ الْاُمِّيِّ وَعَلٰى آلِ مُحَمَّدٍ وَاَزْوَاجِهِ وَذُرِّيَّتِهِ كَمَا بَارَكْتَ عَلٰى إِبْرَاهِيمَ وَعَلٰى آلِ إِبْرَاهِيمَ فِي الْعَالَمِينَ اِنَّكَ حَمِيدٌ مَجِيدٌ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اَنْزِلْهُ الْمَقْعَدَ الْمُقَرَّبَ عِنْدَكَ يَوْمَ الْقِيَامَةِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اجْعَلْ صَلَوَاتِكَ وَبَرَكَاتِكَ عَلٰى سَيِّدِ الْمُرْسَلِينَ وَاِمَامِ الْمُتَّقِينَ وَخَاتَمِ النَّبِيِّينَ مُحَمَّدٍ عَبْدِكَ وَرَسُولِكَ اِمَامِ الْخَيْرِ وَقَائِدِ الْخَيْرِ وَرَسُولِ الرَّحْمَةِ اللّٰهُمَّ ابْعَثْهُ مَقَامًا مَحْمُودًا يَغْبِطُهُ فِيهِ الْاَوَّلُونَ وَالْآخِرُونَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اجْعَلْ صَلَوَاتِكَ وَرَحْمَتَكَ وَبَرَكَاتِكَ عَلٰى مُحَمَّدٍ وَعَلٰى آلِ مُحَمَّدٍ كَمَا جَعَلْتَهَا عَلٰى إِبْرَاهِيمَ وَعَلٰى آلِ إِبْرَاهِيمَ اِنَّكَ حَمِيدٌ مَجِيدٌ"
+      },
+      {
+        "ar": "اللّٰهُمَّ صَلِّ عَلٰى مُحَمَّدٍ وَاَبْلِغْهُ الْوَسِيلَةَ ‖ وَالدَّرَجَةَ الرَّفِيعَةَ مِنَ الْجَنَّةِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اجْعَلْ فِي الْمُصْطَفَيْنَ مَحَبَّتَهُ وَفِي الْمُقَرَّبِينَ مَوَدَّتَهُ وَفِي الْاَعْلَيْنَ ذِكْرَهُ وَالسَّلَامُ عَلَيْهِ وَرَحْمَةُ اللّٰهِ وَبَرَكَاتُهُ"
+      },
+      {
+        "ar": "اللّٰهُمَّ دَاحِيَ الْمَدْحُوَّاتِ وَبَارِئَ الْمَسْمُوكَاتِ وَجَبَّارَ الْقُلُوبِ عَلٰى فِطْرَتِهَا شَقِيِّهَا وَسَعِيدِهَا اجْعَلْ شَرَائِفَ صَلَوَاتِكَ وَنَوَامِيَ بَرَكَاتِكَ وَرَأْفَةَ تَحَنُّنِكَ عَلٰى مُحَمَّدٍ عَبْدِكَ وَرَسُولِكَ الْخَاتِمِ لِمَا سَبَقَ وَالْفَاتِحِ لِمَا اُغْلِقَ وَالْمُعْلِنِ الْحَقَّ بِالْحَقِّ وَالدَّامِغِ لِجَيْشَاتِ الْاَبَاطِيلِ كَمَا حُمِّلَ فَاضْطَلَعَ بِاَمْرِكَ لِطَاعَتِكَ مُسْتَوْفِزًا فِي مَرْضَاتِكَ غَيْرَ نَكِلٍ عَنْ قَدَمٍ وَلَا وَهْنٍ فِي عَزْمٍ وَاعِيًا لِوَحْيِكَ حَافِظًا لِعَهْدِكَ مَاضِيًا عَلٰى نَفَاذِ اَمْرِكَ حَتّٰى اَوْرٰى قَبَسًا لِقَابِسٍ آلَاءُ اللّٰهِ تَصِلُ بِاَهْلِهِ اَسْبَابَهُ بِهِ هُدِيَتِ الْقُلُوبُ بَعْدَ خَوْضَاتِ الْفِتَنِ وَالْاِثْمِ ‖ وَاَنْهَجَ مُوضِحَاتِ الْاَعْلَامِ وَمُنِيرَاتِ الْاِسْلَامِ وَنَائِرَاتِ الْاَحْكَامِ فَهُوَ اَمِينُكَ الْمَأْمُونُ وَخَازِنُ عِلْمِكَ الْمَخْزُونِ وَشَهِيدُكَ يَوْمَ الدِّينِ وَبَعِيثُكَ نِعْمَةً وَرَسُولُكَ بِالْحَقِّ رَحْمَةً"
+      },
+      {
+        "ar": "اللّٰهُمَّ افْسَحْ لَهُ مَفْسَحًا فِي عَدْنِكَ وَاجْزِهِ مُضَاعَفَاتِ الْخَيْرِ مِنْ فَضْلِكَ مُهَنَّآتٍ لَهُ غَيْرَ مُكَدَّرَاتٍ مِنْ فَوْزِ ثَوَابِكَ الْمَضْنُونِ وَجَزِيلِ عَطَائِكَ الْمَخْزُونِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ عَلِّ عَلٰى بِنَاءِ الْبَانِينَ بِنَاءَهُ وَاَكْرِمْ مَثْوَاهُ لَدَيْكَ وَنُزُلَهُ وَاَتْمِمْ لَهُ نُورَهُ وَاجْزِهِ مِنِ ابْتِعَاثِكَ لَهُ مَقْبُولَ الشَّهَادَةِ وَمَرْضِيَّ الْمَقَالَةِ ذَا مَنْطِقٍ عَدْلٍ وَخُطَّةٍ فَصْلٍ وَبُرْهَانٍ عَظِيمٍ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اجْعَلْنَا سَامِعِينَ مُطِيعِينَ وَاَوْلِيَاءَ مُخْلِصِينَ وَرُفَقَاءَ مُصَاحِبِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اَبْلِغْهُ مِنَّا السَّلَامَ وَارْدُدْ عَلَيْنَا مِنْهُ السَّلَامَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ صَلِّ عَلٰى مُحَمَّدٍ النَّبِيِّ عَدَدَ مَنْ صَلّٰى عَلَيْهِ ‖ مِنْ خَلْقِكَ وَصَلِّ عَلٰى مُحَمَّدٍ النَّبِيِّ كَمَا يَنْبَغِي لَنَا اَنْ نُصَلِّيَ عَلَيْهِ وَصَلِّ عَلٰى مُحَمَّدٍ النَّبِيِّ كَمَا اَمَرْتَنَا اَنْ نُصَلِّيَ عَلَيْهِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ صَلِّ عَلٰى مُحَمَّدٍ حَتّٰى لَا يَبْقٰى مِنْ صَلَوَاتِكَ شَيْءٌ وَبَارِكْ عَلٰى مُحَمَّدٍ حَتّٰى لَا يَبْقٰى مِنْ بَرَكَاتِكَ شَيْءٌ وَسَلِّمْ عَلٰى مُحَمَّدٍ حَتّٰى لَا يَبْقٰى مِنَ السَّلَامِ شَيْءٌ وَارْحَمْ مُحَمَّدًا حَتّٰى لَا يَبْقٰى مِنَ الرَّحْمَةِ شَيْءٌ جَزَى اللّٰهُ عَنَّا مُحَمَّدًا صَلَّى اللّٰهُ تَعَالَى عَلَيْهِ وَسَلَّمَ بِمَا هُوَ اَهْلُهُ"
+      },
+      {
+        "ar": "اللّٰهُمَّ صَلِّ عَلٰى رُوحِ مُحَمَّدٍ فِي الْاَرْوَاحِ وَصَلِّ عَلٰى جَسَدِ مُحَمَّدٍ فِي الْاَجْسَادِ وَصَلِّ عَلٰى قَبْرِ مُحَمَّدٍ فِي الْقُبُورِ"
+      },
+      {
+        "ar": "اِنَّ اللّٰهَ وَمَلَائِكَتَهُ يُصَلُّونَ عَلَى النَّبِيِّ يَا اَيُّهَا الَّذِينَ آمَنُوا صَلُّوا عَلَيْهِ وَسَلِّمُوا تَسْلِيمًا"
+      },
+      {
+        "ar": "لَبَّيْكَ اللّٰهُمَّ رَبِّي وَسَعْدَيْكَ صَلَوَاتُ اللّٰهِ الْبَرِّ الرَّحِيمِ وَالْمَلَائِكَةِ الْمُقَرَّبِينَ وَالنَّبِيِّينَ وَالصِّدِّيقِينَ ‖ وَالشُّهَدَاءِ وَالصَّالِحِينَ وَمَا سَبَّحَ لَكَ مِنْ شَيْءٍ يَا رَبَّ الْعَالَمِينَ عَلٰى مُحَمَّدٍ ابْنِ عَبْدِ اللّٰهِ خَاتَمِ النَّبِيِّينَ وَسَيِّدِ الْمُرْسَلِينَ وَاِمَامِ الْمُتَّقِينَ وَرَسُولِ رَبِّ الْعَالَمِينَ الشَّاهِدِ الْبَشِيرِ الدَّاعِي اِلَيْكَ بِاِذْنِكَ السِّرَاجِ الْمُنِيرِ عَلَيْهِ السَّلَامُ"
+      },
+      {
+        "ar": "اللّٰهُمَّ تَقَبَّلْ شَفَاعَةَ مُحَمَّدٍ الْكُبْرٰى وَارْفَعْ دَرَجَتَهُ الْعُلْيَا وَاَعْطِهِ سُؤْلَهُ فِي الْآخِرَةِ وَالْاُولٰى كَمَا آتَيْتَ إِبْرَاهِيمَ وَمُوسَى"
+      },
+      {
+        "ar": "اللّٰهُمَّ اجْعَلْ مُحَمَّدًا مِنْ اَكْرَمِ عِبَادِكَ عَلَيْكَ كَرَامَةً وَمِنْ اَرْفَعِهِمْ عِنْدَكَ دَرَجَةً وَمِنْ اَعْظَمِهِمْ خَطَرًا وَمِنْ اَمْكَنِهِمْ عِنْدَكَ شَفَاعَةً"
+      },
+      {
+        "ar": "اللّٰهُمَّ اَتْبِعْهُ مِنْ اُمَّتِهِ وَذُرِّيَّتِهِ مَا تَقَرُّ بِهِ عَيْنُهُ وَاجْزِهِ عَنَّا خَيْرَ مَا جَزَيْتَ نَبِيًّا عَنْ اُمَّتِهِ وَاجْزِهِ الْاَنْبِيَاءَ كُلَّهُمْ خَيْرًا وَسَلَامٌ عَلَى الْمُرْسَلِينَ وَالْحَمْدُ لِلّٰهِ رَبِّ الْعَالَمِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ صَلِّ عَلٰى مُحَمَّدٍ ‖ وَعَلٰى آلِ مُحَمَّدٍ وَاَصْحَابِهِ وَاَوْلَادِهِ وَاَهْلِ بَيْتِهِ وَذُرِّيَّتِهِ وَمُحِبِّيهِ وَاَتْبَاعِهِ وَاَشْيَاعِهِ وَعَلَيْنَا مَعَهُمْ اَجْمَعِينَ يَا اَرْحَمَ الرَّاحِمِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ صَلِّ عَلٰى مُحَمَّدٍ مِلْءَ الدُّنْيَا وَمِلْءَ الْآخِرَةِ وَبَارِكْ عَلٰى مُحَمَّدٍ مِلْءَ الدُّنْيَا وَمِلْءَ الْآخِرَةِ وَارْحَمْ مُحَمَّدًا مِلْءَ الدُّنْيَا وَمِلْءَ الْآخِرَةِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ يَا اللّٰهُ يَا رَحْمٰنُ يَا رَحِيمُ"
+      },
+      {
+        "ar": "يَا جَارَ الْمُسْتَجِيرِينَ يَا اَمَانَ الْخَائِفِينَ يَا عِمَادَ مَنْ لَا عِمَادَ لَهُ يَا سَنَدَ مَنْ لَا سَنَدَ لَهُ يَا ذُخْرَ مَنْ لَا ذُخْرَ لَهُ يَا حِرْزَ الضُّعَفَاءِ يَا كَنْزَ الْفُقَرَاءِ يَا عَظِيمَ الرَّجَاءِ يَا مُنْقِذَ الْهَلْكٰى يَا مُنْجِيَ الْغَرْقٰى يَا مُحْسِنُ يَا مُجْمِلُ يَا مُنْعِمُ يَا مُفَضِّلُ يَا جَبَّارُ يَا مُنِيرُ اَنْتَ الَّذِي سَجَدَ لَكَ سَوَادُ اللَّيْلِ وَضَوْءُ النَّهَارِ وَشُعَاعُ الشَّمْسِ وَنُورُ الْقَمَرِ وَخَفِيقُ الشَّجَرِ وَدَوِيُّ الْمَاءِ يَا اللّٰهُ اَنْتَ اللّٰهُ لَا شَرِيكَ ‖ لَهُ اَسْأَلُكَ اَنْ تُصَلِّيَ عَلٰى مُحَمَّدٍ عَبْدِكَ وَرَسُولِكَ وَعَلٰى آلِ مُحَمَّدٍ"
+      },
+      {
+        "ar": "اللّٰهُمَّ صَلِّ عَلٰى مُحَمَّدٍ وَعَلٰى آلِ مُحَمَّدٍ فِي الْاَوَّلِينَ وَالْآخِرِينَ وَفِي الْمَلَاِ الْاَعْلٰى اِلٰى يَوْمِ الدِّينِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ صَلِّ عَلٰى مُحَمَّدٍ كَمَا تُحِبُّ وَتَرْضٰى لَهُ"
+      },
+      {
+        "ar": "اللّٰهُمَّ صَلِّ عَلٰى مُحَمَّدٍ وَعَلٰى آلِ مُحَمَّدٍ صَلَاةً تَكُونُ لَكَ رِضَاءً وَلِحَقِّهِ اَدَاءً وَاَعْطِهِ الْوَسِيلَةَ وَالْمَقَامَ الْمَحْمُودَ الَّذِي وَعَدْتَهُ وَاجْزِهِ عَنَّا مَا هُوَ اَهْلُهُ وَاجْزِهِ عَنَّا اَفْضَلَ مَا جَزَيْتَ نَبِيًّا عَنْ اُمَّتِهِ"
+      },
+      {
+        "ar": "وَصَلِّ عَلٰى جَمِيعِ اِخْوَانِهِ مِنَ النَّبِيِّينَ وَالصَّالِحِينَ يَا اَرْحَمَ الرَّاحِمِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ صَلِّ عَلٰى مُحَمَّدٍ فِي الْاَوَّلِينَ وَصَلِّ عَلٰى مُحَمَّدٍ فِي الْآخِرِينَ"
+      },
+      {
+        "ar": "وَصَلِّ عَلٰى مُحَمَّدٍ فِي الْمَلَاِ الْاَعْلٰى اِلٰى يَوْمِ الدِّينِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ صَلِّ عَلٰى مُحَمَّدٍ حَتّٰى تَرْضٰى وَصَلِّ عَلٰى مُحَمَّدٍ بَعْدَ الرِّضٰى"
+      },
+      {
+        "ar": "وَصَلِّ عَلٰى مُحَمَّدٍ اَبَدًا اَبَدًا"
+      },
+      {
+        "ar": "اللّٰهُمَّ ‖ صَلِّ عَلٰى مُحَمَّدٍ كَمَا اَمَرْتَ بِالصَّلَاةِ عَلَيْهِ وَصَلِّ عَلٰى مُحَمَّدٍ كَمَا تُحِبُّ اَنْ يُصَلّٰى عَلَيْهِ وَصَلِّ عَلٰى مُحَمَّدٍ كَمَا اَرَدْتَ اَنْ يُصَلّٰى عَلَيْهِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ صَلِّ عَلٰى مُحَمَّدٍ عَدَدَ خَلْقِكَ وَصَلِّ عَلٰى مُحَمَّدٍ رِضَاءَ نَفْسِكَ وَصَلِّ عَلٰى مُحَمَّدٍ زِنَةَ عَرْشِكَ وَصَلِّ عَلٰى مُحَمَّدٍ مِدَادَ كَلِمَاتِكَ الَّتِي لَا تَنْفَدُ"
+      },
+      {
+        "ar": "اللّٰهُمَّ وَاَعْطِ مُحَمَّدًا الْوَسِيلَةَ وَالْفَضْلَ وَالْفَضِيلَةَ وَالدَّرَجَةَ الرَّفِيعَةَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ عَظِّمْ بُرْهَانَهُ وَاَفْلِجْ حُجَّتَهُ وَاَبْلِغْهُ مَأْمُولَهُ فِي اَهْلِ بَيْتِهِ وَاُمَّتِهِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اجْعَلْ صَلَوَاتِكَ وَبَرَكَاتِكَ وَرَأْفَتَكَ وَرَحْمَتَكَ عَلٰى مُحَمَّدٍ حَبِيبِكَ وَصَفِيِّكَ وَعَلٰى اَهْلِ بَيْتِهِ الطَّيِّبِينَ الطَّاهِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ صَلِّ عَلٰى مُحَمَّدٍ بِاَفْضَلِ مَا صَلَّيْتَ عَلٰى اَحَدٍ مِنْ خَلْقِكَ وَبَارِكْ عَلٰى مُحَمَّدٍ مِثْلَ ذٰلِكَ وَارْحَمْ مُحَمَّدًا مِثْلَ ذٰلِكَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ صَلِّ عَلٰى مُحَمَّدٍ ‖ فِي اللَّيْلِ اِذَا يَغْشٰى"
+      },
+      {
+        "ar": "وَصَلِّ عَلٰى مُحَمَّدٍ فِي النَّهَارِ اِذَا تَجَلّٰى"
+      },
+      {
+        "ar": "وَصَلِّ عَلٰى مُحَمَّدٍ فِي الْآخِرَةِ وَالْاُولٰى"
+      },
+      {
+        "ar": "اللّٰهُمَّ صَلِّ عَلٰى مُحَمَّدٍ الصَّلَاةَ التَّامَّةَ وَبَارِكْ عَلٰى مُحَمَّدٍ الْبَرَكَةَ التَّامَّةَ وَسَلِّمْ عَلٰى مُحَمَّدٍ السَّلَامَ التَّامَّ"
+      },
+      {
+        "ar": "اللّٰهُمَّ صَلِّ عَلٰى مُحَمَّدٍ اِمَامِ الْخَيْرِ وَقَائِدِ الْخَيْرِ وَرَسُولِ الرَّحْمَةِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ صَلِّ عَلٰى مُحَمَّدٍ اَبَدَ الْآبِدِينَ وَصَلِّ عَلٰى مُحَمَّدٍ دَهْرَ الدَّاهِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ صَلِّ عَلٰى مُحَمَّدٍ النَّبِيِّ الْاُمِّيِّ الْقُرَشِيِّ الْهَاشِمِيِّ الْاَبْطَحِيِّ التِّهَامِيِّ الْمَكِّيِّ صَاحِبِ التَّاجِ وَالْهِرَاوَةِ وَالْجِهَادِ وَالْكَرَامَةِ وَالْمَغْنَمِ وَالْمَقْسَمِ صَاحِبِ الْخَيْرِ وَالْمَيْرِ صَاحِبِ السَّرَايَا وَالْعَطَايَا وَالْآيَاتِ الْمُعْجِزَاتِ وَالْعَلَامَاتِ الْبَاهِرَاتِ وَالْمَقَامِ الْمَشْهُودِ وَالْحَوْضِ الْمَوْرُودِ وَالشَّفَاعَةِ وَالسُّجُودِ لِلرَّبِّ الْمَحْمُودِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ صَلِّ عَلٰى مُحَمَّدٍ ‖ بِعَدَدِ مَنْ صَلّٰى عَلَيْهِ وَصَلِّ عَلٰى مُحَمَّدٍ بِعَدَدِ مَنْ لَمْ يُصَلِّ عَلَيْهِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ صَلِّ عَلٰى سَيِّدِنَا مُحَمَّدٍ الَّذِي اَشْرَقَتْ بِنُورِهِ الظُّلَمُ"
+      },
+      {
+        "ar": "اللّٰهُمَّ صَلِّ عَلٰى سَيِّدِنَا مُحَمَّدٍ الْمَبْعُوثِ رَحْمَةً لِكُلِّ الْاُمَمِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ صَلِّ عَلٰى سَيِّدِنَا مُحَمَّدٍ الْمُخْتَارِ لِلسِّيَادَةِ وَالرِّسَالَةِ قَبْلَ خَلْقِ اللَّوْحِ وَالْقَلَمِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ صَلِّ عَلٰى سَيِّدِنَا مُحَمَّدٍ الْمَوْصُوفِ بِاَفْضَلِ الْاَخْلَاقِ وَالشِّيَمِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ صَلِّ عَلٰى سَيِّدِنَا مُحَمَّدٍ الْمَخْصُوصِ بِجَوَامِعِ الْكَلِمِ وَخَوَاصِّ الْحِكَمِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ صَلِّ عَلٰى سَيِّدِنَا مُحَمَّدٍ الَّذِي كَانَ لَا تُنْتَهَكُ فِي مَجَالِسِهِ الْحُرَمُ وَلَا يُقْضٰى عَنْ مَنْ ظَلَمَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ صَلِّ عَلٰى سَيِّدِنَا مُحَمَّدٍ الَّذِي كَانَ اِذَا مَشٰى تُظِلُّهُ الْغَمَامَةُ حَيْثُ مَا يَمَّمَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ صَلِّ عَلٰى سَيِّدِنَا مُحَمَّدٍ الَّذِي انْشَقَّ لَهُ الْقَمَرُ وَكَلَّمَهُ الْحَجَرُ وَاَقَرَّ بِرِسَالَتِهِ وَصَمَّمَ ‖"
+      },
+      {
+        "ar": "اللّٰهُمَّ صَلِّ عَلٰى سَيِّدِنَا مُحَمَّدٍ الَّذِي اَثْنٰى عَلَيْهِ رَبُّ الْعِزَّةِ نَصًّا فِي سَالِفِ الْقِدَمِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ صَلِّ عَلٰى سَيِّدِنَا مُحَمَّدٍ الَّذِي صَلّٰى عَلَيْهِ رَبُّنَا فِي مُحْكَمِ كِتَابِهِ وَاَمَرَ اَنْ يُصَلّٰى عَلَيْهِ وَيُسَلَّمَ"
+      },
+      {
+        "ar": "صَلَّى اللّٰهُ تَعَالَى عَلَيْهِ وَعَلٰى آلِهِ وَاَصْحَابِهِ وَاَزْوَاجِهِ مَا انْهَلَّتِ الدِّيَمُ"
+      },
+      {
+        "ar": "وَمَا جُرَّتْ عَلَى الْمُذْنِبِينَ اَذْيَالُ الْكَرَمِ وَسَلَّمَ تَسْلِيمًا وَشَرَّفَ وَكَرَّمَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ صَلِّ عَلٰى سَيِّدِنَا مُحَمَّدٍ السَّابِقِ لِلْخَلْقِ نُورُهُ"
+      },
+      {
+        "ar": "وَالرَّحْمَةِ لِلْعَالَمِينَ ظُهُورُهُ"
+      },
+      {
+        "ar": "عَدَدَ مَنْ مَضٰى مِنْ خَلْقِكَ وَمَنْ بَقِيَ وَمَنْ سَعِدَ مِنْهُمْ وَمَنْ شَقِيَ صَلَاةً تَسْتَغْرِقُ الْعَدَّ وَتُحِيطُ بِالْحَدِّ صَلَاةً لَا غَايَةَ لَهَا وَلَا انْتِهَاءَ وَلَا اَمَدَ لَهَا وَلَا انْقِضَاءَ صَلَاةً دَائِمَةً بِدَوَامِكَ وَعَلٰى آلِهِ وَاَصْحَابِهِ كَذٰلِكَ وَالْحَمْدُ لِلّٰهِ عَلٰى ذٰلِكَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ صَلِّ عَلٰى مُحَمَّدٍ عَبْدِكَ وَرَسُولِكَ ‖ وَصَلِّ عَلَى الْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ وَالْمُسْلِمِينَ وَالْمُسْلِمَاتِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ صَلِّ عَلٰى مُحَمَّدٍ وَعَلٰى آلِ مُحَمَّدٍ وَهَبْ لَنَا اللّٰهُمَّ مِنْ رِزْقِكَ الْحَلَالِ الطَّيِّبِ الْمُبَارَكِ مَا تَصُونُ بِهِ وُجُوهَنَا عَنِ التَّعَرُّضِ اِلٰى اَحَدٍ مِنْ خَلْقِكَ وَاجْعَلْ لَنَا اللّٰهُمَّ اِلَيْهِ طَرِيقًا سَهْلًا مِنْ غَيْرِ تَعَبٍ وَلَا نَصَبٍ وَلَا مِنَّةٍ وَلَا تَبِعَةٍ وَجَنِّبْنَا اللّٰهُمَّ الْحَرَامَ حَيْثُ كَانَ وَاَيْنَ كَانَ وَعِنْدَ مَنْ كَانَ وَحُلْ بَيْنَنَا وَبَيْنَ اَهْلِهِ وَاقْبِضْ عَنَّا اَيْدِيَهُمْ وَاصْرِفْ عَنَّا قُلُوبَهُمْ حَتّٰى لَا نَتَقَلَّبَ اِلَّا فِيمَا يُرْضِيكَ وَلَا نَسْتَعِينَ بِنِعْمَتِكَ اِلَّا عَلٰى مَا تُحِبُّ يَا اَرْحَمَ الرَّاحِمِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْأَلُكَ بِاَفْضَلِ مَسْأَلَتِكَ وَبِاَحَبِّ اَسْمَائِكَ اِلَيْكَ وَاَكْرَمِهَا عَلَيْكَ وَبِمَا مَنَنْتَ بِهِ عَلَيْنَا بِمُحَمَّدٍ نَبِيِّنَا صَلَّى اللّٰهُ عَلَيْهِ وَسَلَّمَ"
+      },
+      {
+        "ar": "وَاسْتَنْقَذْتَنَا بِهِ مِنَ الضَّلَالَةِ ‖ وَاَمَرْتَنَا بِالصَّلَاةِ عَلَيْهِ وَجَعَلْتَ صَلَاتَنَا عَلَيْهِ دَرَجَةً وَكَفَّارَةً وَلُطْفًا وَمَنًّا مِنْ عَطَائِكَ فَادْعُوكَ تَعْظِيمًا لِاَمْرِكَ وَاتِّبَاعًا لِوَصِيَّتِكَ وَتَنْجِيزًا لِمَوْعِدِكَ بِمَا يَجِبُ لِنَبِيِّنَا مُحَمَّدٍ صَلَّى اللّٰهُ تَعَالَى عَلَيْهِ وَسَلَّمَ عَلَيْنَا فِي اَدَاءِ حَقِّهِ قِبَلَنَا وَاَمَرْتَ الْعِبَادَ بِالصَّلَاةِ عَلَيْهِ فَرِيضَةً افْتَرَضْتَهَا فَنَسْأَلُكَ بِجَلَالِ وَجْهِكَ وَنُورِ عَظَمَتِكَ اَنْ تُصَلِّيَ اَنْتَ وَمَلَائِكَتُكَ عَلٰى مُحَمَّدٍ عَبْدِكَ وَرَسُولِكَ وَنَبِيِّكَ وَصَفِيِّكَ اَفْضَلَ مَا صَلَّيْتَ بِهِ عَلٰى اَحَدٍ مِنْ خَلْقِكَ اِنَّكَ حَمِيدٌ مَجِيدٌ"
+      },
+      {
+        "ar": "اللّٰهُمَّ ارْفَعْ دَرَجَتَهُ"
+      },
+      {
+        "ar": "وَاَكْرِمْ مَقَامَهُ وَثَقِّلْ مِيزَانَهُ"
+      },
+      {
+        "ar": "وَاَجْزِلْ ثَوَابَهُ وَاَفْلِجْ حُجَّتَهُ وَاَظْهِرْ مِلَّتَهُ وَاَضِئْ نُورَهُ وَاَدِمْ كَرَامَتَهُ"
+      },
+      {
+        "ar": "وَاَلْحِقْهُ مِنْ ذُرِّيَّتِهِ وَاَهْلِ بَيْتِهِ مَا تُقِرُّ بِهِ عَيْنُهُ"
+      },
+      {
+        "ar": "وَعَظِّمْهُ فِي النَّبِيِّينَ ‖ الَّذِينَ خَلَوْا قَبْلَهُ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اجْعَلْ مُحَمَّدًا اَكْثَرَ النَّبِيِّينَ تَبَعًا"
+      },
+      {
+        "ar": "وَاَكْثَرَهُمْ اَزْرًا"
+      },
+      {
+        "ar": "وَاَفْضَلَهُمْ كَرَامَةً وَنُورًا"
+      },
+      {
+        "ar": "وَاَعْلَاهُمْ دَرَجَةً وَاَفْسَحَهُمْ فِي الْجَنَّةِ مَنْزِلًا"
+      },
+      {
+        "ar": "وَاَزْيَدَهُمْ ثَوَابًا وَاَقْرَبَهُمْ مَجْلِسًا"
+      },
+      {
+        "ar": "وَاَثْبَتَهُمْ مَقَامًا وَاَصْوَبَهُمْ كَلَامًا"
+      },
+      {
+        "ar": "وَاَنْجَحَهُمْ مَسْأَلَةً وَاَوْفَرَهُمْ لَدَيْكَ نَصِيبًا"
+      },
+      {
+        "ar": "وَاَقْوَاهُمْ فِيمَا عِنْدَكَ رَغْبَةً وَاَنْزِلْهُ فِي اَعْلٰى غُرَفِ الْفِرْدَوْسِ مِنَ الدَّرَجَاتِ الْعُلٰى"
+      },
+      {
+        "ar": "اللّٰهُمَّ اجْعَلْ مُحَمَّدًا اَصْدَقَ قَائِلٍ وَاَنْجَحَ سَائِلٍ وَاَوَّلَ شَافِعٍ وَاَفْضَلَ مُشَفَّعٍ"
+      },
+      {
+        "ar": "وَشَفِّعْهُ فِي اُمَّتِهِ شَفَاعَةً يَغْبِطُهُ بِهَا الْاَوَّلُونَ وَالْآخِرُونَ"
+      },
+      {
+        "ar": "وَاِذَا مَيَّزْتَ بَيْنَ عِبَادِكَ لِفَصْلِ الْقَضَاءِ فَاجْعَلْ مُحَمَّدًا فِي الْاَصْدَقِينَ قِيلًا"
+      },
+      {
+        "ar": "وَفِي الْاَحْسَنِينَ عَمَلًا"
+      },
+      {
+        "ar": "وَفِي الْمَهْدِيِّينَ سَبِيلًا"
+      },
+      {
+        "ar": "اللّٰهُمَّ اجْعَلْ نَبِيَّنَا لَنَا فَرَطًا"
+      },
+      {
+        "ar": "وَحَوْضَهُ لَنَا مَوْرِدًا ‖"
+      },
+      {
+        "ar": "اللّٰهُمَّ احْشُرْنَا فِي زُمْرَتِهِ"
+      },
+      {
+        "ar": "وَاسْتَعْمِلْنَا بِسُنَّتِهِ"
+      },
+      {
+        "ar": "وَتَوَفَّنَا عَلٰى مِلَّتِهِ"
+      },
+      {
+        "ar": "وَاجْعَلْنَا فِي حِزْبِهِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ وَاجْمَعْ بَيْنَنَا وَبَيْنَهُ كَمَا آمَنَّا بِهِ وَلَمْ نَرَهُ"
+      },
+      {
+        "ar": "اللّٰهُمَّ وَلَا تُفَرِّقْ بَيْنَنَا وَبَيْنَهُ حَتّٰى تُدْخِلَنَا مُدْخَلَهُ وَاجْعَلْنَا مِنْ رُفَقَائِهِ مَعَ النَّبِيِّينَ وَالصِّدِّيقِينَ وَالشُّهَدَاءِ وَالصَّالِحِينَ وَحَسُنَ اُولٰئِكَ رَفِيقًا"
+      },
+      {
+        "ar": "اللّٰهُمَّ صَلِّ عَلٰى مُحَمَّدٍ نُورِ الْهُدٰى وَالْقَائِدِ اِلَى الْخَيْرِ وَالدَّاعِي اِلَى الرُّشْدِ"
+      },
+      {
+        "ar": "نَبِيِّ الرَّحْمَةِ وَكَاشِفِ الْغُمَّةِ وَاِمَامِ الْمُتَّقِينَ وَرَسُولِ رَبِّ الْعَالَمِينَ"
+      },
+      {
+        "ar": "كَمَا بَلَّغَ رِسَالَتَكَ وَتَلَا آيَاتِكَ وَنَصَحَ لِعِبَادِكَ وَاَقَامَ حُدُودَكَ وَوَفّٰى بِعَهْدِكَ وَاَنْفَذَ حُكْمَكَ وَاَمَرَ بِطَاعَتِكَ وَنَهٰى عَنْ مَعْصِيَتِكَ وَوَالٰى وَلِيَّكَ الَّذِي تُحِبُّ اَنْ تُوَالِيَهُ وَعَادٰى عَدُوَّكَ الَّذِي تُحِبُّ اَنْ تُعَادِيَهُ"
+      },
+      {
+        "ar": "وَصَلَّى اللّٰهُ ‖ عَلٰى مُحَمَّدٍ وَسَلَّمَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ صَلِّ عَلٰى جَسَدِهِ فِي الْاَجْسَادِ وَعَلٰى رُوحِهِ فِي الْاَرْوَاحِ وَعَلٰى مَوْقِفِهِ فِي الْمَوَاقِفِ وَعَلٰى مَشْهَدِهِ فِي الْمَشَاهِدِ وَعَلٰى ذِكْرِهِ اِذَا ذُكِرَ صَلَاةً مِنَّا عَلٰى نَبِيِّنَا"
+      },
+      {
+        "ar": "اللّٰهُمَّ اَبْلِغْهُ مِنَّا السَّلَامَ كُلَّمَا ذُكِرَ وَالسَّلَامُ عَلَى النَّبِيِّ وَرَحْمَةُ اللّٰهِ وَبَرَكَاتُهُ"
+      },
+      {
+        "ar": "اللّٰهُمَّ صَلِّ عَلٰى مَلَائِكَتِكَ الْمُقَرَّبِينَ"
+      },
+      {
+        "ar": "وَعَلٰى اَنْبِيَائِكَ الْمُطَهَّرِينَ"
+      },
+      {
+        "ar": "وَعَلٰى رُسُلِكَ الْمُرْسَلِينَ"
+      },
+      {
+        "ar": "وَعَلٰى حَمَلَةِ عَرْشِكَ اَجْمَعِينَ"
+      },
+      {
+        "ar": "وَعَلٰى جِبْرِيلَ وَمِيكَائِيلَ وَإِسْرَافِيلَ وَمَلَكِ الْمَوْتِ وَرِضْوَانَ وَمَالِكٍ"
+      },
+      {
+        "ar": "وَصَلِّ عَلَى الْكِرَامِ الْكَاتِبِينَ"
+      },
+      {
+        "ar": "وَعَلٰى اَهْلِ بَيْتِ نَبِيِّكَ صَلَّى اللّٰهُ تَعَالَى عَلَيْهِ وَسَلَّمَ"
+      },
+      {
+        "ar": "اَفْضَلَ مَا آتَيْتَ اَحَدًا مِنْ اَهْلِ بُيُوتَاتِ الْمُرْسَلِينَ وَاجْزِ اَصْحَابَ نَبِيِّكَ صَلَّى اللّٰهُ تَعَالَى عَلَيْهِ وَسَلَّمَ"
+      },
+      {
+        "ar": "اَفْضَلَ مَا جَزَيْتَ اَحَدًا مِنْ ‖ اَصْحَابِ الْمُرْسَلِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اغْفِرْ لِلْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ الْاَحْيَاءِ مِنْهُمْ وَالْاَمْوَاتِ وَلِاِخْوَانِنَا الَّذِينَ سَبَقُونَا بِالْاِيمَانِ وَلَا تَجْعَلْ فِي قُلُوبِنَا غِلًّا لِلَّذِينَ آمَنُوا رَبَّنَا اِنَّكَ رَؤُوفٌ رَحِيمٌ"
+      },
+      {
+        "ar": "اللّٰهُمَّ صَلِّ عَلٰى مُحَمَّدٍ عَبْدِكَ وَنَبِيِّكَ وَرَسُولِكَ النَّبِيِّ الْاُمِّيِّ وَعَلٰى آلِهِ وَصَحْبِهِ وَسَلِّمْ"
+      },
+      {
+        "ar": "اللّٰهُمَّ صَلِّ عَلٰى مُحَمَّدٍ كُلَّمَا ذَكَرَهُ الذَّاكِرُونَ"
+      },
+      {
+        "ar": "وَصَلِّ عَلٰى مُحَمَّدٍ كُلَّمَا غَفَلَ عَنْ ذِكْرِهِ الْغَافِلُونَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ صَلِّ عَلٰى مُحَمَّدٍ عَبْدِكَ وَرَسُولِكَ النَّبِيِّ الْاُمِّيِّ الَّذِي آمَنَ بِكَ وَبِكِتَابِكَ"
+      },
+      {
+        "ar": "وَاَعْطِهِ اَفْضَلَ رَحْمَتِكَ"
+      },
+      {
+        "ar": "وَآتِهِ الشَّرَفَ عَلٰى خَلْقِكَ يَوْمَ الْقِيَامَةِ"
+      },
+      {
+        "ar": "وَاجْزِهِ خَيْرَ الْجَزَاءِ وَالسَّلَامُ عَلَيْهِ وَرَحْمَةُ اللّٰهِ وَبَرَكَاتُهُ"
+      },
+      {
+        "ar": "سُبْحَانَ رَبِّكَ رَبِّ الْعِزَّةِ عَمَّا يَصِفُونَ"
+      },
+      {
+        "ar": "وَسَلَامٌ عَلَى الْمُرْسَلِينَ"
+      },
+      {
+        "ar": "وَالْحَمْدُ لِلّٰهِ رَبِّ الْعَالَمِينَ"
+      }
+    ]
+  },
+  {
+    "titleArabic": "وِرْدُ يَوْمِ الْجُمُعَةِ مِنَ الْاِسْتِغْفَارَاتِ",
+    "titleEnglish": "Ḥizb al-Istighfār · Friday",
+    "cartouche": "وِرْدُ يَوْمِ الْجُمُعَةِ مِنَ الْاِسْتِغْفَارَاتِ",
+    "note": "The Friday portion of the Istighfārāt, printed in this edition after al-Ḥizb al-Aʿẓam. Twelve petitions, each naming a kind of sin, and each answered by the same ṣalāt — «فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ … يَا خَيْرَ الْغَافِرِينَ». Set page for page after the printed edition, pp. 231–236.",
+    "folios": [
+      {
+        "from": 0,
+        "to": 24
+      }
+    ],
+    "verses": [
+      {
+        "ar": "بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيمِ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ قَوِيَ عَلَيْهِ بَدَنِي بِعَافِيَتِكَ وَنَالَتْهُ قُدْرَتِي بِفَضْلِ نِعْمَتِكَ وَانْبَسَطَتْ اِلَيْهِ يَدِي بِسِعَةِ رِزْقِكَ وَاحْتَجَبْتُ عَنِ النَّاسِ بِسَتْرِكَ وَاتَّكَلْتُ فِيهِ عِنْدَ خَوْفِي مِنْكَ عَلٰى اَمَانِكَ وَوَثِقْتُ مِنْ سَطْوَتِكَ عَلَيَّ فِيهِ بِحِلْمِكَ وَعَوَّلْتُ فِيهِ عَلٰى كَرَمِ وَجْهِكَ وَعَفْوِكَ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ يَدْعُو اِلٰى غَضَبِكَ اَوْ يُدْنِي اِلٰى سَخَطِكَ اَوْ يُمِيلُ بِي اِلٰى مَا نَهَيْتَنِي عَنْهُ اَوْ يُبَاعِدُنِي عَمَّا دَعَوْتَنِي اِلَيْهِ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ ‖ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ اسْتَمَلْتُ اِلَيْهِ اَحَدًا مِنْ خَلْقِكَ بِغَوَايَتِي اَوْ خَدَعْتُهُ بِحِيلَتِي فَعَلَّمْتُهُ مِنْهُ مَا جَهِلَ وَزَيَّنْتُ لَهُ مِنْهُ مَا قَدْ عَلِمَ وَلَقِيتُكَ غَدًا بِاَوْزَارِي وَاَوْزَارٍ مَعَ اَوْزَارِي"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ يَدْعُو اِلَى الْغَيِّ وَيُضِلُّ عَنِ الرُّشْدِ وَيُقِلُّ الْوَفْرَ وَيَمْحَقُ التَّالِدَ وَيُخْمِلُ الذِّكْرَ وَيُقِلُّ الْعَدَدَ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ اَتْعَبْتُ فِيهِ جَوَارِحِي فِي لَيْلِي وَنَهَارِي وَقَدِ اسْتَتَرْتُ حَيَاءً مِنْ عِبَادِكَ بِسِتْرِكَ فَلَا سِتْرَ اِلَّا ‖ مَا سَتَرْتَنِي بِهِ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ رَصَدَنِي فِيهِ اَعْدَائِي لِهَتْكِي فَصَرَفْتَ كَيْدَهُمْ عَنِّي وَلَمْ تُعِنْهُمْ عَلٰى فَضِيحَتِي حَتّٰى كَاَنِّي لَكَ مُطِيعٌ وَنَصَرْتَنِي عَلَيْهِمْ حَتّٰى كَاَنِّي لَكَ وَلِيٌّ فَاِلٰى مَتٰى يَا رَبِّ اَعْصِي فَتُهْمِلُنِي وَطَالَ مَا عَصَيْتُكَ فَلَمْ تُؤَاخِذْنِي وَسَأَلْتُكَ عَلٰى سُوءِ فِعْلِي فَاَعْطَيْتَنِي فَاَيُّ شُكْرٍ عِنْدِي يَقُومُ عِنْدَكَ بِنِعْمَةٍ مِنْ نِعَمِكَ عَلَيَّ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ قَدَّمْتُ اِلَيْكَ تَوْبَتِي مِنْهُ وَوَاجَهْتُكَ بِقَسَمِي بِكَ وَآلَيْتُ بِنَبِيِّكَ مُحَمَّدٍ صَلَّى اللّٰهُ عَلَيْهِ وَسَلَّمَ ‖ وَاَشْهَدْتُ عَلٰى نَفْسِي بِذٰلِكَ اَوْلِيَاءَكَ مِنْ عِبَادِكَ اَنِّي غَيْرُ عَائِدٍ اِلٰى مَعْصِيَتِكَ"
+      },
+      {
+        "ar": "فَلَمَّا قَصَدَنِي اِلَيْهِ بِكَيْدِهِ الشَّيْطَانُ وَمَالَ بِي اِلَيْهِ الْخِذْلَانُ فِيهِ وَدَعَتْنِي نَفْسِي اِلَى الْعِصْيَانِ اسْتَتَرْتُ حَيَاءً مِنْ عِبَادِكَ جُرْأَةً مِنِّي عَلَيْكَ وَاَنَا اَعْلَمُ اَنَّهُ لَا يَكْنُفُنِي مِنْكَ سِتْرٌ وَلَا بَابٌ وَلَا يَحْجُبُ نَظَرَكَ حِجَابٌ فَخَالَفْتُكَ اِلٰى مَا نَهَيْتَنِي عَنْهُ ثُمَّ مَا كَشَفْتَ السِّتْرَ عَنِّي وَسَاوَيْتَنِي بِاَوْلِيَائِكَ حَتّٰى كَاَنِّي لَا اَزَالُ لَكَ مُطِيعًا وَاِلٰى اَمْرِكَ مُسْرِعًا وَمِنْ وَعِيدِكَ فَارِغًا فَلَبَّسْتُ عَلٰى عِبَادِكَ وَلَا يَعْلَمُ سَرِيرَتِي غَيْرُكَ فَلَمْ تَسِمْنِي بِغَيْرِ سِمَتِهِمْ بَلْ اَسْبَغْتَ عَلَيَّ مِثْلَ نِعْمَتِهِمْ ثُمَّ فَضَّلْتَنِي بِذٰلِكَ عَلَيْهِمْ حَتّٰى كَاَنِّي عِنْدَكَ فِي دَرَجَتِهِمْ وَمَا ذَاكَ اِلَّا لِحِلْمِكَ وَفَضْلِ نِعْمَتِكَ عَلَيَّ ‖"
+      },
+      {
+        "ar": "فَلَكَ الْحَمْدُ يَا مَوْلَايَ فَاَسْأَلُكَ يَا اللّٰهُ كَمَا سَتَرْتَهُ عَلَيَّ فِي الدُّنْيَا فَلَا تَفْضَحْنِي بِهِ يَوْمَ الْقِيَامَةِ يَا اَرْحَمَ الرَّاحِمِينَ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ اَسْهَرْتُ فِيهِ لَيْلَتِي فِي لَذَّتِي وَالتَّأَنِّي لِاِتْيَانِهِ وَالتَّخَلُّصُ اِلٰى وُجُودِهِ حَتّٰى اِذَا اَصْبَحْتُ حَضَرْتُ اِلَيْكَ بِحِلْيَةِ الصَّالِحِينَ وَاَنَا مُضْمِرٌ خِلَافَ رِضَاكَ يَا رَبَّ الْعَالَمِينَ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ ظَلَمْتُ بِسَبَبِهِ وَلِيًّا مِنْ اَوْلِيَائِكَ وَنَصَرْتُ بِهِ عَدُوًّا مِنْ اَعْدَائِكَ اَوْ تَكَلَّمْتُ فِيهِ لِغَيْرِ مَحَبَّتِكَ اَوْ نَهَضْتُ فِيهِ اِلٰى غَيْرِ طَاعَتِكَ اَوْ ‖ ذَهَبْتُ فِيهِ اِلٰى غَيْرِ اَمْرِكَ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ يُورِثُ الضَّنَا وَيُحِلُّ الْبَلَاءَ وَيُشْمِتُ الْاَعْدَاءَ وَيَكْشِفُ الْغِطَاءَ وَيَحْبِسُ الْقَطْرَ مِنَ السَّمَاءِ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ اَلْهَانِي عَمَّا هَدَيْتَنِي اِلَيْهِ اَوْ اَمَرْتَنِي بِهِ اَوْ نَهَيْتَنِي عَنْهُ اَوْ دَلَلْتَنِي عَلَيْهِ مِمَّا فِيهِ الْحَظُّ لِي وَالْبُلُوغُ اِلٰى رِضَاكَ وَاتِّبَاعُ مَحَبَّتِكَ وَاِيثَارُ الْقُرْبِ مِنْكَ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      }
+    ]
+  },
+  {
+    "titleArabic": "وِرْدُ يَوْمِ السَّبْتِ مِنَ الْاِسْتِغْفَارَاتِ",
+    "titleEnglish": "Ḥizb al-Istighfār · Saturday",
+    "cartouche": "وِرْدُ يَوْمِ السَّبْتِ مِنَ الْاِسْتِغْفَارَاتِ",
+    "note": "The Saturday portion of the Istighfārāt. Ten petitions on the same pattern as the Friday portion, each answered by the ṣalāt «فَصَلِّ يَا رَبِّ … يَا خَيْرَ الْغَافِرِينَ». Set page for page after the printed edition, pp. 237–240.",
+    "folios": [
+      {
+        "from": 0,
+        "to": 19
+      }
+    ],
+    "verses": [
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ نَسِيتُهُ فَاَحْصَيْتَهُ وَتَهَاوَنْتُ بِهِ فَاَثْبَتَّهُ وَجَاهَرْتُكَ بِهِ فَسَتَرْتَهُ عَلَيَّ وَلَوْ تُبْتُ اِلَيْكَ مِنْهُ لَغَفَرْتَهُ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ تَوَقَّعْتُ مِنْكَ قَبْلَ انْقِضَائِهِ تَعْجِيلَ الْعُقُوبَةِ فَاَمْهَلْتَنِي وَاَسْبَلْتَ عَلَيَّ سِتْرًا فَلَمْ اَرَ فِي هَتْكِهِ عَنِّي جُهْدًا"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ نَهَيْتَنِي عَنْهُ فَخَالَفْتُكَ اِلَيْهِ وَحَذَّرْتَنِي اِيَّاهُ فَاَقَمْتُ عَلَيْهِ وَقَبَّحْتَهُ عَلَيَّ فَزَيَّنَتْهُ لِي نَفْسِي"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى ‖ سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ يَصْرِفُ عَنِّي رَحْمَتَكَ اَوْ يُحِلُّ بِي نِقْمَتَكَ اَوْ يَحْرِمُنِي كَرَامَتَكَ اَوْ يُزِيلُ عَنِّي نِعْمَتَكَ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ عَيَّرْتُ بِهِ اَحَدًا مِنْ خَلْقِكَ اَوْ قَبَّحْتُهُ مِنْ فِعْلِ اَحَدٍ مِنْ بَرِيَّتِكَ ثُمَّ تَقَحَّمْتُ عَلَيْهِ وَانْتَهَكْتُهُ جُرْأَةً مِنِّي عَلَيْكَ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ تُبْتُ اِلَيْكَ مِنْهُ وَاَقْدَمْتُ عَلٰى فِعْلِهِ فَاسْتَحْيَيْتُ مِنْكَ وَاَنَا عَلَيْهِ وَرَهِبْتُكَ وَاَنَا فِيهِ ثُمَّ اسْتَقَلْتُكَ مِنْهُ وَعُدْتُ ‖ اِلَيْهِ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ ثَوَّرَكَ عَلَيَّ وَجَبَ فِي شَيْءٍ فَعَلْتُهُ بِسَبَبِ عَهْدٍ عَاهَدْتُكَ عَلَيْهِ اَوْ عَقْدٍ عَقَّدْتُهُ لَكَ اَوْ ذِمَّةٍ آلَيْتُ بِهَا لِاَجْلِكَ لَا لِاَحَدٍ مِنْ خَلْقِكَ ثُمَّ نَقَضْتُ ذٰلِكَ مِنْ غَيْرِ ضَرُورَةٍ لَزِمَتْنِي فِيهِ بَلِ اسْتَزَلَّنِي عَنِ الْوَفَاءِ بِهَا الْبَطَرُ وَاسْتَخَطَّنِي عَنْ رِعَايَتِهَا الْاَشَرُ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ لَحِقَنِي بِسَبَبِ نِعْمَةٍ اَنْعَمْتَ بِهَا عَلَيَّ فَتَقَوَّيْتُ بِهَا عَلٰى مَعَاصِيكَ وَخَالَفْتُ فِيهَا اَمْرَكَ وَاَقْدَمْتُ بِهَا عَلٰى وَعِيدِكَ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ ‖ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ قَدَّمْتُ فِيهِ شَهْوَتِي عَلٰى طَاعَتِكَ وَآثَرْتُ فِيهِ مَحَبَّتِي عَلٰى اَمْرِكَ فَاَرْضَيْتُ نَفْسِي بِغَضَبِكَ وَعَرَّضْتُهَا لِسَخَطِكَ اِذْ نَهَيْتَنِي بِنَهْيِكَ وَقَدَّمْتَ اِلَيَّ فِيهِ بِاِنْذَارِكَ وَتَحَجَّجْتَ عَلَيَّ فِيهِ بِوَعِيدِكَ فَاَسْتَغْفِرُكَ اللّٰهُمَّ وَاَتُوبُ اِلَيْكَ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ عَلِمْتُهُ مِنْ نَفْسِي فَاُنْسِيتُهُ اَوْ ذَكَرْتُهُ اَوْ تَعَمَّدْتُهُ اَوْ اَخْطَأْتُهُ وَهُوَ مِمَّا لَا اَشُكُّ اَنَّكَ مُسَائِلِي عَنْهُ وَاَنَّ نَفْسِي بِهِ مُرْتَهِنَةٌ لَدَيْكَ وَاِنْ كُنْتُ قَدْ نَسِيتُهُ وَغَفَلَتْ عَنْهُ نَفْسِي"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ",
+        "noRosette": true
+      }
+    ]
+  },
+  {
+    "titleArabic": "وِرْدُ يَوْمِ الْاَحَدِ مِنَ الْاِسْتِغْفَارَاتِ",
+    "titleEnglish": "Ḥizb al-Istighfār · Sunday",
+    "cartouche": "وِرْدُ يَوْمِ الْاَحَدِ مِنَ الْاِسْتِغْفَارَاتِ",
+    "note": "The Sunday portion of the Istighfārāt. Ten petitions on the same pattern, each answered by the ṣalāt «فَصَلِّ يَا رَبِّ … يَا خَيْرَ الْغَافِرِينَ»; the last closes the day on a short leaf with the printed tailpiece. Set page for page after the printed edition, pp. 241–245.",
+    "folios": [
+      {
+        "from": 0,
+        "to": 19
+      }
+    ],
+    "verses": [
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ وَاجَهْتُكَ فِيهِ وَقَدْ اَيْقَنْتُ اَنَّكَ تَرَانِي عَلَيْهِ فَنَوَيْتُ اَنْ اَتُوبَ اِلَيْكَ مِنْهُ فَاُنْسِيتُ اَنْ اَسْتَغْفِرَكَ مِنْهُ اَنْسَانِيهِ الشَّيْطَانُ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ دَخَلْتُ فِيهِ بِحُسْنِ ظَنِّي فِيكَ اَنَّكَ لَا تُعَذِّبُنِي عَلَيْهِ وَرَجَوْتُكَ لِمَغْفِرَتِهِ فَاَقْدَمْتُ عَلَيْهِ وَقَدْ عَوَّلَتْ نَفْسِي عَلٰى مَعْرِفَتِي بِكَرَمِكَ اَنْ لَا تَفْضَحَنِي بِهِ بَعْدَ اِذْ سَتَرْتَهُ عَلَيَّ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ اسْتَوْجَبْتُ بِهِ عَنْكَ رَدَّ الدُّعَاءِ وَحِرْمَانَ الْاِجَابَةِ ‖ وَخَيْبَةَ الطَّمَعِ وَانْقِطَاعَ الرَّجَاءِ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ يُورِثُ الْاَسْقَامَ وَالضَّنَا وَيُوجِبُ النِّقَمَ وَالْبَلَاءَ وَيَكُونُ يَوْمَ الْقِيَامَةِ حَسْرَةً وَنَدَامَةً"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ يُعْقِبُ الْحَسْرَةَ وَيُورِثُ النَّدَامَةَ وَيَحْبِسُ الرِّزْقَ وَيَرُدُّ الدُّعَاءَ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ مَدَحْتُهُ بِلِسَانِي اَوْ اَضْمَرْتُهُ بِجَنَانِي اَوْ هَشَّتْ اِلَيْهِ نَفْسِي اَوْ اَثْبَتُّهُ بِلِسَانِي اَوْ اَتَيْتُهُ بِفِعَالِي اَوْ ‖ كَتَبْتُهُ بِيَدِي اَوِ ارْتَكَبْتُهُ بِشِدَّتِي اَوْ اَرْكَبْتُ بِهِ عِبَادَكَ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ خَلَوْتُ بِهِ فِي لَيْلِي وَنَهَارِي وَاَرْخَيْتَ عَلَيَّ فِيهِ الْاَسْتَارَ حَيْثُ لَا يَرَانِي فِيهِ اِلَّا اَنْتَ يَا جَبَّارُ فَارْتَابَتْ نَفْسِي فِيهِ وَتَحَيَّرَتْ بَيْنَ تَرْكِي لَهُ لِخَوْفِكَ وَانْتِهَاكِي لَهُ وَحُسْنِ الظَّنِّ فِيكَ فَسَوَّلَتْ لِي نَفْسِي الْاِقْدَامَ عَلَيْهِ وَاَنَا عَارِفٌ بِمَعْصِيَتِي فِيهِ لَكَ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ اسْتَقْلَلْتُهُ وَاسْتَعْظَمْتَهُ وَاسْتَصْغَرْتُهُ وَاسْتَكْبَرْتَهُ اَوْ رَدَّنِي فِيهِ جَهْلِي بِهِ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ ‖ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ اَضْلَلْتُ بِهِ اَحَدًا مِنْ خَلْقِكَ اَوْ اَسَأْتُ بِهِ اِلٰى اَحَدٍ مِنْ بَرِيَّتِكَ اَوْ زَيَّنَتْهُ لِي نَفْسِي اَوْ اَشَرْتُ بِهِ اِلٰى غَيْرِي اَوْ اَدْلَلْتُ عَلَيْهِ بِسَهْوِي اَوْ اَصْرَرْتُ عَلَيْهِ بِعَمْدِي اَوْ اَقَمْتُ عَلَيْهِ بِجَهْلِي"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ خُنْتُ فِيهِ اَمَانَتِي اَوْ حَسَّنَتْ لِي نَفْسِي فِعْلَهُ اَوْ اَخْطَأْتُ بِهِ عَلٰى بَدَنِي اَوْ قَدَّمْتُ فِيهِ عَلَيْكَ شَهْوَتِي اَوْ آثَرْتُ فِيهِ لَذَّتِي اَوْ سَعَيْتُ فِيهِ لِغَيْرِي اَوِ اسْتَغْوَيْتُ اِلَيْهِ مَنْ تَابَعَنِي اَوْ كَابَرْتُ فِيهِ مَنْ مَانَعَنِي اَوْ قَهَرْتُ عَلَيْهِ مَنْ غَالَبَنِي اَوْ غَلَبْتُ ‖ عَلَيْهِ بِحِيلَتِي اَوِ اسْتَزَلَّنِي اِلَيْهِ مَيْلِي"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      }
+    ]
+  },
+  {
+    "titleArabic": "وِرْدُ يَوْمِ الْاِثْنَيْنِ مِنَ الْاِسْتِغْفَارَاتِ",
+    "titleEnglish": "Ḥizb al-Istighfār · Monday",
+    "cartouche": "وِرْدُ يَوْمِ الْاِثْنَيْنِ مِنَ الْاِسْتِغْفَارَاتِ",
+    "note": "The Monday portion of the Istighfārāt. Ten petitions on the same pattern, each answered by the ṣalāt «فَصَلِّ يَا رَبِّ … يَا خَيْرَ الْغَافِرِينَ»; the second runs a long catalogue of the tempers and motives a sin may spring from. Set page for page after the printed edition, pp. 246–250.",
+    "folios": [
+      {
+        "from": 0,
+        "to": 19
+      }
+    ],
+    "verses": [
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ اسْتَعَنْتُ عَلَيْهِ بِحِيلَةٍ تُدْنِي مِنْ غَضَبِكَ اَوِ اسْتَظْهَرْتُ بِنَيْلِهِ عَلٰى اَهْلِ طَاعَتِكَ اَوِ اسْتَمَلْتُ بِهِ اَحَدًا مِنْ خَلْقِكَ اِلٰى مَعْصِيَتِكَ اَوْ رُمْتُهُ وَرَأَيْتُ بِهِ عِبَادَكَ اَوْ لَبَّسْتُ عَلَيْهِمْ بِفِعَالِي كَاَنَّهُ بِحِيلَتِي اُرِيدُكَ وَالْمُرَادُ بِهِ مَعْصِيَتُكَ وَالْهَوٰى مُنْصَرِفٌ عَنْ طَاعَتِكَ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ كَتَبْتَهُ عَلَيَّ بِسَبَبِ عُجْبٍ كَانَ مِنِّي بِنَفْسِي اَوْ رِيَاءٍ اَوْ سُمْعَةٍ اَوْ حِقْدٍ اَوْ شَحْنَاءَ اَوْ خِيَانَةٍ اَوْ خُيَلَاءَ اَوْ فَرَحٍ اَوْ مَرَحٍ اَوْ تَرَحٍ اَوْ عَنَدٍ اَوْ حَسَدٍ اَوْ اَشَرٍ اَوْ بَطَرٍ اَوْ حَمِيَّةٍ اَوْ عَصَبِيَّةٍ اَوْ غَضَبٍ اَوْ رِضَاءٍ اَوْ رَجَاءٍ اَوْ ‖ شُحٍّ اَوْ سَخَاءٍ اَوْ ظُلْمٍ اَوْ حِيلَةٍ اَوْ سَرِقَةٍ اَوْ كَذِبٍ اَوْ غِيبَةٍ اَوْ لَهْوٍ اَوْ لَغْوٍ اَوْ نَمِيمَةٍ اَوْ لَعِبٍ اَوْ نَوْعٍ مِنَ الْاَنْوَاعِ مِمَّا يُكْتَسَبُ بِمِثْلِهِ الذُّنُوبُ وَيَكُونُ فِي اتِّبَاعِهِ الْعَطَبُ وَالْحُوبُ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ رَهِبْتُ فِيهِ سِوَاكَ وَعَادَيْتُ فِيهِ اَوْلِيَاءَكَ وَوَالَيْتُ فِيهِ اَعْدَاءَكَ وَخَذَلْتُ فِيهِ اَحِبَّاءَكَ وَتَعَرَّضْتُ فِيهِ لِشَيْءٍ مِنْ غَضَبِكَ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ سَبَقَ فِي عِلْمِكَ اَنِّي فَاعِلُهُ بِقُدْرَتِكَ الَّتِي قَدَرْتَ بِهَا عَلَيَّ وَعَلٰى مَا اقْتَدَدْتُ بِهَا كُلَّ شَيْءٍ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ ‖ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ تُبْتُ اِلَيْكَ مِنْهُ ثُمَّ عُدْتُ فِيهِ وَنَقَضْتُ فِيهِ الْعَهْدَ فِيمَا بَيْنِي وَبَيْنَكَ جُرْأَةً مِنِّي عَلَيْكَ لِمَعْرِفَتِي بِعَفْوِكَ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ اَدْنَانِي مِنْ عَذَابِكَ اَوْ اَنَانِي مِنْ ثَوَابِكَ اَوْ حَجَبَ عَنِّي رَحْمَتَكَ اَوْ كَدَّرَ عَلَيَّ نِعْمَتَكَ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ حَلَلْتُ بِهِ عَقْدًا شَدَدْتَهُ اَوْ شَدَدْتُ بِهِ عَقْدًا حَلَلْتَهُ بِخَيْرٍ وَعَدْتَهُ فَلَحِقَنِي فِيهِ شُحٌّ فِي نَفْسِي ‖ حَرَمْتُ بِهِ خَيْرًا اَسْتَحِقُّهُ اَوْ حُرِمْتُ بِهِ نَفْسًا خَيْرًا تَسْتَحِقُّهُ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ ارْتَكَبْتُهُ بِشُمُولِ عَافِيَتِكَ اَوْ تَمَكَّنْتُ مِنْهُ بِفَضْلِ نِعْمَتِكَ اَوْ تَقَوَّيْتُ بِهِ عَلٰى دَفْعِ نِقْمَتِكَ عَنِّي اَوْ مَدَدْتُ اِلَيْهِ يَدِي بِسِبَاغِ رِزْقِكَ عَلَيَّ اَوْ خَيْرًا اَرَدْتُ بِهِ وَجْهَكَ الْكَرِيمَ فَخَالَطَنِي فِيهِ شُحُّ نَفْسِي بِمَا لَيْسَ فِيهِ رِضَاكَ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ دَعَانِي اِلَيْهِ التَّرَخُّصُ وَالْحِرْصُ فَرَغِبْتُ فِيهِ وَحَلَلْتُ لِنَفْسِي مَا هُوَ مُحَرَّمٌ عِنْدَكَ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى ‖ سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ خَفِيَ عَلٰى خَلْقِكَ وَلَمْ يَعْزُبْ عَنْكَ فَاسْتَقَلْتُكَ مِنْهُ فَاَقَلْتَنِي ثُمَّ عُدْتُ فِيهِ فَسَتَرْتَهُ عَلَيَّ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      }
+    ]
+  },
+  {
+    "titleArabic": "وِرْدُ يَوْمِ الثُّلَاثَاءِ مِنَ الْاِسْتِغْفَارَاتِ",
+    "titleEnglish": "Ḥizb al-Istighfār · Tuesday",
+    "cartouche": "وِرْدُ يَوْمِ الثُّلَاثَاءِ مِنَ الْاِسْتِغْفَارَاتِ",
+    "note": "The Tuesday portion of the Istighfārāt. Ten petitions on the same pattern, each answered by the ṣalāt «فَصَلِّ يَا رَبِّ … يَا خَيْرَ الْغَافِرِينَ»; two of them run rhyming catalogues of what a sin costs. Set page for page after the printed edition, pp. 251–254.",
+    "folios": [
+      {
+        "from": 0,
+        "to": 19
+      }
+    ],
+    "verses": [
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ خَطَوْتُ اِلَيْهِ بِرِجْلِي اَوْ مَدَدْتُ اِلَيْهِ يَدِي اَوْ تَأَمَّلْتُهُ بِبَصَرِي اَوْ اَصْغَيْتُ اِلَيْهِ بِاُذْنِي اَوْ اَنْطَقْتُ بِهِ لِسَانِي اَوْ اَتْلَفْتُ فِيهِ مَا رَزَقْتَنِي ثُمَّ اسْتَرْزَقْتُكَ عَلٰى عِصْيَانِي فَرَزَقْتَنِي ثُمَّ اسْتَعَنْتُ بِرِزْقِكَ عَلٰى عِصْيَانِكَ فَسَتَرْتَهُ عَلَيَّ وَسَأَلْتُكَ الزِّيَادَةَ فَلَمْ تَحْرِمْنِي ثُمَّ جَاهَرْتُكَ بَعْدَ الزِّيَادَةِ فَلَمْ تَفْضَحْنِي فَلَا اَزَالُ مُصِرًّا عَلٰى عِصْيَانِكَ وَلَا تَزَالُ عَائِدًا عَلَيَّ بِحِلْمِكَ وَكَرَمِكَ يَا اَكْرَمَ الْاَكْرَمِينَ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ يُوجِبُ عَلَيَّ صَغِيرُهُ اَلِيمَ عَذَابِكَ وَيُحِلُّ بِي كَبِيرُهُ شَدِيدَ عِقَابِكَ وَفِي ‖ اتِّبَاعِهِ تَعْجِيلَ نِقْمَتِكَ وَفِي الْاِصْرَارِ عَلَيْهِ زَوَالَ نِعْمَتِكَ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ لَمْ يَطَّلِعْ عَلَيْهِ اَحَدٌ سِوَاكَ وَلَمْ يَعْلَمْ بِهِ اَحَدٌ غَيْرُكَ مِمَّا لَا يُنْجِينِي مِنْهُ اِلَّا عَفْوُكَ وَلَا يَسَعُهُ اِلَّا مَغْفِرَتُكَ وَحِلْمُكَ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ يُزِيلُ النِّعَمَ وَيُحِلُّ النِّقَمَ وَيَهْتِكُ الْحُرَمَ وَيُورِثُ النَّدَمَ وَيُطِيلُ السَّقَمَ وَيُعَجِّلُ الْاَلَمَ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ يَمْحَقُ الْحَسَنَاتِ ‖ وَيُضَاعِفُ السَّيِّئَاتِ وَيُحِلُّ النَّقِمَاتِ وَيُغْضِبُكَ يَا رَبَّ السَّمَاوَاتِ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ اَنْتَ اَحَقُّ بِمَغْفِرَتِهِ اِذْ كُنْتَ اَوْلٰى بِسَتْرِهِ فَاِنَّكَ اَهْلُ التَّقْوٰى وَاَهْلُ الْمَغْفِرَةِ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ ظَلَمْتُ بِسَبَبِهِ وَلِيًّا مِنْ اَوْلِيَائِكَ مُسَاعَدَةً لِاَعْدَائِكَ وَمَيْلًا مَعَ اَهْلِ مَعْصِيَتِكَ عَلٰى اَهْلِ طَاعَتِكَ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ اَلْبَسَنِي كَثْرَةُ انْهِمَاكِي فِيهِ ‖ ذِلَّةً وَاَيْسَنِي مِنْ جُودِ رَحْمَتِكَ اَوْ قَصَّرَ بِيَ الْيَأْسُ عَنِ الرُّجُوعِ اِلٰى طَاعَتِكَ لِمَعْرِفَتِي بِعَظِيمِ جُرْمِي وَسُوءِ ظَنِّي بِنَفْسِي"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ اَوْرَثَنِي الْهَلَكَةَ لَوْلَا حِلْمُكَ وَرَحْمَتُكَ وَاَدْخَلَنِي دَارَ الْبَوَارِ لَوْلَا نِعْمَتُكَ وَسَلَكَ بِي سَبِيلَ الْغَيِّ لَوْلَا اِرْشَادُكَ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ يَكُونُ فِي اجْتِرَائِهِ قَطْعُ الرَّجَاءِ وَرَدُّ الدُّعَاءِ وَتَوَارُدُ الْبَلَاءِ وَتَرَادُفُ الْهُمُومِ وَتَضَاعُفُ الْغُمُومِ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ",
+        "noRosette": true
+      }
+    ]
+  },
+  {
+    "titleArabic": "وِرْدُ يَوْمِ الْاَرْبِعَاءِ مِنَ الْاِسْتِغْفَارَاتِ",
+    "titleEnglish": "Ḥizb al-Istighfār · Wednesday",
+    "cartouche": "وِرْدُ يَوْمِ الْاَرْبِعَاءِ مِنَ الْاِسْتِغْفَارَاتِ",
+    "note": "The Wednesday portion of the Istighfārāt. Nine petitions on the same pattern, each answered by the ṣalāt «فَصَلِّ يَا رَبِّ … يَا خَيْرَ الْغَافِرِينَ». Set page for page after the printed edition, pp. 255–258.",
+    "folios": [
+      {
+        "from": 0,
+        "to": 17
+      }
+    ],
+    "verses": [
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ يَرُدُّ عَنْكَ دُعَائِي وَيَقْطَعُ مِنْكَ رَجَائِي وَيُطِلُّ فِي سَخَطِكَ عَنَائِي وَيُقَصِّرُ بِي عَنْكَ اَمَلِي"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ يُمِيتُ الْقَلْبَ وَيُشْعِلُ الْكَرْبَ وَيُشْغِلُ الْفِكْرَ وَيُرْضِي الشَّيْطَانَ وَيُسْخِطُ الرَّحْمٰنَ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ يُعْقِبُ الْيَأْسَ مِنْ رَحْمَتِكَ وَالْقُنُوطَ مِنْ مَغْفِرَتِكَ وَالْحِرْمَانَ مِنْ سِعَةِ مَا عِنْدَكَ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا ‖ مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ مَقَتَتْ عَلَيْهِ نَفْسِي اِجْلَالًا لَكَ وَاَظْهَرْتُ لَكَ التَّوْبَةَ فَقَبِلْتَ وَسَأَلْتُكَ الْعَفْوَ فَعَفَوْتَ ثُمَّ عَادَ بِيَ الْهَوٰى اِلٰى مُعَاوَدَتِهِ طَمَعًا فِي سِعَةِ رَحْمَتِكَ وَكَرَمِ عَفْوِكَ نَاسِيًا لِوَعِيدِكَ رَاجِيًا لِجَمِيلِ وَعْدِكَ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ يُوجِبُ سَوَادَ الْوَجْهِ يَوْمَ تَبْيَضُّ وُجُوهُ اَوْلِيَائِكَ وَتَسْوَدُّ وُجُوهُ اَعْدَائِكَ اِذَا اَقْبَلَ بَعْضُهُمْ عَلٰى بَعْضٍ يَتَلَاوَمُونَ فَتَقُولُ لَا تَخْتَصِمُوا لَدَيَّ وَقَدْ قَدَّمْتُ اِلَيْكُمْ بِالْوَعِيدِ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي ‖ اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ فَهِمْتُهُ وَصُمْتُ عَنْهُ حَيَاءً مِنْكَ عِنْدَ ذِكْرِهِ وَكَتَمْتُهُ فِي صَدْرِي وَعَلِمْتَهُ مِنِّي فَاِنَّكَ تَعْلَمُ السِّرَّ وَاَخْفٰى"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ يُبَغِّضُنِي اِلٰى عِبَادِكَ وَيُنَفِّرُ عَنِّي اَوْلِيَاءَكَ وَيُوَحِّشُنِي مِنْ اَهْلِ طَاعَتِكَ بِوَحْشَةِ الْمَعَاصِي وَرُكُوبِ الْحُوبِ وَارْتِكَابِ الذُّنُوبِ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ يَدْعُو اِلَى الْكُفْرِ وَيُطِيلُ الْفِكْرَ وَيُورِثُ الْفَقْرَ وَيَجْلِبُ الْعُسْرَ وَيَصُدُّ عَنِ الْخَيْرِ وَيَهْتِكُ السِّتْرَ وَيَمْنَعُ الْيُسْرَ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى ‖ سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ يُدْنِي الْآجَالَ وَيَقْطَعُ الْآمَالَ وَيُشِينُ الْاَعْمَالَ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      }
+    ]
+  },
+  {
+    "titleArabic": "وِرْدُ يَوْمِ الْخَمِيسِ مِنَ الْاِسْتِغْفَارَاتِ",
+    "titleEnglish": "Ḥizb al-Istighfār · Thursday",
+    "cartouche": "وِرْدُ يَوْمِ الْخَمِيسِ مِنَ الْاِسْتِغْفَارَاتِ",
+    "note": "The Thursday portion of the Istighfārāt, and the close of the whole section. Ten petitions on the same pattern, then the closing formulae: an istighfār said three times, the three āyāt of aṣ-Ṣāffāt, a duʿāʾ, and a final ṣalawāt. Set page for page after the printed edition, pp. 259–265.",
+    "folios": [
+      {
+        "from": 0,
+        "to": 31
+      }
+    ],
+    "verses": [
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ يُدَنِّسُ مِنِّي مَا طَهَّرْتَهُ"
+      },
+      {
+        "ar": "وَيَكْشِفُ عَنِّي مَا سَتَرْتَهُ اَوْ يُقَبِّحُ مِنِّي مَا زَيَّنْتَهُ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ لَا يُنَالُ بِهِ عَهْدُكَ وَلَا يُؤْمَنُ مَعَهُ مِنْ غَضَبِكَ وَلَا يُنْزَلُ بِهِ رَحْمَتُكَ وَلَا تَدُومُ مَعَهُ نِعْمَتُكَ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ اسْتَخْفَيْتُ بِهِ فِي ضَوْءِ النَّهَارِ عَنْ عِبَادِكَ وَبَادَرْتُكَ بِهِ فِي ظُلْمَةِ اللَّيْلِ جُرْأَةً مِنِّي عَلَيْكَ عَلٰى اَنِّي اَعْلَمُ اَنَّ السِّرَّ عِنْدَكَ عَلَانِيَةٌ وَاَنَّ الْخُفْيَةَ عِنْدَكَ بَارِزَةٌ ‖ وَاَنَّهُ لَا يَمْنَعُ مِنْكَ مَانِعٌ وَلَا يَنْفَعُ عِنْدَكَ مَالٌ وَلَا بَنُونَ اِلَّا مَنْ اَتَاكَ بِقَلْبٍ سَلِيمٍ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ يُورِثُ النِّسْيَانَ لِذِكْرِكَ اَوْ يُعَقِّبُ الْغَفْلَةَ عَنْ تَحْذِيرِكَ اَوْ يَتَمَادٰى بِهِ الْاَمْنُ مِنْ مَكْرِكَ اَوْ يُؤَيِّسُنِي مِنْ خَيْرِ مَا عِنْدَكَ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ لَحِقَنِي بِسَبَبِ عَتَبِي عَلَيْكَ فِي احْتِبَاسِ الرِّزْقِ عَلَيَّ وَشِكَايَتِي مِنْكَ وَاِعْرَاضِي عَنْكَ وَمَيْلِي اِلٰى عِبَادِكَ بِالْاِسْتِكَانَةِ لَهُمْ وَالتَّضَرُّعِ اِلَيْهِمْ وَقَدْ اَسْمَعْتَنِي قَوْلَكَ فِي مُحْكَمِ كِتَابِكَ فَمَا اسْتَكَانُوا لِرَبِّهِمْ وَمَا ‖ يَتَضَرَّعُونَ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ لَزِمَنِي بِسَبَبِ كُرْبَةٍ اسْتَعَنْتُ عِنْدَهَا بِغَيْرِكَ وَاسْتَغَثْتُ عَلَيْهَا بِسِوَاكَ وَاشْتَدَدْتُ فِيهَا بِوَاحِدٍ دُونَكَ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ حَمَلَنِي عَلَيْهِ الْخَوْفُ مِنْ غَيْرِكَ اَوْ دَعَانِي فِي التَّضَرُّعِ بِاَحَدٍ مِنْ خَلْقِكَ اَوِ اسْتَمَالَنِي اِلَى الطَّمَعِ فِيمَا عِنْدَ غَيْرِكَ فَآثَرْتُ طَاعَتَهُ فِي مَعْصِيَتِكَ اسْتِجْلَابًا لِمَا فِي يَدِهِ وَاَنَا اَعْلَمُ بِحَاجَتِي اِلَيْكَ كَمَا لَا غِنٰى لِي عَنْكَ"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ ‖ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ مَثَّلَتْ لِي نَفْسِي اسْتِقْلَالَهُ وَصَوَّرَتْ لِيَ اسْتِصْغَارَهُ وَقَلَّلَتْهُ حَتّٰى وَرَّطَتْنِي فِيهِ نَفْسِي"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ذَنْبٍ جَرٰى بِهِ قَلَمُكَ وَاَحَاطَ بِهِ عِلْمُكَ فِيَّ وَعَلَيَّ اِلٰى آخِرِ عُمْرِي وَلِجَمِيعِ ذُنُوبِي كُلِّهَا اَوَّلِهَا وَآخِرِهَا عَمْدِهَا وَخَطَائِهَا قَلِيلِهَا وَكَثِيرِهَا صَغِيرِهَا وَكَبِيرِهَا دَقِيقِهَا وَجَلِيلِهَا قَدِيمِهَا وَحَدِيثِهَا سِرِّهَا وَجَهْرِهَا خَفِيِّهَا وَعَلَانِيَتِهَا وَلِمَا اَنَا مُذْنِبٌ فِي جَمِيعِ عُمْرِي"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اِنِّي اَسْتَغْفِرُكَ لِكُلِّ ‖ ذَنْبٍ لِي وَاَسْأَلُكَ اَنْ تَغْفِرَ لِي مَا اَحْصَيْتَ عَلَيَّ مِنْ مَظَالِمِ الْعِبَادِ قِبَلِي فَاِنَّ لِعِبَادِكَ عَلَيَّ حُقُوقًا وَمَظَالِمَ وَاَنَا بِهَا مُرْتَهِنٌ"
+      },
+      {
+        "ar": "اللّٰهُمَّ وَاِنْ كَانَتْ كَثِيرَةً فَاِنَّهَا فِي جَنْبِ عَفْوِكَ يَسِيرَةٌ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اَيُّمَا عَبْدٍ مِنْ عِبَادِكَ اَوْ اَمَةٍ مِنْ اِمَائِكَ كَانَتْ لَهُ مَظْلَمَةٌ عِنْدِي قَدْ غَصَبْتُهُ عَلَيْهَا فِي اَرْضِهِ اَوْ مَالِهِ اَوْ عِرْضِهِ اَوْ بَدَنِهِ مَاتَ اَوْ غَابَ اَوْ حَضَرَ هُوَ اَوْ خَصْمُهُ يُطَالِبُنِي بِهَا وَلَمْ اَسْتَطِعْ اَنْ اَرُدَّهَا اِلَيْهِ وَلَمْ اَسْتَحْلِلْهَا مِنْهُ فَاَسْأَلُكَ بِكَرَمِكَ وَجُودِكَ وَسِعَةِ مَا عِنْدَكَ اَنْ تُرْضِيَهُمْ عَنِّي وَلَا تَجْعَلَ لَهُمْ عَلَيَّ شَيْئًا تُنَقِصُ حَسَنَاتِي فَاِنَّ عِنْدَكَ مَا يُرْضِيهِمْ عَنِّي وَلَيْسَ عِنْدِي مَا يُرْضِيهِمْ عَنِّي وَلَا تَجْعَلْ يَوْمَ الْقِيَامَةِ لِسَيِّئَاتِهِمْ عَلٰى حَسَنَاتِي سَبِيلًا"
+      },
+      {
+        "ar": "فَصَلِّ يَا رَبِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا ‖ مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَاغْفِرْهُ لِي يَا خَيْرَ الْغَافِرِينَ"
+      },
+      {
+        "ar": "وَفِي نُسْخَةٍ اُخْرٰى"
+      },
+      {
+        "ar": "اَسْتَغْفِرُ اللّٰهَ الْعَظِيمَ الَّذِي لَا اِلٰهَ اِلَّا هُوَ الْحَيَّ الْقَيُّومَ وَاَتُوبُ اِلَيْهِ (3)"
+      },
+      {
+        "ar": "اسْتِغْفَارًا يَزِيدُ فِي كُلِّ طَرْفَةِ عَيْنٍ وَتَحْرِيكِ نَفْسٍ مِائَةَ اَلْفِ اَلْفِ ضِعْفٍ يَدُومُ مَعَ دَوَامِ اللّٰهِ وَيَبْقٰى مَعَ بَقَاءِ اللّٰهِ الَّذِي لَا فَنَاءَ وَلَا زَوَالَ وَلَا انْتِقَالَ فِي مُلْكِهِ اَبَدَ الْآبِدِينَ وَدَهْرَ الدَّاهِرِينَ"
+      },
+      {
+        "ar": "سَرْمَدًا فِي سَرْمَدٍ اسْتَجِبْ يَا هُوَ يَا مَنْ لَا هُوَ اِلَّا هُوَ"
+      },
+      {
+        "ar": "سُبْحَانَ رَبِّكَ رَبِّ الْعِزَّةِ عَمَّا يَصِفُونَ"
+      },
+      {
+        "ar": "وَسَلَامٌ عَلَى الْمُرْسَلِينَ"
+      },
+      {
+        "ar": "وَالْحَمْدُ لِلّٰهِ رَبِّ الْعَالَمِينَ"
+      },
+      {
+        "ar": "اللّٰهُمَّ اجْعَلْهُ دُعَاءً وَافَقَ اِجَابَةً وَمَسْاَلَةً وَافَقَتْ مِنْكَ عَطِيَّةً اِنَّكَ عَلٰى كُلِّ شَيْءٍ قَدِيرٌ"
+      },
+      {
+        "ar": "اللّٰهُمَّ صَلِّ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ وَصَحْبِهِ وَسَلِّمْ تَسْلِيمًا ‖ كَثِيرًا صَلَاةً دَائِمَةً بِدَوَامِكَ بَاقِيَةً بِبَقَائِكَ لَا مُنْتَهٰى لَهَا دُونَ عِلْمِكَ صَلَاةً تُرْضِيكَ وَتُرْضِيهِ وَتَرْضٰى بِهَا عَنَّا يَا رَبَّ الْعَالَمِينَ وَسَلِّمْ كَذٰلِكَ وَالْحَمْدُ لِلّٰهِ عَلٰى ذٰلِكَ"
+      }
+    ]
+  }
+]

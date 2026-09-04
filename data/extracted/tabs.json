@@ -1,0 +1,22 @@
+[
+  {
+    "id": "mawlids",
+    "label": "Mawlid Collections",
+    "ar": "مجموعات الْموالد"
+  },
+  {
+    "id": "praises",
+    "label": "Nasheeds & Qasidas",
+    "ar": "الأناشيد والقصائد"
+  },
+  {
+    "id": "dalail",
+    "label": "Dalāʾil al-Khayrāt",
+    "ar": "دلائل الْخيرات"
+  },
+  {
+    "id": "favs",
+    "label": "Favorites",
+    "ar": "المفضلة"
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "mawlids",
+    "ar": "مجموعات الْموالد",
+    "en": "Mawlid Collections",
+    "desc": "The mawlid texts and Qasida Burdah — choose a collection to recite from."
+  },
+  {
+    "id": "praises",
+    "ar": "الأناشيد والقصائد",
+    "en": "Nasheeds & Qasidas",
+    "desc": "Nasheeds, qasidas, ilahis and qawwalis."
+  },
+  {
+    "id": "dalail",
+    "ar": "دلائل الْخيرات",
+    "en": "Dalāʾil al-Khayrāt",
+    "desc": "Imam al-Jazūlī’s book of blessings upon the Prophet ﷺ, divided for the week."
+  },
+  {
+    "id": "favs",
+    "ar": "المفضلة",
+    "en": "Favorites",
+    "desc": "Whatever you bookmark, kept on this device."
+  }
+]

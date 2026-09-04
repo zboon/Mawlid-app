@@ -1,0 +1,26 @@
+[
+  {
+    "id": "mawlid",
+    "ar": "مولد الدّيبعي",
+    "en": "Mawlid ad-Daybaʿi",
+    "desc": "The mawlid of Imam ad-Daybaʿī — read straight through, in order."
+  },
+  {
+    "id": "barzanji",
+    "ar": "مولد الْبرزنجي",
+    "en": "Mawlid al-Barzanjī",
+    "desc": "The most widely recited mawlid in the world, with the qiyām at the birth."
+  },
+  {
+    "id": "diya",
+    "ar": "الضياء اللّامع",
+    "en": "The Shimmering Light",
+    "desc": "Al-Ḥabīb ʿUmar bin Ḥafīẓ’s mawlid, in verse throughout, with the qiyām at the birth."
+  },
+  {
+    "id": "burdah",
+    "ar": "قصيدة الْبردة",
+    "en": "Qasida Burdah",
+    "desc": "Imam al-Būṣīrī’s celebrated poem, with audio for every chapter."
+  }
+]

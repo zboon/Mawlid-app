@@ -1,0 +1,14 @@
+{
+  "before": {
+    "en": "Before the reading",
+    "ar": "قَبْلَ الْقِرَاءَةِ"
+  },
+  "daily": {
+    "en": "The daily portions",
+    "ar": "الْأَحْزَابُ الْيَوْمِيَّةُ"
+  },
+  "done": {
+    "en": "On completion",
+    "ar": "عِنْدَ الْخَتْمِ"
+  }
+}

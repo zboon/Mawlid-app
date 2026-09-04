@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.env
+.env.local
+*.log
+.DS_Store
+.vite/
+coverage/
+playwright-report/
+test-results/
+
+# Erzeugte Importdateien. data/extracted/ wird bewusst mitversioniert:
+# es ist der Beleg dafür, was aus der alten App herausgekommen ist.
+db/seed/

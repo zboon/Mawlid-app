@@ -1,0 +1,26 @@
+[
+  {
+    "id": "nasheeds",
+    "ar": "أناشيد",
+    "en": "Nasheeds",
+    "desc": "Devotional songs in praise of the Prophet ﷺ."
+  },
+  {
+    "id": "qasidas",
+    "ar": "قصائد",
+    "en": "Qasidas",
+    "desc": "Poems in praise of the Prophet ﷺ."
+  },
+  {
+    "id": "ilahis",
+    "ar": "الإلهيات",
+    "en": "Ilahis",
+    "desc": "Devotional songs in Turkish, with translation."
+  },
+  {
+    "id": "qawwalis",
+    "ar": "قوالي",
+    "en": "Qawwalis",
+    "desc": "Sufi devotional music in praise of the Prophet ﷺ."
+  }
+]

@@ -1,0 +1,279 @@
+{
+  "QASIDAS": {
+    "type": "array",
+    "items": 25,
+    "verses": 281,
+    "fields": [
+      "category",
+      "group",
+      "note",
+      "titleArabic",
+      "titleEnglish",
+      "verses",
+      "video"
+    ],
+    "verseFields": [
+      "ar",
+      "en",
+      "refrain",
+      "tr"
+    ]
+  },
+  "DALAIL_CHAPTERS": {
+    "type": "array",
+    "items": 15,
+    "verses": 779,
+    "fields": [
+      "cartouche",
+      "folios",
+      "note",
+      "titleArabic",
+      "titleEnglish",
+      "verses",
+      "video",
+      "videoEnd",
+      "videoStart"
+    ],
+    "verseFields": [
+      "ar",
+      "band",
+      "en",
+      "instruction",
+      "note",
+      "sep",
+      "tr"
+    ]
+  },
+  "DIYA_CHAPTERS": {
+    "type": "array",
+    "items": 8,
+    "verses": 120,
+    "fields": [
+      "cartouche",
+      "note",
+      "titleArabic",
+      "titleEnglish",
+      "verses"
+    ],
+    "verseFields": [
+      "ar",
+      "en",
+      "note",
+      "tr"
+    ]
+  },
+  "BARZANJI_CHAPTERS": {
+    "type": "array",
+    "items": 17,
+    "verses": 2,
+    "fields": [
+      "note",
+      "titleArabic",
+      "titleEnglish",
+      "verses"
+    ],
+    "verseFields": [
+      "ar",
+      "en",
+      "tr"
+    ]
+  },
+  "NASHEED_CHAPTERS": {
+    "type": "array",
+    "items": 0,
+    "verses": 0,
+    "fields": [],
+    "verseFields": []
+  },
+  "LITANY_CHAPTERS": {
+    "type": "array",
+    "items": 18,
+    "verses": 950,
+    "fields": [
+      "cartouche",
+      "folios",
+      "note",
+      "titleArabic",
+      "titleEnglish",
+      "verses",
+      "video"
+    ],
+    "verseFields": [
+      "ar",
+      "band",
+      "en",
+      "noRosette",
+      "sep",
+      "shortPage",
+      "tr"
+    ]
+  },
+  "BURDAH_CHAPTERS": {
+    "type": "array",
+    "items": 10,
+    "verses": 167,
+    "fields": [
+      "titleArabic",
+      "titleEnglish",
+      "verses",
+      "video",
+      "video2"
+    ],
+    "verseFields": [
+      "ar",
+      "en",
+      "tr"
+    ]
+  },
+  "SIRAH_CHAPTERS": {
+    "type": "array",
+    "items": 7,
+    "verses": 143,
+    "fields": [
+      "titleArabic",
+      "titleEnglish",
+      "verses"
+    ],
+    "verseFields": [
+      "ar",
+      "en",
+      "refrain",
+      "tr"
+    ]
+  },
+  "ILAHI_CHAPTERS": {
+    "type": "array",
+    "items": 11,
+    "verses": 70,
+    "fields": [
+      "latin",
+      "note",
+      "titleArabic",
+      "titleEnglish",
+      "verses",
+      "video"
+    ],
+    "verseFields": [
+      "ar",
+      "en",
+      "refrain",
+      "tr"
+    ]
+  },
+  "HOME_CARDS": {
+    "type": "array",
+    "items": 4,
+    "verses": 0,
+    "fields": [
+      "ar",
+      "desc",
+      "en",
+      "id"
+    ],
+    "verseFields": []
+  },
+  "TABS": {
+    "type": "array",
+    "items": 4,
+    "verses": 0,
+    "fields": [
+      "ar",
+      "id",
+      "label"
+    ],
+    "verseFields": []
+  },
+  "TAB_CHILDREN": {
+    "type": "object"
+  },
+  "MAWLID_COLLECTIONS": {
+    "type": "array",
+    "items": 4,
+    "verses": 0,
+    "fields": [
+      "ar",
+      "desc",
+      "en",
+      "id"
+    ],
+    "verseFields": []
+  },
+  "PRAISE_SECTIONS": {
+    "type": "array",
+    "items": 4,
+    "verses": 0,
+    "fields": [
+      "ar",
+      "desc",
+      "en",
+      "id"
+    ],
+    "verseFields": []
+  },
+  "OPENERS": {
+    "type": "object"
+  },
+  "DALAIL_DAYS": {
+    "type": "array",
+    "items": 8,
+    "verses": 0,
+    "fields": [
+      "ar",
+      "en",
+      "idx"
+    ],
+    "verseFields": []
+  },
+  "DALAIL_ROWS": {
+    "type": "object"
+  },
+  "DALAIL_TODAY_IDX": {
+    "type": "object"
+  },
+  "AZAM_DAYS": {
+    "type": "array",
+    "items": 7,
+    "verses": 0,
+    "fields": [
+      "ar",
+      "en",
+      "idx"
+    ],
+    "verseFields": []
+  },
+  "AZAM_TODAY_IDX": {
+    "type": "object"
+  },
+  "AZAM_FIRST": {
+    "type": "number"
+  },
+  "ISTIGHFAR_DAYS": {
+    "type": "array",
+    "items": 7,
+    "verses": 0,
+    "fields": [
+      "ar",
+      "en",
+      "idx"
+    ],
+    "verseFields": []
+  },
+  "ISTIGHFAR_TODAY_IDX": {
+    "type": "object"
+  },
+  "ISTIGHFAR_FIRST": {
+    "type": "number"
+  },
+  "DALAIL_AUDIO": {
+    "type": "object"
+  },
+  "RECITERS": {
+    "type": "object"
+  },
+  "AUDIO_BASE": {
+    "type": "string"
+  },
+  "APP_VERSION": {
+    "type": "string"
+  }
+}

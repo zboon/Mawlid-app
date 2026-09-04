@@ -1,0 +1,78 @@
+# Lokaler Betrieb (ADR-006). Drei Dienste: Datenbank, API, Oberfläche.
+#
+#   docker compose up -d mysql     nur die Datenbank (für Phase 2)
+#   docker compose up              alles
+#
+# Die Dienste `api` und `web` verweisen auf Verzeichnisse, die erst in Phase 1
+# bzw. Phase 3 entstehen. Bis dahin ist `mysql` der einzige, der startet — das
+# ist Absicht: die Datenbank wird zuerst gebraucht.
+
+services:
+  mysql:
+    image: mysql:8.4
+    restart: unless-stopped
+    # utf8mb4 auf Serverebene. Ohne das kommt eine Verbindung ohne explizites
+    # charset mit latin1 herein und verstümmelt arabischen Text still.
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_0900_ai_ci
+      - --skip-character-set-client-handshake
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-mawalid-dev}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-mawalid}
+      MYSQL_USER: ${MYSQL_USER:-mawalid}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-mawalid-dev}
+    ports:
+      - "${MYSQL_PORT:-3306}:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+      # Wird beim ERSTEN Start ausgeführt, danach nie wieder. Wer das Schema
+      # ändert, benutzt Prisma-Migrationen — nicht diese Datei.
+      - ./db/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-p${MYSQL_ROOT_PASSWORD:-mawalid-dev}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 30s
+
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    profiles: ["full"]          # startet nur bei: docker compose --profile full up
+    restart: unless-stopped
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      NODE_ENV: development
+      DATABASE_URL: mysql://${MYSQL_USER:-mawalid}:${MYSQL_PASSWORD:-mawalid-dev}@mysql:3306/${MYSQL_DATABASE:-mawalid}?charset=utf8mb4
+      SESSION_SECRET: ${SESSION_SECRET:?SESSION_SECRET muss in .env gesetzt sein}
+      PORT: 3000
+    ports:
+      - "${API_PORT:-3000}:3000"
+    volumes:
+      - ./apps/api:/app/apps/api
+      - ./packages:/app/packages
+      - /app/node_modules
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+    profiles: ["full"]
+    restart: unless-stopped
+    depends_on:
+      - api
+    environment:
+      VITE_API_URL: http://localhost:${API_PORT:-3000}
+    ports:
+      - "${WEB_PORT:-5173}:5173"
+    volumes:
+      - ./apps/web:/app/apps/web
+      - ./packages:/app/packages
+      - /app/node_modules
+
+volumes:
+  mysql-data:

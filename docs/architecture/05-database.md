@@ -1,0 +1,362 @@
+# Datenbank
+
+Begleittext zu `db/schema.sql`. Erklärt die Entscheidungen, nicht die Spalten —
+die stehen kommentiert im Schema selbst.
+
+---
+
+## 1 · Der Kern in einem Satz
+
+```
+modules → collections → works → verses → verse_texts
+```
+
+Ein **Modul** ist ein Bereich der App. Eine **Sammlung** ist eine Gruppe darin.
+Ein **Werk** ist ein lesbares Stück. Ein **Vers** ist eine Zeile. Ein
+**Verstext** ist dieser Vers in einer Sprache und einer Rolle.
+
+Alles Weitere hängt daran: Folios, Medien, Zeitpläne, Lesereihenfolgen.
+
+---
+
+## 2 · Die vier Probleme, die das Schema löst
+
+### 2.1 Ordnung, die in Zeichenketten versteckt ist
+
+Der Mawlid ad-Daybaʿī wird als **eine** durchgehende Folge gelesen. Diese Folge
+ist aber aus **zwei** Arrays verschränkt (`QASIDAS` und `SIRAH_CHAPTERS`), und
+die Reihenfolge steht als Zahl im englischen Titel:
+
+```js
+titleEnglish: "13 · Yā Nabī Salām ʿAlayka — Mawlid version"
+titleEnglish: "13b · …"     // "b" bedeutet: +0,5, also dazwischen eingefügt
+titleEnglish: "Qaṣīdatu s-Salām"   // keine Zahl → gehört nicht zum Mawlid
+```
+
+Die App liest die Zahl mit einem regulären Ausdruck aus dem Titel, sortiert
+danach und nummeriert dann von 1 an durch, damit keine Lücke sichtbar wird.
+
+Das ist Fachlogik in einem Anzeigetext. Wer einen Titel korrigiert, kann die
+Lesereihenfolge zerstören.
+
+**Lösung:** Die Tabellen `sequences` und `sequence_items`. Die laufende Position
+ist `ordinal`, die Nummer der Vorlage bleibt als `source_label` erhalten — sonst
+ginge beim Einfügen eines fehlenden Abschnitts die Zuordnung zum gedruckten Buch
+verloren.
+
+### 2.2 Zeitpläne, die auf Array-Indizes zeigen
+
+```js
+const DALAIL_TODAY_IDX  = { 1:6, 2:7, 3:8, 4:9, 5:10, 6:11, 0:12 };
+const AZAM_TODAY_IDX    = { 0:5, 1:6, 2:7, 3:8, 4:9, 5:10, 6:4 };
+const ISTIGHFAR_TODAY_IDX = { 0:13, 1:14, 2:15, 3:16, 4:17, 5:11, 6:12 };
+```
+
+Drei Tabellen, die einen Wochentag auf eine **Array-Position** abbilden. Wird
+irgendwo ein Kapitel eingeschoben, zeigt die App am Dienstag den Mittwochsteil —
+ohne Fehlermeldung.
+
+**Lösung:** `schedules` + `schedule_slots` mit echtem Fremdschlüssel auf
+`works.id`. Ein `slot_index` erlaubt mehrere Teile pro Wochentag (Montag hat bei
+den Dalāʾil zwei).
+
+### 2.3 Drei feste Textspalten
+
+```js
+{ ar: "…", tr: "…", en: "…" }
+```
+
+Zwei Probleme:
+
+- Deutsch passt nirgendwo hinein.
+- Türkische Ilahis legen ihren **lateinischen** Originaltext ins Feld `ar` und
+  markieren das mit `latin: true`. Ein Feld namens `ar` enthält kein Arabisch.
+
+**Lösung:** `verse_texts` mit `(lang, role, script)`:
+
+| Fall | lang | role | script |
+|---|---|---|---|
+| Arabischer Originalvers | `ar` | `original` | `arab` |
+| Umschrift davon | `ar` | `transliteration` | `latn` |
+| Englische Übersetzung | `en` | `translation` | `latn` |
+| Deutsche Übersetzung | `de` | `translation` | `latn` |
+| Türkisches Ilahi (Original) | `tr` | `original` | `latn` |
+
+Kein Flag, keine Ausnahme im Renderer. Die Anzeige entscheidet anhand von
+`script`, welche Schriftstimme und welche Richtung gilt.
+
+### 2.4 Sieben boolesche Felder, die in Wahrheit ein Typ sind
+
+Ein Vers trägt heute bis zu sieben optionale Felder: `refrain`, `note`, `sep`,
+`instruction`, `band`, `noRosette`, `shortPage`. Beobachtet man, wie sie benutzt
+werden, sind drei davon ein **Typ** und vier sind **Zusatzangaben**:
+
+| Alt | Neu | Warum |
+|---|---|---|
+| `refrain: true` | `verse_kind = 'refrain'` | schließt sich mit `instruction` gegenseitig aus |
+| `instruction: true` | `verse_kind = 'instruction'` | dito |
+| *(keins von beiden)* | `verse_kind = 'verse'` | |
+| `band: "…"` | `band_label` | eine arabische Zwischenüberschrift **über** dem Vers |
+| `note: "…"` | `note_label` | eine kleine Beschriftung, z. B. „Sūrat al-Ikhlāṣ" |
+| `sep: "ﷺ"` | `separator` | ein Zeichen, das **hinter** dem Vers steht |
+| `noRosette: true` | `no_rosette` | reine Darstellungsangabe |
+| `shortPage: true` | `short_page` | Signal an die Höhenanpassung des Manuskripts |
+
+> **Alternative, die verworfen wurde:** eine JSON-Spalte `flags`. Sie wäre
+> flexibler, aber ein Admin-Formular kann keine JSON-Spalte prüfen, und
+> `WHERE verse_kind = 'instruction'` ist mit einer echten Spalte indizierbar.
+> Bei sieben bekannten Feldern ist Flexibilität kein Gewinn.
+
+---
+
+## 3 · Folios — die Manuskriptblätter
+
+```js
+folios: [
+  { from: 0,   to: 128 },
+  { from: 129, to: 133, band: "ابْتِدَاءُ الرُّبْعِ الثَّانِي" },
+  { from: 134, to: 139 }
+]
+```
+
+Ein Blatt ist ein **Versbereich**, kein eigener Text. Die Verse werden nicht
+kopiert, sondern zugeschnitten.
+
+Das ist eine echte fachliche Angabe, keine Layout-Bequemlichkeit: die Grenzen
+folgen dem gedruckten Buch, dessen Seitenumbrüche eine Rezitationsstruktur
+tragen. Deshalb ist `folios` eine eigene Tabelle mit Fremdschlüssel und keine
+JSON-Spalte — sie ist redaktionell zu pflegen.
+
+`has_sections` und `band_label` stammen aus den optionalen Feldern der Vorlage.
+
+**Achtung bei der Migration:** Verse tragen zusätzlich das Zeichen `‖` (U+2016)
+als weichen Trenner mitten im Text. Das ist eine zweite, feinere
+Umbruchinformation. `stripBreaks()` entfernt es vor der Anzeige. Es muss den
+Import überleben — siehe `07-migration.md`.
+
+---
+
+## 4 · Zeichensatz und Kollation
+
+```sql
+DEFAULT CHARSET = utf8mb4
+COLLATE         = utf8mb4_0900_ai_ci
+```
+
+**`utf8mb4` ist Pflicht, nicht Empfehlung.** Der Text enthält Zeichen außerhalb
+der Basic Multilingual Plane und arabische Zeichen, die MySQLs altes `utf8`
+(drei Byte) nicht speichern kann. Ein `utf8`-Feld verstümmelt die Daten still.
+
+**`utf8mb4_0900_ai_ci`** (accent-insensitive, case-insensitive) ist für Titel
+und Beschriftungen richtig: es findet „Būṣīrī" auch bei Eingabe von „Busiri".
+
+**Aber nicht für arabische Originaltexte.** Bei Arabisch sind Diakritika keine
+Akzente, sondern bedeutungstragend — `ai_ci` würde Verse gleichsetzen, die
+unterschiedlich vokalisiert sind. Deshalb steht der Originaltext **unverändert**
+in `body` und die Suche läuft ausschließlich über die eigene, normalisierte
+Spalte `body_search`.
+
+**Verbindliche Prüfliste beim Anlegen der Datenbank:**
+
+```sql
+CREATE DATABASE mawalid
+  CHARACTER SET utf8mb4
+  COLLATE utf8mb4_0900_ai_ci;
+```
+
+Und in der Verbindungszeichenkette: `charset=utf8mb4`. Wer das vergisst, merkt
+es an einem einzigen Fragezeichen mitten in einer Sure.
+
+---
+
+## 5 · Größenordnung
+
+| Tabelle | Zeilen nach dem Import |
+|---|---|
+| `modules` | ~8 |
+| `collections` | ~15 |
+| `works` | ~111 |
+| `verses` | ~2.512 |
+| `verse_texts` | ~6.500 (ar + tr + en, nicht überall alle drei) |
+| `folios` | ~40 |
+| `media` | ~30 |
+
+**Das ist winzig.** Die gesamte Datenbank passt in wenige Megabyte und
+vollständig in den InnoDB-Buffer-Pool. Daraus folgt eine wichtige Konsequenz für
+die Suche (§6): Optimierungen, die bei Millionen Zeilen nötig wären, sind hier
+verfrühte Komplexität.
+
+---
+
+## 6 · Suche
+
+### Die entscheidende Anforderung
+
+Die heutige Suche ist **absichtlich unscharf**, und diese Unschärfe ist von Hand
+kalibriert. Sie faltet:
+
+- Alle arabischen Harakāt und Tatwīl weg
+- `أ إ آ ٱ → ا`, `ى → ي`, `ؤ → و`, `ئ → ي`, `ة → ه`
+- Lateinische kombinierende Zeichen (`ā ṣ ḥ ī ū ẓ ṭ`) über NFD weg
+- Umschriftzeichen `ʿ ʾ` und Satzzeichen zu Leerzeichen
+- Lautgleiches: `ph→f`, `ck→k`, `q→k`, `dh→d`, `th→t`, `gh→g`, `kh→h`,
+  `sh→s`, `ee/ii/ea→i`, `oo/ou/uu→u`, `aa→a`, `y→i`, `w→u`
+- Doppelbuchstaben zusammen: `rabbi → rabi`, `muhammad → muhamad`
+
+Damit finden „Muhammad", „Muhamad", „Mohammed" und „محمد" alle dasselbe.
+
+Und es gibt eine zweite Stufe, `tighten()`, die zusätzlich alle Leerzeichen
+entfernt und **danach nochmals** Doppelbuchstaben zusammenzieht — weil das
+Entfernen eines Leerzeichens erst eine Doppelung erzeugen kann
+(`"ar rahman" → "arrahman" → "arahman"`).
+
+Der eigentliche Vergleich ist ein **Vierfach-ODER**: normalisiert, gestrafft,
+wörtlich kleingeschrieben, und bei arabischer Eingabe zusätzlich eine exakte
+arabische Teilzeichenkette.
+
+### Warum das nicht MySQL macht
+
+Weder `FULLTEXT` noch eine Kollation bilden diese Regeln ab. Und würde man es
+versuchen, verhielte sich die Suche anders als vorher — bei einem Werkzeug, mit
+dem Menschen Verse suchen, die sie nur ungefähr im Ohr haben, ist das ein echter
+Verlust.
+
+### Die Lösung
+
+**Die Normalisierung wird Zeichen für Zeichen aus der alten App übernommen**, in
+`packages/shared/src/normalize.ts` gelegt und von **beiden** Seiten benutzt:
+
+- Die API normalisiert beim Speichern und schreibt das Ergebnis nach
+  `verse_texts.body_search`.
+- Die API normalisiert die Suchanfrage genau gleich.
+- Das Frontend benutzt dieselbe Funktion für lokale Vorfilterung.
+
+Eine Funktion, zwei Aufrufer, kein Auseinanderlaufen.
+
+**Die Abfrage selbst:**
+
+```sql
+SELECT vt.verse_id, vt.body, vt.role, vt.lang
+FROM verse_texts vt
+JOIN verses v ON v.id = vt.verse_id
+JOIN works  w ON w.id = v.work_id
+WHERE w.status = 'published'
+  AND vt.body_search LIKE CONCAT('%', ?, '%')
+LIMIT 500;
+```
+
+Ein `LIKE '%…%'` kann keinen Index benutzen — bei 6.500 Zeilen im
+Arbeitsspeicher liegt das trotzdem im Bereich weniger Millisekunden. Das
+`FULLTEXT`-Index im Schema ist vorbereitet und wird eingeschaltet, wenn der
+Bestand in die Hunderttausende wächst, was auf absehbare Zeit nicht passiert.
+
+> Wenn `FULLTEXT` später gebraucht wird: mit `WITH PARSER ngram` anlegen und
+> `ngram_token_size = 2` setzen. Der Standardparser trennt an Leerzeichen, was
+> für Arabisch grundsätzlich funktioniert, aber `innodb_ft_min_token_size` (3)
+> schluckt kurze arabische Wörter.
+
+### Was die Suche zusätzlich liefern muss
+
+Nicht nur „welches Werk", sondern **welche Zeile und welcher Abschnitt darin**.
+Die App springt heute zu einem konkreten Vers und lässt ihn kurz aufblitzen.
+Deshalb gibt die Suche pro Treffer zurück:
+
+- `work_id`, `verse_id`
+- `segment_index` — der wievielte durch `۞` oder `،` getrennte Abschnitt
+- einen Textausschnitt mit Umgebung, Treffer markiert
+
+Höchstens sechs Treffer je Werk, darunter „+N weitere Zeilen". Diese Deckelung
+bleibt: sonst füllt ein häufiges Wort wie „Allah" die ganze Seite.
+
+---
+
+## 7 · Inhaltsversionen
+
+Jede Sammlung hat `content_version BIGINT`, monoton steigend bei jeder Änderung
+darin oder darunter.
+
+Wozu, wenn wir online-first sind (ADR-004)?
+
+1. **HTTP-Caching heute.** Der ETag einer Antwort ist die `content_version`.
+   Ein `If-None-Match` beantwortet die API mit `304 Not Modified` — nichts
+   wird übertragen.
+2. **Offline morgen.** Ein Client kann fragen „hat sich seit Version N etwas
+   geändert?" und nur bei Ja neu laden. Das ist die eine Vorkehrung, die einen
+   späteren Offline-Cache von einem Neuentwurf zu einem abgegrenzten
+   Arbeitspaket macht.
+
+Erhöht wird sie im Anwendungscode nach jedem schreibenden Vorgang, nicht durch
+einen Datenbanktrigger — die Grenze soll sichtbar im Code stehen, nicht in einem
+Trigger, den beim Debuggen niemand vermutet.
+
+---
+
+## 8 · Persönliche Daten: Benutzer oder Gerät
+
+`favorites`, `reading_positions` und `verse_marks` tragen **zwei** mögliche
+Besitzer:
+
+```sql
+user_id   INT UNSIGNED NULL,
+device_id INT UNSIGNED NULL,
+CONSTRAINT ck_owner CHECK (user_id IS NOT NULL OR device_id IS NOT NULL)
+```
+
+Der Grund: Die App wird überwiegend ohne Anmeldung benutzt, und das soll so
+bleiben. Wer sich nicht anmeldet, hat trotzdem Favoriten — sie hängen dann an
+einer Geräte-ID, die der Client erzeugt.
+
+**Vorrang:** Ist jemand angemeldet, gilt `user_id`. Beim Anmelden werden
+Gerätedaten übernommen und die Gerätezeile dem Konto zugeordnet.
+
+**Wichtig:** Diese Daten bleiben **zusätzlich** im `localStorage`. Sie sind
+klein, sie gehören der Person, und sie sind das Einzige, was auch bei
+ausgefallener API sofort da sein muss. Der Server ist hier eine Sicherungskopie,
+keine Quelle der Wahrheit.
+
+---
+
+## 9 · Was die alten localStorage-Schlüssel werden
+
+| Alt | Neu |
+|---|---|
+| `mawlid-favs` (`"kind\|titleEnglish"`) | `favorites` (Fremdschlüssel auf `works.id`) |
+| `mawlid-dalail-place` (genau **ein** Eintrag) | `reading_positions`, **einer je Werk** |
+| `mawlid-marks` (`"d:6:12:0"`) | `verse_marks` (`verse_id`, `segment_index`) |
+| `mawlid-theme` | bleibt lokal — reine Anzeigeeinstellung |
+| `mawlid-client-id` | `devices.public_id` |
+| `mawlid-last-session`, `mawlid-venue-code` | bleiben lokal |
+| `mawlid-play-rate`, `mawlid-spread`, `mawlid-reciter` | bleiben lokal, aber **zusätzlich** in einem Einstellungsobjekt am Konto |
+| Cache `mawlid-audio` | bleibt Cache Storage |
+
+> **Zwei Verbesserungen im Vorbeigehen:**
+>
+> Der Favoritenschlüssel enthält heute den **englischen Titel**. Wird ein Titel
+> korrigiert, verwaist der Favorit stillschweigend — und `favItems()`
+> überspringt ihn zwar, räumt ihn aber nie weg, sodass die Liste unbegrenzt
+> wächst. Mit einem Fremdschlüssel kann das nicht passieren.
+>
+> Die Leseposition gibt es heute genau **einmal** für die ganze App und nur für
+> die Dalāʾil. Je Werk eine ist offensichtlich besser: man kann in den Dalāʾil
+> und in der Burdah gleichzeitig eine Stelle halten.
+
+---
+
+## 10 · Migrationen
+
+Maßgeblich ist ab Phase 2 `apps/api/prisma/schema.prisma`. `db/schema.sql` ist
+die lesbare Referenz und der Startpunkt.
+
+```bash
+npm run db:migrate        # prisma migrate dev — erzeugt eine Migrationsdatei
+npm run db:studio         # Prisma Studio, zum Hineinschauen
+npm run db:seed           # Import aus data/extracted/
+```
+
+**Regeln:**
+
+1. Keine Änderung an der Datenbank ohne Migrationsdatei. Auch nicht „schnell
+   von Hand" — die nächste Person hat dann ein anderes Schema als du.
+2. Migrationen sind nach vorne gerichtet. Wer etwas rückgängig machen will,
+   schreibt eine neue Migration.
+3. Vor jeder Migration in Betrieb: `mysqldump`. Der Inhalt ist unersetzlich.
