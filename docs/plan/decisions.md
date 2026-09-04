@@ -72,6 +72,10 @@ Datenmodell mit so vielen optionalen Vers-Feldern ist das der größte einzelne
 Gewinn. Prisma erzeugt aus einem Schema sowohl die Migrationen als auch die
 TypeScript-Typen.
 
+> **Nachtrag.** Als Migrationswerkzeug wird Prisma doch nicht benutzt — die
+> Schema-Hoheit liegt bei `db/schema.sql`, Upgrades zieht der Seed-Loader
+> nach. Siehe ADR-012.
+
 **Konsequenzen.**
 - Ein fertiges Admin-Backend (wie Directus es geschenkt hätte) muss selbst gebaut
   werden. Das ist bewusst in Kauf genommen, weil die Sonderfälle dieser Inhalte —
@@ -306,3 +310,45 @@ Bauteil: alles Chrom liest ohnehin diese zwei Namen.
   Al-Aḥzāb jahrelang versteckt hat (Befund B1). Hier heißt der Bereich
   jetzt „Ilahi" (Plum, wie im Entwurf), und Qasidas, Nasheeds und Qawwalis
   ziehen als Sammlungen mit um.
+
+---
+
+## ADR-012 · `db/schema.sql` führt; Upgrades zieht der Seed-Loader nach
+
+**Status:** akzeptiert · 2026-09-04
+
+**Kontext.** Geplant war Prisma auch als Migrationswerkzeug (ADR-003):
+`schema.prisma` führt, `prisma migrate dev` erzeugt SQL-Dateien. In Phase 2
+lief es andersherum — die kommentierte, von Hand geschriebene `db/schema.sql`
+war das bessere führende Dokument, und `schema.prisma` wird seither per
+Introspektion (`db:pull`) daraus erzeugt. Offen blieb der Upgrade-Weg, und
+Phase 3 lieferte den ersten Ernstfall: `modules` bekam `theme_key` und
+`in_menu`, und auf jeder vorher angelegten Datenbank brach `npm run db:load`
+mit „Unknown column 'theme_key'" ab, weil `db/schema.sql` nur die Erstanlage
+ist und `db:all` das Schema nie anfasst.
+
+**Entscheidung.** `db/schema.sql` bleibt die maßgebliche, von Hand gepflegte
+Definition — für die Erstanlage. Bestehende Datenbanken werden nicht neu
+aufgesetzt: `tools/load-seed.mjs` führt vor jedem Import eine
+`UPGRADES`-Liste aus — je Eintrag eine Spalte, über `information_schema`
+geprüft und nur bei Fehlen per `ALTER TABLE` ergänzt, wortgleich zur
+`CREATE TABLE`-Definition. Nach einem `git pull` genügt damit wieder ein
+`npm run db:all`.
+
+**Begründung.** Ein Migrationsordner verwaltet eine Historie, die dieses
+Projekt nicht hat: eine zentrale Datenbank plus lokale Entwicklerkopien, und
+alle Inhaltstabellen sind aus dem Seed vollständig reproduzierbar. Die
+`UPGRADES`-Liste ist derselbe Vorwärtsweg in zwanzig Zeilen — und sie läuft
+in genau dem Kommando, das nach dem `git pull` ohnehin jeder ausführt.
+Benutzertabellen bleiben unberührt, weil der Loader nur Inhaltstabellen
+leert.
+
+**Konsequenzen.**
+- Eine neue Spalte gehört wortgleich an **beide** Stellen: `db/schema.sql`
+  und `UPGRADES`; danach `db:pull`, damit Prisma sie kennt. Regeln in
+  [`../architecture/05-database.md`](../architecture/05-database.md), §10.
+- `UPGRADES` wächst nur — Einträge werden nie entfernt, damit jede noch so
+  alte Datenbank den ganzen Weg nachlaufen kann.
+- Komplexere Umbauten (Spalte umbenennen, Daten umziehen, Tabelle teilen)
+  deckt die Liste nicht; wenn so ein Fall kommt, braucht er ein eigenes
+  Skript. Bisher gab es keinen.

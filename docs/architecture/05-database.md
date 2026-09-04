@@ -458,21 +458,30 @@ keine Quelle der Wahrheit.
 
 ---
 
-## 10 · Migrationen
+## 10 · Schemaänderungen
 
-Maßgeblich ist ab Phase 2 `apps/api/prisma/schema.prisma`. `db/schema.sql` ist
-die lesbare Referenz und der Startpunkt.
+Maßgeblich ist `db/schema.sql` — von Hand gepflegt, ausführbar, für die
+**Erstanlage**. `apps/api/prisma/schema.prisma` wird per Introspektion daraus
+erzeugt (`npm --prefix apps/api run db:pull`), nie von Hand geändert.
 
-```bash
-npm run db:migrate        # prisma migrate dev — erzeugt eine Migrationsdatei
-npm run db:studio         # Prisma Studio, zum Hineinschauen
-npm run db:seed           # Import aus data/extracted/
-```
+Eine bestehende Datenbank wird nicht neu aufgesetzt: `tools/load-seed.mjs`
+führt vor jedem Import die `UPGRADES`-Liste aus — je Eintrag eine Spalte, die
+über `information_schema` geprüft und nur bei Fehlen per `ALTER TABLE`
+ergänzt wird. So genügt nach einem `git pull` ein `npm run db:all`, auch wenn
+das Schema gewachsen ist (so kam z. B. `modules.theme_key` in Phase 3 zu allen
+schon angelegten Datenbanken).
 
 **Regeln:**
 
-1. Keine Änderung an der Datenbank ohne Migrationsdatei. Auch nicht „schnell
-   von Hand" — die nächste Person hat dann ein anderes Schema als du.
-2. Migrationen sind nach vorne gerichtet. Wer etwas rückgängig machen will,
-   schreibt eine neue Migration.
-3. Vor jeder Migration in Betrieb: `mysqldump`. Der Inhalt ist unersetzlich.
+1. Eine neue Spalte gehört an **beide** Stellen, wortgleich: in die
+   `CREATE TABLE`-Anweisung in `db/schema.sql` (für neue Datenbanken) und in
+   `UPGRADES` in `tools/load-seed.mjs` (für bestehende). Danach `db:pull`,
+   damit Prisma sie kennt.
+2. Keine Änderung „schnell von Hand" direkt in der Datenbank — die nächste
+   Person hat dann ein anderes Schema als du.
+3. Änderungen sind nach vorne gerichtet: `UPGRADES` ergänzt, entfernt aber
+   nie — was einmal drin ist, bleibt, damit jede noch so alte Datenbank den
+   ganzen Weg nachlaufen kann.
+4. Vor jeder Schemaänderung in Betrieb: `mysqldump` der Benutzertabellen. Der
+   Inhalt der Inhaltstabellen ist aus dem Seed reproduzierbar, der der
+   Benutzertabellen nicht.

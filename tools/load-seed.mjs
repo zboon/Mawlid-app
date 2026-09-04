@@ -78,6 +78,27 @@ if (charset && !String(charset.Value).startsWith('utf8mb4')) {
   throw new Error(`Verbindung läuft mit ${charset.Value}, erwartet wird utf8mb4.`);
 }
 
+/* Schema-Nachzügler. db/schema.sql beschreibt nur die Erstanlage — eine
+   Datenbank, die vor einer Schemaänderung angelegt wurde, bekommt die neuen
+   Spalten hier nachgezogen, damit `npm run db:all` ohne Neuaufsetzen
+   funktioniert. Die Definitionen müssen wortgleich zu db/schema.sql bleiben.
+   DDL löst in MySQL ein implizites COMMIT aus, deshalb steht dieser Block
+   VOR der Lade-Transaktion. */
+const UPGRADES = [
+  ['modules', 'theme_key', 'ADD COLUMN theme_key VARCHAR(24) NULL AFTER icon_key'],
+  ['modules', 'in_menu', 'ADD COLUMN in_menu TINYINT(1) NOT NULL DEFAULT 1 AFTER is_published'],
+];
+for (const [table, column, ddl] of UPGRADES) {
+  const [[hit]] = await db.query(
+    'SELECT 1 AS hit FROM information_schema.columns WHERE table_schema = DATABASE() AND table_name = ? AND column_name = ?',
+    [table, column],
+  );
+  if (!hit) {
+    await db.query(`ALTER TABLE \`${table}\` ${ddl}`);
+    console.log(`  Schema nachgezogen: ${table}.${column}`);
+  }
+}
+
 await db.beginTransaction();
 try {
   /* Beim Leeren stören die Fremdschlüssel — innerhalb der Transaktion ist das

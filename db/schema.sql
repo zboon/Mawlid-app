@@ -7,7 +7,9 @@
 --
 --  Erläuterungen zu jeder Entscheidung: docs/architecture/05-database.md
 --
---  Ausführen:  mysql -u root -p mawalid < db/schema.sql
+--  Ausführen:  mysql -u root -p mawalid < db/schema.sql   (nur Erstanlage —
+--  bestehende Datenbanken zieht tools/load-seed.mjs nach, siehe UPGRADES dort;
+--  eine neue Spalte gehört deshalb an BEIDE Stellen, wortgleich)
 -- ============================================================================
 
 SET NAMES utf8mb4;

@@ -19,7 +19,7 @@ du das Ganze auf einem leeren Rechner zum Laufen bringst.
 | Styling | **Reines CSS + Custom Properties** | Kein Framework — Begründung unten |
 | i18n | **vue-i18n 10** | Oberflächentexte DE/EN/AR/TR |
 | Backend | **Fastify 5** | HTTP-API |
-| ORM | **Prisma 6** | MySQL-Zugriff, Migrationen, Typen |
+| ORM | **Prisma 6** | MySQL-Zugriff, Typen (Schema per Introspektion) |
 | Validierung | **Zod 4** | Ein Schema für API-Eingaben *und* TS-Typen |
 | Auth | **Fastify-Session + argon2** | Login, Rollen |
 | Datenbank | **MySQL 8.4** | Inhalte |
@@ -95,15 +95,16 @@ auch in Ordnung; Fastify spart Boilerplate.
 
 Der eigentliche Gewinn ist nicht das Abfragen, sondern:
 
-- **Migrationen**: `prisma migrate dev` schreibt SQL-Migrationsdateien aus
-  Schemaänderungen. Das Schema ist damit versioniert und nachvollziehbar.
 - **Typen**: aus dem Schema entstehen TypeScript-Typen, die im Backend *und* —
   über gemeinsam genutzte Typdefinitionen — im Frontend gelten.
 
-Wichtig für dieses Projekt: die maßgebliche Schemadefinition liegt in
-`prisma/schema.prisma`. Die Datei `db/schema.sql` in diesem Repository ist die
-lesbare Referenz und der Startpunkt; sie wird nach Phase 2 aus Prisma erzeugt und
-nicht mehr von Hand gepflegt.
+So war es geplant — in Phase 2 haben wir uns andersherum entschieden: die
+maßgebliche Schemadefinition ist und bleibt `db/schema.sql`, von Hand gepflegt
+und mit Kommentaren; `prisma/schema.prisma` wird per Introspektion daraus
+erzeugt (`db:pull`) und liefert nur die Typen. Statt `prisma migrate dev`
+zieht `tools/load-seed.mjs` bestehende Datenbanken selbst nach — der
+Mechanismus steht in [`../architecture/05-database.md`](../architecture/05-database.md),
+Abschnitt 10.
 
 ### Zod für Validierung
 

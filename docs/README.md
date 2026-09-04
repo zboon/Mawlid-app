@@ -93,7 +93,7 @@ Compose-Verbund teilen sie sich.
 Die drei Prüfungen, die den Bestand absichern:
 
 ```bash
-npm run db:verify                  # 12 Prüfungen: Datenbank gegen die Quelle
+npm run db:verify                  # 13 Prüfungen: Datenbank gegen die Quelle
 npm run api:check                  # 10 Prüfungen: API gegen die Datenbank
 npm --prefix apps/web run verify   # Typen, Lint, Token-Regel, Tests
 ```
@@ -102,9 +102,13 @@ npm --prefix apps/web run verify   # Typen, Lint, Token-Regel, Tests
 setzt das über HTTP fort. Zusammen decken sie die ganze Strecke ab:
 `index.html → MySQL → JSON → Browser`.
 
-`db/schema.sql` ist das vollständige Datenbankschema, ausführbar.
-`apps/api/prisma/schema.prisma` wird daraus **erzeugt** (`db:pull`), nicht
-gepflegt.
+`db/schema.sql` ist das vollständige Datenbankschema, ausführbar — für die
+**Erstanlage**. Eine bestehende Datenbank muss dafür nicht neu aufgesetzt
+werden: `npm run db:load` zieht fehlende Spalten selbst nach (die
+`UPGRADES`-Liste in `tools/load-seed.mjs`), ein `npm run db:all` nach dem
+`git pull` genügt also auch nach Schemaänderungen.
+`apps/api/prisma/schema.prisma` wird aus der Datenbank **erzeugt** (`db:pull`),
+nicht gepflegt.
 
 ---
 
