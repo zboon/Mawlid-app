@@ -26,7 +26,7 @@
      script, where nothing that reads the page without running it can see
      it — so "which version is actually live?" could only be answered from
      a phone. Keep the two in step when bumping. -->
-<meta name="app-version" content="v379">
+<meta name="app-version" content="v380">
 <!-- YouTube's embedded player refuses to configure itself unless the host page
      sends a Referer (Error 153 / embedder.identity.missing.referrer). This is
      the browser default in most cases, but a standalone PWA or a WebView may
@@ -886,6 +886,11 @@
   /* Daily Litanies card pinned below Dalāʾil parts list */
   .dalail-litanies{ margin-top:1.6rem; padding-top:1.2rem; border-top:1px solid var(--rule); }
   .dalail-litanies .home-card{ width:100%; }
+  /* The small label above a verse — "Sūrat al-Ikhlāṣ" and the like. Its
+     selector had gone missing, which cost two rules rather than one: a
+     declaration block with no selector swallows the rule that follows it,
+     so .verse.v-instruction below was being dropped along with it. */
+  .v-note{
     font-family:'Crimson Pro',serif; font-size:.82rem; letter-spacing:.03em;
     color:var(--accent-green); opacity:.9; margin-bottom:.35rem;
     text-align:center;
@@ -10998,7 +11003,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v379';
+const APP_VERSION = 'v380';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -11022,14 +11027,21 @@ const TABS = [
 
 /* A hub tab stays highlighted while you're inside any of its sections. */
 const TAB_CHILDREN = {
-  dalail:  ['before','downloads'],
+  dalail:  ['before','downloads','litanies'],
   litanies: ['azam','istighfar'],
   mawlids: ['mawlid','barzanji','diya','burdah'],
   praises: ['nasheeds','qasidas','ilahis','qawwalis'],
 };
 
+/* Two levels deep, because Al-Aḥzāb sits under Dalāʾil and its own two
+   collections sit under that — without the second hop the tab bar goes blank
+   the moment you open a daily portion of the Aʿẓam or the Istighfār.
+   goBack() deliberately still reads TAB_CHILDREN one level at a time: it wants
+   the nearest parent, which for those two is Al-Aḥzāb and not Dalāʾil. */
 function tabIsActive(id){
-  return state.tab === id || (TAB_CHILDREN[id] || []).indexOf(state.tab) !== -1;
+  if(state.tab === id) return true;
+  return (TAB_CHILDREN[id] || []).some(kid =>
+    kid === state.tab || (TAB_CHILDREN[kid] || []).indexOf(state.tab) !== -1);
 }
 
 /* The 10 chapters of Imam al-Būṣīrī's Qaṣīdat al-Burda.
@@ -12596,11 +12608,23 @@ function dalailIndex(){
       navRow("openDalail(14)",        DALAIL_ROWS.done.en,   DALAIL_ROWS.done.ar)
     + navRow("selectTab('downloads')", 'Downloaded recitations', 'التَّسْجِيلَاتُ الْمَحْفُوظَةُ')
     + navRow("openDalail(0)",         'About Dalāʾil al-Khayrāt', 'دَلَائِلُ الْخَيْرَاتِ');
+  /* Al-Aḥzāb is its own book, not a part of the Dalāʾil, so it gets a card of
+     its own below the gold rule rather than another row in the list above.
+     The way in had gone missing at some point and took 18 chapters with it —
+     the whole section was still there and still worked, but nothing anywhere
+     linked to it. .dalail-litanies has been waiting in the stylesheet since. */
+  const litanies = `<div class="dalail-litanies">
+      <button class="home-card" onclick="selectTab('litanies')">
+        <span class="hc-ar">الْأَحْزَابُ</span>
+        <span class="hc-en">Al-Aḥzāb</span>
+        <span class="hc-count">${countLabel('litanies', sectionCount('litanies'))}</span>
+      </button></div>`;
   return todayCard + resumeCard()
     + before
     + rowlab(DALAIL_ROWS.daily) + `<div class="dk-grid4">${days}</div>`
     + `<div class="dk-sep"></div>`
-    + rows;
+    + rows
+    + litanies;
 }
 
 /* ── Al-Ḥizb al-Aʿẓam: the seven daily portions ──
@@ -12864,22 +12888,23 @@ function renderResults(){
   // ---- SEARCH MODE: search the whole app, from whichever tab you're on ----
   if(q){
     let html = '';
-    const mawlid = mawlidCards();
-    if(mawlid) html += label('Mawlid ad-Daybaʿi · مولد الدّيبعي') + mawlid;
-    const barz = barzanjiCards();
-    if(barz) html += label('Mawlid al-Barzanjī · مولد الْبرزنجي', !!mawlid) + barz;
-    const diya = diyaCards();
-    if(diya) html += label('The Shimmering Light · الضّياء اللّامع', !!mawlid || !!barz) + diya;
-    const burd = burdahCards();
-    if(burd) html += label('Qasida Burdah · قصيدة الْبردة', !!mawlid || !!barz || !!diya) + burd;
-    const qas = additionalQasidaCards();
-    if(qas) html += label('More Qasidas · قصائد أخرى', !!mawlid || !!barz || !!burd) + qas;
-    const dal = dalailCards();
-    if(dal) html += label('Dalāʾil al-Khayrāt · دلائل الْخيرات', !!mawlid || !!barz || !!burd || !!qas) + dal;
-    const nash = nasheedCards();
-    if(nash) html += label('Nasheeds · أناشيد', !!mawlid || !!barz || !!burd || !!qas || !!dal) + nash;
-    const ilahis = ilahiCards();
-    if(ilahis) html += label('Ilahis · الْإلهيات', !!mawlid || !!barz || !!burd || !!qas || !!dal || !!nash) + ilahis;
+    /* Each group gets a top margin only when something already sits above it,
+       which is exactly "html is not empty yet". This used to be spelled out as
+       a growing chain of ORs, and four of them had fallen out of step with the
+       list — the Ḍiyāʾ group was missing from every chain after Burdah, so a
+       search that matched only Ḍiyāʾ and Nasheeds ran them together. */
+    const group = (cards, title) => { if(cards) html += label(title, !!html) + cards; };
+    group(mawlidCards(),          'Mawlid ad-Daybaʿi · مولد الدّيبعي');
+    group(barzanjiCards(),        'Mawlid al-Barzanjī · مولد الْبرزنجي');
+    group(diyaCards(),            'The Shimmering Light · الضّياء اللّامع');
+    group(burdahCards(),          'Qasida Burdah · قصيدة الْبردة');
+    group(additionalQasidaCards(),'More Qasidas · قصائد أخرى');
+    group(dalailCards(),          'Dalāʾil al-Khayrāt · دلائل الْخيرات');
+    /* Al-Aḥzāb was missing here entirely — 950 verses that no search could
+       reach, in the one place that searches the whole app. */
+    group(litanyCards(),          'Al-Aḥzāb · الْأَحْزَاب');
+    group(nasheedCards(),         'Nasheeds · أناشيد');
+    group(ilahiCards(),           'Ilahis · الْإلهيات');
     if(!html) return `<div class="no-results">No matches for "${q.replace(/</g,'&lt;')}". Try a different spelling.</div>`;
     return html;
   }
