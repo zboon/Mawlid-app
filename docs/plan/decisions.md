@@ -191,3 +191,80 @@ bestehendes Muster benutzt, ist damit ein Datenbankeintrag — kein neuer Code.
 - Der Preis: ein Modul mit wirklich eigener Darstellung (Silsila als Stammbaum)
   braucht trotzdem einen neuen Ansichtstyp. Das ist richtig so — die Alternative
   wäre ein Konfigurationsformat, das irgendwann selbst eine Programmiersprache wird.
+
+---
+
+## ADR-008 · Der ETag trägt zusätzlich einen Abdruck des Rumpfes
+
+**Status:** akzeptiert · 2026-09-04 (Phase 3, ergänzt ADR-004)
+
+**Kontext.** Der ursprüngliche Entwurf sagte: „Der ETag ist `content_version`
+der Sammlung." Beim Bau der Endpunkte fiel auf, dass zwei Antworten keine
+Sammlung haben — die Modulliste und die Moduldetails — und dass `content_version`
+sich nicht rührt, wenn eine Modulüberschrift, eine Beschreibung oder eine
+Übersetzung geändert wird. Der Client behielte eine veraltete Antwort, bis
+zufällig jemand die Sammlung anfasst.
+
+**Entscheidung.** Der ETag hat drei Teile:
+`"<Bereich>-<content_version>-<Abdruck>"`. Der Abdruck sind zehn Zeichen aus
+einer SHA-1 über den serialisierten Rumpf.
+
+**Konsequenzen.**
+- Ein veralteter Rumpf ist damit **unmöglich**, unabhängig davon, ob irgendwer
+  einen Zähler erhöht hat.
+- `content_version` bleibt sichtbar im Tag. Es ist der Teil, der später den
+  Offline-Abgleich trägt (ADR-004), und man sieht dem Tag an, was er bedeutet.
+- Der Preis: der Server baut die Antwort auch dann, wenn er sie nicht sendet.
+  Gespart wird die Übertragung, nicht die Abfrage. Bei 100 KB Verstext gegen
+  wenige Millisekunden Datenbankzeit ist das der richtige Tausch — und es ist
+  der Normalfall bei ETags, nicht eine Besonderheit dieser Lösung.
+- Verworfen: nur der Zähler (unsicher, siehe oben) und nur der Abdruck (dann
+  fehlte die Brücke zum Offline-Abgleich).
+
+---
+
+## ADR-009 · Zod prüft auf dem Server, das Frontend nimmt nur die Typen
+
+**Status:** akzeptiert · 2026-09-04 (Phase 3)
+
+**Kontext.** `docs/architecture/04-backend-api.md` sagt: „Die Schemas liegen in
+`packages/shared` und gelten auf beiden Seiten." Beim Bau stellte sich die
+Frage, was „gelten" für die **Leseseite** heißt: eine Werkantwort enthält bis
+zu 213 Verse mit je drei Texten. Sie im Browser ein zweites Mal zu prüfen
+kostet Rechenzeit auf dem Gerät, auf dem sie am knappsten ist.
+
+**Entscheidung.** `packages/shared` exportiert die Zod-Schemas **und** die
+daraus abgeleiteten Typen. Der Server prüft damit in der Entwicklung, was er
+hinausgibt. Die Oberfläche importiert ausschließlich `import type` — Zod landet
+nicht im Bündel (nachgeprüft: kein Treffer in `dist/assets/*.js`).
+
+**Konsequenzen.**
+- Die Roadmap-Forderung „Zod-Schemas, aus denen die Frontend-Typen entstehen"
+  ist wörtlich erfüllt: die Typen entstehen aus den Schemas.
+- Eine Abweichung zwischen Antwort und Schema fällt dort auf, wo sie entsteht —
+  beim Bauen der Antwort —, nicht beim Anzeigen.
+- Für die **Schreibseite** (Phase 6, Redaktionsformulare) gilt das nicht: dort
+  prüft das Formular mit demselben Schema wie der Server, und dort ist es
+  richtig. Die Entscheidung betrifft nur `/api/content/*`.
+
+---
+
+## ADR-010 · Die API läuft über `tsx`, ohne Übersetzungsschritt
+
+**Status:** akzeptiert · 2026-09-04 (Phase 3)
+
+**Kontext.** `packages/shared` ist als **Quelle** eingebunden, über einen
+Pfad-Alias. Ein `tsc` nach `dist/` schreibt diesen Alias unverändert ins
+erzeugte JavaScript, wo ihn niemand mehr auflöst. Um das zu beheben, müsste man
+bündeln — ein Werkzeug mehr für ein Problem, das hier keines ist.
+
+**Entscheidung.** `npm start` startet `tsx src/server.ts`. `npm run build` gibt
+es nicht; es gibt `npm run typecheck`.
+
+**Konsequenzen.**
+- Eine Sekunde Startzeit mehr. Dieser Server bedient einen Haushalt (ADR-006),
+  und er startet, wenn der Rechner startet.
+- Kein `dist/`, kein Bündler, keine zwei Wahrheiten über den Quelltext.
+- Wenn die API je öffentlich laufen soll, ist das der Moment, das noch einmal
+  anzusehen — dann aber zusammen mit allem anderen, was ein öffentlicher
+  Betrieb verlangt.

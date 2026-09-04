@@ -136,6 +136,65 @@ Gemessen wird in `requestAnimationFrame`, nicht bei jedem Scroll-Ereignis.
 
 ---
 
+## 2a · Stand nach Phase 3 — was davon steht, und unter welchem Namen
+
+Der Entwurf oben ist der Plan. Gebaut wurde er mit drei Abweichungen bei den
+Namen und einer bei der Aufteilung. Wer den Code sucht, findet ihn so:
+
+| Entwurf | Gebaut | Wo |
+|---|---|---|
+| `useManuscriptFit(bookRef)` | `useManuscriptFit(bookRef, deps)` | `composables/useManuscriptFit.ts` |
+| `useAutoScroll()` | unverändert | `composables/useAutoScroll.ts` |
+| `useReaderBar()` | **`useSlimBar()`** | `composables/useSlimBar.ts` |
+| `useImmersive()` | **im Reader-Store** | `stores/reader.ts` |
+| `useArabicText()` | **`tokenize()` + `VerseText.vue`** | `lib/text.ts` |
+| — | **`useSpread()`** (Doppelseite) | `composables/useSpread.ts` |
+| — | **`useGlossBubble()`** (goldene Glosse) | `composables/useGlossBubble.ts` |
+| — | **`buildLeaves()`** (Blätter aus `‖`) | `lib/pages.ts` |
+
+**Warum `useSlimBar` und nicht `useReaderBar`:** das Composable kennt nur den
+Scrollstand und die beiden Schwellen. Es weiß nichts über eine Leiste. Ein
+Name, der mehr verspricht, als das Ding kann, führt beim nächsten Lesen in die
+Irre.
+
+**Warum Vollbild in den Store gehört:** es ist geteilter Zustand. Die Leseleiste
+zeigt danach andere Knöpfe, `useManuscriptFit` rechnet mit einer anderen
+Untergrenze, und die globalen CSS-Regeln hängen an `html.immersive`. Ein
+Composable hätte drei Kopien desselben Zustands erzeugt.
+
+**Warum `tokenize()` eine Funktion ist und kein Composable:** sie hat keinen
+Zustand und keinen Lebenszyklus. Sie nimmt eine Zeichenkette und gibt eine
+Liste von Marken zurück — reine Abbildung, damit prüfbar ohne DOM.
+
+### Der Verstext wird nicht als HTML gerendert
+
+`tokenize()` liefert Marken (`text`, `rosette`, `break`, `gloss`), die
+`VerseText.vue` mit `v-for` setzt. Kein `v-html`.
+
+Das ist kein Purismus: der Text kommt aus der Datenbank und wird ab Phase 6
+über eine Redaktionsoberfläche bearbeitet. Ein `v-html` darauf wäre genau die
+Stelle, an der eingefügtes Markup ausgeführt würde. Mit Marken bleibt es Text,
+und Vue entschärft jedes Zeichen von selbst.
+
+### Die Rosette ist ein SVG, kein Zeichen
+
+Die Textschrift bildet ۞ auf ein leeres Platzhalterglyph ab — es erschiene als
+schwarzer Klotz. Die alte App wich auf ein Hintergrundbild aus, als Daten-URI,
+der keine CSS-Variable lesen kann, also **zweimal**, einmal je Thema. Als
+Inline-SVG-Komponente (`icons/IconRosette.vue`) mit den Ornament-Tokens ist es
+ein Bild, das dem Thema folgt.
+
+### `msReflowOverflow` wurde nicht nachgebaut
+
+Das Sicherheitsnetz aus Befund B7e wird in der alten App nie aufgerufen. Es
+wurde deshalb nicht übernommen. Beobachtet wurde in Phase 3 auch kein Fall, in
+dem es gebraucht worden wäre: `useManuscriptFit` verkleinert die Schrift bis
+`basis × 0.6`, und bei 272 Blättern trat kein Überhang auf. Sollte er je
+auftreten, ist die richtige Antwort ein zusätzliches `‖` im Text — also eine
+redaktionelle, keine algorithmische.
+
+---
+
 ## 3 · Arabischen Text darstellen
 
 Die alte App setzt HTML als Zeichenkette zusammen und schreibt es per

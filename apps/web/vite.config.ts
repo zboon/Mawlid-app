@@ -18,7 +18,16 @@ export default defineConfig(({ mode }) => {
     base,
     plugins: [vue()],
     resolve: {
-      alias: { '@': fileURLToPath(new URL('./src', import.meta.url)) },
+      alias: {
+        '@': fileURLToPath(new URL('./src', import.meta.url)),
+        /* Die Zod-Schemas der API. Die Oberfläche importiert daraus nur
+           `import type` — der Alias ist die Rückfalllinie, falls doch einmal
+           ein Wert importiert wird, damit das als Bündelgröße auffällt und
+           nicht als Auflösungsfehler. */
+        '@mawalid/shared': fileURLToPath(
+          new URL('../../packages/shared/src/index.ts', import.meta.url),
+        ),
+      },
     },
     server: { port: 5173 },
     preview: { port: 4173 },

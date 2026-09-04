@@ -119,8 +119,41 @@ html.is-home .topbar {
   position: static;
 }
 
-html.immersive .topbar {
-  display: none;
+/* Vollbild: das Blatt, der Weg es zu wenden, und der Weg hinaus. Alles
+   andere geht weg — Kopfleiste, Titel, Chips, Hinweis, Autoscroll, Fußzeile. */
+/* Die Namen sind absichtlich lang. Ein kurzes `.head` traf hier auch die
+   Kopfvariante des Manuskriptbandes (`.band.head`) — im Vollbild verschwand
+   damit die Illumination des ersten Blattes, und zwar lautlos. Eine globale
+   Regel darf nur Namen nennen, die es genau einmal gibt. */
+html.immersive .topbar,
+html.immersive .reader-bar,
+html.immersive .reader-head,
+html.immersive .reader-note,
+html.immersive .reader-fallback,
+html.immersive .reader-controls,
+html.immersive .reader-media,
+html.immersive .reader-siblings,
+html.immersive .ms-hint {
+  display: none !important;
+}
+
+/* Im Vollbild füllt das Blatt den Bildschirm: kein Rand, keine Rundung, und
+   die Seitenlinien fallen weg, damit nichts den Rahmen doppelt. */
+html.immersive .reader {
+  padding: 0;
+  max-width: none;
+}
+
+html.immersive .ms-sheet {
+  padding: 0;
+  max-width: none;
+  width: 100vw;
+}
+
+html.immersive .ms-page {
+  min-height: calc(100dvh - var(--player-h));
+  border-radius: 0;
+  border-inline: none;
 }
 
 body.has-player {

@@ -173,6 +173,19 @@ denselben Wert, vier weitere denselben Aktivzustand — jetzt einmal benannt.
 | `--ornament-band-b` | `#8C3B2F` | `#6B2E26` | Kopfband, Teil B (nur im SVG) |
 | `--ornament-star-fill` | `#BCD6E4` | `#7FA3B8` | Sternfüllung im Nahtband |
 | `--ornament-star-stroke` | `#CB8090` | `#D793A2` | Sternkontur |
+| `--ornament-rosette-petal` | = `--ornament-band-b` | = `--ornament-band-b` | Blütenblätter der Rosette (Inline-SVG) |
+| `--ornament-rosette-line` | `#C9A55E` | `#B8934A` | Kontur und Mitte der Rosette |
+| `--ornament-rosette-eye` | `#FBF4DE` | `#191510` | Das Auge in der Mitte |
+
+**Die drei Rosetten-Tokens sind in Phase 3 dazugekommen.** Die Rosette ۞ wird
+nicht als Zeichen gesetzt: die Textschrift bildet sie auf ein leeres
+Platzhalterglyph ab (schwarzer Klotz), und die alte App wich deshalb auf ein
+Hintergrundbild aus — als Daten-URI, der keine CSS-Variable lesen kann, also
+**zweimal**, einmal je Thema. Als Inline-SVG-Komponente mit diesen Tokens ist
+es ein Bild, das dem Thema folgt.
+
+`--ornament-rosette-line` ist im hellen Thema **heller** als `--accent` und im
+dunklen dunkler. Das ist kein Versehen, sondern der Wert aus der Vorlage.
 
 > **Zu entscheiden:** Die drei Stern-Tokens sind in der alten App tot, weil das
 > Sternenband **gar nicht gerendert wird** — die Konstante `STAR` (`app.js:1613`)
@@ -242,7 +255,19 @@ Namen bekommen:
 ```css
 --pad-row:      var(--space-md) var(--space-lg);    /* .7rem .95rem  — Listenzeile */
 --pad-row-tall: 0.85rem var(--space-lg);            /* .85rem .95rem — hohe Zeile */
+--pad-chip:     0.4rem 0.85rem;                     /* die Steuerpille des Lesers */
 ```
+
+`--pad-chip` ist in Phase 3 dazugekommen. Der Wert steht in `04-components.md`
+§3 wörtlich vorgeschrieben; er gehört deshalb hierher und nicht in die
+Komponente — sonst sähe ihn die Token-Prüfung nicht.
+
+**Alles andere wurde auf die Skala gerundet.** Die Manuskript-Komponenten
+brachten aus der Vorlage Werte wie `1.15rem`, `1.05rem` und `0.55rem` mit; der
+Unterschied zur nächsten Stufe liegt unter einem Pixel und ist auf keinem
+Bildschirm zu sehen. Zwei negative Werte des Kopfbandes sind exakte
+Gegenstücke von Stufen und stehen als `calc(-1 * var(--space-sm))` da, nicht
+als `-0.5rem`.
 
 **Der Seitenrand** ist `--space-xl` (1,1 rem). Jeder Inhaltsbereich hält ihn ein:
 Index, Verse, Abschnittseinleitung, Startraster, Sitzungsfeld. Neue Bereiche

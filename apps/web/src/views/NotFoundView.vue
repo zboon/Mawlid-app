@@ -11,7 +11,9 @@ const { t } = useI18n()
        leere Seite ohne jeden Hinweis. -->
   <main id="main">
     <EmptyState :message="t('empty.notFound')" />
-    <p class="back"><RouterLink to="/">{{ t('nav.backToHome') }}</RouterLink></p>
+    <p class="back">
+      <RouterLink to="/">{{ t('nav.backToHome') }}</RouterLink>
+    </p>
   </main>
 </template>
 

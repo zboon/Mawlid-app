@@ -90,14 +90,48 @@ kommen immer mit, unabhängig von `lang`.
 
 ```http
 Cache-Control: public, max-age=60, stale-while-revalidate=600
-ETag: "coll-3-v42"
+ETag: "work-wochenteile-tuesday-en-42-QM6Xra0Vqd"
 ```
 
-Der ETag ist `content_version` der Sammlung. Bei `If-None-Match` antwortet die
-API mit `304 Not Modified` und überträgt nichts.
+Der ETag hat **drei** Teile: Bereich, `content_version` der Sammlung und ein
+kurzer Abdruck des Rumpfes. Bei `If-None-Match` antwortet die API mit
+`304 Not Modified` und überträgt nichts; Listen mit mehreren Einträgen und das
+`W/`-Präfix werden erkannt.
 
-Das ist zugleich die Vorkehrung aus ADR-004: derselbe Mechanismus, der heute
-Bandbreite spart, trägt später den Offline-Abgleich.
+**Warum der Abdruck dazukam** (Phase 3, gegenüber dem ursprünglichen Entwurf
+„ETag ist `content_version`"): `content_version` hängt an der **Sammlung**. Eine
+umbenannte Modulüberschrift, eine geänderte Beschreibung, ein neuer
+Sprachrückfall — nichts davon berührt den Zähler, und der Client behielte eine
+veraltete Antwort, bis irgendwer die Sammlung anfasst. Der Zähler bleibt im
+Tag, weil er die Vorkehrung aus ADR-004 trägt und weil man ihm ansieht, was er
+bedeutet; der Abdruck schließt die Lücke, ohne dass man sich auf Zähler
+verlassen muss, die noch niemand erhöht.
+
+Der Preis ist ehrlich zu benennen: der Server **baut** die Antwort auch dann,
+wenn er sie nicht sendet. Gespart wird die Übertragung, nicht die Abfrage. Auf
+einem Telefon ist genau das der Engpass — 100 KB Verstext gegen einen
+Datenbankzugriff von wenigen Millisekunden.
+
+### `?lang=` nur beim Werk
+
+Die **Listen** (Module, Sammlungen) liefern *alle* Titel als Objekt
+(`titles: { ar, de, en }`) und haben absichtlich kein `?lang`. Zwei Gründe: die
+Startkachel zeigt ohnehin zwei Sprachen gleichzeitig (arabisch groß,
+Landessprache klein), und eine Antwort für alle Sprachen ist kleiner als vier
+Cache-Einträge.
+
+Beim **Werk** wählt `?lang` die Übersetzung, weil dort die Menge zählt: die
+Übersetzungen machen den größeren Teil der 100 KB aus. Originaltext und
+Umschrift kommen immer mit.
+
+### Doppelte Kürzel
+
+Kürzel sind laut Schema nur innerhalb ihrer Ebene eindeutig
+(`uq_works_slug (collection_id, slug)`). Heute kollidiert keines — aber „heute
+nicht" ist keine Zusicherung. Findet die API mehrere, antwortet sie mit **409**
+und nennt die Kandidaten, statt still eine Zeile zu wählen; `?collection=` und
+`?module=` lösen es auf. Ein falsches Werk auszuliefern wäre der schlimmere
+Ausgang, und es fiele niemandem auf.
 
 ### Suche
 

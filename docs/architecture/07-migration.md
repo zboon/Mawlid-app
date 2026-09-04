@@ -376,6 +376,21 @@ Diese Fragen kann nur der Inhaber beantworten:
    die Konfiguration wandern oder ganz durch das Korrekturformular ersetzt
    werden?
 
+6. **Die Kommaregel der Buchansicht** (kam in Phase 3 dazu). Das Manuskript
+   setzt keine Kommata — außer in den Dalāʾil und den Aḥzāb, wo sie ausdrücklich
+   gewünscht waren, weil diese Texte lange ununterbrochene Litaneien sind. In
+   der alten App hing das an den Kürzeln `d` und `l`; heute steht es als
+   benannte Konstante `MODULES_KEEPING_COMMAS` in
+   `apps/web/src/lib/pages.ts`. Das ist eine **inhaltliche** Einstellung und
+   gehört als Spalte an `modules`, sobald die Redaktionsoberfläche sie setzen
+   kann. *Empfehlung: bei Phase 6 mitnehmen, nicht vorher — ein Schemawechsel
+   zwingt heute zum erneuten Laden und Gegenprüfen des ganzen Bestandes.*
+
+7. **Die 16 leeren Werke** sind als `draft` importiert und in der API damit
+   unsichtbar (`404`). In der alten App waren sie sichtbar und leer. Von 109
+   Werken sind so 93 lesbar. *Das ist die Umsetzung von Frage 1 — bitte
+   bestätigen oder widersprechen.*
+
 ---
 
 ## 8 · Die alte App während der Migration

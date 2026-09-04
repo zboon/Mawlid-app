@@ -8,9 +8,52 @@
     "backToHome": "Zurück zur Startseite"
   },
   "theme": { "toLight": "Zum hellen Thema wechseln", "toDark": "Zum dunklen Thema wechseln" },
+  "counts": {
+    "works": "{n} Werke",
+    "work": "1 Werk",
+    "collections": "{n} Sammlungen",
+    "collection": "1 Sammlung",
+    "verses": "{n} Verse"
+  },
+  "reader": {
+    "study": "Lesefassung",
+    "book": "Buchfassung",
+    "viewSwitch": "Ansicht",
+    "transliteration": "Umschrift",
+    "translation": "Übersetzung",
+    "arSmaller": "Arabisch kleiner",
+    "arLarger": "Arabisch größer",
+    "latinSmaller": "Lateinischen Text kleiner",
+    "latinLarger": "Lateinischen Text größer",
+    "immersive": "Vollbild",
+    "leaveImmersive": "Vollbild verlassen",
+    "listen": "Anhören",
+    "listenTune": "Melodie anhören",
+    "watch": "Video ansehen",
+    "next": "Weiter",
+    "prev": "Zurück",
+    "langFallback": "Übersetzung auf {lang} — {want} liegt noch nicht vor.",
+    "empty": "Dieses Werk hat noch keinen Text."
+  },
+  "today": { "label": "Heute", "weekday": "Heute ist {day}" },
+  "weekday": {
+    "0": "Sonntag",
+    "1": "Montag",
+    "2": "Dienstag",
+    "3": "Mittwoch",
+    "4": "Donnerstag",
+    "5": "Freitag",
+    "6": "Samstag"
+  },
+  "lang": { "ar": "Arabisch", "de": "Deutsch", "en": "Englisch", "tr": "Türkisch" },
   "empty": {
     "module": "Diesen Bereich gibt es nicht.",
     "notFound": "Diese Seite gibt es nicht.",
-    "comingFromDb": "Inhalte kommen ab Phase 3 aus der Datenbank."
+    "collection": "In dieser Sammlung steht noch nichts."
+  },
+  "error": {
+    "offline": "Die API ist nicht erreichbar. Läuft sie?",
+    "generic": "Das hat nicht geklappt.",
+    "retry": "Nochmal versuchen"
   }
 }

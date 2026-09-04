@@ -59,13 +59,11 @@ const { t } = useI18n()
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   gap: var(--space-sm);
-  padding: calc(env(safe-area-inset-top, 0px) + var(--space-2xl)) var(--space-2xl)
-    var(--space-2xl);
+  padding: calc(env(safe-area-inset-top, 0px) + var(--space-2xl)) var(--space-2xl) var(--space-2xl);
 }
 
 .masthead.compact {
-  padding: calc(env(safe-area-inset-top, 0px) + var(--space-sm)) var(--space-md)
-    var(--space-sm);
+  padding: calc(env(safe-area-inset-top, 0px) + var(--space-sm)) var(--space-md) var(--space-sm);
 }
 
 .mh-left {

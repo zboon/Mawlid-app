@@ -1,14 +1,23 @@
 # Mawalid — Frontend
 
-Vue 3 + TypeScript + Vite. Phase 1 der Roadmap: das Gerüst, das Design-System
-und die Startseite. Inhalte kommen ab Phase 3 aus der API.
+Vue 3 + TypeScript + Vite. Stand: **Phase 3** — Startseite, Modul- und
+Sammlungsansichten, Leser in beiden Fassungen. Alle Inhalte kommen aus der API.
 
 ## Starten
 
+Die API muss laufen, sonst zeigt jede Seite „Die API ist nicht erreichbar":
+
 ```bash
+npm --prefix ../api run dev    # http://127.0.0.1:3000
 npm install
-npm run dev          # http://localhost:5173
+npm run dev                    # http://localhost:5173
 ```
+
+`VITE_API_URL` sagt, wohin die Anfragen gehen (Vorgabe: `http://localhost:3000`
+über `.env.example`). **`localhost` und `127.0.0.1` sind für den Browser
+verschiedene Herkünfte** — passt `CORS_ORIGIN` der API nicht dazu, bleibt die
+Seite leer, und im Serverprotokoll steht kein Wort davon. Beide Schreibweisen
+stehen deshalb in der Vorgabe.
 
 Oder über den Compose-Verbund aus dem Projektwurzelverzeichnis:
 
@@ -22,8 +31,9 @@ docker compose up web
 |---|---|
 | `npm run dev` | Entwicklungsserver mit HMR |
 | `npm run build` | Typprüfung und Produktions-Build nach `dist/` |
-| `npm run verify` | Typen, Lint und Token-Prüfung — das, was vor jedem Commit läuft |
+| `npm run verify` | Typen, Lint, Token-Prüfung und Tests — das, was vor jedem Commit läuft |
 | `npm run check:tokens` | Nur die Token-Prüfung |
+| `npm run test` | Vitest |
 
 ### Die Token-Prüfung
 
@@ -49,13 +59,30 @@ src/
     base.css          Resets, Schriften, globale Modi, Fokus
   components/         der Baukasten aus docs/design/04-components.md
   views/              eine Datei je Route
-  stores/             Pinia
+  stores/             Pinia — Thema und Lesereinstellungen
+  composables/        ein Verhalten je Datei, samt Aufräumen
+  api/                der einzige Ort mit fetch, plus die Query-Definitionen
+  lib/                reine Funktionen: Text zerlegen, Blätter bauen, Titel wählen
   i18n/               Oberflächentexte — NICHT die Inhaltsübersetzungen
-  data/               Platzhalter, wird in Phase 3 durch die API ersetzt
 public/
   fonts/              echte Dateien statt base64 im HTML
   img/                die Kalligrafien
 ```
+
+## Die drei Stellen, an denen man sich verirren kann
+
+**`lib/pages.ts` — `buildLeaves()`.** Die Seitengrenzen der Buchansicht kommen
+**nicht** aus den Folio-Angaben, sondern aus dem Zeichen `‖` im Verstext. Aus
+46 Folio-Einträgen werden 272 Blätter. `lib/pages.test.ts` hält die Zahl fest.
+
+**`composables/useManuscriptFit.ts`.** Er sucht die Klassennamen `.ms-page` und
+`.ms-text`. Wer sie umbenennt, bekommt eine Buchansicht ohne Höhenanpassung —
+ohne Fehlermeldung, nur ohne Manuskript.
+
+**Globale Regeln in `base.css`.** Sie dürfen nur Namen nennen, die es genau
+einmal gibt. `html.immersive .head` traf auch `.band.head` und ließ im Vollbild
+die Illumination des ersten Blattes verschwinden. Seither: `.reader-head`,
+`.ms-hint`.
 
 ## Was hier bewusst nicht steht
 

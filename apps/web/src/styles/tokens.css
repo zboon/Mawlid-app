@@ -104,6 +104,15 @@
   --ornament-band-b: var(--c-band-terra);
   --ornament-star-fill: var(--c-star-fill);
   --ornament-star-stroke: var(--c-star-stroke);
+  /* Die Rosette ۞ wird als Inline-SVG gesetzt, nicht als Zeichen: die
+     Textschrift bildet sie auf ein leeres Platzhalterglyph ab, und ein
+     Daten-URI kann keine Variable lesen — die alte App brauchte deshalb zwei
+     Bilder, eines je Thema. Diese drei Namen ersetzen beide. Die Linie ist im
+     hellen Thema HELLER als --accent und im dunklen dunkler; das ist kein
+     Versehen, sondern der Wert aus der Vorlage. */
+  --ornament-rosette-petal: var(--ornament-band-b);
+  --ornament-rosette-line: var(--c-gold-400);
+  --ornament-rosette-eye: var(--c-leaf-100);
 
   /* ---- Abstände ---------------------------------------------------------
      Die alte App benutzte 42 verschiedene Werte. Das war kein System,
@@ -119,9 +128,14 @@
   --space-3xl: 2.4rem;
   --space-4xl: 3rem;
 
-  /* Zwei zusammengesetzte Werte, die im Original wörtlich wiederkehren. */
+  /* Zusammengesetzte Werte, die im Original wörtlich wiederkehren und in
+     docs/design vorgeschrieben sind. Sie stehen hier und nicht in der
+     Komponente, damit die Token-Prüfung sie sieht — und damit sie sich an
+     einer Stelle ändern lassen. */
   --pad-row: var(--space-md) var(--space-lg);
   --pad-row-tall: 0.85rem var(--space-lg);
+  /* Die Steuerpille des Lesers — 04-components.md §3 schreibt genau das vor. */
+  --pad-chip: 0.4rem 0.85rem;
 
   /* ---- Radien ----------------------------------------------------------- */
   --radius-pill: 999px;
@@ -235,6 +249,8 @@
   --ornament-band-b: var(--c-band-terra-dark);
   --ornament-star-fill: var(--c-star-fill-dark);
   --ornament-star-stroke: var(--c-star-stroke-dark);
+  --ornament-rosette-line: var(--c-gold-500);
+  --ornament-rosette-eye: var(--c-night-800);
 
   color-scheme: dark;
 }

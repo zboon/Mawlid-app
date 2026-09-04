@@ -70,22 +70,38 @@ Dokumenten und dem Code hat die Dokumentation recht.
 |---|---|
 | [`plan/roadmap.md`](plan/roadmap.md) | Acht Phasen |
 | [`plan/tech-stack.md`](plan/tech-stack.md) | Werkzeuge |
-| [`plan/decisions.md`](plan/decisions.md) | Die sieben Architekturentscheidungen und ihre Begründung |
+| [`plan/decisions.md`](plan/decisions.md) | Die zehn Architekturentscheidungen und ihre Begründung |
 
 ---
 
 ## Was heute schon läuft
 
+Stand: **Phase 3 abgeschlossen.** Man kann in der neuen App lesen — in der
+Lese- und in der Buchansicht, mit Ton.
+
 ```bash
-node tools/extract-content.mjs
-#   content : 111 works, 2512 verses
-#   nav     : 38 entries across 7 constants
+cp .env.example .env               # DATABASE_URL anpassen
+npm install
+npm run db:all                     # extrahieren, aufbereiten, laden, prüfen
+npm run api                        # http://127.0.0.1:3000
+npm run web                        # http://localhost:5173
 ```
 
-Zieht alle Inhalte aus der alten `index.html` nach `data/extracted/*.json`.
-Wiederholbar, prüfbar, und der erste Schritt jeder Migration.
+Die drei Prüfungen, die den Bestand absichern:
+
+```bash
+npm run db:verify                  # 12 Prüfungen: Datenbank gegen die Quelle
+npm run api:check                  # 10 Prüfungen: API gegen die Datenbank
+npm --prefix apps/web run verify   # Typen, Lint, Token-Regel, Tests
+```
+
+`npm run db:verify` vergleicht **byteweise**, ohne Toleranz; `npm run api:check`
+setzt das über HTTP fort. Zusammen decken sie die ganze Strecke ab:
+`index.html → MySQL → JSON → Browser`.
 
 `db/schema.sql` ist das vollständige Datenbankschema, ausführbar.
+`apps/api/prisma/schema.prisma` wird daraus **erzeugt** (`db:pull`), nicht
+gepflegt.
 
 ---
 

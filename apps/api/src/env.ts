@@ -9,8 +9,14 @@ const Schema = z.object({
   PORT: z.coerce.number().int().positive().default(3000),
   HOST: z.string().default('127.0.0.1'),
   DATABASE_URL: z.string().min(1),
-  /* Woher die Oberfläche kommt. Mehrere durch Komma getrennt. */
-  CORS_ORIGIN: z.string().default('http://localhost:5173'),
+  /* Woher die Oberfläche kommt. Mehrere durch Komma getrennt.
+     Beide Schreibweisen stehen in der Vorgabe, weil `localhost` und
+     `127.0.0.1` für den Browser VERSCHIEDENE Herkünfte sind: wer die App
+     über die eine öffnet und die API auf die andere eingestellt hat, sieht
+     eine leere Seite und im Serverprotokoll nicht den geringsten Hinweis. */
+  CORS_ORIGIN: z
+    .string()
+    .default('http://localhost:5173,http://127.0.0.1:5173'),
 })
 
 const parsed = Schema.safeParse(process.env)

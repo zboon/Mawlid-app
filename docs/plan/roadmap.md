@@ -86,8 +86,8 @@ docker-compose.yml
 - [x] `docker-compose.yml` mit dem `web`-Dienst
 - [x] **`tools/check-tokens.mjs`** — macht die Token-Regel prüfbar statt
       nur dokumentiert
-- [ ] `TabBar` und `ContentCard` — erst ab Phase 3 sichtbar, wenn es Sammlungen
-      und Werke gibt
+- [x] `TabBar` und `ContentCard` — nachgeholt in Phase 3, als es Sammlungen und
+      Werke gab
 
 ### Fertig, wenn
 
@@ -120,8 +120,8 @@ eigentliche Anforderung („einheitlich und trotzdem seine spezielle Aufgabe").
 - [x] `tools/load-seed.mjs` — in einer Transaktion, idempotent
 - [x] **`tools/verify-migration.mjs`** — die Gegenprüfung, 12 Prüfungen
 - [x] Prüfbericht archiviert: `docs/analysis/migrationsbericht.txt`
-- [ ] `prisma/schema.prisma` aus `db/schema.sql` ableiten — erst in Phase 3
-      nötig, wenn die API Typen braucht
+- [x] `prisma/schema.prisma` aus `db/schema.sql` ableiten — nachgeholt in
+      Phase 3, per `prisma db pull` aus der laufenden Datenbank
 
 ### Fertig, wenn
 
@@ -147,41 +147,89 @@ andere wäre Selbstbetrug bei vokalisiertem Text.
 
 ### Aufgaben — Backend
 
-- [ ] Fastify aufsetzen, Prisma anbinden
-- [ ] `GET /api/content/modules`
-- [ ] `GET /api/content/modules/:slug`
-- [ ] `GET /api/content/collections/:slug`
-- [ ] `GET /api/content/works/:slug` — Werk + Verse + Folios + Medien in **einer**
-      Antwort
-- [ ] `GET /api/content/schedule/:collection/today`
-- [ ] ETag aus `content_version`, `If-None-Match` beantworten
-- [ ] Zod-Schemas, aus denen die Frontend-Typen entstehen
+- [x] Fastify aufsetzen, Prisma anbinden — `prisma/schema.prisma` wird mit
+      `db:pull` aus der laufenden Datenbank **erzeugt**, nicht gepflegt
+- [x] `GET /api/content/modules`
+- [x] `GET /api/content/modules/:slug`
+- [x] `GET /api/content/collections/:slug`
+- [x] `GET /api/content/works/:slug` — Werk + Verse + Folios + Medien + Glossen
+      in **einer** Antwort (Dienstag: 140 Verse, 104 KB)
+- [x] `GET /api/content/schedule/:collection/today`
+- [x] ETag, `If-None-Match` beantworten — mit einem Zusatz gegenüber dem
+      Entwurf, siehe unten
+- [x] Zod-Schemas, aus denen die Frontend-Typen entstehen
+- [x] **`tools/verify-api.mjs`** — die Gegenprüfung, zehn Prüfungen
 
 ### Aufgaben — Frontend
 
-- [ ] TanStack Query anbinden
-- [ ] Modul- und Sammlungsansichten
-- [ ] **Lese-Ansicht** — `VerseCard` mit allen Varianten, Umschrift/Übersetzung
+- [x] TanStack Query anbinden
+- [x] Modul- und Sammlungsansichten, `TabBar`, `ContentCard`
+- [x] **Lese-Ansicht** — `VerseCard` mit allen Varianten, Umschrift/Übersetzung
       umschaltbar, Größenregler
-- [ ] **Buchansicht** — `ManuscriptBook`, `ManuscriptLeaf`, `ManuscriptBand`
-- [ ] **`useManuscriptFit`** — der Mess-und-Anpass-Algorithmus
-- [ ] `useAutoScroll` — neun Stufen, 0,14–0,70 px pro Bild
-- [ ] Vollbildmodus, Escape zum Verlassen
-- [ ] Leseleiste mit Hysterese (Schwellen 88 / 32)
-- [ ] YouTube-Einbettung und Audio-Dock
-- [ ] Skeleton- und Fehlerzustände (neu — es gibt jetzt Ladezeiten)
+- [x] **Buchansicht** — `ManuscriptBook`, `ManuscriptLeaf`, `ManuscriptBand`
+- [x] **`useManuscriptFit`** — der Mess-und-Anpass-Algorithmus
+- [x] `useAutoScroll` — neun Stufen, 0,14–0,70 px pro Bild
+- [x] Vollbildmodus, Escape zum Verlassen
+- [x] Leseleiste mit Hysterese (Schwellen 88 / 32)
+- [x] YouTube-Einbettung und Audio-Dock
+- [x] Skeleton- und Fehlerzustände (neu — es gibt jetzt Ladezeiten)
 
 ### Fertig, wenn
 
 Ein Dalāʾil-Wochenteil lässt sich in beiden Ansichten lesen, die Blätter haben
 einheitliche Höhe, der Text füllt den Goldrahmen, Autoscroll läuft, Audio spielt.
 
+**Erreicht.** Im Browser gemessen (Chromium, 390 × 844):
+
+| | |
+|---|---|
+| Dienstag, Lese-Ansicht | 140 Verskarten, Rosetten als Inline-SVG |
+| Dienstag, Buchansicht | 14 Blätter, **alle 1698 px hoch**, Schriftgrößen 29,5–32,3 px |
+| Freitag, dunkel | 16 Blätter, alle 1762 px |
+| Autoscroll | 62 px in 2,5 s bei Stufe 5 (= 0,42 px/Bild bei 60 Bildern) |
+| Schlank-Modus | klappt bei 200 px ein, bleibt bei 50 px eingeklappt, öffnet bei 10 px |
+| Vollbild | Escape verlässt es, Leiste ist weg, Blatt füllt die Breite |
+| Gegenprüfung | 10 von 10, 5 834 Verstexte bytegleich über HTTP |
+| Bündel | 197 KB / 70 KB gepackt (Phase 1: 158/58; alte App: 976 KB gepackt) |
+
 ### Der wunde Punkt
 
 `useManuscriptFit`. Der Algorithmus misst echtes DOM, hängt am Zeitpunkt des
 Schriftladens und läuft bei jeder Größenänderung neu. Er ist der Unterschied
 zwischen „sieht aus wie ein Manuskript" und „sieht aus wie Text in einem
-Kasten". Dafür Zeit einplanen.
+Kasten".
+
+**Er sitzt.** Alle Blätter eines Kapitels haben dieselbe Höhe auf das Pixel,
+die Schriftgröße variiert je Blatt um bis zu 10 %, damit der Text den
+Goldrahmen füllt.
+
+Zwei Dinge kosteten dabei Zeit, die im Entwurf nicht standen:
+
+1. **Die Seitengrenzen kommen nicht aus den Folio-Angaben.** Aus 46 Einträgen
+   werden 272 Blätter, weil das Zeichen `‖` im Verstext den Umbruch trägt. Das
+   ist jetzt ein Test (`src/lib/pages.test.ts`) und keine Bemerkung mehr —
+   wer es übersieht, bekommt 46 sehr volle Seiten und keine Fehlermeldung.
+2. **`html.immersive .head` traf auch `.band.head`.** Im Vollbild verschwand
+   damit die Illumination des ersten Blattes, lautlos. Globale Regeln nennen
+   seither nur Namen, die es genau einmal gibt (`.reader-head`, `.ms-hint`).
+
+### Was der Entwurf nicht vorsah
+
+- **Der ETag trägt zusätzlich einen Abdruck des Rumpfes.** `content_version`
+  hängt an der Sammlung und rührt sich nicht, wenn eine Modulüberschrift
+  umbenannt wird. Begründung in `04-backend-api.md`.
+- **Zod läuft nur auf dem Server.** Die Oberfläche importiert aus
+  `packages/shared` nur `import type`. Eine zweite Prüfung von 2 512 Versen im
+  Browser wäre Rechenzeit ohne Erkenntnis; die Schemas erzeugen trotzdem die
+  Frontend-Typen, wie verlangt.
+- **Die API läuft über `tsx`, ohne Übersetzungsschritt.** Begründung im
+  Dockerfile: `packages/shared` ist als Quelle eingebunden, ein Pfad-Alias
+  überlebt `tsc` nicht, und dieser Server bedient einen Haushalt.
+- **Ein Wert steht noch im Frontend, der in die Datenbank gehört.** Die
+  Buchansicht behält Kommata nur in den Dalāʾil und den Aḥzāb (in der alten App
+  die Kürzel `d` und `l`). Das steht als benannte Konstante in
+  `src/lib/pages.ts` und gehört als Spalte an `modules`, sobald die
+  Redaktionsoberfläche sie setzen kann — Phase 6.
 
 ---
 

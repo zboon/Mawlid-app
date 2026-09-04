@@ -5,12 +5,55 @@
     "back": "Back",
     "live": "Live",
     "skipToContent": "Skip to content",
-    "backToHome": "Back to the home page"
+    "backToHome": "Back to home"
   },
   "theme": { "toLight": "Switch to the light theme", "toDark": "Switch to the dark theme" },
+  "counts": {
+    "works": "{n} works",
+    "work": "1 work",
+    "collections": "{n} collections",
+    "collection": "1 collection",
+    "verses": "{n} verses"
+  },
+  "reader": {
+    "study": "Study Version",
+    "book": "Book Version",
+    "viewSwitch": "View",
+    "transliteration": "Transliteration",
+    "translation": "Translation",
+    "arSmaller": "Smaller Arabic",
+    "arLarger": "Larger Arabic",
+    "latinSmaller": "Smaller Latin text",
+    "latinLarger": "Larger Latin text",
+    "immersive": "Full screen",
+    "leaveImmersive": "Leave full screen",
+    "listen": "Listen",
+    "listenTune": "Listen to the tune",
+    "watch": "Watch",
+    "next": "Next",
+    "prev": "Previous",
+    "langFallback": "Translation in {lang} — {want} is not available yet.",
+    "empty": "This work has no text yet."
+  },
+  "today": { "label": "Today", "weekday": "Today is {day}" },
+  "weekday": {
+    "0": "Sunday",
+    "1": "Monday",
+    "2": "Tuesday",
+    "3": "Wednesday",
+    "4": "Thursday",
+    "5": "Friday",
+    "6": "Saturday"
+  },
+  "lang": { "ar": "Arabic", "de": "German", "en": "English", "tr": "Turkish" },
   "empty": {
-    "module": "There is no such section.",
-    "notFound": "This page does not exist.",
-    "comingFromDb": "Content arrives from the database in phase 3."
+    "module": "There is no such area.",
+    "notFound": "There is no such page.",
+    "collection": "Nothing here yet."
+  },
+  "error": {
+    "offline": "The API cannot be reached. Is it running?",
+    "generic": "That did not work.",
+    "retry": "Try again"
   }
 }

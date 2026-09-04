@@ -5,3 +5,13 @@ declare module '*.vue' {
   const component: DefineComponent<object, object, unknown>
   export default component
 }
+
+interface ImportMetaEnv {
+  /* Wohin die API zeigt. Leer bedeutet „gleiche Herkunft" — richtig, sobald
+     ein Reverse-Proxy beides unter einem Namen ausliefert. */
+  readonly VITE_API_URL?: string
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv
+}
