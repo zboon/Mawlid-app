@@ -2,14 +2,17 @@
 import { nextTick, ref, watch } from 'vue'
 import type { Tab } from './TabBar.types'
 
+/* Die Modulleiste — in der Vorlage die Tabs „Mawlid Collections · Nasheeds &
+   Qasidas · Dalāʾil al-Khayrāt". Sie zeigt die BEREICHE der App und bleibt
+   stehen, solange man in einem von ihnen ist; die Sammlungen darunter wählt
+   man auf der Seite des Bereichs, nicht hier. */
 const props = defineProps<{ tabs: Tab[]; active: string }>()
 defineEmits<{ select: [slug: string] }>()
 
 const bar = ref<HTMLElement | null>(null)
 
 /* Nach jedem Rendern wird der aktive Tab in die Mitte gescrollt. Ohne das
-   steht bei acht Sammlungen der gewählte Tab womöglich außerhalb des Bildes,
-   und man sieht nicht, wo man ist. */
+   steht der gewählte Tab womöglich außerhalb des Bildes. */
 watch(
   () => [props.active, props.tabs.length],
   async () => {
@@ -24,7 +27,7 @@ watch(
 </script>
 
 <template>
-  <nav ref="bar" class="tabbar" aria-label="Sammlungen">
+  <nav ref="bar" class="tabbar" aria-label="Bereiche">
     <button
       v-for="tab in tabs"
       :key="tab.slug"
@@ -44,9 +47,9 @@ watch(
 .tabbar {
   display: flex;
   justify-content: flex-start;
-  gap: var(--space-xs);
+  gap: var(--space-sm);
   overflow-x: auto;
-  padding: var(--space-sm) var(--space-md);
+  padding: var(--space-lg) var(--space-xl);
   background: var(--brand-deep);
   scrollbar-width: none;
 }
@@ -73,12 +76,15 @@ watch(
   flex-direction: column;
   align-items: center;
   gap: var(--space-3xs);
-  padding: var(--space-xs) var(--space-lg);
-  border: 1px solid transparent;
+  min-width: 5.2rem;
+  padding: var(--space-sm) var(--space-lg);
+  border: 1.5px solid transparent;
   border-radius: var(--radius-sm);
   color: var(--brand-on);
   background: var(--on-brand-fill-subtle);
-  transition: background var(--duration-fast) var(--ease);
+  transition:
+    background var(--duration-fast) var(--ease),
+    border-color var(--duration-fast) var(--ease);
 }
 
 .tab.active {
@@ -90,13 +96,14 @@ watch(
 .t-latin {
   font-size: var(--text-sm);
   font-weight: 700;
+  line-height: 1.15;
   white-space: nowrap;
 }
 
 .t-ar {
   font-family: var(--font-arabic);
-  font-size: var(--text-lg);
-  line-height: var(--leading-arabic-title);
+  font-size: var(--text-base);
+  line-height: 1.2;
   letter-spacing: var(--tracking-none);
   opacity: 0.85;
   white-space: nowrap;
@@ -106,7 +113,7 @@ watch(
   opacity: 1;
 }
 
-.tab:active {
+.tab:not(.active):active {
   background: var(--on-brand-fill-active);
 }
 </style>

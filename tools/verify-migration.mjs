@@ -191,11 +191,39 @@ for (const [slug, map, locate] of planChecks) {
       JOIN schedule_slots sl ON sl.schedule_id = s.id
       JOIN works w ON w.id = sl.work_id
       JOIN collections c ON c.id = w.collection_id
-      WHERE s.slug = ? AND sl.weekday = ?`, [slug, Number(weekday)]);
+      WHERE s.slug = ? AND sl.weekday = ?
+      ORDER BY sl.slot_index`, [slug, Number(weekday)]);
+    /* Platz 0 ist der Zeiger der Vorlage (DALAIL_TODAY_IDX & Co.). Weitere
+       Plätze desselben Tages sind erlaubt — sie werden darunter eigens
+       gegen DALAIL_DAYS geprüft. */
     if (!rows.length || rows[0].coll !== want.coll || rows[0].wpos !== want.wpos) planBad++;
   }
 }
 check('Wochentag zeigt auf dasselbe Werk wie vorher', planBad === 0, `${planBad} Abweichungen`);
+
+/* Die zweiten Tagesteile: DALAIL_DAYS führt „Mon ²" als achten Rasterplatz.
+   Jeder solche Eintrag muss als Platz ≥ 1 seines Wochentags in der Datenbank
+   stehen — und es darf keine zweiten Plätze geben, die die Vorlage nicht hat. */
+{
+  const DAY_TO_WD = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
+  const wanted = [];
+  for (const day of D.DALAIL_DAYS) {
+    const m = /^([A-Za-z]+) \u00b2$/.exec(day.en);
+    if (m) wanted.push({ weekday: DAY_TO_WD[m[1]], wpos: day.idx });
+  }
+  const extra = await q(`
+    SELECT sl.weekday, w.sort_order AS wpos
+    FROM schedules s
+    JOIN schedule_slots sl ON sl.schedule_id = s.id
+    JOIN works w ON w.id = sl.work_id
+    WHERE s.slug = 'wochenteile' AND sl.slot_index > 0
+    ORDER BY sl.weekday, sl.slot_index`);
+  const same =
+    extra.length === wanted.length &&
+    extra.every((r, i) => r.weekday === wanted[i].weekday && r.wpos === wanted[i].wpos);
+  check('Zweite Tagesteile wie in DALAIL_DAYS', same,
+    `${extra.length} in der Datenbank, ${wanted.length} in der Vorlage`);
+}
 
 /* Die Mawlid-Folge muss Stück für Stück dieselbe Ordnung haben. */
 const seq = await q(`

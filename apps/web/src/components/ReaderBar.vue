@@ -4,12 +4,14 @@ import { useRouter } from 'vue-router'
 import { useTheme } from '@/stores/theme'
 import { useReader } from '@/stores/reader'
 import IconButton from './IconButton.vue'
-import IconBack from './icons/IconBack.vue'
-import IconHome from './icons/IconHome.vue'
 import IconSun from './icons/IconSun.vue'
 import IconMoon from './icons/IconMoon.vue'
-import ViewSwitch from './ViewSwitch.vue'
 
+/* Die Leiste des Lesers, wie in der Vorlage: links „‹ Zurück" als
+   Textknopf, mittig die Bismillah, rechts Thema und — nur im Schlank-Modus —
+   der kleine Ansichtstausch. Solange die Leiste voll ist, steht der
+   beschriftete Umschalter gleich darunter in den Chips; zwei Umschalter für
+   dieselbe Sache gleichzeitig wären verwirrend. */
 defineProps<{ slim: boolean; hasFolios: boolean }>()
 
 const router = useRouter()
@@ -21,12 +23,7 @@ const { t } = useI18n()
 <template>
   <div class="reader-bar" :class="{ slim }">
     <div class="side">
-      <IconButton :label="t('nav.back')" @click="router.back()">
-        <IconBack />
-      </IconButton>
-      <IconButton :label="t('nav.home')" @click="router.push('/')">
-        <IconHome />
-      </IconButton>
+      <button class="back" type="button" @click="router.back()">‹ {{ t('nav.back') }}</button>
     </div>
 
     <!-- Klappt im Schlank-Modus auf Breite null, statt zu verschwinden: eine
@@ -34,18 +31,6 @@ const { t } = useI18n()
     <img class="bismillah" src="/img/header-bismillah.png" alt="" aria-hidden="true" />
 
     <div class="side end">
-      <!-- Der Ansichtstausch erscheint NUR im Schlank-Modus: solange die
-           Leiste voll ist, steht der beschriftete Umschalter gleich darunter
-           in den Chips. Zwei Umschalter für dieselbe Sache gleichzeitig wären
-           verwirrend. -->
-      <ViewSwitch
-        v-if="slim && hasFolios"
-        class="mini-switch"
-        :view="reader.view"
-        :labels="{ study: 'أ', book: '❑' }"
-        :group-label="t('reader.viewSwitch')"
-        @select="reader.setView($event)"
-      />
       <IconButton
         :label="theme.dark ? t('theme.toLight') : t('theme.toDark')"
         @click="theme.toggle()"
@@ -53,14 +38,35 @@ const { t } = useI18n()
         <IconSun v-if="theme.dark" />
         <IconMoon v-else />
       </IconButton>
+
+      <button
+        v-if="slim && hasFolios"
+        class="view-swap"
+        type="button"
+        :aria-label="t('reader.viewSwitch')"
+        @click="reader.setView(reader.view === 'book' ? 'study' : 'book')"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M7 16V4M7 4L3 8M7 4l4 4M17 8v12m0 0l4-4m-4 4l-4-4" />
+        </svg>
+        <span>{{ reader.view === 'book' ? t('reader.study') : t('reader.book') }}</span>
+      </button>
     </div>
   </div>
 </template>
 
 <style scoped>
-/* Drei gleich breite Slots per Flexbox — dadurch sitzt die Bismillah auf der
-   ECHTEN Mitte der Leiste und nicht auf der Mitte zwischen zwei ungleich
-   breiten Tastengruppen. */
+/* Drei gleich breite Slots — dadurch sitzt die Bismillah auf der ECHTEN Mitte
+   der Leiste und nicht auf der Mitte zwischen zwei ungleich breiten
+   Tastengruppen. */
 .reader-bar {
   display: flex;
   align-items: center;
@@ -87,6 +93,43 @@ const { t } = useI18n()
   justify-content: flex-end;
 }
 
+.back {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-xs);
+  background: var(--on-brand-fill);
+  white-space: nowrap;
+}
+
+.back:active {
+  background: var(--on-brand-fill-active);
+}
+
+.view-swap {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  background: var(--on-brand-fill);
+  color: var(--brand-on);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-xs);
+  font-family: var(--font-serif);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.view-swap svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.view-swap:active {
+  transform: scale(0.9);
+}
+
 .bismillah {
   flex: 0 1 auto;
   max-height: 2.4rem;
@@ -103,10 +146,5 @@ const { t } = useI18n()
   max-width: 0;
   max-height: 0;
   opacity: 0;
-}
-
-.mini-switch {
-  border-color: var(--on-brand-fill);
-  background: var(--on-brand-fill-subtle);
 }
 </style>

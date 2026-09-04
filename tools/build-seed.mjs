@@ -111,7 +111,7 @@ function addModule({ slug: s, viewType, sortOrder, published, titles, descriptio
   return id;
 }
 
-function addCollection({ module_id, slug: s, sortOrder, published, titles }) {
+function addCollection({ module_id, slug: s, sortOrder, published, titles, descriptions }) {
   const id = ++collectionId;
   out.collections.push({
     id,
@@ -123,7 +123,12 @@ function addCollection({ module_id, slug: s, sortOrder, published, titles }) {
     content_version: 1,
   });
   for (const [lang, title] of Object.entries(titles)) {
-    out.collection_translations.push({ collection_id: id, lang, title });
+    out.collection_translations.push({
+      collection_id: id,
+      lang,
+      title,
+      description: descriptions?.[lang] ?? null,
+    });
   }
   return id;
 }
@@ -370,6 +375,9 @@ const cDaybai = addCollection({
   sortOrder: 10,
   published: true,
   titles: { ar: 'مَوْلِدُ الدَّيْبَعِيِّ', en: 'Mawlid ad-Daybaʿi', de: 'Mawlid ad-Daybaʿī' },
+  descriptions: {
+    en: (D.MAWLID_COLLECTIONS.find((c) => c.id === 'mawlid') || {}).desc ?? null,
+  },
 });
 const cBarzanji = addCollection({
   module_id: mMawlid,
@@ -377,6 +385,9 @@ const cBarzanji = addCollection({
   sortOrder: 20,
   published: true,
   titles: { ar: 'مَوْلِدُ الْبَرْزَنْجِيِّ', en: 'Mawlid al-Barzanjī', de: 'Mawlid al-Barzanjī' },
+  descriptions: {
+    en: (D.MAWLID_COLLECTIONS.find((c) => c.id === 'barzanji') || {}).desc ?? null,
+  },
 });
 const cDiya = addCollection({
   module_id: mMawlid,
@@ -384,6 +395,9 @@ const cDiya = addCollection({
   sortOrder: 30,
   published: true,
   titles: { ar: 'الضِّيَاءُ اللَّامِعُ', en: 'The Shimmering Light', de: 'Das leuchtende Licht' },
+  descriptions: {
+    en: (D.MAWLID_COLLECTIONS.find((c) => c.id === 'diya') || {}).desc ?? null,
+  },
 });
 const cBurdah = addCollection({
   module_id: mMawlid,
@@ -391,6 +405,9 @@ const cBurdah = addCollection({
   sortOrder: 40,
   published: true,
   titles: { ar: 'قَصِيدَةُ الْبُرْدَةِ', en: 'Qasida Burdah', de: 'Qaṣīda Burda' },
+  descriptions: {
+    en: (D.MAWLID_COLLECTIONS.find((c) => c.id === 'burdah') || {}).desc ?? null,
+  },
 });
 
 /* Der Mawlid ad-Daybaʿī wird als EINE Folge gelesen, die aus ZWEI Quellarrays
@@ -436,6 +453,9 @@ const cQasidas = addCollection({
   sortOrder: 10,
   published: true,
   titles: { ar: 'قَصَائِدُ', en: 'Qasidas', de: 'Qasidas' },
+  descriptions: {
+    en: (D.PRAISE_SECTIONS.find((c) => c.id === 'qasidas') || {}).desc ?? null,
+  },
 });
 const cIlahis = addCollection({
   module_id: mPraises,
@@ -443,6 +463,9 @@ const cIlahis = addCollection({
   sortOrder: 20,
   published: true,
   titles: { ar: 'الْإِلٰهِيَّاتُ', en: 'Ilahis', de: 'Ilahis' },
+  descriptions: {
+    en: (D.PRAISE_SECTIONS.find((c) => c.id === 'ilahis') || {}).desc ?? null,
+  },
 });
 const cNasheeds = addCollection({
   module_id: mPraises,
@@ -469,10 +492,13 @@ const AZAM_TITLE_IDX = 3;
 const ISTIGHFAR_TITLE_IDX = 2;
 const titleOf = (i) => D.LITANY_CHAPTERS[i] || {};
 
+/* Reihenfolge wie in der Vorlage: die Litanei-Liste zeigt erst die beiden
+   einzelnen Aḥzāb (LITANY_CHAPTERS[0] und [1]), dann die zwei Wochenbücher.
+   Die sortOrder-Werte bilden genau das ab. */
 const cAzam = addCollection({
   module_id: mAhzab,
   slug: 'azam',
-  sortOrder: 10,
+  sortOrder: 20,
   published: true,
   titles: {
     ar: titleOf(AZAM_TITLE_IDX).titleArabic || 'الْحِزْبُ الْأَعْظَمُ',
@@ -482,7 +508,7 @@ const cAzam = addCollection({
 const cIstighfar = addCollection({
   module_id: mAhzab,
   slug: 'istighfar',
-  sortOrder: 20,
+  sortOrder: 30,
   published: true,
   titles: {
     ar: titleOf(ISTIGHFAR_TITLE_IDX).titleArabic || 'حِزْبُ الْاِسْتِغْفَارِ',
@@ -492,7 +518,7 @@ const cIstighfar = addCollection({
 const cSingle = addCollection({
   module_id: mAhzab,
   slug: 'einzelne',
-  sortOrder: 30,
+  sortOrder: 10,
   published: true,
   titles: { ar: 'أَحْزَابٌ مُفْرَدَةٌ', en: 'Single litanies', de: 'Einzelne Litaneien' },
 });
@@ -530,9 +556,30 @@ function addSchedule(collection_id, slugName, map, workByIdx) {
   return id;
 }
 
-addSchedule(cDalailParts, 'wochenteile', D.DALAIL_TODAY_IDX, dalailWorkByIdx);
+const dalailScheduleId = addSchedule(
+  cDalailParts, 'wochenteile', D.DALAIL_TODAY_IDX, dalailWorkByIdx,
+);
 addSchedule(cAzam, 'azam-woche', D.AZAM_TODAY_IDX, litanyWorkByIdx);
 addSchedule(cIstighfar, 'istighfar-woche', D.ISTIGHFAR_TODAY_IDX, litanyWorkByIdx);
+
+/* Die zweiten Tagesteile — heute nur „Montag, Teil 2". DALAIL_TODAY_IDX kennt
+   je Tag EINEN Zeiger (der bleibt Platz 0, daran hängt die Heute-Karte);
+   DALAIL_DAYS führt zusätzlich die Rasterplätze, und dort steht der zweite
+   Montagsteil als „Mon ²". Genau dafür hat schedule_slots den slot_index. */
+const DAY_SHORT_TO_WEEKDAY = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
+for (const day of D.DALAIL_DAYS) {
+  const m = /^([A-Za-z]+) ([\u00b2\u00b3])$/.exec(day.en);
+  if (!m) continue;
+  const weekday = DAY_SHORT_TO_WEEKDAY[m[1]];
+  const part = m[2] === '\u00b2' ? 1 : 2; // slot_index: ² -> 1, ³ -> 2
+  const work_id = dalailWorkByIdx.get(day.idx);
+  if (weekday === undefined || !work_id) {
+    throw new Error(`DALAIL_DAYS: '${day.en}' (Index ${day.idx}) ist kein zweiter Tagesteil.`);
+  }
+  out.schedule_slots.push({
+    id: ++slotId, schedule_id: dalailScheduleId, weekday, slot_index: part, work_id,
+  });
+}
 
 /* ── Rezitatoren und Aufnahmen ──────────────────────────────────────────── */
 

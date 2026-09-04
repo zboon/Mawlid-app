@@ -60,15 +60,14 @@ withDefaults(
 .card {
   display: flex;
   align-items: center;
-  gap: var(--space-xl);
+  gap: var(--space-lg);
   width: 100%;
   text-align: start;
-  padding: var(--pad-row-tall);
-  margin-bottom: var(--space-sm);
+  padding: var(--space-lg) var(--space-xl);
+  margin-bottom: var(--space-md);
   background: var(--surface-card);
   border: 1px solid var(--surface-border);
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-xs);
   transition: transform var(--duration-tap) var(--ease);
 }
 
@@ -78,16 +77,16 @@ withDefaults(
 
 .num {
   flex: none;
-  width: 2.1rem;
-  height: 2.1rem;
+  width: 2.4rem;
+  height: 2.4rem;
   border-radius: var(--radius-circle);
-  border: 1.5px solid var(--accent);
+  border: 1px solid var(--accent);
   color: var(--accent);
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-arabic);
-  font-size: var(--text-md);
+  font-size: var(--text-lg);
   letter-spacing: var(--tracking-none);
 }
 
@@ -111,7 +110,7 @@ withDefaults(
   font-family: var(--font-arabic);
   letter-spacing: var(--tracking-none);
   color: var(--ink-arabic);
-  line-height: var(--leading-arabic-title);
+  line-height: 1.4;
   text-align: left;
 }
 
@@ -132,17 +131,18 @@ html[dir='rtl'] .t-under.arab {
   font-size: var(--text-xl);
 }
 
+/* Karla wie in der Vorlage — NICHT die Serifenschrift. Die Karte ist ein
+   Bedienelement, keine Textseite. */
 .t-secondary {
-  font-family: var(--font-serif);
   font-size: var(--text-md);
   color: var(--ink-soft);
   line-height: var(--leading-tight);
+  margin-top: var(--space-3xs);
 }
 
 /* Die lead-Variante ist der Dalāʾil-Index: dort führt der Wochentag, und der
    arabische Ḥizb-Titel steht darunter eine Stufe kleiner. */
 .t-lead {
-  font-family: var(--font-serif);
   font-size: var(--text-base);
   font-weight: 600;
   color: var(--ink);
@@ -153,7 +153,7 @@ html[dir='rtl'] .t-under.arab {
    Vorlage (1,35 rem gegenüber 1,2 rem). */
 .t-under {
   font-size: var(--text-lg);
-  opacity: 0.85;
+  margin-top: var(--space-3xs);
 }
 
 .t-meta {

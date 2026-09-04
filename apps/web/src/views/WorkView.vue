@@ -9,6 +9,7 @@ import EmptyState from '@/components/EmptyState.vue'
 import ErrorState from '@/components/ErrorState.vue'
 import GlossBubble from '@/components/GlossBubble.vue'
 import MediaDock from '@/components/MediaDock.vue'
+import NoteBlock from '@/components/NoteBlock.vue'
 import ReaderBar from '@/components/ReaderBar.vue'
 import SkeletonCard from '@/components/SkeletonCard.vue'
 import VerseCard from '@/components/VerseCard.vue'
@@ -114,8 +115,6 @@ const goTo = (slug: string) => router.push(`/m/${moduleSlug.value}/${collectionS
         <p class="title-latin">{{ latin(work.titles, locale) }}</p>
       </header>
 
-      <p v-if="latin(work.notes, locale)" class="reader-note">{{ latin(work.notes, locale) }}</p>
-
       <p v-if="work.langFallback" class="reader-fallback">
         {{
           t('reader.langFallback', {
@@ -192,20 +191,22 @@ const goTo = (slug: string) => router.push(`/m/${moduleSlug.value}/${collectionS
         </template>
       </div>
 
-      <div v-if="audio.length || video.length" class="reader-media">
+      <NoteBlock v-if="latin(work.notes, locale)" :text="latin(work.notes, locale)" />
+
+      <div v-if="view === 'study' && (audio.length || video.length)" class="reader-media">
         <button
           v-for="(m, i) in audio"
           :key="`a${i}`"
-          class="reader-media-btn"
+          class="qtune"
           type="button"
           @click="media = m"
         >
-          ▶ {{ m.label ?? m.reciter?.nameLatin ?? t('reader.listen') }}
+          ▶ {{ m.label ?? t('reader.listenHizb') }}
         </button>
         <button
           v-for="(m, i) in video"
           :key="`v${i}`"
-          class="reader-media-btn"
+          class="qtune"
           type="button"
           @click="media = m"
         >
@@ -301,19 +302,6 @@ const goTo = (slug: string) => router.push(`/m/${moduleSlug.value}/${collectionS
   margin-top: var(--space-2xs);
 }
 
-.reader-note {
-  background: var(--surface-card-alt);
-  border: 1px solid var(--surface-border);
-  border-inline-start: 3px solid var(--ink-accent);
-  border-radius: var(--radius-sm);
-  padding: var(--pad-row);
-  margin-bottom: var(--space-xl);
-  font-family: var(--font-serif);
-  font-size: var(--text-base);
-  line-height: var(--leading-body);
-  color: var(--ink-soft);
-}
-
 /* Kein Fehler, sondern eine Auskunft: die Übersetzung liegt in einer anderen
    Sprache vor als gewünscht. Wer das nicht sagt, lässt jemanden rätseln,
    warum die App auf Deutsch steht und der Text englisch ist. */
@@ -335,24 +323,29 @@ const goTo = (slug: string) => router.push(`/m/${moduleSlug.value}/${collectionS
 
 .reader-media {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
   gap: var(--space-sm);
-  margin-bottom: var(--space-2xl);
+  margin-bottom: var(--space-xl);
 }
 
-.reader-media-btn {
-  padding: var(--space-sm) var(--space-xl);
-  border: 1px solid var(--surface-border);
-  border-radius: var(--radius-pill);
+/* Der Hörknopf der Vorlage (.qtune): volle Breite, Goldrand, grüner Text. */
+.qtune {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  width: 100%;
   background: var(--surface-card);
-  font-family: var(--font-serif);
-  font-size: var(--text-md);
+  border: 1.5px solid var(--accent);
   color: var(--ink-accent);
+  border-radius: var(--radius-pill);
+  padding: var(--space-md) var(--space-xl);
+  font-weight: 700;
+  font-size: var(--text-base);
 }
 
-.reader-media-btn:active {
-  transform: scale(0.985);
+.qtune:active {
+  background: var(--surface-press);
 }
 
 .reader-siblings {

@@ -40,7 +40,10 @@ const round1 = (v: number) => Math.round(v * 10) / 10
 export const useReader = defineStore('reader', () => {
   const saved = load()
 
-  const view = ref<ReaderView>(saved.view ?? 'study')
+  /* Die Buchansicht ist die Voreinstellung — wie in der Vorlage
+     (state.pageView: true). Werke ohne Folio-Angaben fallen in der Ansicht
+     selbst auf die Lesefassung zurück. */
+  const view = ref<ReaderView>(saved.view ?? 'book')
   const arScale = ref(clamp(saved.arScale ?? 1, AR_MIN, AR_MAX))
   const latinScale = ref(clamp(saved.latinScale ?? 1, LATIN_MIN, LATIN_MAX))
   const showTransliteration = ref(saved.showTransliteration ?? true)

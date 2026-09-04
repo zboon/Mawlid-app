@@ -17,7 +17,7 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/m/:module/:collection',
     name: 'collection',
-    component: () => import('@/views/ModuleView.vue'),
+    component: () => import('@/views/CollectionView.vue'),
   },
   {
     path: '/m/:module/:collection/:work',

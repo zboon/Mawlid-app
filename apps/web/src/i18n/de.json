@@ -1,5 +1,7 @@
 {
-  "app": { "name": "Mawalid" },
+  "app": {
+    "name": "Mawalid"
+  },
   "nav": {
     "home": "Startseite",
     "back": "Zurück",
@@ -7,7 +9,10 @@
     "skipToContent": "Zum Inhalt springen",
     "backToHome": "Zurück zur Startseite"
   },
-  "theme": { "toLight": "Zum hellen Thema wechseln", "toDark": "Zum dunklen Thema wechseln" },
+  "theme": {
+    "toLight": "Zum hellen Thema wechseln",
+    "toDark": "Zum dunklen Thema wechseln"
+  },
   "counts": {
     "works": "{n} Werke",
     "work": "1 Werk",
@@ -33,9 +38,14 @@
     "next": "Weiter",
     "prev": "Zurück",
     "langFallback": "Übersetzung auf {lang} — {want} liegt noch nicht vor.",
-    "empty": "Dieses Werk hat noch keinen Text."
+    "empty": "Dieses Werk hat noch keinen Text.",
+    "aboutSection": "Über diesen Abschnitt",
+    "listenHizb": "Diesen Ḥizb anhören"
   },
-  "today": { "label": "Heute", "weekday": "Heute ist {day}" },
+  "today": {
+    "label": "Heute",
+    "weekday": "Heute ist {day}"
+  },
   "weekday": {
     "0": "Sonntag",
     "1": "Montag",
@@ -45,7 +55,12 @@
     "5": "Freitag",
     "6": "Samstag"
   },
-  "lang": { "ar": "Arabisch", "de": "Deutsch", "en": "Englisch", "tr": "Türkisch" },
+  "lang": {
+    "ar": "Arabisch",
+    "de": "Deutsch",
+    "en": "Englisch",
+    "tr": "Türkisch"
+  },
   "empty": {
     "module": "Diesen Bereich gibt es nicht.",
     "notFound": "Diese Seite gibt es nicht.",
@@ -55,5 +70,28 @@
     "offline": "Die API ist nicht erreichbar. Läuft sie?",
     "generic": "Das hat nicht geklappt.",
     "retry": "Nochmal versuchen"
+  },
+  "index": {
+    "today": "Heute · {day}",
+    "openPortion": "Diesen Teil öffnen ›",
+    "before": "Vor der Lesung",
+    "daily": "Die Tagesteile",
+    "completion": "Zum Abschluss",
+    "about": "Über {name}",
+    "choose": "Sammlung wählen",
+    "chapters": "Kapitel wählen",
+    "litanies": "Litanei wählen",
+    "portions": "Teil wählen",
+    "comingSoon": "Demnächst",
+    "dailyPortions": "{n} Tagesteile"
+  },
+  "weekdayShort": {
+    "0": "So",
+    "1": "Mo",
+    "2": "Di",
+    "3": "Mi",
+    "4": "Do",
+    "5": "Fr",
+    "6": "Sa"
   }
 }

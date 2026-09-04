@@ -1,60 +1,67 @@
 <script setup lang="ts">
-import { computed, watch } from 'vue'
+import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
+import type { CollectionSummary } from '@mawalid/shared'
+import BackLink from '@/components/BackLink.vue'
 import ContentCard from '@/components/ContentCard.vue'
 import EmptyState from '@/components/EmptyState.vue'
 import ErrorState from '@/components/ErrorState.vue'
+import RowLabel from '@/components/RowLabel.vue'
 import SectionIntro from '@/components/SectionIntro.vue'
 import SkeletonCard from '@/components/SkeletonCard.vue'
-import TabBar from '@/components/TabBar.vue'
-import type { Tab } from '@/components/TabBar.types'
+import ChooserCard from '@/components/index/ChooserCard.vue'
+import ScheduleIndex from '@/components/index/ScheduleIndex.vue'
 import { ApiError } from '@/api/client'
 import { useCollection, useModule, useScheduleToday } from '@/api/queries'
+import { AR } from '@/lib/arabicLabels'
 import { arabic, latin } from '@/lib/localized'
+
+/* Die Seite eines Bereichs. Drei Gestalten, wie in der Vorlage:
+ *
+ *  1. EINE Sammlung mit Wochenplan (Dalāʾil): der Wochenplan-Index —
+ *     Heute-Karte, „Vor der Lesung", Tagesraster, Abschluss, Über-Zeile.
+ *  2. MEHRERE Sammlungen (Mawlid, Nasheeds & Qasidas): die Auswahlkacheln —
+ *     „CHOOSE A MAWLID", zwei Kacheln je Zeile.
+ *  3. Al-Aḥzāb: die gemischte Liste — einzelne Litaneien als Karten, die
+ *     beiden Wochenbücher als Zeilen mit „7 Tagesteile".
+ */
 
 const route = useRoute()
 const router = useRouter()
 const { t, locale } = useI18n()
 
 const moduleSlug = computed(() => String(route.params.module ?? ''))
-const collectionSlug = computed(() =>
-  route.params.collection ? String(route.params.collection) : '',
-)
-
 const mod = useModule(moduleSlug)
 
-/* `/m/dalail` ohne Sammlung landet auf der ersten. Ein Zwischenschritt, der
-   nur eine einzige Karte zeigt, ist ein Klick ohne Inhalt. */
-watch(
-  () => [mod.data.value, collectionSlug.value] as const,
-  ([data, current]) => {
-    if (!data || current) return
-    const first = data.collections[0]
-    if (first) router.replace(`/m/${data.slug}/${first.slug}`)
-  },
-  { immediate: true },
+const collections = computed(() => mod.data.value?.collections ?? [])
+const single = computed(() => (collections.value.length === 1 ? collections.value[0] : null))
+
+/* Die gemischte Liste: genau dann, wenn der Bereich mehrere Sammlungen hat
+   und mindestens eine davon einen Wochenplan trägt (heute: Al-Aḥzāb). */
+const isMixed = computed(
+  () => collections.value.length > 1 && collections.value.some((c) => c.hasSchedule),
 )
+/* In der gemischten Liste werden die Werke der planlosen Sammlung inline
+   gezeigt. Heute gibt es genau eine („einzelne"); gäbe es mehrere, würden
+   sie zu Auswahlkacheln — inline wäre die Liste nicht mehr lesbar. */
+const plain = computed(() => {
+  const withoutSchedule = collections.value.filter((c) => !c.hasSchedule)
+  return isMixed.value && withoutSchedule.length === 1 ? (withoutSchedule[0] ?? null) : null
+})
 
-const collection = useCollection(collectionSlug, moduleSlug)
+const detailSlug = computed(() => single.value?.slug ?? plain.value?.slug ?? '')
+const collection = useCollection(detailSlug, moduleSlug)
 
-const tabs = computed<Tab[]>(() =>
-  (mod.data.value?.collections ?? []).map((c) => ({
-    slug: c.slug,
-    latin: latin(c.titles, locale.value),
-    arabic: arabic(c.titles),
-  })),
+const hasSchedule = computed(() => single.value?.hasSchedule === true)
+const schedule = useScheduleToday(detailSlug, moduleSlug, hasSchedule)
+
+/* /m/dalail?gruppe=vor — die Unterseite „Vor der Lesung". */
+const showBefore = computed(() => route.query.gruppe === 'vor')
+
+const isPending = computed(
+  () => mod.isPending.value || (detailSlug.value !== '' && collection.isPending.value),
 )
-
-const schedule = useScheduleToday(
-  collectionSlug,
-  moduleSlug,
-  computed(() => collection.data.value?.hasSchedule === true),
-)
-const hasSchedule = computed(() => (schedule.data.value?.works.length ?? 0) > 0)
-
-const works = computed(() => collection.data.value?.works ?? [])
-const isPending = computed(() => mod.isPending.value || collection.isPending.value)
 const isError = computed(() => mod.isError.value || collection.isError.value)
 
 const message = computed(() => {
@@ -64,29 +71,47 @@ const message = computed(() => {
   return t('error.generic')
 })
 
-const openWork = (slug: string) =>
-  router.push(`/m/${moduleSlug.value}/${collectionSlug.value}/${slug}`)
+const openWork = (collectionSlug: string, workSlug: string) =>
+  router.push(`/m/${moduleSlug.value}/${collectionSlug}/${workSlug}`)
 
-/* Ein türkisches Ilahi trägt seinen Originaltitel in lateinischer Schrift;
-   ein arabischer Titel darüber wäre eine Übersetzung, die es nicht gibt. */
-const cardTitles = (w: { titles: Record<string, string | undefined>; primaryScript: string }) =>
-  w.primaryScript === 'latn' || !arabic(w.titles)
-    ? { primary: latin(w.titles, locale.value), secondary: null, script: 'latn' as const }
-    : {
-        primary: arabic(w.titles),
-        secondary: latin(w.titles, locale.value),
-        script: 'arab' as const,
-      }
+const openCollection = (slug: string) => router.push(`/m/${moduleSlug.value}/${slug}`)
+
+const chooserCount = (c: CollectionSummary): string | null => {
+  if (c.counts.works === 0) return t('index.comingSoon')
+  if (c.counts.works === 1) return t('counts.work')
+  return t('counts.works', { n: c.counts.works })
+}
+
+/* Die Beschriftungen der Auswahlzeile — Inhalt, siehe lib/arabicLabels.ts. */
+const chooseArabic = computed(() =>
+  moduleSlug.value === 'mawlid' ? AR.chooseMawlid : AR.chooseSection,
+)
+
+/* „Vor der Lesung": alle Werke vor dem ersten Tagesteil, ohne das Titelblatt
+   (das hat seine eigene Über-Zeile im Index). */
+const beforeWorks = computed(() => {
+  const works = collection.data.value?.works ?? []
+  const first = works.findIndex((w) => w.weekdays.length > 0)
+  if (first <= 1) return []
+  return works.slice(1, first)
+})
+
+/* Der Querverweis der Vorlage: Al-Aḥzāb ist ein eigenes Buch und bekommt am
+   Fuß des Dalāʾil-Index eine eigene Karte unter einer Goldlinie — dort wurde
+   es immer erreicht, und so fand es Befund B1 auch wieder. Ein Datenmodell
+   dafür gibt es (noch) nicht; der eine Verweis steht deshalb hier, benannt. */
+const AHZAB_FROM_DALAIL = { from: 'dalail', to: 'ahzab' }
+const crossLink = computed(() =>
+  moduleSlug.value === AHZAB_FROM_DALAIL.from
+    ? mod.data.value
+      ? { slug: AHZAB_FROM_DALAIL.to }
+      : null
+    : null,
+)
+const crossModule = useModule(computed(() => (crossLink.value ? AHZAB_FROM_DALAIL.to : '')))
 </script>
 
 <template>
-  <TabBar
-    v-if="tabs.length > 1"
-    :tabs="tabs"
-    :active="collectionSlug"
-    @select="router.replace(`/m/${moduleSlug}/${$event}`)"
-  />
-
   <main id="main" class="index">
     <ErrorState
       v-if="isError"
@@ -104,42 +129,102 @@ const cardTitles = (w: { titles: Record<string, string | undefined>; primaryScri
       <SkeletonCard v-for="n in 5" :key="n" />
     </template>
 
-    <template v-else-if="collection.data.value">
-      <h1 v-if="arabic(collection.data.value.titles)" class="title-ar" lang="ar" dir="rtl">
-        {{ arabic(collection.data.value.titles) }}
-      </h1>
-      <p class="title-latin">{{ latin(collection.data.value.titles, locale) }}</p>
-      <SectionIntro :text="latin(collection.data.value.descriptions, locale)" />
-
-      <!-- „Heute dran" — was in der alten App DALAIL_TODAY_IDX war. -->
-      <section v-if="hasSchedule" class="today">
-        <p class="today-label">
-          {{ t('today.weekday', { day: t(`weekday.${schedule.data.value?.weekday ?? 0}`) }) }}
-        </p>
-        <ContentCard
-          v-for="w in schedule.data.value?.works ?? []"
-          :key="w.slug"
-          :title-primary="cardTitles(w).primary"
-          :title-secondary="cardTitles(w).secondary"
-          :script="cardTitles(w).script"
-          lead="secondary"
-          :meta="t('counts.verses', { n: w.verseCount })"
-          @click="openWork(w.slug)"
-        />
-      </section>
-
-      <EmptyState v-if="works.length === 0" :message="t('empty.collection')" />
-
+    <!-- Gestalt 1a · Unterseite „Vor der Lesung" -->
+    <template v-else-if="showBefore && single && collection.data.value">
+      <BackLink :label="latin(mod.data.value?.titles ?? {}, locale)" @back="router.back()" />
+      <RowLabel :text="t('index.before')" :arabic="AR.before" />
       <ContentCard
-        v-for="w in works"
+        v-for="w in beforeWorks"
         :key="w.slug"
-        :number="w.ordinal"
-        :title-primary="cardTitles(w).primary"
-        :title-secondary="cardTitles(w).secondary"
-        :script="cardTitles(w).script"
-        :lead="w.weekdays.length > 0 ? 'secondary' : 'primary'"
-        :meta="w.hasAudio ? t('reader.listen') : null"
-        @click="openWork(w.slug)"
+        :number="w.sortOrder + 1"
+        :title-primary="arabic(w.titles)"
+        :title-secondary="latin(w.titles, locale)"
+        lead="secondary"
+        script="arab"
+        @click="openWork(single.slug, w.slug)"
+      />
+    </template>
+
+    <!-- Gestalt 1 · Wochenplan-Index (Dalāʾil) -->
+    <template v-else-if="single && hasSchedule && collection.data.value">
+      <ScheduleIndex
+        :works="collection.data.value.works"
+        :today="schedule.data.value ?? null"
+        :daily-arabic="AR.dailyDalail"
+        :about-name="latin(mod.data.value?.titles ?? {}, locale)"
+        :about-arabic="arabic(mod.data.value?.titles ?? {})"
+        @open="openWork(single.slug, $event)"
+        @before="router.push({ path: `/m/${moduleSlug}`, query: { gruppe: 'vor' } })"
+      />
+
+      <div v-if="crossModule.data.value" class="cross">
+        <ChooserCard
+          class="cross-card"
+          :title-arabic="arabic(crossModule.data.value.titles)"
+          :title-latin="latin(crossModule.data.value.titles, locale)"
+          :count="t('counts.works', { n: crossModule.data.value.counts.works })"
+          @open="router.push(`/m/${AHZAB_FROM_DALAIL.to}`)"
+        />
+      </div>
+    </template>
+
+    <!-- Gestalt 3 · Die gemischte Liste (Al-Aḥzāb) -->
+    <template v-else-if="isMixed">
+      <RowLabel :text="t('index.litanies')" :arabic="AR.chooseLitany" />
+      <template v-if="plain && collection.data.value">
+        <ContentCard
+          v-for="(w, i) in collection.data.value.works"
+          :key="w.slug"
+          :number="i + 1"
+          :title-primary="arabic(w.titles)"
+          :title-secondary="latin(w.titles, locale)"
+          script="arab"
+          @click="openWork(plain.slug, w.slug)"
+        />
+      </template>
+      <ContentCard
+        v-for="(c, i) in collections.filter((x) => x.hasSchedule)"
+        :key="c.slug"
+        :number="(plain ? (collection.data.value?.works.length ?? 0) : 0) + i + 1"
+        :title-primary="arabic(c.titles)"
+        :title-secondary="`${latin(c.titles, locale)} · ${t('index.dailyPortions', { n: c.counts.works })}`"
+        script="arab"
+        @click="openCollection(c.slug)"
+      />
+    </template>
+
+    <!-- Gestalt 2 · Auswahlkacheln (Mawlid, Nasheeds & Qasidas) -->
+    <template v-else-if="collections.length > 1">
+      <SectionIntro :text="latin(mod.data.value?.descriptions ?? {}, locale)" />
+      <RowLabel :text="t('index.choose')" :arabic="chooseArabic" />
+      <div class="chooser-grid">
+        <ChooserCard
+          v-for="c in collections"
+          :key="c.slug"
+          :title-arabic="arabic(c.titles)"
+          :title-latin="latin(c.titles, locale)"
+          :count="chooserCount(c)"
+          @open="openCollection(c.slug)"
+        />
+      </div>
+    </template>
+
+    <!-- Eine Sammlung ohne Wochenplan: direkt die Werkliste. -->
+    <template v-else-if="single && collection.data.value">
+      <SectionIntro :text="latin(collection.data.value.descriptions, locale)" />
+      <RowLabel :text="t('index.chapters')" :arabic="AR.chooseChapter" />
+      <ContentCard
+        v-for="w in collection.data.value.works"
+        :key="w.slug"
+        :number="w.sortOrder + 1"
+        :title-primary="arabic(w.titles) || latin(w.titles, locale)"
+        :title-secondary="arabic(w.titles) ? latin(w.titles, locale) : null"
+        :script="w.primaryScript === 'latn' || !arabic(w.titles) ? 'latn' : 'arab'"
+        @click="openWork(single.slug, w.slug)"
+      />
+      <EmptyState
+        v-if="collection.data.value.works.length === 0"
+        :message="t('empty.collection')"
       />
     </template>
   </main>
@@ -153,36 +238,23 @@ const cardTitles = (w: { titles: Record<string, string | undefined>; primaryScri
     calc(env(safe-area-inset-bottom, 0px) + var(--space-4xl));
 }
 
-.title-ar {
-  font-family: var(--font-arabic);
-  font-size: var(--text-2xl);
-  line-height: var(--leading-arabic-title);
-  letter-spacing: var(--tracking-none);
-  color: var(--ink-accent);
-  text-align: center;
-  font-weight: 400;
-}
-
-.title-latin {
-  font-family: var(--font-serif);
-  font-size: var(--text-base);
-  color: var(--ink-soft);
-  text-align: center;
-  margin-top: var(--space-2xs);
-}
-
-.today {
-  margin: var(--space-2xl) 0;
+/* Zwei Kacheln je Zeile, wie die Sammlungswahl der Vorlage. */
+.chooser-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
   padding-bottom: var(--space-xl);
-  border-bottom: 1px solid var(--surface-border);
+  border-bottom: 1px solid var(--accent-line-soft);
 }
 
-.today-label {
-  font-size: var(--text-2xs);
-  letter-spacing: var(--tracking-caps);
-  text-transform: uppercase;
-  color: var(--accent);
-  text-align: center;
-  margin-bottom: var(--space-md);
+/* Al-Aḥzāb unter der Goldlinie — ein eigenes Buch, keine weitere Zeile. */
+.cross {
+  margin-top: var(--space-3xl);
+  padding-top: var(--space-2xl);
+  border-top: 1px solid var(--accent-line-soft);
+}
+
+.cross-card {
+  width: 100%;
 }
 </style>

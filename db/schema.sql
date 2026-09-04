@@ -328,9 +328,10 @@ CREATE TABLE schedule_slots (
   id          INT UNSIGNED NOT NULL AUTO_INCREMENT,
   schedule_id INT UNSIGNED NOT NULL,
   -- 0 = Sonntag … 6 = Samstag, wie JavaScripts getDay(). Ein Wochentag darf
-  -- mehrere Teile haben, daher slot_index. Heute hat jeder Tag genau einen:
-  -- die Vorlage lässt DALAIL_TODAY_IDX auf `monday-part-1` zeigen, Teil 2 wird
-  -- über die Liste erreicht. Der zweite Platz steht bereit, ist aber leer.
+  -- mehrere Teile haben, daher slot_index. Der Montag der Dalāʾil hat zwei:
+  -- Platz 0 ist der Zeiger der Vorlage (DALAIL_TODAY_IDX -> monday-part-1),
+  -- Platz 1 ist „Montag, Teil 2" — in der Vorlage der achte Rasterplatz
+  -- (DALAIL_DAYS: „Mon ²"). Die Heute-Karte nimmt Platz 0.
   weekday     TINYINT UNSIGNED NOT NULL,
   slot_index  TINYINT UNSIGNED NOT NULL DEFAULT 0,
   work_id     INT UNSIGNED NOT NULL,

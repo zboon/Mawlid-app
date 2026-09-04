@@ -174,10 +174,18 @@ const closing = props.index === props.total - 1 && props.total > 1
   bottom: var(--space-md);
   inset-inline: 0;
   text-align: center;
-  font-family: var(--font-serif);
-  font-size: var(--text-xs);
+  font-family: var(--font-arabic);
+  font-size: var(--text-md);
   color: var(--ink-soft);
-  opacity: 0.75;
+}
+
+/* Die Goldstriche neben der Blattzahl — „— ١ —", wie im gedruckten Buch. */
+.ms-folio::before,
+.ms-folio::after {
+  content: '—';
+  color: var(--accent);
+  padding: 0 var(--space-xs);
+  opacity: 0.8;
 }
 
 .orn {

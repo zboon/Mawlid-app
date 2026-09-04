@@ -1,5 +1,7 @@
 {
-  "app": { "name": "Mawalid" },
+  "app": {
+    "name": "Mawalid"
+  },
   "nav": {
     "home": "Home",
     "back": "Back",
@@ -7,7 +9,10 @@
     "skipToContent": "Skip to content",
     "backToHome": "Back to home"
   },
-  "theme": { "toLight": "Switch to the light theme", "toDark": "Switch to the dark theme" },
+  "theme": {
+    "toLight": "Switch to the light theme",
+    "toDark": "Switch to the dark theme"
+  },
   "counts": {
     "works": "{n} works",
     "work": "1 work",
@@ -33,9 +38,14 @@
     "next": "Next",
     "prev": "Previous",
     "langFallback": "Translation in {lang} — {want} is not available yet.",
-    "empty": "This work has no text yet."
+    "empty": "This work has no text yet.",
+    "aboutSection": "About this section",
+    "listenHizb": "Listen to this ḥizb"
   },
-  "today": { "label": "Today", "weekday": "Today is {day}" },
+  "today": {
+    "label": "Today",
+    "weekday": "Today is {day}"
+  },
   "weekday": {
     "0": "Sunday",
     "1": "Monday",
@@ -45,7 +55,12 @@
     "5": "Friday",
     "6": "Saturday"
   },
-  "lang": { "ar": "Arabic", "de": "German", "en": "English", "tr": "Turkish" },
+  "lang": {
+    "ar": "Arabic",
+    "de": "German",
+    "en": "English",
+    "tr": "Turkish"
+  },
   "empty": {
     "module": "There is no such area.",
     "notFound": "There is no such page.",
@@ -55,5 +70,28 @@
     "offline": "The API cannot be reached. Is it running?",
     "generic": "That did not work.",
     "retry": "Try again"
+  },
+  "index": {
+    "today": "Today · {day}",
+    "openPortion": "Open this portion ›",
+    "before": "Before the reading",
+    "daily": "The daily portions",
+    "completion": "On completion",
+    "about": "About {name}",
+    "choose": "Choose a section",
+    "chapters": "Select a chapter",
+    "litanies": "Select a litany",
+    "portions": "Select a portion",
+    "comingSoon": "Coming soon",
+    "dailyPortions": "{n} daily portions"
+  },
+  "weekdayShort": {
+    "0": "Sun",
+    "1": "Mon",
+    "2": "Tue",
+    "3": "Wed",
+    "4": "Thu",
+    "5": "Fri",
+    "6": "Sat"
   }
 }

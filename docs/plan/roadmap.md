@@ -213,6 +213,40 @@ Zwei Dinge kosteten dabei Zeit, die im Entwurf nicht standen:
    damit die Illumination des ersten Blattes, lautlos. Globale Regeln nennen
    seither nur Namen, die es genau einmal gibt (`.reader-head`, `.ms-hint`).
 
+### Die Treue-Runde (Nachtrag)
+
+Der erste Wurf der Phase hatte die richtige Datenschicht und die falschen
+Ansichtsstrukturen — „Darstellung zerschossen", völlig zu Recht. Der Abgleich
+lief danach Ansicht für Ansicht gegen die alte App im selben Browserfenster,
+mit ausgemessenen Stilwerten statt Augenmaß. Ergebnis:
+
+- **Der Dalāʾil-Index ist der der Vorlage:** Heute-Karte, „Vor der Lesung",
+  das 4-Spalten-Tagesraster mit „Mo ²", Goldlinie, „Zum Abschluss",
+  „Über Dalāʾil al-Khayrāt", die Aḥzāb-Karte darunter. Vorher: eine flache
+  Liste aus fünfzehn Karten.
+- **Die Tabs sind die BEREICHE** (Mawlid · Nasheeds & Qasidas · Dalāʾil ·
+  Al-Aḥzāb) und stehen auf jeder Index-Seite — nicht die Sammlungen eines
+  Bereichs. Sammlungen wählt man auf der Bereichsseite als Kacheln
+  („SAMMLUNG WÄHLEN"), wie in der Vorlage.
+- **Montag, Teil 2 steht jetzt im Wochenplan** (weekday 1, slot_index 1) —
+  wofür `schedule_slots.slot_index` gebaut war. Die Heute-Karte zeigt weiter
+  auf Teil 1 (Platz 0), die Migrationprüfung prüft beides (jetzt 13 Prüfungen).
+- **Leser:** „‹ Zurück" als Textknopf, Hinweis als grüne
+  „Über diesen Abschnitt · نُبْذَة"-Klappe (Schwelle 160 Zeichen wie in der
+  Vorlage), Hörknöpfe in voller Breite mit Goldrand, Buchfassung als
+  Voreinstellung, Blattzahl mit Goldstrichen („— ١ —").
+- **Karten in Karla, nicht in Crimson Pro** — die Zeile unter dem arabischen
+  Titel ist Bedienoberfläche, keine Textseite. Nachgemessen, nicht vermutet.
+- Zwei Fehler aus dem Umbau stehen als Tests fest
+  (`src/lib/scheduleIndex.test.ts`): die achte Blase hieß „So ²", und das
+  Abschlussgebet rutschte als neunte ins Raster.
+
+**Absichtlich noch anders als die Vorlage** (mit Grund, nicht aus Versehen):
+Suchfeld (Phase 4), Favoriten-Tab (Phase 4), „Save my place" und
+Wiederaufnahme-Karte (Phase 4), Downloads-Zeile (Phase 4),
+„Works offline"-Fußzeile (Phase 7), Zählungen leerer Kapitel
+(offene Frage 7 in `07-migration.md`).
+
 ### Was der Entwurf nicht vorsah
 
 - **Der ETag trägt zusätzlich einen Abdruck des Rumpfes.** `content_version`
