@@ -10956,7 +10956,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v374';
+const APP_VERSION = 'v375';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -12418,6 +12418,62 @@ const ILAHI_CHAPTERS = [
       { ar:"Bir od bıraktın vay dile\nTutuştum yandın dert ile\nKıyamete bir kurt ile\nKalan dünya değil misin", tr:"", en:"" },
       { ar:"Nide idim dağlar aşıp\nDağlar aşıp sular geçip\nHavanın önüne düşüp\nYelen dünya değil misin", tr:"", en:"" },
       { ar:"Yunus Emre'm sür sefayı\nSür sefayı, çek cefayı\nO Muhammed Mustafa'yı\nAlan dünya değil misin", tr:"", en:"" }
+    ]
+  },
+  /* ---- Fourth batch. Turkish text only for now, English verse translations to follow.
+     Skipped this round as duplicates/incomplete: "Gelin Ey Kardeşler" (same poem as the
+     already-included "Gelin Ey Aşıklar", just without the "Hû Mevlam" zikr refrain and with
+     "kardeşler"/"çağla" in place of "aşıklar"/"ağla"); "Can Gerek" (only a partial fragment
+     turned up across sources — holding off until a complete text can be verified). ---- */
+  { latin:true, titleArabic:"İşitin Ey Ulular, Ahir Zaman Olısar", titleEnglish:"İşitin Ey Ulular, Ahir Zaman Olısar — Listen, O Elders, the Last Days Are Coming",
+    note:"By Yunus Emre (13th c.). A gazel of social and moral warning about the corruption of the end times, turning at its close toward love.",
+    video:"https://www.youtube.com/results?search_query=Isitin+Ey+Ulular+Ahir+Zaman+ilahi+Yunus+Emre",
+    verses:[
+      { ar:"İşitin ey ulular, âhır zaman olısar\nSağ Müslüman seyrektir, o da güman olısar", tr:"", en:"" },
+      { ar:"Dânişmend okur tutmaz, derviş yolun gözetmez\nBu halk öğüt işitmez, sağır hemen olısar", tr:"", en:"" },
+      { ar:"Gitti beyler mürveti, binmişler birer atı\nYediği yoksul eti, içtiği kan olısar", tr:"", en:"" },
+      { ar:"Yani er koptu erden, elin çekmez murdardan\nDeccal kopısar yerden, onlar uyan olısar", tr:"", en:"" },
+      { ar:"Birbirine yan yana, ettiğim kalır sana\nYarın mahşer gününde cümle âyan olısar", tr:"", en:"" },
+      { ar:"Ey Yunus, şimdi senin aşk ile geçsin günün\nSevdiğin kişi senin canına can olısar", tr:"", en:"" }
+    ]
+  },
+  /* NOTE: this poem is another case (like "Biz Dünyadan Gider Olduk") of a source presenting
+     comma-joined half-lines as fewer printed lines than the poem's real quatrain form; verses
+     2–4 below are reconstructed into 4 short lines each on that same evidence — worth a check
+     against a critical edition. */
+  { latin:true, titleArabic:"Miskin Adem Oğlanı", titleEnglish:"Miskin Adem Oğlanı — Poor Son of Adam",
+    note:"By Yunus Emre (13th c.). A moral reflection on heedlessness of death and the corruption of the age.",
+    video:"https://www.youtube.com/results?search_query=Miskin+Adem+Oglani+ilahi+Yunus+Emre",
+    verses:[
+      { ar:"Miskin Adem oğlanı, nefse zebun olmuşdur\nHayvan canavar gibi, otlamağa kalmıştır\nHergiz ölümün sanmaz, ölesi günin anmaz\nBu dünyadan usanmaz, gaflet önin almışdur", tr:"", en:"" },
+      { ar:"Oğlanlar öğüt almaz\nYiğitler tevbe kılmaz\nKocalar taat kılmaz\nSarp rüzigar olmuştur", tr:"", en:"" },
+      { ar:"Beğler azdı yolundan\nBilmez yoksul halinden\nÇıktı rahmet gölünden\nNefs gölüne dalmışdur", tr:"", en:"" },
+      { ar:"Yunus sözi alimden\nZinhar olma zalimden\nKorkadurın ölümden\nCümle doğan ölmüşdür", tr:"", en:"" }
+    ]
+  },
+  { latin:true, titleArabic:"Aşk Bir Güneşe Benzer", titleEnglish:"Aşk Bir Güneşe Benzer — Love Resembles the Sun",
+    note:"By Yunus Emre (13th c.), in the older aruz-meter style. Opens with the same stock line, “İşitin ey yârenler” (Listen, O friends), as another ilahi in this collection, but is a distinct poem on the transforming power of love.",
+    video:"https://www.youtube.com/results?search_query=Ask+Bir+Gunese+Benzer+ilahi+Yunus+Emre",
+    verses:[
+      { ar:"İşitin ey yârenler\nAşk bir güneşe benzer\nAşkı olmayan gönül\nMisal-i taşa benzer", tr:"", en:"" },
+      { ar:"Taş gönülde ne biter\nDilinde agu düter\nNice yumşak söylese\nSözü savaşa benzer", tr:"", en:"" },
+      { ar:"Aşkı var gönül yanar\nYumşanır muma döner\nTaş gönüller kararmış\nSarp katı kışa benzer", tr:"", en:"" },
+      { ar:"Ol sultan kapısında\nOl Hazret tapusunda\nAşıkların yıldızı\nHer dem çavuşa benzer", tr:"", en:"" },
+      { ar:"Aynı hırs ol olmuştur\nNefsine ol kalmıştır\nKendüye düşman olmuş\nYavuz yoldaşa benzer", tr:"", en:"" },
+      { ar:"Münkir sözünü bilmez\nSözü ileri varmaz\nNeye teşbih edersin\nAnlanmaz düşe benzer", tr:"", en:"" },
+      { ar:"Geç Yunus endişeden\nNe gerek bu pişeden\nEre aşk gerek önden\nAndan dervişe benzer", tr:"", en:"" }
+    ]
+  },
+  { latin:true, titleArabic:"Evvel Bahar Ermeyince", titleEnglish:"Evvel Bahar Ermeyince — Before Spring Has Come",
+    note:"By Yunus Emre (13th c.). Uses the rose and the nightingale, a hallmark image of Persian and Turkish mystical poetry, to speak of love's ripening.",
+    video:"https://www.youtube.com/results?search_query=Evvel+Bahar+Ermeyince+ilahi+Yunus+Emre",
+    verses:[
+      { ar:"Evvel bahar ermeyince\nGül bahçede bitmez imiş\nKızıl gül açılmayınca\nBülbül figan etmez imiş", tr:"", en:"" },
+      { ar:"Bülbül heves eder ötmeğe\nGül ile bile yatmağa\nBağban kasdeyler satmağa\nGül kadrini bilmez imiş", tr:"", en:"" },
+      { ar:"Bire bağban satma gülü\nHaramdır akçesi pulu\nAğlatma aşık bülbülü\nGözün yaşı dinmez imiş", tr:"", en:"" },
+      { ar:"Yılda bir kez hayvanlara\nAşk yeli eser bunlara\nMeğer âdem hayvan olur\nHayvan âşık olmaz imiş", tr:"", en:"" },
+      { ar:"Aşık olmayan âdem\nBenzer yemişsiz ağaca\nAğaç yemiş vermeyince\nBudağı eğilmez imiş", tr:"", en:"" },
+      { ar:"Yunus Emre'm hey biçare\nYârdan ayrıldın ne çâre\nYârdan ayrılmayınca\nYâr kadrini bilmez imiş", tr:"", en:"" }
     ]
   }
 ];
