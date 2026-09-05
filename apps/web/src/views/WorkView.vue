@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
 import type { MediaItem } from '@mawalid/shared'
@@ -81,6 +81,59 @@ const message = computed(() => {
 })
 
 const goTo = (slug: string) => router.push(`/m/${moduleSlug.value}/${collectionSlug.value}/${slug}`)
+
+/* ── Der Suchsprung: /m/…/werk?vers=12&abschnitt=1 ─────────────────────────
+ *
+ * Die Trefferliste öffnet das Werk mit einer Zieladresse: Verse.position und
+ * der Hervorhebungsabschnitt. Gescrollt und geblitzt wird in der Ansicht,
+ * die ohnehin aufgeht — Buch wie Lesefassung teilen die Adresse (data-vers),
+ * wie scrollToVerse() der Vorlage in beiden Ansichten dieselben Marken
+ * findet. */
+const jump = computed(() => {
+  const vers = Number(route.query.vers)
+  if (!Number.isInteger(vers) || vers < 0) return null
+  const abschnitt = Number(route.query.abschnitt)
+  return {
+    position: vers,
+    seg: Number.isInteger(abschnitt) && abschnitt >= 0 ? abschnitt : null,
+  }
+})
+
+const bookRef = ref<InstanceType<typeof ManuscriptBook> | null>(null)
+
+function flashStudy(position: number, seg: number | null): boolean {
+  const vEl = document.querySelector<HTMLElement>(`.verses [data-vers="${position}"]`)
+  if (!vEl) return false
+  window.scrollTo({ top: Math.max(0, vEl.getBoundingClientRect().top + window.scrollY - 84) })
+  const segEl = seg !== null ? vEl.querySelector<HTMLElement>(`.seg[data-sg="${seg}"]`) : null
+  const el = segEl ?? vEl
+  const cls = segEl ? 'seg-flash' : 'hit-flash'
+  el.classList.remove(cls)
+  void el.offsetWidth
+  el.classList.add(cls)
+  return true
+}
+
+/* Wie afterViewScroll() der Vorlage: nach zwei Frames springen und, wenn die
+   Blätter noch nicht vermessen waren (die Schriften landen später und
+   verschieben alles), nach einem Augenblick ein zweites Mal. */
+watch(
+  [jump, work, view],
+  async ([j]) => {
+    if (!j || !work.value || work.value.verses.length === 0) return
+    await nextTick()
+    const run = () =>
+      view.value === 'book'
+        ? (bookRef.value?.jumpToVerse(j.position, j.seg) ?? false)
+        : flashStudy(j.position, j.seg)
+    requestAnimationFrame(() =>
+      requestAnimationFrame(() => {
+        if (!run()) setTimeout(run, 280)
+      }),
+    )
+  },
+  { immediate: true },
+)
 </script>
 
 <template>
@@ -230,6 +283,7 @@ const goTo = (slug: string) => router.push(`/m/${moduleSlug.value}/${collectionS
 
       <ManuscriptBook
         v-else-if="view === 'book'"
+        ref="bookRef"
         :work="work"
         :locale="locale"
         @continue="work.next && goTo(work.next.slug)"

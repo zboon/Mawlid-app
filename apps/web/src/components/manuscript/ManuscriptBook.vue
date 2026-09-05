@@ -111,6 +111,47 @@ watch(
     book.value?.scrollTo({ left: 0 })
   },
 )
+
+/* Der Suchsprung: das Blatt mit dem Vers aufschlagen und die Stelle
+   aufblitzen lassen — wie scrollToVerse() der Vorlage. Ein Vers kann über
+   mehrere Blätter laufen; gesucht wird das Teilstück, das den getroffenen
+   Abschnitt trägt, sonst das erste. Liefert false, wenn der Vers (noch)
+   nicht im Dokument steht — der Aufrufer versucht es dann nach der
+   Höhenanpassung noch einmal. */
+function jumpToVerse(position: number, seg: number | null): boolean {
+  const el = book.value
+  if (!el) return false
+  const parts = [...el.querySelectorAll<HTMLElement>(`[data-vers="${position}"]`)]
+  if (parts.length === 0) return false
+
+  let target = parts[0] as HTMLElement
+  let segEl: HTMLElement | null = null
+  if (seg !== null) {
+    for (const part of parts) {
+      const found = part.querySelector<HTMLElement>(`.seg[data-sg="${seg}"]`)
+      if (found) {
+        target = part
+        segEl = found
+        break
+      }
+    }
+  }
+
+  target.closest('.ms-sheet')?.scrollIntoView({ block: 'nearest', inline: 'center' })
+  syncDots()
+  const r = target.getBoundingClientRect()
+  if (r.top < 84 || r.bottom > window.innerHeight - 8) {
+    window.scrollTo({ top: Math.max(0, r.top + window.scrollY - 96) })
+  }
+  const flashEl = segEl ?? target
+  const cls = segEl ? 'seg-flash' : 'ms-flash'
+  flashEl.classList.remove(cls)
+  void flashEl.offsetWidth
+  flashEl.classList.add(cls)
+  return true
+}
+
+defineExpose({ jumpToVerse })
 </script>
 
 <template>

@@ -10,7 +10,7 @@
  * Portiert aus `manuscriptPages()` der alten App, Verhalten für Verhalten.
  */
 
-import type { Verse, WorkDetail } from '@mawalid/shared'
+import { segParts, type Verse, type WorkDetail } from '@mawalid/shared'
 import { PAGE_BREAK, isBasmala } from './text'
 
 export interface LeafItem {
@@ -28,6 +28,12 @@ export interface LeafItem {
   cont: boolean
   bandBefore: string | null
   isBasmala: boolean
+  /* Wo die Abschnittszählung (۞/،, siehe segmentTokens in lib/text.ts) für
+     diesen Teil beginnt: die Summe der Abschnitte aller früheren Teile
+     desselben Verses. Gezählt auf dem ANZEIGETEXT — in Bereichen, deren
+     Buchansicht die Kommata weglässt, weicht die Zählung damit vom
+     Servertreffer ab; das Aufblitzen fällt dort auf den ganzen Vers zurück. */
+  segBase: number
 }
 
 export interface Leaf {
@@ -93,6 +99,7 @@ export function buildLeaves(work: WorkDetail): Leaf[] {
           cont: false,
           bandBefore: verse.bandLabel,
           isBasmala: true,
+          segBase: 0,
         })
         continue
       }
@@ -105,6 +112,7 @@ export function buildLeaves(work: WorkDetail): Leaf[] {
           cont: false,
           bandBefore: verse.bandLabel,
           isBasmala: false,
+          segBase: 0,
         })
         continue
       }
@@ -120,6 +128,7 @@ export function buildLeaves(work: WorkDetail): Leaf[] {
       })
 
       let sub = 0
+      let segBase = 0
       chunks.forEach((chunk, i) => {
         if (chunk) {
           items.push({
@@ -129,7 +138,9 @@ export function buildLeaves(work: WorkDetail): Leaf[] {
             cont: i < lastFilled,
             bandBefore: i === 0 ? verse.bandLabel : null,
             isBasmala: false,
+            segBase,
           })
+          segBase += segParts(chunk).length
         }
         /* Zwischen Abschnitt i und i+1 steht ein Umbruchzeichen — auch wenn
            ein Abschnitt leer ist (ein ‖ ganz am Ende eines Verses). Jedes

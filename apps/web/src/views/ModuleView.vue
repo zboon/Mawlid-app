@@ -13,10 +13,13 @@ import SectionIntro from '@/components/SectionIntro.vue'
 import SkeletonCard from '@/components/SkeletonCard.vue'
 import ChooserCard from '@/components/index/ChooserCard.vue'
 import ScheduleIndex from '@/components/index/ScheduleIndex.vue'
+import SearchBox from '@/components/index/SearchBox.vue'
+import SearchResults from '@/components/index/SearchResults.vue'
 import { ApiError } from '@/api/client'
 import { useCollection, useModule, useScheduleToday } from '@/api/queries'
 import { AR } from '@/lib/arabicLabels'
 import { arabic, latin } from '@/lib/localized'
+import { useSearch } from '@/stores/search'
 
 /* Die Seite eines Bereichs. Drei Gestalten, wie in der Vorlage:
  *
@@ -31,6 +34,7 @@ import { arabic, latin } from '@/lib/localized'
 const route = useRoute()
 const router = useRouter()
 const { t, locale } = useI18n()
+const search = useSearch()
 
 const moduleSlug = computed(() => String(route.params.module ?? ''))
 const mod = useModule(moduleSlug)
@@ -114,8 +118,14 @@ const crossModule = useModule(computed(() => (crossLink.value ? AHZAB_FROM_DALAI
 
 <template>
   <main id="main" class="index">
+    <SearchBox />
+
+    <!-- Suchmodus: der Begriff durchsucht die ganze App, die Bereichsseite
+         tritt zurück — wie renderResults() der Vorlage bei state.query. -->
+    <SearchResults v-if="search.active" />
+
     <ErrorState
-      v-if="isError"
+      v-else-if="isError"
       :message="message"
       :retry-label="t('error.retry')"
       @retry="

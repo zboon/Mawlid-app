@@ -55,8 +55,10 @@ und die Kalligrafie oben bleibt unangetastet.
 
 ### Ergebnisse
 
-Nach Modulen gruppiert, in der Reihenfolge der Module. Je Gruppe eine
-Überschrift zweisprachig („Dalāʾil al-Khayrāt · دلائل الخيرات").
+Nach **Sammlungen** gruppiert, in kanonischer Reihenfolge (Modul →
+Sammlung → Werk). Je Gruppe eine Überschrift zweisprachig
+(„Dalāʾil al-Khayrāt · دلائل الخيرات") — die Suchgruppen der Vorlage sind
+Sammlungs-, nicht Modulüberschriften.
 
 Unter jeder Karte bis zu **sechs** Trefferzeilen mit Kontext, darunter „+N
 weitere Zeilen in dieser Lesung". Ein Tippen springt zum Vers und lässt ihn kurz

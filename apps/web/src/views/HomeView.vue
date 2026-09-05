@@ -5,13 +5,17 @@ import { useRouter } from 'vue-router'
 import HomeTile from '@/components/HomeTile.vue'
 import SkeletonCard from '@/components/SkeletonCard.vue'
 import ErrorState from '@/components/ErrorState.vue'
+import SearchBox from '@/components/index/SearchBox.vue'
+import SearchResults from '@/components/index/SearchResults.vue'
 import { useModules } from '@/api/queries'
 import { arabic, latin } from '@/lib/localized'
 import { ApiError } from '@/api/client'
+import { useSearch } from '@/stores/search'
 
 const router = useRouter()
 const { t, locale } = useI18n()
 const { data, isPending, isError, error, refetch } = useModules()
+const search = useSearch()
 
 /* Das Startmenü nach dem Zayd-Entwurf: die Menü-Bereiche in Buchordnung, als
    neuntes die offene „Mehr in Kürze"-Kachel. Al-Aḥzāb steht nicht hier —
@@ -35,8 +39,14 @@ const message = computed(() =>
 
 <template>
   <main id="main" class="home">
+    <!-- Tippen verwandelt die Startseite in die Trefferliste — die ganze App
+         wird durchsucht, wie im Suchmodus der Vorlage. -->
+    <div v-if="search.active" class="home-results">
+      <SearchResults />
+    </div>
+
     <ErrorState
-      v-if="isError"
+      v-else-if="isError"
       :message="message"
       :retry-label="t('error.retry')"
       @retry="refetch()"
@@ -66,7 +76,10 @@ const message = computed(() =>
       </template>
     </div>
 
-    <footer class="foot">{{ t('app.name') }}</footer>
+    <footer v-if="!search.active" class="foot">{{ t('app.name') }}</footer>
+
+    <!-- Am unteren Rand schwebend, wie auf der Startseite der Vorlage. -->
+    <SearchBox at-bottom />
   </main>
 </template>
 
@@ -84,6 +97,15 @@ const message = computed(() =>
 .tile-skeleton {
   margin-bottom: 0;
   height: 100%;
+}
+
+/* Die Trefferliste braucht denselben Rahmen wie die Bereichsseiten — und
+   unten Luft, damit das schwebende Suchfeld die letzte Zeile nicht verdeckt. */
+.home-results {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: var(--space-2xl) var(--space-xl)
+    calc(env(safe-area-inset-bottom, 0px) + var(--space-4xl) + 3rem);
 }
 
 /* Unter 460 px wird das Raster zweispaltig. */

@@ -170,6 +170,7 @@
   --pad-row-tall: 0.85rem var(--space-lg);
   /* Die Steuerpille des Lesers — 04-components.md §3 schreibt genau das vor. */
   --pad-chip: 0.4rem 0.85rem;
+  --pad-search-inset: 2.4rem;
 
   /* ---- Radien ----------------------------------------------------------- */
   --radius-pill: 999px;

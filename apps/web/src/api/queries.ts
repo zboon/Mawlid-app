@@ -6,12 +6,13 @@
  */
 
 import { computed, toValue, type MaybeRefOrGetter } from 'vue'
-import { useQuery } from '@tanstack/vue-query'
+import { keepPreviousData, useQuery } from '@tanstack/vue-query'
 import type {
   CollectionDetail,
   ModuleDetail,
   ModuleList,
   ScheduleToday,
+  SearchResponse,
   WorkDetail,
 } from '@mawalid/shared'
 import { apiGet } from './client'
@@ -87,6 +88,20 @@ export function useWork(
           q(toValue(collectionSlug), 'collection'),
         signal,
       ),
+  })
+}
+
+/* Die Suche über den ganzen Bestand. `placeholderData` hält die vorige
+   Trefferliste stehen, während die nächste lädt — sonst blinkte die Liste
+   bei jedem Buchstaben leer auf. */
+export function useSearchResults(query: MaybeRefOrGetter<string>) {
+  return useQuery({
+    ...shared,
+    enabled: computed(() => toValue(query) !== ''),
+    placeholderData: keepPreviousData,
+    queryKey: computed(() => ['search', toValue(query)]),
+    queryFn: ({ signal }) =>
+      apiGet<SearchResponse>(`/search?q=${encodeURIComponent(toValue(query))}`, signal),
   })
 }
 

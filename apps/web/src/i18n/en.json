@@ -97,5 +97,12 @@
     "4": "Thu",
     "5": "Fri",
     "6": "Sat"
+  },
+  "search": {
+    "placeholder": "Search",
+    "hint": "e.g. ya nabi, salaam, mercy…",
+    "clear": "Clear search",
+    "noResults": "No matches for “{q}”. Try a different spelling.",
+    "moreHits": "+{n} more line in this reading | +{n} more lines in this reading"
   }
 }

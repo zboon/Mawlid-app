@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { Annotation } from '@mawalid/shared'
-import { tokenize } from '@/lib/text'
-import { useGlossBubble } from '@/composables/useGlossBubble'
-import IconRosette from './icons/IconRosette.vue'
+import { segmentTokens, tokenize } from '@/lib/text'
+import VerseTokens from './VerseTokens.vue'
 
 const props = withDefaults(
   defineProps<{
@@ -16,6 +15,13 @@ const props = withDefaults(
        zweiter Tipp auf DIESELBE Glosse die Blase schließt und nicht die einer
        gleichlautenden Stelle weiter unten. */
     idKey?: string
+    /* Abschnittsweise setzen: jeder Hervorhebungsabschnitt (۞/،-Zählung,
+       siehe segmentTokens) bekommt eine .seg-Spanne mit data-sg. Darauf
+       zeigen Treffer-Aufblitzen und Markierungen. */
+    segments?: boolean
+    /* Wo die Zählung beginnt — für Verse, die auf mehrere VerseText-Instanzen
+       verteilt sind (Basmala-Teilung, Buchblätter). */
+    segOffset?: number
   }>(),
   {
     annotations: () => [],
@@ -23,10 +29,10 @@ const props = withDefaults(
     stripPageBreak: true,
     rosettes: true,
     idKey: '',
+    segments: false,
+    segOffset: 0,
   },
 )
-
-const { show } = useGlossBubble()
 
 const tokens = computed(() =>
   tokenize(props.body, {
@@ -36,46 +42,43 @@ const tokens = computed(() =>
     rosettes: props.rosettes,
   }),
 )
+
+const pieces = computed(() => (props.segments ? segmentTokens(tokens.value, props.segOffset) : null))
 </script>
 
 <template>
-  <!-- Kein v-html. Der Text kommt aus der Datenbank und wird später redaktionell
-       bearbeitet; Marken statt Zeichenketten heißt, dass eingefügtes Markup
-       Text bleibt. -->
-  <template v-for="(token, i) in tokens" :key="i">
-    <span v-if="token.t === 'text'">{{ token.s }}</span>
-    <IconRosette v-else-if="token.t === 'rosette'" />
-    <br v-else-if="token.t === 'break'" />
-    <button
-      v-else-if="token.gloss"
-      class="gloss tappable"
-      type="button"
-      @click="show($event, token.gloss, `${idKey}-${i}`)"
-    >
-      {{ token.s }}
-    </button>
-    <span v-else class="gloss">{{ token.s }}</span>
+  <template v-if="pieces">
+    <template v-for="(piece, i) in pieces" :key="i">
+      <span v-if="piece.sg !== null" class="seg" :data-sg="piece.sg">
+        <VerseTokens :tokens="piece.tokens" :id-key="`${idKey}s${i}`" />
+      </span>
+      <VerseTokens v-else :tokens="piece.tokens" :id-key="`${idKey}s${i}`" />
+    </template>
   </template>
+  <VerseTokens v-else :tokens="tokens" :id-key="idKey" />
 </template>
 
 <style scoped>
-/* Die goldene Tinte des gedruckten Buches: Wiederholungszahlen, „der Ort des
-   Aufstehens", der eigene Name zum Einsetzen. */
-.gloss {
-  color: var(--accent);
-  font: inherit;
-  letter-spacing: inherit;
-}
-
-.tappable {
-  padding: 0;
+/* Ein Abschnitt ist unsichtbares Gerüst, bis eine Markierung oder ein
+   Aufblitzen ihn färbt. box-decoration-break: über Zeilenumbrüche hinweg
+   bleibt die Lasur zusammenhängend. */
+.seg {
   border-radius: var(--radius-mark);
-  text-decoration: underline;
-  text-decoration-style: dotted;
-  text-underline-offset: 0.25em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
-.tappable:active {
-  background: var(--accent-wash);
+.seg.seg-flash {
+  animation: seg-flash 1.5s ease-out 1;
+}
+
+@keyframes seg-flash {
+  0%,
+  12% {
+    background: var(--accent-wash);
+  }
+  100% {
+    background: transparent;
+  }
 }
 </style>

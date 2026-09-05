@@ -54,7 +54,11 @@ const closing = props.index === props.total - 1 && props.total > 1
         <template v-for="(item, i) in body" :key="`${item.verse.position}-${item.sub ?? 'x'}`">
           <ManuscriptBand v-if="item.bandBefore" :label="item.bandBefore" variant="inline" />
 
-          <span v-if="item.verse.kind === 'instruction'" class="ms-instruction">
+          <span
+            v-if="item.verse.kind === 'instruction'"
+            class="ms-instruction"
+            :data-vers="item.verse.position"
+          >
             <VerseText
               :body="item.body"
               :annotations="annotations"
@@ -63,12 +67,14 @@ const closing = props.index === props.total - 1 && props.total > 1
               :id-key="`ms${index}-${i}`"
             />
           </span>
-          <span v-else class="ms-v">
+          <span v-else class="ms-v" :data-vers="item.verse.position">
             <VerseText
               :body="item.body"
               :annotations="annotations"
               :locale="locale"
               :strip-page-break="false"
+              segments
+              :seg-offset="item.segBase"
               :id-key="`ms${index}-${i}`"
             />
           </span>
@@ -151,6 +157,22 @@ const closing = props.index === props.total - 1 && props.total > 1
 .ms-v {
   border-radius: var(--radius-xs);
   padding: 0.05em 0.12em;
+}
+
+/* Der Suchsprung ins Buch: der getroffene Vers blitzt golden auf. Die Klasse
+   wird imperativ gesetzt (weg, reflow, dran), damit die Animation auch beim
+   zweiten Sprung auf denselben Vers neu startet. */
+.ms-v.ms-flash {
+  animation: ms-flash 1.1s ease-out 1;
+}
+
+@keyframes ms-flash {
+  0% {
+    background: var(--accent-wash);
+  }
+  100% {
+    background: transparent;
+  }
 }
 
 .ms-instruction {

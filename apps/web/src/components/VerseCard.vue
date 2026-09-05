@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import type { Annotation, Verse } from '@mawalid/shared'
+import { segParts, type Annotation, type Verse } from '@mawalid/shared'
 import { PAGE_BREAK, splitBasmala } from '@/lib/text'
 import VerseText from './VerseText.vue'
 
@@ -17,6 +17,15 @@ const props = defineProps<{
 const original = computed(() => (props.verse.texts.original?.body ?? '').split(PAGE_BREAK).join(''))
 const parts = computed(() => (props.latinScript ? null : splitBasmala(original.value)))
 
+/* Die Abschnittszählung (۞/،) läuft über den GANZEN Vers. Ist er an der
+   Basmala in bis zu drei Absätze geteilt, zählt jeder dort weiter, wo der
+   vorige aufgehört hat — sonst zeigte ein Treffer-Abschnitt vom Server auf
+   die falsche Stelle. */
+const basmalaOffset = computed(() => (parts.value ? segParts(parts.value.pre).length : 0))
+const restOffset = computed(() =>
+  parts.value ? basmalaOffset.value + segParts(parts.value.basmala).length : 0,
+)
+
 /* Bei einer Rubrik bleibt die Umschrift aus — sie ist eine Anweisung des
    Buches, kein Gebet, das man mitspricht. */
 const withTransliteration = computed(
@@ -28,6 +37,7 @@ const withTransliteration = computed(
   <article
     class="verse"
     :class="{ refrain: verse.kind === 'refrain', instruction: verse.kind === 'instruction' }"
+    :data-vers="verse.position"
   >
     <div class="v-num">{{ number }}</div>
 
@@ -52,6 +62,7 @@ const withTransliteration = computed(
           :body="parts.pre"
           :annotations="annotations"
           :locale="locale"
+          segments
           :id-key="`v${verse.id}p`"
         />
       </p>
@@ -60,6 +71,8 @@ const withTransliteration = computed(
           :body="parts.basmala"
           :annotations="annotations"
           :locale="locale"
+          segments
+          :seg-offset="basmalaOffset"
           :id-key="`v${verse.id}b`"
         />
       </p>
@@ -68,6 +81,8 @@ const withTransliteration = computed(
           :body="parts.rest"
           :annotations="annotations"
           :locale="locale"
+          segments
+          :seg-offset="restOffset"
           :id-key="`v${verse.id}r`"
         />
       </p>
@@ -78,6 +93,7 @@ const withTransliteration = computed(
         :body="original"
         :annotations="annotations"
         :locale="locale"
+        segments
         :id-key="`v${verse.id}`"
       />
       <span v-if="verse.separator" class="v-salawat">{{ verse.separator }}</span>
@@ -115,6 +131,24 @@ const withTransliteration = computed(
 .verse.refrain {
   border-color: var(--accent-soft);
   background: linear-gradient(var(--surface-card), var(--surface-card-alt));
+}
+
+/* Der Suchsprung blitzt die Karte golden auf — nur, wenn der Treffer keinem
+   einzelnen Abschnitt zuzuordnen war; sonst blitzt der Abschnitt selbst
+   (.seg-flash in VerseText). Die Klasse wird imperativ gesetzt, wie in der
+   Vorlage: weg, reflow, wieder dran — so startet die Animation auch beim
+   zweiten Sprung auf denselben Vers. */
+.verse.hit-flash {
+  animation: hit-flash 1.3s ease-out 1;
+}
+
+@keyframes hit-flash {
+  0% {
+    box-shadow: var(--shadow-flash);
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
 }
 
 /* Eine Rubrik aus dem Buch — kein Gebet, sondern ein Übergangshinweis. Gold

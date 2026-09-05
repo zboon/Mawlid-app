@@ -294,8 +294,11 @@ Namen bekommen:
 --pad-row:      var(--space-md) var(--space-lg);    /* .7rem .95rem  — Listenzeile */
 --pad-row-tall: 0.85rem var(--space-lg);            /* .85rem .95rem — hohe Zeile */
 --pad-chip:     0.4rem 0.85rem;                     /* die Steuerpille des Lesers */
+--pad-search-inset: 2.4rem;                         /* Innenabstand des Suchfelds zu Lupe und ✕ */
 ```
 
+`--pad-search-inset` (Phase 4) hält im Suchfeld den Text von Lupen-Symbol
+und Löschknopf frei — die Vorlage nutzt 2,4/2,3 rem; ein Wert genügt.
 `--pad-chip` ist in Phase 3 dazugekommen. Der Wert steht in `04-components.md`
 §3 wörtlich vorgeschrieben; er gehört deshalb hierher und nicht in die
 Komponente — sonst sähe ihn die Token-Prüfung nicht.

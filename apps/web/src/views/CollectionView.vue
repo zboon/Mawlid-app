@@ -10,10 +10,13 @@ import RowLabel from '@/components/RowLabel.vue'
 import SectionIntro from '@/components/SectionIntro.vue'
 import SkeletonCard from '@/components/SkeletonCard.vue'
 import ScheduleIndex from '@/components/index/ScheduleIndex.vue'
+import SearchBox from '@/components/index/SearchBox.vue'
+import SearchResults from '@/components/index/SearchResults.vue'
 import { ApiError } from '@/api/client'
 import { useCollection, useScheduleToday } from '@/api/queries'
 import { AR } from '@/lib/arabicLabels'
 import { arabic, latin } from '@/lib/localized'
+import { useSearch } from '@/stores/search'
 
 /* Die Seite einer Sammlung: Rückwärts-Zeile zum Bereich, dann entweder die
    Kapitelliste („SELECT A CHAPTER") oder — bei den Wochenbüchern der Aḥzāb —
@@ -22,6 +25,7 @@ import { arabic, latin } from '@/lib/localized'
 const route = useRoute()
 const router = useRouter()
 const { t, locale } = useI18n()
+const search = useSearch()
 
 const moduleSlug = computed(() => String(route.params.module ?? ''))
 const collectionSlug = computed(() => String(route.params.collection ?? ''))
@@ -56,8 +60,13 @@ const cardTitles = (w: { titles: Record<string, string | undefined>; primaryScri
 
 <template>
   <main id="main" class="index">
+    <SearchBox />
+
+    <!-- Suchmodus: durchsucht die ganze App, die Kapitelliste tritt zurück. -->
+    <SearchResults v-if="search.active" />
+
     <ErrorState
-      v-if="collection.isError.value"
+      v-else-if="collection.isError.value"
       :message="message"
       :retry-label="t('error.retry')"
       @retry="collection.refetch()"

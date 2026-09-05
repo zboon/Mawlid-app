@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
+import { useSearch } from '@/stores/search'
 import { useTheme } from '@/stores/theme'
 import IconButton from './IconButton.vue'
 import IconHome from './icons/IconHome.vue'
@@ -11,6 +12,14 @@ import IconMoon from './icons/IconMoon.vue'
 withDefaults(defineProps<{ variant?: 'large' | 'compact' }>(), { variant: 'large' })
 
 const router = useRouter()
+const search = useSearch()
+
+/* Wie goHome() der Vorlage: der Weg zur Startseite räumt die Suche ab —
+   wer Heim will, will die Kacheln, nicht seine alte Trefferliste. */
+const goHome = () => {
+  search.clear()
+  router.push('/')
+}
 const theme = useTheme()
 const { t } = useI18n()
 </script>
@@ -21,7 +30,7 @@ const { t } = useI18n()
          breit, wodurch die Bismillah auf der ECHTEN Mitte der Leiste sitzt und
          nicht auf der Mitte zwischen zwei ungleich breiten Tastengruppen. -->
     <div class="mh-left">
-      <IconButton :label="t('nav.home')" @click="router.push('/')">
+      <IconButton :label="t('nav.home')" @click="goHome">
         <IconHome />
       </IconButton>
       <IconButton v-if="variant === 'compact'" :label="t('nav.back')" @click="router.back()">

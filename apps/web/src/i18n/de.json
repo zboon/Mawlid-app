@@ -97,5 +97,12 @@
     "4": "Do",
     "5": "Fr",
     "6": "Sa"
+  },
+  "search": {
+    "placeholder": "Suchen",
+    "hint": "z. B. ya nabi, salaam, mercy …",
+    "clear": "Suche leeren",
+    "noResults": "Keine Treffer für „{q}“. Versuch es mit einer anderen Schreibweise.",
+    "moreHits": "+{n} weitere Zeile in dieser Lesung | +{n} weitere Zeilen in dieser Lesung"
   }
 }

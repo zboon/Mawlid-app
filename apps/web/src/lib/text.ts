@@ -111,6 +111,75 @@ export function tokenize(
   return out
 }
 
+/* ── Hervorhebungsabschnitte ────────────────────────────────────────────────
+ *
+ * Die Vorlage teilt einen Vers für Markierung und Treffer-Aufblitzen in
+ * Abschnitte: an jeder Rosette ۞ (sie steht ZWISCHEN den Abschnitten) und an
+ * jedem arabischen Komma ، (es bleibt AM Abschnitt). Die Zählung hier muss
+ * mit segParts() in packages/shared/src/search-core.mjs übereinstimmen —
+ * der Server rechnet den Treffer-Abschnitt damit aus, und `data-sg` ist die
+ * Adresse, auf die er zeigt.
+ *
+ * Eine bewusste Ungenauigkeit: eine Glosse wird nicht am Komma geteilt (sie
+ * ist ein eigenes, klickbares Element). Keine der sieben Glossenregeln des
+ * Bestands enthält ein Komma; träfe es doch einmal zu, verschöbe sich die
+ * Zählung dieses einen Verses und das Aufblitzen fiele auf den ganzen Vers
+ * zurück — falsch markiert wird nichts.
+ */
+
+export type SegmentPiece = { sg: number | null; tokens: Token[] }
+
+const SEG_COMMA = '،'
+
+export function segmentTokens(tokens: readonly Token[], offset = 0): SegmentPiece[] {
+  const pieces: SegmentPiece[] = []
+  let current: Token[] = []
+  let plain = ''
+  let next = offset
+
+  /* Abschluss eines Abschnitts: nur Inhalt, der nach trim() etwas trägt,
+     bekommt eine Nummer — Weißraum zwischen zwei Rosetten zählt nicht,
+     genau wie in segParts(). */
+  const flush = () => {
+    if (current.length === 0) return
+    pieces.push({ sg: plain.trim() !== '' ? next++ : null, tokens: current })
+    current = []
+    plain = ''
+  }
+
+  for (const token of tokens) {
+    if (token.t === 'rosette') {
+      flush()
+      pieces.push({ sg: null, tokens: [token] })
+      continue
+    }
+    if (token.t === 'break') {
+      current.push(token)
+      plain += '\n'
+      continue
+    }
+    if (token.t === 'gloss') {
+      current.push(token)
+      plain += token.s
+      continue
+    }
+    /* Ein Textstück kann mehrere Kommata tragen; jedes schließt einen
+       Abschnitt, das Komma selbst bleibt am Ende stehen. */
+    const parts = token.s.split(SEG_COMMA)
+    for (const [i, part] of parts.entries()) {
+      const last = i === parts.length - 1
+      const s = last ? part : part + SEG_COMMA
+      if (s) {
+        current.push({ t: 'text', s })
+        plain += s
+      }
+      if (!last) flush()
+    }
+  }
+  flush()
+  return pieces
+}
+
 /* Die Basmala steht im Buch über dem Text, nicht in ihm. Erkannt wird sie ohne
    Vokalzeichen, damit jede Vokalisierung der Vorlage trifft — und sie muss die
    Basmala SEIN, nicht bloß mit ihr beginnen: sonst verschwände eine Sure, die
