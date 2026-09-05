@@ -12572,7 +12572,8 @@
   "TAB_CHILDREN": {
     "dalail": [
       "before",
-      "downloads"
+      "downloads",
+      "litanies"
     ],
     "litanies": [
       "azam",
@@ -12882,5 +12883,5 @@
     }
   },
   "AUDIO_BASE": "https://zboon.github.io/mawlid-audio/",
-  "APP_VERSION": "v379"
+  "APP_VERSION": "v380"
 }

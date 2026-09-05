@@ -137,7 +137,7 @@ function addCollection({ module_id, slug: s, sortOrder, published, titles, descr
 
 /* ── Ein Stück wird ein Werk ────────────────────────────────────────────── */
 
-function addWork(piece, collection_id, sortOrder) {
+function addWork(piece, collection_id, sortOrder, { inSearch = true } = {}) {
   const sec = sectionOf(piece.titleEnglish);
   const titleEn = sec ? sec.rest : piece.titleEnglish || '';
   const latin = piece.latin === true;
@@ -156,6 +156,7 @@ function addWork(piece, collection_id, sortOrder) {
     primary_script: latin ? 'latn' : 'arab',
     primary_lang: latin ? 'tr' : 'ar',
     has_folios: Array.isArray(piece.folios) && piece.folios.length > 0 ? 1 : 0,
+    in_search: inSearch ? 1 : 0,
     /* Auch ein Werk ohne Verse wird veröffentlicht — so macht es die Vorlage:
        die 16 leeren Barzanjī-Kapitel stehen dort im Index und öffnen eine
        Platzhalterseite. Damit stimmen auch die Zählungen („17 Kapitel").
@@ -447,7 +448,9 @@ const cDalailParts = addCollection({
    können, ohne noch einmal zu raten. */
 const dalailWorkByIdx = new Map();
 D.DALAIL_CHAPTERS.forEach((c, i) => {
-  dalailWorkByIdx.set(i, addWork(c, cDalailParts, i));
+  /* Kapitel 0 ist die Titelseite des Buches — Vorspann, keine Lesung. Die
+     Vorlage nimmt sie aus Suche und Kapitelliste (dalailCards: x.n !== 0). */
+  dalailWorkByIdx.set(i, addWork(c, cDalailParts, i, { inSearch: i !== 0 }));
 });
 
 /* ── Mawlid ─────────────────────────────────────────────────────────────── */

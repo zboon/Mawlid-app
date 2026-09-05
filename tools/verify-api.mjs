@@ -268,6 +268,58 @@ async function main() {
     record(leaked.length === 0, 'Entwürfe antworten mit 404', leaked.length ? leaked.join(', ') : `${drafts.length} Entwürfe geprüft`)
   }
 
+  /* 11 · Suche: die vier Stufen des Vierfach-ODER, je eine Stichprobe.
+     Der volle Gleichstand (40+ Begriffe alt gegen neu) läuft gesondert in
+     tools/verify-search.mjs — hier geht es darum, dass der Endpunkt lebt
+     und jede Stufe überhaupt trägt. */
+  {
+    const cases = [
+      ['muhamad', 'normalisiert (Tippfehler)'],
+      ['mawla ya', 'gestrafft (Leerzeichen egal)'],
+      ['Salām', 'roh mit Diakritikum'],
+      ['قل هو الله', 'arabisch wörtlich'],
+    ]
+    const misses = []
+    for (const [q, label] of cases) {
+      const { res, json } = await get(`/api/content/search?q=${encodeURIComponent(q)}`)
+      if (res.status !== 200 || !json?.works?.length) misses.push(`${label}: ${res.status}, ${json?.works?.length ?? 0} Werke`)
+    }
+    record(misses.length === 0, 'Suche: alle vier Vergleichsstufen tragen', misses.join('; ') || `${cases.length} Stichproben`)
+  }
+
+  /* 12 · Suche: von der Suche ausgenommene Werke bleiben unsichtbar. */
+  {
+    const [[titlePage]] = await db.query(
+      `SELECT w.slug, wt.title FROM works w
+        JOIN work_translations wt ON wt.work_id = w.id AND wt.lang = 'en'
+       WHERE w.in_search = 0 LIMIT 1`,
+    )
+    if (!titlePage) {
+      record(false, 'Suche: in_search=0 bleibt unsichtbar', 'kein ausgenommenes Werk in der Datenbank — Seed unvollständig?')
+    } else {
+      const { json } = await get(`/api/content/search?q=${encodeURIComponent(titlePage.title)}`)
+      const leaked = (json?.works ?? []).some((w) => w.work.slug === titlePage.slug)
+      record(!leaked, 'Suche: in_search=0 bleibt unsichtbar', `geprüft mit „${titlePage.title}"`)
+    }
+  }
+
+  /* 13 · Suche: Treffer tragen eine gültige Sprungmarke. */
+  {
+    const { json } = await get('/api/content/search?q=muhamad')
+    const withHits = (json?.works ?? []).find((w) => w.hits.length > 0)
+    let ok = false
+    let detail = 'kein Werk mit Verstreffern'
+    if (withHits) {
+      const h = withHits.hits[0]
+      const [[row]] = await db.query(
+        `SELECT v.position FROM verses v WHERE v.id = ?`, [h.verseId],
+      )
+      ok = row && row.position === h.position && Number.isInteger(h.seg)
+      detail = `${withHits.work.slug} → Vers ${h.position}, Abschnitt ${h.seg}`
+    }
+    record(Boolean(ok), 'Suche: verseId und position zeigen auf denselben Vers', detail)
+  }
+
   await db.end()
 
   /* ── Bericht ─────────────────────────────────────────────────────────── */

@@ -274,6 +274,45 @@ export const ScheduleToday = z.object({
 })
 export type ScheduleToday = z.infer<typeof ScheduleToday>
 
+/* ── Suche ─────────────────────────────────────────────────────────────── */
+
+/* Das Ergebnis von GET /content/search?q=… — je Werk höchstens sechs
+   Verstreffer, wie in der Vorlage (hitList CAP = 6, gesammelt bis 40).
+   Die Schnipsel-Fensterung ist Darstellung und bleibt beim Client
+   (hitSnippet in search-core); hier kommen die Rohtexte. */
+
+export const SearchHit = z.object({
+  /* Verse.position im Werk — die Sprungmarke für Leser und Buchansicht. */
+  position: z.number().int().nonnegative(),
+  verseId: z.number().int(),
+  /* Arabischer Text ohne ‖, wie die Vorlage ihn in der Trefferzeile setzt. */
+  ar: z.string(),
+  /* Der Rohtext des getroffenen Zweitfeldes; leer bei arabischem Treffer. */
+  sec: z.string(),
+  field: z.enum(['ar', 'tr', 'en']),
+  /* Der Hervorhebungsabschnitt (۞/،-Zählung), auf den der Sprung blitzt. */
+  seg: z.number().int().nonnegative(),
+})
+export type SearchHit = z.infer<typeof SearchHit>
+
+export const SearchWorkResult = z.object({
+  module: z.string(),
+  collection: z.object({ slug: z.string(), titles: Localized }),
+  work: z.object({ slug: z.string(), titles: Localized, hasFolios: z.boolean() }),
+  hits: z.array(SearchHit).max(6),
+  /* Wie viele Treffer über die sechs hinaus gezählt wurden (bis 40):
+     die „+N more lines in this reading"-Zeile der Vorlage. */
+  moreHits: z.number().int().nonnegative(),
+})
+export type SearchWorkResult = z.infer<typeof SearchWorkResult>
+
+export const SearchResponse = z.object({
+  query: z.string(),
+  contentVersion: z.number().int(),
+  works: z.array(SearchWorkResult),
+})
+export type SearchResponse = z.infer<typeof SearchResponse>
+
 /* ── Fehler ────────────────────────────────────────────────────────────── */
 
 export const ApiError = z.object({

@@ -87,6 +87,7 @@ if (charset && !String(charset.Value).startsWith('utf8mb4')) {
 const UPGRADES = [
   ['modules', 'theme_key', 'ADD COLUMN theme_key VARCHAR(24) NULL AFTER icon_key'],
   ['modules', 'in_menu', 'ADD COLUMN in_menu TINYINT(1) NOT NULL DEFAULT 1 AFTER is_published'],
+  ['works', 'in_search', 'ADD COLUMN in_search TINYINT(1) NOT NULL DEFAULT 1 AFTER has_folios'],
 ];
 for (const [table, column, ddl] of UPGRADES) {
   const [[hit]] = await db.query(

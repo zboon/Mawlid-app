@@ -137,6 +137,11 @@ CREATE TABLE works (
   -- Ob die Manuskriptansicht angeboten wird (Werk hat Folio-Angaben).
   has_folios      TINYINT(1)   NOT NULL DEFAULT 0,
 
+  -- Veröffentlicht, aber von der Suche ausgenommen. Genau ein Fall in der
+  -- Vorlage: die Titelseite der Dalāʾil (Kapitel 0) — Vorspann, keine Lesung;
+  -- dort taucht sie weder in der Suche noch in der Kapitelliste auf.
+  in_search       TINYINT(1)   NOT NULL DEFAULT 1,
+
   status          ENUM('draft','review','published') NOT NULL DEFAULT 'draft',
   published_at    TIMESTAMP    NULL,
   created_at      TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,

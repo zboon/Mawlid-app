@@ -14,6 +14,7 @@ import {
   ModuleDetail,
   ModuleList,
   ScheduleToday,
+  SearchResponse,
   WorkDetail,
   type Annotation,
   type CollectionSummary,
@@ -28,6 +29,7 @@ import {
 } from '@mawalid/shared'
 import { num, prisma } from '../lib/prisma.js'
 import { cachedJson } from '../lib/http.js'
+import { runSearch, searchCorpus } from '../lib/searchIndex.js'
 import { isLang, localized, resolveLang } from '../lib/localized.js'
 import { badRequest, conflict, notFound } from '../lib/errors.js'
 
@@ -531,6 +533,26 @@ export async function contentRoutes(app: FastifyInstance) {
       version,
       body,
       schema: WorkDetail,
+    })
+  })
+
+  /* Suche über den ganzen veröffentlichten Bestand, mit dem Vierfach-ODER
+     der Vorlage. Der Algorithmus läuft im Speicher (lib/searchIndex.ts);
+     warum nicht in MySQL, steht dort und in 05-database.md §6. */
+  app.get('/search', async (req, reply) => {
+    const parsed = z.object({ q: z.string().min(1).max(200) }).safeParse(req.query)
+    if (!parsed.success) {
+      throw badRequest('BAD_QUERY', 'q fehlt oder ist länger als 200 Zeichen.')
+    }
+    const q = parsed.data.q
+    const version = await totalContentVersion()
+    const corpus = await searchCorpus(version)
+    return cachedJson(req, reply, {
+      scope: 'search',
+      version,
+      body: { query: q, contentVersion: version, works: runSearch(corpus, q) },
+      schema: SearchResponse,
+      maxAge: 60,
     })
   })
 
