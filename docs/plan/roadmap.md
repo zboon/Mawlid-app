@@ -309,7 +309,7 @@ zumutbar.
 
 ### Aufgaben
 
-- [x] `tools/lib/normalize.mjs` — die Normalisierung **Zeichen für Zeichen**
+- [x] `packages/shared/src/normalize.mjs` — die Normalisierung **Zeichen für Zeichen**
       übernommen, gegen die Vorlage auf allen 5.834 Verstexten geprüft:
       null Abweichungen. Wandert in Phase 4 nach `packages/shared/`
 - [x] **Eine Faltung für alle Sprachen**, wie in der Vorlage. Die

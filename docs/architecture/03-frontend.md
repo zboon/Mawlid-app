@@ -299,7 +299,7 @@ Weil die Oberfläche irgendwann auf Arabisch stehen kann, gilt ab sofort:
 | `toggleFav()` / `updateFavUI()` | `useFavorite()` |
 | `startAutoScroll()` / `stopAutoScroll()` | `useAutoScroll()` |
 | `msAutoFit()` | `useManuscriptFit()` |
-| `normalize()` / `tighten()` | `packages/shared/normalize.ts` |
+| `normalize()` / `tighten()` | `packages/shared/src/normalize.mjs` |
 | `segWrap()` / `withRosettes()` | `ArabicVerse.vue` |
 | `onclick="…"` in HTML-Strings | `@click` |
 | `document.documentElement.classList.toggle('dark')` | `theme`-Store |

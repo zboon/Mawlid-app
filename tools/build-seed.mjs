@@ -18,7 +18,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { normalizeArabic } from './lib/normalize.mjs';
+import { normalizeArabic } from '../packages/shared/src/normalize.mjs';
 
 const IN = process.argv[2] || 'data/extracted';
 const OUT = process.argv[3] || 'db/seed';

@@ -306,7 +306,9 @@ Verlust.
 ### Die Lösung
 
 **Die Normalisierung wird Zeichen für Zeichen aus der alten App übernommen**, in
-`packages/shared/src/normalize.ts` gelegt und von **beiden** Seiten benutzt:
+`packages/shared/src/normalize.mjs` gelegt (als .mjs, damit auch die reinen
+Node-Werkzeuge unter `tools/` sie laden können; Typen daneben in
+`normalize.d.mts`) und von **beiden** Seiten benutzt:
 
 - Die API normalisiert beim Speichern und schreibt das Ergebnis nach
   `verse_texts.body_search`.
@@ -349,7 +351,7 @@ Normalisierung verloren `muhamad`, `qasida`, `kaseeda` und `qaseeda` Treffer,
 die die alte App findet.
 
 **Also: eine Faltung, für alle Sprachen, wie in der Vorlage.** `normalizeLatin()`
-bleibt in `tools/lib/normalize.mjs` liegen, falls die Präzision auf deutschen
+bleibt in `packages/shared/src/normalize.mjs` liegen, falls die Präzision auf deutschen
 Wiki-Texten später doch stört — dann als *zweite* Spalte neben der ersten,
 nicht als Ersatz.
 

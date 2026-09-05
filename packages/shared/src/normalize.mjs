@@ -1,8 +1,9 @@
 /* ============================================================================
-   Suchnormalisierung
+   Suchnormalisierung — der gemeinsame Ursprung für Import, API und Frontend.
    ----------------------------------------------------------------------------
-   Diese Datei ist ab Phase 4 der gemeinsame Ursprung für Frontend, API und
-   Import. Eine Funktion, drei Aufrufer, kein Auseinanderlaufen.
+   Eine Funktion, drei Aufrufer, kein Auseinanderlaufen. Bewusst .mjs statt
+   .ts: die Werkzeuge unter tools/ laufen mit purem Node und können kein
+   TypeScript laden; die Typen stehen daneben in normalize.d.mts.
 
    normalizeArabic() ist Zeichen für Zeichen aus der alten index.html
    übernommen. Die Faltungsregeln sind über Jahre von Hand kalibriert worden —
@@ -10,17 +11,15 @@
    dasselbe finden. Wer hier etwas „aufräumt", verändert das Suchverhalten für
    Menschen, die einen Vers nur halb im Ohr haben.
 
-   Ihre Regeln sind allerdings für ARABISCHE UMSCHRIFT gebaut. Auf deutschen
-   Text angewandt richten sie Schaden an, vor allem w→u, y→i und das
-   Zusammenziehen von Doppelbuchstaben:
-
-       Wissen    → uisen        Woche     → uoche
-       Wüste     → uste         Schwester → schuester
-       weiß      → ueiß         Qualität  → kualitat
-
-   Für Arabisch ist genau das erwünscht. Für deutsche Artikel- und Wiki-Texte
-   ist es Unsinn. Deshalb ist die Normalisierung sprachabhängig — siehe
-   docs/architecture/05-database.md §6.
+   Es gilt EINE Faltung für alle Sprachen, wie in der Vorlage: Text und
+   Anfrage laufen durch dieselbe Funktion, also treffen sie sich auch dort,
+   wo die Regeln auf Deutsch seltsam aussehen („Wissen" → „uisen" steht dann
+   eben auf beiden Seiten). Eine sprachabhängige Variante wurde gebaut und
+   verworfen — sie kostet Treffer („muhamad", „qaseeda"), statt welche zu
+   retten. Begründung und Beispiele: docs/architecture/05-database.md §6.
+   normalizeLatin() bleibt als Reserve liegen, falls die Präzision auf
+   deutschen Wiki-Texten später doch stört — dann als ZWEITE Spalte neben
+   der ersten, nicht als Ersatz.
    ========================================================================= */
 
 /** Volle Faltung. Für arabischen Originaltext und dessen Umschrift. */

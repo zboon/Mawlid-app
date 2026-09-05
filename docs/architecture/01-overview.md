@@ -212,7 +212,7 @@ Mawlid-app/
 │       │   ├── ws/
 │       │   ├── services/
 │       │   └── lib/
-│       │       └── normalize.ts          ← geteilt mit dem Frontend
+│       │       └── normalize.mjs         ← geteilt mit dem Frontend
 │       └── prisma/
 │           ├── schema.prisma
 │           └── migrations/

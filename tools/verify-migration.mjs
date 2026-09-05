@@ -14,7 +14,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import mysql from 'mysql2/promise';
-import { normalizeArabic } from './lib/normalize.mjs';
+import { normalizeArabic } from '../packages/shared/src/normalize.mjs';
 
 const IN = process.argv[2] || 'data/extracted';
 const D = JSON.parse(fs.readFileSync(path.join(IN, '_all.json'), 'utf8'));
