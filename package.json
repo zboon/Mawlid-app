@@ -12,9 +12,11 @@
     "web": "npm --prefix apps/web run dev",
     "api:verify": "npm --prefix apps/api run verify",
     "web:verify": "npm --prefix apps/web run verify",
-    "api:check": "node tools/verify-api.mjs"
+    "api:check": "node tools/verify-api.mjs",
+    "search:check": "node tools/verify-search.mjs"
   },
   "devDependencies": {
+    "@playwright/test": "^1.63.0",
     "mysql2": "^3.11.5",
     "zod": "^3.24.1"
   }

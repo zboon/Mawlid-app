@@ -345,13 +345,22 @@ zumutbar.
       Autoscroll-Tempo, das die Vorlage vergaß), zur Sicherung nach
       `display_settings`; der Server füllt auf einem frischen Gerät nur
       die nie angefassten Regler
-- [ ] Der Suchgleichheitstest aus Phase 2 muss grün bleiben — und der neue
-      Gleichstandsbeweis: 40+ Begriffe alt gegen neu, dieselben Werke
+- [x] Der Suchgleichheitstest aus Phase 2 bleibt grün — und der neue
+      Gleichstandsbeweis steht: `tools/verify-search.mjs` lässt die
+      originale index.html in einem echten Browser mit ihrem eigenen Code
+      suchen und vergleicht die Werkmengen gegen die neue API.
+      **57 Begriffe** (Umschrift, Tippfehler, rohe Diakritika, Englisch,
+      arabisch mit und ohne Vokalzeichen, Straffung, die Buchnummer „13") —
+      alle liefern dieselben Werke, ohne eine einzige Abweichung
 
 ### Fertig, wenn
 
 Vierzig Suchbegriffe — arabisch, in Umschrift, englisch, mit Tippfehlern —
 liefern in beiden Apps dieselben Werke.
+
+**Erfüllt** mit 57 Begriffen, null Abweichungen (`npm run search:check`,
+braucht laufende API und ein Chromium; PLAYWRIGHT_CHROMIUM zeigt auf die
+Binärdatei).
 
 ---
 

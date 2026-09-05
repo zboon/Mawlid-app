@@ -76,8 +76,10 @@ Dokumenten und dem Code hat die Dokumentation recht.
 
 ## Was heute schon läuft
 
-Stand: **Phase 3 abgeschlossen.** Man kann in der neuen App lesen — in der
-Lese- und in der Buchansicht, mit Ton.
+Stand: **Phase 4 abgeschlossen.** Funktionsgleichstand mit der alten App:
+lesen (Lese- und Buchansicht, mit Ton), suchen, merken (Favoriten,
+Leseband, Markierungen), und die Anzeigeeinstellungen überleben das
+Neuladen.
 
 ```bash
 cp .env.example .env               # einmalig; .env ist NICHT im Repository
@@ -90,13 +92,19 @@ npm run web                        # http://localhost:5173
 Die `.env` im Wurzelverzeichnis reicht für alles — Datenbank, API und der
 Compose-Verbund teilen sie sich.
 
-Die drei Prüfungen, die den Bestand absichern:
+Die Prüfungen, die den Bestand absichern:
 
 ```bash
 npm run db:verify                  # 13 Prüfungen: Datenbank gegen die Quelle
 npm run api:check                  # 14 Prüfungen: API gegen die Datenbank
+npm run search:check               # 57 Begriffe: alte App gegen neue Suche
 npm --prefix apps/web run verify   # Typen, Lint, Token-Regel, Tests
 ```
+
+`search:check` lässt die originale `index.html` in einem echten Browser mit
+ihrem eigenen Code suchen und vergleicht die Werkmengen mit der neuen API —
+es braucht die laufende API und ein Chromium (`PLAYWRIGHT_CHROMIUM` zeigt
+auf die Binärdatei).
 
 `npm run db:verify` vergleicht **byteweise**, ohne Toleranz; `npm run api:check`
 setzt das über HTTP fort. Zusammen decken sie die ganze Strecke ab:
