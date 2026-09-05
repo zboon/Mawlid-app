@@ -360,27 +360,66 @@ Feinschliff.
 
 ## 5. Suche
 
-### `SearchField`
+### `SearchBox`
 
 Runde Eingabe mit Lupe links und Löschtaste rechts. Auf der Startseite sitzt sie
-**fest am unteren Bildschirmrand** (`.at-bottom`, mit stärkerem Schatten), auf
-allen anderen Seiten oben im Fluss.
+**fest am unteren Bildschirmrand** (`at-bottom`, fester Grund und stärkerer
+Schatten — Inhalt läuft darunter), auf allen anderen Seiten oben im Fluss.
+Ruhend leise (durchscheinend, gedimmt), fokussiert voll da (Karte, Goldrand).
+Der Innenabstand zu Lupe und ✕ ist `--pad-search-inset`.
 
-### `SearchHit`
+### `SearchResults`
 
-Ein Trefferausschnitt unterhalb einer Karte. Zeigt die Fundstelle mit
-Umgebungstext, das Suchwort in einer Goldlasur hervorgehoben.
+Der Suchmodus: Werkkarten (`ContentCard`) unter zweisprachigen
+Sammlungsüberschriften (`RowLabel`), darunter je Karte die Trefferzeilen
+(`.hit`): arabischer Ausschnitt rechtsbündig, Zweittext klein darunter, das
+Suchwort als `<mark>` in Goldlasur — nur bei wörtlicher Fundstelle; ein rein
+normalisierter Treffer hat nichts wörtlich hervorzuheben.
 
 Höchstens **sechs** Treffer pro Stück, darunter „+N weitere Zeilen". Diese
 Deckelung bleibt: sonst füllt ein häufiges Wort wie „Allah" die ganze Seite.
 
-### `useHitFlash`
+### Treffer-Aufblitzen
 
-Beim Springen zu einem Treffer blitzt die Zielstelle kurz auf:
+Beim Springen zu einem Treffer blitzt die Zielstelle kurz auf — der
+Abschnitt (`.seg-flash`, Goldlasur) oder, wenn keiner zuzuordnen ist, der
+ganze Vers (`.hit-flash` in der Lesefassung mit `--shadow-flash`,
+`.ms-flash` auf dem Blatt). Die Klassen werden imperativ gesetzt (weg,
+Reflow, dran), damit die Animation auch beim zweiten Sprung auf dieselbe
+Stelle neu startet.
 
-```css
---shadow-flash: 0 0 0 2px var(--accent), 0 0 16px rgb(from var(--accent) r g b / .55);
-```
+---
+
+## 5b. Merken: Lesezeichen, Leseband, Markierungen
+
+### Lesezeichen (`IconBookmark`, `.fav-btn`, Kopfsymbol)
+
+Ein Zeichen für alles Gemerkte: Umriss = nichts gemerkt, gefüllt = gemerkt,
+immer `currentColor` (nimmt das Gold des Bereichs). In der Leseleiste ganz
+rechts merkt es das offene Werk; im Seitenkopf (links neben Heim, immer
+Umriss) öffnet es die Favoritenliste `/favoriten` — der Weg aus dem
+Zayd-Entwurf, der die Favoriten-Kachel ersetzt.
+
+### Leseband und Markierungen — nur in den Dalāʾil
+
+Wie in der Vorlage (`segWrapMark` griff bei `kind === 'd'`):
+
+- **Lesefassung:** je Verskarte ein stilles Band oben links
+  (`.verse-place`); ein Tipp legt die Stelle hierher, ein zweiter hebt sie
+  auf. Die Karte mit dem Band trägt Goldrand und Randstreifen
+  (`.verse.placed`).
+- **Buchansicht:** Phrasen (`.seg`) sind tippbar und färben sich als
+  Markierung (`--accent-wash`); die zuletzt getippte ist der Kandidat für
+  den Chip **„Meine Stelle speichern"**, sonst nimmt er den obersten
+  sichtbaren Vers. Die gespeicherte Stelle liegt kräftiger
+  (`--accent-wash-strong` bzw. Goldring `.ms-v.placed`).
+- **Wiederaufnahme-Karte** (`ResumeCard`): am Kopf des Dalāʾil-Index, direkt
+  unter der Heute-Karte — Band-Symbol, arabischer Titel, „Buchfassung ·
+  Vers ٣", daneben ein leiser „Leeren"-Knopf mit Rückfrage; Leeren räumt
+  Stelle UND Markierungen des Bereichs ab, die Favoriten nie.
+
+Das Datenmodell kann je Werk eine Position in jedem Bereich; die Oberfläche
+bleibt beim Vorbild, bis jemand mehr will.
 
 ---
 

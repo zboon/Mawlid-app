@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { segParts, type Annotation, type Verse } from '@mawalid/shared'
 import { PAGE_BREAK, splitBasmala } from '@/lib/text'
+import IconBookmark from './icons/IconBookmark.vue'
 import VerseText from './VerseText.vue'
 
 const props = defineProps<{
@@ -12,7 +14,15 @@ const props = defineProps<{
   latinScript: boolean
   showTransliteration: boolean
   showTranslation: boolean
+  /* Das Leseband der Lesefassung (Dalāʾil): ein Band je Karte, ein Tipp
+     setzt es hierher, ein zweiter hebt es auf — placeVerse() der Vorlage. */
+  placeable?: boolean
+  placed?: boolean
 }>()
+
+const emit = defineEmits<{ togglePlace: [] }>()
+
+const { t } = useI18n()
 
 const original = computed(() => (props.verse.texts.original?.body ?? '').split(PAGE_BREAK).join(''))
 const parts = computed(() => (props.latinScript ? null : splitBasmala(original.value)))
@@ -36,10 +46,21 @@ const withTransliteration = computed(
 <template>
   <article
     class="verse"
-    :class="{ refrain: verse.kind === 'refrain', instruction: verse.kind === 'instruction' }"
+    :class="{ refrain: verse.kind === 'refrain', instruction: verse.kind === 'instruction', placed }"
     :data-vers="verse.position"
   >
     <div class="v-num">{{ number }}</div>
+
+    <button
+      v-if="placeable"
+      class="verse-place"
+      :class="{ on: placed }"
+      type="button"
+      :aria-label="placed ? t('place.lift') : t('place.set')"
+      @click="emit('togglePlace')"
+    >
+      <IconBookmark :on="placed" />
+    </button>
 
     <p v-if="verse.kind === 'refrain'" class="v-label">Refrain · يُرَدَّد</p>
     <p v-else-if="verse.kind === 'instruction'" class="v-label">Instruction · إِرْشَاد</p>
@@ -131,6 +152,61 @@ const withTransliteration = computed(
 .verse.refrain {
   border-color: var(--accent-soft);
   background: linear-gradient(var(--surface-card), var(--surface-card-alt));
+}
+
+/* Die Karte mit dem Leseband: Goldrand und Randstreifen links — beim
+   Zurückkommen in eine lange Portion auf einen Blick zu sehen
+   (.verse.placed der Vorlage). */
+.verse.placed {
+  border-color: var(--accent);
+  box-shadow:
+    0 0 0 1px var(--accent),
+    var(--shadow-xs);
+}
+
+.verse.placed::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: var(--accent);
+  border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+}
+
+/* Das Band selbst: still in der Ecke, gold sobald es liegt. */
+.verse-place {
+  position: absolute;
+  top: var(--space-sm);
+  left: var(--space-sm);
+  z-index: 2;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: var(--space-2xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-soft);
+  opacity: 0.35;
+  transition:
+    opacity var(--duration-fast) var(--ease),
+    transform var(--duration-fast) var(--ease),
+    color var(--duration-fast) var(--ease);
+}
+
+.verse-place:active {
+  transform: scale(0.9);
+}
+
+.verse-place.on {
+  color: var(--accent);
+  opacity: 1;
+}
+
+@media (hover: hover) {
+  .verse-place:hover {
+    opacity: 0.85;
+  }
 }
 
 /* Der Suchsprung blitzt die Karte golden auf — nur, wenn der Treffer keinem

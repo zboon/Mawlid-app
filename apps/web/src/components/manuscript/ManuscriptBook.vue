@@ -8,12 +8,19 @@ import { useReader } from '@/stores/reader'
 import ManuscriptDefs from './ManuscriptDefs.vue'
 import ManuscriptLeaf from './ManuscriptLeaf.vue'
 
-const props = defineProps<{ work: WorkDetail; locale: string }>()
+const props = defineProps<{
+  work: WorkDetail
+  locale: string
+  /* Durchgereicht an die Blätter — siehe ManuscriptLeaf. */
+  markable?: boolean
+  marks?: ReadonlyMap<number, ReadonlySet<number>>
+  placed?: { verseId: number; seg: number | null } | null
+}>()
 
 /* Am letzten Blatt geht es in den nächsten Abschnitt weiter, statt tot zu
    enden — wie msStep() der Vorlage über nextPiece(). Die Navigation macht
    die Ansicht darüber; hier wird nur gemeldet, dass das Buch zu Ende ist. */
-const emit = defineEmits<{ continue: [] }>()
+const emit = defineEmits<{ continue: []; toggleMark: [verseId: number, seg: number] }>()
 
 const reader = useReader()
 const { offered } = useSpread()
@@ -151,7 +158,23 @@ function jumpToVerse(position: number, seg: number | null): boolean {
   return true
 }
 
-defineExpose({ jumpToVerse })
+/* Der oberste noch sichtbare Vers des aufgeschlagenen Blattes — der
+   Rückgriff von „Meine Stelle speichern", wenn niemand eine Phrase getippt
+   hat. Wie topVisibleMsVerse() der Vorlage; geliefert wird Verse.position. */
+function topVisibleVerse(): number | null {
+  const el = book.value
+  if (!el) return null
+  const sheet = el.children[current.value]
+  if (!sheet) return null
+  const parts = [...sheet.querySelectorAll<HTMLElement>('[data-vers]')]
+  for (const part of parts) {
+    if (part.getBoundingClientRect().bottom > 96) return Number(part.dataset.vers)
+  }
+  const last = parts[parts.length - 1]
+  return last ? Number(last.dataset.vers) : null
+}
+
+defineExpose({ jumpToVerse, topVisibleVerse })
 </script>
 
 <template>
@@ -170,6 +193,10 @@ defineExpose({ jumpToVerse })
         :running-head="head"
         :annotations="work.annotations"
         :locale="locale"
+        :markable="markable"
+        :marks="marks"
+        :placed="placed"
+        @toggle-mark="(verseId, seg) => emit('toggleMark', verseId, seg)"
       />
     </div>
 

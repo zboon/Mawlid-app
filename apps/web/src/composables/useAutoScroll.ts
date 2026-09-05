@@ -6,7 +6,8 @@
  * sondern weil sie das gemeinte Tempo ist.
  */
 
-import { onBeforeUnmount, readonly, ref } from 'vue'
+import { onBeforeUnmount, readonly, ref, toRef } from 'vue'
+import { useReader } from '@/stores/reader'
 
 export const SCROLL_SPEEDS = [0.14, 0.21, 0.28, 0.35, 0.42, 0.49, 0.56, 0.63, 0.7] as const
 export const SCROLL_LABELS = [
@@ -23,7 +24,10 @@ export const SCROLL_LABELS = [
 
 export function useAutoScroll() {
   const running = ref(false)
-  const speedIndex = ref(4)
+  /* Die Stufe wohnt im Reader-Store und überlebt so das Neuladen — in der
+     Vorlage ging sie verloren (state.scrollSpeedIdx war flüchtig). */
+  const reader = useReader()
+  const speedIndex = toRef(reader, 'scrollSpeedIdx')
 
   let frame: number | null = null
   let accumulated = 0
@@ -75,7 +79,7 @@ export function useAutoScroll() {
 
   return {
     running: readonly(running),
-    speedIndex: readonly(speedIndex),
+    speedIndex,
     label: () => SCROLL_LABELS[speedIndex.value] ?? '',
     toggle: () => (running.value ? stop() : start()),
     start,

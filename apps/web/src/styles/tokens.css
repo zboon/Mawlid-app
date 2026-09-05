@@ -109,6 +109,7 @@
   --accent-line: rgb(from var(--accent) r g b / 0.5);
   --accent-line-soft: rgb(from var(--accent) r g b / 0.3);
   --accent-wash: rgb(from var(--accent) r g b / 0.28);
+  --accent-wash-strong: rgb(from var(--accent) r g b / 0.5);
 
   /* ---- Die Startkacheln ---------------------------------------------------
      Jede Menükachel trägt die Farbe ihres Bereichs (modules.theme_key). Die

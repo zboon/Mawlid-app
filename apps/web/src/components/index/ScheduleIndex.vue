@@ -65,6 +65,10 @@ const bubbles = computed<DayBubble[]>(() =>
     @open="emit('open', todayWork.slug)"
   />
 
+  <!-- Das Band der Vorlage folgt direkt auf die Heute-Karte
+       (renderIndex: todayCard + resumeCard()). -->
+  <slot name="resume" />
+
   <NavRow
     v-if="beforeGroup.length"
     :label="t('index.before')"

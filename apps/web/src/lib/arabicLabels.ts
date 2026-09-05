@@ -17,7 +17,15 @@ export const AR = {
   chooseLitany: 'اختر حزباً',
   choosePortion: 'اختر حزباً',
   downloads: 'التَّسْجِيلَاتُ الْمَحْفُوظَةُ',
+  favorites: 'الْمُفَضَّلَة',
 } as const
+
+/* Eine Zahl in arabisch-indischen Ziffern — toArNum() der Vorlage. */
+export const toArabicDigits = (n: number): string =>
+  String(n)
+    .split('')
+    .map((d) => AR_DIGITS[Number(d)] ?? d)
+    .join('')
 
 /* Die Wochentage, wie die Bubbles sie tragen — 0 = Sonntag wie Date.getDay(). */
 export const AR_WEEKDAYS: Record<number, string> = {

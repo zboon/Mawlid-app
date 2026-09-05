@@ -104,5 +104,21 @@
     "clear": "Suche leeren",
     "noResults": "Keine Treffer für „{q}“. Versuch es mit einer anderen Schreibweise.",
     "moreHits": "+{n} weitere Zeile in dieser Lesung | +{n} weitere Zeilen in dieser Lesung"
+  },
+  "fav": {
+    "add": "Lesezeichen setzen",
+    "remove": "Lesezeichen entfernen",
+    "list": "Favoriten",
+    "empty": "Noch nichts gemerkt. Das Lesezeichen oben rechts im Leser legt ein Werk hier ab."
+  },
+  "place": {
+    "continue": "Weiterlesen, wo du warst",
+    "clear": "Leeren",
+    "verse": "Vers",
+    "save": "Meine Stelle speichern",
+    "saved": "Stelle gespeichert",
+    "set": "Leseband hierher legen",
+    "lift": "Leseband aufheben",
+    "confirmClear": "Deine Lesezeichen in diesem Bereich löschen?\n\nDas entfernt die gespeicherte Stelle und alle markierten Phrasen. Deine Favoriten bleiben unberührt."
   }
 }

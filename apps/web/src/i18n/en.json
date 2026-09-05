@@ -104,5 +104,21 @@
     "clear": "Clear search",
     "noResults": "No matches for “{q}”. Try a different spelling.",
     "moreHits": "+{n} more line in this reading | +{n} more lines in this reading"
+  },
+  "fav": {
+    "add": "Bookmark this",
+    "remove": "Remove bookmark",
+    "list": "Favorites",
+    "empty": "Nothing saved yet. The bookmark at the top right of the reader keeps a piece here."
+  },
+  "place": {
+    "continue": "Continue where you left off",
+    "clear": "Clear",
+    "verse": "Verse",
+    "save": "Save my place",
+    "saved": "Place saved",
+    "set": "Place the ribbon here",
+    "lift": "Lift the ribbon",
+    "confirmClear": "Clear your bookmarks in this section?\n\nThis removes your saved place and every marked phrase. Your favorites are not affected."
   }
 }

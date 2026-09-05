@@ -1,5 +1,7 @@
 import { defineStore } from 'pinia'
 import { ref, watch } from 'vue'
+import type { DisplaySettings } from '@mawalid/shared'
+import { mePut } from '@/api/me'
 
 const KEY = 'mawlid-reader'
 
@@ -22,6 +24,7 @@ interface Saved {
   showTransliteration?: boolean
   showTranslation?: boolean
   twoPages?: boolean
+  scrollSpeedIdx?: number
 }
 
 function load(): Saved {
@@ -54,13 +57,20 @@ export const useReader = defineStore('reader', () => {
      einschaltet (localStorage SPREAD_KEY). Eine Automatik halbierte auf
      einem Laptop ungefragt die Blattbreite — genau so fiel es auf. */
   const twoPages = ref(saved.twoPages ?? false)
+  /* Das Autoscroll-Tempo, Stufe 0–8. Voreinstellung 3 wie in der Vorlage
+     (state.scrollSpeedIdx: 3); in ihr ging die Wahl beim Neuladen verloren. */
+  const scrollSpeedIdx = ref(Math.min(8, Math.max(0, Math.round(saved.scrollSpeedIdx ?? 3))))
+
+  /* Welche Regler auf DIESEM Gerät je angefasst wurden: nur die Lücken darf
+     der Serverabgleich füllen — die eigene Wahl schlägt die Sicherung. */
+  const touched = new Set(Object.keys(saved))
 
   /* Vollbild wird bewusst NICHT gespeichert. Wer die App öffnet und sofort im
      Vollbild landet, ohne zu wissen warum, sucht den Ausgang. */
   const immersive = ref(false)
 
   watch(
-    [view, arScale, latinScale, showTransliteration, showTranslation, twoPages],
+    [view, arScale, latinScale, showTransliteration, showTranslation, twoPages, scrollSpeedIdx],
     () => {
       try {
         localStorage.setItem(
@@ -72,6 +82,7 @@ export const useReader = defineStore('reader', () => {
             showTransliteration: showTransliteration.value,
             showTranslation: showTranslation.value,
             twoPages: twoPages.value,
+            scrollSpeedIdx: scrollSpeedIdx.value,
           } satisfies Saved),
         )
       } catch {
@@ -80,6 +91,47 @@ export const useReader = defineStore('reader', () => {
     },
     { deep: false },
   )
+
+  /* Dieselben Werte, verzögert zur Sicherung auf den Server (Zone 2). Ob das
+     ankommt, entscheidet nie über die Bedienung — gerendert wird von hier. */
+  let pushTimer: ReturnType<typeof setTimeout> | undefined
+  watch(
+    [view, arScale, latinScale, showTransliteration, showTranslation, twoPages, scrollSpeedIdx],
+    () => {
+      clearTimeout(pushTimer)
+      pushTimer = setTimeout(() => {
+        void mePut('/settings', {
+          viewMode: view.value,
+          arScale: arScale.value,
+          latinScale: latinScale.value,
+          showTransliteration: showTransliteration.value,
+          showTranslation: showTranslation.value,
+          twoPages: twoPages.value,
+          scrollSpeedIdx: scrollSpeedIdx.value,
+        }).catch((err) => console.warn('[reader] Einstellungs-Sicherung fehlgeschlagen:', err))
+      }, 800)
+    },
+    { deep: false },
+  )
+
+  /* Die Sicherung vom Server, beim Start: sie füllt NUR, was auf diesem
+     Gerät nie angefasst wurde — ein frisches Gerät bekommt die gewohnten
+     Regler, ein benutztes behält seine. */
+  function applyServerSettings(s: DisplaySettings | null) {
+    if (!s) return
+    if (!touched.has('view') && s.viewMode !== null) view.value = s.viewMode
+    if (!touched.has('arScale') && s.arScale !== null)
+      arScale.value = clamp(s.arScale, AR_MIN, AR_MAX)
+    if (!touched.has('latinScale') && s.latinScale !== null)
+      latinScale.value = clamp(s.latinScale, LATIN_MIN, LATIN_MAX)
+    if (!touched.has('showTransliteration') && s.showTransliteration !== null)
+      showTransliteration.value = s.showTransliteration
+    if (!touched.has('showTranslation') && s.showTranslation !== null)
+      showTranslation.value = s.showTranslation
+    if (!touched.has('twoPages') && s.twoPages !== null) twoPages.value = s.twoPages
+    if (!touched.has('scrollSpeedIdx') && s.scrollSpeedIdx !== null)
+      scrollSpeedIdx.value = Math.min(8, Math.max(0, s.scrollSpeedIdx))
+  }
 
   /* Die beiden Regler wirken über zwei Laufzeit-Tokens auf das ganze Dokument.
      Das ist Absicht: die Verskarte im Leser und der Manuskripttext im Buch
@@ -106,7 +158,9 @@ export const useReader = defineStore('reader', () => {
     showTransliteration,
     showTranslation,
     twoPages,
+    scrollSpeedIdx,
     immersive,
+    applyServerSettings,
 
     setView: (v: ReaderView) => (view.value = v),
     toggleImmersive: () => (immersive.value = !immersive.value),

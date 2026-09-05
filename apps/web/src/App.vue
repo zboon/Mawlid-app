@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, watchEffect } from 'vue'
+import { computed, onMounted, watchEffect } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
 import AppMasthead from '@/components/AppMasthead.vue'
@@ -7,9 +7,14 @@ import TabBar from '@/components/TabBar.vue'
 import type { Tab } from '@/components/TabBar.types'
 import { useModules } from '@/api/queries'
 import { arabic, latin } from '@/lib/localized'
+import { usePersonal } from '@/stores/personal'
 
 const route = useRoute()
 const router = useRouter()
+
+/* Der eine Abgleich beim Start: persönlicher Spiegel gegen die Sicherung
+   (Zone 2). Er läuft im Hintergrund; gerendert wird sofort aus dem Spiegel. */
+onMounted(() => usePersonal().sync())
 const { t, locale } = useI18n()
 const isHome = computed(() => route.name === 'home')
 

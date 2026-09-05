@@ -13,7 +13,24 @@ const props = defineProps<{
   runningHead: string
   annotations: readonly Annotation[]
   locale: string
+  /* Markierbare Phrasen (die Dalāʾil-Blätter der Vorlage): je Vers die
+     gemerkten Abschnitte, dazu die EINE gespeicherte Stelle. */
+  markable?: boolean
+  marks?: ReadonlyMap<number, ReadonlySet<number>>
+  placed?: { verseId: number; seg: number | null } | null
 }>()
+
+const emit = defineEmits<{ toggleMark: [verseId: number, seg: number] }>()
+
+/* Das Leseband auf Versebene: liegt es auf keinem Abschnitt, trägt das
+   ERSTE Teilstück des Verses den Ring — wie markPlacedMsVerse() der
+   Vorlage, die auf das erste data-mk fällt. */
+const placedVerse = (verseId: number, sub: number | null) =>
+  props.placed !== null &&
+  props.placed !== undefined &&
+  props.placed.verseId === verseId &&
+  props.placed.seg === null &&
+  (sub === null || sub === 0)
 
 /* Die Basmala steht über dem Text, nicht in ihm — sie ist im Buch abgesetzt. */
 const head = props.leaf.items[0]?.isBasmala ? props.leaf.items[0] : null
@@ -67,7 +84,12 @@ const closing = props.index === props.total - 1 && props.total > 1
               :id-key="`ms${index}-${i}`"
             />
           </span>
-          <span v-else class="ms-v" :data-vers="item.verse.position">
+          <span
+            v-else
+            class="ms-v"
+            :class="{ placed: placedVerse(item.verse.id, item.sub) }"
+            :data-vers="item.verse.position"
+          >
             <VerseText
               :body="item.body"
               :annotations="annotations"
@@ -75,7 +97,11 @@ const closing = props.index === props.total - 1 && props.total > 1
               :strip-page-break="false"
               segments
               :seg-offset="item.segBase"
+              :markable="markable"
+              :marked-segs="marks?.get(item.verse.id)"
+              :placed-seg="placed && placed.verseId === item.verse.id ? placed.seg : null"
               :id-key="`ms${index}-${i}`"
+              @toggle-mark="emit('toggleMark', item.verse.id, $event)"
             />
           </span>
 
@@ -164,6 +190,16 @@ const closing = props.index === props.total - 1 && props.total > 1
    zweiten Sprung auf denselben Vers neu startet. */
 .ms-v.ms-flash {
   animation: ms-flash 1.1s ease-out 1;
+}
+
+/* Das Leseband auf dem ganzen Vers: ein kräftigerer Goldring als jede
+   Markierung (.ms-v.placed der Vorlage) — nur Grund und Ring, kein Rahmen,
+   damit sich kein Blattumbruch verschiebt. */
+.ms-v.placed {
+  background: var(--accent-wash);
+  box-shadow:
+    0 0 0 2px var(--accent),
+    0 0 0 4px var(--accent-wash);
 }
 
 @keyframes ms-flash {

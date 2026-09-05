@@ -4,6 +4,7 @@ import { useRouter } from 'vue-router'
 import { useTheme } from '@/stores/theme'
 import { useReader } from '@/stores/reader'
 import IconButton from './IconButton.vue'
+import IconBookmark from './icons/IconBookmark.vue'
 import IconSun from './icons/IconSun.vue'
 import IconMoon from './icons/IconMoon.vue'
 
@@ -12,7 +13,11 @@ import IconMoon from './icons/IconMoon.vue'
    der kleine Ansichtstausch. Solange die Leiste voll ist, steht der
    beschriftete Umschalter gleich darunter in den Chips; zwei Umschalter für
    dieselbe Sache gleichzeitig wären verwirrend. */
-defineProps<{ slim: boolean; hasFolios: boolean }>()
+/* `fav` mit drei Zuständen: true/false schaltet das Lesezeichen, null
+   versteckt es (solange das Werk noch lädt gibt es nichts zu merken). */
+defineProps<{ slim: boolean; hasFolios: boolean; fav?: boolean | null }>()
+
+const emit = defineEmits<{ toggleFav: [] }>()
 
 const router = useRouter()
 const theme = useTheme()
@@ -58,6 +63,18 @@ const { t } = useI18n()
           <path d="M7 16V4M7 4L3 8M7 4l4 4M17 8v12m0 0l4-4m-4 4l-4-4" />
         </svg>
         <span>{{ reader.view === 'book' ? t('reader.study') : t('reader.book') }}</span>
+      </button>
+
+      <!-- Ganz rechts, wie in der Vorlage: Thema, Ansichtstausch, Lesezeichen. -->
+      <button
+        v-if="fav !== null && fav !== undefined"
+        class="fav-btn"
+        :class="{ on: fav }"
+        type="button"
+        :aria-label="fav ? t('fav.remove') : t('fav.add')"
+        @click="emit('toggleFav')"
+      >
+        <IconBookmark :on="fav" />
       </button>
     </div>
   </div>
@@ -128,6 +145,35 @@ const { t } = useI18n()
 
 .view-swap:active {
   transform: scale(0.9);
+}
+
+/* Der Lesezeichen-Knopf der Vorlage (.fav-btn): still, bis er gilt. */
+.fav-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: var(--space-2xs) var(--space-xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-soft);
+  opacity: 0.75;
+  transition:
+    transform var(--duration-fast) var(--ease),
+    opacity var(--duration-fast) var(--ease);
+}
+
+.fav-btn:hover {
+  opacity: 1;
+}
+
+.fav-btn:active {
+  transform: scale(0.85);
+}
+
+.fav-btn.on {
+  color: var(--accent);
+  opacity: 1;
 }
 
 .bismillah {

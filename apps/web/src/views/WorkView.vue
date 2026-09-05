@@ -20,6 +20,7 @@ import { useWork } from '@/api/queries'
 import { useSlimBar } from '@/composables/useSlimBar'
 import { useSpread } from '@/composables/useSpread'
 import { arabic, latin } from '@/lib/localized'
+import { usePersonal } from '@/stores/personal'
 import { useReader } from '@/stores/reader'
 
 const route = useRoute()
@@ -36,6 +37,122 @@ const collectionSlug = computed(() => String(route.params.collection ?? ''))
 const { data, isPending, isError, error, refetch } = useWork(workSlug, collectionSlug, locale)
 
 const work = computed(() => data.value ?? null)
+const personal = usePersonal()
+
+/* Die Visitenkarte dieses Werkes für den persönlichen Spiegel. */
+const workRef = computed(() =>
+  work.value
+    ? {
+        module: moduleSlug.value,
+        collection: collectionSlug.value,
+        work: workSlug.value,
+        titles: work.value.titles,
+        hasFolios: work.value.hasFolios,
+      }
+    : null,
+)
+
+/* ── Lesezeichen (Favorit) ──────────────────────────────────────────────── */
+const fav = computed(() =>
+  work.value ? personal.isFavorite(collectionSlug.value, workSlug.value) : null,
+)
+const toggleFav = () => workRef.value && personal.toggleFavorite(workRef.value)
+
+/* ── Leseband und Markierungen — nur in den Dalāʾil, wie in der Vorlage ───
+ *
+ * segWrapMark griff dort bei kind === 'd', der Speichern-Knopf ebenso. Das
+ * Datenmodell kann längst jedes Werk (je Werk eine Position); die OBERFLÄCHE
+ * bleibt beim Vorbild, bis jemand mehr will — ein Band in jeder Burdah-Karte
+ * wäre Mobiliar, das die Vorlage nicht hat. */
+const PLACE_MODULES = new Set(['dalail'])
+const placeable = computed(() => PLACE_MODULES.has(moduleSlug.value))
+
+const place = computed(() =>
+  work.value ? personal.placeFor(collectionSlug.value, workSlug.value) : null,
+)
+
+/* Die gemerkten Abschnitte je Vers, für die Blätter. */
+const marksByVerse = computed(() => {
+  const map = new Map<number, ReadonlySet<number>>()
+  if (!placeable.value) return map
+  for (const m of personal.marks) {
+    const set = (map.get(m.verseId) as Set<number> | undefined) ?? new Set<number>()
+    set.add(m.segmentIndex)
+    map.set(m.verseId, set)
+  }
+  return map
+})
+
+const placedBook = computed(() =>
+  place.value && place.value.viewMode === 'book' && place.value.verseId !== null
+    ? { verseId: place.value.verseId, seg: place.value.segmentIndex }
+    : null,
+)
+
+/* Die zuletzt getippte Phrase ist der Kandidat für „Meine Stelle speichern"
+   — msPlaceCandidate der Vorlage. Abwählen räumt ihn wieder ab. */
+const candidate = ref<{ verseId: number; seg: number } | null>(null)
+watch(workSlug, () => (candidate.value = null))
+
+function onToggleMark(verseId: number, seg: number) {
+  const on = personal.toggleMark(collectionSlug.value, verseId, seg)
+  if (on) candidate.value = { verseId, seg }
+  else if (candidate.value?.verseId === verseId && candidate.value?.seg === seg)
+    candidate.value = null
+}
+
+/* „Meine Stelle speichern": die getippte Phrase, sonst der oberste sichtbare
+   Vers des aufgeschlagenen Blattes — saveDalailPlace() der Vorlage. */
+const placeSavedFlash = ref(false)
+function saveMyPlace() {
+  if (!workRef.value || !work.value) return
+  let verseId = candidate.value?.verseId ?? null
+  let seg = candidate.value?.seg ?? null
+  let position: number | null = null
+  if (verseId === null) {
+    const top = bookRef.value?.topVisibleVerse() ?? null
+    if (top !== null) {
+      const verse = work.value.verses.find((v) => v.position === top)
+      verseId = verse?.id ?? null
+      position = verse?.position ?? null
+      seg = null
+    }
+  } else {
+    position = work.value.verses.find((v) => v.id === verseId)?.position ?? null
+  }
+  personal.savePlace(workRef.value, { verseId, position, segmentIndex: seg, viewMode: 'book' })
+  placeSavedFlash.value = true
+  setTimeout(() => (placeSavedFlash.value = false), 1600)
+}
+
+/* Das Band der Lesefassung: ein Tipp legt es auf den Vers, ein zweiter auf
+   demselben hebt es auf — placeVerse() der Vorlage. */
+function togglePlaceStudy(verse: { id: number; position: number }) {
+  if (!workRef.value) return
+  const cur = place.value
+  if (cur && cur.viewMode === 'study' && cur.verseId === verse.id) {
+    personal.liftPlace(collectionSlug.value, workSlug.value)
+    return
+  }
+  personal.savePlace(workRef.value, {
+    verseId: verse.id,
+    position: verse.position,
+    segmentIndex: null,
+    viewMode: 'study',
+  })
+}
+
+/* Die Wiederaufnahme-Karte öffnet das Werk in der Ansicht, aus der die
+   Stelle stammt (?ansicht=buch|lese) — resumeDalail() der Vorlage. */
+watch(
+  [() => route.query.ansicht, work],
+  ([ansicht]) => {
+    if (!work.value) return
+    if (ansicht === 'buch' && work.value.hasFolios) reader.setView('book')
+    else if (ansicht === 'lese') reader.setView('study')
+  },
+  { immediate: true },
+)
 const latinScript = computed(() => work.value?.primaryScript === 'latn')
 
 /* Die Buchansicht gibt es nur, wo es Folio-Angaben gibt. Wer sie zuletzt
@@ -137,7 +254,13 @@ watch(
 </script>
 
 <template>
-  <ReaderBar class="bar" :slim="slim" :has-folios="work?.hasFolios ?? false" />
+  <ReaderBar
+    class="bar"
+    :slim="slim"
+    :has-folios="work?.hasFolios ?? false"
+    :fav="fav"
+    @toggle-fav="toggleFav"
+  />
 
   <main id="main" class="reader">
     <ErrorState
@@ -183,6 +306,13 @@ watch(
       </p>
 
       <div class="reader-controls">
+        <ControlChip
+          v-if="placeable && view === 'book'"
+          :label="placeSavedFlash ? t('place.saved') : t('place.save')"
+          :on="place !== null"
+          @click="saveMyPlace"
+        />
+
         <ViewSwitch
           v-if="work.hasFolios"
           :view="view"
@@ -286,6 +416,10 @@ watch(
         ref="bookRef"
         :work="work"
         :locale="locale"
+        :markable="placeable"
+        :marks="marksByVerse"
+        :placed="placedBook"
+        @toggle-mark="onToggleMark"
         @continue="work.next && goTo(work.next.slug)"
       />
 
@@ -300,6 +434,9 @@ watch(
           :latin-script="latinScript"
           :show-transliteration="reader.showTransliteration"
           :show-translation="reader.showTranslation"
+          :placeable="placeable"
+          :placed="place?.viewMode === 'study' && place?.verseId === verse.id"
+          @toggle-place="togglePlaceStudy(verse)"
         />
       </section>
     </template>

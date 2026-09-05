@@ -12,6 +12,7 @@ import RowLabel from '@/components/RowLabel.vue'
 import SectionIntro from '@/components/SectionIntro.vue'
 import SkeletonCard from '@/components/SkeletonCard.vue'
 import ChooserCard from '@/components/index/ChooserCard.vue'
+import ResumeCard from '@/components/index/ResumeCard.vue'
 import ScheduleIndex from '@/components/index/ScheduleIndex.vue'
 import SearchBox from '@/components/index/SearchBox.vue'
 import SearchResults from '@/components/index/SearchResults.vue'
@@ -19,6 +20,7 @@ import { ApiError } from '@/api/client'
 import { useCollection, useModule, useScheduleToday } from '@/api/queries'
 import { AR } from '@/lib/arabicLabels'
 import { arabic, latin } from '@/lib/localized'
+import { usePersonal } from '@/stores/personal'
 import { useSearch } from '@/stores/search'
 
 /* Die Seite eines Bereichs. Drei Gestalten, wie in der Vorlage:
@@ -35,6 +37,7 @@ const route = useRoute()
 const router = useRouter()
 const { t, locale } = useI18n()
 const search = useSearch()
+const personal = usePersonal()
 
 const moduleSlug = computed(() => String(route.params.module ?? ''))
 const mod = useModule(moduleSlug)
@@ -60,6 +63,34 @@ const collection = useCollection(detailSlug, moduleSlug)
 
 const hasSchedule = computed(() => single.value?.hasSchedule === true)
 const schedule = useScheduleToday(detailSlug, moduleSlug, hasSchedule)
+
+/* Das Wiederaufnahme-Band: die zuletzt gespeicherte Stelle der Sammlung
+   dieses Bereichs, am Kopf des Index — wie resumeCard() der Vorlage. */
+const resumePlace = computed(() =>
+  single.value ? personal.latestPlaceIn(single.value.slug) : null,
+)
+
+function resume() {
+  const p = resumePlace.value
+  if (!p) return
+  router.push({
+    path: `/m/${p.module}/${p.collection}/${p.work}`,
+    query: {
+      ...(p.position !== null ? { vers: String(p.position) } : {}),
+      ...(p.segmentIndex !== null ? { abschnitt: String(p.segmentIndex) } : {}),
+      ansicht: p.viewMode === 'book' ? 'buch' : 'lese',
+    },
+  })
+}
+
+/* Der Wachhund der Vorlage vor dem Abräumen: Stelle UND Markierungen des
+   Bereichs gehen zusammen — Favoriten bleiben unberührt. */
+function clearPlace() {
+  const p = resumePlace.value
+  if (!p) return
+  if (!confirm(t('place.confirmClear'))) return
+  personal.clearCollection(p.collection)
+}
 
 /* /m/dalail?gruppe=vor — die Unterseite „Vor der Lesung". */
 const showBefore = computed(() => route.query.gruppe === 'vor')
@@ -166,7 +197,16 @@ const crossModule = useModule(computed(() => (crossLink.value ? AHZAB_FROM_DALAI
         :about-arabic="arabic(mod.data.value?.titles ?? {})"
         @open="openWork(single.slug, $event)"
         @before="router.push({ path: `/m/${moduleSlug}`, query: { gruppe: 'vor' } })"
-      />
+      >
+        <template #resume>
+          <ResumeCard
+            v-if="resumePlace"
+            :place="resumePlace"
+            @resume="resume"
+            @clear="clearPlace"
+          />
+        </template>
+      </ScheduleIndex>
 
       <div v-if="crossModule.data.value" class="cross">
         <ChooserCard

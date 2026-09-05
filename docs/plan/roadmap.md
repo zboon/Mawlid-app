@@ -278,9 +278,11 @@ Dalāʾil-Index erreicht. Das Favoriten-Kopfsymbol des Entwurfs kommt mit den
 Favoriten selbst in Phase 4.
 
 **Absichtlich noch anders als die Vorlage** (mit Grund, nicht aus Versehen):
-Suchfeld (Phase 4), Favoriten-Tab (Phase 4), „Save my place" und
-Wiederaufnahme-Karte (Phase 4), Downloads-Zeile (Phase 4),
-„Works offline"-Fußzeile (Phase 7).
+Downloads-Zeile und „Works offline"-Fußzeile (beide Phase 7 — die Zeile
+verwaltet per Cache API gespeicherte Aufnahmen, die es ohne den Offline-Bau
+nicht gibt; sie stand hier zunächst fälschlich für Phase 4 eingeplant).
+Suchfeld, Favoriten samt Kopfsymbol, „Save my place" und Wiederaufnahme-Karte
+sind seit Phase 4 da.
 
 ### Was der Entwurf nicht vorsah
 
@@ -315,17 +317,36 @@ zumutbar.
 - [x] **Eine Faltung für alle Sprachen**, wie in der Vorlage. Die
       sprachabhängige Variante wurde gebaut und wieder verworfen: sie kostet
       Treffer, statt welche zu retten — siehe `05-database.md` §6
-- [ ] Beim Speichern `body_search` füllen
-- [ ] `GET /api/content/search?q=…` — Vierfach-ODER, Treffer mit
-      Vers und Segment, sechs je Werk
-- [ ] Trefferliste unter den Karten, Sprung zum Vers mit Aufblitzen
-- [ ] Favoriten: `/api/me/favorites` plus lokale Spiegelung
-- [ ] Lesepositionen: `/api/me/positions` — **je Werk eine**, nicht mehr nur für
-      die Dalāʾil
-- [ ] Markierungen: `/api/me/marks`
-- [ ] Geräte-ID für Nutzung ohne Anmeldung
-- [ ] Anzeigeeinstellungen speichern (heute gehen sie beim Neuladen verloren)
-- [ ] Der Suchgleichheitstest aus Phase 2 muss grün bleiben
+- [x] `body_search` füllen — der Import tut es (build-seed); die Redaktion
+      übernimmt es in Phase 5, sobald es einen Speicherpfad gibt
+- [x] `GET /api/content/search?q=…` — Vierfach-ODER, Treffer mit
+      Vers und Segment, sechs je Werk. Algorithmus geteilt in
+      `packages/shared/src/search-core.mjs`, Index im Speicher der API
+      (`lib/searchIndex.ts`), je `content_version` neu. Dazu
+      `works.in_search`: die Titelseite der Dalāʾil bleibt draußen, wie in
+      der Vorlage
+- [x] Trefferliste unter den Karten, Sprung zum Vers mit Aufblitzen —
+      Suchfeld unten auf der Startseite / oben auf jeder Bereichsseite,
+      Gruppen je Sammlung, `?vers=…&abschnitt=…` blitzt Abschnitt oder
+      Vers in beiden Ansichten
+- [x] Favoriten: `/api/me/favorites` plus lokale Spiegelung — Lesezeichen in
+      der Leseleiste, Favoritenliste unter `/favoriten`, erreicht über das
+      Kopfsymbol aus dem Zayd-Entwurf
+- [x] Lesepositionen: `/api/me/positions` — **je Werk eine**. Die OBERFLÄCHE
+      dafür (Leseband, „Meine Stelle speichern", Wiederaufnahme-Karte samt
+      Clear) bleibt wie in der Vorlage auf die Dalāʾil beschränkt; das
+      Datenmodell kann jedes Werk
+- [x] Markierungen: `/api/me/marks` — Phrasen auf den Dalāʾil-Blättern; die
+      zuletzt getippte ist der Kandidat fürs Speichern (msPlaceCandidate)
+- [x] Geräte-ID für Nutzung ohne Anmeldung (X-Device-Id, UUID im
+      localStorage; Abgleich lokal-zuerst, Wiederherstellung auf frischem
+      Gerät)
+- [x] Anzeigeeinstellungen speichern — lokal sofort (auch das
+      Autoscroll-Tempo, das die Vorlage vergaß), zur Sicherung nach
+      `display_settings`; der Server füllt auf einem frischen Gerät nur
+      die nie angefassten Regler
+- [ ] Der Suchgleichheitstest aus Phase 2 muss grün bleiben — und der neue
+      Gleichstandsbeweis: 40+ Begriffe alt gegen neu, dieselben Werke
 
 ### Fertig, wenn
 

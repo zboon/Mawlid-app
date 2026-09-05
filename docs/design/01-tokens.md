@@ -295,6 +295,7 @@ Namen bekommen:
 --pad-row-tall: 0.85rem var(--space-lg);            /* .85rem .95rem — hohe Zeile */
 --pad-chip:     0.4rem 0.85rem;                     /* die Steuerpille des Lesers */
 --pad-search-inset: 2.4rem;                         /* Innenabstand des Suchfelds zu Lupe und ✕ */
+--accent-wash-strong: rgb(from var(--accent) r g b / 0.5);  /* die Lesezeichen-Lasur (placed) — kräftiger als --accent-wash */
 ```
 
 `--pad-search-inset` (Phase 4) hält im Suchfeld den Text von Lupen-Symbol

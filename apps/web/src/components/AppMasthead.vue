@@ -4,6 +4,7 @@ import { useRouter } from 'vue-router'
 import { useSearch } from '@/stores/search'
 import { useTheme } from '@/stores/theme'
 import IconButton from './IconButton.vue'
+import IconBookmark from './icons/IconBookmark.vue'
 import IconHome from './icons/IconHome.vue'
 import IconBack from './icons/IconBack.vue'
 import IconSun from './icons/IconSun.vue'
@@ -35,6 +36,13 @@ const { t } = useI18n()
       </IconButton>
       <IconButton v-if="variant === 'compact'" :label="t('nav.back')" @click="router.back()">
         <IconBack />
+      </IconButton>
+      <!-- Favoriten sind keine Kachel im Startmenü (Zayd-Entwurf: favMark) —
+           der Weg dorthin ist dieses Zeichen, links neben Heim. Immer als
+           Umriss: hier wird kein einzelnes Stück gemerkt, nur die Liste
+           geöffnet. -->
+      <IconButton :label="t('fav.list')" @click="router.push('/favoriten')">
+        <IconBookmark />
       </IconButton>
     </div>
 
