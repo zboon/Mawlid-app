@@ -46,7 +46,7 @@ npm run db:generate
 
 Das braucht **keine** laufende Datenbank und kein `.env`.
 
-## Endpunkte (Phase 3)
+## Endpunkte (Phase 3–4)
 
 | Pfad | Was |
 |---|---|
@@ -56,6 +56,12 @@ Das braucht **keine** laufende Datenbank und kein `.env`.
 | `GET /api/content/collections/:slug` | eine Sammlung mit ihren Werken |
 | `GET /api/content/works/:slug` | ein Werk **vollständig** — Verse, Blätter, Medien, Glossen |
 | `GET /api/content/schedule/:collection/today` | was heute dran ist |
+| `GET /api/content/search?q=…` | Suche über den ganzen Bestand, Vierfach-ODER der Vorlage; je Werk bis sechs Verstreffer plus Restzahl |
+| `GET /api/me` | der persönliche Zustand eines Geräts (Header `X-Device-Id`): Favoriten, Positionen, Markierungen, Einstellungen |
+| `PUT/DELETE /api/me/favorites/:collection/:work` | Favorit setzen/entfernen |
+| `PUT/DELETE /api/me/positions/:collection/:work` | Leseposition je Werk; `DELETE /api/me/positions?collection=…` räumt einen Bereich |
+| `PUT/DELETE /api/me/marks/:verseId/:segmentIndex` | Markierung je Versabschnitt; `DELETE /api/me/marks?collection=…` räumt einen Bereich |
+| `PUT /api/me/settings` | Anzeigeeinstellungen (nur mitgeschickte Felder ändern sich) |
 
 ### `?lang=`
 

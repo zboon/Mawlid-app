@@ -178,6 +178,7 @@ model devices {
   last_seen_at      DateTime?           @db.Timestamp(0)
   created_at        DateTime            @default(now()) @db.Timestamp(0)
   users             users?              @relation(fields: [user_id], references: [id], onUpdate: NoAction, map: "fk_devices_user")
+  display_settings  display_settings?
   favorites         favorites[]
   reading_positions reading_positions[]
   verse_marks       verse_marks[]
@@ -452,6 +453,7 @@ model users {
   content_revisions content_revisions[]
   corrections       corrections[]
   devices           devices[]
+  display_settings  display_settings?
   favorites         favorites[]
   reading_positions reading_positions[]
   languages         languages           @relation(fields: [locale], references: [code], onDelete: NoAction, onUpdate: NoAction, map: "fk_users_locale")
@@ -563,6 +565,23 @@ model works {
   @@unique([collection_id, slug], map: "uq_works_slug")
   @@index([primary_lang], map: "fk_works_lang")
   @@index([collection_id, status, sort_order], map: "ix_works_collection")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model display_settings {
+  id                   BigInt                      @id @default(autoincrement()) @db.UnsignedBigInt
+  user_id              Int?                        @unique(map: "uq_settings_user") @db.UnsignedInt
+  device_id            Int?                        @unique(map: "uq_settings_device") @db.UnsignedInt
+  view_mode            display_settings_view_mode?
+  ar_scale             Decimal?                    @db.Decimal(2, 1)
+  latin_scale          Decimal?                    @db.Decimal(2, 1)
+  show_transliteration Boolean?
+  show_translation     Boolean?
+  two_pages            Boolean?
+  scroll_speed_idx     Int?                        @db.UnsignedTinyInt
+  updated_at           DateTime                    @default(now()) @db.Timestamp(0)
+  devices              devices?                    @relation(fields: [device_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_set_device")
+  users                users?                      @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_set_user")
 }
 
 enum content_revisions_entity_type {
@@ -683,4 +702,9 @@ enum works_status {
   draft
   review
   published
+}
+
+enum display_settings_view_mode {
+  study
+  book
 }

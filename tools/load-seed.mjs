@@ -100,6 +100,25 @@ for (const [table, column, ddl] of UPGRADES) {
   }
 }
 
+/* Ganze Tabellen, die nach der Erstanlage dazugekommen sind. Die Anweisung
+   wird aus db/schema.sql herausgeschnitten und unverändert ausgeführt —
+   wortgleich per Konstruktion, nicht per Disziplin. */
+const TABLE_UPGRADES = ['display_settings'];
+for (const table of TABLE_UPGRADES) {
+  const [[hit]] = await db.query(
+    'SELECT 1 AS hit FROM information_schema.tables WHERE table_schema = DATABASE() AND table_name = ?',
+    [table],
+  );
+  if (hit) continue;
+  const schemaSql = fs.readFileSync('db/schema.sql', 'utf8');
+  const m = schemaSql.match(
+    new RegExp(`CREATE TABLE ${table} \\([\\s\\S]*?\\) ENGINE=[^;]+;`),
+  );
+  if (!m) throw new Error(`CREATE TABLE ${table} nicht in db/schema.sql gefunden.`);
+  await db.query(m[0]);
+  console.log(`  Schema nachgezogen: Tabelle ${table}`);
+}
+
 await db.beginTransaction();
 try {
   /* Beim Leeren stören die Fremdschlüssel — innerhalb der Transaktion ist das

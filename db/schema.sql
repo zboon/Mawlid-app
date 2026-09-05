@@ -658,6 +658,32 @@ CREATE TABLE verse_marks (
   CONSTRAINT ck_mark_owner  CHECK (user_id IS NOT NULL OR device_id IS NOT NULL)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+-- Anzeigeeinstellungen, eine Zeile je Besitzer (Konto oder Gerät). In der
+-- Vorlage gingen sie beim Neuladen verloren; hier überdauern sie das Gerät,
+-- sobald jemand synchronisiert. Typisierte Spalten statt JSON — dieselbe
+-- Abwägung wie bei den Versfeldern (Begleittext §2.4): die Menge ist klein
+-- und bekannt, ein Formular kann sie prüfen. NULL heißt „nicht gesetzt",
+-- der Client behält dann seine Voreinstellung.
+CREATE TABLE display_settings (
+  id                   BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  user_id              INT UNSIGNED NULL,
+  device_id            INT UNSIGNED NULL,
+  view_mode            ENUM('study','book') NULL,
+  ar_scale             DECIMAL(2,1) NULL,        -- 0.7–1.6, Schritt 0.1
+  latin_scale          DECIMAL(2,1) NULL,        -- 0.8–1.8, Schritt 0.1
+  show_transliteration TINYINT(1) NULL,
+  show_translation     TINYINT(1) NULL,
+  two_pages            TINYINT(1) NULL,
+  scroll_speed_idx     TINYINT UNSIGNED NULL,    -- 0–8, Index in SCROLL_SPEEDS
+  updated_at           TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  UNIQUE KEY uq_settings_user   (user_id),
+  UNIQUE KEY uq_settings_device (device_id),
+  CONSTRAINT fk_set_user   FOREIGN KEY (user_id)   REFERENCES users(id)   ON DELETE CASCADE,
+  CONSTRAINT fk_set_device FOREIGN KEY (device_id) REFERENCES devices(id) ON DELETE CASCADE,
+  CONSTRAINT ck_set_owner  CHECK (user_id IS NOT NULL OR device_id IS NOT NULL)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 
 -- ============================================================================
 -- 10 · Redaktion: Versionen, Protokoll, Korrekturmeldungen

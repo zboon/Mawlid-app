@@ -136,35 +136,41 @@ Ausgang, und es fiele niemandem auf.
 ### Suche
 
 ```http
-GET /api/content/search?q=muhamad&lang=de
+GET /api/content/search?q=muhamad
 ```
 
 ```jsonc
 {
   "query": "muhamad",
-  "normalized": "muhamad",
-  "groups": [
+  "contentVersion": 12,
+  "works": [
     {
       "module": "mawlid",
-      "collection": "daybai",
-      "works": [
-        {
-          "slug": "ya-nabi-salam-alayka",
-          "titles": { "ar": "…", "de": "…" },
-          "hits": [
-            { "versePosition": 12, "segmentIndex": 1, "role": "original",
-              "snippet": "… <mark>محمد</mark> …" }
-          ],
-          "moreHits": 3
-        }
-      ]
+      "collection": { "slug": "daybai", "titles": { "ar": "…", "en": "…", "de": "…" } },
+      "work": { "slug": "ya-nabi-salam-alayka", "titles": { "ar": "…", "en": "…" }, "hasFolios": false },
+      "hits": [
+        { "position": 12, "verseId": 340, "ar": "…", "sec": "…", "field": "en", "seg": 1 }
+      ],
+      "moreHits": 3
     }
   ]
 }
 ```
 
-Höchstens sechs Treffer je Werk, `moreHits` zählt den Rest. Die Gruppierung
-folgt der Reihenfolge der Module.
+Höchstens sechs Treffer je Werk, `moreHits` zählt den Rest (gesammelt bis 40,
+beides die Kappung der Vorlage). Die Werke kommen in kanonischer Reihenfolge
+Modul → Sammlung → Werk; der Client gruppiert sie unter Sammlungsüberschriften.
+
+So gebaut, nicht wie einst skizziert: **kein `lang`, kein `limit`, keine
+fertigen Schnipsel.** Die Antwort trägt beide Titelsprachen und die Rohtexte
+der Trefferzeile; die Fensterung mit Hervorhebung ist Darstellung und läuft
+beim Client (`hitSnippet` in `packages/shared/src/search-core.mjs` — derselbe
+Code, den auch die API benutzt). Der Vergleich selbst ist das Vierfach-ODER
+der Vorlage und läuft **im Speicher** der API über einen je `content_version`
+aufgebauten Index (`apps/api/src/lib/searchIndex.ts`); warum MySQL diese
+Regeln nicht ausdrücken kann, steht in [`05-database.md`](05-database.md) §6.
+Werke mit `works.in_search = 0` (die Titelseite der Dalāʾil) bleiben draußen,
+wie in der Vorlage.
 
 ---
 
@@ -173,18 +179,29 @@ folgt der Reihenfolge der Module.
 Favoriten, Lesepositionen, Markierungen, Einstellungen.
 
 ```
-GET    /api/me
-GET    /api/me/favorites
-PUT    /api/me/favorites/:workSlug
-DELETE /api/me/favorites/:workSlug
-GET    /api/me/positions
-PUT    /api/me/positions/:workSlug
-GET    /api/me/marks?work=…
+GET    /api/me                                    ← der ganze Zustand, eine Antwort
+PUT    /api/me/favorites/:collection/:work
+DELETE /api/me/favorites/:collection/:work
+PUT    /api/me/positions/:collection/:work
+DELETE /api/me/positions/:collection/:work
+DELETE /api/me/positions?collection=…             ← „Clear" eines Bereichs
 PUT    /api/me/marks/:verseId/:segmentIndex
 DELETE /api/me/marks/:verseId/:segmentIndex
-GET    /api/me/settings
+DELETE /api/me/marks?collection=…
 PUT    /api/me/settings
 ```
+
+So gebaut, nicht wie einst skizziert: **ein** `GET /api/me` liefert Favoriten,
+Positionen, Markierungen und Einstellungen zusammen — der Start der App kommt
+mit einem Abgleich aus, und Teil-GETs wären nur mehr Endpunkte für denselben
+Zustand. Werke werden über **Sammlung + Kürzel** angesprochen, weil das Kürzel
+allein nicht eindeutig ist (`uq_works_slug`). Die Sammel-DELETEs sind das
+„Clear" der Vorlage: `clearDalailPlace()` räumt dort die gespeicherte Stelle
+und alle Versmarkierungen des Bereichs in einem Zug ab. Schreibanfragen
+antworten mit 204; `GET /api/me` ist `no-store` — persönlicher Zustand hat
+keinen ETag-Zwischenspeicher, der veralten könnte. Einstellungen liegen in
+`display_settings` (typisierte Spalten, eine Zeile je Besitzer); die Grenzen
+der Regler prüft Zod (`packages/shared/src/me.ts`).
 
 ### Ohne Anmeldung
 

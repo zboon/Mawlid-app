@@ -320,6 +320,49 @@ async function main() {
     record(Boolean(ok), 'Suche: verseId und position zeigen auf denselben Vers', detail)
   }
 
+  /* 14 · Zone 2: eine volle persönliche Runde — Favorit, Position,
+     Markierung, Einstellungen — schreiben, zurücklesen, löschen. Das
+     Prüfgerät wird am Ende restlos entfernt; die Datenbank bleibt, wie sie
+     war. */
+  {
+    const deviceId = '00000000-0000-4000-8000-a1b2c3d4e5f6'
+    const me = (path, init = {}) =>
+      fetch(`${API}/api/me${path}`, {
+        ...init,
+        headers: { 'X-Device-Id': deviceId, ...(init.body ? { 'Content-Type': 'application/json' } : {}), ...init.headers },
+      })
+    const faults = []
+    try {
+      const put1 = await me('/favorites/daybai/the-opening', { method: 'PUT' })
+      if (put1.status !== 204) faults.push(`Favorit: ${put1.status}`)
+      const put2 = await me('/positions/wochenteile/tuesday', {
+        method: 'PUT',
+        body: JSON.stringify({ verseId: null, segmentIndex: null, viewMode: 'book' }),
+      })
+      if (put2.status !== 204) faults.push(`Position: ${put2.status}`)
+      const put3 = await me('/settings', { method: 'PUT', body: JSON.stringify({ arScale: 1.2 }) })
+      if (put3.status !== 204) faults.push(`Einstellungen: ${put3.status}`)
+
+      const state = await (await me('/')).json()
+      if (state.favorites?.length !== 1 || state.favorites[0]?.work !== 'the-opening')
+        faults.push('Favorit fehlt beim Zurücklesen')
+      if (state.positions?.length !== 1 || state.positions[0]?.viewMode !== 'book')
+        faults.push('Position fehlt beim Zurücklesen')
+      if (state.settings?.arScale !== 1.2) faults.push('Einstellung fehlt beim Zurücklesen')
+
+      const bad = await me('/positions/daybai/the-opening', {
+        method: 'PUT',
+        body: JSON.stringify({ verseId: 999999999, segmentIndex: 0, viewMode: 'study' }),
+      })
+      if (bad.status !== 400) faults.push(`fremder Vers: ${bad.status} statt 400`)
+      const anon = await fetch(`${API}/api/me/`)
+      if (anon.status !== 400) faults.push(`ohne Geräte-ID: ${anon.status} statt 400`)
+    } finally {
+      await db.query('DELETE FROM devices WHERE public_id = ?', [deviceId])
+    }
+    record(faults.length === 0, 'Zone 2: persönliche Runde (Gerät, Favorit, Position, Einstellungen)', faults.join('; ') || 'geschrieben, gelesen, aufgeräumt')
+  }
+
   await db.end()
 
   /* ── Bericht ─────────────────────────────────────────────────────────── */

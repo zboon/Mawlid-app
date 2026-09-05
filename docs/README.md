@@ -94,7 +94,7 @@ Die drei Prüfungen, die den Bestand absichern:
 
 ```bash
 npm run db:verify                  # 13 Prüfungen: Datenbank gegen die Quelle
-npm run api:check                  # 10 Prüfungen: API gegen die Datenbank
+npm run api:check                  # 14 Prüfungen: API gegen die Datenbank
 npm --prefix apps/web run verify   # Typen, Lint, Token-Regel, Tests
 ```
 
