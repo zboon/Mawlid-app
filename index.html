@@ -2623,7 +2623,6 @@ function arrayOf(kind){
        : kind === 'd' ? DALAIL_CHAPTERS
        : kind === 'z' ? BARZANJI_CHAPTERS
        : kind === 'y' ? DIYA_CHAPTERS
-       : kind === 'n' ? NASHEED_CHAPTERS
        : kind === 'l' ? LITANY_CHAPTERS
        : null;
 }
@@ -7974,8 +7973,6 @@ const BARZANJI_CHAPTERS = [
 
 /* The mawlid texts, gathered under one hub tab so more can be added
    without crowding the tab bar. */
-/* Nasheeds — devotional songs. Awaiting content. */
-const NASHEED_CHAPTERS = [];
 
 /* The daily litanies (awrād). Each is read straight through, so each is one
    page rather than a set of chapters. Scaffolded empty for now. */
@@ -11028,7 +11025,6 @@ const LITANY_CHAPTERS = [
 
 /* Everything under Additional Praises. */
 const PRAISE_SECTIONS = [
-  { id:'nasheeds', ar:'أناشيد',         en:'Nasheeds',   desc:'Devotional songs in praise of the Prophet ﷺ.' },
   { id:'qasidas',  ar:'قصائد',          en:'Qasidas',    desc:'Poems in praise of the Prophet ﷺ.' },
   { id:'ilahis',   ar:'الإلهيات',        en:'Ilahis',     desc:'Devotional songs in Turkish, with translation.' },
   { id:'qawwalis', ar:'قوالي',           en:'Qawwalis',   desc:'Sufi devotional music in praise of the Prophet ﷺ.' },
@@ -11044,7 +11040,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v385';
+const APP_VERSION = 'v386';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -11061,7 +11057,7 @@ function versionTag(){
 
 const TABS = [
   { id:'mawlids', label:'Mawlid Collections',   ar:'مجموعات الْموالد' },
-  { id:'praises', label:'Nasheeds & Qasidas',   ar:'الأناشيد والقصائد' },
+  { id:'praises', label:'Qasidas',              ar:'القصائد' },
   { id:'dalail',  label:'Dalāʾil al-Khayrāt',   ar:'دلائل الْخيرات' },
   { id:'favs',    label:'Favorites',            ar:'المفضلة' },
 ];
@@ -11071,7 +11067,7 @@ const TAB_CHILDREN = {
   dalail:  ['before','downloads'],
   litanies: ['azam','istighfar'],
   mawlids: ['mawlid','barzanji','diya','burdah'],
-  praises: ['nasheeds','qasidas','ilahis','qawwalis'],
+  praises: ['qasidas','ilahis','qawwalis'],
 };
 
 function tabIsActive(id){
@@ -12458,20 +12454,6 @@ function burdahCards(){
         </button>` + hitList('b', n)).join('');
 }
 
-function nasheedCards(){
-  const items = NASHEED_CHAPTERS.map((c,n)=>({c,n})).filter(x=>matchesQuery(x.c, state.query));
-  if(items.length === 0) return '';
-  return items.map(({c,n})=>`
-        <button class="qcard" onclick="openNasheed(${n})">
-          <span class="num">${toArNum(n+1)}</span>
-          <span class="titles">
-            <span class="t-ar">${c.titleArabic}</span>
-            <span class="t-en">${c.titleEnglish}</span>
-          </span>
-          <span class="chev">›</span>
-        </button>` + hitList('n', n)).join('');
-}
-
 function litanyCards(){
   /* Browsing, the seven daily portions of al-Ḥizb al-Aʿẓam are folded behind a
      single row that opens their own page. A search still lists them one by one,
@@ -12528,7 +12510,7 @@ function praisesHub(){
 }
 
 function backToPraises(){
-  return `<button class="back-link" onclick="selectTab('praises')">‹ Nasheeds & Qasidas</button>`;
+  return `<button class="back-link" onclick="selectTab('praises')">‹ Qasidas</button>`;
 }
 
 function backToDalail(){
@@ -12796,7 +12778,7 @@ function ilahiCards(){
 const OPENERS = {
   q: 'openQasida',  b: 'openBurdah',   s: 'openSirah',
   i: 'openIlahi',   d: 'openDalail',   z: 'openBarzanji',
-  y: 'openDiya',    n: 'openNasheed',  l: 'openLitany'
+  y: 'openDiya',    l: 'openLitany'
 };
 function openFnOf(kind){ return OPENERS[kind] || 'openQasida'; }
 /* Mawlid pieces carry their kitab number in the title; drop it for display. */
@@ -12811,7 +12793,7 @@ function displayTitle(piece){
    computed live, so they stay right as content is added. */
 const HOME_CARDS = [
   { id:'mawlids', ar:'مجموعات الْموالد', en:'Mawlid Collections', desc:'The mawlid texts and Qasida Burdah — choose a collection to recite from.' },
-  { id:'praises', ar:'الأناشيد والقصائد', en:'Nasheeds & Qasidas', desc:'Nasheeds, qasidas, ilahis and qawwalis.' },
+  { id:'praises', ar:'القصائد', en:'Qasidas', desc:'Qasidas, ilahis and qawwalis.' },
   { id:'dalail',  ar:'دلائل الْخيرات', en:'Dalāʾil al-Khayrāt', desc:'Imam al-Jazūlī’s book of blessings upon the Prophet ﷺ, divided for the week.' },
   { id:'favs',    ar:'المفضلة',       en:'Favorites',         desc:'Whatever you bookmark, kept on this device.' },
 ];
@@ -12819,7 +12801,6 @@ const HOME_CARDS = [
 function sectionCount(id){
   return id === 'mawlids' ? MAWLID_COLLECTIONS.length
        : id === 'praises' ? PRAISE_SECTIONS.length
-       : id === 'nasheeds'? NASHEED_CHAPTERS.length
        : id === 'litanies'? LITANY_CHAPTERS.filter((c,n)=>c.verses && c.verses.length && !isAzamDay(n) && !isIstighfarDay(n)).length + (azamFilledDays().length ? 1 : 0) + (istighfarFilledDays().length ? 1 : 0)
        : id === 'azam'    ? azamFilledDays().length
        : id === 'istighfar'? istighfarFilledDays().length
@@ -12837,7 +12818,6 @@ function countLabel(id, n){
   if(id === 'favs')    return n ? n + (n === 1 ? ' bookmark' : ' bookmarks') : 'Nothing saved yet';
   if(id === 'mawlids') return n + (n === 1 ? ' collection' : ' collections'); /* includes Burdah */
   if(id === 'praises') return n + (n === 1 ? ' section' : ' sections');
-  if(id === 'nasheeds')return n ? n + (n === 1 ? ' nasheed' : ' nasheeds') : 'Coming soon';
   if(id === 'litanies')return n + (n === 1 ? ' litany' : ' litanies');
   if(id === 'qawwalis') return n ? n + (n === 1 ? ' qawwali' : ' qawwalis') : 'Coming soon';
   if(id === 'mawlid')  return n + ' sections';
@@ -12920,10 +12900,8 @@ function renderResults(){
     if(qas) html += label('More Qasidas · قصائد أخرى', !!mawlid || !!barz || !!burd) + qas;
     const dal = dalailCards();
     if(dal) html += label('Dalāʾil al-Khayrāt · دلائل الْخيرات', !!mawlid || !!barz || !!burd || !!qas) + dal;
-    const nash = nasheedCards();
-    if(nash) html += label('Nasheeds · أناشيد', !!mawlid || !!barz || !!burd || !!qas || !!dal) + nash;
     const ilahis = ilahiCards();
-    if(ilahis) html += label('Ilahis · الْإلهيات', !!mawlid || !!barz || !!burd || !!qas || !!dal || !!nash) + ilahis;
+    if(ilahis) html += label('Ilahis · الْإلهيات', !!mawlid || !!barz || !!burd || !!qas || !!dal) + ilahis;
     if(!html) return `<div class="no-results">No matches for "${q.replace(/</g,'&lt;')}". Try a different spelling.</div>`;
     return html;
   }
@@ -12936,7 +12914,6 @@ function renderResults(){
   if(tab === 'mawlids') return sectionIntro('mawlids') + label('Choose a mawlid · اختر مولداً') + `<div class="home-grid">${mawlidsHub()}</div>`;
   if(tab === 'mawlid')  return backToMawlids() + sectionIntro('mawlid') + label('Follow the mawlid in order · على ترتيب الْمولد') + mawlidCards();
   if(tab === 'praises') return sectionIntro('praises') + label('Choose a section · اختر قسماً') + `<div class="home-grid">${praisesHub()}</div>`;
-  if(tab === 'nasheeds')return backToPraises() + sectionIntro('nasheeds') + (nasheedCards() || placeholder('Nasheeds'));
   if(tab === 'qasidas') return backToPraises() + sectionIntro('qasidas') + (additionalQasidaCards() || placeholder('Qasidas'));
   if(tab === 'ilahis')  return backToPraises() + sectionIntro('ilahis') + label('Select an ilahi · ilahi seçin') + ilahiCards();
   if(tab === 'litanies')return backToDalail() + sectionIntro('litanies') + label('Select a litany · اختر حزباً') + litanyCards();
@@ -14774,15 +14751,6 @@ function openBurdah(n){
   queueMsAutoFit();
   window.scrollTo(0,0);
   onNavigated('b', n);
-}
-
-function openNasheed(n){
-  document.documentElement.style.setProperty('--ar-size', (1.9*state.arScale)+'rem');
-  document.documentElement.style.setProperty('--latin-scale', state.latinScale);
-  app.innerHTML = readerHTML(NASHEED_CHAPTERS[n], "selectTab('nasheeds')", 'n', n);
-  queueMsAutoFit();
-  window.scrollTo(0,0);
-  onNavigated('n', n);
 }
 
 function openLitany(n){
