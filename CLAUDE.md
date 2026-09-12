@@ -162,10 +162,15 @@ Per chapter, in scope:
 | `[5]` Names of the Prophet ﷺ | 2 | `[10]` Friday | 25 |
 | `[6]` Monday P1 | 34 | `[11]` Saturday | 37 |
 | `[7]` Tuesday | 39 | `[12]` Sunday | 7 |
-| `[8]` Wednesday | 13 | `[13]` Monday P2 | 1 |
+| `[8]` Wednesday | 16 | `[13]` Monday P2 | 1 |
 | `[9]` Thursday | 15 | | |
 
 *(counts exclude سيدنا محمد; Wednesday's full in-scope list is 54 including it)*
+
+Treat these as indicative until each day is actually collated. Wednesday's
+figure read 13 and measured 16 — the count only holds if `وسيدنا` and `لسيدنا`
+are counted alongside bare `سيدنا`, which is easy to miss and was. Re-measure
+per chapter rather than trusting the row.
 
 **Method — one chapter per commit:**
 
@@ -177,9 +182,21 @@ Per chapter, in scope:
 5. Verify: the battery below, **plus a سيدنا count before and after**, so nothing
    moves silently.
 
-Start with Wednesday: small enough to settle the conventions on real pages, and
-its v9/v10/v11 (سيدنا وسيدنا, سيدنا آدم, سيدنا جبريل) are the ones most likely to
-differ.
+**Wednesday `[8]` is done** (book pp.46–58, 25 removed, 69 → 44). What it settled,
+which the remaining days should follow:
+
+- **Count `وسيدنا` and `لسيدنا`, not just bare `سيدنا`.** Wednesday was 58 bare but
+  69 all told, and the 11 extra are where most of the errors were.
+- **`وَسيدنا` carries the conjunction.** The book writes `وَآدَمَ`, not `آدَمَ` — so the
+  waw moves onto the name. Deleting the whole token swallows it, and the
+  transliteration still comes out right, so nothing catches it but reading the
+  Arabic. Assert the waw count per verse is unchanged.
+- **The Ibrāhīmic ṣalawāt is bare in this printing** — `عَلٰى مُحَمَّدٍ وَعَلٰى اٰلِ مُحَمَّدٍ
+  كَمَا صَلَّيْتَ عَلٰى اِبْرٰهِيمَ`. That one formula was 14 of the 25.
+- **The book contradicts itself within a verse and that is kept**: p49 prints
+  `عَلٰى سَيِّدِنَا اِبْرٰهِيمَ` and then `عَلٰى اٰلِ اِبْرٰهِيمَ` two words later.
+- **`سيدتنا` before حواء stays** (owner's call — the ruling names سيدنا only).
+- Where a name is bare in the Arabic, drop "our master" from `en` too.
 
 ---
 
