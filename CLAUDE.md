@@ -22,8 +22,8 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v389** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v67** |
+| **Mawalid** (this repo) | the full collection | **v390** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v68** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -109,14 +109,31 @@ value. Filling eight blank `tr`/`en` columns this way appended Latin text to
 the end of eight Arabic strings. Search for `"tr": "<value>"` — key, colons and
 quotes included — and assert the span is bounded by quotes before writing.
 
-### 3. Edits are all-or-nothing
+### 3. Never translate the Qurʾān
+
+**The owner's standing instruction: do not render Qurʾānic text into English
+in-house.** Where a verse carries Qurʾān, `en` stays empty — even when every
+neighbouring verse has one, even when the app already has settled wordings for
+the phrases involved, and even when filling the gap is the task at hand.
+
+This was broken once, in v389: the five Qurʾānic passages in the Opening Duʿāʾ
+(`[1]` v27–v31 — al-Ikhlāṣ, al-Falaq, an-Nās, al-Fātiḥah, al-Baqarah 1–5) were
+given English and shipped, then reverted in v390 at the owner's instruction.
+The rule was not written down here, which is why it was broken; it is now.
+
+Transliteration is a different thing and is fine — those five verses carry
+`tr` and always have. An **empty `en` on a Qurʾānic verse is deliberate, not a
+gap to be filled.** If a report counts it as missing coverage, the report is
+wrong.
+
+### 4. Edits are all-or-nothing
 
 Build scripts must check every anchor **before** writing anything, and throw if
 any count is wrong. This has saved the file repeatedly — three anchors were wrong
 in one recent build and it wrote nothing all three times. Never write a file
 part-way through a set of edits.
 
-### 4. Two apps, one corpus
+### 5. Two apps, one corpus
 
 `DALAIL_CHAPTERS` and `LITANY_CHAPTERS` must be **byte-identical between the two
 apps**. Any change to either goes into both `index.html` files in the same
@@ -455,11 +472,10 @@ under `findings/`, which were right.
   renderer handles per-verse `tr`/`en`, so this can be layered in later with no
   restructuring. **Diyāʾ (120 verses) and the ilāhīs (70) have `en` but no `tr`**
   at all — not yet raised with the owner.
-- **The Dalāʾil is now complete in all three columns** (v389): the Title Page's
-  three `tr` and the five Qurʾānic `en` in the Opening Duʿāʾ were filled, reusing
-  the app's own settled wordings — the bismillah from `[1]` v1, "Praise belongs
-  to Allah, Lord of the worlds" from `[1]` v2, and the divine names from the
-  Names chapter (`الأحد` "The Unique", `الصمد` "Upon whom all depend").
+- **The Title Page's three `tr` were filled** in v389. The five Qurʾānic `en` in
+  the Opening Duʿāʾ were filled in the same release and **reverted in v390** —
+  see non-negotiable 3. Those five are the only Dalāʾil verses without an `en`,
+  and they stay that way.
 - **The Barzanji is a 17-chapter shell with 2 verses.** Only `[0]` Opening Praise
   has text; the other 16 render the "No entries here yet" placeholder to users,
   while the home card advertises 17. Fill or remove — the same decision that was
