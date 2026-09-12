@@ -22,8 +22,8 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v390** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v68** |
+| **Mawalid** (this repo) | the full collection | **v391** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v69** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -397,6 +397,10 @@ Run all of it before opening a pull request.
   later verse and shifts the offset the owner counts by.
 - **Tuesday v1**: the rosette after `هٰذَا` looks misplaced. Verified at 300 dpi —
   it is printed there.
+- **Saturday v15 `شِيثَ`** carries a plain fatha, not `شِيثاً`. Corrected in v391 on
+  the owner's reading; verified at 4× on book p8 of the Saturday block. The
+  printing treats it as a diptote like every other name on that line
+  (`اِسْمٰعِيلَ`, `وَاِسْحٰقَ`, `يُوسُفَ`, `يَعْقُوبَ`), so the tanwīn was the anomaly.
 - **Tuesday v16**: `فَلَا` is a deliberate departure from this printing.
 - **Istighfār Monday p247**: `اقْتَدَدْتُ` doesn't parse but stays as printed —
   two candidate corrections, nothing to arbitrate between them.
