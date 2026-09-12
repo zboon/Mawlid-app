@@ -22,8 +22,8 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v388** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v66** |
+| **Mawalid** (this repo) | the full collection | **v389** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v67** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -101,6 +101,13 @@ Do not locate text by typing it. Instead:
 
 **Assert every anchor matches exactly once.** Taking occurrence 0 without
 checking is how a match once landed mid-word and split it.
+
+**Anchor on the field key, not just the value.** A locator that searches for a
+verse's value alone breaks on an empty field: `indexOf('')` returns the cursor,
+which sits at the end of the *previous* field, so the write lands inside that
+value. Filling eight blank `tr`/`en` columns this way appended Latin text to
+the end of eight Arabic strings. Search for `"tr": "<value>"` — key, colons and
+quotes included — and assert the span is bounded by quotes before writing.
 
 ### 3. Edits are all-or-nothing
 
@@ -414,14 +421,26 @@ way to see what each device actually decided.
 
 ## Known open items
 
-**Raised during the سيدنا collation, not acted on** — each needs the owner:
+**Raised during the سيدنا collation.** Three of these were first written down
+wrong; the corrected reading is what stands here. **Re-measure a flag before
+acting on it** — all three errors were in the summary, not in the audit files
+under `findings/`, which were right.
 
 - **Tuesday is missing two `‖` page breaks.** The leaf count measures 12 where
-  this file records 14. Pre-existing; the splice did not move it.
-- **Tuesday v134** lacks `وَعَلٰى آلِ إِبْرَاهِيمَ`, which the book prints.
-- **Monday P1 v43** has a tatweel in `أَنْبِيَـاءِ`. Pre-existing.
-- **Sunday v19's `en`** says "our master" where the Arabic never had `سيدنا`.
-  Out of the removal scope (the splice left that verse alone), so it stands.
+  the corpus table records 14. Pre-existing; the splice did not move it.
+- **Tuesday v134 — the app has a clause the book does not.** The note used to
+  read that the app *lacked* `وَعَلٰى آلِ إِبْرَاهِيمَ`. The reverse is true: the app
+  carries it, and `findings/tue.md` records "book also lacks the
+  `وَعَلٰى آلِ إِبْرَاهِيمَ` clause entirely". Matching the printing therefore means
+  **deleting** three words of Arabic, which is outside the سيدنا ruling.
+  **Owner's call, not yet made.**
+- ~~Monday P1 v43 tatweel~~ — **it was Wednesday v43, and it is fixed** (v389).
+  `أَنْبِيَـاءِ` now matches v44's spelling byte-for-byte. Three tatweels remain
+  and are all correct: `هـ` in the Title Page (the AH abbreviation) and
+  `وَمَلَـٰٓئِكَتَهۥ` / `يـٰٓأَيُّهَا` in Monday P1 v18, which are Uthmani Qurʾānic forms.
+  **Do not strip those.**
+- ~~Sunday v19's `en`~~ — **not a fault.** The "O our Master" there renders
+  `يَا مَوْلَانَا`, which is in the Arabic and out of scope by the ruling.
 - On four days the app disagrees with its own source text in one to three
   places, on words unrelated to `سيدنا`.
 
@@ -431,11 +450,24 @@ way to see what each device actually decided.
   verse element and, when the candidate was missing, to the top verse of the leaf.
 - **`leaderPending`** and its panel branch are now unreachable — nothing sets the
   flag. Harmless, but dead code that could mislead.
-- **Three `وَالحَمْدُ`** lack the sukūn on the article lām (`ح` is a moon letter,
-  so `الْحَمْدُ`). Not yet swept.
 - **Transliteration and English** for al-Ḥizb al-Aʿẓam and Ḥizb al-Istighfār —
-  Arabic-only by the owner's call. The renderer handles per-verse `tr`/`en`, so
-  this can be layered in later with no restructuring.
+  Arabic-only by the owner's call (752 of `LITANY_CHAPTERS`' 950 verses). The
+  renderer handles per-verse `tr`/`en`, so this can be layered in later with no
+  restructuring. **Diyāʾ (120 verses) and the ilāhīs (70) have `en` but no `tr`**
+  at all — not yet raised with the owner.
+- **The Dalāʾil is now complete in all three columns** (v389): the Title Page's
+  three `tr` and the five Qurʾānic `en` in the Opening Duʿāʾ were filled, reusing
+  the app's own settled wordings — the bismillah from `[1]` v1, "Praise belongs
+  to Allah, Lord of the worlds" from `[1]` v2, and the divine names from the
+  Names chapter (`الأحد` "The Unique", `الصمد` "Upon whom all depend").
+- **The Barzanji is a 17-chapter shell with 2 verses.** Only `[0]` Opening Praise
+  has text; the other 16 render the "No entries here yet" placeholder to users,
+  while the home card advertises 17. Fill or remove — the same decision that was
+  taken for the Nasheeds section. **Owner's call.**
+- **The article-lām sukūn sweep is larger than it looks**: 81 occurrences across
+  76 distinct words carry an article lām before a moon letter with no sukūn
+  (`وَالخَاتِمِ`, `وَالمَلَائِكَةِ`, `بِالحَقِّ`). The old note said "three `وَالحَمْدُ`";
+  `وَالحَمْدُ` is only 4 of them. Check the printing before sweeping.
 - **`LITANY_CHAPTERS[2]`/`[3]`** stay as title slots; do not fill them with verses.
 
 ---
