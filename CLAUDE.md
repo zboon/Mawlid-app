@@ -22,8 +22,8 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v385** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v64** |
+| **Mawalid** (this repo) | the full collection | **v388** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v66** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -155,22 +155,29 @@ does not have it. The app is being brought back to the book.
 top 20 cover 45%, and 194 contexts occur exactly once — so the formulaic bulk and
 a long tail of one-offs are two different tasks.
 
-Per chapter, in scope:
+**All eight day-chapters are collated and spliced.** What was actually removed,
+against what the earlier estimate guessed:
 
-| Chapter | | Chapter | |
-|---|---|---|---|
-| `[5]` Names of the Prophet ﷺ | 2 | `[10]` Friday | 25 |
-| `[6]` Monday P1 | 34 | `[11]` Saturday | 37 |
-| `[7]` Tuesday | 39 | `[12]` Sunday | 7 |
-| `[8]` Wednesday | 16 | `[13]` Monday P2 | 1 |
-| `[9]` Thursday | 15 | | |
+| Chapter | before | after | removed | estimate said |
+|---|---|---|---|---|
+| `[6]` Monday P1 | 123 | 4 | 119 | 34 |
+| `[7]` Tuesday | 79 | 44 | 35 | 39 |
+| `[8]` Wednesday | 69 | 44 | 25 | 16 |
+| `[9]` Thursday | 70 | 7 | 63 | 15 |
+| `[10]` Friday | 134 | 0 | 134 | 25 |
+| `[11]` Saturday | 98 | 4 | 94 | 37 |
+| `[12]` Sunday | 30 | 2 | 28 | 7 |
+| `[13]` Monday P2 | 25 | 3 | 22 | 1 |
 
-*(counts exclude سيدنا محمد; Wednesday's full in-scope list is 54 including it)*
+520 removed in total, none added. **The estimates were useless** — they excluded
+`سيدنا محمد`, which is the overwhelming bulk of it, so every row read 3–5× low.
+Measure the chapter; never quote a stored figure.
 
-Treat these as indicative until each day is actually collated. Wednesday's
-figure read 13 and measured 16 — the count only holds if `وسيدنا` and `لسيدنا`
-are counted alongside bare `سيدنا`, which is easy to miss and was. Re-measure
-per chapter rather than trusting the row.
+`[5]` Names of the Prophet ﷺ (2 in scope) is **not yet done**.
+
+Tuesday is deliberately partial: only the 35 the scan shows bare were removed,
+**v132 is untouched on the owner's instruction**, and the `سيدنا ومولانا` block
+is out of scope by the ruling.
 
 **Method — one chapter per commit:**
 
@@ -182,8 +189,8 @@ per chapter rather than trusting the row.
 5. Verify: the battery below, **plus a سيدنا count before and after**, so nothing
    moves silently.
 
-**Wednesday `[8]` is done** (book pp.46–58, 25 removed, 69 → 44). What it settled,
-which the remaining days should follow:
+**What the collation settled** (Wednesday first, book pp.46–58, then the
+remaining seven). Follow these for `[5]` and for any re-check:
 
 - **Count `وسيدنا` and `لسيدنا`, not just bare `سيدنا`.** Wednesday was 58 bare but
   69 all told, and the 11 extra are where most of the errors were.
@@ -197,6 +204,30 @@ which the remaining days should follow:
   `عَلٰى سَيِّدِنَا اِبْرٰهِيمَ` and then `عَلٰى اٰلِ اِبْرٰهِيمَ` two words later.
 - **`سيدتنا` before حواء stays** (owner's call — the ruling names سيدنا only).
 - Where a name is bare in the Arabic, drop "our master" from `en` too.
+- **A carried prefix must keep its own vowel.** Splitting the token at an index
+  found in the *normalised* string cuts between the waw and its fatha and
+  carries a bare `و`, printing `ومُوسَى` for `وَمُوسَى`. Eighteen words went out
+  that way before it was caught. Neither the character-bag invariant (the fatha
+  sits inside the deleted token, so it is *expected* to vanish) nor a
+  waw/lām/bāʾ consonant count can see it. **Consume the combining marks after
+  the split point, and assert a per-verse diacritic count.**
+- **`en` renders the honorific three ways**: "our master", "our liege-lord" and
+  "our lord and master" (and `سيدتنا` as "our Liege-lady"). A regex for "our
+  master" alone leaves the others standing — six survived the first pass.
+- **`tr` attaches the prefix too** (`lisayyidinā`, `bisayyidinā`). Removing the
+  honorific there glues the prefix to the next word (`liAdama`); the app's own
+  convention hyphenates it — `li-Adama`, `bi-Muḥammadin`.
+- **Where سيدنا survives:** the Ibrāhīmic ṣalawāt is always bare, prophet and
+  angel lists are bare, and it holds mainly on Muḥammad in a named epithet
+  formula — `عَدَدَ مَا اَحَاطَ بِهِ عِلْمُكَ`, `النَّبِيِّ الْأُمِّيِّ`, `نُورِ الْأَنْوَارِ`,
+  `خَاتَمِ النَّبِيِّينَ`, `مُحَمَّدِ بْنِ عَبْدِ اللهِ`. Friday has none at all. A
+  grammatical nominative (`سَيِّدُنَا مُحَمَّدٌ` as the subject of a verb, Saturday
+  v21) stays.
+- **The owner's text files are not a collation source.** They were proposed as
+  the primary comparison and proved to be the app's *own* source: Wednesday's
+  text matched the pre-splice app exactly, zero placement mismatches across
+  1,258 words. Comparing against them would have audited clean on all seven
+  days and changed nothing. Collate from the scans.
 
 ---
 
@@ -382,6 +413,17 @@ way to see what each device actually decided.
 ---
 
 ## Known open items
+
+**Raised during the سيدنا collation, not acted on** — each needs the owner:
+
+- **Tuesday is missing two `‖` page breaks.** The leaf count measures 12 where
+  this file records 14. Pre-existing; the splice did not move it.
+- **Tuesday v134** lacks `وَعَلٰى آلِ إِبْرَاهِيمَ`, which the book prints.
+- **Monday P1 v43** has a tatweel in `أَنْبِيَـاءِ`. Pre-existing.
+- **Sunday v19's `en`** says "our master" where the Arabic never had `سيدنا`.
+  Out of the removal scope (the splice left that verse alone), so it stands.
+- On four days the app disagrees with its own source text in one to three
+  places, on words unrelated to `سيدنا`.
 
 - **Bookmarks** were rebuilt in v383 to mark the exact `.seg` word group. Untested
   on a real device. The symptom was a highlight covering several rosettes,
