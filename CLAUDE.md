@@ -133,7 +133,32 @@ any count is wrong. This has saved the file repeatedly — three anchors were wr
 in one recent build and it wrote nothing all three times. Never write a file
 part-way through a set of edits.
 
-### 5. Two apps, one corpus
+### 5. Ask before anything reaches main
+
+**Never push or merge to `main` without the owner saying so for that specific
+change.** Pages deploys from `main`, so a merge is a publication to people
+reciting from the app within the minute — it is never a step in a workflow, it
+is the decision at the end of one. Work on a branch, push the branch freely,
+then stop and ask.
+
+Two guards enforce it, because asking is a habit and habits slip:
+
+- `.claude/hooks/guard-main-push.sh`, wired up in `.claude/settings.json` as a
+  PreToolUse hook on Bash. It reads each command and returns `ask` for anything
+  that would push to `main`/`master` — including a bare `git push` while on
+  main, `HEAD:main`, and a push buried in a loop or after `&&`. **It only loads
+  for sessions that started with `.claude/` already present**, so the session
+  that creates or edits it is not covered by it.
+- `.githooks/pre-push`, which git runs regardless of who is pushing. It refuses
+  a protected-branch push unless the command carries `MAIN_PUSH_OK=1`. Enable it
+  in a fresh clone with `git config core.hooksPath .githooks` — it is config,
+  not content, so cloning does not set it.
+
+Neither is a refusal: both exist so the push is a decision the owner makes out
+loud. `MAIN_PUSH_OK=1` goes in the command only after they have said yes to
+that change.
+
+### 6. Two apps, one corpus
 
 `DALAIL_CHAPTERS` and `LITANY_CHAPTERS` must be **byte-identical between the two
 apps**. Any change to either goes into both `index.html` files in the same
