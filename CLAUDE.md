@@ -22,8 +22,8 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v391** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v69** |
+| **Mawalid** (this repo) | the full collection | **v392** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v70** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -490,10 +490,25 @@ under `findings/`, which were right.
 - On four days the app disagrees with its own source text in one to three
   places, on words unrelated to `سيدنا`.
 
-- **Bookmarks** were rebuilt in v383 to mark the exact `.seg` word group. Untested
-  on a real device. The symptom was a highlight covering several rosettes,
-  starting earlier than the tap — caused by falling back to the whole `.ms-v`
-  verse element and, when the candidate was missing, to the top verse of the leaf.
+- **Bookmarks**, `resumeDalail()`: tapping "Continue where you left off" scrolled
+  to the right leaf but the gold highlight never appeared — confirmed in a
+  headless-browser repro, not just read off the code. `markPlacedMsVerse()`
+  unconditionally clears every `.placed` element before re-marking one; the
+  call in `resumeDalail()` passed only `(idx, verse)`, so the key it computed
+  was always `null` and the clear was never followed by a re-mark. Fixed in
+  v392/v70 by passing `p.seg, p.mk` through. Verified for both an unsplit verse
+  and one split across a page break (`d:6:38.1:1`).
+
+  **Still to check on a real device, not yet confirmed either way**: for the
+  split-verse case, the resumed scroll position landed with the highlighted
+  phrase just above the viewport (~140px) in the headless run. That may be a
+  timing race against the auto-fit font pass finishing after the resume's
+  scroll-nudge, or may be an artifact of the headless environment's font
+  metrics — undetermined. Watch for it specifically when resuming a bookmark
+  that sits in the second half of a verse that spans a page turn.
+  A second, unrelated finding from the same read-through: `msReflowOverflow()`
+  is defined but never called anywhere — dead code, harmless, like
+  `leaderPending`.
 - **`leaderPending`** and its panel branch are now unreachable — nothing sets the
   flag. Harmless, but dead code that could mislead.
 - **Transliteration and English** for al-Ḥizb al-Aʿẓam and Ḥizb al-Istighfār —
