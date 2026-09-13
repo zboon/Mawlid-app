@@ -22,8 +22,8 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v392** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v70** |
+| **Mawalid** (this repo) | the full collection | **v393** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v71** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -490,22 +490,54 @@ under `findings/`, which were right.
 - On four days the app disagrees with its own source text in one to three
   places, on words unrelated to `سيدنا`.
 
-- **Bookmarks**, `resumeDalail()`: tapping "Continue where you left off" scrolled
-  to the right leaf but the gold highlight never appeared — confirmed in a
-  headless-browser repro, not just read off the code. `markPlacedMsVerse()`
-  unconditionally clears every `.placed` element before re-marking one; the
-  call in `resumeDalail()` passed only `(idx, verse)`, so the key it computed
-  was always `null` and the clear was never followed by a re-mark. Fixed in
-  v392/v70 by passing `p.seg, p.mk` through. Verified for both an unsplit verse
-  and one split across a page break (`d:6:38.1:1`).
+- **Bookmarks, three related fixes** (`resumeDalail`, `placeIsHere`, `msVerseEl`
+  — v392, then v393). All confirmed by driving the app in a headless browser,
+  not read off the code and assumed.
 
-  **Still to check on a real device, not yet confirmed either way**: for the
-  split-verse case, the resumed scroll position landed with the highlighted
-  phrase just above the viewport (~140px) in the headless run. That may be a
-  timing race against the auto-fit font pass finishing after the resume's
-  scroll-nudge, or may be an artifact of the headless environment's font
-  metrics — undetermined. Watch for it specifically when resuming a bookmark
-  that sits in the second half of a verse that spans a page turn.
+  **v392** — resuming a bookmark scrolled to the right leaf but the gold
+  highlight never appeared. `markPlacedMsVerse()` unconditionally clears every
+  `.placed` element before re-marking one; `resumeDalail()`'s call passed only
+  `(idx, verse)`, so the key it computed was always `null` and the clear was
+  never followed by a re-mark. Fixed by passing `p.seg, p.mk` through.
+
+  **v393** — the owner caught a second, related fault: the "Save my place"
+  chip kept reading "Place saved" after paging away from the bookmark, so
+  there was no way to tell where it actually was, or whether a bare tap on a
+  new page would do anything (tapping a phrase first still worked — a fresh
+  candidate bypasses the stale-looking button — but a bare tap on a new page
+  with nothing newly highlighted was, and is meant to remain, a no-op).
+  `placeIsHere()` only ever compared the saved place's *chapter*, never the
+  *leaf* — so "Place saved" stayed lit across every page of the chapter, and
+  the anti-clobber guard in `saveDalailPlace` (which reuses `placeIsHere`)
+  read the whole chapter as "already here" too, which is what made a bare tap
+  elsewhere in the chapter a no-op instead of moving the place. Made
+  `placeIsHere` leaf-aware, and hooked `refreshPlaceBtn()` into `msSyncDots()`
+  so the label updates live on a swipe, not only on a tap.
+
+  That fix immediately failed for one test case — verse.split across a page
+  turn — which traced to a real bug one level deeper: `msVerseEl()`, used by
+  both `placeIsHere` and `resumeDalail`, locates a split verse's chunk by
+  matching the mark-key *prefix* (`d:6:33.`), which can't tell chunk `.0` from
+  `.1` and always returns whichever is first in the DOM — the earlier page,
+  even when the bookmark is on the later one. Fixed by passing the bookmark's
+  own `mk` through so `msVerseEl` can find the exact chunk when it has that
+  information, falling back to the old prefix search when it doesn't (older
+  saved places with no `mk`).
+
+  This turned out to be the same fault behind a note from v392 that was left
+  as unresolved: resuming a bookmark on the second half of a split verse
+  landed the highlighted phrase off-screen, and it wasn't clear whether that
+  was real or a headless-environment artifact. It was real, and it's the same
+  wrong-chunk bug — `resumeDalail`'s scroll-nudge was measuring the wrong
+  page's geometry. Confirmed fixed by the same `mk`-aware `msVerseEl`: the
+  phrase now lands on screen.
+
+  Verified: an unsplit verse, a verse split across a page turn, tapping a new
+  phrase on a different page and having the label follow it, paging back to
+  the vacated page and having the label correctly turn off, and a bare
+  re-tap with nothing newly highlighted leaving the saved verse/seg/mk
+  unchanged (only its timestamp moves).
+
   A second, unrelated finding from the same read-through: `msReflowOverflow()`
   is defined but never called anywhere — dead code, harmless, like
   `leaderPending`.
