@@ -1597,34 +1597,81 @@ const QASIDAS = [
     titleArabic: "طَلَعَ الْبَدْرُ عَلَيْنَا",
     titleEnglish: "15 · Ṭalaʿa-l-Badru ʿAlaynā",
     verses: [
-      { refrain: true,
-        ar: "طَلَعَ الْبَدْرُ عَلَيْنَا ۞ مِنْ ثَنِيَّاتِ الْوَدَاعْ\nوَجَبَ الشُّكْرُ عَلَيْنَا ۞ مَا دَعَا لِلّٰهِ دَاعْ",
-        tr: "Ṭalaʿa-l-badru ʿalaynā · min thaniyyāti-l-wadāʿ · Wajaba-sh-shukru ʿalaynā · mā daʿā lillāhi dāʿ",
-        en: "The full moon has risen over us from the valley of Wada — gratitude is due from us for as long as any caller calls to Allah." },
-      { ar: "أَيُّهَا الْمَبْعُوثُ فِينَا ۞ جِئْتَ بِالْأَمْرِ الْمُطَاعْ",
-        tr: "Ayyuhā-l-mabʿūthu fīnā · ji'ta bi-l-amri-l-muṭāʿ",
-        en: "O you who were sent among us, you came with a command to be obeyed." },
-      { ar: "كُنْ شَفِيعًا يَا حَبِيبِي ۞ يَوْمَ حَشْرٍ وَاجْتِمَاعْ",
-        tr: "Kun shafīʿan yā ḥabībī · yawma ḥashrin wa-jtimāʿ",
-        en: "Be our intercessor, O my beloved, on the day of gathering and assembly." },
-      { ar: "رَبَّنَا صَلِّ عَلٰى مَنْ ۞ حَلَّ فِي خَيْرِ الْبِقَاعْ",
-        tr: "Rabbanā ṣalli ʿalā man · ḥalla fī khayri-l-biqāʿ",
-        en: "Our Lord, send blessings upon the one who came to dwell in the best of lands." },
-      { ar: "أَنْتَ غَوْثُنَا جَمِيعًا ۞ يَا مُجَمَّلَ الطِّبَاعْ",
-        tr: "Anta ghawthunā jamīʿā · yā mujammala-ṭ-ṭibāʿ",
-        en: "You are the refuge of us all, O you of perfected character." },
-      { ar: "وَلَبِسْنَا ثَوْبَ عِزٍّ ۞ بَعْدَ تَلْفِيقِ الرِّقَاعْ",
-        tr: "Wa labisnā thawba ʿizzin · baʿda talfīqi-r-riqāʿ",
-        en: "Through you we put on the robe of honor after wearing stitched-together rags." },
-      { ar: "أَسْبِلِ السِّتْرَ عَلَيْنَا ۞ يَا مُجِيبًا كُلَّ دَاعْ",
-        tr: "Asbili-s-sitra ʿalaynā · yā mujīban kulla dāʿ",
-        en: "Let the veil of covering fall over our faults, O Answerer of every caller." },
-      { ar: "وَصَلَاةُ اللّٰهِ عَلٰى أَحْمَدْ ۞ عَدَّ تَحْرِيرِ الرِّقَاعْ",
-        tr: "Wa ṣalātullāhi ʿalā Aḥmad · ʿadda taḥrīri-r-riqāʿ",
-        en: "And Allah's blessings upon Ahmad, as many as all the pages ever penned." },
-      { ar: "وَكَذَا آلٍ وَصَحْبٍ ۞ مَا سَعَى لِلّٰهِ سَاعْ",
-        tr: "Wa kadhā ālin wa ṣaḥbin · mā saʿā lillāhi sāʿ",
-        en: "And likewise upon his family and companions, for as long as any striver strives for Allah." }
+      { refrain: true, ar: "طَلَعَ الْبَدْرُ عَلَيْنَا ۞ مِنْ ثَنِيَّاتِ الْوَدَاعْ",
+        tr: "Ṭalaʿa l-badru ʿalaynā, min thanīyāti l-wadāʿ.",
+        en: "The full moon has risen upon us, from the valley of Wada." },
+      { ar: "وَجَبَ الشُّكْرُ عَلَيْنَا ۞ مَا دَعَا لِلَّهِ دَاعْ",
+        tr: "Wajaba sh-shukru ʿalaynā, mā daʿā li-Llāhi dāʿ.",
+        en: "Gratitude is incumbent upon us, whenever one calls to Allah." },
+      { ar: "أَيُّهَا الْمَبْعُوثُ فِينَا ۞ جِئْتَ بِالْأَمْرِ الْمُطَاعْ",
+        tr: "Ayyuha l-mabʿūthu fīnā, ji'ta bi-l-amri l-muṭāʿ.",
+        en: "O you who have been sent among us, you came with the command to be obeyed." },
+      { ar: "جِئْتَ شَرَفْتَ الْمَدِينَةَ ۞ مَرْحَبًا يَا خَيْرَ دَاعْ",
+        tr: "Ji'ta sharrafta l-Madīnah, marḥaban yā khayra dāʿ.",
+        en: "You came and honoured Madinah, welcome, O noblest caller to Allah!" },
+      { ar: "طَلَعَ النُّورُ الْمُبِينُ ۞ نُورُ خَيْرِ الْمُرْسَلِينْ",
+        tr: "Ṭalaʿa n-nūru l-mubīnu, nūru khayri l-mursalīn.",
+        en: "The clear light has risen, the light of the best of messengers." },
+      { ar: "نُورُ أَمْنٍ وَسَلَامٍ ۞ نُورُ حَقٍّ وَيَقِينْ",
+        tr: "Nūru amnin wa-salāmin, nūru ḥaqqin wa-yaqīn.",
+        en: "A light of safety and peace, a light of truth and certainty." },
+      { ar: "سَاقَهُ اللَّهُ تَعَالَى ۞ رَحْمَةً لِلْعَالَمِينْ",
+        tr: "Sāqahu Llāhu taʿālā, raḥmatan li-l-ʿālamīn.",
+        en: "Allah Most High sent him, a mercy to all the worlds." },
+      { ar: "فَعَلَى الْبَرِّ شُعَاعٌ ۞ وَعَلَى الْبَحْرِ شُعَاعْ",
+        tr: "Fa-ʿalā l-barri shuʿā'un, wa-ʿalā l-baḥri shuʿā.",
+        en: "Its radiance shines upon the land, and upon the sea." },
+      { ar: "مَرْحَبًا يَا مُصْطَفَانَا ۞ نُورُكَ الْغَالِي أَضَاءْ",
+        tr: "Marḥaban yā Muṣṭafānā, nūruka l-ghālī aḍā'.",
+        en: "Welcome, O our Chosen One, your precious light has shone forth." },
+      { ar: "رُغْمَ أَنْفِ الْمُلْحِدِينَ ۞ فَيْضُهُ عَمَّ الْبِقَاعْ",
+        tr: "Rughma anfi l-mulḥidīna, fayḍuhu ʿamma l-biqāʿ.",
+        en: "Despite the deniers, his overflowing grace has spread across the lands." },
+      { ar: "أَشْرَقَتْ شَمْسُ الْكَمَالِ ۞ بِكَ يَا بَاهِي الْجَمَالْ",
+        tr: "Ashraqat shamsu l-kamāli, bika yā bāhī l-jamāl.",
+        en: "The sun of perfection has risen through you, O radiant in beauty." },
+      { ar: "جَلَّ مَنْ سَوَّاكَ حَقًّا ۞ دَائِمًا لِلْخَيْرِ سَاعْ",
+        tr: "Jalla man sawwāka ḥaqqan, dā'iman li-l-khayri sāʿ.",
+        en: "Exalted is He who truly fashioned you, ever hastening you toward every good." },
+      { ar: "صَفْوَةُ الْبَارِي مُحَمَّدٌ ۞ دُرَّةٌ لِلْكَائِنَاتْ",
+        tr: "Ṣafwatu l-Bārī Muḥammadun, durratun li-l-kā'ināt.",
+        en: "Muhammad, the Elect of the Creator, a pearl among all creation." },
+      { ar: "مَدْحُهُ بَلْسَمُ رُوحِي ۞ وَلَهُ يَحْلُو السَّمَاعْ",
+        tr: "Madḥuhu balsamu rūḥī, wa-lahu yaḥlū s-samāʿ.",
+        en: "His praise is balm to my soul, and listening to it is sweet indeed." },
+      { ar: "يَا خِتَامَ الْأَنْبِيَاءِ ۞ يَا إِمَامَ الْأَوْلِيَاءْ",
+        tr: "Yā khitāma l-anbiyā'i, yā imāma l-awliyā.",
+        en: "O Seal of the Prophets! O Leader of the Saints!" },
+      { ar: "رَحْمَةً أُرْسِلْتَ طَهَ ۞ مُنْقِذًا بَعْدَ الضَّيَاعْ",
+        tr: "Raḥmatan ursilta Ṭāhā, munqiẓan baʿda ḍ-ḍayāʿ.",
+        en: "You were sent as mercy, O Taha, a saviour after mankind had gone astray." },
+      { ar: "صَلَوَاتُ اللَّهِ تُهْدَى ۞ لَكَ مِنَّا وَالسَّلَامْ",
+        tr: "Ṣalawātu Llāhi tuhdā, laka minnā wa-s-salām.",
+        en: "Blessings of Allah are sent to you, and peace from all of us." },
+      { ar: "يَا أَبَا الْقَاسِمِ يَا مَنْ ۞ أَمْرُهُ دَوْمًا مُطَاعْ",
+        tr: "Yā Abā l-Qāsimi yā man, amruhu dawman muṭāʿ.",
+        en: "O Aba al-Qasim, O you whose word is ever obeyed." },
+      { ar: "بَيْنَ كَتْفَهِ عَلَامَةٌ ۞ خَاتِمُ الرُّسْلِ الْكِرَامْ",
+        tr: "Bayna katfahi ʿalāmah, khātimu r-rusli l-kirām.",
+        en: "Between his shoulder blades is a mark, the seal of all the noble messengers." },
+      { ar: "أَشْرَقَ الْبَدْرُ عَلَيْنَا ۞ وَاخْتَفَى بَدْرُ التَّمَامْ",
+        tr: "Ashraqa l-badru ʿalaynā, wa-khtafā badru t-tamām.",
+        en: "The full moon has risen upon us, and all other full moons have faded." },
+      { ar: "مِثْلُ حُسْنِكَ مَا رَأَيْنَا ۞ فِي الْعِرَاقَيْنِ وَشَامْ",
+        tr: "Mithla ḥusnika mā ra'aynā, fī l-ʿIrāqayni wa-Shām.",
+        en: "We have never seen beauty like yours, not in Iraq, nor in the Levant." },
+      { ar: "رَبِّ فَاجْعَلْ مُجْتَمَعْنَا ۞ غَايَتُهْ حُسْنُ الْخِتَامْ",
+        tr: "Rabbi fajʿal mujtamaʿnā, ghāyatuh ḥusnu l-khitām.",
+        en: "My Lord, make the goal of our gathering a beautiful ending." },
+      { ar: "وَأَعْطِنَا مَا قَدْ سَأَلْنَا ۞ مِنْ عَطَايَاكَ الْجِسَامْ",
+        tr: "Wa-aʿṭinā mā qad sa'alnā, min ʿaṭāyāka l-jisām.",
+        en: "And grant us what we have asked for, from Your vast, abundant gifts." },
+      { ar: "وَأَكْرِمِ الْأَرْوَاحَ مِنَّا ۞ بِاللِّقَاءْ خَيْرِ الْأَنَامْ",
+        tr: "Wa-akrimi l-arwāḥa minnā, bi-l-liqā' khayri l-anām.",
+        en: "And honour our souls by granting us, a meeting with the Best of Creation." },
+      { ar: "وَابْلِغِ الْمُخْتَارَ عَنَّا ۞ مِنْ صَلَاةٍ وَسَلَامْ",
+        tr: "Wa-blighi l-mukhtāra ʿannā, min ṣalātin wa-salām.",
+        en: "And convey from us to the Chosen One our prayers and peace." }
     ]
   },
   {
@@ -1633,40 +1680,27 @@ const QASIDAS = [
     titleArabic: "طَالَمَا أَشْكُو غَرَامِي",
     titleEnglish: "16 · Ṭālamā Ashkū Gharāmī",
     verses: [
-      { refrain: true,
-        ar: "طَالَمَا أَشْكُو غَرَامِي ۞ يَا نُورَ الْوُجُودْ\nوَأُنَادِي يَا تِهَامِي ۞ يَا مَعْدِنَ الْجُودْ",
-        tr: "Ṭālamā ashkū gharāmī · yā nūra-l-wujūd · Wa unādī yā Tihāmī · yā maʿdina-l-jūd",
-        en: "How long I have poured out my love-longing, O Light of existence, calling out: O Tihami, O wellspring of generosity!" },
-      { ar: "مُنْيَتِي أَقْصَى مَرَامِي ۞ أَحْظَى بِالشُّهُودْ",
-        tr: "Munyatī aqṣā marāmī · aḥẓā bi-sh-shuhūd",
-        en: "My wish, the utmost of my aims: to be granted the vision of beholding you." },
-      { ar: "وَأَرَى بَابَ السَّلَامِ ۞ يَا زَاكِي الْجُدُودْ",
-        tr: "Wa arā bāba-s-salāmi · yā zākī-l-judūd",
-        en: "And to see the Gate of Peace, O you of the purest ancestors." },
-      { ar: "يَا طِرَازَ الْكَوْنِ إِنِّي ۞ عَاشِقٌ مُسْتَهَامْ",
-        tr: "Yā ṭirāza-l-kawni innī · ʿāshiqun mustahām",
-        en: "O adornment of the universe, truly I am a lover lost in longing." },
-      { ar: "مُغْرَمٌ وَالْمَدْحُ فَنِّي ۞ يَا بَدْرَ التَّمَامْ",
-        tr: "Mughramun wa-l-madḥu fannī · yā badra-t-tamām",
-        en: "Enraptured — and praising you is my art, O full moon of perfection." },
-      { ar: "اِصْرِفِ الْإِعْرَاضَ عَنِّي ۞ أَضْنَانِي الْغَرَامْ",
-        tr: "Iṣrifi-l-iʿrāḍa ʿannī · aḍnānī-l-gharām",
-        en: "Turn all turning-away from me — this love has worn me thin." },
-      { ar: "فِيكَ قَدْ أَحْسَنْتُ ظَنِّي ۞ يَا سَامِي الْعُهُودْ",
-        tr: "Fīka qad aḥsantu ẓannī · yā sāmī-l-ʿuhūd",
-        en: "In you I have placed my best expectation, O keeper of the loftiest covenants." },
-      { ar: "يَا سِرَاجَ الْأَنْبِيَاءِ ۞ يَا عَالِي الْجَنَابْ",
-        tr: "Yā sirāja-l-anbiyā'i · yā ʿālī-l-janāb",
-        en: "O lamp of the prophets, O possessor of the most exalted presence." },
-      { ar: "يَا إِمَامَ الْأَتْقِيَاءِ ۞ إِنَّ قَلْبِي ذَابْ",
-        tr: "Yā imāma-l-atqiyā'i · inna qalbī dhāb",
-        en: "O leader of the God-fearing — truly my heart has melted." },
-      { ar: "وَعَلَيْكَ اللّٰهُ صَلَّى ۞ رَبِّي ذُو الْجَلَالْ",
-        tr: "Wa ʿalayka-Llāhu ṣallā · Rabbī dhū-l-jalāl",
-        en: "And upon you Allah sends blessings — my Lord, the Possessor of Majesty." },
-      { ar: "يَكْفِي يَا نُورَ الْأَهِلَّةْ ۞ إِنَّ هَجْرِي طَالْ",
-        tr: "Yakfī yā nūra-l-ahillah · inna hajrī ṭāl",
-        en: "Enough, O light of the crescent moons — my separation has lasted too long." }
+      { ar: "طَالَمَا أَشْكُو غَرَامِي يَا نُورَ الْوُجُودْ ۞ وَأُنَادِي يَا تِهَامِي يَا مَعْدِنَ الْجُودْ",
+        tr: "Ṭālamā ashkū gharāmī yā nūra l-wujūd. Wa-unādī yā tihāmī yā maʿdina l-jūd.",
+        en: "How long have I lamented my yearning for you, O Light of Existence! And I call out, \"O Tihami [Prophet Muhammad ﷺ], O Source of Generosity!\"" },
+      { ar: "مُنْيَتِي أَقْصَى مَرَامِي أَحْظَى بِالشُّهُودْ ۞ وَأَرَى بَابَ السَّلَامِ يَا زَاكِي الْجُدُودْ",
+        tr: "Munyatī aqṣā marāmī aḥẓā bi-sh-shuhūd. Wa-arā bāba s-salāmi yā zāki l-judūd.",
+        en: "My wish and highest aspiration is to be blessed with your vision. And to behold the Gate of Peace [Paradise], O Pure One of noble lineage." },
+      { ar: "يَا طِرَازَ الْكَوْنِ إِنِّي عَاشِقٌ مُسْتَهَامْ ۞ مُغْرَمٌ وَالْمَدْحُ فَنِّي يَا بَدْرَ التَّمَامْ",
+        tr: "Yā ṭirāza l-kawni innī ʿāshiqun mustahām. Mughramun wa-l-madḥu fannī yā badra t-tamām.",
+        en: "O Adornment of the Universe, I am an ardent lover, Consumed by love, and praise is my art, O Perfect Full Moon!" },
+      { ar: "اِصْرِفِ الْأَعْرَاضَ عَنِّي أَضْنَانِي الْغَرَامْ ۞ فِيكَ قَدْ حَسَّنْتُ ظَنِّي يَا سَامِي الْعُهُودْ",
+        tr: "Iṣrifi l-aʿrāḍa ʿannī aḍnāni l-gharām. Fīka qad ḥassantu ẓannī yā sāmi l-ʿuhūd.",
+        en: "Turn afflictions away from me, longing has worn me down. In you I have placed my finest hopes, O Upholder of noble covenants." },
+      { ar: "يَا سِرَاجَ الْأَنْبِيَاءِ يَا عَالِي الْجَنَابْ ۞ يَا إِمَامَ الْأَتْقِيَاءِ إِنَّ قَلْبِي ذَابْ",
+        tr: "Yā sirāja l-anbiyā'i yā ʿāli l-janāb. Yā imāma l-atqiyā'i inna qalbī dhāb.",
+        en: "O Lantern of the Prophets, O Exalted One! O Leader of the God-fearing, my heart has melted in longing!" },
+      { ar: "يَكْفِي يَا نُورَ الْأَهِلَّةِ إِنَّ هَجْرِي طَالْ ۞ سَيَّدِي وَالْعُمْرُ وَلَّى جُدْ بِالْوَصْلِ جُودْ",
+        tr: "Yakfī yā nūra l-ahillati inna hajrī ṭāl. Sayyadī wa-l-ʿumru wallā jud bi-l-waṣli jūd.",
+        en: "Enough, O Light of the new moons! My separation has gone on too long. My master, life has passed, grant me union with your grace!" },
+      { ar: "يَا نَبِيًّا قَدْ تَحَلَّى حَقًّا بِالْجَمَالْ ۞ وَعَلَيْكَ اللَّهُ صَلَّى رَبِّي ذُو الْجَلَالْ",
+        tr: "Yā nabiyyan qad taḥalla ḥaqqan bi-l-jamāl. Wa-ʿalayka Llāhu ṣallā Rabbī dhū l-jalāl.",
+        en: "O Prophet, you have truly been adorned with beauty. And upon you, may Allah, the Lord of Majesty, send His endless prayers." }
     ]
   },
   {
@@ -11669,7 +11703,7 @@ const TAB_CHILDREN = {
   dalail:  ['before','downloads'],
   litanies: ['azam','istighfar'],
   mawlids: ['mawlid','barzanji','diya','burdah'],
-  praises: ['qasidas','ilahis','qawwalis'],
+  praises: ['qasidas','qasidas-burdah','ilahis','qawwalis'],
 };
 
 function tabIsActive(id){
@@ -12968,18 +13002,42 @@ function additionalQasidaItems(){
     .filter(x => x.q.group === 'qasidas' && !sectionOf(x.q.titleEnglish));
 }
 
+/* Qasida al-Burdah isn't a QASIDAS entry — it's a synthetic card that opens
+   the full, 10-chapter, fully-diacritized Burdah (BURDAH_CHAPTERS) as its own
+   styled sub-list, so a chapter is one tap further in rather than duplicating
+   any of its content back into this array. */
+const QASIDA_BURDAH_ENTRY = { titleArabic: "قَصِيدَةُ الْبُرْدَة", titleEnglish: "Qasida al-Burdah · 10 chapters", verses: [] };
+
 function additionalQasidaCards(){
   const items = additionalQasidaItems().filter(x => matchesQuery(x.q, state.query));
-  if(items.length === 0) return '';
-  return items.map(({q:qa, i}, n) => `
+  const showBurdah = matchesQuery(QASIDA_BURDAH_ENTRY, state.query);
+  if(items.length === 0 && !showBurdah) return '';
+  let n = 0, out = '';
+  if(showBurdah){
+    n++;
+    out += `
+        <button class="qcard" onclick="selectTab('qasidas-burdah')">
+          <span class="num">${toArNum(n)}</span>
+          <span class="titles">
+            <span class="t-ar">${QASIDA_BURDAH_ENTRY.titleArabic}</span>
+            <span class="t-en">${QASIDA_BURDAH_ENTRY.titleEnglish}</span>
+          </span>
+          <span class="chev">›</span>
+        </button>`;
+  }
+  out += items.map(({q:qa, i}) => {
+    n++;
+    return `
         <button class="qcard" onclick="openQasida(${i})">
-          <span class="num">${toArNum(n+1)}</span>
+          <span class="num">${toArNum(n)}</span>
           <span class="titles">
             <span class="t-ar">${qa.titleArabic}</span>
             <span class="t-en">${qa.titleEnglish}</span>
           </span>
           <span class="chev">›</span>
-        </button>` + hitList('q', i)).join('');
+        </button>` + hitList('q', i);
+  }).join('');
+  return out;
 }
 
 function groupCards(group){
@@ -13113,6 +13171,10 @@ function praisesHub(){
 
 function backToPraises(){
   return `<button class="back-link" onclick="selectTab('praises')">‹ Qasidas</button>`;
+}
+
+function backToQasidasList(){
+  return `<button class="back-link" onclick="selectTab('qasidas')">‹ Qasidas</button>`;
 }
 
 function backToDalail(){
@@ -13408,7 +13470,7 @@ function sectionCount(id){
        : id === 'istighfar'? istighfarFilledDays().length
        : id === 'qawwalis'? 0
        : id === 'mawlid'  ? mawlidItems().length
-       : id === 'qasidas' ? additionalQasidaItems().length
+       : id === 'qasidas' ? additionalQasidaItems().length + 1 /* +1 for the Qasida al-Burdah entry */
        : id === 'burdah'  ? BURDAH_CHAPTERS.length
        : id === 'dalail'  ? DALAIL_CHAPTERS.length
        : id === 'barzanji'? BARZANJI_CHAPTERS.length
@@ -13532,6 +13594,9 @@ function renderResults(){
   }
   if(tab === 'burdah'){
     return backToMawlids() + sectionIntro('burdah') + label('Select a chapter · اختر فصلاً') + burdahCards();
+  }
+  if(tab === 'qasidas-burdah'){
+    return backToQasidasList() + label('Qasida al-Burdah · قصيدة البردة', false) + label('Select a chapter · اختر فصلاً', true) + burdahCards();
   }
   if(tab === 'barzanji'){
     return backToMawlids() + sectionIntro('barzanji') + label('Select a section · اختر فصلاً') + barzanjiCards();
@@ -15346,10 +15411,14 @@ function openQasida(i){
 }
 
 function openBurdah(n){
+  /* Reached either from the Mawlid Collections > Burdah tab, or from the
+     synthetic "Qasida al-Burdah" card inside the Qasidas list — the back
+     button should return wherever the chapter list itself was opened from. */
+  const backTab = state.tab === 'qasidas-burdah' ? 'qasidas-burdah' : 'burdah';
   state.burdahChapter = n;
   document.documentElement.style.setProperty('--ar-size', (1.9*state.arScale)+'rem');
   document.documentElement.style.setProperty('--latin-scale', state.latinScale);
-  app.innerHTML = readerHTML(BURDAH_CHAPTERS[n], "selectTab('burdah')", 'b', n);
+  app.innerHTML = readerHTML(BURDAH_CHAPTERS[n], `selectTab('${backTab}')`, 'b', n);
   queueMsAutoFit();
   window.scrollTo(0,0);
   onNavigated('b', n);
