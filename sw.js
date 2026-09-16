@@ -7,13 +7,35 @@
    missed sw.js froze the app permanently with no way out from the phone.
    Everything else (fonts, icons, manifest) stays cache-first: it's large,
    it doesn't change, and it's what makes the app work with no signal. */
-const CACHE = 'mawlid-v371'; // bump this whenever you update index.html
+const CACHE = 'mawlid-v393'; // bump this whenever you update index.html
 const CORE = ['./', './index.html', './manifest.json', './icon-192.png', './icon-512.png'];
+
+/* Downloaded recitations live in their own cache, opened by the page rather
+   than by this worker. It is listed here so the cleanup below spares it.
+
+   This matters more than it looks. The cleanup deletes every cache whose name
+   is not the current one — which is right for the app shell, and was quietly
+   fatal for audio: a listener downloads all seven portions over the masjid
+   wifi, a typo fix ships, and 150MB disappears on next launch with nothing
+   said. Audio is expensive to fetch and must outlive app versions, so its
+   cache name carries no version and is never swept.
+
+   Anything added here must likewise be version-free, or it will be collected
+   on the very next release. */
+const AUDIO_CACHE = 'mawlid-audio';
+const KEEP = [CACHE, AUDIO_CACHE];
 
 self.addEventListener('install', e => {
   e.waitUntil(
     caches.open(CACHE)
-      .then(c => c.addAll(CORE))
+      /* cache:'reload' bypasses the browser's HTTP cache. addAll() does NOT do
+         this by default, and the consequence was ugly: a newly installed
+         worker could precache the PREVIOUS index.html — the copy still sitting
+         in the HTTP cache from before the deploy — and then the timeout path
+         below would serve that stale page whenever the network was slow. The
+         app appeared to update, then flipped back to the old build on the next
+         refresh. Always fetch the shell fresh at install. */
+      .then(c => c.addAll(CORE.map(u => new Request(u, { cache: 'reload' }))))
       .then(() => self.skipWaiting())
   );
 });
@@ -21,7 +43,7 @@ self.addEventListener('install', e => {
 self.addEventListener('activate', e => {
   e.waitUntil(
     caches.keys().then(keys =>
-      Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k)))
+      Promise.all(keys.filter(k => KEEP.indexOf(k) === -1).map(k => caches.delete(k)))
     ).then(() => self.clients.claim())
   );
 });
@@ -36,7 +58,9 @@ self.addEventListener('fetch', e => {
   if (req.mode === 'navigate') {
     e.respondWith(
       Promise.race([
-        fetch(req).then(resp => {
+        /* Same reasoning: ask the network, not the HTTP cache, or a stale
+           copy gets stored and served back as though it were current. */
+        fetch(new Request(req.url, { cache: 'no-store' })).then(resp => {
           if (resp && resp.ok) {
             const copy = resp.clone();
             caches.open(CACHE).then(c => c.put('./index.html', copy)).catch(() => {});
