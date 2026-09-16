@@ -11703,7 +11703,7 @@ const TAB_CHILDREN = {
   dalail:  ['before','downloads'],
   litanies: ['azam','istighfar'],
   mawlids: ['mawlid','barzanji','diya','burdah'],
-  praises: ['qasidas','ilahis','qawwalis'],
+  praises: ['qasidas','qasidas-burdah','ilahis','qawwalis'],
 };
 
 function tabIsActive(id){
@@ -13002,18 +13002,42 @@ function additionalQasidaItems(){
     .filter(x => x.q.group === 'qasidas' && !sectionOf(x.q.titleEnglish));
 }
 
+/* Qasida al-Burdah isn't a QASIDAS entry — it's a synthetic card that opens
+   the full, 10-chapter, fully-diacritized Burdah (BURDAH_CHAPTERS) as its own
+   styled sub-list, so a chapter is one tap further in rather than duplicating
+   any of its content back into this array. */
+const QASIDA_BURDAH_ENTRY = { titleArabic: "قَصِيدَةُ الْبُرْدَة", titleEnglish: "Qasida al-Burdah · 10 chapters", verses: [] };
+
 function additionalQasidaCards(){
   const items = additionalQasidaItems().filter(x => matchesQuery(x.q, state.query));
-  if(items.length === 0) return '';
-  return items.map(({q:qa, i}, n) => `
+  const showBurdah = matchesQuery(QASIDA_BURDAH_ENTRY, state.query);
+  if(items.length === 0 && !showBurdah) return '';
+  let n = 0, out = '';
+  if(showBurdah){
+    n++;
+    out += `
+        <button class="qcard" onclick="selectTab('qasidas-burdah')">
+          <span class="num">${toArNum(n)}</span>
+          <span class="titles">
+            <span class="t-ar">${QASIDA_BURDAH_ENTRY.titleArabic}</span>
+            <span class="t-en">${QASIDA_BURDAH_ENTRY.titleEnglish}</span>
+          </span>
+          <span class="chev">›</span>
+        </button>`;
+  }
+  out += items.map(({q:qa, i}) => {
+    n++;
+    return `
         <button class="qcard" onclick="openQasida(${i})">
-          <span class="num">${toArNum(n+1)}</span>
+          <span class="num">${toArNum(n)}</span>
           <span class="titles">
             <span class="t-ar">${qa.titleArabic}</span>
             <span class="t-en">${qa.titleEnglish}</span>
           </span>
           <span class="chev">›</span>
-        </button>` + hitList('q', i)).join('');
+        </button>` + hitList('q', i);
+  }).join('');
+  return out;
 }
 
 function groupCards(group){
@@ -13147,6 +13171,10 @@ function praisesHub(){
 
 function backToPraises(){
   return `<button class="back-link" onclick="selectTab('praises')">‹ Qasidas</button>`;
+}
+
+function backToQasidasList(){
+  return `<button class="back-link" onclick="selectTab('qasidas')">‹ Qasidas</button>`;
 }
 
 function backToDalail(){
@@ -13442,7 +13470,7 @@ function sectionCount(id){
        : id === 'istighfar'? istighfarFilledDays().length
        : id === 'qawwalis'? 0
        : id === 'mawlid'  ? mawlidItems().length
-       : id === 'qasidas' ? additionalQasidaItems().length
+       : id === 'qasidas' ? additionalQasidaItems().length + 1 /* +1 for the Qasida al-Burdah entry */
        : id === 'burdah'  ? BURDAH_CHAPTERS.length
        : id === 'dalail'  ? DALAIL_CHAPTERS.length
        : id === 'barzanji'? BARZANJI_CHAPTERS.length
@@ -13566,6 +13594,9 @@ function renderResults(){
   }
   if(tab === 'burdah'){
     return backToMawlids() + sectionIntro('burdah') + label('Select a chapter · اختر فصلاً') + burdahCards();
+  }
+  if(tab === 'qasidas-burdah'){
+    return backToQasidasList() + label('Qasida al-Burdah · قصيدة البردة', false) + label('Select a chapter · اختر فصلاً', true) + burdahCards();
   }
   if(tab === 'barzanji'){
     return backToMawlids() + sectionIntro('barzanji') + label('Select a section · اختر فصلاً') + barzanjiCards();
@@ -15380,10 +15411,14 @@ function openQasida(i){
 }
 
 function openBurdah(n){
+  /* Reached either from the Mawlid Collections > Burdah tab, or from the
+     synthetic "Qasida al-Burdah" card inside the Qasidas list — the back
+     button should return wherever the chapter list itself was opened from. */
+  const backTab = state.tab === 'qasidas-burdah' ? 'qasidas-burdah' : 'burdah';
   state.burdahChapter = n;
   document.documentElement.style.setProperty('--ar-size', (1.9*state.arScale)+'rem');
   document.documentElement.style.setProperty('--latin-scale', state.latinScale);
-  app.innerHTML = readerHTML(BURDAH_CHAPTERS[n], "selectTab('burdah')", 'b', n);
+  app.innerHTML = readerHTML(BURDAH_CHAPTERS[n], `selectTab('${backTab}')`, 'b', n);
   queueMsAutoFit();
   window.scrollTo(0,0);
   onNavigated('b', n);
