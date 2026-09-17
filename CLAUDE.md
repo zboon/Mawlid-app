@@ -567,7 +567,7 @@ under `findings/`, which were right.
   the owner's own pasted source (Arabic, transliteration and English for all
   123 verses), on the owner's ruling to *"use the source's structure"*. The
   17 invented chapters are gone; it is now the source's 19, and no chapter
-  renders the placeholder any more. Two things still want the owner:
+  renders the placeholder any more.
 
   **All three questions this raised are now settled by the owner:**
 
