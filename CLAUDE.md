@@ -22,8 +22,8 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v393** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v71** |
+| **Mawalid** (this repo) | the full collection | **v394** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v72** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -43,7 +43,7 @@ assets send no CORS header and are blocked outright.
 | `SIRAH_CHAPTERS` | 7 | 143 | — |
 | `DIYA_CHAPTERS` | 8 | 120 | — |
 | `ILAHI_CHAPTERS` | 11 | 70 | — |
-| `BARZANJI_CHAPTERS` | 17 | 2 | — |
+| `BARZANJI_CHAPTERS` | 19 | 123 | — |
 
 `LITANY_CHAPTERS` holds three collections: `[0]` Ghāyāt and `[1]` Wiqāyah
 standalone; `[2]` and `[3]` are **title slots** naming Ḥizb al-Istighfār and
@@ -552,10 +552,44 @@ under `findings/`, which were right.
   the Opening Duʿāʾ were filled in the same release and **reverted in v390** —
   see non-negotiable 3. Those five are the only Dalāʾil verses without an `en`,
   and they stay that way.
-- **The Barzanji is a 17-chapter shell with 2 verses.** Only `[0]` Opening Praise
-  has text; the other 16 render the "No entries here yet" placeholder to users,
-  while the home card advertises 17. Fill or remove — the same decision that was
-  taken for the Nasheeds section. **Owner's call.**
+- ~~The Barzanji is a 17-chapter shell with 2 verses~~ — **filled in v394** from
+  the owner's own pasted source (Arabic, transliteration and English for all
+  123 verses), on the owner's ruling to *"use the source's structure"*. The
+  17 invented chapters are gone; it is now the source's 19, and no chapter
+  renders the placeholder any more. Two things still want the owner:
+
+  - **Six chapter titles are proposed, not settled** — `[5]` الْمَوْلُودُ الشَّرِيفُ,
+    `[9]` أُمُّهُ آمِنَةُ, `[11]` رَفْعُ الْحَجَرِ الْأَسْوَدِ, `[13]` أَوَّلُ الْمُؤْمِنِينَ,
+    `[16]` أُمُّ مَعْبَدٍ, `[18]` الْأَخْلَاقُ الشَّرِيفَةُ. The source has English chapter
+    titles only, and the PDF has no Arabic text layer and no headings at all,
+    so there was nothing authoritative to read off. The other 13 are the old
+    shell's titles verbatim. Every one of the six is assembled **by script**
+    from tokens lifted out of the app or the Barzanji's own text, with at most
+    a final case vowel changed — because hand-typing them once produced
+    `الْبِعْةَةُ` for `الْبِعْثَةُ` (a ta marbuta for a thāʾ) and silently dropped the
+    article-lām sukūn from all thirteen reused titles. Only `الْمَوْلُودُ` is a
+    genuinely new word. See `titles.py` in the build scratchpad for the
+    derivation of each.
+  - **Verses 80, 83, 85 and 123 embed Qurʾānic quotations and the source
+    supplies English for them.** That is the owner's own source translation
+    rather than an in-house rendering, so it is not the v389 breach repeated —
+    but it is the one place this build touches non-negotiable 3, and the
+    Barzanji's mixed verses are a different case from the wholly-Qurʾānic
+    verses that rule was written for. **Owner's call.**
+
+  Method worth keeping: the normalisation set was **derived, not guessed**.
+  Source chapter 1 is a passage the app already carried, so it doubles as a
+  test — `normalised(source ch1)` must come out byte-identical to the app's
+  existing bytes, and does, across all 104 words. That one assertion validated
+  the extraction and all four rules at once (NFC mark order, the lafẓ
+  al-jalāla dagger, `عَلَى`→`عَلٰى`, `أِ`→`إِ`). Do the same for any future
+  import that overlaps existing text.
+
+  Verse 123 closes on Qurʾān 37:180–182, which the app already carried in its
+  own imlāʾī style; **those bytes were reused** rather than the source's
+  Uthmani forms, which would otherwise have been the corpus's only alif wasla.
+  The Qiyam is a per-verse `note` on verse 19 — the renderer supports
+  `v.note`, which is worth remembering; it is not only a chapter-level field.
 - **The article-lām sukūn sweep is larger than it looks**: 81 occurrences across
   76 distinct words carry an article lām before a moon letter with no sukūn
   (`وَالخَاتِمِ`, `وَالمَلَائِكَةِ`, `بِالحَقِّ`). The old note said "three `وَالحَمْدُ`";
