@@ -441,6 +441,17 @@ Run all of it before opening a pull request.
 
 ---
 
+## Theme
+
+**Light is the standard first-open look.** A reader who has never chosen gets
+light whatever their phone's system setting says; dark is only ever entered by
+tapping the toggle, and only then is it remembered (`mawlid-theme` /
+`dlk-theme`). `initTheme` deliberately does **not** consult
+`prefers-color-scheme` — it used to, which handed anyone with a dark phone a
+dark app before they had asked for one. Owner's call; don't reintroduce it.
+
+---
+
 ## Live sessions
 
 Everyone's screen follows a leader over a Supabase Realtime channel. The anon key
@@ -558,24 +569,35 @@ under `findings/`, which were right.
   17 invented chapters are gone; it is now the source's 19, and no chapter
   renders the placeholder any more. Two things still want the owner:
 
-  - **Six chapter titles are proposed, not settled** — `[5]` الْمَوْلُودُ الشَّرِيفُ,
-    `[9]` أُمُّهُ آمِنَةُ, `[11]` رَفْعُ الْحَجَرِ الْأَسْوَدِ, `[13]` أَوَّلُ الْمُؤْمِنِينَ,
-    `[16]` أُمُّ مَعْبَدٍ, `[18]` الْأَخْلَاقُ الشَّرِيفَةُ. The source has English chapter
-    titles only, and the PDF has no Arabic text layer and no headings at all,
-    so there was nothing authoritative to read off. The other 13 are the old
-    shell's titles verbatim. Every one of the six is assembled **by script**
-    from tokens lifted out of the app or the Barzanji's own text, with at most
-    a final case vowel changed — because hand-typing them once produced
-    `الْبِعْةَةُ` for `الْبِعْثَةُ` (a ta marbuta for a thāʾ) and silently dropped the
-    article-lām sukūn from all thirteen reused titles. Only `الْمَوْلُودُ` is a
-    genuinely new word. See `titles.py` in the build scratchpad for the
-    derivation of each.
-  - **Verses 80, 83, 85 and 123 embed Qurʾānic quotations and the source
-    supplies English for them.** That is the owner's own source translation
-    rather than an in-house rendering, so it is not the v389 breach repeated —
-    but it is the one place this build touches non-negotiable 3, and the
-    Barzanji's mixed verses are a different case from the wholly-Qurʾānic
-    verses that rule was written for. **Owner's call.**
+  **All three questions this raised are now settled by the owner:**
+
+  - **The six chapter titles render their English headings** — `[5]` الْمَوْلُودُ الشَّرِيفُ,
+    `[9]` وَفَاةُ أُمِّهِ الشَّرِيفَةِ, `[11]` رَفْعُ الْحَجَرِ الْأَسْوَدِ, `[13]` أَوَّلُ مَنْ آمَنَ,
+    `[16]` أُمُّ مَعْبَدٍ وَأَبُو مَعْبَدٍ, `[18]` الْأَخْلَاقُ الشَّرِيفَةُ — on the owner's
+    instruction to *"just translate the english titles"*. The source has
+    English chapter titles only, and the PDF has no Arabic text layer and no
+    headings at all, so there was nothing authoritative to read off. The other
+    13 are the old shell's titles verbatim. Every one of the six is assembled
+    **by script** from tokens extracted out of the corpus, with at most a final
+    case vowel changed — because hand-typing them once produced `الْبِعْةَةُ` for
+    `الْبِعْثَةُ` (a tāʾ marbūṭa for a thāʾ) and silently dropped the article-lām
+    sukūn from all thirteen reused titles. Only `الْمَوْلُودُ` is a genuinely new
+    word. Two traps worth keeping: an extracted token must be **NFC-normalised
+    before use** — older app text is shadda-first, and one such token would have
+    made a title differ in bytes from the same word everywhere else in the
+    array — and the last short vowel is **not always the last character**, since
+    NFC puts a trailing shadda after it (`أُمِّ` ends `0650 0651`).
+  - **Verses 80, 83, 85 and 123 embed Qurʾānic quotations, and the source's
+    English for them is kept** — the owner's call: *"if the source content has
+    the translations, keep them"*. This is not the v389 breach: that was English
+    rendered **in-house** for wholly-Qurʾānic verses, where `en` still stays
+    empty. These are mixed verses carrying the owner's own source translation.
+    Non-negotiable 3 governs in-house rendering, not a translation the owner
+    supplies.
+  - **Chapter 1's English is the source's**, matching the other 122 verses, on
+    the owner's instruction. The older, more literary wording it used to carry
+    (*"I commence [this] composition in the Name of the Supreme Being…"*) is
+    gone; it could not have been split across the source's three verses anyway.
 
   Method worth keeping: the normalisation set was **derived, not guessed**.
   Source chapter 1 is a passage the app already carried, so it doubles as a
