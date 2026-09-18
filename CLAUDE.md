@@ -22,7 +22,7 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v394** |
+| **Mawalid** (this repo) | the full collection | **v396** |
 | **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v72** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
@@ -44,6 +44,7 @@ assets send no CORS header and are blocked outright.
 | `DIYA_CHAPTERS` | 8 | 120 | — |
 | `ILAHI_CHAPTERS` | 11 | 70 | — |
 | `BARZANJI_CHAPTERS` | 19 | 123 | — |
+| `QAWWALI_CHAPTERS` | 33 | 326 | — |
 
 `LITANY_CHAPTERS` holds three collections: `[0]` Ghāyāt and `[1]` Wiqāyah
 standalone; `[2]` and `[3]` are **title slots** naming Ḥizb al-Istighfār and
@@ -617,6 +618,36 @@ under `findings/`, which were right.
   (`وَالخَاتِمِ`, `وَالمَلَائِكَةِ`, `بِالحَقِّ`). The old note said "three `وَالحَمْدُ`";
   `وَالحَمْدُ` is only 4 of them. Check the printing before sweeping.
 - **`LITANY_CHAPTERS[2]`/`[3]`** stay as title slots; do not fill them with verses.
+- **`QAWWALI_CHAPTERS` (33 songs, 326 verses) filled in v396**, ported wholesale
+  from the Sacred Lyrics app's `qawwalis` array in `App.jsx`
+  (github.com/abdulmajid1993/qasida). No Arabic-script bytes are involved —
+  every song is transliteration (`ar`) plus English (`en`), so it's shaped
+  like `ILAHI_CHAPTERS` (`latin:true`), not like the Arabic collections, and
+  none of the Arabic-anchor cautions above apply to it. Structure kept:
+  - Each song's `chorus` becomes its first verse, flagged `refrain:true` —
+    the source app renders it once, above the verses, and never repeats it,
+    but a qawwali's chorus is understood to be the line the ensemble returns
+    to, so the flag (and its existing "Refrain" label/styling) fits.
+  - The source's `introCount` (which verses get labelled "Intro" instead of
+    "Verse N") was **not** carried over — Mawalid numbers every verse
+    sequentially regardless of kind everywhere else (Ilahi's own refrain
+    included), and inventing a new "Intro" tag just for this section would
+    have broken that consistency for no material gain. The verses themselves,
+    and their order, are unchanged.
+  - `titleEnglish` is `"<title> — <poet>"`, not a translated gloss (none
+    exists, and none should be invented) — it exists so `favKey()`/
+    `favItems()`, which look a bookmarked piece up **by titleEnglish**, get a
+    unique key per song. All 33 titles happen to already be unique, but a
+    bare `titleEnglish:""` on every entry would have made every bookmarked
+    qawwali resolve to whichever one happens to be first in the array. The
+    " — poet" suffix reuses the exact split `readerHTML` already does for a
+    `latin:true` chapter, so the reader shows the poet as a byline rather
+    than a duplicated title. A `poet` field also sits on each chapter,
+    unused by `readerHTML`, read only by `qawwaliCards()` for the card list's
+    second line.
+  - The upstream `qasida` repo remains the source for any future qawwali —
+    keep this array in step with its `qawwalis` array rather than editing
+    either independently.
 
 ---
 

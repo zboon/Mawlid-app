@@ -26,7 +26,7 @@
      script, where nothing that reads the page without running it can see
      it — so "which version is actually live?" could only be answered from
      a phone. Keep the two in step when bumping. -->
-<meta name="app-version" content="v394">
+<meta name="app-version" content="v396">
 <!-- YouTube's embedded player refuses to configure itself unless the host page
      sends a Referer (Error 153 / embedder.identity.missing.referrer). This is
      the browser default in most cases, but a standalone PWA or a WebView may
@@ -2360,233 +2360,281 @@ const QASIDAS = [
   {
     category: "qasida",
     group: "qasidas",
-    titleArabic: "عباد الله رجال الله",
+    titleArabic: "عِبَادَ اللّٰهِ رِجَالَ اللّٰهِ",
     titleEnglish: "ʿIbādallāh Rijālallāh",
     verses: [
-      { refrain: true, ar: "عباد الله رجال الله\nأغيثونا بأهل الله\nوكونوا عوننا في الله\nعسى نحظى بفضل الله",
-        tr: "ʿIbāda-llāhi rijāla-llāh\nAghīthūnā bi-ahli-llāh\nWa kūnū ʿawnanā fi-llāh\nʿAsā naḥẓā bi-faḍli-llāh",
-        en: "O Allah's servants, O men of Allah\nBring us relief, by the People of Allah\nAnd help us for the sake of Allah\nSo we may get the favours of Allah" },
-      { ar: "ويا أقطاب ويا أنجاب\nويا سادات ويا أحباب\nوأنتم يا أولي الألباب\nتعالوا وانصروا لله",
-        tr: "Wa yā aqṭāb wa yā anjāb\nWa yā sādāt wa yā aḥbāb\nWa antum yā ulī-l-albāb\nTaʿālaw wa-nṣurū li-llāh",
-        en: "O leaders, O generous men\nO Masters, O loved ones\nO leaders, O Heavenly gate keepers\nCome and give us Victory" },
-      { ar: "سألناكم سألناكم\nولللزلفى رجوناكم\nوفي أمر قصدناكم\nفشدوا أمركم لله",
-        tr: "Saʾalnākum saʾalnākum\nWa li-z-zulfā rajawnākum\nWa fī amrin qaṣadnākum\nFa-shuddū amrakum li-llāh",
-        en: "We ask you, we entreat you\nWe set our hearts on your companionship\nAnd for important matters we call on you\nSo restrain yourself to answer the command of Allah" },
-      { ar: "فيا ربي بسادتي\nتحققت لي إشارتي\nعسى تأتي بشارتي\nويصفو أمرنا لله",
-        tr: "Fa-yā rabbī bi-sādatī\nTaḥaqqaqat lī ishāratī\nʿAsā taʾtī bishāratī\nWa yaṣfū amrunā li-llāh",
-        en: "O Lord, by these Masters\nYour signs have been confirmed\nHoping to witness glad tidings\nAnd that our faith be pure and firm" },
-      { ar: "بكشف الحجب عن عيني\nورفع البين من بيني\nوصرف القلب والعين\nبنور الوجه يا الله",
-        tr: "Bi-kashfi-l-ḥujbi ʿan ʿaynī\nWa rafʿi-l-bayni min baynī\nWa ṣarfi-l-qalbi wa-l-ʿaynī\nBi-nūri-l-wajhi yā Allāh",
-        en: "Lift the veils covering my sight\nAnd remove anything that is blocking me from You\nGrant me the abode of your presence, the desire of my heart and eyes\nBy the light of the holy Face of the Prophet, O Allah" },
-      { ar: "صلاة الله مولانا\nعلى من بالهدى جانا\nومن بالحق أولانا\nشفيع الخلق عند الله",
-        tr: "Ṣalātu-llāhi mawlānā\nʿAlā man bi-l-hudā jānā\nWa man bi-l-ḥaqqi awlānā\nShafīʿu-l-khalqi ʿinda-llāh",
-        en: "May the blessings of our Lord Allah\nBe upon him who guided us to the right path\nHe who entrusted us with His true religion\nThe Intercessor for all human beings, in front of Allah" },
-      { ar: "اللهم صل وسلم وبارك عليه وعلى آله",
+      { refrain: true,
+        ar: "عِبَادَ اللّٰهِ رِجَالَ اللّٰهِ ۞ أَغِيثُونَا بِأَهْلِ اللّٰهِ\nوَكُونُوا عَوْنَنَا فِي اللّٰهِ ۞ عَسَى نَحْظَى بِفَضْلِ اللّٰهِ",
+        tr: "ʿIbādallāhi rijālallāhi ۞ Aghīthūnā bi-ahlillāh\nWa kūnū ʿawnanā fi-llāhi ۞ ʿAsā naḥẓā bi-faḍlillāh",
+        en: "O servants of Allah, O men of Allah, come to our aid through the People of Allah, and be our support in Allah's cause, so we may attain the favour of Allah." },
+      { ar: "وَيَا أَقْطَابْ وَيَا أَنْجَابْ ۞ وَيَا سَادَاتْ وَيَا أَحْبَابْ\nوَأَنْتُمْ يَا أُولِي الْأَلْبَابْ ۞ تَعَالَوْا وَانْصُرُوا لِلّٰهِ",
+        tr: "Wa yā aqṭāb wa yā anjāb ۞ Wa yā sādāt wa yā aḥbāb\nWa antum yā ulī-l-albāb ۞ Taʿālaw wa-nṣurū lillāh",
+        en: "O poles, O noble ones, O masters, O beloved ones, and you, O people of understanding — come and grant us victory for Allah's sake." },
+      { ar: "سَأَلْنَاكُمْ سَأَلْنَاكُمْ ۞ وَلِلزُّلْفَى رَجَوْنَاكُمْ\nوَفِي أَمْرٍ قَصَدْنَاكُمْ ۞ فَشُدُّوا أَمْرَكُمْ لِلّٰهِ",
+        tr: "Saʾalnākum saʾalnākum ۞ Wa li-z-zulfā rajawnākum\nWa fī amrin qaṣadnākum ۞ Fa-shuddū amrakum lillāh",
+        en: "We have asked you, we have asked you; we have hoped for nearness through you, and in this matter we have turned to you — so take up our cause for Allah's sake." },
+      { ar: "فَيَا رَبِّي بِسَادَاتِي ۞ تَحَقَّقْ لِي إِشَارَاتِي\nعَسَى تَأْتِي بِشَارَاتِي ۞ وَيَصْفُو أَمْرُنَا لِلّٰهِ",
+        tr: "Fa-yā Rabbī bi-sādātī ۞ Taḥaqqaq lī ishārātī\nʿAsā taʾtī bishārātī ۞ Wa yaṣfū amrunā lillāh",
+        en: "O my Lord, by these masters let my hopes be realised — may glad tidings come to me, and may our affair be made pure and sincere for Allah." },
+      { ar: "بِكَشْفِ الْحُجُبِ عَنْ عَيْنِي ۞ وَرَفْعِ الْبَيْنِ مِنْ بَيْنِي\nوَصَرْفِ الْقَلْبِ وَالْعَيْنِ ۞ بِنُورِ الْوَجْهِ يَا اللّٰهُ",
+        tr: "Bi-kashfi-l-ḥujubi ʿan ʿaynī ۞ Wa rafʿi-l-bayni min baynī\nWa ṣarfi-l-qalbi wa-l-ʿayni ۞ Bi-nūri-l-wajhi yā Allāh",
+        en: "By lifting the veils from my sight, and removing the distance that stands between us; and by turning the heart and eye toward the light of the Face, O Allah." },
+      { ar: "صَلَاةُ اللّٰهِ مَوْلَانَا ۞ عَلَى مَنْ بِالْهُدَى جَانَا\nوَمَنْ بِالْحَقِّ أَوْلَانَا ۞ شَفِيعِ الْخَلْقِ عِنْدَ اللّٰهِ",
+        tr: "Ṣalātu-llāhi Mawlānā ۞ ʿAlā man bi-l-hudā jānā\nWa man bi-l-ḥaqqi awlānā ۞ Shafīʿi-l-khalqi ʿinda-llāh",
+        en: "The blessing of Allah, our Master, be upon him who came to us with guidance, and who entrusted us with the truth — the intercessor of creation before Allah." },
+      { refrain: true,
+        ar: "اللّٰهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَيْهِ وَعَلٰى آلِهْ",
         tr: "Allāhumma ṣalli wa sallim wa bārik ʿalayhi wa ʿalā ālih",
-        en: "O Allah, send peace and blessings upon him and his family" }
+        en: "O Allah, send peace and blessings upon him and his family." }
     ]
   },
+
   {
     category: "qasida",
     group: "qasidas",
-    titleArabic: "مدد",
+    titleArabic: "مَدَدْ",
     titleEnglish: "Madad — Naqshbandi Golden Chain",
-    note: "Verse 2 names the masters of the Naqshbandi Golden Chain (Silsila), kept as one continuous litany rather than split per name since 'Madad' is called after each name within a single recited chain, not as separate stanzas.",
+    note: "The Golden Chain (Silsilat adh-Dhahab) of Naqshbandi masters — names, not translatable phrases; kept as one continuous litany rather than split per name, since 'madad' is called after each name within a single recited chain.",
     verses: [
-      { refrain: true, ar: "مدد، مدد، مدد\nيا سيدي مدد\nمدد يا رسول الله",
+      { refrain: true,
+        ar: "مَدَدْ، مَدَدْ، مَدَدْ\nيَا سَيِّدِي مَدَدْ\nمَدَدْ يَا رَسُولَ اللّٰهِ",
         tr: "Madad, madad, madad\nYā sayyidī madad\nMadad yā Rasūla-llāh",
-        en: "Aid, Aid, Aid\nO my Master, Aid\nAid, O Messenger of Allah" },
-      { ar: "مدد يا صديقون\nمدد يا فارسي\nمدد يا قاسمو\nمدد يا صادقو\nمدد يا بسطامي\nمدد يا خرقاني\nمدد يا فارمادي\nمدد يا همداني\nمدد يا شاه النقشبند\nمدد يا شيخ ناظم\nمدد يا حقاني\nمدد يا صاحب الوقت",
-        tr: "Madad yā Ṣiddīq\nMadad yā Fārsī\nMadad yā Qāsim\nMadad yā Ṣādiq\nMadad yā Bisṭāmī\nMadad yā Kharaqānī\nMadad yā Fārmadī\nMadad yā Hamadānī\nMadad yā Shāh Naqshband\nMadad yā Shaykh Nāẓim\nMadad yā Ḥaqqānī\nMadad yā Ṣāḥiba-l-Waqt",
-        en: "Aid O the Truthful ones\nAid O Farsi\nAid O Qasimi\nAid O the Truthful\nAid O Bistami\nAid O Kharqani\nAid O Farmadi\nAid O Hamadani\nAid O Shah Naqshband\nAid O Shaykh Nazim\nAid O Haqqani\nAid O Master of the Time" }
+        en: "Aid, aid, aid — O my Master, aid; aid, O Messenger of Allah." },
+      { ar: "مَدَدْ يَا صِدِّيقُوْنْ\nمَدَدْ يَا فَارْسِيْ\nمَدَدْ يَا قَاسِمُوْ\nمَدَدْ يَا صَادِقُوْ\nمَدَدْ يَا بِسْطَامِيْ\nمَدَدْ يَا خَرْقَانِيْ\nمَدَدْ يَا فَارْمَادِيْ\nمَدَدْ يَا هَمَدَانِيْ\nمَدَدْ يَا خِضْرُوْ\nمَدَدْ يَا غُجْدَوَانِيْ\nمَدَدْ يَا عَارِفُوْنْ\nمَدَدْ يَا فَغْنَوِيْ\nمَدَدْ يَا رَمِيْتَانِيْ\nمَدَدْ يَا سَمَاسِيْ\nمَدَدْ يَا أَمِيْرْ كُلَالْ\nمَدَدْ يَا شَاه النَّقْشَبَنْدْ\nمَدَدْ يَا عَطَارُوْ\nمَدَدْ يَا چَرْخِيْ\nمَدَدْ يَا أَحْرَارِيْ\nمَدَدْ يَا زَاهِدِيْ\nمَدَدْ يَا دَرْوِيْشُوْ\nمَدَدْ يَا أَمْكَنَكِيْ\nمَدَدْ يَا بَاقِيْ بِاللّٰهِ\nمَدَدْ يَا سِرْهِنْدِيْ\nمَدَدْ يَا مَعْصُوْمِيْ\nمَدَدْ يَا سَيْفُ الدِّيْنْ\nمَدَدْ يَا بَدْوَانِيْ\nمَدَدْ يَا شَمْسُ الدِّيْنْ\nمَدَدْ يَا دَهْلَوِيْ\nمَدَدْ يَا بَغْدَادِيْ\nمَدَدْ يَا إِسْمَاعِيْلْ\nمَدَدْ يَا خَاصْ مُحَمَّدْ\nمَدَدْ يَا يَرَاغِيْ\nمَدَدْ يَا غُمُوْقِيْ\nمَدَدْ يَا سُغُوْرِيْ\nمَدَدْ يَا مَدَنِيْ\nمَدَدْ يَا شَرَفُ الدِّيْنْ\nمَدَدْ يَا عَبْدُ اللّٰهِ\nمَدَدْ يَا دَاغِسْتَانِيْ\nمَدَدْ يَا سُلْطَانِيْ\nمَدَدْ يَا شَيْخْ نَاظِمْ\nمَدَدْ يَا حَقَّانِيْ\nمَدَدْ يَا شَيْخْ هِشَامْ\nمَدَدْ يَا شَيْخْ عَدْنَانْ\nمَدَدْ يَا شَيْخْ مُحَمَّدْ عَادِلْ\nمَدَدْ يَا صَاحِبْ الْوَقْتْ\nمَدَدْ يَا فُرْدَانِيْ\nمَدَدْ يَا صِدِّيقُوْنْ\nمَدَدْ يَا يَمَنِيْ\nمَدَدْ يَا إِمَامُ الْعَارِفِيْنْ\nمَدَدْ يَا سَخَاوِيْ\nمَدَدْ يَا مَعْرُوْفُ بِمُلْحَانْ\nمَدَدْ يَا غَوْثِ الْأَنَامْ",
+        tr: "Madad yā Ṣiddīqūn\nMadad yā Fārsī\nMadad yā Qāsimū\nMadad yā Ṣādiqū\nMadad yā Bisṭāmī\nMadad yā Kharqānī\nMadad yā Fārmādī\nMadad yā Hamadānī\nMadad yā Khiḍrū\nMadad yā Ghujdawānī\nMadad yā ʿĀrifūn\nMadad yā Faghnawī\nMadad yā Ramītānī\nMadad yā Samāsī\nMadad yā Amīr Kulāl\nMadad yā Shāh an-Naqshband\nMadad yā ʿAṭārū\nMadad yā Charkhī\nMadad yā Aḥrārī\nMadad yā Zāhidī\nMadad yā Darwīshū\nMadad yā Amkanakī\nMadad yā Bāqī bi-llāh\nMadad yā Sirhindī\nMadad yā Maʿṣūmī\nMadad yā Sayfu-d-Dīn\nMadad yā Badwānī\nMadad yā Shamsu-d-Dīn\nMadad yā Dahlawī\nMadad yā Baghdādī\nMadad yā Ismāʿīl\nMadad yā Khāṣ Muḥammad\nMadad yā Yarāghī\nMadad yā Ghumūqī\nMadad yā Sughūrī\nMadad yā Madanī\nMadad yā Sharafu-d-Dīn\nMadad yā ʿAbdullāh\nMadad yā Dāghistānī\nMadad yā Sulṭānī\nMadad yā Shaykh Nāẓim\nMadad yā Ḥaqqānī\nMadad yā Shaykh Hishām\nMadad yā Shaykh ʿAdnān\nMadad yā Shaykh Muḥammad ʿĀdil\nMadad yā Ṣāḥibu-l-Waqt\nMadad yā Furdānī\nMadad yā Ṣiddīqūn\nMadad yā Yamanī\nMadad yā Imāmu-l-ʿĀrifīn\nMadad yā Sakhāwī\nMadad yā Maʿrūfu bi-Mulḥān\nMadad yā Ghawthi-l-Anām",
+        en: "The Golden Chain of Naqshbandi masters: aid, O Ṣiddīqūn; O Fārsī; O Qāsimū; O Ṣādiqū; O Bisṭāmī; O Kharqānī; O Fārmādī; O Hamadānī; O Khiḍrū; O Ghujdawānī; O ʿĀrifūn; O Faghnawī; O Ramītānī; O Samāsī; O Amīr Kulāl; O Shāh an-Naqshband; O ʿAṭārū; O Charkhī; O Aḥrārī; O Zāhidī; O Darwīshū; O Amkanakī; O Bāqī bi-llāh; O Sirhindī; O Maʿṣūmī; O Sayfu-d-Dīn; O Badwānī; O Shamsu-d-Dīn; O Dahlawī; O Baghdādī; O Ismāʿīl; O Khāṣ Muḥammad; O Yarāghī; O Ghumūqī; O Sughūrī; O Madanī; O Sharafu-d-Dīn; O ʿAbdullāh; O Dāghistānī; O Sulṭānī; O Shaykh Nāẓim; O Ḥaqqānī; O Shaykh Hishām; O Shaykh ʿAdnān; O Shaykh Muḥammad ʿĀdil; O Ṣāḥibu-l-Waqt; O Furdānī; O Ṣiddīqūn; O Yamanī; O Imāmu-l-ʿĀrifīn; O Sakhāwī; O Maʿrūfu bi-Mulḥān; O Ghawthi-l-Anām — down to the Shaykh of our own time." },
+      { ar: "مُحَمَّدٌ الْمَهْدِيُّ خَلِيفَةُ اللّٰهِ (٢x)\nعَلَيْهِ صَلَوَاتُ اللّٰهِ",
+        tr: "Muḥammadu-l-Mahdiyyu khalīfatu-llāhi (2x)\nʿAlayhi ṣalawātu-llāh",
+        en: "Muhammad al-Mahdi, the vicegerent of Allah (twice) — upon him be the blessings of Allah." }
     ]
   },
+
   {
     category: "qasida",
     group: "qasidas",
-    titleArabic: "يا ربي صل على محمد",
+    titleArabic: "يَا رَبِّي صَلِّ عَلَى مُحَمَّدْ",
     titleEnglish: "The Opening Qasida (Yā Rabbī Version)",
     note: "Distinct from the existing 'The Opening Qasida — Yā Rabbi Ṣalli ʿalā Muḥammad' entry — the opening couplet is similar but the supplication that follows is different.",
     verses: [
-      { refrain: true, ar: "يا ربي صل على محمد\nيا ربي صل عليه وسلم",
-        tr: "Yā Rabbī ṣalli ʿalā Muḥammad\nYā Rabbī ṣalli ʿalayhi wa sallim",
-        en: "O Lord, bestow blessings upon Muhammad\nO Lord, bestow peace and blessings upon him" },
-      { ar: "يا ربي بلغه الوسيلة\nيا ربي خصه بالفضيلة\nيا ربي وارض عن الصحابة\nيا ربي وارض عن السلالة",
-        tr: "Yā Rabbi ballighhu-l-wasīlah\nYā Rabbi khuṣṣahu bi-l-faḍīlah\nYā Rabbi wa-rḍa ʿani-ṣ-ṣaḥābah\nYā Rabbi wa-rḍa ʿani-s-sulālah",
-        en: "O Lord, bestow upon him a station in Paradise\nO Lord, grant him rank above all the creations\nO Lord, may You be pleased with his companions\nO Lord, may You be pleased with his descendants" },
-      { ar: "يا ربي وارض عن المشايخ\nيا ربي فارحم والدينا\nيا ربي وارحمنا جميعاً\nيا ربي وارحم كل مسلم",
-        tr: "Yā Rabbi wa-rḍa ʿani-l-mashāyikh\nYā Rabbi fa-rḥam wālidīnā\nYā Rabbi wa-rḥamnā jamīʿan\nYā Rabbi wa-rḥam kulla Muslim",
-        en: "O Lord, be pleased with the masters\nO Lord, have mercy on our parents\nO Lord, have mercy on all of us\nO Lord, have mercy on all Muslims" },
-      { ar: "يا ربي واغفر لكل مذنب\nيا ربي يا سامع دعانا\nيا ربي لا تقطع رجانا\nيا ربي بلغنا نزوره",
-        tr: "Yā Rabbi wa-ghfir li-kulli mudhnib\nYā Rabbi yā sāmiʿa duʿānā\nYā Rabbi lā taqṭaʿ rajānā\nYā Rabbi ballighnā nazūruh",
-        en: "O Lord, forgive all sinners\nO Lord, O Hearer of our plea\nO Lord, do not shatter our hopes\nO Lord, grant us a visit to his resting place" },
-      { ar: "يا ربي تغشانا بنوره\nيا ربي حفظانك وأمانك\nيا ربي وأسكننا جنانك\nيا ربي أجرنا من عذابك",
-        tr: "Yā Rabbi taghshānā bi-nūrih\nYā Rabbi ḥifẓānak wa amānak\nYā Rabbi wa askinnā jinānak\nYā Rabbi ajirnā min ʿadhābik",
-        en: "O Lord, engulf us with his light\nO Lord, safeguard us and protect us\nO Lord, place us in Your heaven\nO Lord, protect us from Your punishment" },
-      { ar: "يا ربي وارزقنا الشهادة\nيا ربي حطنا بالسعادة\nيا ربي وأصلح كل مصلح\nيا ربي واكف كل مؤذي",
-        tr: "Yā Rabbi wa-rzuqna-sh-shahādah\nYā Rabbi ḥuṭṭnā bi-s-saʿādah\nYā Rabbi wa aṣliḥ kulla muṣliḥ\nYā Rabbi wa-kfi kulla muʾdhin",
-        en: "O Lord, bless us with the station of the martyrs\nO Lord, envelope us with happiness\nO Lord, reform those who wish to change themselves\nO Lord, save us from all harm" },
-      { refrain: true, ar: "اللهم صل وسلم وبارك عليه وعلى آله",
+      { refrain: true,
+        ar: "يَا رَبِّي صَلِّ عَلَى مُحَمَّدْ\nيَا رَبِّي صَلِّ عَلَيْهِ وَسَلِّمْ (٢x)",
+        tr: "Yā Rabbī ṣalli ʿalā Muḥammad\nYā Rabbī ṣalli ʿalayhi wa sallim (2x)",
+        en: "O my Lord, bless Muhammad; O my Lord, bless him and grant him peace." },
+      { ar: "يَا رَبِّي بَلِّغْهُ الْوَسِيلَةْ\nيَا رَبِّي خُصَّهُ بِالْفَضِيلَةْ\nيَا رَبِّي وَارْضَ عَنِ الصَّحَابَةْ\nيَا رَبِّي وَارْضَ عَنِ السُّلَالَةْ",
+        tr: "Yā Rabbī balligh-hu-l-wasīlah\nYā Rabbī khuṣṣahu bi-l-faḍīlah\nYā Rabbī wa-rḍa ʿani-ṣ-ṣaḥābah\nYā Rabbī wa-rḍa ʿani-s-sulālah",
+        en: "O my Lord, grant him the highest station in Paradise; O my Lord, single him out with excellence; O my Lord, be pleased with his companions; O my Lord, be pleased with his descendants." },
+      { ar: "يَا رَبِّي وَارْضَ عَنِ الْمَشَايِخْ\nيَا رَبِّي فَارْحَمْ وَالِدَيْنَا\nيَا رَبِّي وَارْحَمْنَا جَمِيعًا\nيَا رَبِّي وَارْحَمْ كُلَّ مُسْلِمْ",
+        tr: "Yā Rabbī wa-rḍa ʿani-l-mashāyikh\nYā Rabbī fa-rḥam wālidaynā\nYā Rabbī wa-rḥamnā jamīʿan\nYā Rabbī wa-rḥam kulla Muslim",
+        en: "O my Lord, be pleased with the masters; O my Lord, have mercy on our parents; O my Lord, have mercy on all of us; O my Lord, have mercy on every Muslim." },
+      { ar: "يَا رَبِّي وَاغْفِرْ لِكُلِّ مُذْنِبْ\nيَا رَبِّي يَا سَامِعَ دُعَانَا\nيَا رَبِّي لَا تَقْطَعْ رَجَانَا\nيَا رَبِّي بَلِّغْنَا نَزُورُهْ",
+        tr: "Yā Rabbī wa-ghfir li-kulli mudhnib\nYā Rabbī yā sāmiʿa duʿānā\nYā Rabbī lā taqṭaʿ rajānā\nYā Rabbī ballighnā nazūruh",
+        en: "O my Lord, forgive every sinner; O my Lord, O Hearer of our supplication; O my Lord, do not cut off our hope; O my Lord, grant us to visit him." },
+      { ar: "يَا رَبِّي تَغْشَانَا بِنُورِهْ\nيَا رَبِّي حِفْظَانَكْ وَأَمَانَكْ\nيَا رَبِّي وَأَسْكِنَّا جِنَانَكْ\nيَا رَبِّي أَجِرْنَا مِنْ عَذَابِكْ",
+        tr: "Yā Rabbī taghshānā bi-nūrih\nYā Rabbī ḥifẓānak wa amānak\nYā Rabbī wa askinnā jinānak\nYā Rabbī ajirnā min ʿadhābik",
+        en: "O my Lord, cover us with his light; O my Lord, grant us Your protection and safety; O my Lord, house us in Your gardens; O my Lord, shelter us from Your punishment." },
+      { ar: "يَا رَبِّي وَارْزُقْنَا الشَّهَادَةْ\nيَا رَبِّي حُطْنَا بِالسَّعَادَةْ\nيَا رَبِّي وَأَصْلِحْ كُلَّ مُصْلِحْ\nيَا رَبِّي وَاكْفِ كُلَّ مُؤْذٍ",
+        tr: "Yā Rabbī wa-rzuqna-sh-shahādah\nYā Rabbī ḥuṭṭnā bi-s-saʿādah\nYā Rabbī wa aṣliḥ kulla muṣliḥ\nYā Rabbī wa-kfi kulla muʾdhin",
+        en: "O my Lord, grant us the rank of the martyrs; O my Lord, surround us with happiness; O my Lord, set right every one who seeks to reform; O my Lord, spare us the harm of every one who causes harm." },
+      { refrain: true,
+        ar: "اللّٰهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَيْهِ وَعَلٰى آلِهْ",
         tr: "Allāhumma ṣalli wa sallim wa bārik ʿalayhi wa ʿalā ālih",
-        en: "O Allah, send peace and blessings upon him and his family" }
+        en: "O Allah, send peace and blessings upon him and his family." }
     ]
   },
+
   {
     category: "qasida",
     group: "qasidas",
-    titleArabic: "أيها المشتاق",
+    titleArabic: "أَيُّهَا الْمُشْتَاقُ",
     titleEnglish: "Ayyuhā-l-Mushtāq — O Yearning Lover",
-    note: "Line breaks in verse 2 of the source look uncertain (a possible dropped word); transliterated literally as segmented.",
     verses: [
-      { ar: "أيها المشتاق لا تنم\nهذه أنوار ذي سلم\nعن قريب أنت في الحرم\nعند خير العرب والعجم",
-        tr: "Ayyuha-l-mushtāqu lā tanam\nHādhihi anwāru Dhī Salam\nʿAn qarībin anta fi-l-ḥaram\nʿInda khayri-l-ʿurbi wa-l-ʿajam",
-        en: "O you who is in love and longs, do not sleep\nAhead are the illuminated lights of Dhi Salam Valley\nYou are so close to the sacred sanctuary\nIn the presence of the One who is the best of the Arabs and non-Arabs" },
-      { ar: "قف أمام القبر في أدب\nما ثلا في أشرف الرتب\nفي مكان القرب والقرب\nوالرضا والجود والكرم",
-        tr: "Qif amāma-l-qabri fī adabi\nMā thalā fī ashrafi-r-rutab\nFī makāni-l-qurbi wa-l-qurabi\nWa-r-riḍā wa-l-jūdi wa-l-karam",
-        en: "Stand in reverence in front of his holy grave\nYou are in the presence of the one with the most honourable ranks\nIn his place is the privilege of nearness to Him\nAnd accompanies pious acts, contentment and generosity" },
-      { ar: "ثم قل يا أشرف الرسل\nيا حبيب الله في الأمل\nيا عظيم العلم والعمل\nيا سمير اللوح والقلم",
-        tr: "Thumma qul yā ashrafa-r-rusul\nYā ḥabība-llāhi fi-l-amal\nYā ʿaẓīma-l-ʿilmi wa-l-ʿamal\nYā samīra-l-lawḥi wa-l-qalam",
-        en: "Then say: O honoured Messenger\nO Beloved of Allah who inspires hope\nO Magnificent in Knowledge and Action\nO the one who speaks from the Tablet and the holy Pen" },
-      { ar: "ليس كالمختار في البشر\nفهو ملء السمع والبصر\nواحد التاريخ والسير\nوإمام الرسل والأمم",
-        tr: "Laysa ka-l-mukhtāri fi-l-bashar\nFa-huwa milʾu-s-samʿi wa-l-baṣar\nWāḥidu-t-tārīkhi wa-s-siyar\nWa imāmu-r-rusuli wa-l-umam",
-        en: "No one from humanity can be compared to the Chosen One\nHe exists in our hearing and sight\nHe is the unique one in history and in his life conduct\nThe leader of all Messengers and nations" },
-      { ar: "ليلة الإسراء يرعاه\nوعلى المعراج مرقاه\nحتى أدناه وناجاه\nبكلام ليس كالكلم",
-        tr: "Laylata-l-isrāʾi yarʿāhu\nWa ʿalā-l-miʿrāji marqāhu\nḤattā adnāhu wa nājāhu\nBi-kalāmin laysa ka-l-kalim",
-        en: "The Night of Journey safeguards him\nAnd on his Ascension is his high rank\nWhen Allah brought him nearer to Divine Presence and they conversed\nWith words unlike any other words" }
+      { ar: "أَيُّهَا الْمُشْتَاقُ لَا تَنَمِ ۞ هَذِهِ أَنْوَارُ ذِي سَلَمِ\nعَنْ قَرِيبٍ أَنْتَ فِي الْحَرَمِ ۞ عِنْدَ خَيْرِ الْعُرْبِ وَالْعَجَمِ",
+        tr: "Ayyuha-l-mushtāqu lā tanami ۞ hādhihi anwāru Dhī Salami\nʿAn qarībin anta fi-l-ḥarami ۞ ʿinda khayri-l-ʿurbi wa-l-ʿajami",
+        en: "O yearning lover, do not sleep — these are the lights of the valley of Salam; soon you will stand within the sanctuary, before the best of Arabs and non-Arabs." },
+      { ar: "قِفْ أَمَامَ الْقَبْرِ فِي أَدَبِ ۞ مَا ثَلَا فِي أَشْرَفِ الرُّتَبِ\nفِي مَكَانِ الْقُرْبِ وَالْقُرَبِ ۞ وَالرِّضَا وَالْجُودِ وَالْكَرَمِ",
+        tr: "Qif amāma-l-qabri fī adabi ۞ mā thalā fī ashrafi-r-rutabi\nFī makāni-l-qurbi wa-l-qurabi ۞ wa-r-riḍā wa-l-jūdi wa-l-karami",
+        en: "Stand before the grave in reverence, before one whose rank none has ever equalled — in a place of nearness upon nearness, of contentment, generosity, and noble bounty." },
+      { ar: "ثُمَّ قُلْ يَا أَشْرَفَ الرُّسُلِ ۞ يَا حَبِيبَ اللّٰهِ فِي الْأَمَلِ\nيَا عَظِيمَ الْعِلْمِ وَالْعَمَلِ ۞ يَا سَمِيرَ اللَّوْحِ وَالْقَلَمِ",
+        tr: "Thumma qul yā ashrafa-r-rusuli ۞ yā ḥabība-llāhi fi-l-amali\nYā ʿaẓīma-l-ʿilmi wa-l-ʿamali ۞ yā samīra-l-lawḥi wa-l-qalami",
+        en: "Then say: O most honoured of messengers, O beloved of Allah in whom all hope rests; O magnificent in knowledge and deed, O companion of the Tablet and the Pen." },
+      { ar: "لَيْسَ كَالْمُخْتَارِ فِي الْبَشَرِ ۞ فَهُوَ مِلْءُ السَّمْعِ وَالْبَصَرِ\nوَاحِدُ التَّارِيخِ وَالسِّيَرِ ۞ وَإِمَامُ الرُّسُلِ وَالْأُمَمِ",
+        tr: "Laysa ka-l-Mukhtāri fi-l-bashari ۞ fa-huwa mil'u-s-samʿi wa-l-baṣari\nWāḥidu-t-tārīkhi wa-s-siyari ۞ wa imāmu-r-rusuli wa-l-umami",
+        en: "None among humankind compares to the Chosen One — he fills all hearing and sight; unique in history and in the story of his life, leader of every messenger and every nation." },
+      { ar: "لَيْلَةُ الْإِسْرَاءِ يَرْعَاهُ ۞ وَعَلَى الْمِعْرَاجِ مَرْقَاهُ\nحَتَّى أَدْنَاهُ وَنَاجَاهُ ۞ بِكَلَامٍ لَيْسَ كَالْكَلِمِ",
+        tr: "Laylatu-l-isrā'i yarʿāhu ۞ wa ʿalā-l-miʿrāji marqāhu\nḤattā adnāhu wa nājāhu ۞ bi-kalāmin laysa ka-l-kalimi",
+        en: "The Night Journey watches over him, and upon the Ascension is his rank of nearness — until He drew him close and spoke with him, in words unlike any other words." },
+      { ar: "رُتْبَةٌ مَا بَعْدَهَا شَرَفٌ ۞ دُونَهَا كُلُّ الْوَرَى وَقَفُوا\nقَابَ قَوْسَيْنِ لَهَا طَرَفٌ ۞ ثُمَّ أَوْ أَدْنَى إِلَى الْقِمَمِ",
+        tr: "Rutbatun mā baʿdahā sharafun ۞ dūnahā kullu-l-warā waqafū\nQāba qawsayni lahā ṭarafun ۞ thumma aw adnā ila-l-qimami",
+        en: "A rank beyond which there is no higher honour, before which the whole of creation has come to a halt — one end of it at two bow-lengths, or nearer still, to the very summit of nearness." }
     ]
   },
+
   {
     category: "qasida",
     group: "qasidas",
-    titleArabic: "الله الله الله الله",
+    titleArabic: "اللّٰهُ اللّٰهُ اللّٰهُ اللّٰهُ",
     titleEnglish: "Mā Lanā Mawlan Siwa-llāh",
     verses: [
-      { refrain: true, ar: "الله الله الله الله\nما لنا مولاً سوى الله\nكلما ناديت يا هو\nقال يا عبدي أنا الله",
+      { refrain: true,
+        ar: "اللّٰهُ اللّٰهُ اللّٰهُ اللّٰهُ\nمَا لَنَا مَوْلًى سِوَى اللّٰهِ\nكُلَّمَا نَادَيْتُ يَا هُو\nقَالَ يَا عَبْدِي أَنَا اللّٰهُ",
         tr: "Allāhu Allāhu Allāhu Allāh\nMā lanā mawlan siwa-llāh\nKullamā nādaytu yā Hū\nQāla yā ʿabdī ana-llāh",
-        en: "O Allah, O God, there is no God but Allah\nWhenever I call out O my Lord: O Hu\nHe says: O my servant, I am Allah" },
-      { ar: "في ربيع أطلع الله\nوأتى النصر من الله\nيا له شهر عظيم\nوشريف كرم الله",
-        tr: "Fī Rabīʿin aṭlaʿa-llāh\nWa atā-n-naṣru mina-llāh\nYā lahu shahrun ʿaẓīm\nWa sharīfun karrama-llāh",
-        en: "In Rabi' (Awwal) Allah revealed\nAnd He granted us victory\nWhat a great month!\nAllah conferred honour to his noble Servant" },
-      { ar: "فيه جمعاً قد فرحنا\nوبنيل القصد فزنا\nيا رسول الله طبنا\nوعلينا أنعم الله",
+        en: "Allah, Allah, Allah, Allah — we have no master but Allah. Whenever I cry out, 'O He,' He answers: 'O My servant, I am Allah.'" },
+      { ar: "فِي رَبِيعٍ أَطْلَعَ اللّٰهُ\nوَأَتَى النَّصْرُ مِنَ اللّٰهِ\nيَا لَهُ شَهْرٌ عَظِيمُ\nوَشَرِيفٌ كَرَّمَ اللّٰهُ",
+        tr: "Fī Rabīʿin aṭlaʿa-llāh\nWa atā-n-naṣru mina-llāh\nYā lahu shahrun ʿaẓīmu\nWa sharīfun karrama-llāh",
+        en: "In Rabi' al-Awwal Allah caused the dawn to break, and victory came from Allah — what a magnificent month, ennobled by Allah's own generosity." },
+      { ar: "فِيهِ جَمْعًا قَدْ فَرِحْنَا\nوَبِنَيْلِ الْقَصْدِ فُزْنَا\nيَا رَسُولَ اللّٰهِ طِبْنَا\nوَعَلَيْنَا أَنْعَمَ اللّٰهُ",
         tr: "Fīhi jamʿan qad fariḥnā\nWa bi-nayli-l-qaṣdi fuznā\nYā Rasūla-llāhi ṭibnā\nWa ʿalaynā anʿama-llāh",
-        en: "All of us take immense pleasure in this month\nAnd we fulfilled our goals\nO Messenger of Allah, we had the utmost delight\nAllah bestowed His blessing upon us" },
-      { ar: "ظهر الدين المؤيد\nبظهور الهادي أحمد\nيا هناً بمحمد\nذلك الفضل من الله",
-        tr: "Ẓahara-d-dīnu-l-muʾayyad\nBi-ẓuhūri-l-hādī Aḥmad\nYā hanan bi-Muḥammad\nDhālika-l-faḍlu mina-llāh",
-        en: "The eternal religion came to light\nWith the arrival of our guide Ahmad\nCongratulations O Muhammad\nThat is Allah's grace" }
+        en: "In it we have all rejoiced together, and in attaining our purpose we have triumphed; O Messenger of Allah, we have found our joy, and Allah has showered us with His favour." },
+      { ar: "ظَهَرَ الدِّينُ الْمُؤَيَّدْ\nبِظُهُورِ الْهَادِي أَحْمَدْ\nيَا هَنَاءً بِمُحَمَّدْ\nذَلِكَ الْفَضْلُ مِنَ اللّٰهِ",
+        tr: "Ẓahara-d-dīnu-l-muʾayyad\nbi-ẓuhūri-l-Hādī Aḥmad\nYā hanā'an bi-Muḥammad\nDhālika-l-faḍlu mina-llāh",
+        en: "The upheld religion has appeared with the appearance of the Guide, Ahmad — what joy in Muhammad! That is the bounty of Allah." },
+      { ar: "ثَانِيَ عَشَرَ فِي رَبِيعِ\nكَانَ مِيلَادُ الشَّفِيعِ\nصَاحِبُ الْقَدْرِ الرَّفِيعِ\nمَنْ لَهُ قَدْ أَيَّدَ اللّٰهُ",
+        tr: "Thāniya ʿashara fī Rabīʿi\nkāna mīlādu-sh-Shafīʿi\nṢāḥibu-l-qadri-r-rafīʿi\nMan lahu qad ayyada-llāh",
+        en: "On the twelfth of Rabi' al-Awwal was the birth of the Intercessor, possessor of exalted rank — the one whom Allah Himself has strengthened." },
+      { ar: "يَوْمَ مِيلَادِ التِّهَامِي\nخَاتَمِ الرُّسْلِ الْكِرَامِ\nزُخْرِفَتْ دَارُ السَّلَامِ\nوَأَتَى النَّصْرُ مِنَ اللّٰهِ",
+        tr: "Yawma mīlādi-t-Tihāmī\nkhātami-r-rusuli-l-kirāmi\nZukhrifat dāru-s-salāmi\nwa atā-n-naṣru mina-llāh",
+        en: "On the day of the birth of the one from Tihamah, seal of the noble messengers, the Abode of Peace was adorned, and victory came from Allah." },
+      { refrain: true,
+        ar: "اللّٰهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَيْهِ وَعَلٰى آلِهْ",
+        tr: "Allāhumma ṣalli wa sallim wa bārik ʿalayhi wa ʿalā ālih",
+        en: "O Allah, send peace and blessings upon him and his family." }
     ]
   },
+
   {
     category: "qasida",
     group: "qasidas",
-    titleArabic: "صلى عليك الله يا عدناني",
+    titleArabic: "صَلَّى عَلَيْكَ اللّٰهُ يَا عَدْنَانِي",
     titleEnglish: "Ṣalawāt ʿAdnānī",
     verses: [
-      { ar: "صلى عليك الله يا عدناني\nيا مصطفى يا صفوة الرحمن\nالحمد لله الذي أعطاني\nهذا الغلام الطيب الأردان",
-        tr: "Ṣallā ʿalayka-llāhu yā ʿAdnānī\nYā Muṣṭafā yā ṣafwata-r-Raḥmān\nAl-ḥamdu li-llāhi-lladhī aʿṭānī\nHādhā-l-ghulāma-ṭ-ṭayyiba-l-ardān",
-        en: "May Allah's blessings be upon you O descendant of Adnan\nYou Mustafa, the choice of The Most Merciful\nThanks be to Allah for granting me\nThis pure boy who surpassed all his peers while still in the cradle" },
-      { ar: "قد ساد في المهد على الغلمان\nأعيذه بالبيت ذي الأركان\nحتى أراه بالغ البنيان\nأنت الذي سميت في القرآن",
-        tr: "Qad sāda fi-l-mahdi ʿalā-l-ghilmān\nUʿīdhuhu bi-l-bayti dhi-l-arkān\nḤattā arāhu bāligha-l-bunyān\nAnta-lladhī summīta fi-l-Qurʾān",
-        en: "I protect him by the House with the strong corners\nUntil I see him reach manhood\nYou are the one whose name is mentioned in the Quran" },
-      { ar: "أحمد مكتوب على الجنان\nصلى عليك الله في الأحيان\nأحمده في السر والبرهان\nحقاً على الإسلام والإيمان",
-        tr: "Aḥmadu maktūbun ʿalā-l-jinān\nṢallā ʿalayka-llāhu fi-l-aḥyān\nAḥmaduhu fi-s-sirri wa-l-burhān\nḤaqqan ʿalā-l-islāmi wa-l-īmān",
-        en: "Ahmad, whose name is written all over the walls of paradise\nMay Allah shower His blessings upon you\nAhmad, whom I praise loudly and in private\nTruthful in Islam and Iman" },
-      { ar: "يا ربنا بالمصطفى العدناني\nاغفر ذنوبي ثم أصلح شأني",
-        tr: "Yā Rabbanā bi-l-Muṣṭafā-l-ʿAdnānī\nIghfir dhunūbī thumma aṣliḥ shaʾnī",
-        en: "O Lord, by the Chosen One, the descendant of Adnan\nForgive my sins and reform my character" }
+      { refrain: true,
+        ar: "صَلَّى عَلَيْكَ اللّٰهُ يَا عَدْنَانِي\nيَا مُصْطَفَى يَا صَفْوَةَ الرَّحْمٰنِ\nالْحَمْدُ لِلّٰهِ الَّذِي أَعْطَانِي\nهَذَا الْغُلَامَ الطَّيِّبَ الْأَرْدَانِ (٢x)",
+        tr: "Ṣallā ʿalayka-llāhu yā ʿAdnānī\nYā Muṣṭafā yā ṣafwata-r-Raḥmān\nAl-ḥamdu lillāhi-lladhī aʿṭānī\nHādha-l-ghulāma-ṭ-ṭayyiba-l-ardān (2x)",
+        en: "May Allah's blessing be upon you, O son of Adnan — O Chosen One, O purest of the Most Merciful's creation! Praise belongs to Allah, who granted me this good child, pure from the very cradle." },
+      { ar: "قَدْ سَادَ فِي الْمَهْدِ عَلَى الْغِلْمَانِ\nأُعِيذُهُ بِالْبَيْتِ ذِي الْأَرْكَانِ\nحَتَّى أَرَاهُ بَالِغَ الْبُنْيَانِ\nأَنْتَ الَّذِي سُمِّيتَ فِي الْقُرْآنِ (٢x)",
+        tr: "Qad sāda fi-l-mahdi ʿala-l-ghilmāni\nUʿīdhuhu bi-l-bayti dhi-l-arkāni\nḤattā arāhu bāligha-l-bunyāni\nAnta-lladhī summīta fi-l-Qurʾān (2x)",
+        en: "Even in the cradle he surpassed every other child; I place him in the protection of the House of firm foundations, until I see him grown to full stature — you are the one named in the Qur'an." },
+      { ar: "أَحْمَدُ مَكْتُوبٌ عَلَى الْجِنَانِ\nصَلَّى عَلَيْكَ اللّٰهُ فِي الْأَحْيَانِ\nأَحْمَدُهُ فِي السِّرِّ وَالْبُرْهَانِ\nحَقًّا عَلَى الْإِسْلَامِ وَالْإِيمَانِ (٢x)",
+        tr: "Aḥmadu maktūbun ʿala-l-jināni\nṢallā ʿalayka-llāhu fi-l-aḥyāni\nAḥmaduhu fi-s-sirri wa-l-burhāni\nḤaqqan ʿala-l-islāmi wa-l-īmāni (2x)",
+        en: "Ahmad — his name is inscribed upon the gardens of Paradise; may Allah's blessing be upon you always. I praise him in private and in evidence, truly, for the sake of Islam and faith." },
+      { ar: "يَا رَبَّنَا بِالْمُصْطَفَى الْعَدْنَانِي\nاغْفِرْ ذُنُوبِي ثُمَّ أَصْلِحْ شَانِي (٢x)",
+        tr: "Yā Rabbanā bi-l-Muṣṭafā-l-ʿAdnānī\nIghfir dhunūbī thumma aṣliḥ shānī (2x)",
+        en: "O our Lord, by the Chosen One, the son of Adnan, forgive my sins and set my affairs right." }
     ]
   },
+
   {
     category: "qasida",
     group: "qasidas",
-    titleArabic: "يا طيبة",
+    titleArabic: "يَا طَيْبَةْ",
     titleEnglish: "Yā Ṭaybah",
-    note: "Verse 2's middle line doesn't parse cleanly in the source; transliterated literally.",
     verses: [
-      { refrain: true, ar: "يا طيبة، يا طيبة\nيا دوا العيانا\nاستقنا لك\nوالهوى ناداَنا",
-        tr: "Yā Ṭaybah, yā Ṭaybah\nYā dawā-l-ʿayānā\nIshtaqnā lak\nWa-l-hawā nādānā",
-        en: "O Good one, O Good one\nO the cure of my eyes\nWe are longing for you\nAnd the love keeps calling us to you" },
-      { ar: "يا علي ابن أبي طالب\nمنكم مصدر المواهب\nهل ترا هل أرالي حاجب\nعندكم أفضل الغلمان",
-        tr: "Yā ʿAlī ibna Abī Ṭālib\nMinkum maṣdaru-l-mawāhib\nHal turā hal a-rā-lī ḥājib\nʿIndakum afḍalu-l-ghilmān",
-        en: "O Ali, son of Abu Talib\nYou are the source of Divine gift\nWhat are the eyes seeing? By your side are two great young men" },
-      { ar: "أسيادي الحسن والحسين\nإلى النبي قرة عيني\nويا شباب الجنتين\nجدكم صاحب القرآن",
-        tr: "Asyādī-l-Ḥasanu wa-l-Ḥusayn\nIla-n-nabiyyi qurratu ʿaynī\nWa yā shabāba-l-jannatayn\nJaddukum ṣāḥibu-l-Qurʾān",
-        en: "Our Masters, Al Hassan and Al Hussain\nThey are the coolness of the Prophet's eyes\nO the Youth of the Paradises\nYour Grandfather is the owner of the Holy Quran" }
+      { refrain: true,
+        ar: "يَا طَيْبَةْ، يَا طَيْبَةْ\nيَا دَوَا الْعَيَانَا\nاِشْتَقْنَا لَكَ\nوَالْهَوَى نَادَانَا (٢x)",
+        tr: "Yā Ṭaybah, yā Ṭaybah\nYā dawā-l-ʿayānā\nIshtaqnā lak\nWa-l-hawā nādānā (2x)",
+        en: "O Taybah, O Taybah, O cure of our eyes — we have longed for you, and love itself has called us to you." },
+      { ar: "يَا عَلِيُّ ابْنَ أَبِي طَالِبْ\nمِنْكُمُ مَصْدَرُ الْمَوَاهِبْ\nهَلْ تُرَى هَلْ أُرَى لِي حَاجِبْ\nعِنْدَكُمْ\nأَفْضَلُ الْغِلْمَانَا\nأَفْضَلُ الْغِلْمَانَا",
+        tr: "Yā ʿAlī-ibna Abī Ṭālib\nMinkumu maṣdaru-l-mawāhib\nHal turā hal urā lī ḥājib\nʿIndakum\nAfḍalu-l-ghilmānā\nAfḍalu-l-ghilmānā",
+        en: "O Ali, son of Abu Talib, from you comes the very source of every gift — is there, I wonder, any veil between us? With you are the finest of young men, the finest of young men." },
+      { ar: "أَسْيَادِي الْحَسَنُ وَالْحُسَيْنِ\nإِلَى النَّبِيِّ قُرَّةُ عَيْنِي\nوَيَا شَبَابَ الْجَنَّتَيْنِ\nجَدُّكُمْ\nصَاحِبُ الْقُرْآنَ\nصَاحِبُ الْقُرْآنَ",
+        tr: "Asyādī-l-Ḥasanu wa-l-Ḥusayn\nIla-n-Nabiyyi qurratu ʿaynī\nWa yā shabāba-l-jannatayn\nJaddukum\nṢāḥibu-l-Qurʾān\nṢāḥibu-l-Qurʾān",
+        en: "Our masters, Hasan and Husayn, are the coolness of the Prophet's eyes; O youths of the two gardens of Paradise, your grandfather is the master of the Qur'an, the master of the Qur'an." },
+      { refrain: true,
+        ar: "اللّٰهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَيْهِ وَعَلٰى آلِهْ",
+        tr: "Allāhumma ṣalli wa sallim wa bārik ʿalayhi wa ʿalā ālih",
+        en: "O Allah, send peace and blessings upon him and his family." }
     ]
   },
+
   {
     category: "qasida",
     group: "qasidas",
-    titleArabic: "يا أبا الزهراء",
+    titleArabic: "يَا أَبَا الزَّهْرَاءِ",
     titleEnglish: "Yā Abā-z-Zahrā",
-    note: "Lines marked (2x) below are sung twice before continuing, per the ×٢ marks in the source. Re-segmented the closing block to match the 3-line stanza template set by verse 2.",
+    note: "Lines marked (٢x) are sung twice before continuing, per the ×٢ marks in the source.",
     verses: [
-      { refrain: true, ar: "يا أبا الزهراء بالذي صناك (٢x)\nلا تخيبنا يا سيدي نحن جيرانك\nيا سيدي نحن جيرانك\nالله الله الله الله ربي\nعوني وحسبي ما لي سواه",
-        tr: "Yā Abā-z-Zahrāʾi bi-lladhī ṣanāk (2x)\nLā tukhayyibnā yā sayyidī naḥnu jīrānak\nYā sayyidī naḥnu jīrānak\nAllāhu Allāhu Allāhu Rabbī\nʿAwnī wa ḥasbī mā lī siwāh",
-        en: "O Father of Zahra, by the one who protects you\nDon't close your door and don't turn away from us\nLet us draw near to you, O my master\nAllah is my Lord, the One who helps me\nHe is Sufficient for me, I have no one except Him" },
-      { ar: "روح وريحان ما بين الخلان (٢x)\nجنة الرضوان يا سيدي في حضرتنا\nيا سيدي في حضرتنا الله الله",
-        tr: "Rūḥun wa rayḥān mā bayna-l-khullān (2x)\nJannatu-r-riḍwān yā sayyidī fī ḥaḍratinā\nYā sayyidī fī ḥaḍratinā Allāhu Allāh",
-        en: "Rest and satisfaction among intimate friends\nThe Garden of Delights is in your presence, O My master" },
-      { ar: "حضرة القدوس محيا النفوس (٢x)\nجنة الفردوس يا سيدي تحتاج الينا\nيا سيدي تحتاج الينا الله الله",
-        tr: "Ḥaḍratu-l-quddūs maḥyā-n-nufūs (2x)\nJannatu-l-firdaws yā sayyidī taḥtāju ilaynā\nYā sayyidī taḥtāju ilaynā Allāhu Allāh",
-        en: "The Holy Presence, the reviver of the souls\nThe Ferdous Heaven is in need of You, O My Master" },
-      { ar: "من خمر العرفان سقينا قذان (٢x)\nمن يد الولدان يا سيدي مخلدينا\nعباد الرحمن في كل زمان\nلهم الأمان يا سيدي مطمئنينا",
-        tr: "Min khamri-l-ʿirfāni suqīnā qadaḥan (2x)\nMin yadi-l-wildāni yā sayyidī mukhalladīnā\nʿIbādu-r-Raḥmāni fī kulli zamān\nLahumu-l-amānu yā sayyidī muṭmaʾinnīnā",
-        en: "The Gnostics drink the nectar of mystical knowledge from the hands of the ever-living youth\nThe Servants of the Most Merciful at all time have safety\nO My Master, they have certainty" }
+      { refrain: true,
+        ar: "يَا أَبَا الزَّهْرَاءِ بِالَّذِي صَنَّاكْ (٢x)\nلَا تُخَيِّبْنَا يَا سَيِّدِي نَحْنُ جِيرَانَكْ\nيَا سَيِّدِي نَحْنُ جِيرَانَكْ\nاللّٰهُ اللّٰهُ اللّٰهُ رَبِّي\nعَوْنِي وَحَسْبِي مَا لِي سِوَاهُ",
+        tr: "Yā Abā-z-Zahrāʾi bi-lladhī ṣannāk (2x)\nLā tukhayyibnā yā sayyidī naḥnu jīrānak\nYā sayyidī naḥnu jīrānak\nAllāhu Allāhu Allāhu Rabbī\nʿAwnī wa ḥasbī mā lī siwāh",
+        en: "O father of Zahra, by the One who fashioned you — do not turn us away, O my master, we are your neighbours, O my master, we are your neighbours. Allah, Allah, Allah is my Lord; He is my help and my sufficiency, I have none besides Him." },
+      { ar: "رُوحٌ وَرَيْحَانٌ مَا بَيْنَ الْخُلَّانْ (٢x)\nجَنَّةُ الرِّضْوَانْ يَا سَيِّدِي فِي حَضْرَتِنَا\nيَا سَيِّدِي فِي حَضْرَتِنَا اللّٰهُ اللّٰهُ",
+        tr: "Rūḥun wa rayḥānun mā bayna-l-khullān (2x)\nJannatu-r-riḍwān yā sayyidī fī ḥaḍratinā\nYā sayyidī fī ḥaḍratinā Allāhu Allāh",
+        en: "Rest and fragrance among close companions — the Garden of Good Pleasure, O my master, is in our presence, O my master, in our presence." },
+      { ar: "حَضْرَةُ الْقُدُّوسْ مُحْيَا النُّفُوسْ (٢x)\nجَنَّةُ الْفِرْدَوْسْ يَا سَيِّدِي تَحْتَاجُ إِلَيْنَا\nيَا سَيِّدِي تَحْتَاجُ إِلَيْنَا اللّٰهُ اللّٰهُ",
+        tr: "Ḥaḍratu-l-quddūs muḥyā-n-nufūs (2x)\nJannatu-l-firdaws yā sayyidī taḥtāju ilaynā\nYā sayyidī taḥtāju ilaynā Allāhu Allāh",
+        en: "The Holy Presence, the reviver of souls — the Garden of Paradise, O my master, longs for us, O my master, longs for us." },
+      { ar: "مِنْ خَمْرِ الْعِرْفَانِ سُقِّينَا قِدْحًا (٢x)\nمِنْ يَدِ الْوِلْدَانِ يَا سَيِّدِي مُخَلَّدِينَا\nيَا سَيِّدِي مُخَلَّدِينَا اللّٰهُ اللّٰهُ",
+        tr: "Min khamri-l-ʿirfāni suqqīnā qidḥan (2x)\nMin yadi-l-wildāni yā sayyidī mukhalladīnā\nYā sayyidī mukhalladīnā Allāhu Allāh",
+        en: "From the wine of gnosis we have been given to drink, poured by the hands of the ever-living youths, O my master, made everlasting." },
+      { ar: "حَالُ الْعَارِفِينَ مُتَقَابِلِينْ (٢x)\nعَلَى سُرُرٍ يَا سَيِّدِي مُسْتَبْشِرِينَا\nيَا سَيِّدِي مُسْتَبْشِرِينَا اللّٰهُ اللّٰهُ",
+        tr: "Ḥālu-l-ʿārifīna mutaqābilīn (2x)\nʿAlā sururin yā sayyidī mustabshirīnā\nYā sayyidī mustabshirīnā Allāhu Allāh",
+        en: "Such is the state of the gnostics, facing one another upon couches, O my master, filled with glad tidings, O my master, with glad tidings." },
+      { ar: "أَبْنَاءُ الْحَضْرَةِ لَهُمُ الْبُشْرَى (٢x)\nمِنْ قَبْلِ الْأُخْرَى يَا سَيِّدِي مُعَزَّزِينَا\nيَا سَيِّدِي مُعَزَّزِينَا اللّٰهُ اللّٰهُ",
+        tr: "Abnāʾu-l-ḥaḍrati lahumu-l-bushrā (2x)\nMin qabli-l-ukhrā yā sayyidī muʿazzazīnā\nYā sayyidī muʿazzazīnā Allāhu Allāh",
+        en: "The people of that Presence have good news before any other, O my master, held in honour, O my master, in honour." },
+      { ar: "عِبَادُ الرَّحْمٰنِ فِي كُلِّ زَمَانْ (٢x)\nلَهُمُ الْأَمَانْ يَا سَيِّدِي مُطْمَئِنِّينَا\nيَا سَيِّدِي مُطْمَئِنِّينَا اللّٰهُ اللّٰهُ",
+        tr: "ʿIbādu-r-Raḥmāni fī kulli zamān (2x)\nLahumu-l-amān yā sayyidī muṭmaʾinnīnā\nYā sayyidī muṭmaʾinnīnā Allāhu Allāh",
+        en: "The servants of the Most Merciful, in every age, have security — O my master, at peace, O my master, at peace." }
     ]
   },
+
   {
     category: "qasida",
     group: "qasidas",
-    titleArabic: "يا شفيع الورى",
+    titleArabic: "يَا شَفِيعَ الْوَرَى",
     titleEnglish: "Yā Shafīʿa-l-Warā",
     verses: [
-      { ar: "يا شفيع الورى سلام عليك\nيا نبي الهدى سلام عليك\nخاتم الأنبياء سلام عليك\nسيد الأصفياء سلام عليك",
+      { ar: "يَا شَفِيعَ الْوَرَى سَلَامٌ عَلَيْكْ\nيَا نَبِيَّ الْهُدَى سَلَامٌ عَلَيْكْ\nخَاتِمَ الْأَنْبِيَاءِ سَلَامٌ عَلَيْكْ\nسَيِّدَ الْأَصْفِيَاءِ سَلَامٌ عَلَيْكْ",
         tr: "Yā shafīʿa-l-warā salāmun ʿalayk\nYā nabiyya-l-hudā salāmun ʿalayk\nKhātima-l-anbiyāʾ salāmun ʿalayk\nSayyida-l-aṣfiyāʾ salāmun ʿalayk",
-        en: "O Intercessor of mankind, peace be upon you\nO Prophet of guidance, peace be upon you\nThe Seal of the prophets, peace be upon you\nMaster of the purified ones, peace be upon you" },
-      { ar: "أحمد ليس مثلك أحد\nمرحباً مرحبا سلام عليك\nواجب حبك على المخلوق\nيا حبيب العلى سلام عليك",
-        tr: "Aḥmadu laysa mithluka aḥad\nMarḥaban marḥaban salāmun ʿalayk\nWājibun ḥubbuka ʿalā-l-makhlūq\nYā ḥabība-l-ʿulā salāmun ʿalayk",
-        en: "O Ahmad, no one is like you\nGreetings, peace be upon you\nYour love is an obligation on the creation\nO Beloved of the Sublime, peace be upon you" },
-      { ar: "أعظم الخلق أشرف الشرفاء\nأفضل الأنبياء سلام عليك\nمعبط الوحي منزل القرآن\nصاحب الاهتداء سلام عليك",
-        tr: "Aʿẓamu-l-khalqi ashrafu-sh-shurafāʾ\nAfḍalu-l-anbiyāʾ salāmun ʿalayk\nManbaʿu-l-waḥyi manzilu-l-Qurʾān\nṢāḥiba-l-ihtidāʾ salāmun ʿalayk",
-        en: "The Greatest of creation, the most Honourable\nThe best of prophets, peace be upon you\nThe base of revelation, the home of Quran\nThe owner of guidance, peace be upon you" },
-      { ar: "اشفع لي يا حبيبي يوم الجزاء\nأنت شافعنا سلام عليك\nكشفت منك ظلمة الظلماء\nأنت بدر الدجى سلام عليك",
-        tr: "Ishfaʿ lī yā ḥabībī yawma-l-jazāʾ\nAnta shāfiʿunā salāmun ʿalayk\nKashafta ʿanka ẓulmata-ẓ-ẓulamāʾ\nAnta badru-d-dujā salāmun ʿalayk",
-        en: "Intercede for me O my Beloved one, on the day of judgement\nYou are our Intercessor, peace be upon you\nYou are purified from the oppressions\nYou are the full moon on a dark night, peace be upon you" },
-      { ar: "طلعت منك كوكب العرفان\nأنت شمس الضحى سلام عليك\nليلة الإسراء قالت الأنبياء\nمرحباً مرحبا سلام عليك",
+        en: "O intercessor of mankind, peace be upon you; O prophet of guidance, peace be upon you; seal of the prophets, peace be upon you; master of the chosen ones, peace be upon you." },
+      { ar: "أَحْمَدُ لَيْسَ مِثْلُكَ أَحَدْ\nمَرْحَبًا مَرْحَبًا سَلَامٌ عَلَيْكْ\nوَاجِبٌ حُبُّكَ عَلَى الْمَخْلُوقْ\nيَا حَبِيبَ الْعُلَا سَلَامٌ عَلَيْكْ",
+        tr: "Aḥmadu laysa mithluka aḥad\nMarḥaban marḥaban salāmun ʿalayk\nWājibun ḥubbuka ʿala-l-makhlūq\nYā ḥabība-l-ʿulā salāmun ʿalayk",
+        en: "Ahmad, none is like you — welcome, welcome, peace be upon you; love for you is owed by every creature, O beloved of the Most High, peace be upon you." },
+      { ar: "أَعْظَمُ الْخَلْقِ أَشْرَفُ الشُّرَفَاءِ\nأَفْضَلُ الْأَنْبِيَاءِ سَلَامٌ عَلَيْكْ\nمَهْبَطُ الْوَحْيِ مَنْزِلُ الْقُرْآنِ\nصَاحِبُ الِاهْتِدَاءِ سَلَامٌ عَلَيْكْ",
+        tr: "Aʿẓamu-l-khalqi ashrafu-sh-shurafāʾ\nAfḍalu-l-anbiyāʾ salāmun ʿalayk\nMahbaṭu-l-waḥyi manzilu-l-Qurʾān\nṢāḥibu-l-ihtidāʾ salāmun ʿalayk",
+        en: "Greatest of creation, most honoured of the honoured, most excellent of the prophets, peace be upon you; the place where revelation descended, the home of the Qur'an, master of guidance, peace be upon you." },
+      { ar: "اِشْفَعْ لِي يَا حَبِيبِي يَوْمَ الْجَزَاءِ\nأَنْتَ شَافِعُنَا سَلَامٌ عَلَيْكْ\nكَشَفْتَ عَنَّا ظُلْمَةَ الظُّلَمَاءِ\nأَنْتَ بَدْرُ الدُّجَى سَلَامٌ عَلَيْكْ",
+        tr: "Ishfaʿ lī yā ḥabībī yawma-l-jazāʾ\nAnta shāfiʿunā salāmun ʿalayk\nKashafta ʿannā ẓulmata-ẓ-ẓulamāʾ\nAnta badru-d-dujā salāmun ʿalayk",
+        en: "Intercede for me, O my beloved, on the Day of Recompense — you are our intercessor, peace be upon you; you lifted from us the darkness of every darkness, you are the full moon of the night, peace be upon you." },
+      { ar: "طَلَعَتْ مِنْكَ كَوْكَبُ الْعِرْفَانِ\nأَنْتَ شَمْسُ الضُّحَى سَلَامٌ عَلَيْكْ\nلَيْلَةَ الْإِسْرَاءِ قَالَتِ الْأَنْبِيَاءُ\nمَرْحَبًا مَرْحَبًا سَلَامٌ عَلَيْكْ",
         tr: "Ṭalaʿat minka kawkabu-l-ʿirfān\nAnta shamsu-ḍ-ḍuḥā salāmun ʿalayk\nLaylata-l-isrāʾi qālati-l-anbiyāʾ\nMarḥaban marḥaban salāmun ʿalayk",
-        en: "Emanating from you the source of all realities\nYou are the sun of a bright morning, peace be upon you\nIn the Night of Ascension, all the prophets said: Greetings, peace be upon you" },
-      { ar: "مقصودي يا حبيبي ليس سواك\nأنت مقصودنا سلام عليك\nإنك مقصدي وملجئي\nإنك مدعى سلام عليك",
+        en: "From you rose the star of gnosis — you are the sun of forenoon, peace be upon you; on the Night Journey the prophets themselves said: welcome, welcome, peace be upon you." },
+      { ar: "مَقْصُودِي يَا حَبِيبِي لَيْسَ سِوَاكْ\nأَنْتَ مَقْصُودُنَا سَلَامٌ عَلَيْكْ\nإِنَّكَ مَقْصَدِي وَمَلْجَئِي\nإِنَّكَ مُدَّعَى سَلَامٌ عَلَيْكْ",
         tr: "Maqṣūdī yā ḥabībī laysa siwāk\nAnta maqṣūdunā salāmun ʿalayk\nInnaka maqṣadī wa maljaʾī\nInnaka mudda ʿā salāmun ʿalayk",
-        en: "My aim is at no one but you, O My Beloved\nYou are our goal, peace be upon you\nYou are my destination and my shelter\nYou are my aim, peace be upon you" },
-      { ar: "صلوات الله على المصطفى\nأفضل الأنبياء سلام عليك\nهذا أول غلامك يا سيدي\nمنهم يا مصطفى سلام عليك",
-        tr: "Ṣalawātu-llāhi ʿalā-l-Muṣṭafā\nAfḍalu-l-anbiyāʾ salāmun ʿalayk\nHādhā awwalu ghulāmika yā sayyidī\nMinhum yā Muṣṭafā salāmun ʿalayk",
-        en: "May blessings of Allah be upon the Chosen One\nBest of all prophets, peace be upon you\nMay I be the first of your servants, O my Master\nO Chosen One, peace be upon you" },
-      { refrain: true, ar: "اللهم صل وسلم وبارك عليه وعلى آله",
+        en: "My aim, O my beloved, is none but you — you are our aim, peace be upon you; you are my goal and my refuge, you are the one I call upon, peace be upon you." },
+      { ar: "صَلَوَاتُ اللّٰهِ عَلَى الْمُصْطَفَى\nأَفْضَلُ الْأَنْبِيَاءِ سَلَامٌ عَلَيْكْ\nهَذَا أَوَّلُ غُلَامِكَ يَا سَيِّدِي\nمِنْهُمْ يَا مُصْطَفَى سَلَامٌ عَلَيْكْ",
+        tr: "Ṣalawātu-llāhi ʿala-l-Muṣṭafā\nAfḍalu-l-anbiyāʾ salāmun ʿalayk\nHādhā awwalu ghulāmika yā sayyidī\nMinhum yā Muṣṭafā salāmun ʿalayk",
+        en: "The blessings of Allah be upon the Chosen One, most excellent of the prophets, peace be upon you; this is the first of your servants, O my master — one of them, O Chosen One, peace be upon you." },
+      { refrain: true,
+        ar: "اللّٰهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَيْهِ وَعَلٰى آلِهْ",
         tr: "Allāhumma ṣalli wa sallim wa bārik ʿalayhi wa ʿalā ālih",
-        en: "O Allah, send peace and blessings upon him and his family" }
+        en: "O Allah, send peace and blessings upon him and his family." }
     ]
   },
+
   {
     category: "qasida",
     group: "qasidas",
-    titleArabic: "يا هناناً",
+    titleArabic: "يَا هَنَانَا",
     titleEnglish: "Yā Hanānā",
     note: "The 'Yā hanānā' line frames the piece — repeated 4x at the opening/close and again after verses 1-2, per the ×٤/×٢ marks in the source.",
     verses: [
-      { refrain: true, ar: "يا هناناً يا هناناً (٤x)\nظهر الدين المؤيد\nبظهور النبي أحمد (٢x)\nيا هناناً بمحمد\nذلك الفضل من الله\nيا هناناً يا هناناً (٤x)",
-        tr: "Yā hanānā yā hanānā (4x)\nẒahara-d-dīnu-l-muʾayyad\nBi-ẓuhūri-n-nabiyyi Aḥmad (2x)\nYā hanānā bi-Muḥammad\nDhālika-l-faḍlu mina-llāh\nYā hanānā yā hanānā (4x)",
-        en: "O our joy, O our joy\nThe eternal religion was revealed\nWith the arrival of the prophet Ahmad\nO our bliss because of Muhammad\nThat is the grace from Allah\nO our joy, O our joy" },
-      { ar: "خص بالسبع المثاني\nوحوا لطف المعاني\nما له في الخلق ثاني\nوعليه أنزل الله\nيا هناناً يا هناناً",
+      { refrain: true,
+        ar: "يَا هَنَانَا يَا هَنَانَا (٤x)\nظَهَرَ الدِّينُ الْمُؤَيَّدْ\nبِظُهُورِ النَّبِيِّ أَحْمَدْ (٢x)\nيَا هَنَانَا بِمُحَمَّدْ\nذَلِكَ الْفَضْلُ مِنَ اللّٰهِ\nيَا هَنَانَا يَا هَنَانَا (٤x)",
+        tr: "Yā hanānā yā hanānā (4x)\nẒahara-d-dīnu-l-muʾayyad\nBi-ẓuhūri-n-Nabiyyi Aḥmad (2x)\nYā hanānā bi-Muḥammad\nDhālika-l-faḍlu mina-llāh\nYā hanānā yā hanānā (4x)",
+        en: "O our joy, O our joy — the upheld religion has appeared with the appearance of the Prophet Ahmad; O our joy in Muhammad, that is the bounty from Allah. O our joy, O our joy." },
+      { ar: "خُصَّ بِالسَّبْعِ الْمَثَانِي\nوَحَوَى لُطْفَ الْمَعَانِي\nمَا لَهُ فِي الْخَلْقِ ثَانِي\nوَعَلَيْهِ أَنْزَلَ اللّٰهُ\nيَا هَنَانَا يَا هَنَانَا",
         tr: "Khuṣṣa bi-s-sabʿi-l-mathānī\nWa ḥawā luṭfa-l-maʿānī\nMā lahu fi-l-khalqi thānī\nWa ʿalayhi anzala-llāh\nYā hanānā yā hanānā",
-        en: "He was solely gifted with the seven holy verses of Surat Al-Fatiha\nAnd he encompassed the finest qualities\nThere is no creature like him\nAnd Allah has bestowed upon him\nO our joy, O our joy" },
-      { ar: "من مكة لما ظهر\nلأجله انشق القمر\nوافتخرت آل مضر\nبه على كل الأنام",
+        en: "He alone was given the seven oft-repeated verses, and he encompassed every subtlety of meaning; none among creation is his equal, and upon him Allah sent down revelation. O our joy, O our joy." },
+      { ar: "مِنْ مَكَّةَ لَمَّا ظَهَرْ\nلِأَجْلِهِ انْشَقَّ الْقَمَرْ\nوَافْتَخَرَتْ آلُ مُضَرْ\nبِهِ عَلَى كُلِّ الْأَنَامِ",
         tr: "Min Makkata lammā ẓahar\nLi-ajlihi-nshaqqa-l-qamar\nWa-ftakharat Ālu Muḍar\nBihi ʿalā kulli-l-anām",
-        en: "When he appeared from Makkah, for him the moon split\nAnd he was the pride of Al-Mudar's family over all human beings" },
-      { ar: "صلوا على خير الأنام\nالمصطفى بدر التمام\nصلوا عليه وسلموا\nيشفع لنا يوم الزحام",
-        tr: "Ṣallū ʿalā khayri-l-anām\nAl-Muṣṭafā badru-t-tamām\nṢallū ʿalayhi wa sallimū\nYashfaʿ lanā yawma-z-ziḥām",
-        en: "Praise the best of people, Al-Mustafa the full moon\nPraise him and greet him — he will grant us intercession on the crowded day" }
+        en: "When he appeared from Mecca, the moon split for his sake, and the family of Mudar took pride in him above all humankind." },
+      { ar: "صَلُّوا عَلَى خَيْرِ الْأَنَامِ\nالْمُصْطَفَى بَدْرِ التَّمَامِ\nصَلُّوا عَلَيْهِ وَسَلِّمُوا\nيَشْفَعْ لَنَا يَوْمَ الزِّحَامِ",
+        tr: "Ṣallū ʿalā khayri-l-anām\nAl-Muṣṭafā badri-t-tamām\nṢallū ʿalayhi wa sallimū\nYashfaʿ lanā yawma-z-ziḥām",
+        en: "Send blessings upon the best of creation, the Chosen One, the moon at its fullness; send blessings and peace upon him — he will intercede for us on the day of the crowded gathering." }
     ]
   },
+
   {
     category: "qasida",
     group: "qasidas",
@@ -2917,6 +2965,37 @@ const QASIDAS = [
       { ar: "أَلَا يَا بَخْتِ مَنْ زَارَهُمْ بِالصِّدْقِ وَانْذَرْ ۞ إِلَيْهِمْ مُعْتَنِي كُلُّ مَطْلُوبُهْ تَيَسَّرْ",
         tr: "Alā yā bakhti man zārahum bi-ṣ-ṣidqi wa-ndhar, ilayhim muʿtanī kullu maṭlūbuh tayassar.",
         en: "How fortunate is the one who visits them with sincerity and reverent awe, for to such a seeker, all that he desires is made easy." }
+    ]
+  },
+  {
+    category: "qasida",
+    group: "qasidas",
+    titleArabic: "يَا سَيِّدِي ارْحَمْ لَنَا",
+    titleEnglish: "Yā Sayyidī-rḥam Lanā",
+    note: "Addressed on behalf of Imam Zayn al-ʿĀbidīn, taken captive after Karbalāʾ (v6). Repeat the refrain after each verse.",
+    verses: [
+      { refrain: true,
+        ar: "يَا سَيِّدِي ارْحَمْ لَنَا",
+        tr: "Yā sayyidī-rḥam lanā",
+        en: "O my master, have mercy on us." },
+      { ar: "إِنْ تَلْتِ يَا رِيحَ الصَّبَا يَوْمًا إِلَى أَرْضِ الْحَرَمِ ۞ بَلِّغْ سَلَامِي رَوْضَةً فِيهَا النَّبِيُّ الْمُحْتَرَمْ (٢x)",
+        tr: "Inaltiya riha-saba yawman ilā arḍi-l-ḥaram ۞ balligh salāmī rawḍatan fīhā-n-Nabiyyu-l-muḥtaram (2x)",
+        en: "If, O east wind, you should one day pass by the sacred land, carry my greeting to the garden where the honoured Prophet rests." },
+      { ar: "مَنْ وَجْهُهُ شَمْسُ الضُّحَى مَنْ خَدُّهُ بَدْرُ الدُّجَى ۞ مَنْ ذَاتُهُ نُورُ الْهُدَى مَنْ كَفُّهُ بَحْرُ الْهِمَمْ (٢x)",
+        tr: "Man wajhuhu shamsu-ḍ-ḍuḥā man khadduhu badru-d-dujā ۞ man dhātuhu nūru-l-hudā man kaffuhu baḥru-l-himam (2x)",
+        en: "He whose face is the forenoon sun, whose cheek is the full moon at nightfall; whose very being is the light of guidance, whose open hand is an ocean of generosity." },
+      { ar: "قُرْآنُهُ بُرْهَانُنَا فَسْخًا لِأَدْيَانٍ مَضَتْ ۞ إِذْ جَاءَنَا أَحْكَامُهُ كُلُّ الصُّحُفِ صَارَ الْعَدَمْ (٢x)",
+        tr: "Qurʾānuhu burhānunā faskhan li-adyānin maḍat ۞ idh jāʾanā aḥkāmuhu kullu-ṣ-ṣuḥufi ṣāra-l-ʿadam (2x)",
+        en: "His Qur'an is our proof, an abrogation of every religion now passed away; since his rulings came to us, every other scripture became as nothing." },
+      { ar: "أَكْبَادُنَا مَجْرُوحَةٌ مِنْ سَيْفِ هِجْرِ الْمُصْطَفَى ۞ طُوبَى لِأَهْلِ بَلْدَةٍ فِيهَا النَّبِيُّ الْمُحْتَشَمْ (٢x)",
+        tr: "Akbādunā majrūḥatun min sayfi hijri-l-Muṣṭafā ۞ ṭūbā li-ahli baldatin fīhā-n-Nabiyyu-l-muḥtasham (2x)",
+        en: "Our hearts are wounded by the sword of separation from the Chosen One; blessed are the people of a town in which the honoured Prophet dwells." },
+      { ar: "يَا رَحْمَةً لِلْعَالَمِينَ أَنْتَ شَفِيعُ الْمُذْنِبِينَ ۞ أَكْرِمْ لَنَا يَوْمَ الْحَزِينِ فَضْلًا وَجُودًا وَالْكَرَمْ (٢x)",
+        tr: "Yā raḥmatan li-l-ʿālamīn anta shafīʿu-l-mudhnibīn ۞ akrim lanā yawma-l-ḥazīni faḍlan wa jūdan wa-l-karam (2x)",
+        en: "O mercy for all the worlds, you are the intercessor of sinners — be generous to us on the day of grief, with bounty, munificence and honour." },
+      { ar: "يَا رَحْمَةً لِلْعَالَمِينَ أَدْرِكْ لِزَيْنِ الْعَابِدِينَ ۞ مَحْبُوسَ أَيْدِي الظَّالِمِينَ فِي الْمَوْكِبِ وَالْمُزْدَحَمْ (٢x)",
+        tr: "Yā raḥmatan li-l-ʿālamīn adrik li-Zayni-l-ʿĀbidīn ۞ maḥbūsa aydi-ẓ-ẓālimīna fi-l-mawkibi wa-l-muzdaḥam (2x)",
+        en: "O mercy for all the worlds, come to the aid of Zayn al-ʿAbidin, held captive in the hands of the oppressors, amid the crowded procession." }
     ]
   }
 ];
@@ -3256,6 +3335,7 @@ function arrayOf(kind){
        : kind === 'b' ? BURDAH_CHAPTERS
        : kind === 's' ? SIRAH_CHAPTERS
        : kind === 'i' ? ILAHI_CHAPTERS
+       : kind === 'w' ? QAWWALI_CHAPTERS
        : kind === 'd' ? DALAIL_CHAPTERS
        : kind === 'z' ? BARZANJI_CHAPTERS
        : kind === 'y' ? DIYA_CHAPTERS
@@ -12374,7 +12454,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v394';
+const APP_VERSION = 'v396';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -13626,6 +13706,517 @@ const ILAHI_CHAPTERS = [
   }
 ];
 
+/* Sufi devotional qawwalis — Urdu, Punjabi, Persian and Arabic, sung rather
+   than recited, so the corpus carries only a transliteration (as "ar", the
+   field readerHTML treats as the piece's own script for any latin:true
+   chapter) and its English sense; there is no separate Arabic-script text
+   to typeset. Brought over from the Sacred Lyrics app (github.com/abdulmajid1993/qasida),
+   whose `qawwalis` array in App.jsx remains the source for future additions —
+   this array should be kept in step with it rather than edited independently.
+   Each song's chorus becomes its first verse, flagged refrain:true, since a
+   qawwali's chorus is the line the ensemble returns to between verses.
+   titleEnglish is "title — poet", exactly the "name — gloss" shape
+   readerHTML already splits on for a latin chapter (see ILAHI_CHAPTERS) —
+   here it supplies the reader's byline instead of a translated meaning
+   (none exists), and its own necessary side effect: favKey()/favItems()
+   look a favorited piece up BY titleEnglish, so it has to be unique per
+   chapter, and every song's title already is. A bare titleEnglish:"" would
+   have made every qawwali resolve to whichever one happens to be first. */
+const QAWWALI_CHAPTERS = [
+  { latin:true, titleArabic:"Allah Hoo Allah Hoo", titleEnglish:"Allah Hoo Allah Hoo — Traditional",
+    poet:"Traditional", note:"In Urdu.",
+    verses:[
+      { ar:"Allah hoo, Allah hoo, Allah hoo\nAllah hoo, Allah hoo, Allah hoo", tr:"", en:"Allah is He, Allah is He, Allah is He\nAllah is He, Allah is He, Allah is He", refrain:true },
+      { ar:"Malik-Ul-Mulk, Lashareeka Lahoo\nWahadahoo Laa Ilaahaa Illaahoo", tr:"", en:"Ruler of the world, soul of my blood\nThe promised one, there is nothing but you" },
+      { ar:"Shams Tabraiz Gar Khuda Talabee\nKhushboo Khuwan La Illaha Illahoo", tr:"", en:"Every great scholar is your student\nIn every scent, there is nothing but you" },
+      { ar:"Qounain Ka Masjood Hai Maa'bood Hai Tu\nHer Shay Teri Shahid Hai K Mashhood Hai Tu", tr:"", en:"Creator of and worshipped by both worlds\nEvery thing is witness to your manifestation" },
+      { ar:"Her Aik K Lab Per Hai Teri Hamd-O-Sana\nHer Sooz Mein Her Saaz Mein Moujood Hai Tu", tr:"", en:"On everyone's lips is your prayer\nIn every chord, every song is your presence" },
+      { ar:"Tere He Naam Say Her Ibtida Hai\nTere He Naam Tak Intiha Hai\nTeri Hamd-O-Sana Alhamdulillah\nK Tu Mere Mohammad Ka Khuda Hai", tr:"", en:"Every beginning is with your name\nWith your name ends everything\nYour praise is 'praise be to Allah'\nThat you are the God of my Mohammad" },
+      { ar:"Yeh Zameen Jab Na Thi Yeh Jahaan Jab Na Thaa\nChaand Suraj Na Thay Aasman Jab Na Tha\nRaaz-E-Haq Bhi Kisi Per Ayaan Jab Na Tha\nTab Na Tha Kuch Yahaan Tha Magar Tu Hee Tu", tr:"", en:"When this earth and world did not exist\nWhen there was no moon, sun or sky\nWhen the secret of the truth was still unknown\nWhen there was nothing, there was you" },
+      { ar:"Har Shay Tere Jamaal Ki Aainaa Daar Hai\nHar Shay Pukaarti Hai Tu Parvardigaar Hai", tr:"", en:"Everything is a reflection of your glory\nEvery thing cries out that you are the Lord" },
+      { ar:"Teri Ruboobiyat Ki Ada Ka Kamaal Hai\nTu Rab-e-Qayaanat Hai, Tu Lajwal Hai", tr:"", en:"It is the distinction of your enthralling visage\nYou are the unrivalled Lord of the Universe" },
+      { ar:"Tu Jo Her Aan Nayi Shaan Dikha Deta Hai\nDeeda-E-Shouq Ko Hairan Bana Deta Hai\nDaali Daali Teri Takhleeq K Gun Gaati Hai\nPatta Patta Teri Qudrat Ka Pata Deta Hai", tr:"", en:"You who shows new beauty every instant\nSurprises even those who yearn for more\nEvery sapling sings of your creation\nEvery leaf is a signature of your nature" },
+      { ar:"Laa Ilaahaa Teri Shaan Ya Wahdahoo\nTu Khayaal-O-Tajassus Tu He Aarzoo\nAankh Ki Roshni Dil Ki Awaaz Tu\nTha Bhi Tu! Hai Bhi Tu! Hoga Bhi Tu Hee Tu!", tr:"", en:"My God, you are the splendor you promised\nYou are the curiosity, you are the desire\nThe light of my eyes, the voice of my heart\nYou were, you are, and will be only you" },
+      { ar:"Khaalik-E-Kul Hai Tu Is Mein Kia Guftagu\nSaare Aalam Ko Hai Teri He Justaju\nTeri Jalvaagari Hai Ayaan Chaar Su\nLa Shareeka Lahoo Maalik-E-Mulk Tu", tr:"", en:"You are everything, what is the argument in this\nThe whole world is searching only for you\nEven as your magnificence is in every corner\nYou are in my blood, Lord of the world" }
+    ]
+  },
+  { latin:true, titleArabic:"Naseeb Mera Jaga Diya", titleEnglish:"Naseeb Mera Jaga Diya — Nusrat Fateh Ali Khan",
+    poet:"Nusrat Fateh Ali Khan", note:"In Urdu.",
+    verses:[
+      { ar:"Banayi mujh benawah ki bigri, naseeb mera jaga diya\nTere karam pe nisaar tu ne mujhe bhi jeena sikha diya", tr:"", en:"You mended the life of this destitute, awakened my dormant fate\nI am indebted to your grace; you have taught me how to live as well", refrain:true },
+      { ar:"Banayi mujh benawah ki bigri, naseeb mera jaga diya", tr:"", en:"You mended the life of this destitute, awakened my dormant fate" },
+      { ar:"Tere karam pe nisaar tu ne mujhe bhi jeena sikha diya", tr:"", en:"I am indebted to your grace; you have taught me how to live as well" },
+      { ar:"Badal gayi mere dil ki dunya, aata ne wo martaba diya", tr:"", en:"The world of my heart has changed; the blessings have granted me such a stature" },
+      { ar:"Karam ki aise nigaah dali, gadaa ko sultaan bana diya", tr:"", en:"With such a gracious glance, a beggar was turned into a king" },
+      { ar:"Karam ke saaye mein hum ko rakha, kabhi hirasa na hum hue", tr:"", en:"Kept us under the shade of grace, never did we feel any fear" },
+      { ar:"Hamare sir pe jo dhoop aayi to apna daaman barha diya", tr:"", en:"When the sun blazed over our heads, you extended your garment to shield us" },
+      { ar:"Yeh inki banda-nawazian hein, jo mujh pe aisa karam keya", tr:"", en:"It is their kindness to servants that bestowed such grace upon me" },
+      { ar:"Bana ke apna faqeer mujh ko, gham e jahaan se chura liya", tr:"", en:"By making me their humble devotee, they rescued me from the sorrows of the world" },
+      { ar:"Wuzoo keya mein ne aasman se, namaaz meri adaa howi", tr:"", en:"I performed ablution with water from the heavens, and my prayer was fulfilled" },
+      { ar:"Mila jo naqsh e kadam tumhara, to mein ne sir ko jhuka liya", tr:"", en:"When I found the imprint of your footsteps, I bowed my head in reverence" },
+      { ar:"Kisi ko dar se na khaali taala, her ik sawali ko bheek di", tr:"", en:"No one left the door empty-handed; every seeker was granted alms" },
+      { ar:"Ghareeb aaye jo aastan pe, karam ka darya bahaa diya", tr:"", en:"When the poor came to the threshold, a river of grace was made to flow" },
+      { ar:"Ghareeb dar dar bhatak rahay thay, kaheen na dil ko sukoon mila", tr:"", en:"The poor wandered from door to door, finding no peace for the heart" },
+      { ar:"Karam kiya tu ne apne dar ko hamara kaaba bana diya", tr:"", en:"You graced us by making your threshold our sanctuary, our Kaaba" }
+    ]
+  },
+  { latin:true, titleArabic:"Nami Danam Che Manzil", titleEnglish:"Nami Danam Che Manzil — Amir Khusro",
+    poet:"Amir Khusro", note:"In Persian (Farsi).",
+    verses:[
+      { ar:"namī-dānam che manzil buud shab jaa.e ki man būdam\nba-har-sū raqs-e-bismil buud shab jaa.e ki man būdam", tr:"", en:"I know not what place it was, last night, where I was\nAll around, the half-slaughtered lovers of God danced in rapture, last night, where I was", refrain:true },
+      { ar:"namī-dānam che manzil buud shab jaa.e ki man būdam\nba-har-sū raqs-e-bismil buud shab jaa.e ki man būdam", tr:"", en:"It was a strange and unknown place, last night, where I was,\nAll around the place Bismils (half slaughtered) were dancing divinely, last night, where I was." },
+      { ar:"parī-paikar nigāre sarv-qadde lāla-ruḳhsāre\nsarāpā āfat-e-dil buud shab jaa.e ki man būdam", tr:"", en:"Angelic, slender as a cypress tree and rose faced beings,\nTurned into a torment for our heart, last night, where I was." },
+      { ar:"raqībāñ gosh-bar-āvāz uu dar naaz va man tarsāñ\nsuḳhan guftan che mushkil buud shab jaa.e ki man būdam", tr:"", en:"Every rival gave ear to his voice, his pride silenced me and I in my fear,\nI found no words to speak, my fear made the conversation difficult, last night, where I was." },
+      { ar:"ḳhudā ḳhud mīr-e-majlis buud andar lā-makāñ 'ḳhusrav'\nmohammad sham.a-e-mahfil buud shab jaa.e ki man būdam", tr:"", en:"O Khusrau, I beheld a sacred gathering adorned by God Himself as the gracious Host,\nAnd Muhammad was shining as the radiant flame at its heart, last night, where I was." },
+      { ar:"marā az ātishe-e-ishq-e-tū dāman soḳht ai 'ḳhusrav'\nmohammad sham.a-e-mahfil buud shab jaa.e ki man būdam", tr:"", en:"The fire of Your love has scorched my very garment, O Khusrau,\nAnd Muhammad was shining as the radiant flame at its heart, last night, where I was." }
+    ]
+  },
+  { latin:true, titleArabic:"Haq Ali Ali Ali Mawla Ali Ali", titleEnglish:"Haq Ali Ali Ali Mawla Ali Ali — Traditional",
+    poet:"Traditional", note:"In Urdu / Persian / Arabic.",
+    verses:[
+      { ar:"Ali Ali Ali Maula Ali Ali\nShaah-e-mardaan Ali, la fataa illah Ali, sher-e-yazdaan Ali", tr:"", en:"Ali, Ali, Ali, my master, Ali, Ali\nKing of brave men Ali — there is none other like Ali — the Lion of God, Ali", refrain:true },
+      { ar:"Ali imaam-e-manasto manam ghulam-e-Ali\nHaider-e-um qalandaram mastam\nBandaa-e-murtaza Ali hastam\nPeshwa-e-tamaam virdaanam\nKe sage kuu-e-sher-e-yazdaanam", tr:"", en:"Ali is the master of all, I am a slave of Ali\nI am Haideri (Haider Ali's devout) a saint drowned in devotion\nI am a mere servant of Ali the chosen one\nI am foremost among all intoxicated by devotion\nA mere dog on the streets of Ali (The Lion of God)" },
+      { ar:"Kabhi deewar hilti hai, kabhi dar kaanp jaata hai\nAli ka naam sunkar, ab bhi Khaibar kaanp jaata hai", tr:"", en:"The wall trembles sometimes, sometimes the door shakes\nUpon hearing the name of Ali, Khaibar (A Fort) still trembles" },
+      { ar:"Jap le jap le re manwa\nYahi naam sachha hai pyaare\nYahi naam tere sab dukh taare\nIsi naam ki barkat ne diye raaz-e-haqeekat khol\nShaah-e-mardaan Ali\nLa fataa illah Ali\nSher-e-yazdaan Ali", tr:"", en:"Chant the name of Ali, my heart\nFor this is the only true name\nFor only this name will repel all your sadness\nFor the blessings of only this name have revealed the truth\nThe king of brave men, Ali\nThere is none other like Ali\nThe Lion of God, Ali" },
+      { ar:"Tan par Ali, ho zubaan par Ali Ali\nMarjaau toh kafan par bhi likhna Ali Ali\nBaghair hubb-e-Ali mudd'aa nahin miltaa\nIbaadaton ka bhi hargiz silaa nahi milta", tr:"", en:"Ali is on my body, chants of Ali on my tongue\nIf I die, then write the name of Ali even on my shroud\nWithout the love of Ali, desires are not fulfilled\nEven prayers are certainly not answered" },
+      { ar:"Khudaa ke bandon suno ghaur se Khudaa ki kasam\nJisey Ali nahi miltey Khudaa nahi miltaa", tr:"", en:"Oh men of God, listen carefully, I swear to God\nThose who don't find Ali, can't find God either" },
+      { ar:"Basad talaash na ab kuch vus'at-e-nazar se milaa\nNishaan-e-manzil-e-maqsuud raahbar se milaa\nAli mile to mile Khaana-e-Khudaa sa humein\nKhudaa ko dhoondha to vo bhi Ali ke ghar se milaa", tr:"", en:"Don't search for anything else, just join the eternal search\nFollow the footprints to the desired destination\nTo find Ali is like finding the house of God\nWhen I looked for God, I found him in Ali's home" },
+      { ar:"Deed-e-haidar ki ibaadat, hai ye farmaan-e-nabi\nHai Ali ruh-e-nabi, jism-e-nabi, jaan-e-nabi\nGul-e-tathir Ali, haq ki shamsheer Ali\nPeeron ke peer Ali", tr:"", en:"Seeing Ali itself is worship, says the Prophet\nFor Ali is the soul, the body and life of the Prophet\nAli is the flower of purity, Ali is the sword of truth\nAli is the saint of all saints" },
+      { ar:"Bedam yahi toh paanch hai maqsood-e-qaaynaat\nKhairunnisaa, Hussain, Hasan, Mustafaa, Ali", tr:"", en:"These five are indeed the reason of creation\nKhairunnisaa (Fatima), Hussain, Hasan, Mustafa (Prophet Muhammad), Ali" }
+    ]
+  },
+  { latin:true, titleArabic:"Be Khud Kiye Dete Hain", titleEnglish:"Be Khud Kiye Dete Hain — Traditional",
+    poet:"Traditional", note:"In Urdu.",
+    verses:[
+      { ar:"Bekhud kiye dete hain andaaz hijaabana\nAa dil mein tujhe rakh lun ay jalwa e janana", tr:"", en:"Your veiled manner drives me beyond myself into ecstasy\nCome, let me place you within my heart, O radiant beloved", refrain:true },
+      { ar:"Mai ne masoom baharo me tumhe dekha hai\nMai ne pur noor sitaro me tumhe dekha hai\nMere mehboob teri parda nashini ki qasam\nMai ne ashko ki qataroo me tumhe dekha hai", tr:"", en:"I have seen you in the innocent blossoms of spring\nI have seen you in the luminous stars\nI swear by the unveiling of your face, my beloved\nI have seen you in the streams of my tears" },
+      { ar:"Bekhud kiye dete hain andaaz hijaabana\nAa dil mein tujhe rakh lun ay jalwa e janana", tr:"", en:"Your veiled manner drives me beyond myself into ecstasy\nCome, let me place you within my heart, O radiant beloved" },
+      { ar:"Kyun aankh milayi thi kyun aag lagai thi\nAb rukh ko chupa bethe karke mujhe deewaana", tr:"", en:"Why did you meet my eyes — why did you ignite that fire?\nNow you hide your face, having made me utterly mad" },
+      { ar:"Ji chahta hai tohfe mein bhejun unhein ankhein\nDarshan ka to darshan ho nazrane ka nazrana", tr:"", en:"My heart desires to send them my very eyes as a gift\nThat the gift of beholding be itself a tribute to beholding" },
+      { ar:"Peene ko to pee lunga bas arz zara si hai\nAjmer ka saaqi ho bagdaad ka mekhaana", tr:"", en:"I will drink, I only have one small request\nLet the cup-bearer be from Ajmer and the tavern from Baghdad" },
+      { ar:"Dunya mein hamein tumne jab apna banaya hai\nMehshar mein bhi keh dena ye hai mera deewaana", tr:"", en:"Since in this world you have made me your own\nOn the Day of Judgement too, declare: this one is my devoted one" }
+    ]
+  },
+  { latin:true, titleArabic:"Tu Kuja Man Kuja", titleEnglish:"Tu Kuja Man Kuja — Hafiz Ibrahim Aadhil",
+    poet:"Hafiz Ibrahim Aadhil", note:"In Urdu / Persian.",
+    verses:[
+      { ar:"Tu Kuja Man Kuja\nTu Kuja Man Kuja\nMine is a lowly station\nAnd yours exalted beyond imagination", tr:"", en:"Where are you — where am I?\nWhere are you — where am I?\nMine is a lowly station\nAnd yours exalted beyond imagination", refrain:true },
+      { ar:"Tu Ameere Haram Main Faqeere Ajam\nTere Gun Aur Ye Lab Main Talab Hi Talab", tr:"", en:"You are commander of the holy sanctuary, and I a poor foreigner\nI am but a humble seeker, my sinful lips unworthy to sing your lofty praises" },
+      { ar:"Tu Ata Hi Ata\nIlham Hai Jama Tera\nQur'an Imaama Hai Tera\nMimbar Tera Arshe Bari\nYa Rehmatullil Aalameen", tr:"", en:"You are the everlasting blessing\nYou are gloriously adorned in the robe of divine revelation\nThe Quran forms your exalted turban\nThe highest heaven is your mimbar\nO Mercy for the Worlds" },
+      { ar:"Tu Kuja Man Kuja\nTu Kuja Man Kuja\nTu Kuja Man Kuja", tr:"", en:"Where are you — where am I?\nMine is a lowly station\nAnd yours exalted beyond imagination" },
+      { ar:"Mera Har Saans To Khoon Nichoray Mera\nTeri Rehmat Mager Dil Na Toray Mera\nQasa-e-zaat Hu Teri Khairat Hu\nTu Sakhee Mai Gada\nTu Haqeeqat Hai Main Sirf Ahsaas Hu\nTu Samandar Main Bhatkti Hui Pyaas Hu\nMera Ghar Khaak Par Aur Teri Reh Guzar", tr:"", en:"With every breath I take a step towards death\nYet I fail to accept your blessings (to absolve myself)\nFor I am a wretched being incomparable to your glory\nYou are the generous forgiving one while I am the beggar\nYou are reality, I merely perception\nYou are the ocean, I a wandering thirst\nMy dwelling is on the humble soil, and you journey beyond even the 7th heaven to Sidratul Muntaha" },
+      { ar:"Khusbu Teri Ju-e-Karam\nAankhein Teri Baab-e-Haram\nNoor-e-Azal Teri Jabeen\nYa Rehmat-al-lil-alameen", tr:"", en:"Your scent is the bringer of blessings\nYour eyes are the doors to the Haram sharif\nYour forehead shines with the eternal noor\nO Mercy to all the worlds" },
+      { ar:"Jagmagao Jo Halaat Ke Samnay\nAye Tera Tasavur Mujhay Thaamnay\nMeri Khush Qismati Mai Tera Ummati\nTu Jaza Mai Raza", tr:"", en:"When I panic against the trials of life\nI am calmed by thinking of you\nIt is my fortune that I am your follower\nYou are the reward, I am the wish" },
+      { ar:"Khairul Bashar Rutba Tera\nAawaaze Haq Khutba Tera\nAafaaq Tere Saame'een\nSaais Gibreele Ameen\nYa Rehmatullil Aalameen", tr:"", en:"You are the best of mankind\nYour sermons are the voice of haq\nThe heavens are your audience\nJibril the trustworthy is your horse keeper\nO Mercy to all the Worlds" },
+      { ar:"Nisbat Teri Imaan Hay\nKhusboo Teri Irfan hay\nTafseer Tere Khulq ki Quran Hi Quran Hay\nTu Hasil-e-Dunya O Deen\nYa Rehmat-al-lil-alameen", tr:"", en:"To be your follower is the testament of faith\nYour scent is the scent of wisdom\nYour glory is explained by the Quran itself\nYou are the gain of the world and religion\nO Mercy to all the worlds" },
+      { ar:"Tu Hai Ahraame Anwaar Baandhe Hue\nMain Duroodo Ki Dastaar Baandhe Hue\nKaaba E Ishq Tu Main Tere Chaar Soo\nTu Asar Main Dua", tr:"", en:"You are covered in the garment of illumination and splendour\nAnd I wear the humble turban cloth of salutations of you\nYou are the Kaaba of love and I make tawaf around you\nI am the dua and you its answer" },
+      { ar:"Dawa Hay Teri Chah Ka, Is Ummat-e-Gumrah Ka\nTere Siwa Koi Nahin\nYa Rehmat-al-lil-alameen\nDooryan Samney Say Jo Hatnay Lagein\nJaaliyon Say Nigahen Lipatney Lagein\nAansuon Ki Zuban Ho Meri Tarjuman\nDil Se Niklay Sada", tr:"", en:"This lost nation claims to be your follower\nThere is none besides you that can guide them\nO Mercy to all the worlds\nNow the vast distances are getting short\nAnd my eyes can see your blessed tomb\nLet my tears speak for me\nFrom the depths of my heart I say" }
+    ]
+  },
+  { latin:true, titleArabic:"Bhar Do Jholi Meri Ya Muhammad ﷺ", titleEnglish:"Bhar Do Jholi Meri Ya Muhammad ﷺ — Traditional",
+    poet:"Traditional", note:"In Urdu.",
+    verses:[
+      { ar:"Bhar Do Jholi Meri Ya Muhammad\nLautkar Main Na Jaaoon Ga Khaali\nBhar Do Jholi Meri Sarkaar-e-Madina\nBhar Do Jholi Meri Taajdar-e-Madina", tr:"", en:"Fill my bag, O Muhammad\nI will not go back empty-handed\nFill my bag, O Owner of Madina\nFill my bag, O Sovereign of Madina", refrain:true },
+      { ar:"Tumhaare aastane se zamaana kya nahi paata\nKoi bhi dar se khaali maangne waala nahi jaata", tr:"", en:"What does the world not receive at your doorstep?\nNo one who comes asking at your door leaves empty-handed" },
+      { ar:"Tum zamaane ke mukhtaar ho ya nabi\nBekaso ke madadgaar ho ya nabi\nSab ki sunte ho apne ho ya ghair ho\nTum ghareebo ke gham khwaar ho ya nabi", tr:"", en:"You are the chosen one of the age, O Prophet\nAnd the helper of the friendless, O Prophet\nYou listen to everyone, whether they are your own or strangers\nYou are the comforter of the poor, O Prophet" },
+      { ar:"Bhar Do Jholi Meri Ya Muhammad\nLautkar Main Na Jaaoon Ga Khaali\nBhar Do Jholi Meri Sarkaar-e-Madina\nBhar Do Jholi Meri Taajdar-e-Madina", tr:"", en:"Fill my bag, O Muhammad\nI will not go back empty-handed\nFill my bag, O Owner of Madina\nFill my bag, O Sovereign of Madina" },
+      { ar:"Hum hai ranj o musibat ke maare huwe\nSaqt mushkil me hai gum se haare huwe\nYa nabi kuch khudaara hame bheek do\nDar pe aaye hai jholi pasare huwe", tr:"", en:"I am struck with grief and hardship\nI am in great difficulty, defeated by sorrow\nO Prophet, give me some alms for the sake of God\nI have come to your door with my bag stretched open" },
+      { ar:"Hai mukhaalif zamaana kidhar jaaye hum\nHaalat e bekasi kisko dikhlaaye hum\nHum tumhare bhikaari hai ya Mustafa\nKiske aage bhalaa haath failaye hum", tr:"", en:"The times are against me, where should I go?\nTo whom should I show my state of helplessness?\nI am your beggar, O Mustafa\nIn front of whom else shall I spread my hands?" },
+      { ar:"Kuch nawaso ka sadqa ataa ho\nDar pe aaya hu bankar sawaali\nHaq se paayi woh shaan e kareemi\nMarhaba dono aalam ke waali", tr:"", en:"Let me gain some of your grandsons' charity\nI have come to your door to ask from you\nRightfully you have attained your beneficent glory\nWelcome, O Master of Both Worlds" },
+      { ar:"Uski qismat ka chamka sitaara\nJis pe nazr e karam tum ne daali\nZindagi baksh di bandagi ko\nAabroo deen e haq ki bachaali\nWoh muhammad ka pyaara nawasa\nJisne sajde me gardan kataali", tr:"", en:"The star of fate shines upon\nWhomever you look at with kindness and favor\nHe sacrificed his life to worship God\nAnd saved the honor of the religion of truth\nThat beloved grandson of Muhammad\nWhose neck was cut in prostration" },
+      { ar:"Hashr me unko dekhenge jis dam\nUmmati yeh kahenge khushi se\nAa rahe hai woh dekho mohammad\nJinke kaandhe pe kamli hai kaali", tr:"", en:"The moment they see him (Muhammad) on Armageddon\nHis followers will say with happiness\n\"Look, Muhammad is coming\"\n\"On whose shoulders is a black shawl\"" },
+      { ar:"Aashiq e mustafa ki azaan me allah allah kitna asar tha\nArsh waale bhi sunte the jisko\nKya azaan thi azaan e bilaali", tr:"", en:"By God, such influential power was in the adhan of Mustafa's adorer\nEven that which God and the angels listened to\nWhich adhan was it but the adhan of Bilal?" }
+    ]
+  },
+  { latin:true, titleArabic:"Is Karam Ka Karoon Shukr Kaise Ada", titleEnglish:"Is Karam Ka Karoon Shukr Kaise Ada — Traditional",
+    poet:"Traditional", note:"In Urdu.",
+    verses:[
+      { ar:"Is Karam Ka Karoon Shukr Kaise Ada\nJo Karam Mujpe Mere Nabi Ne Kiya", tr:"", en:"How can I give thanks for this mercy\nThat my Prophet showed to me", refrain:true },
+      { ar:"Be-bandagi, urooj kiya, banda kar diya\nTaara mere naseeb ka, tabinda kar diya\nItni badi huzoor ki banda-nawaaziyan\nMujhko mere sawaal ne sharminda kar diya", tr:"", en:"Without devotion, He elevated me and made me His servant\nThe star of my fortune He made brilliant and shining\nSo great is the Prophet's grace upon his servants\nMy own question has left me ashamed" },
+      { ar:"Is Karam Ka Karoon Shukr Kaise Ada\nJo Karam Mujpe Mere Nabi Ne Kiya\nMain Sajata Tha Sarkar Ki Mehafile\nMujko Har Gam Se Rab Ne Bari Kar Diya", tr:"", en:"How can I give thanks for this mercy\nThat my Prophet showed to me\nI used to adorn the gatherings of the beloved\nAnd the Lord freed me from every grief" },
+      { ar:"Lamha Lamha Hai Mujpar Nabi Ki Ata\nDosto Or Mangu Main Maula Se Kya\nKya Ye Kam Hai Ke Mere Khuda Ne Muje\nApne Mehbub Ka Ummati Kar Diya", tr:"", en:"Every moment the Prophet's blessing is upon me\nMy friends, what more could I ask of the Lord?\nIs it not enough that my God has made me\nA follower of His Beloved?" },
+      { ar:"Zikr Sarkar Ki Hai Bari Barkate\nMil Gai Rahate Azamate Rifa-Ate\nMain Gunahgaar Tha Be-Amal Tha Magar\nMustafa (ﷺ) Ne Muje Jannati Kar Diya", tr:"", en:"In the remembrance of the beloved are immense blessings\nRepose, greatness and elevation were granted\nI was sinful, I had no deeds — yet\nMustafa ﷺ made me worthy of Paradise" }
+    ]
+  },
+  { latin:true, titleArabic:"Kamle Wale Muhammad Ton Sadqay", titleEnglish:"Kamle Wale Muhammad Ton Sadqay — Traditional",
+    poet:"Traditional", note:"In Punjabi.",
+    verses:[
+      { ar:"Kamle Wale Muhammad Ton Sadqay Mein Jan\nJaynain Aakay Ghareeban Dee Baan Par Laee\nMeree Baksheesh Waseela Muhammad Da Nan", tr:"", en:"I give my life in devotion to Muhammad — the one of the black shawl\nWho came and took hold of the hand of the helpless\nMy salvation is through the intercession of Muhammad", refrain:true },
+      { ar:"Kamle Wale Muhammad Ton Sadqay Mein Jan\nJaynain Aakay Ghareeban Dee Baan Par Laee\nMeree Baksheesh Waseela Muhammad Da Nan", tr:"", en:"I give my life in devotion to Muhammad — the one of the black shawl\nWho came and took hold of the hand of the helpless\nMy salvation is through the intercession of Muhammad" },
+      { ar:"Oday Wajon Koi Dunya Tey Pyara Naheen\nOday Warga Koi Jag Tey Sahara Naheen\nJay Na Honday Muhammad Na Honda Jahan", tr:"", en:"Because of him there is nothing more beloved in this world\nThere is no support in the world like his\nIf Muhammad had not been, this world would not have been" },
+      { ar:"Dasso gairan ch roya te kehna layi\nPaida sohna je hoya te kehna layi\nKyon ni mangde tussi kali kamli di chchan\nJehne aake gareeban di bahn phad layi", tr:"", en:"Tell me — how can one weep in the presence of strangers?\nIf a beautiful one is born, what is there to say?\nWhy do you not seek the shade of the black shawl\nOf the one who came and took the helpless by the hand?" },
+      { ar:"Naal ungli ishare de chann todeya\nGaya suraj agan wal pichchan modeya\nKalma sohne Muhammad da padheya butan\nJehne aake gareeban di bahn phad layi", tr:"", en:"With the gesture of a finger he split the moon\nThe sun turned its back and headed towards fire\nIdols themselves recited the beautiful Kalima of Muhammad\nWho came and took the helpless by the hand" },
+      { ar:"Laya Badooan Noon Seenay Kamaal Hoya\nKoi Habshee To Hazrat Bilal Hoya\nAeye Dar Tey Sawali Noo Kitee Naeen Na\nJaynain Aakay Ghareeban Dee Baan Par Laee", tr:"", en:"He drew the Bedouins to his chest — what a miracle that was\nA man of Abyssinia became Sayyiduna Bilal\nNo supplicant at his door was ever turned away\nWho came and took hold of the hand of the helpless" },
+      { ar:"Weree Patar We Maran Tey Hasday Rahe\nFir Wee Rah-E-Khuda Sab Noon Dasday Rahe\nBaree Siftanch Parya Aeye Saara Quran", tr:"", en:"Even as enemies tried to kill him, he smiled\nStill he showed everyone the way of God\nThe entire Quran is filled with his praises" }
+    ]
+  },
+  { latin:true, titleArabic:"Dam Mast Qalandar", titleEnglish:"Dam Mast Qalandar — Traditional",
+    poet:"Traditional", note:"In Punjabi / Sindhi.",
+    verses:[
+      { ar:"Dam Mast Qalandar Must Must\nDam Mast Qalandar Must Must", tr:"", en:"With every breath I recite the name of Qalandar as if in a trance\nWith every breath I recite the name of Qalandar as if in a trance", refrain:true },
+      { ar:"Ik Vird Hai Dam Dam Ali Ali\nSakhi Laal Qalandar Must Must\nJhoole Laal Qalandar Must Must", tr:"", en:"My practice is to recite the name of Ali with every breath\nI utter the great Qalandar's name as if in a trance\nI say Jhulelal as if in a trance" },
+      { ar:"Akhi Ja Malanga Tu Ali Ali Ali Akhi Ja Malanga\nAkhi Ja Malanga Sajea Pe Mun Lain Gay\nAj Ne Te Kal Saray Ali Ali Kain Gay", tr:"", en:"Keep reciting the name of Ali O devotee!\nKeep reciting for your utterance will be accepted eventually O devotee!\nIf not today, then tomorrow everyone will follow you in reciting his name O devotee!" },
+      { ar:"Dam Mast Qalandar Must Must\nDam Mast Qalandar Must Must", tr:"", en:"With every breath I recite the name of Qalandar as if in a trance\nWith every breath I recite the name of Qalandar as if in a trance" },
+      { ar:"Rab Ne Kinne Shaan Banaye\nBe Karma Te Karm Kamaye\nJehda Vi Tere Dar Te Aaye O Na Kadhi Vi Khaali Jaye", tr:"", en:"Such favour God has bestowed upon you\nSo that you may bestow it on the wretched\nWhosoever visits your door, never does he return empty handed" },
+      { ar:"Shana Uchiyaan Terian Peera\nHovan Door Haneriyaan Peera\nAasan hain Bateriyan Peera Sun Arzan Aj Meeriya Peera", tr:"", en:"Exalted is your glory my master\nThat the storms are chased away (by your glory) my master\nMy longing for you is manifold O master — today, listen to what I have to say O master" },
+      { ar:"Nazar Karam Di Pavi Sayyan\nBeriyan Banne Dhaavi Sayyan\nBhool Na Kidrey Jaawi Sayyan Laiyaan Tod Nibhaavi Sayyan", tr:"", en:"By attaining your guidance O master\nMy deserts have turned into fertile oasis\nDon't forget me O master — honour my attachment to you O master" }
+    ]
+  },
+  { latin:true, titleArabic:"Ya Mustafa Nurul Khuda", titleEnglish:"Ya Mustafa Nurul Khuda — Traditional",
+    poet:"Traditional", note:"In Urdu / Punjabi.",
+    verses:[
+      { ar:"Ya Mustafa Noor ul Huda Saani Tera Koi Nahiñ\nShams-ud-duha Koi Nahi Badr-ud-duja Koi Nahi", tr:"", en:"O Mustafa, Light of Guidance — there is no equal to you\nSun of the morning — there is none; Moon of darkness — there is none", refrain:true },
+      { ar:"Karam Jab Aal-e Nabi Ka Shareek Hota Hai\nBigad Bigad Ke Har Ek Kaam Dheek Hota Hai", tr:"", en:"When one is blessed to belong to the Prophet's family\nEvery failing matter is set right" },
+      { ar:"Har Nafas Ishq-e Muhammad Ka Payaami Kar Lo\nZindagi Mit Ke Mohabbat Mein Dawaami Karlo", tr:"", en:"Make every breath a messenger of the love of Muhammad\nEvanesce your life in devotion to his affection in perpetuity" },
+      { ar:"BaadShaahi Hai Agar Dono Jahañ Ki Darkaar\nDosto Aao Mohammad Ki Ghulami Kar Lo", tr:"", en:"If you desire to rule both the worlds\nCome and devote yourselves to the service of Muhammad first" },
+      { ar:"Allah Ki Ham JalwaGari Dekh Rahe Haiñ\nYa Husn o Jamaal-e Madani Dekh Rahe Haiñ", tr:"", en:"Are we witnessing the splendour of Allah's creations\nOr admiring the charm and elegance of the Medina-dweller?" },
+      { ar:"Jis Waqt Padho Salle-ala Aal-e Muhammad\nSamjho Ke Rasool-e Arabi Dekh Rahe Haiñ", tr:"", en:"The moment you recite salutations, O family of Muhammad\nUnderstand — the Prophet of the Arabs is beholding you" },
+      { ar:"Hadd-e Tauseef Se Bhi Naam Hai Baala Tera\nKe Khuda Aap Hai Khud Chaahne Waala Tera", tr:"", en:"Your exaltation knows no bounds\nFor God Himself loves you fervently" },
+      { ar:"Tere Sadqe Hui Manzoor Duaa-e Aadam\nRoz-e Awwal Hi Tha Maujood Ujala Tera", tr:"", en:"It is for your sake that Adam's supplication was accepted\nYour brilliance was present from the commencement of the universe" },
+      { ar:"Kaali Kamli Waale Aaqa\nSaani Tera Koi Nahiñ\nRasool Aur Bhi Aaye Jahaan Mein, Lekin\nKaali Kamli Waale Aaqa\nSaani Tera Koi Nahiñ", tr:"", en:"O Master of the black shawl\nThere is no equal to you\nOther Prophets also came to this world — but\nO Master of the black shawl\nThere is truly no equal to you" },
+      { ar:"Shah-e Yasrabi Tere Husn Ki\nKise Taab Jo Kare Hamsari\nNa Guloñ Meiñ Aisi Shuguftgi\nNa Ye Rango Boo Na Ye Saadgi\nYe Anokhi Chhab Ye Nayi Phaban\nYe Adaaeñ Pyaari Ye Saadgi\nTeri Misl Koi Hua Na Ho\nTere Sadqe Jaauñ Maiñ Ya Nabi", tr:"", en:"O King of Yasrib (Medina) — who has the capacity to rival your beauty?\nNo flower blooms with such radiance\nNone has such colour, fragrance and simplicity\nThis unique grace, this fresh beauty\nThese endearing manners, this simplicity\nThere has never been nor will be anyone like you\nI sacrifice myself for you, O Prophet" },
+      { ar:"Har-Har Kundal-Kundal Utte Aashiq Da Dil Dole\nHusn Tere Di Sift Ki Aakhaañ Kaafir Kalma Bole", tr:"", en:"On every lock of your hair the lover's heart sways\nIn praise of your beauty even the disbeliever utters the Kalima" },
+      { ar:"Phire Zamaane Meiñ Chaar Janib\nNigaar-e Yakta Tumhi Ko Dekha\nHaseen Dekhe Jameel Dekhe\nPar Ek Tumsa Tumhi Ko Dekha", tr:"", en:"Searching in every direction through the ages\nThe peerless one — I have seen only you\nI have seen the beautiful, I have seen the handsome\nBut one like you — only you have I seen" },
+      { ar:"Hue Haiñ Hazrat-e Yusuf Haseeñ Zamaane Meiñ\nMagar Unheiñ Bhi Tere Husn Ki Zaqaat Mili", tr:"", en:"Sayyiduna Yusuf was beautiful in his age\nYet even he received but a fraction (zakat) of your beauty" },
+      { ar:"Khatm-e Rusul Khair-ul Amal Koi Nahi Tera Badal\nAayeena-e Husn-e Azal Tere Siwa Koi Nahiñ", tr:"", en:"The seal of prophets, no one can take your place in righteous deeds\nIn the mirror of eternal beauty, there's no one else but you" },
+      { ar:"Jaayeñ Kahañ Ham Be-Nawa Aaqa Tere Dar Ke Siwa\nHam BeKasoñ Ka Aasra Ya Mustafa Koi Nahiñ", tr:"", en:"Where can we — the poor ones — go except to your door?\nO Chosen One, we the helpless have no refuge except you" },
+      { ar:"Ai Mazhar-e Noor-e Khuda Tum Sa Kahañ Hai Doosra\nTum Ho Imaam-ul Ambiya Tum Sa Hua Koi Nahiñ", tr:"", en:"O manifestation of God's Light, where is anyone like you?\nYou're the leader of all prophets, there's no one else like you" }
+    ]
+  },
+  { latin:true, titleArabic:"O Laal Meri (Shahbaz Qalandar)", titleEnglish:"O Laal Meri (Shahbaz Qalandar) — Traditional",
+    poet:"Traditional", note:"In Punjabi / Sindhi.",
+    verses:[
+      { ar:"O Laal Meri Pat Rakhiyo Bala Jhoole Laalan\nSindri Da Sehvan Da Sakhi Shabaaz Qalandar", tr:"", en:"O red robed Lord, may I always be protected\nO lord of Sindh and sire of Sehwan — O noble Shahbaz Qalandar", refrain:true },
+      { ar:"Chaar Charaag Tere Baran Hamesha\nPanjwa Baaran Aayi Bala Jhoole Laalan", tr:"", en:"O Lord, your shrine is always lighted with four lamps\nAnd here I come to light a fifth lamp in your honor" },
+      { ar:"O Laal Meri Pat Rakhiyo Bala Jhoole Laalan\nSindri Da Sehvan Da Sakhi Shabaaz Qalandar", tr:"", en:"O red robed Lord, may I always be protected\nO lord of Sindh and sire of Sehwan — O noble Shahbaz Qalandar" },
+      { ar:"Duma Dum Mast Qalandar, Duma Dum Mast Qalandar\nAli Dum Dum De Andar, Ali Dum Dum De Andar", tr:"", en:"My breath is for the jubilant saint\nOur Master Ali's divinely breath in every breath of yours" },
+      { ar:"Uchra Roza Peera Tera, Uchra Roza Peera Tera\nGaith Wage Gharyaal Bala Jhoole Laalan", tr:"", en:"Oh my mentor, your shrine is high\nSongs are played in sync with the clock — long live O Saint!" },
+      { ar:"Ghanan Ghanan Teri Nobat Waagay\nNaal Vajay Gharyaal Bala Jhoole Laalan", tr:"", en:"O Lord, may your illustrious name ring out in Hind and Sindh\nMay the bells ring out your good glory day and night" }
+    ]
+  },
+  { latin:true, titleArabic:"Balaghal Ula Bi Kamalihi", titleEnglish:"Balaghal Ula Bi Kamalihi — Sa'di Shirazi / Traditional",
+    poet:"Sa'di Shirazi / Traditional", note:"In Urdu / Persian / Arabic.",
+    verses:[
+      { ar:"Koi had hai un ke urooj ki\nBalaghal-ula bi-kamaalihi\nKashafad-duja bi-jamaalihi\nHasunat jameeu khisaalihi\nSallu alaihi wa aalihi", tr:"", en:"Is there any limit to his ascent?\nHe reached the highest place through his perfection\nHe drove out the darkness through his beauty\nBeautified were all his characteristics\nSend blessings upon him and his family", refrain:true },
+      { ar:"Suhaani raat thi aur pur-sukoon zamaana tha\nAsar mein dooba hua jazb-e-aashiqana tha\nUnhein to arsh pe mehboob ko bulaana tha\nHawas thi deed ki meraaj ka bahaana tha", tr:"", en:"It was a beautiful night and the age was full of tranquility\nThe loving attraction was fully engulfed in effect\nHe (God) had to call His beloved to the heavenly throne\nHe longed to see him — the 'ascension' was just an excuse!" },
+      { ar:"Ye kamaal-e-husn ka mojiza\nKe firaaq haq bhi na seh saka\nShab-e-meraaj liya arsh-e-bareen par bulvaaye\nSadma-e-hijr Khuda se bhi gavaara na hua", tr:"", en:"This is the miracle of the perfection of beauty\nThat even Allah did not want separation\nOn the night of ascension, He called Muhammad to the Sublime Throne\nThe separation was something God did not want" },
+      { ar:"Sar-e-la-makaan se talab hui\nSoo-e-muntaha wo chale nabi\nKoi had hai un ke urooj ki\nBalaghal-ula bi-kamaalihi", tr:"", en:"A command came from the Placeless Origin\nBeyond the Sidrat-ul-Muntaha the prophet went\nIs there any limit to his ascent?\nHe reached the highest place through his perfection" },
+      { ar:"Khair-ul-wara sadr-ud-duqa najm-ul-huda noor-ul-ula\nShams-ud-duha badr-ud-duja yaani Muhammad Mustafa\nAaqa rawa saalaar-e-deen\nYa rehmatal-lil-aalameen\nAa muqtada-e-mursaleen\nAa peshwa-e-ambiya", tr:"", en:"Best of creations, epitome of subtlety, star of guidance, light of the highest place\nSun of morning, moon of night — as in, Muhammad Mustafa\nO lord and lawful chief of the religion\nO mercy for the worlds\nO prevailing leader of the messengers\nO premier of the prophets" },
+      { ar:"Jannat nishaan-e-koo-e-to\nWash-shams-e-eemaan roo-e-to\nWal-lail wasf-e-roo-e-to", tr:"", en:"Heaven is a sign of your street\nAnd the sun of faith is your face\nAnd the night praises your face" },
+      { ar:"Khoobi ye rooyat wad-duha\nIsm-e-to ism-e-aazami\nJism-e-to jaan-e-aalami\nZaat-e-to fakhr-e-aadmi\nShaan-e-to shaan-e-kibriya", tr:"", en:"The morning is the goodness of your face\nYour name is the greatest name\nYour body is the life of the world\nYour rank is the pride of mankind\nYour glory is the glory of the Almighty" },
+      { ar:"Jo gaya hai farsh se arsh tak\nWo Buraaq le gaya be-dharak\nLaten zulf ki jo gaeen latak\nTo jahaan saara gaya mehek\nKoi had hai un ke urooj ki", tr:"", en:"He who went from the ground to God's Throne\nHe took up Buraq fearlessly\nAs the locks of his hair dangled\nThe entire world became fragrant\nIs there any limit to his ascent?" },
+      { ar:"Yahi ibtida yahi intiha\nYe farogh jalwa-e-haq-numa\nKe jahaan saara chamak utha\nKashafad-duja bi-jamaalihi", tr:"", en:"This is the beginning, and this is the end\nThis brightness is the manifestation of the truth-revealer\nSuch that the entire world rose shining\nHe drove out the darkness through his beauty" },
+      { ar:"Na falak na chaand taare na seher na raat hoti\nNa tera jamaal hota na ye kaainaat hoti", tr:"", en:"Neither sky nor moon, nor stars, nor daybreak would have existed\nIf not for your beauty, this universe would not have existed" },
+      { ar:"Wo saraapa rehmat-e-kibriya\nKe har ek pe jis ka karam hua\nYe Quraan-e-Paak hai barmaala\nHasunat jameeu khisaalihi", tr:"", en:"That incarnation of the Almighty's mercy\nHe whose generosity reached everyone\nHe (Muhammad) is the open Qur'an in front of all\nBeautified were all his characteristics" },
+      { ar:"Wohi haq-nigar wohi haq-numa\nRukh-e-Mustafa hai woh aaeena\nKe Khuda-e-Paak ne khud kaha\nSallu alaihi wa aalihi", tr:"", en:"It alone is the truth-guarder and truth-revealer\nThe face of Mustafa is that mirror\nSuch that Holy God said Himself\n\"Send blessings upon him and his family\"" },
+      { ar:"Mera deen ambar-e-warsi\nBa-Khuda hai ishq-e-Muhammadi\nMera zikr-o-fikr hai bas yahi\nSallu alaihi wa aalihi", tr:"", en:"My faith is an inherited fragrance\nBy God, it is the love of Muhammad\nMy only utterance and thought is\n\"Send blessings upon him and his family\"" },
+      { ar:"Che kunam bayaan-e-kamaal-e-oo\nBalaghal-ula bi-kamaalihi\nChe farogh karda jamaal-e-oo\nKashafad-duja bi-jamaalihi\nMan hairatam za-khisaal-e-oo\nHasunat jameeu khisaalihi\nDil-o-jaan-e-ma baa-khayaal-e-oo\nSallu alaihi wa aalihi", tr:"", en:"What can I say about his perfection!\nHe reached the highest place through his perfection\nWhat brightness his beauty has created!\nHe drove out the darkness through his beauty\nI am amazed by his characteristics!\nBeautified were all his characteristics\nOur hearts and lives are occupied by thoughts of him!\nSend blessings upon him and his family" },
+      { ar:"Ae mazhar-e-noor-e-Khuda\nBalaghal-ula bi-kamaalihi\nMaula Ali muskhil-kusha\nKashafad-duja bi-jamaalihi\nHasnain jaan-e-Faatima\nHasunat jameeu khisaalihi\nYaani Muhammad Mustafa\nSallu alaihi wa aalihi", tr:"", en:"O manifestation of the divine light of God\nHe reached the highest place through his perfection\nMaster Ali, resolver of troubles\nHe drove out the darkness through his beauty\nHassan and Hussein, the two dearest of Fatima\nBeautified were all his characteristics\nMeaning, Muhammad Mustafa\nSend blessings upon him and his family" }
+    ]
+  },
+  { latin:true, titleArabic:"Diyar-E-Ishq Mein", titleEnglish:"Diyar-E-Ishq Mein — Allama Iqbal",
+    poet:"Allama Iqbal", note:"In Urdu.",
+    verses:[
+      { ar:"Diyar e ishq mein apna makaam paida kar\nNay Zamana Naye Subho Shaam paida kar", tr:"", en:"Find your place in the realm of love\nBuild a new era, a new dawn, a new eve!", refrain:true },
+      { ar:"Diyar e ishq mein apna makaam paida kar\nNa Tu Zameen Kay Liye Hay Na Asmaan Keh Liye\nJahan Hay Teray Liye Tu Nahin Jahan Ke Liyeh", tr:"", en:"Find your place in the realm of love\nYou are neither for the earth nor for the heavens\nThe world is for you, not you for the world" },
+      { ar:"Khudi Ko Kar Buland Itna Kay Har Taqdeer Say Pehlay\nKhuda Banday Say Khud Puche, Bata Teri Raza Kya Hay", tr:"", en:"Raise your khudi (self/soul) to such heights that before every decree\nThe divine asks from you himself: Tell me (O Servant) what you desire?" },
+      { ar:"Yeh Hikmat-e-Malakooti Yeh Ilm-e-Lahooti\nHaram Kay Dard Ka Darman Nahin To Kuch Bhi Nahin\nYeh Zikr-e-Neem Shabi, Yeh Muraqabe, Yeh Suroor\nTeri Khudi Kay Nigheban Nahin To Kuch Bhi Nahin", tr:"", en:"This angelic art, this divinely knowledge\nIf it can't cure the illnesses of Muslims then it is nothing!\nYour deep remembrance, meditation and intense spiritual pleasures\nIf they aren't guardians of your Khudi (self/soul) then they are of no value" },
+      { ar:"Khirad Nay Keh Bhi Diya La Ila To Kya Hasil\nDil-o-Nigah Musalman Nahin to Kuch Bhi Nahin", tr:"", en:"If intelligence incites man to say 'No god but He' it brings no gain\nIt is worthless unless affirmed by heart and conscience" },
+      { ar:"Zindagani Hay Sadaf, Qatra-e-Neesan Hay Khudi\nWoh Sadaf Kya Jo Katray Ko Gogar Kar Na Sakay\nHo Agar Khudnigar-o-Khudgar-o-Khudgeer Khudi\nYeh Bhi Mumkin Hay Kay Phir Maut Say Bhi Tu Mar Ne Sakay", tr:"", en:"Life is like a shell and Khudi is like the raindrop\nIt is unbecoming of the shell if it cannot turn the raindrop into a pearl\nIf the self becomes self preserving, self creating and self sustaining\nThen you may even defy death itself!" },
+      { ar:"Mann ki Dunya Mein Na Paya Mein Nay Afraangi ka Raaj\nMann ki Dunya Mein na Dekhe Mainay Shaikh-o-Barhaman\nMann ki Daulat Haath aati Hay to Phir Jaati Nahin\nTann ki Daulat Chaon Hay, Aata hay Tann Jata Hay Tann", tr:"", en:"In this world of the internal, I do not find the rule of colonisers\nIn this internal realm I did not find Sheiks and Brahmans fighting\nInward wealth (knowledge and spirituality) once acquired is never lost\nMaterial wealth is like a shadow, it comes and goes" },
+      { ar:"Tu Jhuka Jab Ghair ke, Agay na Mann, Tera na tann\nGhafil Na Ho Khudi Say, Kar Apni Paasbani\nShayad Kisi Haram ka, Tu Bhi Hay Astaana\nYeh Bandagi Gadai! Woh Bandagi Khudai!\nYa Bandai Khuda Ban, Ya Bandai Zamana", tr:"", en:"If you surrender to another's might you will lose your spiritual and material wealth\nDo not neglect your Khudi, be a defender of your self\nPerhaps you are the support of your community\nSlavery to God is divinity, slavery to the world is disgrace!\nNow you can choose to be a man of God, or a man of the world!" },
+      { ar:"Mera Tareeq Ameeri nahin Fakeeri Hay\nKhudi na Baiche, Ghareebi Mein Naam Paida Kar\nDiyar e ishq mein apna makaam paida kar\nNay Zamana Naye Subho Shaam paida kar", tr:"", en:"My way is the way of the fakeer, I do not seek wealth and fortune\nDon't sell yourself, make a name for yourself in poverty!\nFind your place in the realm of love\nBuild a new era, a new dawn, a new eve!" }
+    ]
+  },
+  { latin:true, titleArabic:"Tu Kareemi (Mevlana Rumi Kalam)", titleEnglish:"Tu Kareemi (Mevlana Rumi Kalam) — Mevlana Jalal-ud-Din Rumi",
+    poet:"Mevlana Jalal-ud-Din Rumi", note:"In Persian (Farsi).",
+    verses:[
+      { ar:"Tu Kareemi Man Kamina Barda Um\nLaikin Az Lutf E Shuma Parwarda Um", tr:"", en:"You are the Gracious One and I am the ignoble\nNow waiting at Your door, O my Cherisher", refrain:true },
+      { ar:"Zindagi Aamad Bara'ay Bandagi\nZindagi Be Bandagi Sharmindagi\nYaad E Oo Sarmaya E Eeman Bo'ad\nHar Gada Az Yaad E Oo Sultan Bo'ad", tr:"", en:"With devotion life becomes beautiful\nAnd without, what is life but disgrace\nRemembrance of Him is the foundation of faith\nBeggars transform into kings due to His Remembrance" },
+      { ar:"Sayyad O Sarwar Mohammad Noor E Jaan\nMehtar O Behtar Shafi E Mujrimaan\nChoon Muhammad Pak E Shud Az Nar O Dood\nHer Kaja Roo Karad Wajhullah Bood", tr:"", en:"Liege lord, O Muhammad you are the light of our lives\nThe mighty and the best intercessor of the wrong-doers\nSince Muhammad was purified of worldly things\nWhatever direction He turned is found the Face of Allah" },
+      { ar:"Tu Kareemi Man Kamina Barda Um\nLaikin Az Lutf E Shuma Parwarda Um", tr:"", en:"You are the Gracious One and I am the ignoble\nNow waiting at Your door, O my Cherisher" },
+      { ar:"Shahbaaz Lamakani Jaan E Oo\nRehmatal Lil Aalameen Dar Shaan E Oo\nMehtareen O Behtareen E Ambiyaah\nJuz Muhammad Naist Dar Arz O Samaa", tr:"", en:"The noble soul of his is like a falcon of the highest heavens\nBeing 'the mercy of the worlds' is his eminence\nThe mightiest and the best of all Prophets is he\nExcept Muhammad in land or sky there is none worthy" },
+      { ar:"Aan Mohammad Hamid O Mahmoud Shud\nShakal E Abid, Sorat E Ma'bood Shud\nAuliyah Allah O Allah Auliyah\nYani Deed E Peer Deed E Kibriyah", tr:"", en:"He is the praise of God, divinely praised in abundant\nHe is the reflection of God in the shape of a worshiping servant\nThe friends of God are like God because God is their friend\nAnd in this way he who has seen his Master, has seen God's Glory" },
+      { ar:"Her Ka Peer O Zaat Haqra Aik Na Deed\nNai Mureed O Nai Mureed O Nai Mureed\nMaulvi Hargiz Na Shud Maula E Rum\nTa Ghulaam E Shams Tabraizi Na Shud", tr:"", en:"If one doesn't see his spiritual Master as reflection of God\nHe is not a mureed, not a mureed, not a mureed!\nMevlana could never be Mevlana Rumi\nIf he had not devoted himself to Shams-e-Tabrizi" }
+    ]
+  },
+  { latin:true, titleArabic:"Mera Piya Ghar Aaya", titleEnglish:"Mera Piya Ghar Aaya — Baba Bulleh Shah",
+    poet:"Baba Bulleh Shah", note:"In Punjabi.",
+    verses:[
+      { ar:"Mera Piya ghar aaya\nO laalni\nMera Piya ghar aaya", tr:"", en:"My beloved (shaykh) has come to my home!\nO laalni!\nMy beloved (shaykh) has come to my home!", refrain:true },
+      { ar:"Aavo ni saiyyon\nRal deyo ni vadhaai\nMain var paaya sona mahi", tr:"", en:"Come, everyone\nIt's time to celebrate!\nLook how fortunate I am to have such a beautiful lover!" },
+      { ar:"Ghadiyaal devo nikaalni\nO piya ghar aaya\nSaanu Allah milaaya\nHun hoya fazl kamaalni", tr:"", en:"Forget about what time it is!\nMy beloved has come home\nIt's like I'm meeting Allah\nGod has been so kind! I feel divine now that he is here with me!" },
+      { ar:"Ajj taan roz mubaarak chaddheya\nMaahi mere vede vadeya\nMera Piya ghar aaya", tr:"", en:"Every day is a day for celebration\nMy beloved is going to be home soon\nMy beloved (shaykh) has come to my home!" },
+      { ar:"Ghadi ghadi ghadiyaal vajaave\nRaen vasl di piya ghataave\nMere mann di baat na pave", tr:"", en:"The clock keeps ticking and it scares me\nThe night of separation is on its brink\nWill my heart's desire be fulfilled?" },
+      { ar:"Hathaan ja sutto ghadiyaal ni\nAnhad vaaja vaje suhaana\nMutrib sughda taan taraana\nBhul gaya ay namaaz dogana\nMadh piyaala dein kalaal ni", tr:"", en:"Throw away the clock! Let time stand still\nThe music plays limitlessly\nA singer is singing his song\nThere's no time to even pray\nFill my glass to the brim!" }
+    ]
+  },
+  { latin:true, titleArabic:"Tere Qurban Pyaare Muhammad ﷺ", titleEnglish:"Tere Qurban Pyaare Muhammad ﷺ — Traditional",
+    poet:"Traditional", note:"In Urdu.",
+    verses:[
+      { ar:"Tere qurban pyare Mohammed\nGir raha hoon mujhe bhi sambhalo", tr:"", en:"I sacrifice myself for you, beloved Muhammad ﷺ\nI am falling — hold me, save me", refrain:true },
+      { ar:"Apne pyare nawaso ka sadqa\nYa nabi meri jholi mein daalo", tr:"", en:"For the sake of your beloved grandchildren\nO Prophet, place (blessings) into my vessel" },
+      { ar:"Koi apna nahi roze mehshar\nHe yaha nafso nafsi ka aalam\nHam ghunahgaar hai ya Mohammed\nApni kamli mein hamko chupalo", tr:"", en:"On the Day of Judgement no one will be there for another\nEvery soul will be crying out for itself\nWe are sinners, O Muhammad\nHide us beneath your black shawl" },
+      { ar:"Noor se noor milne chala hai\nMustafa se khuda keh raha hai\nYe hai miraj ki raat pyare\nAapne chehre se parda hataalo", tr:"", en:"Light is moving to meet light\nGod is calling out to Mustafa\nThis is the night of Miraj, beloved\nLift the veil from your blessed face" },
+      { ar:"Dur ho jayenge sab andhere\nNoor hi noor ankhon mein hoga\nDekhna hai agar unka jalwa\nApne dil ko madina banalo", tr:"", en:"All darkness will fade away\nThere will be nothing but light before your eyes\nIf you wish to behold his radiance\nMake your heart into Madina" }
+    ]
+  },
+  { latin:true, titleArabic:"Khwaja E Khwajagaan", titleEnglish:"Khwaja E Khwajagaan — Traditional",
+    poet:"Traditional", note:"In Urdu.",
+    verses:[
+      { ar:"Kerdo Kerdo Karam Murshid-E-Mohtaram\nTum Ko Bhaija Gaya Hai Karam K Liyeah", tr:"", en:"Bestow, bestow your mercy, O Revered Murshid\nYou were sent for the very purpose of mercy", refrain:true },
+      { ar:"Charaagh-E-Chisth Shah-E-Auliya Ghareeb Nawaaz\nBahaar-E-Anjum-E-Mustafa Ghareeb Nawaaz\nKhawaja-E-Khawajgan Haami-E-Bekasa\nIljita Sun Lo Shah-E-Umam K Liyeah", tr:"", en:"Lamp of the Chishti order, King of Saints, Patron of the poor\nBloom of the stars of Mustafa ﷺ, Patron of the poor\nO Master of Masters, protector of the helpless\nHear this plea, O King of Nations" },
+      { ar:"Kerdo Kerdo Karam Mere Khuwaja Piya\nGer Tum Na Karo Gay To Karam Kaun Karay Ga\nJhooli Meri Tumhare Siwa Kaun Bharay Ga\nMere Khuwaja Piya Kerdo Kerdo Karam", tr:"", en:"Bestow, bestow your mercy, O my beloved Khwaja\nIf you do not show mercy, then who will?\nWho besides you will fill my empty vessel?\nO my beloved Khwaja, bestow, bestow your mercy" },
+      { ar:"Tera Karam Nahi To Qayamat Hai Zindagi\nTera Karam Ho Jab To Salaamt Hai Zindagi", tr:"", en:"Without your mercy, life is like Judgement Day\nWhen your mercy comes, life is safe and whole" },
+      { ar:"Hai Tumhari Talab Haasil-E-Bandagi\nIs Say Barh Ker Nahi Hai Ibadat Koi\nMere Sajday Hein Ey Khuwaja Hind-Al-Wali\nBus Tumhare He Naqsh-E-Qadam K Liyeah", tr:"", en:"Seeking you is the very fruit of devotion\nThere is no worship greater than this\nMy prostrations, O Khwaja, Protector of Hind\nAre only for the sake of your blessed footsteps" },
+      { ar:"Noor-E-Shah-E-Najaf Mere Khuwaja Piya\nTere Chaukhat Pay Waliyon Nai Sajda Kia\nKhaaliq-E-Dojahaan Say Yeah Rutba Mila\nTere Darbaar Faiz-O-Karam K Liyeah", tr:"", en:"Light of the King of Najaf, O my beloved Khwaja\nAt your threshold the saints themselves have prostrated\nThis rank was granted by the Creator of both worlds\nYour court exists for the purpose of grace and mercy" },
+      { ar:"Shah-E-Ajmer Mera Masiha Hai Tu\nDard Mandoon Ke Dukh Ka Madawa Hai Tu\nTeri Nisbat Ka Daman Rahay Haath Mein\nBus Dawa Hai Yeah He Ranj-O-Gham K Liyeah", tr:"", en:"O King of Ajmer, you are my healer\nYou are the remedy for the pain of the suffering\nMay the hem of your connection remain in my hand\nFor this alone is the cure for all grief and sorrow" },
+      { ar:"Kamraan Hath Hai Sayyad-E-Mehrbaan\nHai Tera Kaam Khuwaja Khata Poshiyan\nLaaj Rakhna Fana Ki Moeen-E-Jahaan\nHashr Mein Taajdaar-E-Haram K Liyeah", tr:"", en:"Kamraan's hand is held by the merciful Sayyid\nYour work, O Khwaja, is to conceal the faults of others\nUphold the honour of Fana, O Helper of the World\nOn the Day of Judgement, for the sake of the King of the Haram" }
+    ]
+  },
+  { latin:true, titleArabic:"Yeh Jo Halka Halka Suroor Hai", titleEnglish:"Yeh Jo Halka Halka Suroor Hai — Abdul Hameed Adam / Nusrat Fateh Ali Khan",
+    poet:"Abdul Hameed Adam / Nusrat Fateh Ali Khan", note:"In Urdu.",
+    verses:[
+      { ar:"Yeh jo halka halka suroor hai\nYeh teri nazar ka kusoor hai\nKe sharaab peena sikha diya", tr:"", en:"This gentle, sweet intoxication\nIs the fault of your eyes\nThat taught me how to drink (lose myself in devotion)", refrain:true },
+      { ar:"Saaqi ki har nigaah pe bal kha ke pee gaya\nLehron se khelta hua lehra ke pee gaya", tr:"", en:"In awe of every glance of the cup-bearer, I drank deeply\nPlaying with the waves, swaying, I drank" },
+      { ar:"Ae rehmat-e-tamaam, meri har khata muaaf\nMein inteha-e-shoq mein ghabra ke pee gaya", tr:"", en:"O mercy complete, forgive my every sin\nIn the height of my yearning, I drank in agitation" },
+      { ar:"Peeta baghair izn, yeh kab thi meri majaal\nDar-parda chashm-e-yaar ki shah paa ke pee gaya", tr:"", en:"Drinking without permission — when was this ever within my power?\nI drank having found the hidden signal in the beloved's glance" },
+      { ar:"Zahid, yeh meri shokhi-e-rindana dekhna\nRehmat ko baaton baaton mein behla ke pee gaya\nTauba ko torh taarh thara ke pee gaya", tr:"", en:"O ascetic, witness my brazen, wandering ways\nI charmed mercy itself with words, and drank\nI broke my repentance, cast it aside, and drank" },
+      { ar:"Udi udi ghataye aati hain\nMutribon ki nawaen aati hain\nKis ke gaisu khule hain saawan mein\nMehki mehki hawaen aati hain\nAao sehn-e-chaman mein raqs karein\nSaaz le kar ghataye aati hain", tr:"", en:"The clouds come drifting, drifting in\nThe melodies of the musicians come floating\nWhose tresses have come undone in the monsoon?\nThe fragrant breezes are coming\nCome, let us dance in the garden's courtyard\nThe clouds come carrying music with them" },
+      { ar:"Dekh kar unki akhriyon ko, Adam\nMaikadon ko hayaen aati hain", tr:"", en:"Seeing the corners of their eyes, O Adam\nEven the taverns are struck with awe" },
+      { ar:"Paas rehta hai, door rehta hai\nKoi dil mein zaroor rehta hai\nJab se dekha hai unki aankhon ko\nHalka halka suroor rehta hai", tr:"", en:"Near yet far, someone surely dwells within the heart\nEver since I saw their eyes\nA gentle, sweet intoxication remains" },
+      { ar:"Aese rehte hain woh mere dil mein\nJaise zulmat mein noor rehta hai\nAb Adam ka yeh haal hai har waqt\nMast rehta hai, choor rehta hai", tr:"", en:"They dwell in my heart just so\nAs light dwells within darkness\nSuch is Adam's condition at every moment\nHe remains intoxicated, he remains absorbed" },
+      { ar:"Yeh jo halka halka suroor hai\nYeh teri nazar ka kusoor hai\nKe sharaab peena sikha diya\nTere pyaar ne, teri chaah ne\nTeri behki behki nigaah ne\nMujhe ek sharaabi bana diya", tr:"", en:"This gentle, sweet intoxication\nIs the fault of your eyes\nThat taught me how to drink\nYour love and your longing\nYour swaying, intoxicating glances\nHave made me into a drunkard" },
+      { ar:"Sharaab kaisi, khumaar kaisa\nYeh sab tumhaari nawazishen hain\nPilaayi hai kis nazar se tu ne\nKe mujhko apni khabar nahi hai", tr:"", en:"What wine, what intoxication —\nAll of this is your grace and favour\nWith what a glance you made me drink\nThat I have lost all awareness of myself" },
+      { ar:"Saara jahaan mast\nJahaan ka nizaam mast\nDin mast, raat mast\nSahar mast, shaam mast\nKhum mast, sheesha mast\nSabu mast, jaam mast\nHai teri chashm-e-mast se har khaas-o-aam mast", tr:"", en:"The entire world is intoxicated\nThe order of the world is intoxicated\nDay intoxicated, night intoxicated\nDawn intoxicated, dusk intoxicated\nThe cask intoxicated, the glass intoxicated\nThe vessel intoxicated, the cup intoxicated\nThrough your intoxicated eyes, every person great and common is drunk" },
+      { ar:"Yoon to saaqi har tarah ki tere maikhaane mein hai\nWoh bhi thori si jo inn aankhon ke paimaane mein hai\nSab samajhta hoon teri ishvaagari, ae saaqi\nKaam karti hai nazar, naam hai paimaane ka", tr:"", en:"Every kind of wine is in your tavern, O cup-bearer\nIncluding a little of what lives within the vessel of these eyes\nI understand all your coquetry, O cup-bearer\nIt is the glance that does the work — the cup is only its name" },
+      { ar:"Tera pyaar hai meri zindagi\nBas meri zindagi tera pyaar hai\nNa namaaz aati hai mujhko na wuzu aata hai\nSajda kar leta hoon jab saamne tu aata hai", tr:"", en:"Your love is my life\nMy life is nothing but your love\nI know neither prayer nor ablution\nYet I prostrate whenever you appear before me" },
+      { ar:"Mein azal se banda-e-ishq hoon\nMujhe zohd-o-kufr ka gham nahi\nMere sar ko dar tera mil gaya\nMujhe ab talaash-e-Haram nahi\nMeri bandagi, hai woh bandagi\nJo muqeed-e-dair-o-Haram nahi\nMera ek nazar tumhein dekhna\nBa Khuda namaaz se kam nahi", tr:"", en:"From eternity I have been a servant of love\nI am troubled neither by piety nor by disbelief\nMy head has found your threshold\nI no longer search for the Haram\nMy devotion is that devotion\nWhich is not bound by temple or mosque\nOne single glance at you —\nBy God, it is no less than prayer" },
+      { ar:"Teri yaad hai meri bandagi\nJo teri khushi, woh meri khushi\nYeh mere junoon ka hai mojza\nJahan apne sar ko jhuka diya\nWahan mein ne Kaaba bana diya", tr:"", en:"Your remembrance is my worship\nWhat pleases you pleases me\nThis is the miracle of my devotion —\nWherever I bowed my head\nThere I made my Kaaba" },
+      { ar:"Mere baad kis ko sataao ge\nMein ne un ke saamne awwal to khanjar rakh diya\nPhir kaleja rakh diya, dil rakh diya, sar rakh diya\nAur arz kiya mere baad kis ko sataao ge\nMujhe kis tarah se mitaao ge\nKahan ja ke teer chalaao ge\nMeri doosti ki balaayen lo\nMujhe haath utha ke duaein do\nTumhein ek kaatil bana diya", tr:"", en:"After me, whom will you torment?\nFirst I placed a dagger before them\nThen I placed my chest, my heart, my head\nAnd said: after me, whom will you torment?\nHow will you erase me?\nWhere will you go to fire your arrows?\nTake away the misfortunes of my friendship\nRaise your hands and pray for me\nYou have made a murderer of yourself" }
+    ]
+  },
+  { latin:true, titleArabic:"Ya Hayyu Ya Qayyum", titleEnglish:"Ya Hayyu Ya Qayyum — Nusrat Fateh Ali Khan",
+    poet:"Nusrat Fateh Ali Khan", note:"In Urdu / Arabic.",
+    verses:[
+      { ar:"Ya Hayyu Ya Qayyum, Ya Hayyu Ya Qayyum", tr:"", en:"O Ever-Living, O Self-Sustaining — O Ever-Living, O Self-Sustaining", refrain:true },
+      { ar:"Allah Say Allah Ki Rehmat Maango", tr:"", en:"Seek the mercy of Allah from Allah" },
+      { ar:"Ker Dil Ko Ataa Sooz-E-Tawami Yaarab\nHer Saans Ho Rehmat Ki Payami Yaarab\nOrang-E-Shahee Ki Nahi Haajat Mujh Ko\nKaafi Hai Mohammad Ki Ghulami.. Ya-Rub!", tr:"", en:"Grant the heart the burning passion of devotion, O Lord\nMay every breath carry the message of mercy, O Lord\nI have no need for the throne of kings\nThe servitude of Muhammad is sufficient for me — O Lord!" },
+      { ar:"Wo Nabiyoon Ka Sardaar\nHer Aalam Ka Mukhtaar\nTu Saaz Hai Wo Aawaz\nTu Raaz Wo Mehram Raaz", tr:"", en:"He is the chief of all Prophets\nThe sovereign of every world\nYou are the instrument, he is the voice\nYou are the secret, he is the keeper of secrets" },
+      { ar:"Tu Lafz Hai Wo Farhang, Tu Haakim Wo Aurang\nTu Lazim Wo Malzoom\nTu Laazim Wo Malzoom", tr:"", en:"You are the word, he is the meaning; You are the ruler, he is the throne\nYou are the essential, he is the one entrusted\nYou are the essential, he is the one entrusted" },
+      { ar:"Aadat Hai Meri Hadh Say Guzarna Yaarab\nAata He Nahi Mujh Ko The-Herna Yaarab\nHerfa-E-Gada Maan-E-Karam Per Tere\nSharminda Sar-E-Hashr Mein Kar Na Ya-Rub!", tr:"", en:"It is my habit to exceed all limits, O Lord\nI have never learned to pause and reflect, O Lord\nThe beggar's words at your threshold of mercy —\nDo not shame me on the Day of Judgement, O Lord!" },
+      { ar:"Mein Naqsh Hoon Tu Naqqaash\nTu Mul'im Mein Mein Qallash\nMein Aabid Tu Maabood\nMein Sajid Tu Masjood", tr:"", en:"I am the image, You are the painter\nYou are the teacher, I am the unruly student\nI am the worshipper, You are the worshipped\nI am the one who prostrates, You are the one prostrated to" },
+      { ar:"Mein Jism Aur Tu Dam, Tera Zikr Ilaj-E-Gham\nKyun Dil Ho Mera Maghmor\nKiyoon Dil Ho Mera Maghmoor", tr:"", en:"I am the body and You are the breath; Your remembrance is the cure for grief\nWhy should my heart ever be sorrowful?\nWhy should my heart ever be sorrowful?" },
+      { ar:"Mein Kia Hoon Mein Kiss Shay Ki Talafi Chahoon", tr:"", en:"What am I — what compensation could I ever seek?" },
+      { ar:"Sana Bashar K Liyeah Hai Bashar Sana K Liyeah\nTamaam Hamd Saza Waar Hai Khuda K Liyeah\nAtaa K Samnay Yaarab Khata Ka Zikr Hee Kya\nK Tu Ataa K Liyeah Bashar Khata K Liyeah", tr:"", en:"Praise exists for mankind and mankind exists for praise\nAll praise is worthy of God alone\nIn the face of Your gifts, O Lord, what is the mention of sin?\nFor You are for giving, and mankind is for sinning" },
+      { ar:"Qounain Ka Masjood Hai Maa'bood Hai Tu\nHer Shay Teri Shahid Hai K Mash'hood Hai Tu\nHer Aik K Lab Per Hai Teri Hamd O Sana\nHer Sooz Mein Her Saaz Mein Moujood Hai Tu", tr:"", en:"You are worshipped by both worlds, You are the only one worthy of worship\nEverything bears witness that You are ever-manifest\nOn everyone's lips is Your praise and glorification\nIn every flame and every melody You are present" },
+      { ar:"Ya Rahim O Ya Rahman\nYa Aadil O Ya Dayyan\nYa Haafiz O Ya Sattar\nYa Wahid O Ya Ghaffar", tr:"", en:"O Most Merciful, O Most Compassionate\nO Most Just, O Recompenser\nO Guardian, O Concealer of faults\nO The One, O Most Forgiving" },
+      { ar:"Ya Maalik O Ya Razzaq Tu Khaali E Her Khallaq\nHer Raaz Tujhe Malom\nHer Raaz Tujhay Maloom", tr:"", en:"O Master, O Provider — You are free of all creation's need\nEvery secret is known to You\nEvery secret is known to You" },
+      { ar:"Be-Misl Hai Tu La Raib\nTu Paak Hai Tu Be-Aib\nKhum Zeest Ka Hai Unwaan\nTu Shaakir E Har Udwaan", tr:"", en:"You are without equal, beyond all doubt\nYou are pure, You are without flaw\nYou are the title of the cup of existence\nYou are grateful for every hostility overcome" },
+      { ar:"Teri Zaat Hai Azzo Jal, Tu Her Mushkil Ka Hal\nHer Simt Hai Teri Dhom\nHer Samt Hai Teri Dhoom", tr:"", en:"Your being is Mighty and Majestic, You are the solution to every difficulty\nIn every direction Your splendour resounds\nIn every direction Your glory resounds" },
+      { ar:"Rehmat Ki Nigaahon Ka Ishara Maango\nDunya Say Koi Shay Na Khudara Maango\nDunya Ki Wafa Jhoot, Saharay Hein Faraib\nAllah Say Allah Ka Sahara Maango", tr:"", en:"Seek the signal of mercy's glances\nDo not seek anything from the world for God's sake\nThe world's loyalty is a lie, its supports are illusions\nSeek Allah's support from Allah alone" },
+      { ar:"Mansab Ki Karo Chah, Na Sirwat Maango\nTum Ehl-E-Mohabbat Ho Mohabbat Maango\nHer Haal Mein Thaamay Hoay Daamaan-E-Raza", tr:"", en:"Do not desire rank, do not seek wealth\nYou are people of love — seek love\nIn every state, hold fast to the hem of Divine pleasure" }
+    ]
+  },
+  { latin:true, titleArabic:"Mein Neewan Mera Murshid Ucha", titleEnglish:"Mein Neewan Mera Murshid Ucha — Baba Bulleh Shah",
+    poet:"Baba Bulleh Shah", note:"In Punjabi.",
+    verses:[
+      { ar:"Main Neevaan Maira Murshid Ucha, Uchian Day Sang Laai\nSadqay Janwaan Ainhaan Uchiaan Toon Jinhaan Neevian Naal Nibhai", tr:"", en:"I am lowly; my Spiritual Guide is the Exalted One, I am made to join Him\nI, the lowly one, am so honoured to have gained the acceptance of the Exalted One", refrain:true },
+      { ar:"Murshid Day Darwazay Uttay Mohkam Laaiye Jhoukaan\nNavain Navain Na Yaar Banaiye Waang Kameeniyan Luokaan", tr:"", en:"Make the threshold of the Spiritual Guide your home\nMake no new friends, like those who lay wretched" },
+      { ar:"Har Mushkil Di Kunji Yaaro Hath Mardaan Day Aai\nMard Nazar Karay Jis Wailay Mushkil Rahay Na Kai", tr:"", en:"Solutions to all problems lay in the hands of Exalted Men\nA problem ceases to exist when the Exalted One casts his eye" },
+      { ar:"Jay Waikhaan Main Amlaan Wallay, Kujh Naeen Mairay Pallay\nJay Waikhaan Tairi Rehmat Wallay, Ballay, Ballay, Ballay", tr:"", en:"If I gaze at my deeds, none is the answer\nBut if I gaze at your mercy, glorious is the answer" },
+      { ar:"Maali Baagh Di Rakhi Karda Phal Kache Hon Ya Pakke\nPeer Mureedaan De Ser Te Rehnda Jhoote Hon Ya Sache", tr:"", en:"The orchard-keeper has a duty of watching over his fruits even if they are ripe or not\nA Spiritual Master is always guiding his people, even if they are sincere or not" },
+      { ar:"Mali Da Kam Pani Dena Bhar Bhar Mashkan Paway\nMalik Da Kam Phal Phul Laona Laway Ya Na Laway", tr:"", en:"The gardener's duty is to water his plants in abundance\nIt is the Master's act of kindness to produce fruits from within or not" },
+      { ar:"Lay Sajna Asaan Taur Nibhai Tay Jan Ditti Raah Tairay\nHashar Deharaay Sharmaan Tainu, Parday Kajj Layeen Mairay", tr:"", en:"O Friend! I have kept my promise; my life is sacrificed your way\nNow, save me from shame and embarrassment on the Judgement Day" },
+      { ar:"Toon Baili Tay Sab Jag Baili Tay Ann Baili Wi Baili\nSajna Baajh Muhammad Bakhsha Sunji Payee Aey Haveli", tr:"", en:"If you are warm then even the unfriendly become friendly\nO Muhammad Baksh, the whole world seems deserted without friends" }
+    ]
+  },
+  { latin:true, titleArabic:"Taajdar E Haram", titleEnglish:"Taajdar E Haram — Maqbool Ahmed Sabri",
+    poet:"Maqbool Ahmed Sabri", note:"In Urdu / Persian / Arabic.",
+    verses:[
+      { ar:"Taajdaar-e haram ho nigaah-e karam\nHam ghareebon ke din bhi sanwar jaaen ge", tr:"", en:"O King of the Holy Sanctuary, grace us with your merciful gaze\nEven the days of us poor ones will be set right", refrain:true },
+      { ar:"Qismat men meri chain se jeena likh de\nDoobe naa kabhi mera safeena likh de\nJannat bhi gawaarah hai magar mere liye\nAy kaatib-e-taqdeer madeena likh de", tr:"", en:"Write into my fate a life of peace and contentment\nWrite that my vessel shall never sink\nHeaven too would be acceptable — yet for me\nO Writer of Destinies, write Madina as my fate" },
+      { ar:"Haami-ye be-kasaan kya kahega jahaan\nAap ke dar se khaali agar jaaenge", tr:"", en:"O Protector of the helpless — what will the world say\nIf we leave your door empty-handed?" },
+      { ar:"Koyi apna nahin gham ke maare hain ham\nAap ke dar pe faryaad laaye hain ham\nHo nigaah-e karam warna chaukhat pe ham\nAap ka naam le le ke mar jaaenge", tr:"", en:"We have no one — we are stricken with grief\nWe have brought our cries to your door\nGrace us with a merciful glance — or at your very threshold\nWe will die crying out your blessed name" },
+      { ar:"Kya tumse kahoon ay arab ke kunwar\nUm jaante ho man ki batiyaan\nDar furqat-e to ay ummi-laqab\nKaate nah kate hain ab ratiyaan\nTori preet mein sudh-budh sab bisri\nKab tak yih rahegi be-khabari\nGaahe ba-figan duzdeedah nazar\nKabhi sun bhi to lo hamri batiyaan", tr:"", en:"What shall I say to you, O Prince of Arabia?\nYou already know the matters of my heart\nIn separation from you, O bearer of the title Ummi\nThe nights no longer pass as they used to\nIn love for you I have lost all awareness\nHow long will this state of oblivion last?\nCast at least a stolen glance my way\nWon't you listen to my words just once?" },
+      { ar:"Aap ke dar se koyi na khaali gaya\nApne daaman ko bhar ke sawaali gaya\nHo habeeb-e hazeen par bhi aaqa nazar\nWarna auraaq-e hasti bikhar jaaenge", tr:"", en:"No one has ever left your door empty-handed\nEvery supplicant left with their mantle filled\nCast your gaze upon this grief-stricken lover too, O Master\nOr the pages of my existence will be scattered to the wind" },
+      { ar:"Mai-kasho aao aao madeene chalen\nAao madeene chalen\nIsi maheene chalen", tr:"", en:"O seekers of the wine of love, come — let us go to Madina\nCome, let us go to Madina\nLet us go this very month" },
+      { ar:"Tajalliyon ki ajab hai faza madeene mein\nNigaah-e shauq ki hai intiha madeene mein\nGham-e hayaat nah khauf-e qaza madeene mein\nNamaaz-e ishq karen ge ada madeene mein\nBa-raah-e raast hai raah-e khuda madeene mein", tr:"", en:"A wondrous atmosphere of divine manifestations fills Madina\nThe yearning gaze finds its fulfilment in Madina\nNo grief of life, no fear of death in Madina\nWe shall perform the prayer of love in Madina\nThe straight path — the path to God — is in Madina" },
+      { ar:"Dast-e saaqi-yi kausar se peene chalen\nYaad rakkho agar uuth gayi ik nazar\nJitne khaali hain sab jaam bhar jaaenge", tr:"", en:"Let us go to drink from the hand of the cup-bearer of Kawthar\nRemember — if just one glance is lifted our way\nEvery vessel that is empty shall be filled" },
+      { ar:"Khauf-e toofaan hai bijliyon ka hai dar\nSakht mushkil hai aaqa kidhar jaaen ham\nAap hi gar na lenge hamaari khabar\nHam museebat ke maare kidhar jaaenge", tr:"", en:"The storm terrifies us, we fear the lightning\nWe are in great difficulty — O Master, where shall we turn?\nIf you yourself will not enquire after us\nWhere shall we afflicted ones go?" },
+      { ar:"Ya Mustafa ya Mujtaba irham lana irham lana\nDast-e hamah be-chaara ra, daamaan tu-hi\nMan aasi-yam man aajiz-am man be-kas-am haal-e mara\nPursaan to-yi pursaan to-yi", tr:"", en:"O Mustafa, O Mujtaba — have mercy upon us, have mercy upon us\nYours is the cloak that all the helpless grasp\nI am a sinner, I am weak, I am without support — you alone know my state\nYou alone enquire of me, only you" },
+      { ar:"Ay mushk-bed ambar-fishaan\nPaik-e naseem-e subh-dam\nAy chaarah-gar eesa-nafas\nAy moonis-e beemaar-e gham\nAy qaasid-e farkhundah pah\nTujh ko usi gul ki qasam\nIn nalti ya reeh as-saba\nYauman ila ard il-haram\nBalligh salaami raudatan\nFeeh an-nabi yul-mohtaram", tr:"", en:"O bearer of musk fragrance, O scatterer of amber\nO messenger of the morning breeze\nO healer with the breath of Isa\nO companion of those sick with grief\nO bearer of blessed footsteps\nI swear to you by that rose\nO morning breeze, carry this\nOne day to the sacred land\nDeliver my salutations to the blessed garden\nWhere rests the honoured Prophet" }
+    ]
+  },
+  { latin:true, titleArabic:"Tumhein Dillagi Bhool Jaani Paregi", titleEnglish:"Tumhein Dillagi Bhool Jaani Paregi — Purnam Allahabadi",
+    poet:"Purnam Allahabadi", note:"In Urdu.",
+    verses:[
+      { ar:"Tumhein dillagi bhool jaani parhe gi\nMohabbat ki raahon mein aa kar to dekho", tr:"", en:"You will have to forget this game of the heart\nCome walk the paths of true love and see", refrain:true },
+      { ar:"Tarapne pe mere na phir tum haso ge\nKabhi dil kisi se laga kar to dekho", tr:"", en:"You will not laugh at my anguish again\nTry giving your heart to someone and see" },
+      { ar:"Honton ke paas aaye hasi, kya majaal hai\nDil ka muamla hai koi dillagi nahi", tr:"", en:"Laughter dare not come near the lips\nThis is a matter of the heart — it is no game" },
+      { ar:"Zakhm pe zakhm kha ke jee\nApne lahu ke ghoont pee\nAah na kar labon ko see\nIshq hai dillagi nahi", tr:"", en:"Live by taking wound upon wound\nSwallow the draughts of your own blood\nDo not sigh — stitch your lips shut\nThis is love — it is no game" },
+      { ar:"Dil laga kar pata chale ga tumhein\nAashiqi dillagi nahi hoti", tr:"", en:"Once you have given your heart you will understand\nTrue devotion is no game" },
+      { ar:"Kuch khel nahi hai ishq ki laag\nPaani na samajh yeh aag hai aag", tr:"", en:"The grip of love is no child's play\nDo not mistake it for water — this is fire, real fire" },
+      { ar:"Khoon rulaye gi yeh lagi dil ki\nKhel samjho na dillagi dil ki", tr:"", en:"This attachment of the heart will make you weep blood\nDo not treat the heart's affair as a game" },
+      { ar:"Yeh ishq nahi aasaan\nBas itna samajh lijiye\nEk aag ka darya hai\nAur doob ke jaana hai", tr:"", en:"This love is not easy\nUnderstand just this much\nIt is a river of fire\nAnd one must drown in it" },
+      { ar:"Wafaon ki ham se tawwaqo nahi hai\nMagar eik baar aazmaa kar to dekho\nZamane ko apna bana kar to dekha\nHame bhi tum apna bana kar to dekho", tr:"", en:"You expect no faithfulness from me\nBut try putting me to the test just once and see\nYou have tried to make the world your own\nNow try making me yours and see" },
+      { ar:"Khuda ke liye chhor do ab yeh parda\nRukh se niqaab utha ke barhi dair ho gayi\nMahool ko talawat-e-quran kiye hue", tr:"", en:"For God's sake lift this veil now\nLong has it been since the veil was raised from your face\nThe atmosphere has long been reciting Quran" },
+      { ar:"Ham na samjhein teri nazron ka taqaza kya hai\nKabhi parda, kabhi jalwa, yeh tamasha kya hai", tr:"", en:"We cannot fathom what your glances demand\nSometimes a veil, sometimes a radiance — what is this show?" },
+      { ar:"Jaan-e-jaan, ham se yeh uljhan nahi dekhi jaati\nKe hain aaj hum tum nahi ghair koi\nShab-e-vasl bhi hai hijaab iss qadr kyun\nZara rukh se aanchal utha kar to dekho", tr:"", en:"O beloved, I cannot bear this confusion any longer\nToday it is only you and I — no stranger is here\nWhy even on the night of union is there this much veil?\nJust lift the hem from your face a little and see" },
+      { ar:"Jafa'ein bahot ki bahot zulm dhaaye\nKabhi ek nigah-e-karam iss taraf bhi\nHamesha hue dekh kar mujh ko barham\nKisi din zara muskura kar to dekho", tr:"", en:"You have inflicted much cruelty, much oppression\nCast at least one merciful glance this way too\nYou have always been vexed at the sight of me\nOne day try smiling a little and see" },
+      { ar:"Jo ulfat mein har ek sitam hai gawara\nYeh sab kuch hai paas-e-wafa tum se warna\nSataate ho din raat jis tarah mujh ko\nKisi ghair ko yoon sataa kar to dekho", tr:"", en:"That every torment in love is acceptable —\nAll of this is only out of faithfulness to you\nThe way you torment me day and night\nTry tormenting a stranger like this and see" },
+      { ar:"Agar'che kisi baat par woh khafa hain\nTo acha yehi hai tum apni see kar lo\nWoh maane na-maane yeh marzi hai unki\nMagar unko 'Purnam' mana kar to dekho", tr:"", en:"Even if they are displeased about something\nThe best thing is to make your own peace\nWhether they relent or not is their will\nBut try winning them over, O Purnam, and see" }
+    ]
+  },
+  { latin:true, titleArabic:"Saare Nabian Da Nabi", titleEnglish:"Saare Nabian Da Nabi — Traditional",
+    poet:"Traditional", note:"In Punjabi / Urdu.",
+    verses:[
+      { ar:"Sare nabian da nabi tu imam soniya\nRakha tere te Durood te Salam soniya", tr:"", en:"Prophet of all prophets, you are the leader, O beautiful one\nWe send upon you Durood and Salam, O beautiful one", refrain:true },
+      { ar:"Taazeem se leta hai khuda naam e Muhammed\nKiya naam hai ae Salle Ala naam e Muhammed\nAllah kare us pe haram aatish e dozakh\nJis shakhs ke ho dil pe likha naam e Muhammed", tr:"", en:"God takes the name of Muhammad with the utmost reverence\nWhat a name it is — O Sallallahu Alayhi Wa Sallam — the name of Muhammad\nMay God forbid the fire of Hell for that person\nOn whose heart the name of Muhammad is written" },
+      { ar:"Kamli waliya tere karam bayon buha rehamatan da kadi khulda naii\nTeri galli de kharaan vich maza jera o te maza firdos de phul da naii\nKainaat de takhta cho takht koi teri paak chatai te tulda naii\nTakht ki ae Arsh e Azam tere jore di khaakh te mulda naii", tr:"", en:"O master of the black shawl, the door of your mercy never closes\nThe pleasure found in the thorns of your lane surpasses the flowers of paradise\nNo throne in all creation can be compared to your pure mat\nWhat is the Mighty Throne? — it kneels before the dust at your feet" },
+      { ar:"Teriya thumaan to ajab duniya\nTeriya jutian arsh ne chumiyan", tr:"", en:"From your resting place, what a wondrous world opens\nThe Throne itself kissed your blessed sandals" },
+      { ar:"Duniya te aaya koi teri na misaal da\nRasool aur bhi aaye jahan mai laiken\nKoi teri na misaal da\nYun to Isaa bhi hain, Musa bhi hain, Yusuf bhi magar\nKoi teri na misaal da", tr:"", en:"No one who came into this world has your equal\nOther Prophets also came into the world — but\nNone has your equal\nTrue — Isa is there, Musa is there, Yusuf too — but\nNone has your equal" },
+      { ar:"Tujh sa haseen nahin, na hi teri Misaal hai\nTera jamaal ain khuda ka jamaal hai\nKoi teri na misaal da", tr:"", en:"There is none as beautiful as you, and none to equal you\nYour beauty is the very beauty of God made manifest\nNone has your equal" },
+      { ar:"Aam hain rehmatain zamaane par rehmaton ka koi hisaab nahin\nTere qurbaan ya Rasoolullah tera qonain mai jawab nahin\nMere sonhe kamli wa larriya, tera aashiq kul zamana hai\nTere husan di ki tareef karan, rab aap tera deewana hai", tr:"", en:"Mercies are common in the world but there is no counting of yours\nI sacrifice myself for you, O Messenger of God — you have no equal in both worlds\nO my beautiful master of the black shawl, all of creation is your lover\nHow can I praise your beauty — God Himself is devoted to you" },
+      { ar:"Chehra tera noor wande sari kainaar nu\nRab wi Durood bheje ik teri zaat nu", tr:"", en:"Your face distributes its light to the entire universe\nEven God sends Durood upon your blessed being" },
+      { ar:"Jis ne dekhe nain matwale tere\nMast o bekhud wo na ho to kiya kare\nIk nazar jo dekh lai to kehta phire\nHar har kundal kundal uthe aashiq da dil bole\nHusn tere do sift ki akha kafir kalma bole", tr:"", en:"Whoever has seen your intoxicating eyes\nHow can they not become lost and overwhelmed?\nWhoever catches a single glance goes about proclaiming\nOn every lock of your hair the lover's heart cries out\nIn praise of your beauty even the disbeliever utters the Kalima" },
+      { ar:"Roya shab e hijran mai bohot ashk bahaayai\nItne mein Musavir ko zara reham jo aaya\nNaqshi gayi tasveeron ko wo saamne laaya\nBola ke ye Yusuf hain, ye Isaa hain ye Musa\nMain ne kaha in mein se kisi par nahin sheda\nJab saamne laya ba shabih e Shah e wala", tr:"", en:"I wept much in the nights of separation, shedding many tears\nWhen at last the Painter took some pity on me\nHe brought forward portraits he had painted\nSaying: this is Yusuf, this is Isa, this is Musa\nI said: I am not devoted to any of these\nThen he brought forward the likeness of the noble Shah" },
+      { ar:"Be sakhta us waqt zaban se meri nikala\nMukh chand badr shah shani ae\nKali zulf ter akh mastani ae\nMakhmoor akhi in madhbarian\nTeri soorat nu main jaan aakha\nJaan aakhe jaan jahan aakha\nSach aakha te Rab di shaan aakha\nJes shaan to shaanaan sab baniyaan\nSubhanallah\nMa Ajamalakah\nMa Ahsanakah\nMa Akamalakah", tr:"", en:"At that very moment these words left my lips unbidden:\nYour face is like the full moon, O king of beauty\nYour dark tresses, your intoxicating eyes\nYour heavy-lidded eyes, those worshippers of God\nI called your face my very life\nCalled it life — called it the life of the world\nI spoke truth and spoke of God's own glory\nFrom whose glory all glories are born\nSubhanallah — Glory be to God\nHow beautiful You are\nHow fine You are\nHow perfect You are" },
+      { ar:"Tere sadqe jahan sara paya baniyan, tere waaste Quran sara baniyan\nPaya tere jiya kise na maqam soniya rakha tere te Durood te Salam soniya\nTenu arshaa te Rab ne bulaaiya ai, shaan tere jiya hon kinne paya ai\nPoori Rab naal teri ae kalam soniya rakha tere te Durood te Salam soniya", tr:"", en:"For your sake the entire world was created, for you the entire Quran was revealed\nNo one has attained a station like yours, O beautiful one — we send upon you Durood and Salam\nGod called you to the Throne, who else has attained a glory like yours?\nYour conversation with God was complete, O beautiful one — we send upon you Durood and Salam" }
+    ]
+  },
+  { latin:true, titleArabic:"Na Man Behooda Girde", titleEnglish:"Na Man Behooda Girde — Maulana Jalaluddin Rumi",
+    poet:"Maulana Jalaluddin Rumi", note:"In Persian (Farsi).",
+    verses:[
+      { ar:"Na man behuda girde koocha-o-bazaar mi gardam", tr:"", en:"Not frivolously, around the alleys and bazaars, I whirl", refrain:true },
+      { ar:"Na man behuda girde koocha-o-bazaar mi gardam\nMazak-e-ashqi daram pae didar mi gardam", tr:"", en:"Not frivolously, around the alleys and bazaars, I whirl\nLover's temperament I have — to have one glimpse of my Beloved, I whirl" },
+      { ar:"Khudaya reham kun bar mann pareeshaan waar mi gardam", tr:"", en:"O God! Have mercy on me! Disturbed, I whirl" },
+      { ar:"Khataa kaaram gunah gaaram bahaal-e-zaar mi gardam", tr:"", en:"I am guilty, I am sinful — in this wretched state, I whirl" },
+      { ar:"Sharaab-e-shouq mi nousham bagird-e-yaar mi gardam", tr:"", en:"Desire's wine I imbibe; around the Friend, I whirl" },
+      { ar:"Sukhan mastana mi goyam bhale hushyaar mi gardam", tr:"", en:"Intoxicated speech I utter, even while soberly, I whirl" },
+      { ar:"Gahe khandam gahe giriyam gahe uftam gahe khezam\nMaseeha dar dilam paida wa mann beemaar mi gardam", tr:"", en:"Sometimes I laugh, weep sometimes; sometimes I fall, rise sometimes\nMessiah in my heart I bear — and I, the infirm, whirl" },
+      { ar:"Bayaan jaanan inayat kun to molana-e-rumi ra\nGhulam-e-shams tabrezam qalandar war mi gardam", tr:"", en:"Come, O Beloved! Indulge Maulana Rumi!\nShams Tabrizi's slave I am — like a qalandar, I whirl" }
+    ]
+  },
+  { latin:true, titleArabic:"Man Kunto Maula", titleEnglish:"Man Kunto Maula — Amir Khusro (from Hadith of the Prophet ﷺ)",
+    poet:"Amir Khusro (from Hadith of the Prophet ﷺ)", note:"In Arabic / Persian / Urdu.",
+    verses:[
+      { ar:"Man Kunto Maula\nKhuwaja Ali-Un Maula", tr:"", en:"Whoever accepts me as master — venerable Ali is his master\n(Words of the Prophet ﷺ at Ghadir Khumm)", refrain:true },
+      { ar:"Shah-E-Mardaan\nShair-E-Yazdaan\nQoowwat-E-Parwardigaar\nLa Fata Illa Ali\nLa Saif Illa Zulfiqaar", tr:"", en:"King of the Brave\nThe Lion of God\nThe Strength bestowed by the Lord\nThere is none like Ali\nThere is no sword like Zulfiqaar" },
+      { ar:"Dara Dil E Dara Dil E Dar E Dani\nHum Tum Tanana Nana, Tana Nana Ray\nYalali Yalali Yala Yala Ray", tr:"", en:"Enter the heart, enter the heart, dissolve within\nYou and I — sing in sweet melody\n(Sufi devotional chants of ecstasy)" },
+      { ar:"Her Qalb Ali, Jism Ali, Jaan Ali Hai\nIk BeSar-O-Samaan Ka Samaan Ali Hai\nImaan Ka Matlaash E Ye Imaan Keh Doon\nIman To Yeh Hai Mera Imaan Ali Hai", tr:"", en:"In every heart — Ali; every body — Ali; my very life — Ali\nAli is the sole provision of one who has nothing\nThe seeker of faith — let me say what faith truly is\nThis is my faith: my faith is Ali" },
+      { ar:"Haider-E-Um Qalandaram Mastam\nBanda-E-Murtaza Ali Hastam\nPeshwa-E-Tamaam Rindanam\nK Sag-E-Koh-E-Shair-E-Yazdanam", tr:"", en:"I am of Haider — a saint drowned in devotion\nI am a mere servant of Ali the Chosen One\nI am foremost among all those intoxicated by devotion\nA mere dog at the mountain of Ali — the Lion of God" }
+    ]
+  },
+  { latin:true, titleArabic:"Mast Nazron Se Allah Bachaye", titleEnglish:"Mast Nazron Se Allah Bachaye — Purnam Allahabadi",
+    poet:"Purnam Allahabadi", note:"In Urdu.",
+    verses:[
+      { ar:"Mast nazron se Allah bachaaye, maah-jamaalon se Allah bachaaye\nHar balaa sar pe aa jaaye lekin, husn-vaalon se Allah bachaaye", tr:"", en:"O God save us from the intoxicated glances! O God save us from the moon-faced ones!\nLet any affliction come upon us — but God save us from the pretty ones", refrain:true },
+      { ar:"In kii maasuumiyat par na jaanaa, in ke dhoke meN hargiz na aana\nLuuT lete haiN ye muskuraa kar, in kii chaaloN se Allah bachaaye", tr:"", en:"Don't let their innocence fool you; don't let them make you a fool\nThey rob with just a smile — O God save us from their spells!" },
+      { ar:"Bholii suurat hai baateN haiN bholii, muuNh meN kuch hai magar dil meN kuch hai\nLaakh chehraa sahii chaaNd jaisaa, dil ke kaaloN se Allah bachaaye", tr:"", en:"Innocent appearance and innocuous talk, but there is a difference between what they say and what they mean\nThough their face is like that of the moon — O God save us from the schemes of their hearts!" },
+      { ar:"Dil meN hai khvaahish-e-huur-o-jannat aur zaahir meN shauq-e-ibaadat\nBas hameN shaiKh jii aap jaise Allah vaalon se Allah bachaaye", tr:"", en:"In the hearts there is a desire for beautiful companions in heaven, but they show their love of prayers to the world\nNow, from the likes of the abstinent — O God save us from these Godly ones!" },
+      { ar:"In kii fitrat meN be-vafaii jaantii hai ye saarii Khudaii\nAcche acchoN ko dete haiN dhokhaa bhole bhaaloN se Allah bachaaye", tr:"", en:"In their nature is infidelity, it is known by all and sundry\nThey beguile even the smart ones — O God save us from the innocuous ones!" }
+    ]
+  },
+  { latin:true, titleArabic:"Ya Husain Ya Husain", titleEnglish:"Ya Husain Ya Husain — Traditional / Nusrat Fateh Ali Khan",
+    poet:"Traditional / Nusrat Fateh Ali Khan", note:"In Urdu / Persian / Arabic.",
+    verses:[
+      { ar:"Ya Hussain! Ya Hussain!\nYa Hussain! Ya Hussain!", tr:"", en:"O Hussain! O Hussain!\nO Hussain! O Hussain!", refrain:true },
+      { ar:"Shaheed-e-Karbala ki mominoN jab yaad aati hai\nTadap jaati hai duniya, khoon ke aansooN bahaati hai", tr:"", en:"When believers remember the martyr of Karbala\nThe world trembles in anguish and weeps tears of blood" },
+      { ar:"Shah hast Hussain baadshah hast Hussain\nDeen hast Hussain deen pana hast Hussain\nSar daad na daad dast dar dast-e-Yazeed\nHaq aa ke bina La-Ila hast Hussain", tr:"", en:"Hussain is the king, Hussain is the sovereign\nHussain is the faith, Hussain is the guardian of faith\nHe gave his head but did not give his hand into the hand of Yazid\nHussain is the very foundation of La Ilaha (There is no god but God)" },
+      { ar:"Sajde mein sar kataane ko aakhir kata dia\nLekin Khuda ke naam ka danka baja dia", tr:"", en:"In the end his head was cut while in prostration\nBut he made the name of God resound throughout the world" },
+      { ar:"Dil se khudi ko bhool kar khud ko mita namaaz mein\nAayega tujh ko jab nazar roo-e-Khuda jab namaaz mein\nPahle Hussain ki tarah sar ko kata namaaz mein", tr:"", en:"Forget the self from your heart and erase yourself in prayer\nYou will behold the face of God when you are in prayer\nFirst, like Hussain, give your head while in prayer" },
+      { ar:"Kis ki majaal ai Hussain tujh ko ho tujh se ham-saree\nBaap ke ghar Imam the naana ke ghar payambari\nShakl-e-Hussain dekh kar haq bhi kahega hashr mein\nAey mere Mustafa ke laal ummat-e-Mustafa baree", tr:"", en:"Who has the power, O Hussain, to be your equal?\nIn his father's house he was Imam, in his grandfather's house he was raised among Prophets\nBeholding the face of Hussain even the Truth will say on Judgement Day\nO dear one of my Mustafa ﷺ — the nation of Mustafa is forgiven" },
+      { ar:"Salaami Karbala mein kya qayamat ki ghari hogi\nChuri Shabbir ki gardan pe jis dam chal rahi hogi\nKaleja thaam kar Meer-e-falaq bhi rah gaya hoga\nKaleje per Ali Akbar ke barchi jab lagi hogi", tr:"", en:"What a moment of apocalypse that must have been in Karbala\nWhen the blade was passing across the neck of Shabbir (Hussain)\nEven the master of the heavens must have clutched his heart\nWhen the spear struck the chest of Ali Akbar" },
+      { ar:"Mujhe jaane do paani bhar ke ye Abbas kehte the\nKayi din ki pyaasi hai Sakina ro rahi hogi", tr:"", en:"\"Let me go and fetch the water\" — so Abbas kept saying\nFor Sakina had been thirsty for days and was weeping" },
+      { ar:"Luti hai jaise duniya Karbala mein ibn-e-Haider ki\nKisi mazloom ki duniya na duniya mein luti hogi\nMohammad ke nawaase ne jo kee teghoN ke saaye mein\nBashar to kya farishtoN se na aise bandagi hogi", tr:"", en:"As the world of Ibn-e-Haider was plundered in Karbala\nNo oppressed one's world has ever been plundered like this in all the world\nThe worship that the grandson of Muhammad ﷺ performed beneath the shadow of swords\nNeither man nor angel has ever worshipped like that" },
+      { ar:"Hamare khooN ke badle mein ummat bakhsh de Ya Rab\nKhuda se hashr mein ye iltijaa Shabbir ki hogi", tr:"", en:"In exchange for our blood, O Lord, forgive the Ummah\nThis will be Shabbir's plea to God on the Day of Judgement" }
+    ]
+  },
+  { latin:true, titleArabic:"Ya Muhammad Noor E Mujassam", titleEnglish:"Ya Muhammad Noor E Mujassam — Traditional",
+    poet:"Traditional", note:"In Urdu.",
+    verses:[
+      { ar:"Ya Muhammad Noor-e-mujassam Ya Habibi Ya Maulai", tr:"", en:"O Muhammad, embodied light — O my Beloved, O my Master", refrain:true },
+      { ar:"Tasweer-e-kamal-e-mohabbat Tanveer-e-jamal-e-khudayei", tr:"", en:"The perfect image of love, the radiance of divine beauty" },
+      { ar:"Tera Wasf Bayaan Ho Kis Se Teri Kon Karega Barayei\nIss Gard-e-safar Mein Gum Hai Jibreel-e-ameen Ki Rasayei", tr:"", en:"Who can describe your qualities — who can sing your praises?\nEven the reach of Jibreel the Trustworthy is lost in the dust of your journey" },
+      { ar:"Teri Ek Nazar Ke Taalib, Tere Ek Sukhan Par Qurabaan\nYe Sab Tere Divaane, Ye Sab Tere Shayadai", tr:"", en:"They long for just one glance from you, they sacrifice themselves for just one word\nAll of these are your devotees, all of these are your lovers" },
+      { ar:"Ye Rung-e-bahar-e-gulshan Ye Gul Aur Gul Ka Joban\nTere Noor-e-qadam Ka Dhowan Uss Dhowan Ki Ra'nayei", tr:"", en:"The colours of the garden in spring, the flower and its beauty\nAre but the smoke of the light of your footstep — and what beauty that smoke holds" },
+      { ar:"Ma Ajmalaka Teri Surat Ma Ah'sanak Teri Seerat\nMa Akmalaka Teri A'zmat Teri Zaat Mein Gum Hai Khudayei", tr:"", en:"How beautiful is your face — how excellent is your character\nHow perfect is your greatness — in your being the Divine Itself is absorbed" },
+      { ar:"Ae Mazhar-e-shaan-e-jamali Ae Khuwaja-o-banda Aa'li\nMujhe Hashr Mein Kaam Aajaye Mera Zoq-e-sukhan Aarayei", tr:"", en:"O manifestation of divine beauty's glory, O master and noble servant\nMay my love of words serve me on the Day of Judgement" },
+      { ar:"Jab Jalwa Fagan Hu-aey Aaqa, Sajde Mein Jhuka Tha Kaa'bah\nAey Aminah Kaisi Teri, Qismat Hai Khuda Ne Banaai", tr:"", en:"When the Master appeared in his glory, even the Kaaba bowed in prostration\nO Aminah — what a destiny God fashioned for you" },
+      { ar:"Tum Sab Se Pehle Muhaajir, Ghar Choda Khuda Ki Khaatir\nIs Sunnat Par Jo Chale Hain, Aaqa Woh Hain Tere Fidaai", tr:"", en:"You were the first of all emigrants, you left your home for God's sake\nThose who follow this Sunnah — O Master, they are your devoted ones" },
+      { ar:"Tu Raees-e-roz-e-shafa't Tu Ameer-e-lutf-o-i'nayat\nHai Adeeb Ko Tujhse Nisbat Ye Ghulam Hai Tu Aaqayei", tr:"", en:"You are the chief of the Day of Intercession, the master of grace and favour\nAdeeb has connection to you — this servant is yours, you are his master" }
+    ]
+  },
+  { latin:true, titleArabic:"Qasida Burda", titleEnglish:"Qasida Burda — Imam al-Busiri",
+    poet:"Imam al-Busiri", note:"In Arabic / Urdu.",
+    verses:[
+      { ar:"Maula ya salli wasallam daaye man abadan\nAlaa habibibeka khaire khalqihi", tr:"", en:"O my Lord, send blessings and peace always and forever\nUpon Your Beloved, the Best of all Creation", refrain:true },
+      { ar:"Zikr e aali waqar karte hai\nShagle parwardigaar karte hai\nUnpe har dam Darood padhte hai\nHam yehi karobaar karte hai", tr:"", en:"They remember him with the highest reverence\nThey remain occupied with the Lord\nUpon him they recite Durood at every moment\nThis is the only business we conduct" },
+      { ar:"Agar Darood padho momeeno kariney se\nHuzoor khud hi chaley aayege Madine se\nTum unse door ho lekin wo tumse door nahi\nYaki na aaye tau unko pukaar kar dekho", tr:"", en:"If you recite Durood with sincerity, O believers\nThe Prophet himself will come from Madina\nYou may be distant from him but he is never distant from you\nIf you doubt this — call out to him and see" },
+      { ar:"Samajh mai aayega imdaad kaise hoti hai\nZara tadap ke pukaaro tau ya Rasullalah\nKoi dekhe tau zara unki duhayi dekar\nYa Muhammad se tau patthar bhi pighal jaate hai", tr:"", en:"You will understand how help truly comes\nCall out with longing — O Messenger of Allah\nLet anyone try calling upon him just once\nFor even stones melt at the name of Ya Muhammad ﷺ" },
+      { ar:"Tu sahebal jamal hai tu sayyedal bashar\nTeri ziya hai rukh hai shabe taar ki Sahar\nLaawu kaha se lab jisse teri sana karu\nMohsin kahu bashar kahu ke habib e khuda kahu\nKat jaaye saari umr tere zikre paak mai\nMil jaaye meri khaak Madine ki khaak mai", tr:"", en:"You are the master of beauty, the chief of mankind\nYour radiant face is the dawn breaking through the darkest night\nFrom where shall I find lips worthy to praise you?\nShall I call you Benefactor? Shall I call you human? Shall I call you the Beloved of God?\nMay my entire life be spent in your pure remembrance\nMay my dust be joined with the dust of Madina" },
+      { ar:"Ayse dar ka ghada hu mai jiski\nNaukri taajdar karte hai", tr:"", en:"I am the beggar of such a door\nAt which kings themselves serve" },
+      { ar:"Muhammadun sayyedul koinain was sakalain\nWal fareeqaini min urbiw wa min ajami", tr:"", en:"Muhammad ﷺ is the master of both worlds and both creations\nAnd of both groups — Arabs and non-Arabs" },
+      { ar:"Yaha se lekar waha tak wohi tau maalik hai\nYe qaayenaat bani hai mere Nabi ke liye\nKisi ko kuch nahi milta teri ataa ke bagair\nKhuda bhi kuch nahi deta teri ataa ke bagair", tr:"", en:"From here to there — He alone is the Master\nThis entire universe was created for my Prophet ﷺ\nNo one receives anything without your bestowal\nEven God does not give without your bestowal" },
+      { ar:"Har cheez musabbibe sanam se mango\nMinnat se khusamat se adab se mango\nJo maangne ka tariqa hai Uss tarah mango\nYa rabbe bil Mustafa ballig maqasadana\nWag fir lana ma maada ya waasi al karami", tr:"", en:"Seek everything through the Beloved\nSeek with supplication, with love, with reverence\nSeek in the manner that is befitting of asking\nO Lord, through Mustafa ﷺ fulfil our aims\nAnd forgive what has passed, O Most Generous" },
+      { ar:"Summar rida an Abi Bakriw wa na Umar\nWa an Aliw wa an Usman zil karami", tr:"", en:"And be pleased with Abu Bakr and Umar\nAnd with Ali and Uthman, the possessor of generosity" }
+    ]
+  },
+  { latin:true, titleArabic:"Ali Mawla Ali Mawla Ali Dam Dam", titleEnglish:"Ali Mawla Ali Mawla Ali Dam Dam — Traditional",
+    poet:"Traditional", note:"In Punjabi / Urdu.",
+    verses:[
+      { ar:"Ali Maula Ali Maula Ali Dam Dam\nLakh te Karoor wari akkho dam dam", tr:"", en:"Ali is the Master, Ali is the Master, Ali with every breath\nSay it a hundred thousand million times with every breath", refrain:true },
+      { ar:"Ali nu yaad karo\nRal ke farrayad karo\nHai ghareeban da aye ho aasra", tr:"", en:"Remember Ali\nTogether call out to him\nHe is the refuge of the helpless" },
+      { ar:"Ali sade dillan wich\nAli sade sahwan wich\nAli saday asse paase\nAli hai nigawan wich\nAshkaan de deray par\nAli diyan rahwan wich\nRab Rakhe Sariyan nu\nAli di panawan wich", tr:"", en:"Ali is within our hearts\nAli is within our breaths\nAli is all around us\nAli watches over us\nAt the abode of tears\nWe walk in Ali's paths\nMay God keep everyone\nIn the shelter of Ali" },
+      { ar:"Eh nabi da pyara Ali Noor Allah Noor\nAli da aye Allah Allah\nKabbay wich zahoor\nAli peer peeranda aye, Dillan da suroor\nWallian de sirran da aye taaj Ali Ali\nMomin'nan di bas ha meraj Ali Ali", tr:"", en:"He is the Prophet's beloved — Ali, the light of God, is light\nAli's presence is God — God\nManifested in the Kaaba\nAli is the master of all masters, the joy of all hearts\nAli is the crown upon the heads of all saints\nFor believers, Ali alone is the summit of ascent" },
+      { ar:"Hay gin gin dassa ki main Ali de karam\nAli di pehchan aye rab di pehchan\nAli dian taqtan nu jaanda jahan", tr:"", en:"How can I count and tell the mercies of Ali?\nTo know Ali is to know the Lord\nThe world recognises the throne of Ali" },
+      { ar:"Rab da aye sheri uchhi Ali di aye shaan\nKul aye Imaan Ali Nabi da elaan\nHaider e karaar, Bu turab Ali Ali\nHashmi jawan lajawaab Ali Ali\nJinhan da na koi, Ali onhan da bharam", tr:"", en:"God's lion — exalted is the glory of Ali\nThe entirety of faith is Ali — the declaration of the Prophet\nHaider the steadfast, the father of soil — Ali, Ali\nThe incomparable young Hashimi — Ali, Ali\nThose who have no one — Ali is their honour" }
+    ]
+  },
+  { latin:true, titleArabic:"Ankh Uthi Mohabbat", titleEnglish:"Ankh Uthi Mohabbat — Purnam Allahabadi / Traditional",
+    poet:"Purnam Allahabadi / Traditional", note:"In Urdu.",
+    verses:[
+      { ar:"Ankh uthi mohabbat ne angrai li\nDil ka sauda huya chandi raat mein", tr:"", en:"The eye lifted — love stirred and stretched\nThe heart's bargain was struck on a moonlit night", refrain:true },
+      { ar:"Raat yun dil mein teri bhooli hui yaad aayi\nJaise viraane mein chupke se bahaar aa jaye\nJaise sahraon mein haule se chale baad-ae-naseem\nJaise bimaar ko be-wajaah quraar aa jaaye", tr:"", en:"Last night your forgotten memory returned to my heart\nLike spring arriving quietly in a desolate place\nLike a gentle breeze moving softly through the desert\nLike a sick one finding peace without reason" },
+      { ar:"Aaj ki baat phir nahin hogii\nYeh mulaqaat phir nahi hogii\nAise badal to phir bi aayenge\nAisi barsaat phir nahi hogi\nIk nazar murke dekhne wale\nKya yeh hairat phir nahi hogi", tr:"", en:"Tonight's conversation will not come again\nThis meeting will not happen again\nSuch clouds may come again\nBut such rain will not fall again\nO you who turned to look just once\nWill this wonder not come again?" },
+      { ar:"Us k nazdik ghum-e-tark e wafa kuch bhi nahi\nMutmain aesay hain wo jese huwa kuch bhi nahi\nAb tu hathon se lakeeren bhi mitti jati hain\nUs ko kho ker tu mere pass raha kuch b nhi", tr:"", en:"To them the grief of abandoned faithfulness means nothing\nThey are at such peace as though nothing happened\nNow even the lines on your hands are fading away\nHaving lost them — nothing of you remains with me" },
+      { ar:"Kal bicharna tu phir ehad-e-wafa soch k bandh\nAbi aghaz-e-mohabbat he gaya kuch b nahi\nMain tu is wastay chup ho k tamasha na bane\nTu smajta he mujhe tujh se gila kuch b nahi", tr:"", en:"Tomorrow we part — yet you sealed the vow of faithfulness again\nThe beginning of love itself has passed — nothing happened\nI stayed silent only so it would not become a spectacle\nYou think I have no complaint against you — nothing" },
+      { ar:"Chaandni raat raad aati hai\nYeh mulaqaat yaad aati hai\nDekh kar un ghaneri zulfon ko\nMast barsaat yaad aati hai", tr:"", en:"On moonlit nights the memory returns like thunder\nThis very meeting comes to mind\nSeeing those dark tresses\nThe intoxicating rain comes to mind" },
+      { ar:"Aankh uthi... Jis taraf uth gayi hain aanhen hain\nChasm-e-baddur kiya nigahen hain\nJidar uthai nazar qatl-e-aam tumne kiya\nQazaa ka naam huya aur kaam tumne kiya", tr:"", en:"The eye lifted — wherever those sighs have risen\nWhat eyes they are — like the full moon\nWhichever way you turned your gaze you caused a massacre\nDeath became the name — and you did the deed" },
+      { ar:"Unki nazron ne kuch aisa jaddo kiya\nLutt gaye hum to pehli mulaqat mein\nHum hosh bhi apne bhul gaye\nImaan bhi apna bhul gaye\nIk dil hi nahi us bas mein\nHum na jaane kiya kiya bhul gaye", tr:"", en:"Their glances cast such a spell upon us\nWe were plundered at the very first meeting\nWe forgot our own senses\nWe forgot our own faith\nNot just the heart fell under their power\nWe forgot — God knows what all we forgot" },
+      { ar:"Jo baat thi unko kehne ki\nWo baat hi kehna bhul gaye\nGairon ke fasane yaad rahe\nHum apna fasana bhul gaye", tr:"", en:"The very thing we had to say to them\nWe forgot to say that very thing\nThe stories of others stayed in memory\nWe forgot our own story" },
+      { ar:"Kya kya nigah yaar bata hasin ho gayi\nBijli kabhi bani kabhi shamshin ho gayi\nMehfil mein baar baar uni par nazar gayi\nHumne bachai lakh magar phir udar gayi\nUnki nigah mein koi jadoo zaroor\nJis par padi usi ke jigar mein utar gayi", tr:"", en:"O friend — tell me — how beautiful that gaze became\nSometimes it became lightning, sometimes a sword\nIn the gathering my eyes went to them again and again\nI tried a thousand times to hold back — but they went again\nThere is surely a magic in their glance\nWhoever it fell upon — it pierced straight to their heart" },
+      { ar:"Banke tasweer-e-ghum reh gaye hain\nKhoye khoye se hum reh gaye hain\nBant li sabne aapas mein khushiyaan\nMere hisse mein ghum reh gaye hain\nAb na uthna sarhaane se mere\nAb to ginti ke dum reh gaye hain\nAye saba aik zehmat zara kar\nUnn ki zulfon mai hum reh gaye hain\nKainat e jafaa o wafaa mai\nAik tum aik hum reh gaye hain", tr:"", en:"We have become a portrait of sorrow\nWe remain lost and wandering\nEveryone distributed happiness amongst themselves\nIn my share — only grief remained\nDo not rise from my bedside now\nOnly a counted few breaths remain\nO morning breeze — do me one kindness\nIn their tresses — we remain\nIn this universe of cruelty and faithfulness\nOnly you and I remain" },
+      { ar:"Nazar mila ke mere paas ja kar lut liya\nNazar hati thi ke phir muskura kar lut liya\nKoi yeh lut toh dekho ke usne jab chaha\nMujh mein rehe kar mujhmein sama kar lut liya\nNa lut-tay hum magar un mast angriyon ne jigar\nNazar bachaatey huay dub dubaa k loot liyaa", tr:"", en:"They met my gaze and coming close plundered me\nThey looked away and then with a smile plundered me again\nLet someone see this plundering — whenever they wished\nRemaining within me, merging into me, they plundered me\nWe would not have been plundered — but their intoxicated gestures\nWhile averting their gaze, drowning slowly, plundered the heart" },
+      { ar:"Saath apnaa wafaa mai na chootay kabhi\nPyaar ki dor ban kar naa chootay kabhi\nChoot jaye zamaana koi gham nahi\nHaath teraa rahey mere haath mai", tr:"", en:"In faithfulness may we never be separated\nBecoming the thread of love may we never be severed\nLet the whole world go — no grief in that\nAs long as your hand remains in mine" }
+    ]
+  },
+  { latin:true, titleArabic:"Dil Jis Se Zinda Hai", titleEnglish:"Dil Jis Se Zinda Hai — Traditional / Nusrat Fateh Ali Khan",
+    poet:"Traditional / Nusrat Fateh Ali Khan", note:"In Urdu / Punjabi.",
+    verses:[
+      { ar:"Dil jis se zinda hai wo tamanna tumhi to ho\nHum jis mein bas rahay hein wo dunya tumhi to ho", tr:"", en:"The longing that keeps the heart alive — that is only you\nThe world in which we dwell — that is only you", refrain:true },
+      { ar:"Dil jis se zinda hai wo tum ho", tr:"", en:"The one from whom the heart draws life — that is you" },
+      { ar:"Teri zulf gar shab-e-qadr hai\nTera chehra badr-e-muneer hai\nTere sadqe jaaon mein ya-nabi\nTu habib-e-rabb-e-qadeer hai", tr:"", en:"If your tresses are the Night of Power\nYour face is the full illuminated moon\nI sacrifice myself for you, O Prophet\nYou are the Beloved of the All-Powerful Lord" },
+      { ar:"Tera husn jalwa e toor hai\nTeri chakal surah e noor hai\nKe jahaan mein koi aaj tak\nTeri misl hai na nazeer hai", tr:"", en:"Your beauty is the radiance of Mount Toor\nYour radiance is the Surah of Light\nFor in all the world until today\nThere is no equal to you, no comparison" },
+      { ar:"Teri deed jisko naseeb hai\nWo naseeb qabil-e-deed hai\nTera dekhna meri eid hai\nTera rukh kalam-e-majeed hai", tr:"", en:"Whoever is blessed to behold you\nThat fortune itself is worth beholding\nTo see you is my Eid\nYour face is the Glorious Word of God" },
+      { ar:"Teri deed karne ko khud khuda\nTujhe paas apne bula liya\nTo bitha ke saamne yeh kaha\nMeri aaj arsh pe eid hai", tr:"", en:"To behold you, God Himself\nCalled you close to Him\nAnd seating you before Him said\nToday on My Throne is Eid" },
+      { ar:"Tera noor noor-e-qadeem hai\nTera husn husn-e-kamaal hai\nNahi jiski koi misaal hai\nTu he aamina ka wo laal hai", tr:"", en:"Your light is the eternal pre-existent light\nYour beauty is beauty at its most perfect\nOf which there is no comparison anywhere\nYou are that beloved son of Aminah" },
+      { ar:"Shahsawara raazdaraa Hoo\nTaajdaara dardmanda sub diyaa\nAy alam nashra de seene waliya\nAy shahenshah madina waliya\nAavi ja wal fajr chehre waliya\nAavi ja yasin sehre waliya\nYaad teri da mei deeva waliya\nAavi ja hun kaali kamli waliya", tr:"", en:"O king of horsemen, keeper of secrets\nO crowned one who gave everything to the sorrowful\nO you who expanded the chest — come, O master\nO King of Madina — come\nCome, O one whose face is like the dawn\nCome, O one whose turban is Yasin\nI am a lamp in your remembrance, O master\nCome now, O master of the black shawl" },
+      { ar:"Ya habibi marhaba marhaba marhaba", tr:"", en:"O my Beloved — welcome, welcome, welcome" },
+      { ar:"Roya shab e hijraan mein bohot ashq bahaya\nItni mein musawwir ko rehm jo aaya\nNaqshe kayi tasveero ke wo saamnay laaya\nBola ke yeh yusuf hai yeh eesa hai yeh musa\nMein ne kaha in mein se kisi per nahi sheda\nJab saamnay laya wo shabeeh e shah e wala\nBesaakhta us waqt zubaan se meri nikla", tr:"", en:"I wept much in the nights of separation, shedding many tears\nWhen at last the Painter took pity on me\nHe brought forward many portraits he had painted\nSaying: this is Yusuf, this is Isa, this is Musa\nI said: I have no devotion for any of these\nThen he brought forward the likeness of the noble Shah\nAnd unbidden these words left my lips" },
+      { ar:"Mujh chand bashar shasaniye\nMatthe chamke laath nooraniye\nKali zulf te akh mastaniye\nTeri surat nu mein jaan akha\nJaana ke jaane jahan akha\nSach aakha te rub di shaan akha\nJis shaan to shana sub banya\nSubhanallah, ma ajmalaka\nMa ahsanaka, ma akmalaka\nKithe mehr ali kithe teri sana\nGustaakh akhi kithe ja ariyan", tr:"", en:"O moon-like, radiant, kingly one\nYour forehead shines with divine light\nYour dark tresses and intoxicating eyes\nI call your face my very life\nI call it the life of the world\nI spoke truth and spoke of God's own glory\nFrom whose glory all glories are born\nSubhanallah — How beautiful You are\nHow excellent, how perfect\nWhere is poor Mehr Ali to utter your praises\nO where have these bold eyes alighted" },
+      { ar:"Jine dekhiya kamli waliya nu\nNoohu nikliya wah subhanallah\nNoori mukhre te kayi chamk diye\nKaise zulf e siyaah subhanallah\nTere husn di ki tareef karaan\nKahay uthiya khuda subhanallah", tr:"", en:"Whoever has beheld the master of the black shawl\nLight emanates from him — SubhanAllah\nHow many radiances shine from that luminous face\nAnd those dark tresses — SubhanAllah\nHow shall I praise your beauty\nGod Himself proclaimed — SubhanAllah" },
+      { ar:"Farishta dar pe basad ehtiraam aata hai\nKhuda ke baad tumhara he naam aata hai\nKaleem hoon ge tumhein kya kaleem se nisbat\nTumhara ghar mein khuda ka kalaam aata hai", tr:"", en:"Angels come to your door with the utmost reverence\nAfter God's name — it is your name that comes\nWhat comparison can there be with Kaleem (Musa)?\nInto your very home came the Word of God" },
+      { ar:"Tu ne qabl az do jahaan shan e tajalla dekhi\nArsh banta howa sajti howi dunya dekhi\nTere qadmo mein jhuki saray rasoolon ki jabeen\nSub ne allah ko mana teri dekha dekhi", tr:"", en:"Before both worlds you witnessed the glory of divine manifestation\nYou saw the Throne being built and the world being adorned\nAt your feet bowed the foreheads of all the Prophets\nAll affirmed God — following your lead" },
+      { ar:"Her ik kundal kundal uthe aashiq ta dil dolay\nHusn tere di sift di aakha kaafir kalma bolay", tr:"", en:"On every lock of your hair the lover's heart sways\nIn praise of your beauty even the disbeliever utters the Kalima" },
+      { ar:"Ya noor ul ainee marhaba\nJaddil hussaini marhaba\nYa imam ul qiblatain\nYa nabi ul harmein\nAap hein aankhon ki thandak\nAap hein her dil ka chein", tr:"", en:"O light of my eyes — welcome\nO grandfather of Hussain — welcome\nO Imam of the two Qiblas\nO Prophet of the two Harams\nYou are the coolness of all eyes\nYou are the peace of every heart" },
+      { ar:"Innaka shams ud duha\nInnaka badr ud doja\nInnaka noor ul huda\nInnaka sadr ul ula", tr:"", en:"Verily you are the sun of the morning\nVerily you are the full moon of the night\nVerily you are the light of guidance\nVerily you are the foremost of the highest" }
+    ]
+  },
+];
+
+
 function navBar(){
   return `<nav class="tabbar">${TABS.map(t=>`
     <button class="tab ${tabIsActive(t.id)?'active':''}" onclick="selectTab('${t.id}')">
@@ -14133,6 +14724,23 @@ function ilahiCards(){
         </button>` + hitList('i', n)).join('');
 }
 
+/* Qawwalis carry no separate English gloss of their title (unlike the Ilahis'
+   "Title — meaning"), so the card's second line shows the poet/performer
+   instead — still real, sourced data, not an invented translation. */
+function qawwaliCards(){
+  const items = QAWWALI_CHAPTERS.map((c,n)=>({c,n})).filter(x=>matchesQuery(x.c, state.query));
+  if(items.length === 0) return '';
+  return items.map(({c,n})=>`
+        <button class="qcard" onclick="openQawwali(${n})">
+          <span class="num">${toArNum(n+1)}</span>
+          <span class="titles">
+            <span class="t-ar" style="font-family:'Crimson Pro',serif;direction:ltr;text-align:left">${c.titleArabic}</span>
+            <span class="t-en">${c.poet}</span>
+          </span>
+          <span class="chev">›</span>
+        </button>` + hitList('w', n)).join('');
+}
+
 /* ONE table of reader openers, keyed by kind. openFnOf() and reopen() both
    read it, so the two can no longer drift — which is exactly how the Ḍiyāʾ
    ('y') came to be missing from reopen() while openFnOf() had it, sending
@@ -14140,7 +14748,7 @@ function ilahiCards(){
 const OPENERS = {
   q: 'openQasida',  b: 'openBurdah',   s: 'openSirah',
   i: 'openIlahi',   d: 'openDalail',   z: 'openBarzanji',
-  y: 'openDiya',    l: 'openLitany'
+  y: 'openDiya',    l: 'openLitany',   w: 'openQawwali'
 };
 function openFnOf(kind){ return OPENERS[kind] || 'openQasida'; }
 /* Mawlid pieces carry their kitab number in the title; drop it for display. */
@@ -14166,7 +14774,7 @@ function sectionCount(id){
        : id === 'litanies'? LITANY_CHAPTERS.filter((c,n)=>c.verses && c.verses.length && !isAzamDay(n) && !isIstighfarDay(n)).length + (azamFilledDays().length ? 1 : 0) + (istighfarFilledDays().length ? 1 : 0)
        : id === 'azam'    ? azamFilledDays().length
        : id === 'istighfar'? istighfarFilledDays().length
-       : id === 'qawwalis'? 0
+       : id === 'qawwalis'? QAWWALI_CHAPTERS.length
        : id === 'mawlid'  ? mawlidItems().length
        : id === 'qasidas' ? additionalQasidaItems().length + 1 /* +1 for the Qasida al-Burdah entry */
        : id === 'burdah'  ? BURDAH_CHAPTERS.length
@@ -14231,7 +14839,7 @@ function favCards(){
         <button class="qcard" onclick="${openFnOf(kind)}(${idx})">
           <span class="num">${toArNum(n+1)}</span>
           <span class="titles">
-            <span class="t-ar"${kind === 'i' ? ` style="font-family:'Crimson Pro',serif;direction:ltr;text-align:left"` : ''}>${piece.titleArabic}</span>
+            <span class="t-ar"${piece.latin ? ` style="font-family:'Crimson Pro',serif;direction:ltr;text-align:left"` : ''}>${piece.titleArabic}</span>
             <span class="t-en">${displayTitle(piece)}</span>
           </span>
           <span class="chev">›</span>
@@ -14264,6 +14872,8 @@ function renderResults(){
     if(dal) html += label('Dalāʾil al-Khayrāt · دلائل الْخيرات', !!mawlid || !!barz || !!burd || !!qas) + dal;
     const ilahis = ilahiCards();
     if(ilahis) html += label('Ilahis · الْإلهيات', !!mawlid || !!barz || !!burd || !!qas || !!dal) + ilahis;
+    const qaww = qawwaliCards();
+    if(qaww) html += label('Qawwalis · قوالي', !!mawlid || !!barz || !!burd || !!qas || !!dal || !!ilahis) + qaww;
     if(!html) return `<div class="no-results">No matches for "${q.replace(/</g,'&lt;')}". Try a different spelling.</div>`;
     return html;
   }
@@ -14283,7 +14893,7 @@ function renderResults(){
   if(tab === 'downloads') return downloadsScreen();
   if(tab === 'azam')    return backToLitanies() + collectionLabel(AZAM_TITLE_IDX) + azamIndex();
   if(tab === 'istighfar') return backToLitanies() + collectionLabel(ISTIGHFAR_TITLE_IDX) + istighfarIndex();
-  if(tab === 'qawwalis') return backToPraises() + sectionIntro('qawwalis') + placeholder('Qawwalis');
+  if(tab === 'qawwalis') return backToPraises() + sectionIntro('qawwalis') + label('Select a qawwali · اختر قوالي') + qawwaliCards();
   if(tab === 'favs'){
     const cards = favCards();
     return cards
@@ -16355,6 +16965,15 @@ function openIlahi(n){
   queueMsAutoFit();
   window.scrollTo(0,0);
   onNavigated('i', n);
+}
+
+function openQawwali(n){
+  document.documentElement.style.setProperty('--ar-size', (1.9*state.arScale)+'rem');
+  document.documentElement.style.setProperty('--latin-scale', state.latinScale);
+  app.innerHTML = readerHTML(QAWWALI_CHAPTERS[n], "selectTab('qawwalis')", 'w', n);
+  queueMsAutoFit();
+  window.scrollTo(0,0);
+  onNavigated('w', n);
 }
 
 /* Re-render the current piece (control toggles, remote applies). Signals are
