@@ -22,8 +22,8 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v397** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v73** |
+| **Mawalid** (this repo) | the full collection | **v398** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v74** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -475,6 +475,15 @@ Three invariants, each learned the hard way:
 `slog` keeps a rolling in-app log of role changes and probe outcomes — the fastest
 way to see what each device actually decided.
 
+**Open question, surfaced by the v398 dead-code removal.** The `present` handler's
+only action on leader state was `if(session.leaderPending) clearLeaderPending(…)`,
+and that flag was never set — so **a peer vouching that the room is occupied has
+never cleared a follower's `leaderless`**. The removal preserved that exactly
+rather than quietly re-pointing the test at `leaderless`, because that would be a
+behaviour change in the subsystem this section exists to warn about, not a
+cleanup. Whether a `present` *should* pull a leaderless follower back to
+following is **the owner's call.**
+
 ---
 
 ## Known open items
@@ -551,10 +560,23 @@ under `findings/`, which were right.
   unchanged (only its timestamp moves).
 
   A second, unrelated finding from the same read-through: `msReflowOverflow()`
-  is defined but never called anywhere — dead code, harmless, like
-  `leaderPending`.
-- **`leaderPending`** and its panel branch are now unreachable — nothing sets the
-  flag. Harmless, but dead code that could mislead.
+  was defined but never called anywhere. **Removed in v398**, after checking it
+  was not protecting anything: it was an anti-clipping safety net that moved
+  overflowing text onto a fresh leaf, and `msAutoFit`'s shrink loop now does
+  that job — measured zero overflowing leaves across every Dalāʾil, litany and
+  Barzanji chapter, in both views, at three viewports. Note that the
+  `msSyncDots()` call which sat at the end of that function went with it; it
+  looked like the one that runs after a render, but it was inside dead code.
+  `msSyncDots` is reachable from the `#ms-book` `onscroll` handler, from
+  `resumeDalail`, and from `scrollToVerse` — **not** from a plain open.
+- ~~`leaderPending` and its panel branch are unreachable~~ — **removed in v398**.
+  Nothing ever set the flag true and there was no dynamic access, so every read
+  was constant-false: the "Looking for the leader…" panel branch could not
+  render, and the `alive` handler's `(leaderless || leaderPending)` reduced to
+  `leaderless`. `clearLeaderPending()` itself is **live** — it is reached down
+  the leaderless path — so only the flag went; the function keeps its now
+  slightly misleading name rather than take a rename through this subsystem for
+  cosmetic gain.
 - **Transliteration and English** for al-Ḥizb al-Aʿẓam and Ḥizb al-Istighfār —
   Arabic-only by the owner's call (752 of `LITANY_CHAPTERS`' 950 verses). The
   renderer handles per-verse `tr`/`en`, so this can be layered in later with no
