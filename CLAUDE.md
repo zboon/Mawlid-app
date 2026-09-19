@@ -459,6 +459,28 @@ Run all of it before opening a pull request.
 
 ---
 
+## Transliteration and Translation
+
+**Both apps, v403. Off for a reader who has never chosen**, on the owner's
+call — a chapter opens as the Arabic alone, the way the book reads, with
+either column one tap away. They defaulted **on** until v403, so the first
+screen of every chapter arrived three deep.
+
+**Whichever way you set them is then remembered** (`mawlid-cols` / `dlk-cols`,
+one JSON value holding both) — including turning one back off, not just on.
+Written **only from `toggle` and `toggleEn`**, the reader's own chips.
+
+`COLS_KEY` sits above `const state` for the same temporal-dead-zone reason as
+`SIZE_KEY`; the build asserts it.
+
+Worth knowing: **a live session does not sync these.** Nothing but the two
+chips assigns `showTr`/`showEn`, so a follower keeps their own columns while
+following a leader, and persisting from the chips is safe. If a leader is ever
+given control of them, that path must **not** write to storage — see the same
+trap under *Which reader opens*.
+
+---
+
 ## Text size
 
 **Both apps, v403. Study Version only** — the Book Version scales the whole
