@@ -22,8 +22,8 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v401** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v78** |
+| **Mawalid** (this repo) | the full collection | **v402** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v79** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -31,6 +31,23 @@ minute**, and people recite from it.
 Audio lives in a second repo published to Pages (`zboon.github.io/mawlid-audio/`)
 — same origin, which is what makes fetch and the Cache API work; GitHub release
 assets send no CORS header and are blocked outright.
+
+Recordings are **keyed by kind**, not by chapter index alone: `AUDIO_BY_KIND`
+maps `d` → `DALAIL_AUDIO` and `q` → `QASIDA_AUDIO`, and `audioFor(kind, idx)`,
+`allAudioEntries()` and the manage screen all read through it. Until v402 the
+lookup returned `[]` for anything but `d`, and the manage screen took its row
+titles from `DALAIL_CHAPTERS` directly — adding a recording anywhere else needs
+both of those, or the row renders blank. `audioUrl()` percent-encodes each path
+segment because one file name has spaces in it; it is the **only** place a URL
+is built, which is what keeps the fetch and the Cache API key the same string.
+
+The **Listen button shows when there is a local recording or a `video` link**.
+It used to require `video`, so a chapter with a file and no YouTube link had no
+way to reach its own audio.
+
+`secs` is measured from the file. With no `ffprobe` in the sandbox, read the
+MP3's Xing frame count and divide by the sample rate; the ID3 `TPE1` tag is
+also where the reciter's name came from.
 
 ### The corpus
 
@@ -580,6 +597,37 @@ rather than quietly re-pointing the test at `leaderless`, because that would be 
 behaviour change in the subsystem this section exists to warn about, not a
 cleanup. Whether a `present` *should* pull a leaderless follower back to
 following is **the owner's call.**
+
+---
+
+## Mawlid ad-Daybaʿī — the Opening Qasida
+
+**`QASIDAS[3]`, v402.** Verses **8–11 and 20–23** open `اللّٰهُمَّ صَلِّ` where the rest of
+the qasida opens `يَا رَبِّ صَلِّ` — the owner's reading. Verse numbers **count the
+refrain as v1**, which is how the reader numbers them (`toArNum(n+1)`), so those
+are array indices 7–10 and 19–22.
+
+Three things worth keeping:
+
+- **Only the first hemistich changes.** Each verse is `… ۞ يَا رَبِّ …`; the
+  second keeps `يَا رَبِّ`. v23 carries the phrase **twice** (its second hemistich
+  repeats the refrain's), so an anchor that asserts "exactly one occurrence"
+  fires wrongly there — anchor on the verse **opening** instead.
+- **`en` did not move, and that is correct.** In this qasida only v1 translates
+  both hemistichs; v2–v23 translate the **second** only, because the first is the
+  unvarying refrain line. So the eight verses' English never mentioned
+  `يَا رَبِّ صَلِّ` and had nothing to change. If a report counts that as `tr`/`en`
+  drifting out of step with the Arabic, the report is wrong.
+- The `اللّٰهُمَّ` bytes were **copied from v24 of this same qasida**, which already
+  carried them — the app's majority form (629 of 962) and NFC-canonical. Note
+  the mark order: lām takes shadda-then-dagger, mīm takes **fatha-then-shadda**.
+  A hand-typed needle got both this and `وَسَلِّمْ` backwards during the build.
+
+The refrain carries the house repeat marker `" (2)"` on all three columns — not
+`2x`; `INLINE_INSTRUCTIONS` golds it inline.
+
+The recording is `Ya Rabbi Salli Ala Muhammad.mp3` (Aashiq al-Rasul, 240 s).
+**`QASIDAS[27]` is a near-duplicate of this qasida and was not touched.**
 
 ---
 
