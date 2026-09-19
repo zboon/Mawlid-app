@@ -22,8 +22,8 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v402** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v79** |
+| **Mawalid** (this repo) | the full collection | **v403** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v80** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -456,6 +456,35 @@ Run all of it before opening a pull request.
 - `/[A-Z]/` does **not** match the Latin-Extended capitals used in the
   transliteration (Ḥ, Ṣ, Ṭ, Ẓ, Ā). Use
   `c !== c.toLowerCase() && c === c.toUpperCase()`.
+
+---
+
+## Text size
+
+**Both apps, v403. Study Version only** — the Book Version scales the whole
+leaf with `msZoom` instead, so it has no text-size control and must not gain
+one. Two sliders, Arabic and Latin, in a `.size-row` of their own so they read
+as a pair rather than wrapping one at a time into whatever gap the toggles
+leave. They replaced four −/+ chips.
+
+- **The Arabic glyph is `ض`, not `أ`.** The owner could not tell the hamza
+  from a bare alif at chip size. Don't put the alif back.
+- **Dragging must not reopen the reader.** The size lives entirely in
+  `--ar-size` and `--latin-scale`; `applyTextScale()` writes both and is the
+  only thing a slider calls. The old chips called `reopen()`, which on an
+  `input` event — once per pixel of travel — would throw away the scroll
+  position on every frame.
+- **`applyTextScale()` is also what the nine openers call.** They each carried
+  the same two `setProperty` lines verbatim; that is now one function, so the
+  two variables cannot drift apart.
+- `renderIndex()` still resets to `1.9rem`/`1` so an index is always default
+  size, and a reader re-applies from `state` on open.
+- The slider is in **percent** (70–160 Arabic, 80–180 Latin, step 5), matching
+  the old chips' limits, so a screen reader announces something meaningful.
+- **Not persisted**, same as the chips were not — `state.arScale` resets to 1
+  on reload. Storing it is a `dlk-view`-shaped change and the owner's call.
+- A `latin:true` chapter gets the Latin slider only; at 320px wide the two
+  stack, which is fine and is what the chips did.
 
 ---
 
