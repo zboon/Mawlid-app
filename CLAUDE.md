@@ -453,6 +453,29 @@ dark app before they had asked for one. Owner's call; don't reintroduce it.
 
 ---
 
+## Which reader opens
+
+**The two apps deliberately differ here — do not "sync" them.**
+
+In the **Dalāʾil fork** (v75) the Book Version is the standard view and Study
+the alternative, and **the last one chosen is remembered** (`dlk-view`; unset
+means Book). Owner's call. `state.pageView` already defaulted to Book in
+memory — what was missing was persistence, so leaving the app in Study dropped
+you back into Book on the next open.
+
+The preference is written **only from `setPageView`**, the reader's own toggle.
+Two other places assign `state.pageView` and must not persist: `applyRemoteNav`
+forces a follower into the leader's view, and `resumeDalail` takes it from the
+saved bookmark. Storing either would let a session you joined, or a place you
+resumed, quietly rewrite how the app opens afterwards. Both are covered by the
+battery.
+
+**Mawalid is unchanged** — Book in memory, nothing stored — because the owner
+asked for the Dalāʾil fork only. Mirroring it there is a one-line change if
+they ever want it.
+
+---
+
 ## Live sessions
 
 Everyone's screen follows a leader over a Supabase Realtime channel. The anon key
