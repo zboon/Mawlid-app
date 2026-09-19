@@ -22,8 +22,8 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v400** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v77** |
+| **Mawalid** (this repo) | the full collection | **v401** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v78** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -455,11 +455,16 @@ dark app before they had asked for one. Owner's call; don't reintroduce it.
 
 ## Previous / Next chapter
 
-**Both apps, v400.** A worded Previous/Next pair at the foot of every reader,
-so a mawlid can be read straight through without returning to the index.
-Rendered by `chapterNav(kind, idx)` from **outside** the pageView ternary, so
-it appears in both readers: after the last verse in Study, and under the leaf
-dots in the Book Version. Hidden in full screen with the rest of the furniture.
+**Both apps, v401. Study Version only — do not put it back in the Book
+Version.** A worded Previous/Next pair at the foot of the Study reader, so a
+mawlid can be read straight through without returning to the index. Hidden in
+full screen with the rest of the furniture.
+
+It shipped in v400 in *both* readers and the owner had it taken out of the Book
+Version in v401: there it added a second navigation idea to a page that already
+carries leaf arrows and dots, and took room the leaf needs. The Book Version's
+own carry-on — the next arrow opening the following chapter from the last leaf
+— predates this work and stays.
 
 **Only the Dalāʾil (15/15 chapters) and the litanies (16/18) have `folios`, so
 only they have a Book Version at all.** Every mawlid collection — Barzanji,
