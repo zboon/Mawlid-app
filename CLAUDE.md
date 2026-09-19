@@ -22,8 +22,8 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v398** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v74** |
+| **Mawalid** (this repo) | the full collection | **v399** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v76** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -450,6 +450,46 @@ tapping the toggle, and only then is it remembered (`mawlid-theme` /
 `dlk-theme`). `initTheme` deliberately does **not** consult
 `prefers-color-scheme` — it used to, which handed anyone with a dark phone a
 dark app before they had asked for one. Owner's call; don't reintroduce it.
+
+---
+
+## Back, and coming back
+
+**Both apps, v399 / v76.** The manifest is `display:standalone`, so on Android
+there is no browser chrome and Back is the system gesture. The app pushed no
+history of its own, so Back closed it outright however deep you were reading.
+
+A screen is fully described by `state.tab`, `state.burdahChapter` and whichever
+piece is open, so each navigation pushes that descriptor and Back pops it. Back
+closes what is on top first — full screen, then an open leaf menu, then the
+previous screen — and from home it falls past the baseline entry and lets the
+platform close the app, which is why the baseline is always home.
+
+Three things here are load-bearing:
+
+- **Whether a reader is open is read off the page, never from `msPiece`.**
+  `msPiece` is set when a reader opens and is *never cleared*, so it still names
+  a chapter long after you have gone back to an index. `renderedView()`
+  documents the same trap.
+- **The push in `onNavigated` sits AFTER the `suppressNavSignals` gate.** That
+  flag is already set by `reopen()` and by remote-driven navigation, so putting
+  the push below it is what stops a translation toggle, or a follower being
+  moved by the leader, from filling the history with entries.
+- **Intercepting a Back must re-push.** Leaving full screen or closing the menu
+  consumes the pop; without `pushLoc()` afterwards the next Back would skip a
+  whole screen.
+
+Coming back to the app restores where you were within **30 minutes**
+(`mawlid-last` / `dlk-last`, saved on `visibilitychange`→hidden and on
+`pagehide`). This is *not* the Dalāʾil's "Continue where you left off", which is
+an explicit bookmark and permanent; this one is automatic and expires. A session
+link always wins over it, and a saved descriptor naming a chapter that no longer
+exists is dropped by `locValid` rather than handed to an opener — `readerHTML`
+would throw on a missing index and the app would come up blank.
+
+Note there are now **two** `visibilitychange` listeners: the pre-existing one
+that calls `sessionWake()` on becoming visible, and this one that saves on
+hidden. Different conditions, no conflict.
 
 ---
 
