@@ -481,8 +481,20 @@ leave. They replaced four −/+ chips.
   size, and a reader re-applies from `state` on open.
 - The slider is in **percent** (70–160 Arabic, 80–180 Latin, step 5), matching
   the old chips' limits, so a screen reader announces something meaningful.
-- **Not persisted**, same as the chips were not — `state.arScale` resets to 1
-  on reload. Storing it is a `dlk-view`-shaped change and the owner's call.
+- **Remembered across sessions** (`mawlid-size` / `dlk-size`, one JSON value
+  holding both). Written **only from `setTextScale`**, the slider's own
+  handler — the same discipline `dlk-view` follows, and for the same reason:
+  nothing else assigns `state.arScale` or `state.latinScale` today, and a size
+  arriving from a live session or a restored screen must not silently rewrite
+  how the app opens afterwards.
+- **`SIZE_LIMITS` is the one place the bounds live**, because three things
+  must agree on them: the slider's `min`/`max`, the clamp on a value read back
+  from storage, and the clamp in `setTextScale`. A stored value outside them
+  would leave the thumb off the end of its track.
+- **`SIZE_KEY` and `SIZE_LIMITS` sit above `const state`**, next to `FAV_KEY`,
+  because the state initialiser calls `loadTextScale()`. Defined lower down
+  they are in the temporal dead zone and the app throws on load — the build
+  asserts the ordering.
 - A `latin:true` chapter gets the Latin slider only; at 320px wide the two
   stack, which is fine and is what the chips did.
 
