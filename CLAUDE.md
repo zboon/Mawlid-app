@@ -22,8 +22,8 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v399** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v76** |
+| **Mawalid** (this repo) | the full collection | **v400** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v77** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -450,6 +450,35 @@ tapping the toggle, and only then is it remembered (`mawlid-theme` /
 `dlk-theme`). `initTheme` deliberately does **not** consult
 `prefers-color-scheme` — it used to, which handed anyone with a dark phone a
 dark app before they had asked for one. Owner's call; don't reintroduce it.
+
+---
+
+## Previous / Next chapter
+
+**Both apps, v400.** A worded Previous/Next pair at the foot of every reader,
+so a mawlid can be read straight through without returning to the index.
+Rendered by `chapterNav(kind, idx)` from **outside** the pageView ternary, so
+it appears in both readers: after the last verse in Study, and under the leaf
+dots in the Book Version. Hidden in full screen with the rest of the furniture.
+
+**Only the Dalāʾil (15/15 chapters) and the litanies (16/18) have `folios`, so
+only they have a Book Version at all.** Every mawlid collection — Barzanji,
+Burdah, Sīrah, Diyāʾ — and the qasidas, ilāhīs and qawwalis are Study-only,
+whatever `state.pageView` says, because the renderer gates on
+`hasPages && state.pageView`. Worth knowing before reasoning about where a
+reader-level control will show up.
+
+`neighbourPiece(kind, idx, dir)` is the one definition of "the next chapter
+that actually has verses" — it skips unfilled scaffolds such as the litany
+title slots, which are hidden from every index and would otherwise strand the
+reader on blank placeholders. It takes kind/idx rather than reading `msPiece`,
+because `readerHTML` needs it while building a page, before `msPiece` has been
+set for that piece. `nextPiece()` now delegates to it, so the Book Version's
+existing carry-on from the last leaf is unchanged.
+
+The buttons are laid out left-to-right, unlike the leaf arrows, which point the
+way an Arabic book turns (`‹` is *next*). These are worded controls, so they
+follow the words.
 
 ---
 
