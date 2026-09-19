@@ -459,6 +459,36 @@ Run all of it before opening a pull request.
 
 ---
 
+## The repeating refrain
+
+**Both apps, v403. Barzanji chapter 4 (`BARZANJI_CHAPTERS[3]`, "The Birth of
+the Prophet ﷺ").** v3 — `يَا نَبِيّ سَلَامْ عَلَيْكَ`, where the gathering stands —
+is flagged `refrain: true`, and **v4–v20 each carry `repeatRefrain: true`** on
+the owner's call: the refrain returns after every verse of the qasida, through
+both *Ashraqa al-Badru* (v4–17) and `يَا وَلِيَّ الْحَسَنَاتِ` (v18–20). The prose
+at v1–v2 and v21–23 carries none.
+
+The flags are **data, not a hard-coded chapter**: `refrainRepeatHTML(q)` takes
+the chapter's own `refrain` verse, so any piece can use this by flagging its
+verses. Nothing else in the corpus is flagged yet.
+
+- **Collapsed by default**, showing one gold rule reading "↻ Repeat refrain".
+  A tap opens **every marker in the chapter at once** — a reciter wants them
+  one way or the other, not one at a time.
+- **Toggling must not reopen the reader.** The body is always in the DOM and
+  CSS hides it, so `toggleRefrain()` flips a class. A `reopen()` would scroll
+  someone fifteen verses down back to the top — the same trap as the text-size
+  slider.
+- **`state.refrainOpen` is in memory and deliberately NOT stored**, unlike the
+  size and the `tr`/`en` columns: a chapter always opens collapsed. It still
+  survives a re-render, which is what keeps a **follower's** own choice through
+  a leader's navigation in a live session, exactly as `showTr`/`showEn` do.
+  It is not broadcast either, so a leader never opens or closes anyone else's.
+  That combination — per-session, survives re-render, not synced, not stored —
+  is the owner's specification; don't "tidy" it into one of the other two.
+
+---
+
 ## Transliteration and Translation
 
 **Both apps, v403. Off for a reader who has never chosen**, on the owner's
