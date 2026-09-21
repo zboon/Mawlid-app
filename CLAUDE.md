@@ -22,8 +22,8 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v403** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v80** |
+| **Mawalid** (this repo) | the full collection | **v404** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v81** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -456,6 +456,44 @@ Run all of it before opening a pull request.
 - `/[A-Z]/` does **not** match the Latin-Extended capitals used in the
   transliteration (Ḥ, Ṣ, Ṭ, Ẓ, Ā). Use
   `c !== c.toLowerCase() && c === c.toUpperCase()`.
+
+---
+
+## The full-screen menu stranded the reader — and broke Save my place
+
+**Both apps, v404 / v81. One root cause, two reports.**
+
+`msMenuAct('study')` called `setPageView(false, p.idx)`. The signature is
+`(on, kind, idx)`, so the **index landed in `kind`**, `idx` was undefined,
+`reopen()` found no opener and — by its own deliberate design — returned
+quietly. The result: `state.pageView` said Study while the Book leaf stayed on
+screen, and in the fork `dlk-view` was persisted as Study on the way out.
+
+Two things then went wrong, and the second is not obvious:
+
+- **The reader was stuck.** `setPageView` opens with
+  `if(state.pageView === on) return;`, so the Study chip was a no-op from then
+  on. Recovery was Book first, *then* Study — which is why it felt broken.
+- **"Save my place" silently stopped working.** `saveDalailPlace` branched on
+  `state.pageView`, so with the flag saying Study it took the Study path:
+  `verse: topVisibleVerse()`, which finds no `article.verse` in a Book render
+  and returns **0**. It stored a Study place at verse 0 with no `mk` — nothing
+  highlighted, the chip never lit, and the bookmark pointed at the top of the
+  chapter. Reported as "Save my place isn't working at all on Sunday"; Sunday
+  was just the day being read.
+
+Three defences now, and all three matter:
+
+1. The call passes `p.kind, p.idx`. `msPiece` carries both — use them.
+2. `setPageView` **bails before touching state** unless `OPENERS[kind]`
+   resolves to a function. Mutating state that the DOM will not follow is what
+   strands a reader, and the early return above then hides it.
+3. `saveDalailPlace` takes its view from **`renderedView()`**, not
+   `state.pageView`. That helper exists precisely for this and its own comment
+   says so; the bookmark was a caller that should have been using it.
+
+**The Save chip is Book-Version only** (`kind === 'd' && pageView`), so there
+is no Study-view save to reach from the UI — worth knowing before testing it.
 
 ---
 
