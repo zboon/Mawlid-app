@@ -22,8 +22,8 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v404** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v81** |
+| **Mawalid** (this repo) | the full collection | **v405** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v82** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -303,8 +303,25 @@ remaining seven). Follow these for `[5]` and for any re-check:
 ### Markers
 
 - **`۞` (U+06DE)** divides one recitation unit from the next. **A space either
-  side, always.** The renderer appends one after every verse, so `۞` inside `ar`
-  is only for divisions *within* a verse. Never mirrored into `tr` or `en`.
+  side, always.** The **Book Version** appends one after every verse (unless
+  `noRosette`, or the verse runs on to the next leaf), so a `۞` inside `ar` is
+  only for divisions *within* a verse. The **Study Version appends none** — each
+  verse already sits in its own numbered card — so every rosette it shows is an
+  internal one. Never mirrored into `tr` or `en`.
+
+  **The two weights are styled apart (v405 / v82).** Internal rosettes are
+  faded and slightly smaller, so the full-strength ones are what mark where a
+  verse begins and ends; a long duʿāʾ otherwise read as one undifferentiated
+  chain of stars (Sunday v20 chains eleven petitions with ten rosettes between
+  them). The Book Version sets **both** from `ms-r`, so its internal ones carry
+  an extra **`ms-r-in`**; Study needs no modifier because `.rosette` there is
+  internal by definition. Internal rosettes are also what `segWrap` splits on
+  to build the tappable segments, so they set the bookmark granularity — don't
+  suppress them outright.
+
+  Scale, if a sweep is ever proposed: 129 of the Dalāʾil's 779 verses carry an
+  internal rosette (one has 37), every Burdah verse has exactly one between its
+  hemistichs, and 322 of the 449 qasida verses have at least one.
 - **`‖` (U+2016)** forces a Book-Version page break at that word. Page breaks come
   only from `‖`, never from folio arithmetic. A trailing `‖` still turns the page.
 - **Order at a page turn: `word، ‖ next`.** The comma stays with the word before
