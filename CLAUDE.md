@@ -22,8 +22,8 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v405** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v82** |
+| **Mawalid** (this repo) | the full collection | **v406** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v83** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -309,19 +309,21 @@ remaining seven). Follow these for `[5]` and for any re-check:
   verse already sits in its own numbered card — so every rosette it shows is an
   internal one. Never mirrored into `tr` or `en`.
 
-  **The two weights are styled apart (v405 / v82).** Internal rosettes are
-  faded and slightly smaller, so the full-strength ones are what mark where a
-  verse begins and ends; a long duʿāʾ otherwise read as one undifferentiated
-  chain of stars (Sunday v20 chains eleven petitions with ten rosettes between
-  them). The Book Version sets **both** from `ms-r`, so its internal ones carry
-  an extra **`ms-r-in`**; Study needs no modifier because `.rosette` there is
-  internal by definition. Internal rosettes are also what `segWrap` splits on
-  to build the tappable segments, so they set the bookmark granularity — don't
-  suppress them outright.
+  **The Book Version fades its internal rosettes (v405 / v82).** They are
+  faded and slightly smaller, so the full-strength ones mark where a verse
+  begins and ends; a long duʿāʾ otherwise read as one undifferentiated chain
+  of stars. The Book Version sets both weights from `ms-r`, so its internal
+  ones carry an extra **`ms-r-in`**.
+
+  **The Study Version fades nothing, and in the Dalāʾil shows no rosette at
+  all** — see *Rosette to rosette* below. Elsewhere in Study the rosette
+  divides the two hemistichs of one line of poetry, where full strength is
+  right.
 
   Scale, if a sweep is ever proposed: 129 of the Dalāʾil's 779 verses carry an
-  internal rosette (one has 37), every Burdah verse has exactly one between its
-  hemistichs, and 322 of the 449 qasida verses have at least one.
+  internal rosette (one has 37 — 779 verses make 1,257 units), every Burdah
+  verse has exactly one between its hemistichs, and 322 of the 449 qasida
+  verses have at least one.
 - **`‖` (U+2016)** forces a Book-Version page break at that word. Page breaks come
   only from `‖`, never from folio arithmetic. A trailing `‖` still turns the page.
 - **Order at a page turn: `word، ‖ next`.** The comma stays with the word before
@@ -513,6 +515,53 @@ Three defences now, and all three matter:
 is no Study-view save to reach from the UI — worth knowing before testing it.
 
 ---
+
+## Rosette to rosette — the Study reader's unit cards
+
+**Both apps, v406 / v83. The Dalāʾil's Study Version only.** A verse there is
+one recitation unit: the rosette is the **card boundary**, not a glyph, and the
+cards are numbered straight through the chapter (Sunday: 49 corpus verses →
+**92 cards, 1..92**; the whole Dalāʾil: 779 → 1,257).
+
+The owner's reason: the verse array's boundaries are an editorial chunking
+nobody recorded — they arrived whole in commit `840c749`, not from the printing,
+which marks every rosette alike. So "where does a duʿāʾ start?" had no answer
+the reader could see. Two earlier attempts were rejected: fading the internal
+rosettes (v405, still in force for the **Book** Version) and numbering the units
+inline inside the Arabic (the first v406) — *"too complicated"*.
+
+**The corpus is not re-chunked, and must not be.** This is a render-time split
+in `readerHTML` only:
+
+- Every card keeps its **source verse's `data-v`**, so bookmarks,
+  `topVisibleVerse`, `scrollToVerse`, search hits and a live session all go on
+  speaking in verse indices, and `folios` — which are **verse-index ranges** —
+  never move. The Book Version is untouched.
+- `arUnitsHTML(s)` splits the **finished html** on `ROSETTE_SPAN`, not the raw
+  string. Rendering each piece separately would restart `.seg` numbering per
+  card, and a search hit indexes into that numbering across the whole verse. It
+  returns one chunk if the split does not line up, so a surprise costs the
+  split and never the text.
+- **A verse is now several DOM nodes.** `placeVerse` clears and sets `.placed`
+  and `.verse-place.on` with `querySelectorAll` — a single `querySelector` left
+  a stray ribbon on the second card. `scrollToVerse` searches the group for the
+  card that actually holds the seg, or a hit past the first rosette lands short
+  of what it flashes.
+- The resume card announces `dalailUnitNo(idx, n)`, not `verse + 1` — the
+  corpus verse number is not a number the reader can see any more.
+
+**Why a real re-chunk was not done:** `tr` and `en` carry no rosette and cannot
+be split mechanically — only **21 of the 129** multi-unit verses have one
+sentence per unit, and the big ones are hopeless (Saturday v21 is 38 units in 3
+sentences; Friday v1 is 26 units in one). Splitting them by hand is ~600
+transliteration and ~600 translation fragments cut inside a devotional text,
+plus a `folios` remap and every stored bookmark invalidated. So **a verse's
+`tr`/`en` sit under the last of its unit cards** — visible only when a reader
+turns the columns on, which is off by default since v403.
+
+Not extended to the litanies, and **not to any other collection**: there the
+rosette divides two hemistichs of one line, and a card boundary would cut the
+line in half.
 
 ## The repeating refrain
 
