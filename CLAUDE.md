@@ -22,8 +22,8 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v407** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v84** |
+| **Mawalid** (this repo) | the full collection | **v408** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v85** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -309,15 +309,14 @@ remaining seven). Follow these for `[5]` and for any re-check:
   verse already sits in its own numbered card — so every rosette it shows is an
   internal one. Never mirrored into `tr` or `en`.
 
-  **The Book Version fades its internal rosettes (v405).** They are faded and
-  slightly smaller, so the full-strength ones mark where a verse begins and
-  ends; a long duʿāʾ otherwise read as one undifferentiated chain of stars.
-  Both weights come from `ms-r`, so the internal ones carry an extra
-  **`ms-r-in`**. **Study is not faded** — v405 faded it too and v407 took that
-  back out: Study appends no closing rosette, so a fade there dims every
-  rosette the reader sees and marks nothing. Internal rosettes are also what
-  `segWrap` splits on to build the tappable segments, so they set the bookmark
-  granularity — don't suppress them outright.
+  **Nothing is faded, in either view (v408).** v405 dimmed the internal
+  rosettes so the full-strength ones would mark where a verse begins and ends;
+  the owner had that out of Study in v407 and out of the Book Version in v408.
+  The printing sets every rosette alike and the app follows it. The `ms-r-in`
+  class still marks which Book rosettes are internal — it just carries no
+  styling. Internal rosettes are also what `segWrap` splits on to build the
+  tappable segments, so they set the bookmark granularity — don't suppress
+  them outright.
 
   Scale, if a sweep is ever proposed: 129 of the Dalāʾil's 779 verses carry an
   internal rosette (one has 37 — 779 verses make 1,257 units), every Burdah
@@ -517,9 +516,9 @@ is no Study-view save to reach from the UI — worth knowing before testing it.
 
 ## Where a duʿāʾ starts — three attempts, all reverted
 
-**Settled for now: the Study card stays the corpus verse.** Live is v407 / v84,
-which is v404 behaviour plus the Study un-fade. Do not re-propose any of this
-without the owner raising it first.
+**Settled for now: the Study card stays the corpus verse, and no rosette is
+faded anywhere.** Live is v408 / v85, which is v404 rendering exactly. Do not
+re-propose any of this without the owner raising it first.
 
 The problem is real and unsolved. The `verses` array's boundaries are an
 **editorial chunking nobody recorded** — they arrived whole in commit `840c749`
@@ -531,9 +530,9 @@ two) and v20 (eleven petitions in one card) are both artefacts of it.
 What was tried, in order, and why each came back out:
 
 1. **v405 — fade the internal rosettes** in both views, so the full-strength
-   ones read as boundaries. Kept for the **Book** Version, where it works;
-   reverted for Study, where every rosette is internal so the fade marked
-   nothing.
+   ones read as boundaries. Out of Study in v407 (every rosette there is
+   internal, so the fade marked nothing) and out of the Book Version in v408
+   on the owner's call — the printing sets them all alike.
 2. **v406 — number the units inline** inside the Arabic, subordinate to the
    verse circle. *"Too complicated"* — two competing counts on one card.
 3. **v407 — one card per unit** (the rosette as card boundary, numbered
