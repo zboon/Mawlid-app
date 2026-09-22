@@ -22,8 +22,8 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v408** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v85** |
+| **Mawalid** (this repo) | the full collection | **v409** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v86** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -684,8 +684,40 @@ that actually has verses" — it skips unfilled scaffolds such as the litany
 title slots, which are hidden from every index and would otherwise strand the
 reader on blank placeholders. It takes kind/idx rather than reading `msPiece`,
 because `readerHTML` needs it while building a page, before `msPiece` has been
-set for that piece. `nextPiece()` now delegates to it, so the Book Version's
-existing carry-on from the last leaf is unchanged.
+set for that piece. `nextPiece()` delegates to it, so the Book Version's
+carry-on from the last leaf follows the same definition.
+
+**The Dalāʾil's chain is bounded by group (v409 / v86).** `DALAIL_GROUPS` is
+`[[1,5],[6,14]]` and `neighbourPiece` keeps kind `'d'` inside whichever group
+the chapter is in — the same two groups the Dalāʾil index already shows. So the
+before-reading sequence runs Opening Duʿāʾ → Names of Allah → Seeking Refuge →
+Sayyid al-Istighfār and **closes on the Names of the Prophet** rather than
+tipping the reader into Monday's portion; the week still carries on to the
+Duʿāʾ of Completion. `[0]`, the About page, is in neither group: its own Next
+leads into the sequence (unbounded, because `dalailGroup` returns null) but the
+sequence never sends a reader back to it. This also bounds the Book Version's
+leaf carry-on, which is the point — the next arrow on the last leaf of the
+Names of the Prophet is now the end of the reading, not a door into Monday.
+
+**And the before-reading group — only that group — carries the worded pair in
+the Book Version too (v409 / v86), on the owner's call.** `msChapNav(kind, idx)`
+renders it under the leaf arrows; `.ms-chap` is in the DOM from the first paint
+and CSS shows it only on the chapter's last leaf, because building it on
+arrival would mean re-rendering the book and throwing away the leaf the reader
+is on. `msSyncChapNav()` flips that class and is deliberately **separate from
+`msSyncDots`**: `msSyncDots` is reached from the `#ms-book` onscroll handler
+and not from a plain open, so a one-leaf chapter (`[3]`, `[4]`) would never
+show the pair at all — it is called from `queueMsAutoFit`'s run and from the
+resize handler as well. It reuses the `.chap-nav` markup, which is already in
+the `html.immersive` hide list, so full screen hides it for free.
+The v401 reasoning still holds everywhere else: no worded pair on a daily
+portion, a litany, or any other Book chapter.
+
+Worth knowing before judging the placement: the leaf is **taller than the
+viewport**, so the static dots and arrows already sit below the fold — that is
+why a **fixed** `#ms-float` arrow pair exists. The worded pair sits below the
+dots, which means a reader reaches it by scrolling past the end of the last
+leaf. That is deliberate: it appears where the reading actually finishes.
 
 The buttons are laid out left-to-right, unlike the leaf arrows, which point the
 way an Arabic book turns (`‹` is *next*). These are worded controls, so they
