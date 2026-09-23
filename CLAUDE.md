@@ -371,7 +371,15 @@ Check every new word for a mark-order mismatch against what is already there.
 
 Passages the book prints in coloured rather than black ink go in
 `INLINE_INSTRUCTIONS`, which golds them inline without breaking the line. Repeat
-counts use the `" (3)"` convention — never `(3x)`.
+counts use the `" (3)"` convention — never `(3x)`. **The `x` is not cosmetic:**
+the golding regex matches only digits in brackets, so `(2x)` renders as plain
+text. v411 swept **62** of them out of ten qasidas and one Sīrah line — only 2
+of the qasidas' Arabic repeat counts had been golded; 30 are now. A new import
+that brings `(Nx)` with it needs the same treatment. **Western digits, in the
+Arabic column too:** 29 of those came in as `(٢x)`, and were written `(2)`, not
+`(٢)` — every one of the 24 golded counts already in the corpus used western
+digits, and Amiri draws `(٢)` inside an ornamental medallion, a look the app
+had never shown.
 
 ---
 
