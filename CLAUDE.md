@@ -592,9 +592,12 @@ verses. Nothing else in the corpus is flagged yet.
   is the owner's specification; don't "tidy" it into one of the other two.
 
 **Barzanji chapter 1 (`BARZANJI_CHAPTERS[0]`, the Preface) — both apps, v412 /
-v88.** Every one of its four verses ends with the gathering's response
-`(اللّٰه)`, in the **Arabic only** on the owner's instruction — `tr` and `en`
-untouched. The Name is the house form copied from the corpus, and the cue is
+v88.** In verses 1–3 the gathering's response `(اللّٰه)` closes **every
+recitation unit** — before each of the 11 rosettes and at the end of the verse
+(5, 5 and 4 per card) — in the **Arabic only**, on the owner's instruction;
+`tr` and `en` untouched. Each unit ends on the chapter's rhyme (`-iyyah`,
+`-āh`), which is where the answer falls. **Not v4**, the closing ṣalawāt: it
+carried the cue at first and the owner took it back off before release. The Name is the house form copied from the corpus, and the cue is
 golded by its own `INLINE_INSTRUCTIONS` entry, like `(2)` and the standing.
 Two things worth knowing:
 
@@ -602,7 +605,9 @@ Two things worth knowing:
   Mawalid's (the source *text* differs by 93 bytes of layout only), so a
   Barzanji change goes into both — as the refrain above did.
 - **v4 is the closing ṣalawāt, `…صَلِّ وَسَلِّمْ وَبَارِكْ عَلَيْهِ`, and that
-  exact line ends 18 chapters.** An anchor on its text alone matches all 18;
+  exact line ends 18 chapters — this one and 17 others.** Count "18" as
+  including chapter 1; a guard that expected 18 *others* aborted the v4
+  revert until it was corrected. An anchor on its text alone matches all 18;
   scope it to the chapter's own slice of the file (up to the next chapter's
   title) and assert one match there. The build did exactly that after the
   guard caught the first attempt.
