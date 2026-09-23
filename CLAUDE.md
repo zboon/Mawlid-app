@@ -22,7 +22,7 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v410** |
+| **Mawalid** (this repo) | the full collection | **v411** |
 | **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v87** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
@@ -55,7 +55,7 @@ also where the reciter's name came from.
 |---|---|---|---|
 | `DALAIL_CHAPTERS` | 15 | 779 | `1,5,2,1,1,5,13,14,13,14,16,16,15,7,6` |
 | `LITANY_CHAPTERS` | 18 | 950 | `5,7,0,0,13,13,12,15,14,11,18,6,4,5,5,4,4,7` |
-| `QASIDAS` | 25 | 281 | — |
+| `QASIDAS` | 42 | 456 | — |
 | `BURDAH_CHAPTERS` | 10 | 167 | — |
 | `SIRAH_CHAPTERS` | 7 | 143 | — |
 | `DIYA_CHAPTERS` | 8 | 120 | — |
@@ -848,6 +848,42 @@ The refrain carries the house repeat marker `" (2)"` on all three columns — no
 
 The recording is `Ya Rabbi Salli Ala Muhammad.mp3` (Aashiq al-Rasul, 240 s).
 **`QASIDAS[27]` is a near-duplicate of this qasida and was not touched.**
+
+## Balagha-l-ʿUlā bi-Kamālihi — the Arabic qasida
+
+**`QASIDAS[41]`, v411. Mawalid only** — the fork's `QASIDAS` is a stale
+25-entry subset outside its Dalāʾil-and-aḥzāb scope, so it was not touched.
+Not to be confused with the **qawwali** of the same name in
+`QAWWALI_CHAPTERS` (Urdu/Persian/Arabic, Latin script), which also stands.
+
+The owner supplied **two** Arabic texts that disagree, plus their own English.
+Settled word by word, **the owner's English as the tiebreaker**, and approved
+by the owner before it was written:
+
+- Refrain: `بَلَغَ` (form I, "reached" — not `بَلَّغَ`), `صَلُّوا` (not `صَلَّوْا`,
+  which does not parse). Matches the text as published elsewhere.
+- v1 `الْمُتَأَلِّقِ … الْبَهَاءِ … لَمْ يُلْحَقِ` ("radiant … splendour …
+  unsurpassed"). The second source's `الْمُثَالِي … إِلَهٍ … لَمْ يُلَحْ` fits
+  neither the English nor the line, and its last word reverses it.
+- v4 `بِعُرَاكَ` ("your firm handhold") over `بِغَرَضِكَ` ("your purpose").
+- v5 `لِلثَّقَلَيْنِ` — **both** sources had it wrong (`لِلتَّقَلَيْنِ`, `لِلْقَلَيْنِ`);
+  confirmed against outside text. v6 `مُهَيَّمًا`, `دَهْرَهُ` (the latter the
+  closest call of the lot; `ذَرَّةً` was the alternative).
+- `عَلٰى` in v6 was **copied** from `QASIDAS[3]` for the dagger. 36 of the
+  words already existed in the corpus byte-identical; none clash on mark order.
+
+**The refrain repeats after the owner's #2, #4 and #6** (`repeatRefrain`),
+which the reader shows as cards **3, 5 and 7** — it counts the refrain as
+card 1, the same offset as the Daybaʿī above. The `(2)` sits on the last
+hemistich, `صَلُّوا عَلَيْهِ وَآلِهِ`, in all three columns.
+
+**Audio: `Balaghal Ula Bi Kamalihi by Syrian Munshids with English
+translation.mp4`, 273 s** (from the `mvhd` atom — this is an mp4, not an
+MP3, so the Xing method above does not apply). It is the one recording with
+a **video track** (H.264 + AAC; the subtitled video). The player is an
+`<audio>` element, which plays the sound and ignores the picture, so it works
+as-is — but a future upload should be audio-only like the Dalāʾil files. It
+carries no artist tag, so reciter `syrian` is named from the file name.
 
 ---
 

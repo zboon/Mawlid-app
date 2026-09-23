@@ -26,7 +26,7 @@
      script, where nothing that reads the page without running it can see
      it — so "which version is actually live?" could only be answered from
      a phone. Keep the two in step when bumping. -->
-<meta name="app-version" content="v410">
+<meta name="app-version" content="v411">
 <!-- YouTube's embedded player refuses to configure itself unless the host page
      sends a Referer (Error 153 / embedder.identity.missing.referrer). This is
      the browser default in most cases, but a standalone PWA or a WebView may
@@ -3105,6 +3105,39 @@ const QASIDAS = [
       { ar: "يَا رَحْمَةً لِلْعَالَمِينَ أَدْرِكْ لِزَيْنِ الْعَابِدِينَ ۞ مَحْبُوسَ أَيْدِي الظَّالِمِينَ فِي الْمَوْكِبِ وَالْمُزْدَحَمْ (٢x)",
         tr: "Yā raḥmatan li-l-ʿālamīn adrik li-Zayni-l-ʿĀbidīn ۞ maḥbūsa aydi-ẓ-ẓālimīna fi-l-mawkibi wa-l-muzdaḥam (2x)",
         en: "O mercy for all the worlds, come to the aid of Zayn al-ʿAbidin, held captive in the hands of the oppressors, amid the crowded procession." }
+    ]
+  },
+  {
+    category: "qasida",
+    group: "qasidas",
+    titleArabic: "بَلَغَ الْعُلَا بِكَمَالِهِ",
+    titleEnglish: "Balagha-l-ʿUlā bi-Kamālihi",
+    verses: [
+      { refrain: true,
+        ar: "بَلَغَ الْعُلَا بِكَمَالِهِ ۞ كَشَفَ الدُّجَى بِجَمَالِهِ\nحَسُنَتْ جَمِيعُ خِصَالِهِ ۞ صَلُّوا عَلَيْهِ وَآلِهِ (2)",
+        tr: "Balagha-l-ʿulā bi-kamālihi · kashafa-d-dujā bi-jamālihi\nḤasunat jamīʿu khiṣālihi · ṣallū ʿalayhi wa-ālihi (2)",
+        en: "He reached the highest in perfection; He removed the darkness with his beauty\nAll his qualities are beautiful, send peace and blessings upon him! (2)" },
+      { ar: "لَاحَ الْحَبِيبُ بِوَجْهِهِ الْمُتَأَلِّقِ قَمَرًا ۞ وَفِي أُفُقِ الْبَهَاءِ لَمْ يُلْحَقِ",
+        tr: "Lāḥa-l-ḥabību bi-wajhihi-l-muta'alliqi qamaran · wa fī ufuqi-l-bahā'i lam yulḥaqi",
+        en: "The Beloved appeared with his radiant face\nAs a moon on a horizon of splendour, unsurpassed" },
+      { repeatRefrain: true,
+        ar: "أَهْدَيْتَ لِلْأَكْوَانِ كُلَّ سَعَادَةٍ ۞ يَا صَاحِبَ الْوَجْهِ الْمُنِيرِ الْمُشْرِقِ",
+        tr: "Ahdayta li-l-akwāni kulla saʿādatin · yā ṣāḥiba-l-wajhi-l-munīri-l-mushriqi",
+        en: "You gifted all existent things with complete (eternal) felicity\nO possessor of a face so shining and resplendent" },
+      { ar: "يَا سَيِّدًا طَابَتْ عَنَاصِرُ أَصْلِهِ ۞ وَحَلَتْ مَذَاقَتُهَا لَدَى الْمُتَذَوِّقِ",
+        tr: "Yā sayyidan ṭābat ʿanāṣiru aṣlihi · wa ḥalat madhāqatuhā lada-l-mutadhawwiqi",
+        en: "O master, whose origin is pure and agreeable\nIt is most sweet in taste to he who savours it" },
+      { repeatRefrain: true,
+        ar: "يَا رَحْمَةً يَا نِعْمَةً يَا مِنْحَةً ۞ بِعُرَاكَ كَانَ تَمَسُّكِي وَتَعَلُّقِي",
+        tr: "Yā raḥmatan yā niʿmatan yā minḥatan · bi-ʿurāka kāna tamassukī wa taʿalluqī",
+        en: "O mercy, O bounty, O gift\nTo your reliable grip is my devotion and attachment" },
+      { ar: "وَبُعِثْتَ لِلثَّقَلَيْنِ أَعْظَمَ رَاحِمٍ ۞ بَلْ أَنْتَ لِلْعَاصِينَ أَشْفَقُ مُشْفِقٍ",
+        tr: "Wa buʿithta li-th-thaqalayni aʿẓama rāḥimin · bal anta li-l-ʿāṣīna ashfaqu mushfiqin",
+        en: "You were sent to humankind and the jinn, showing the greatest mercy\nNay, even to disobedient sinners you are concerned and tender" },
+      { repeatRefrain: true,
+        ar: "عَطْفًا عَلٰى مَنْ بَاتَ فِيكَ مُهَيَّمًا ۞ وَلِغَيْرِ بَابِكَ دَهْرَهُ لَمْ يَطْرُقِ",
+        tr: "ʿAṭfan ʿalā man bāta fīka muhayyaman · wa li-ghayri bābika dahrahu lam yaṭruqi",
+        en: "Take pity on one who has remained madly in love with you\nWho never knocked on any door besides yours" }
     ]
   }
 ];
@@ -12648,7 +12681,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v410';
+const APP_VERSION = 'v411';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -17522,6 +17555,9 @@ const RECITERS = {
   /* A group, not a shaykh, and spelled the way they spell it themselves
      rather than put through the app's transliteration. */
   aashiq:    { ar: 'عاشق الرسول',        en: 'Aashiq al-Rasul' },
+  /* Named from the file itself ("… by Syrian Munshids …"): it carries no
+     artist tag, only its encoder, so there is no fuller credit to give. */
+  syrian:    { ar: 'منشدون سوريون',       en: 'Syrian Munshids' },
 };
 
 /* Recordings hang off the chapter, not the collection: these seven portions
@@ -17548,6 +17584,10 @@ const DALAIL_AUDIO = {
    keyed by kind rather than reading one map. `secs` measured from the file. */
 const QASIDA_AUDIO = {
   3: [{ reciter:'aashiq', file:'Ya Rabbi Salli Ala Muhammad.mp3', secs:240 }],
+  /* Carries a video track too (the subtitled "with English translation"
+     video). The player is an <audio> element, which plays the sound and
+     ignores the picture, so it works as-is at 3.5 MB. */
+  41: [{ reciter:'syrian', file:'Balaghal Ula Bi Kamalihi by Syrian Munshids with English translation.mp4', secs:273 }],
 };
 
 const AUDIO_BY_KIND = { d: DALAIL_AUDIO, q: QASIDA_AUDIO };
