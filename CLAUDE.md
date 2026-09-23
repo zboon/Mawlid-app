@@ -22,8 +22,8 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v411** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v87** |
+| **Mawalid** (this repo) | the full collection | **v412** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v88** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -590,6 +590,22 @@ verses. Nothing else in the corpus is flagged yet.
   It is not broadcast either, so a leader never opens or closes anyone else's.
   That combination — per-session, survives re-render, not synced, not stored —
   is the owner's specification; don't "tidy" it into one of the other two.
+
+**Barzanji chapter 1 (`BARZANJI_CHAPTERS[0]`, the Preface) — both apps, v412 /
+v88.** Every one of its four verses ends with the gathering's response
+`(اللّٰه)`, in the **Arabic only** on the owner's instruction — `tr` and `en`
+untouched. The Name is the house form copied from the corpus, and the cue is
+golded by its own `INLINE_INSTRUCTIONS` entry, like `(2)` and the standing.
+Two things worth knowing:
+
+- **The fork carries the Barzanji too**, and its data is identical to
+  Mawalid's (the source *text* differs by 93 bytes of layout only), so a
+  Barzanji change goes into both — as the refrain above did.
+- **v4 is the closing ṣalawāt, `…صَلِّ وَسَلِّمْ وَبَارِكْ عَلَيْهِ`, and that
+  exact line ends 18 chapters.** An anchor on its text alone matches all 18;
+  scope it to the chapter's own slice of the file (up to the next chapter's
+  title) and assert one match there. The build did exactly that after the
+  guard caught the first attempt.
 
 ---
 
