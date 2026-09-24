@@ -22,8 +22,8 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v412** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v88** |
+| **Mawalid** (this repo) | the full collection | **v415** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v91** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -195,6 +195,17 @@ is printed correctly many times nearby; that is a compositor's slip and is
 corrected, with a note. Three such corrections exist in the Istighfār. Where a
 reading is merely odd and there is nothing to check it against, it stays as
 printed (see *Settled* below).
+
+**Wednesday `تُبُلِّغُنَا`/`وَتُبُلِّغُنَا` — v415/v91.** Reported by the owner reading
+from the app: a damma on the ب where the Form II mudāriʿ pattern (`تُفَعِّلُ`)
+takes a fatha there. Three occurrences, all in the same chapter — v24, v33
+(the word right before the `‖` on book p.7), v34 (the very next leaf) — all
+corrected to `تُبَلِّغُنَا`/`وَتُبَلِّغُنَا`. The identical verb form is spelled
+correctly with fatha-on-ب elsewhere in the corpus (Tuesday v3, Saturday v21,
+both `تُبَلِّغَنِي` — a different pronoun suffix, ـنِي "me" vs Wednesday's ـنَا
+"us", which is why the vowel on the final غ legitimately differs between them;
+only the ب was ever wrong). `tr` already read "tuballighunā" throughout and
+needed no change — only the Arabic bytes moved.
 
 ### سيدنا — RULING REVERSED, September 2026
 
@@ -591,26 +602,45 @@ verses. Nothing else in the corpus is flagged yet.
   That combination — per-session, survives re-render, not synced, not stored —
   is the owner's specification; don't "tidy" it into one of the other two.
 
-**Barzanji chapter 1 (`BARZANJI_CHAPTERS[0]`, the Preface) — both apps, v412 /
-v88.** In verses 1–3 the gathering's response `(اللّٰه)` closes **every
-recitation unit** — before each of the 11 rosettes and at the end of the verse
-(5, 5 and 4 per card) — in the **Arabic only**, on the owner's instruction;
-`tr` and `en` untouched. Each unit ends on the chapter's rhyme (`-iyyah`,
-`-āh`), which is where the answer falls. **Not v4**, the closing ṣalawāt: it
-carried the cue at first and the owner took it back off before release. The Name is the house form copied from the corpus, and the cue is
-golded by its own `INLINE_INSTRUCTIONS` entry, like `(2)` and the standing.
-Two things worth knowing:
+**Barzanji chapters 1 and 2 (`BARZANJI_CHAPTERS[0]`–`[1]`, the Preface and
+The Prophet's Lineage) — both apps, v414 / v90.** The gathering's response
+before every rosette is `(صَلَّى اللّٰهُ عَلَيْهِ)` ("SallAllahu alayh") —
+**replacing the v412 `(اللّٰه)`** on the owner's instruction. Copied from the
+corpus (the Barzanji itself already used this exact byte form 8 times)
+rather than typed, per non-negotiable 1.
 
-- **The fork carries the Barzanji too**, and its data is identical to
-  Mawalid's (the source *text* differs by 93 bytes of layout only), so a
-  Barzanji change goes into both — as the refrain above did.
-- **v4 is the closing ṣalawāt, `…صَلِّ وَسَلِّمْ وَبَارِكْ عَلَيْهِ`, and that
-  exact line ends 18 chapters — this one and 17 others.** Count "18" as
-  including chapter 1; a guard that expected 18 *others* aborted the v4
-  revert until it was corrected. An anchor on its text alone matches all 18;
-  scope it to the chapter's own slice of the file (up to the next chapter's
-  title) and assert one match there. The build did exactly that after the
-  guard caught the first attempt.
+**Went out unparenthesized and ungolded first (v413), then back in on both
+counts within the hour (v414).** The `INLINE_INSTRUCTIONS` entry that golded
+`(اللّٰه)` was removed as dead in v413 on the reasoning that the new phrase
+wasn't coloured ink from the book — the owner's next instruction overrode
+that: parentheses and gold both stay. The entry is back, now matching the
+new parenthesized phrase instead.
+
+**The verse immediately before each chapter's closing ṣalawāt drops the
+trailing (no-rosette) instance; every other verse keeps one.** Concretely:
+ch.1 v1–v2 carry the cue before each rosette *and* at the true end of the
+verse; v3 (the one right before v4, the closing ṣalawāt) carries it only
+before its rosettes, not at its own end — it runs straight into v4. Ch.2
+v1–v5 follow the same "both" pattern; v6 (right before v7, its closing
+ṣalawāt) is infix-only. Per-card counts: ch.1 `[5,5,3,0]`, ch.2
+`[2,3,5,5,6,5,0]` — rosette count, plus one more on every card except the
+closing verse and the one before it.
+
+**The phrase is ordinary vocabulary too** — 8 occurrences already existed
+elsewhere in the Barzanji (chapters 3, 5, 6, 9) as plain narrative text,
+unrelated to this cue. The build asserts those chapters are byte-identical
+to before, rather than asserting the phrase is absent from them.
+
+Two things carried over from v412:
+
+- **The fork carries the Barzanji too**, byte-identical data to Mawalid's
+  (the source *text* differs by layout only), so a Barzanji change goes into
+  both.
+- **v4 (ch.1) and v7 (ch.2) are the closing ṣalawāt, `…صَلِّ وَسَلِّمْ
+  وَبَارِكْ عَلَيْهِ`, and that exact line closes 18 chapters in all.** An
+  anchor on its text alone matches all 18; scope any edit to the chapter's
+  own slice of the file (title to the next chapter's title) and assert one
+  match there.
 
 ---
 
