@@ -17197,16 +17197,20 @@ function toggle(kind,i){ state.showTr = !state.showTr; saveCols(); reopen(kind,i
      which is what keeps a follower's own choice through a leader's
      navigation in a live session, exactly as `showTr`/`showEn` do. It is not
      broadcast either, so a leader never opens or closes anyone else's. */
+/* A repeat count on the refrain, e.g. Balagha-l-ʿUlā's " (2)", is for its first
+   singing only (owner's call) — the repeats print without it. */
+const stripRepeatCount = t => t.replace(/ \((?:[0-9]+|[٠-٩]+)\)/g, '');
 function refrainRepeatHTML(q){
   const r = q.verses.find(v => v.refrain);
   if(!r) return '';
+  const ar = stripRepeatCount(r.ar), tr = r.tr && stripRepeatCount(r.tr), en = r.en && stripRepeatCount(r.en);
   return `<div class="refrain-repeat${state.refrainOpen ? ' open' : ''}">
       <button class="refrain-repeat-btn" onclick="toggleRefrain()"
         aria-expanded="${state.refrainOpen ? 'true' : 'false'}">↻ Repeat refrain · يُرَدَّد</button>
       <div class="refrain-repeat-body">
-        <div class="v-ar">${arHTML(r.ar)}</div>
-        ${r.tr ? `<div class="v-tr ${state.showTr?'':'hide'}">${r.tr.replaceAll('\n','<br>')}</div>` : ''}
-        ${r.en ? `<div class="v-en ${state.showEn?'':'hide'}">${r.en.replaceAll('\n','<br>')}</div>` : ''}
+        <div class="v-ar">${arHTML(ar)}</div>
+        ${tr ? `<div class="v-tr ${state.showTr?'':'hide'}">${tr.replaceAll('\n','<br>')}</div>` : ''}
+        ${en ? `<div class="v-en ${state.showEn?'':'hide'}">${en.replaceAll('\n','<br>')}</div>` : ''}
       </div>
     </div>`;
 }

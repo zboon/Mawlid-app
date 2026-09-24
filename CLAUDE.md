@@ -931,7 +931,10 @@ by the owner before it was written:
 **The refrain repeats after the owner's #2, #4 and #6** (`repeatRefrain`),
 which the reader shows as cards **3, 5 and 7** — it counts the refrain as
 card 1, the same offset as the Daybaʿī above. The `(2)` sits on the last
-hemistich, `صَلُّوا عَلَيْهِ وَآلِهِ`, in all three columns.
+hemistich, `صَلُّوا عَلَيْهِ وَآلِهِ`, in all three columns — **on the opening
+refrain only** (v419, owner's call). The data keeps it; `refrainRepeatHTML`
+strips any ` (N)` count from the repeated copies (`stripRepeatCount`), so the
+rule holds for any future refrain that carries a count.
 
 **Audio: `Balaghal Ula Bi Kamalihi by Syrian Munshids with English
 translation.mp4`, 273 s** (from the `mvhd` atom — this is an mp4, not an
