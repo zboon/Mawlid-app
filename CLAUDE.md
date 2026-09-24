@@ -22,8 +22,8 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v415** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v91** |
+| **Mawalid** (this repo) | the full collection | **v416** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v92** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -641,6 +641,30 @@ Two things carried over from v412:
   anchor on its text alone matches all 18; scope any edit to the chapter's
   own slice of the file (title to the next chapter's title) and assert one
   match there.
+
+**Extended to Barzanji chapters 3 and 4 (`BARZANJI_CHAPTERS[2]`–`[3]`, The
+Events Leading to the Prophet's Birth and The Birth of the Prophet) — both
+apps, v416 / v92.** Same cue, same "both"/"infix before the closing ṣalawāt"
+format as ch.1–2, with one difference in ch.4: **the standing, sung part is
+excluded entirely.** That part is exactly what "The repeating refrain" above
+already flags — v3 (`refrain: true`) and v4–v20 (`repeatRefrain: true`), the
+verses a gathering stands and sings through (*Ashraqa al-Badru* and
+`يَا وَلِيَّ الْحَسَنَاتِ`) — none of those twenty verses take the cue. It
+resumes at v21 and runs to v22, the verse before v23's closing ṣalawāt.
+
+- Ch.3: v1–v3 "both" (before every rosette, plus once more at the verse's
+  true end); v4 (right before v5, the closing ṣalawāt) infix-only. Per-card
+  counts: `[5,5,4,2,0]`.
+- Ch.4: v1–v2 "both"; v3–v20 untouched; v21 "both"; v22 (right before v23,
+  the closing ṣalawāt) infix-only; v23 untouched. Per-card counts on the
+  treated verses: `[4,4, …skip…, 5,2,0]`.
+- No new `INLINE_INSTRUCTIONS` entry was needed — the existing bare-string
+  entry for `(صَلَّى اللّٰهُ عَلَيْهِ)` golds every occurrence regardless of
+  chapter.
+- Chapters 5, 6 and 9 still carry their pre-existing ordinary-vocabulary
+  occurrences of the same phrase (3, 3 and 1 respectively) — untouched, and
+  the build asserts chapters beyond ch.4 stay byte-identical rather than
+  asserting the phrase's absence.
 
 ---
 
