@@ -22,8 +22,8 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v413** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v89** |
+| **Mawalid** (this repo) | the full collection | **v414** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v90** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -592,14 +592,18 @@ verses. Nothing else in the corpus is flagged yet.
   is the owner's specification; don't "tidy" it into one of the other two.
 
 **Barzanji chapters 1 and 2 (`BARZANJI_CHAPTERS[0]`–`[1]`, the Preface and
-The Prophet's Lineage) — both apps, v413 / v89.** The gathering's response
-before every rosette is `صَلَّى اللّٰهُ عَلَيْهِ` ("SallAllahu alayh") — **replacing
-the v412 `(اللّٰه)`** on the owner's second instruction, less than a day after
-the first shipped. Copied from the corpus (the Barzanji itself already used
-this exact byte form 8 times) rather than typed, per non-negotiable 1. No
-longer in parentheses, and no longer golded — it isn't coloured ink from the
-book, so `INLINE_INSTRUCTIONS` was the wrong place for it; that dead entry
-came out with this change.
+The Prophet's Lineage) — both apps, v414 / v90.** The gathering's response
+before every rosette is `(صَلَّى اللّٰهُ عَلَيْهِ)` ("SallAllahu alayh") —
+**replacing the v412 `(اللّٰه)`** on the owner's instruction. Copied from the
+corpus (the Barzanji itself already used this exact byte form 8 times)
+rather than typed, per non-negotiable 1.
+
+**Went out unparenthesized and ungolded first (v413), then back in on both
+counts within the hour (v414).** The `INLINE_INSTRUCTIONS` entry that golded
+`(اللّٰه)` was removed as dead in v413 on the reasoning that the new phrase
+wasn't coloured ink from the book — the owner's next instruction overrode
+that: parentheses and gold both stay. The entry is back, now matching the
+new parenthesized phrase instead.
 
 **The verse immediately before each chapter's closing ṣalawāt drops the
 trailing (no-rosette) instance; every other verse keeps one.** Concretely:
