@@ -22,7 +22,7 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v419** |
+| **Mawalid** (this repo) | the full collection | **v420** |
 | **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v94** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
@@ -588,8 +588,11 @@ the chapter's own `refrain` verse, so any piece can use this by flagging its
 verses. Flagged so far: this chapter, Balagha-l-ʿUlā (`QASIDAS[41]`, below),
 and **Yā Imāma-r-Rusli (`QASIDAS[16]`, in the Daybaʿī) — v419, Mawalid only**:
 the refrain returns after every two verses, i.e. after cards 3, 5, 7 and 9,
-which is where each of its four couplets closes on the ‑ami rhyme. The fork's
-copy is untouched, per its stale-`QASIDAS` scope.
+which is where each of its four couplets closes on the ‑ami rhyme. And
+**Qaṣīdatu s-Salām (`QASIDAS[17]`) — v420, Mawalid only**: after every verse
+(cards 2–12), with its note changed from "after each set of verses" to "after
+each verse" so the two agree. The fork's copies of both are untouched, per its
+stale-`QASIDAS` scope.
 
 - **Collapsed by default**, showing one gold rule reading "↻ Repeat refrain".
   A tap opens **every marker in the chapter at once** — a reciter wants them
