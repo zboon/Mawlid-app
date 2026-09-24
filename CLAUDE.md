@@ -22,8 +22,8 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v415** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v91** |
+| **Mawalid** (this repo) | the full collection | **v418** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v94** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -602,45 +602,38 @@ verses. Nothing else in the corpus is flagged yet.
   That combination — per-session, survives re-render, not synced, not stored —
   is the owner's specification; don't "tidy" it into one of the other two.
 
-**Barzanji chapters 1 and 2 (`BARZANJI_CHAPTERS[0]`–`[1]`, the Preface and
-The Prophet's Lineage) — both apps, v414 / v90.** The gathering's response
-before every rosette is `(صَلَّى اللّٰهُ عَلَيْهِ)` ("SallAllahu alayh") —
-**replacing the v412 `(اللّٰه)`** on the owner's instruction. Copied from the
-corpus (the Barzanji itself already used this exact byte form 8 times)
-rather than typed, per non-negotiable 1.
+**The gathering's response in the Barzanji — a note, not the text (v418 /
+v94, both apps).** After each verse the reciter reads, the gathering
+customarily answers `صَلَّى اللّٰهُ عَلَيْهِ` or `اللّٰه`. That is now stated
+**once, in a note on the Barzanji landing page** (`barzanjiResponseNote()`,
+under the section intro), on the owner's instruction — and **nowhere in the
+verses.** Do not put a response cue back into the Arabic without the owner
+raising it.
 
-**Went out unparenthesized and ungolded first (v413), then back in on both
-counts within the hour (v414).** The `INLINE_INSTRUCTIONS` entry that golded
-`(اللّٰه)` was removed as dead in v413 on the reasoning that the new phrase
-wasn't coloured ink from the book — the owner's next instruction overrode
-that: parentheses and gold both stay. The entry is back, now matching the
-new parenthesized phrase instead.
+It went into the text first and came back out. v412–v417 printed a cue in
+the Arabic itself: `(اللّٰه)` on ch.1, then gold `(صَلَّى اللّٰهُ عَلَيْهِ)`
+before every rosette, spread to ch.1–18 (skipping ch.4's sung part and the
+Concluding Supplication), 78 verses. v418 removed every one and the
+`INLINE_INSTRUCTIONS` entry that golded it; the build asserts
+`BARZANJI_CHAPTERS` is **identical to v411's** (`6fff593`), the last release
+before any cue. Only the inserted, parenthesized cue went — "remove the
+salawat" meant that alone, not the text's own ṣalawāt.
 
-**The verse immediately before each chapter's closing ṣalawāt drops the
-trailing (no-rosette) instance; every other verse keeps one.** Concretely:
-ch.1 v1–v2 carry the cue before each rosette *and* at the true end of the
-verse; v3 (the one right before v4, the closing ṣalawāt) carries it only
-before its rosettes, not at its own end — it runs straight into v4. Ch.2
-v1–v5 follow the same "both" pattern; v6 (right before v7, its closing
-ṣalawāt) is infix-only. Per-card counts: ch.1 `[5,5,3,0]`, ch.2
-`[2,3,5,5,6,5,0]` — rosette count, plus one more on every card except the
-closing verse and the one before it.
+What survives from that work and is worth knowing:
 
-**The phrase is ordinary vocabulary too** — 8 occurrences already existed
-elsewhere in the Barzanji (chapters 3, 5, 6, 9) as plain narrative text,
-unrelated to this cue. The build asserts those chapters are byte-identical
-to before, rather than asserting the phrase is absent from them.
-
-Two things carried over from v412:
-
+- **The phrase is ordinary vocabulary too**: 8 plain occurrences in the
+  Barzanji's own narrative, in **chapters 4, 6, 7 and 10** (1, 3, 3, 1). An
+  older note said "3, 5, 6, 9" — 0-based indices read as chapter numbers.
 - **The fork carries the Barzanji too**, byte-identical data to Mawalid's
   (the source *text* differs by layout only), so a Barzanji change goes into
   both.
-- **v4 (ch.1) and v7 (ch.2) are the closing ṣalawāt, `…صَلِّ وَسَلِّمْ
-  وَبَارِكْ عَلَيْهِ`, and that exact line closes 18 chapters in all.** An
-  anchor on its text alone matches all 18; scope any edit to the chapter's
-  own slice of the file (title to the next chapter's title) and assert one
-  match there.
+- **Every chapter but the last closes on the same ṣalawāt,
+  `…صَلِّ وَسَلِّمْ وَبَارِكْ عَلَيْهِ` — 18 chapters.** An anchor on that text
+  matches all 18; scope an edit to the chapter's own slice of the file (its
+  title to the next chapter's title) and assert one match there. Ch.19, the
+  Concluding Supplication, has no closing ṣalawāt.
+- **Ch.13 v4** has a rosette straight after a Qurʾānic quotation
+  (`…الصَّلَاةْ﴾ ۞`) — anything placed at a rosette lands after the bracket.
 
 ---
 
