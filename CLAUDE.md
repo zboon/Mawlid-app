@@ -22,8 +22,8 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v416** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v92** |
+| **Mawalid** (this repo) | the full collection | **v417** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v93** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -627,9 +627,11 @@ v1–v5 follow the same "both" pattern; v6 (right before v7, its closing
 closing verse and the one before it.
 
 **The phrase is ordinary vocabulary too** — 8 occurrences already existed
-elsewhere in the Barzanji (chapters 3, 5, 6, 9) as plain narrative text,
-unrelated to this cue. The build asserts those chapters are byte-identical
-to before, rather than asserting the phrase is absent from them.
+in the Barzanji as plain, unparenthesized narrative text, unrelated to the
+cue: **chapters 4, 6, 7 and 10** (1, 3, 3, 1). This note used to say
+"3, 5, 6, 9" — those were 0-based array indices read as chapter numbers.
+Count the phrase *minus* its parenthesized form to see them; the checker
+asserts that per-chapter count, not the phrase's absence.
 
 Two things carried over from v412:
 
@@ -661,10 +663,21 @@ resumes at v21 and runs to v22, the verse before v23's closing ṣalawāt.
 - No new `INLINE_INSTRUCTIONS` entry was needed — the existing bare-string
   entry for `(صَلَّى اللّٰهُ عَلَيْهِ)` golds every occurrence regardless of
   chapter.
-- Chapters 5, 6 and 9 still carry their pre-existing ordinary-vocabulary
-  occurrences of the same phrase (3, 3 and 1 respectively) — untouched, and
-  the build asserts chapters beyond ch.4 stay byte-identical rather than
-  asserting the phrase's absence.
+
+**And to chapters 5–18 (`BARZANJI_CHAPTERS[4]`–`[17]`) — both apps, v417 /
+v93. The whole Barzanji now carries the cue except ch.4's sung part and
+ch.19, the Concluding Supplication (`[18]`, `الدُّعَاءُ`), which is excluded
+on the owner's instruction and has no closing ṣalawāt of its own.** Every
+one of chapters 5–18 is the same shape — narrative verses, then the standard
+closing ṣalawāt — with no refrain flags, so the rule is uniform: every verse
+"both", the one before the closing ṣalawāt infix-only, the closing ṣalawāt
+untouched (the build asserts it is byte-identical to ch.1's). 61 verses.
+Ch.13 v4 has a rosette straight after a Qurʾānic quotation (`…الصَّلَاةْ﴾ ۞`);
+the cue sits after the closing bracket, outside the quotation.
+
+Per-card cue count anywhere in the Barzanji is the card's rosette count,
+plus one if the card is "both". Verify a change by recomputing that from the
+data and comparing it with the rendered, golded count in a headless browser.
 
 ---
 
