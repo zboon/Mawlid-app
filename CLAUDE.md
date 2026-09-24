@@ -22,8 +22,8 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v414** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v90** |
+| **Mawalid** (this repo) | the full collection | **v415** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v91** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -195,6 +195,17 @@ is printed correctly many times nearby; that is a compositor's slip and is
 corrected, with a note. Three such corrections exist in the Istighfār. Where a
 reading is merely odd and there is nothing to check it against, it stays as
 printed (see *Settled* below).
+
+**Wednesday `تُبُلِّغُنَا`/`وَتُبُلِّغُنَا` — v415/v91.** Reported by the owner reading
+from the app: a damma on the ب where the Form II mudāriʿ pattern (`تُفَعِّلُ`)
+takes a fatha there. Three occurrences, all in the same chapter — v24, v33
+(the word right before the `‖` on book p.7), v34 (the very next leaf) — all
+corrected to `تُبَلِّغُنَا`/`وَتُبَلِّغُنَا`. The identical verb form is spelled
+correctly with fatha-on-ب elsewhere in the corpus (Tuesday v3, Saturday v21,
+both `تُبَلِّغَنِي` — a different pronoun suffix, ـنِي "me" vs Wednesday's ـنَا
+"us", which is why the vowel on the final غ legitimately differs between them;
+only the ب was ever wrong). `tr` already read "tuballighunā" throughout and
+needed no change — only the Arabic bytes moved.
 
 ### سيدنا — RULING REVERSED, September 2026
 
