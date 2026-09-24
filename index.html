@@ -26,7 +26,7 @@
      script, where nothing that reads the page without running it can see
      it — so "which version is actually live?" could only be answered from
      a phone. Keep the two in step when bumping. -->
-<meta name="app-version" content="v418">
+<meta name="app-version" content="v419">
 <!-- YouTube's embedded player refuses to configure itself unless the host page
      sends a Referer (Error 153 / embedder.identity.missing.referrer). This is
      the browser default in most cases, but a standalone PWA or a WebView may
@@ -2099,25 +2099,29 @@ const QASIDAS = [
       { ar: "قَسَمًا بِالنَّجْمِ حِينَ هَوَى ۞ مَا الْمُعَافَى وَالسَّقِيمُ سَوَا",
         tr: "Qasaman bi-n-najmi ḥīna hawā · mā-l-muʿāfā wa-s-saqīmu sawā",
         en: "By the star as it descends, I swear: the healthy and the ailing are not equal —" },
-      { ar: "فَاخْلَعِ الْكَوْنَيْنِ عَنْكَ سِوَى ۞ حُبِّ مَوْلَى الْعُرْبِ وَالْعَجَمِ",
+      { repeatRefrain: true,
+        ar: "فَاخْلَعِ الْكَوْنَيْنِ عَنْكَ سِوَى ۞ حُبِّ مَوْلَى الْعُرْبِ وَالْعَجَمِ",
         tr: "Fa-khlaʿi-l-kawnayni ʿanka siwā · ḥubbi mawlā-l-ʿurbi wa-l-ʿajami",
         en: "so cast off both worlds from yourself, keeping only love of the master of Arabs and non-Arabs." },
       { ar: "سَيِّدُ السَّادَاتِ مِنْ مُضَرِ ۞ غَوْثُ أَهْلِ الْبَدْوِ وَالْحَضَرِ",
         tr: "Sayyidu-s-sādāti min Muḍari · ghawthu ahli-l-badwi wa-l-ḥaḍari",
         en: "Master of masters from Mudar, the succor of desert dwellers and settled folk alike," },
-      { ar: "صَاحِبُ الْآيَاتِ وَالسُّوَرِ ۞ مَنْبَعُ الْأَحْكَامِ وَالْحِكَمِ",
+      { repeatRefrain: true,
+        ar: "صَاحِبُ الْآيَاتِ وَالسُّوَرِ ۞ مَنْبَعُ الْأَحْكَامِ وَالْحِكَمِ",
         tr: "Ṣāḥibu-l-āyāti wa-s-suwari · manbaʿu-l-aḥkāmi wa-l-ḥikami",
         en: "keeper of the verses and the chapters, wellspring of rulings and of wisdoms." },
       { ar: "قَمَرٌ طَابَتْ سَرِيرَتُهُ ۞ وَسَجَايَاهُ وَسِيرَتُهُ",
         tr: "Qamarun ṭābat sarīratuhu · wa sajāyāhu wa sīratuhu",
         en: "A moon whose inner essence is pure, and pure too his character and his way of life —" },
-      { ar: "صَفْوَةُ الْبَارِي وَخِيرَتُهُ ۞ عَدْلُ أَهْلِ الْحِلِّ وَالْحَرَمِ",
+      { repeatRefrain: true,
+        ar: "صَفْوَةُ الْبَارِي وَخِيرَتُهُ ۞ عَدْلُ أَهْلِ الْحِلِّ وَالْحَرَمِ",
         tr: "Ṣafwatu-l-Bārī wa khīratuhu · ʿadlu ahli-l-ḥilli wa-l-ḥarami",
         en: "the purest elect of the Maker and His chosen one, trusted just witness for all people, within the sanctuary and beyond." },
       { ar: "مَا رَأَتْ عَيْنٌ وَلَيْسَ تَرَى ۞ مِثْلَ طٰهٰ فِي الْوَرَى بَشَرَا",
         tr: "Mā ra'at ʿaynun wa laysa tarā · mithla Ṭāhā fī-l-warā basharā",
         en: "No eye has seen, nor shall it ever see, a human being like Taha among creation —" },
-      { ar: "خَيْرُ مَنْ مَسَّ الثَّرَى أَثَرَا ۞ طَاهِرُ الْأَخْلَاقِ وَالشِّيَمِ",
+      { repeatRefrain: true,
+        ar: "خَيْرُ مَنْ مَسَّ الثَّرَى أَثَرَا ۞ طَاهِرُ الْأَخْلَاقِ وَالشِّيَمِ",
         tr: "Khayru man massa-th-tharā atharā · ṭāhiru-l-akhlāqi wa-sh-shiyami",
         en: "the best whose footsteps ever touched the earth, pure in morals and in noble traits." }
     ]
@@ -12687,7 +12691,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v418';
+const APP_VERSION = 'v419';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -17193,16 +17197,20 @@ function toggle(kind,i){ state.showTr = !state.showTr; saveCols(); reopen(kind,i
      which is what keeps a follower's own choice through a leader's
      navigation in a live session, exactly as `showTr`/`showEn` do. It is not
      broadcast either, so a leader never opens or closes anyone else's. */
+/* A repeat count on the refrain, e.g. Balagha-l-ʿUlā's " (2)", is for its first
+   singing only (owner's call) — the repeats print without it. */
+const stripRepeatCount = t => t.replace(/ \((?:[0-9]+|[٠-٩]+)\)/g, '');
 function refrainRepeatHTML(q){
   const r = q.verses.find(v => v.refrain);
   if(!r) return '';
+  const ar = stripRepeatCount(r.ar), tr = r.tr && stripRepeatCount(r.tr), en = r.en && stripRepeatCount(r.en);
   return `<div class="refrain-repeat${state.refrainOpen ? ' open' : ''}">
       <button class="refrain-repeat-btn" onclick="toggleRefrain()"
         aria-expanded="${state.refrainOpen ? 'true' : 'false'}">↻ Repeat refrain · يُرَدَّد</button>
       <div class="refrain-repeat-body">
-        <div class="v-ar">${arHTML(r.ar)}</div>
-        ${r.tr ? `<div class="v-tr ${state.showTr?'':'hide'}">${r.tr.replaceAll('\n','<br>')}</div>` : ''}
-        ${r.en ? `<div class="v-en ${state.showEn?'':'hide'}">${r.en.replaceAll('\n','<br>')}</div>` : ''}
+        <div class="v-ar">${arHTML(ar)}</div>
+        ${tr ? `<div class="v-tr ${state.showTr?'':'hide'}">${tr.replaceAll('\n','<br>')}</div>` : ''}
+        ${en ? `<div class="v-en ${state.showEn?'':'hide'}">${en.replaceAll('\n','<br>')}</div>` : ''}
       </div>
     </div>`;
 }
