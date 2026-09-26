@@ -22,7 +22,7 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v420** |
+| **Mawalid** (this repo) | the full collection | **v421** |
 | **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v94** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
@@ -40,6 +40,15 @@ titles from `DALAIL_CHAPTERS` directly — adding a recording anywhere else need
 both of those, or the row renders blank. `audioUrl()` percent-encodes each path
 segment because one file name has spaces in it; it is the **only** place a URL
 is built, which is what keeps the fetch and the Cache API key the same string.
+
+A recording may carry its own **`title`**, which the player, the lock screen
+and the Downloads row show in place of the piece's title — the Caravaner's
+Qasida (`QASIDA_AUDIO[4]`, `Caravan Qasida.mp3`, 309 s, v421) is "The
+Caravaner's Qasida" there, not its full "— Ṣalātullāhi mā lāḥat kawākib"
+heading. It also carries **no `reciter`**: its only artist tag reads "Roy
+Clark", which nobody has confirmed, so the player shows no credit rather than
+a guess. The player and Downloads row are built to render a missing reciter
+cleanly — keep them that way.
 
 The **Listen button shows when there is a local recording or a `video` link**.
 It used to require `video`, so a chapter with a file and no YouTube link had no
@@ -591,8 +600,9 @@ the refrain returns after every two verses, i.e. after cards 3, 5, 7 and 9,
 which is where each of its four couplets closes on the ‑ami rhyme. And
 **Qaṣīdatu s-Salām (`QASIDAS[17]`) — v420, Mawalid only**: after every verse
 (cards 2–12), with its note changed from "after each set of verses" to "after
-each verse" so the two agree. The fork's copies of both are untouched, per its
-stale-`QASIDAS` scope.
+each verse" so the two agree. And **the Caravaner's Qasida (`QASIDAS[4]`, in
+the Daybaʿī) — v421, Mawalid only**: after every verse (cards 2–17). The
+fork's copies of all three are untouched, per its stale-`QASIDAS` scope.
 
 - **Collapsed by default**, showing one gold rule reading "↻ Repeat refrain".
   A tap opens **every marker in the chapter at once** — a reciter wants them

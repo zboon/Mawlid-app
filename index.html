@@ -26,7 +26,7 @@
      script, where nothing that reads the page without running it can see
      it — so "which version is actually live?" could only be answered from
      a phone. Keep the two in step when bumping. -->
-<meta name="app-version" content="v420">
+<meta name="app-version" content="v421">
 <!-- YouTube's embedded player refuses to configure itself unless the host page
      sends a Referer (Error 153 / embedder.identity.missing.referrer). This is
      the browser default in most cases, but a standalone PWA or a WebView may
@@ -1565,52 +1565,68 @@ const QASIDAS = [
         ar: "صَلَاةُ اللّٰهِ مَا لَاحَتْ كَوَاكِبْ ۞ عَلٰى أَحْمَدْ خَيْرِ مَنْ رَكِبَ النَّجَائِبْ",
         tr: "Ṣalātullāhi mā lāḥat kawākib · ʿalā Aḥmad khayri man rakiba-n-najā'ib",
         en: "Allah's blessings, for as long as stars shine, upon Ahmad, the best who ever rode the noble camels." },
-      { ar: "حَدَى حَادِي السُّرَى بِاسْمِ الْحَبَائِبْ ۞ فَهَزَّ السُّكْرُ أَعْطَافَ الرَّكَائِبْ",
+      { repeatRefrain: true,
+        ar: "حَدَى حَادِي السُّرَى بِاسْمِ الْحَبَائِبْ ۞ فَهَزَّ السُّكْرُ أَعْطَافَ الرَّكَائِبْ",
         tr: "Ḥadā ḥādī-s-surā bi-smi-l-ḥabā'ib · fa-hazza-s-sukru aʿṭāfa-r-rakā'ib",
         en: "The night caravaner sang the names of the beloved ones, and rapture swayed the flanks of the mounts." },
-      { ar: "أَلَمْ تَرَهَا وَقَدْ مَدَّتْ خُطَاهَا ۞ وَسَالَتْ مِنْ مَدَامِعِهَا سَحَائِبْ",
+      { repeatRefrain: true,
+        ar: "أَلَمْ تَرَهَا وَقَدْ مَدَّتْ خُطَاهَا ۞ وَسَالَتْ مِنْ مَدَامِعِهَا سَحَائِبْ",
         tr: "Alam tarahā wa qad maddat khuṭāhā · wa sālat min madāmiʿihā saḥā'ib",
         en: "Did you not see how the camels lengthened their strides, while clouds of tears streamed from their eyes?" },
-      { ar: "وَمَالَتْ لِلْحِمَى طَرَبًا وَحَنَّتْ ۞ إِلَى تِلْكَ الْمَعَالِمِ وَالْمَلَاعِبْ",
+      { repeatRefrain: true,
+        ar: "وَمَالَتْ لِلْحِمَى طَرَبًا وَحَنَّتْ ۞ إِلَى تِلْكَ الْمَعَالِمِ وَالْمَلَاعِبْ",
         tr: "Wa mālat li-l-ḥimā ṭaraban wa ḥannat · ilā tilka-l-maʿālimi wa-l-malāʿib",
         en: "They leaned toward the sanctuary in joy, yearning for those landmarks and beloved grounds." },
-      { ar: "فَدَعْ جَذْبَ الزِّمَامِ وَلَا تَسُقْهَا ۞ فَقَائِدُ شَوْقِهَا لِلْحَيِّ جَاذِبْ",
+      { repeatRefrain: true,
+        ar: "فَدَعْ جَذْبَ الزِّمَامِ وَلَا تَسُقْهَا ۞ فَقَائِدُ شَوْقِهَا لِلْحَيِّ جَاذِبْ",
         tr: "Fa-daʿ jadhba-z-zimāmi wa lā tasuqhā · fa-qā'idu shawqihā li-l-ḥayyi jādhib",
         en: "So let go of the reins and do not drive them — the pull of their longing already draws them to the dwelling." },
-      { ar: "فَهِمْ طَرَبًا كَمَا هَامَتْ وَإِلَّا ۞ فَإِنَّكَ فِي طَرِيقِ الْحُبِّ كَاذِبْ",
+      { repeatRefrain: true,
+        ar: "فَهِمْ طَرَبًا كَمَا هَامَتْ وَإِلَّا ۞ فَإِنَّكَ فِي طَرِيقِ الْحُبِّ كَاذِبْ",
         tr: "Fa-him ṭaraban kamā hāmat wa illā · fa-innaka fī ṭarīqi-l-ḥubbi kādhib",
         en: "Be swept with rapture as they are — or else you are no true traveler on the path of love." },
-      { ar: "أَمَا هٰذَا الْعَقِيقُ بَدَا وَهَذِي ۞ قِبَابُ الْحَيِّ لَاحَتْ وَالْمَضَارِبْ",
+      { repeatRefrain: true,
+        ar: "أَمَا هٰذَا الْعَقِيقُ بَدَا وَهَذِي ۞ قِبَابُ الْحَيِّ لَاحَتْ وَالْمَضَارِبْ",
         tr: "Amā hādhā-l-ʿaqīqu badā wa hādhī · qibābu-l-ḥayyi lāḥat wa-l-maḍārib",
         en: "Look — the valley of al-Aqiq has appeared, and there the domes of the quarter and its tents come into view." },
-      { ar: "وَتِلْكَ الْقُبَّةُ الْخَضْرَا وَفِيهَا ۞ نَبِيٌّ نُورُهُ يَجْلُو الْغَيَاهِبْ",
+      { repeatRefrain: true,
+        ar: "وَتِلْكَ الْقُبَّةُ الْخَضْرَا وَفِيهَا ۞ نَبِيٌّ نُورُهُ يَجْلُو الْغَيَاهِبْ",
         tr: "Wa tilka-l-qubbatu-l-khaḍrā wa fīhā · nabiyyun nūruhu yajlū-l-ghayāhib",
         en: "And that is the Green Dome — within it rests a Prophet whose light dispels every darkness." },
-      { ar: "وَقَدْ صَحَّ الرِّضَى وَدَنَا التَّلَاقِي ۞ وَقَدْ جَاءَ الْهَنَا مِنْ كُلِّ جَانِبْ",
+      { repeatRefrain: true,
+        ar: "وَقَدْ صَحَّ الرِّضَى وَدَنَا التَّلَاقِي ۞ وَقَدْ جَاءَ الْهَنَا مِنْ كُلِّ جَانِبْ",
         tr: "Wa qad ṣaḥḥa-r-riḍā wa danā-t-talāqī · wa qad jā'a-l-hanā min kulli jānib",
         en: "Acceptance is assured and the meeting draws near; happiness has arrived from every side." },
-      { ar: "فَقُلْ لِلنَّفْسِ دُونَكِ وَالتَّمَلِّي ۞ فَمَا دُونَ الْحَبِيبِ الْيَوْمَ حَاجِبْ",
+      { repeatRefrain: true,
+        ar: "فَقُلْ لِلنَّفْسِ دُونَكِ وَالتَّمَلِّي ۞ فَمَا دُونَ الْحَبِيبِ الْيَوْمَ حَاجِبْ",
         tr: "Fa-qul li-n-nafsi dūnaki wa-t-tamallī · fa-mā dūna-l-ḥabībi-l-yawma ḥājib",
         en: "So tell the soul: take your fill of gazing — today no veil stands before the Beloved." },
-      { ar: "تَمَلِّي بِالْحَبِيبِ بِكُلِّ قَصْدٍ ۞ فَقَدْ حَصَلَ الْهَنَا وَالضِّدُّ غَائِبْ",
+      { repeatRefrain: true,
+        ar: "تَمَلِّي بِالْحَبِيبِ بِكُلِّ قَصْدٍ ۞ فَقَدْ حَصَلَ الْهَنَا وَالضِّدُّ غَائِبْ",
         tr: "Tamallī bi-l-ḥabībi bi-kulli qaṣdin · fa-qad ḥaṣala-l-hanā wa-ḍ-ḍiddu ghā'ib",
         en: "Delight fully in the Beloved with every intent — joy has been attained and all that opposes it is gone." },
-      { ar: "نَبِيُّ اللّٰهِ خَيْرُ الْخَلْقِ جَمْعًا ۞ لَهُ أَعْلَى الْمَنَاصِبِ وَالْمَرَاتِبْ",
+      { repeatRefrain: true,
+        ar: "نَبِيُّ اللّٰهِ خَيْرُ الْخَلْقِ جَمْعًا ۞ لَهُ أَعْلَى الْمَنَاصِبِ وَالْمَرَاتِبْ",
         tr: "Nabiyyullāhi khayru-l-khalqi jamʿā · lahu aʿlā-l-manāṣibi wa-l-marātib",
         en: "The Prophet of Allah is the best of all creation; his are the highest offices and ranks." },
-      { ar: "لَهُ الْجَاهُ الرَّفِيعُ لَهُ الْمَعَالِي ۞ لَهُ الشَّرَفُ الْمُؤَبَّدُ وَالْمَنَاقِبْ",
+      { repeatRefrain: true,
+        ar: "لَهُ الْجَاهُ الرَّفِيعُ لَهُ الْمَعَالِي ۞ لَهُ الشَّرَفُ الْمُؤَبَّدُ وَالْمَنَاقِبْ",
         tr: "Lahu-l-jāhu-r-rafīʿu lahu-l-maʿālī · lahu-sh-sharafu-l-mu'abbadu wa-l-manāqib",
         en: "His is the exalted esteem, his the heights of glory, his the everlasting honor and noble virtues." },
-      { ar: "فَلَوْ أَنَّا سَعَيْنَا كُلَّ حِينٍ ۞ عَلٰى الْأَحْدَاقِ لَا فَوْقَ النَّجَائِبْ",
+      { repeatRefrain: true,
+        ar: "فَلَوْ أَنَّا سَعَيْنَا كُلَّ حِينٍ ۞ عَلٰى الْأَحْدَاقِ لَا فَوْقَ النَّجَائِبْ",
         tr: "Fa-law annā saʿaynā kulla ḥīnin · ʿalā-l-aḥdāqi lā fawqa-n-najā'ib",
         en: "Were we to journey to him at every moment upon our very eyes rather than on camels —" },
-      { ar: "وَلَوْ أَنَّا عَمِلْنَا كُلَّ يَوْمٍ ۞ لِأَحْمَدَ مَوْلِدًا قَدْ كَانَ وَاجِبْ",
+      { repeatRefrain: true,
+        ar: "وَلَوْ أَنَّا عَمِلْنَا كُلَّ يَوْمٍ ۞ لِأَحْمَدَ مَوْلِدًا قَدْ كَانَ وَاجِبْ",
         tr: "Wa law annā ʿamilnā kulla yawmin · li-Aḥmada mawlidan qad kāna wājib",
         en: "and were we to celebrate a mawlid for Ahmad every single day — it would only be his due." },
-      { ar: "عَلَيْهِ مِنَ الْمُهَيْمِنِ كُلَّ وَقْتٍ ۞ صَلَاةٌ مَا بَدَا نُورُ الْكَوَاكِبْ",
+      { repeatRefrain: true,
+        ar: "عَلَيْهِ مِنَ الْمُهَيْمِنِ كُلَّ وَقْتٍ ۞ صَلَاةٌ مَا بَدَا نُورُ الْكَوَاكِبْ",
         tr: "ʿAlayhi mina-l-Muhaymini kulla waqtin · ṣalātun mā badā nūru-l-kawākib",
         en: "Upon him, from the Guardian, in every moment, be blessings for as long as starlight shines —" },
-      { ar: "تَعُمُّ الْآلَ وَالْأَصْحَابَ طُرًّا ۞ جَمِيعَهُمْ وَعِتْرَتَهُ الْأَطَايِبْ",
+      { repeatRefrain: true,
+        ar: "تَعُمُّ الْآلَ وَالْأَصْحَابَ طُرًّا ۞ جَمِيعَهُمْ وَعِتْرَتَهُ الْأَطَايِبْ",
         tr: "Taʿummu-l-āla wa-l-aṣḥāba ṭurrā · jamīʿahum wa ʿitratahu-l-aṭāyib",
         en: "embracing all his family and companions together, every one of them, and his pure descendants." }
     ]
@@ -12702,7 +12718,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v420';
+const APP_VERSION = 'v421';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -17619,6 +17635,10 @@ const QASIDA_AUDIO = {
      video). The player is an <audio> element, which plays the sound and
      ignores the picture, so it works as-is at 3.5 MB. */
   41: [{ reciter:'syrian', file:'Balaghal Ula Bi Kamalihi by Syrian Munshids with English translation.mp4', secs:273 }],
+  /* No reciter: the file's only artist tag reads "Roy Clark", which is not a
+     credit anyone has confirmed, so the player shows none rather than a guess.
+     `title` is what the player calls it, in place of the qasida's full title. */
+  4: [{ file:'Caravan Qasida.mp3', secs:309, title:"The Caravaner's Qasida" }],
 };
 
 const AUDIO_BY_KIND = { d: DALAIL_AUDIO, q: QASIDA_AUDIO };
@@ -17775,10 +17795,10 @@ async function refreshDownloads(){
     html +=
       '<div class="dl-row" id="' + id + '">' +
         '<div class="dl-meta">' +
-          '<div class="dl-title">' + attrEsc(q.titleEnglish || '') + '</div>' +
-          '<div class="dl-sub">' + attrEsc(who) +
-            (whoAr ? ' <span class="r-ar">' + attrEsc(whoAr) + '</span>' : '') +
-            ' · ' + fmtDur(e.rec.secs) + '</div>' +
+          '<div class="dl-title">' + attrEsc(e.rec.title || q.titleEnglish || '') + '</div>' +
+          '<div class="dl-sub">' +
+            (who ? attrEsc(who) + (whoAr ? ' <span class="r-ar">' + attrEsc(whoAr) + '</span>' : '') + ' · ' : '') +
+            fmtDur(e.rec.secs) + '</div>' +
         '</div>' +
         '<button class="session-btn quiet dl-act" ' +
           'onclick="rowAction(\'' + e.rec.file + '\')">' +
@@ -17929,7 +17949,7 @@ async function openAudioDock(kind, idx, rec){
     '<div class="ytdock-in">' +
       '<div class="ytdock-meta">' +
         '<div class="ytdock-titles">' +
-          '<span class="ytdock-title">' + attrEsc(displayTitle(q)) + '</span>' +
+          '<span class="ytdock-title">' + attrEsc(rec.title || displayTitle(q)) + '</span>' +
           (who ? '<span class="ytdock-reciter">' + attrEsc(who) +
                  (whoAr ? ' <span class="r-ar">' + attrEsc(whoAr) + '</span>' : '') +
                  '</span>' : '') +
@@ -17949,16 +17969,16 @@ async function openAudioDock(kind, idx, rec){
   el.playbackRate = ytPlayer.rate;
   el.play().catch(()=>{});
   audioDockState();
-  setMediaSession(q, who, el);
+  setMediaSession(rec.title || displayTitle(q), who, el);
   measurePlayer();
 }
 
 /* Lock-screen controls and the correct title while the screen is off. */
-function setMediaSession(q, who, el){
+function setMediaSession(title, who, el){
   if(!('mediaSession' in navigator)) return;
   try{
     navigator.mediaSession.metadata = new MediaMetadata({
-      title: displayTitle(q),
+      title,
       artist: who || '',
       album: 'Dalāʾil al-Khayrāt',
     });
