@@ -26,7 +26,7 @@
      script, where nothing that reads the page without running it can see
      it — so "which version is actually live?" could only be answered from
      a phone. Keep the two in step when bumping. -->
-<meta name="app-version" content="v422">
+<meta name="app-version" content="v423">
 <!-- YouTube's embedded player refuses to configure itself unless the host page
      sends a Referer (Error 153 / embedder.identity.missing.referrer). This is
      the browser default in most cases, but a standalone PWA or a WebView may
@@ -1817,27 +1817,34 @@ const QASIDAS = [
     titleArabic: "طَالَمَا أَشْكُو غَرَامِي",
     titleEnglish: "16 · Ṭālamā Ashkū Gharāmī",
     verses: [
-      { ar: "طَالَمَا أَشْكُو غَرَامِي يَا نُورَ الْوُجُودْ ۞ وَأُنَادِي يَا تِهَامِي يَا مَعْدِنَ الْجُودْ",
-        tr: "Ṭālamā ashkū gharāmī yā nūra l-wujūd. Wa-unādī yā tihāmī yā maʿdina l-jūd.",
-        en: "How long have I lamented my yearning for you, O Light of Existence! And I call out, \"O Tihami [Prophet Muhammad ﷺ], O Source of Generosity!\"" },
-      { ar: "مُنْيَتِي أَقْصَى مَرَامِي أَحْظَى بِالشُّهُودْ ۞ وَأَرَى بَابَ السَّلَامِ يَا زَاكِي الْجُدُودْ",
-        tr: "Munyatī aqṣā marāmī aḥẓā bi-sh-shuhūd. Wa-arā bāba s-salāmi yā zāki l-judūd.",
-        en: "My wish and highest aspiration is to be blessed with your vision. And to behold the Gate of Peace [Paradise], O Pure One of noble lineage." },
-      { ar: "يَا طِرَازَ الْكَوْنِ إِنِّي عَاشِقٌ مُسْتَهَامْ ۞ مُغْرَمٌ وَالْمَدْحُ فَنِّي يَا بَدْرَ التَّمَامْ",
-        tr: "Yā ṭirāza l-kawni innī ʿāshiqun mustahām. Mughramun wa-l-madḥu fannī yā badra t-tamām.",
-        en: "O Adornment of the Universe, I am an ardent lover, Consumed by love, and praise is my art, O Perfect Full Moon!" },
-      { ar: "اِصْرِفِ الْأَعْرَاضَ عَنِّي أَضْنَانِي الْغَرَامْ ۞ فِيكَ قَدْ حَسَّنْتُ ظَنِّي يَا سَامِي الْعُهُودْ",
-        tr: "Iṣrifi l-aʿrāḍa ʿannī aḍnāni l-gharām. Fīka qad ḥassantu ẓannī yā sāmi l-ʿuhūd.",
-        en: "Turn afflictions away from me, longing has worn me down. In you I have placed my finest hopes, O Upholder of noble covenants." },
-      { ar: "يَا سِرَاجَ الْأَنْبِيَاءِ يَا عَالِي الْجَنَابْ ۞ يَا إِمَامَ الْأَتْقِيَاءِ إِنَّ قَلْبِي ذَابْ",
-        tr: "Yā sirāja l-anbiyā'i yā ʿāli l-janāb. Yā imāma l-atqiyā'i inna qalbī dhāb.",
-        en: "O Lantern of the Prophets, O Exalted One! O Leader of the God-fearing, my heart has melted in longing!" },
-      { ar: "يَكْفِي يَا نُورَ الْأَهِلَّةِ إِنَّ هَجْرِي طَالْ ۞ سَيَّدِي وَالْعُمْرُ وَلَّى جُدْ بِالْوَصْلِ جُودْ",
-        tr: "Yakfī yā nūra l-ahillati inna hajrī ṭāl. Sayyadī wa-l-ʿumru wallā jud bi-l-waṣli jūd.",
-        en: "Enough, O Light of the new moons! My separation has gone on too long. My master, life has passed, grant me union with your grace!" },
-      { ar: "يَا نَبِيًّا قَدْ تَحَلَّى حَقًّا بِالْجَمَالْ ۞ وَعَلَيْكَ اللَّهُ صَلَّى رَبِّي ذُو الْجَلَالْ",
-        tr: "Yā nabiyyan qad taḥalla ḥaqqan bi-l-jamāl. Wa-ʿalayka Llāhu ṣallā Rabbī dhū l-jalāl.",
-        en: "O Prophet, you have truly been adorned with beauty. And upon you, may Allah, the Lord of Majesty, send His endless prayers." }
+      { refrain: true,
+        ar: "طَالَمَا أَشْكُو غَرَامِي يَا نُورَ الْوُجُودْ (2) ۞ وَأُنَادِي يَا تِهَامِي يَا مَعْدِنَ الْجُودْ (2)\n(2)",
+        tr: "Ṭālamā ashkū gharāmī yā nūra l-wujūd (2). Wa-unādī yā tihāmī yā maʿdina l-jūd (2).\n(2)",
+        en: "How long have I lamented my yearning for you, O Light of Existence (2)! And I call out, \"O Tihami [Prophet Muhammad ﷺ], O Source of Generosity (2)!\"\n(2)" },
+      { repeatRefrain: true,
+        ar: "مُنْيَتِي أَقْصَى مَرَامِي أَحْظَى بِالشُّهُودْ (2) ۞ وَأَرَى بَابَ السَّلَامِ يَا زَاكِي الْجُدُودْ (2)",
+        tr: "Munyatī aqṣā marāmī aḥẓā bi-sh-shuhūd (2). Wa-arā bāba s-salāmi yā zāki l-judūd (2).",
+        en: "My wish and highest aspiration is to be blessed with your vision (2). And to behold the Gate of Peace [Paradise], O Pure One of noble lineage (2)." },
+      { repeatRefrain: true,
+        ar: "يَا طِرَازَ الْكَوْنِ إِنِّي عَاشِقٌ مُسْتَهَامْ (2) ۞ مُغْرَمٌ وَالْمَدْحُ فَنِّي يَا بَدْرَ التَّمَامْ (2)",
+        tr: "Yā ṭirāza l-kawni innī ʿāshiqun mustahām (2). Mughramun wa-l-madḥu fannī yā badra t-tamām (2).",
+        en: "O Adornment of the Universe, I am an ardent lover (2), Consumed by love, and praise is my art, O Perfect Full Moon (2)!" },
+      { repeatRefrain: true,
+        ar: "اِصْرِفِ الْأَعْرَاضَ عَنِّي أَضْنَانِي الْغَرَامْ (2) ۞ فِيكَ قَدْ حَسَّنْتُ ظَنِّي يَا سَامِي الْعُهُودْ (2)",
+        tr: "Iṣrifi l-aʿrāḍa ʿannī aḍnāni l-gharām (2). Fīka qad ḥassantu ẓannī yā sāmi l-ʿuhūd (2).",
+        en: "Turn afflictions away from me, longing has worn me down (2). In you I have placed my finest hopes, O Upholder of noble covenants (2)." },
+      { repeatRefrain: true,
+        ar: "يَا سِرَاجَ الْأَنْبِيَاءِ يَا عَالِي الْجَنَابْ (2) ۞ يَا إِمَامَ الْأَتْقِيَاءِ إِنَّ قَلْبِي ذَابْ (2)",
+        tr: "Yā sirāja l-anbiyā'i yā ʿāli l-janāb (2). Yā imāma l-atqiyā'i inna qalbī dhāb (2).",
+        en: "O Lantern of the Prophets, O Exalted One (2)! O Leader of the God-fearing, my heart has melted in longing (2)!" },
+      { repeatRefrain: true,
+        ar: "يَكْفِي يَا نُورَ الْأَهِلَّةِ إِنَّ هَجْرِي طَالْ (2) ۞ سَيَّدِي وَالْعُمْرُ وَلَّى جُدْ بِالْوَصْلِ جُودْ (2)",
+        tr: "Yakfī yā nūra l-ahillati inna hajrī ṭāl (2). Sayyadī wa-l-ʿumru wallā jud bi-l-waṣli jūd (2).",
+        en: "Enough, O Light of the new moons! My separation has gone on too long (2). My master, life has passed, grant me union with your grace (2)!" },
+      { repeatRefrain: true,
+        ar: "يَا نَبِيًّا قَدْ تَحَلَّى حَقًّا بِالْجَمَالْ (2) ۞ وَعَلَيْكَ اللَّهُ صَلَّى رَبِّي ذُو الْجَلَالْ (2)",
+        tr: "Yā nabiyyan qad taḥalla ḥaqqan bi-l-jamāl (2). Wa-ʿalayka Llāhu ṣallā Rabbī dhū l-jalāl (2).",
+        en: "O Prophet, you have truly been adorned with beauty (2). And upon you, may Allah, the Lord of Majesty, send His endless prayers (2)." }
     ]
   },
   {
@@ -12724,7 +12731,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v422';
+const APP_VERSION = 'v423';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -17230,9 +17237,10 @@ function toggle(kind,i){ state.showTr = !state.showTr; saveCols(); reopen(kind,i
      which is what keeps a follower's own choice through a leader's
      navigation in a live session, exactly as `showTr`/`showEn` do. It is not
      broadcast either, so a leader never opens or closes anyone else's. */
-/* A repeat count on the refrain, e.g. Balagha-l-ʿUlā's " (2)", is for its first
-   singing only (owner's call) — the repeats print without it. */
-const stripRepeatCount = t => t.replace(/ \((?:[0-9]+|[٠-٩]+)\)/g, '');
+/* A refrain's closing repeat count (Balagha-l-ʿUlā's " (2)", Ṭālamā's line of
+   its own) is for its first singing only, owner's call — the repeats print
+   without it. Counts inside the refrain, on each of its parts, stay. */
+const stripRepeatCount = t => t.replace(/\s*\((?:[0-9]+|[٠-٩]+)\)\s*$/, '');
 /* The refrain repeated is the nearest one above the verse: a piece with a
    second refrain partway through (Marḥaban Marḥaban) switches to it. */
 function refrainRepeatHTML(q, n){
@@ -17647,6 +17655,9 @@ const QASIDA_AUDIO = {
      only artist tag, "Roy Clark", is not to be used). `title` is what the
      player calls it, in place of the qasida's full title. */
   4: [{ file:'Caravan Qasida.mp3', secs:309, title:"The Caravaner's Qasida" }],
+  /* The qasida itself begins at 1:33 (owner's timing); `start` is where the
+     player opens. No reciter: the file carries no artist tag. */
+  9: [{ file:'Talama Ashku Gharami.mp3', secs:517, start:93 }],
 };
 
 const AUDIO_BY_KIND = { d: DALAIL_AUDIO, q: QASIDA_AUDIO };
@@ -17973,6 +17984,10 @@ async function openAudioDock(kind, idx, rec){
   document.body.classList.add('has-player');
 
   const el = d.querySelector('audio');
+  /* Set once the length is known: a seek before metadata is silently lost. */
+  if(rec.start) el.addEventListener('loadedmetadata', () => {
+    if(el.currentTime < rec.start) el.currentTime = rec.start;
+  }, { once:true });
   el.src = await audioSrc(rec);
   el.playbackRate = ytPlayer.rate;
   el.play().catch(()=>{});
