@@ -45,9 +45,8 @@ A recording may carry its own **`title`**, which the player, the lock screen
 and the Downloads row show in place of the piece's title — the Caravaner's
 Qasida (`QASIDA_AUDIO[4]`, `Caravan Qasida.mp3`, 309 s, v421) is "The
 Caravaner's Qasida" there, not its full "— Ṣalātullāhi mā lāḥat kawākib"
-heading. It also carries **no `reciter`**: its only artist tag reads "Roy
-Clark", which nobody has confirmed, so the player shows no credit rather than
-a guess. The player and Downloads row are built to render a missing reciter
+heading. It carries **no `reciter`, on the owner's instruction** — don't
+credit one; its only artist tag reads "Roy Clark" and is not to be used. The player and Downloads row are built to render a missing reciter
 cleanly — keep them that way.
 
 The **Listen button shows when there is a local recording or a `video` link**.
