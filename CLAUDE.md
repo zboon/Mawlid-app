@@ -619,7 +619,10 @@ part of every verse is sung twice**, so each carries `" (2)"` in all three
 columns, before any closing punctuation (`l-wujūd (2).`, `Existence (2)!`);
 the refrain adds a **closing `(2)` on its own line** (`\n(2)`) for singing
 the whole refrain twice. Cards 3 and 6 divide their English at `, Consumed`
-and before `My master` — neither is a plain two-sentence split. The fork's
+and before `My master` — neither is a plain two-sentence split. Two spellings
+were corrected in the same release on the owner's instruction: v7's bare
+`اللَّهُ` to the dagger form `اللّٰهُ`, and v6's `سَيَّدِي` / "Sayyadī" to
+`سَيِّدِي` / "Sayyidī" — both copied from the app's majority bytes. The fork's
 copies of all five are untouched, per its stale-`QASIDAS` scope.
 
 - **Collapsed by default**, showing one gold rule reading "↻ Repeat refrain".
