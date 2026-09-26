@@ -26,7 +26,7 @@
      script, where nothing that reads the page without running it can see
      it — so "which version is actually live?" could only be answered from
      a phone. Keep the two in step when bumping. -->
-<meta name="app-version" content="v421">
+<meta name="app-version" content="v422">
 <!-- YouTube's embedded player refuses to configure itself unless the host page
      sends a Referer (Error 153 / embedder.identity.missing.referrer). This is
      the browser default in most cases, but a standalone PWA or a WebView may
@@ -1698,26 +1698,32 @@ const QASIDAS = [
         ar: "مَرْحَبًا مَرْحَبًا يَا نُورَ عَيْنِي ۞ مَرْحَبًا مَرْحَبًا جَدَّ الْحُسَيْنِ",
         tr: "Marḥaban marḥaban yā nūra ʿaynī · Marḥaban marḥaban jadda-l-Ḥusayni",
         en: "Welcome, welcome, O light of my eyes! Welcome, welcome, grandfather of al-Husayn!" },
-      { ar: "مَرْحَبًا يَا رَسُولَ اللّٰهِ أَهْلًا ۞ مَرْحَبًا بِكَ إِنَّا بِكَ نُسْعَدْ",
+      { repeatRefrain: true,
+        ar: "مَرْحَبًا يَا رَسُولَ اللّٰهِ أَهْلًا ۞ مَرْحَبًا بِكَ إِنَّا بِكَ نُسْعَدْ",
         tr: "Marḥaban yā Rasūlallāhi ahlan · Marḥaban bika innā bika nusʿad",
         en: "Welcome, O Messenger of Allah, and greetings! Welcome to you — through you we are made happy." },
-      { ar: "مَرْحَبًا.. وَبِجَاهِهْ يَا إِلَهِي ۞ مَرْحَبًا.. جُدْ وَبَلِّغْ كُلَّ مَقْصَدْ",
+      { repeatRefrain: true,
+        ar: "مَرْحَبًا.. وَبِجَاهِهْ يَا إِلَهِي ۞ مَرْحَبًا.. جُدْ وَبَلِّغْ كُلَّ مَقْصَدْ",
         tr: "Marḥaban.. wa bi-jāhih yā ilāhī · Marḥaban.. jud wa balligh kulla maqṣad",
         en: "Welcome! For the sake of his high rank, O my God — welcome! — give generously and bring every aim to fulfillment." },
-      { ar: "مَرْحَبًا.. وَاهْدِنَا نَهْجَ سَبِيلِهْ ۞ مَرْحَبًا.. كَيْ بِهِ نُسْعَدْ وَنُرْشَدْ",
+      { repeatRefrain: true,
+        ar: "مَرْحَبًا.. وَاهْدِنَا نَهْجَ سَبِيلِهْ ۞ مَرْحَبًا.. كَيْ بِهِ نُسْعَدْ وَنُرْشَدْ",
         tr: "Marḥaban.. wa-hdinā nahja sabīlih · Marḥaban.. kay bihi nusʿad wa nurshad",
         en: "Welcome! Guide us along the way of his path — welcome! — that through him we may find happiness and right guidance." },
       { refrain: true,
         ar: "رَبِّ فَاغْفِرْ لِي ذُنُوبِي يَا اللّٰه ۞ بِبَرْكَةِ الْهَادِي مُحَمَّدْ يَا اللّٰه",
         tr: "Rabbi fa-ghfir lī dhunūbī yā Allāh · Bi-barakati-l-hādī Muḥammad yā Allāh",
         en: "My Lord, forgive me my sins, O Allah — by the blessing of the Guide, Muhammad, O Allah." },
-      { ar: "رَبِّ بَلِّغْنَا بِجَاهِهْ يَا اللّٰه ۞ فِي جِوَارِهْ خَيْرَ مَقْعَدْ يَا اللّٰه",
+      { repeatRefrain: true,
+        ar: "رَبِّ بَلِّغْنَا بِجَاهِهْ يَا اللّٰه ۞ فِي جِوَارِهْ خَيْرَ مَقْعَدْ يَا اللّٰه",
         tr: "Rabbi ballighnā bi-jāhih yā Allāh · Fī jiwārih khayra maqʿad yā Allāh",
         en: "My Lord, for the sake of his rank bring us, O Allah, to the best of seats in his nearness, O Allah." },
-      { ar: "وَصَلَاةُ اللّٰهِ تَغْشَى يَا اللّٰه ۞ أَشْرَفَ الرُّسْلِ مُحَمَّدْ يَا اللّٰه",
+      { repeatRefrain: true,
+        ar: "وَصَلَاةُ اللّٰهِ تَغْشَى يَا اللّٰه ۞ أَشْرَفَ الرُّسْلِ مُحَمَّدْ يَا اللّٰه",
         tr: "Wa ṣalātullāhi taghshā yā Allāh · Ashrafa-r-rusli Muḥammad yā Allāh",
         en: "And may the blessings of Allah envelop, O Allah, the noblest of messengers, Muhammad, O Allah." },
-      { ar: "وَسَلَامٌ مُسْتَمِرٌّ يَا اللّٰه ۞ كُلَّ حِينٍ يَتَجَدَّدْ يَا اللّٰه",
+      { repeatRefrain: true,
+        ar: "وَسَلَامٌ مُسْتَمِرٌّ يَا اللّٰه ۞ كُلَّ حِينٍ يَتَجَدَّدْ يَا اللّٰه",
         tr: "Wa salāmun mustamirrun yā Allāh · Kulla ḥīnin yatajaddad yā Allāh",
         en: "And peace unending, O Allah, renewed at every moment, O Allah." }
     ]
@@ -12718,7 +12724,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v421';
+const APP_VERSION = 'v422';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -16976,7 +16982,7 @@ function readerHTML(q, backOnclick, kind, idx){
               })()}
           ${v.tr ? `<div class="v-tr ${state.showTr?'':'hide'}">${v.tr.replaceAll('\n','<br>')}</div>` : ''}`}
           ${v.en ? `<div class="v-en ${state.showEn?'':'hide'}">${v.en.replaceAll('\n','<br>')}</div>` : ''}
-        </article>${v.repeatRefrain ? refrainRepeatHTML(q) : ''}`).join('')}`}
+        </article>${v.repeatRefrain ? refrainRepeatHTML(q, n) : ''}`).join('')}`}
       ${pageView ? '' : chapterNav(kind, idx)}
     </main>
 `;
@@ -17227,8 +17233,10 @@ function toggle(kind,i){ state.showTr = !state.showTr; saveCols(); reopen(kind,i
 /* A repeat count on the refrain, e.g. Balagha-l-ʿUlā's " (2)", is for its first
    singing only (owner's call) — the repeats print without it. */
 const stripRepeatCount = t => t.replace(/ \((?:[0-9]+|[٠-٩]+)\)/g, '');
-function refrainRepeatHTML(q){
-  const r = q.verses.find(v => v.refrain);
+/* The refrain repeated is the nearest one above the verse: a piece with a
+   second refrain partway through (Marḥaban Marḥaban) switches to it. */
+function refrainRepeatHTML(q, n){
+  const r = q.verses.slice(0, n + 1).reverse().find(v => v.refrain);
   if(!r) return '';
   const ar = stripRepeatCount(r.ar), tr = r.tr && stripRepeatCount(r.tr), en = r.en && stripRepeatCount(r.en);
   return `<div class="refrain-repeat${state.refrainOpen ? ' open' : ''}">

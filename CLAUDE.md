@@ -22,7 +22,7 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v421** |
+| **Mawalid** (this repo) | the full collection | **v422** |
 | **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v94** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
@@ -600,8 +600,13 @@ which is where each of its four couplets closes on the ‑ami rhyme. And
 **Qaṣīdatu s-Salām (`QASIDAS[17]`) — v420, Mawalid only**: after every verse
 (cards 2–12), with its note changed from "after each set of verses" to "after
 each verse" so the two agree. And **the Caravaner's Qasida (`QASIDAS[4]`, in
-the Daybaʿī) — v421, Mawalid only**: after every verse (cards 2–17). The
-fork's copies of all three are untouched, per its stale-`QASIDAS` scope.
+the Daybaʿī) — v421, Mawalid only**: after every verse (cards 2–17). And
+**Marḥaban Marḥaban (`QASIDAS[7]`, in the Daybaʿī) — v422, Mawalid only**,
+which has **two** refrains: card 1's after cards 2–4, card 5's after cards
+6–8. `refrainRepeatHTML(q, n)` repeats the **nearest `refrain` above the
+verse**, not the chapter's first — so a second refrain partway through takes
+over from there, and every single-refrain piece is unaffected. The fork's
+copies of all four are untouched, per its stale-`QASIDAS` scope.
 
 - **Collapsed by default**, showing one gold rule reading "↻ Repeat refrain".
   A tap opens **every marker in the chapter at once** — a reciter wants them
