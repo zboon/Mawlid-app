@@ -26,7 +26,7 @@
      script, where nothing that reads the page without running it can see
      it — so "which version is actually live?" could only be answered from
      a phone. Keep the two in step when bumping. -->
-<meta name="app-version" content="v420">
+<meta name="app-version" content="v423">
 <!-- YouTube's embedded player refuses to configure itself unless the host page
      sends a Referer (Error 153 / embedder.identity.missing.referrer). This is
      the browser default in most cases, but a standalone PWA or a WebView may
@@ -1565,52 +1565,68 @@ const QASIDAS = [
         ar: "صَلَاةُ اللّٰهِ مَا لَاحَتْ كَوَاكِبْ ۞ عَلٰى أَحْمَدْ خَيْرِ مَنْ رَكِبَ النَّجَائِبْ",
         tr: "Ṣalātullāhi mā lāḥat kawākib · ʿalā Aḥmad khayri man rakiba-n-najā'ib",
         en: "Allah's blessings, for as long as stars shine, upon Ahmad, the best who ever rode the noble camels." },
-      { ar: "حَدَى حَادِي السُّرَى بِاسْمِ الْحَبَائِبْ ۞ فَهَزَّ السُّكْرُ أَعْطَافَ الرَّكَائِبْ",
+      { repeatRefrain: true,
+        ar: "حَدَى حَادِي السُّرَى بِاسْمِ الْحَبَائِبْ ۞ فَهَزَّ السُّكْرُ أَعْطَافَ الرَّكَائِبْ",
         tr: "Ḥadā ḥādī-s-surā bi-smi-l-ḥabā'ib · fa-hazza-s-sukru aʿṭāfa-r-rakā'ib",
         en: "The night caravaner sang the names of the beloved ones, and rapture swayed the flanks of the mounts." },
-      { ar: "أَلَمْ تَرَهَا وَقَدْ مَدَّتْ خُطَاهَا ۞ وَسَالَتْ مِنْ مَدَامِعِهَا سَحَائِبْ",
+      { repeatRefrain: true,
+        ar: "أَلَمْ تَرَهَا وَقَدْ مَدَّتْ خُطَاهَا ۞ وَسَالَتْ مِنْ مَدَامِعِهَا سَحَائِبْ",
         tr: "Alam tarahā wa qad maddat khuṭāhā · wa sālat min madāmiʿihā saḥā'ib",
         en: "Did you not see how the camels lengthened their strides, while clouds of tears streamed from their eyes?" },
-      { ar: "وَمَالَتْ لِلْحِمَى طَرَبًا وَحَنَّتْ ۞ إِلَى تِلْكَ الْمَعَالِمِ وَالْمَلَاعِبْ",
+      { repeatRefrain: true,
+        ar: "وَمَالَتْ لِلْحِمَى طَرَبًا وَحَنَّتْ ۞ إِلَى تِلْكَ الْمَعَالِمِ وَالْمَلَاعِبْ",
         tr: "Wa mālat li-l-ḥimā ṭaraban wa ḥannat · ilā tilka-l-maʿālimi wa-l-malāʿib",
         en: "They leaned toward the sanctuary in joy, yearning for those landmarks and beloved grounds." },
-      { ar: "فَدَعْ جَذْبَ الزِّمَامِ وَلَا تَسُقْهَا ۞ فَقَائِدُ شَوْقِهَا لِلْحَيِّ جَاذِبْ",
+      { repeatRefrain: true,
+        ar: "فَدَعْ جَذْبَ الزِّمَامِ وَلَا تَسُقْهَا ۞ فَقَائِدُ شَوْقِهَا لِلْحَيِّ جَاذِبْ",
         tr: "Fa-daʿ jadhba-z-zimāmi wa lā tasuqhā · fa-qā'idu shawqihā li-l-ḥayyi jādhib",
         en: "So let go of the reins and do not drive them — the pull of their longing already draws them to the dwelling." },
-      { ar: "فَهِمْ طَرَبًا كَمَا هَامَتْ وَإِلَّا ۞ فَإِنَّكَ فِي طَرِيقِ الْحُبِّ كَاذِبْ",
+      { repeatRefrain: true,
+        ar: "فَهِمْ طَرَبًا كَمَا هَامَتْ وَإِلَّا ۞ فَإِنَّكَ فِي طَرِيقِ الْحُبِّ كَاذِبْ",
         tr: "Fa-him ṭaraban kamā hāmat wa illā · fa-innaka fī ṭarīqi-l-ḥubbi kādhib",
         en: "Be swept with rapture as they are — or else you are no true traveler on the path of love." },
-      { ar: "أَمَا هٰذَا الْعَقِيقُ بَدَا وَهَذِي ۞ قِبَابُ الْحَيِّ لَاحَتْ وَالْمَضَارِبْ",
+      { repeatRefrain: true,
+        ar: "أَمَا هٰذَا الْعَقِيقُ بَدَا وَهَذِي ۞ قِبَابُ الْحَيِّ لَاحَتْ وَالْمَضَارِبْ",
         tr: "Amā hādhā-l-ʿaqīqu badā wa hādhī · qibābu-l-ḥayyi lāḥat wa-l-maḍārib",
         en: "Look — the valley of al-Aqiq has appeared, and there the domes of the quarter and its tents come into view." },
-      { ar: "وَتِلْكَ الْقُبَّةُ الْخَضْرَا وَفِيهَا ۞ نَبِيٌّ نُورُهُ يَجْلُو الْغَيَاهِبْ",
+      { repeatRefrain: true,
+        ar: "وَتِلْكَ الْقُبَّةُ الْخَضْرَا وَفِيهَا ۞ نَبِيٌّ نُورُهُ يَجْلُو الْغَيَاهِبْ",
         tr: "Wa tilka-l-qubbatu-l-khaḍrā wa fīhā · nabiyyun nūruhu yajlū-l-ghayāhib",
         en: "And that is the Green Dome — within it rests a Prophet whose light dispels every darkness." },
-      { ar: "وَقَدْ صَحَّ الرِّضَى وَدَنَا التَّلَاقِي ۞ وَقَدْ جَاءَ الْهَنَا مِنْ كُلِّ جَانِبْ",
+      { repeatRefrain: true,
+        ar: "وَقَدْ صَحَّ الرِّضَى وَدَنَا التَّلَاقِي ۞ وَقَدْ جَاءَ الْهَنَا مِنْ كُلِّ جَانِبْ",
         tr: "Wa qad ṣaḥḥa-r-riḍā wa danā-t-talāqī · wa qad jā'a-l-hanā min kulli jānib",
         en: "Acceptance is assured and the meeting draws near; happiness has arrived from every side." },
-      { ar: "فَقُلْ لِلنَّفْسِ دُونَكِ وَالتَّمَلِّي ۞ فَمَا دُونَ الْحَبِيبِ الْيَوْمَ حَاجِبْ",
+      { repeatRefrain: true,
+        ar: "فَقُلْ لِلنَّفْسِ دُونَكِ وَالتَّمَلِّي ۞ فَمَا دُونَ الْحَبِيبِ الْيَوْمَ حَاجِبْ",
         tr: "Fa-qul li-n-nafsi dūnaki wa-t-tamallī · fa-mā dūna-l-ḥabībi-l-yawma ḥājib",
         en: "So tell the soul: take your fill of gazing — today no veil stands before the Beloved." },
-      { ar: "تَمَلِّي بِالْحَبِيبِ بِكُلِّ قَصْدٍ ۞ فَقَدْ حَصَلَ الْهَنَا وَالضِّدُّ غَائِبْ",
+      { repeatRefrain: true,
+        ar: "تَمَلِّي بِالْحَبِيبِ بِكُلِّ قَصْدٍ ۞ فَقَدْ حَصَلَ الْهَنَا وَالضِّدُّ غَائِبْ",
         tr: "Tamallī bi-l-ḥabībi bi-kulli qaṣdin · fa-qad ḥaṣala-l-hanā wa-ḍ-ḍiddu ghā'ib",
         en: "Delight fully in the Beloved with every intent — joy has been attained and all that opposes it is gone." },
-      { ar: "نَبِيُّ اللّٰهِ خَيْرُ الْخَلْقِ جَمْعًا ۞ لَهُ أَعْلَى الْمَنَاصِبِ وَالْمَرَاتِبْ",
+      { repeatRefrain: true,
+        ar: "نَبِيُّ اللّٰهِ خَيْرُ الْخَلْقِ جَمْعًا ۞ لَهُ أَعْلَى الْمَنَاصِبِ وَالْمَرَاتِبْ",
         tr: "Nabiyyullāhi khayru-l-khalqi jamʿā · lahu aʿlā-l-manāṣibi wa-l-marātib",
         en: "The Prophet of Allah is the best of all creation; his are the highest offices and ranks." },
-      { ar: "لَهُ الْجَاهُ الرَّفِيعُ لَهُ الْمَعَالِي ۞ لَهُ الشَّرَفُ الْمُؤَبَّدُ وَالْمَنَاقِبْ",
+      { repeatRefrain: true,
+        ar: "لَهُ الْجَاهُ الرَّفِيعُ لَهُ الْمَعَالِي ۞ لَهُ الشَّرَفُ الْمُؤَبَّدُ وَالْمَنَاقِبْ",
         tr: "Lahu-l-jāhu-r-rafīʿu lahu-l-maʿālī · lahu-sh-sharafu-l-mu'abbadu wa-l-manāqib",
         en: "His is the exalted esteem, his the heights of glory, his the everlasting honor and noble virtues." },
-      { ar: "فَلَوْ أَنَّا سَعَيْنَا كُلَّ حِينٍ ۞ عَلٰى الْأَحْدَاقِ لَا فَوْقَ النَّجَائِبْ",
+      { repeatRefrain: true,
+        ar: "فَلَوْ أَنَّا سَعَيْنَا كُلَّ حِينٍ ۞ عَلٰى الْأَحْدَاقِ لَا فَوْقَ النَّجَائِبْ",
         tr: "Fa-law annā saʿaynā kulla ḥīnin · ʿalā-l-aḥdāqi lā fawqa-n-najā'ib",
         en: "Were we to journey to him at every moment upon our very eyes rather than on camels —" },
-      { ar: "وَلَوْ أَنَّا عَمِلْنَا كُلَّ يَوْمٍ ۞ لِأَحْمَدَ مَوْلِدًا قَدْ كَانَ وَاجِبْ",
+      { repeatRefrain: true,
+        ar: "وَلَوْ أَنَّا عَمِلْنَا كُلَّ يَوْمٍ ۞ لِأَحْمَدَ مَوْلِدًا قَدْ كَانَ وَاجِبْ",
         tr: "Wa law annā ʿamilnā kulla yawmin · li-Aḥmada mawlidan qad kāna wājib",
         en: "and were we to celebrate a mawlid for Ahmad every single day — it would only be his due." },
-      { ar: "عَلَيْهِ مِنَ الْمُهَيْمِنِ كُلَّ وَقْتٍ ۞ صَلَاةٌ مَا بَدَا نُورُ الْكَوَاكِبْ",
+      { repeatRefrain: true,
+        ar: "عَلَيْهِ مِنَ الْمُهَيْمِنِ كُلَّ وَقْتٍ ۞ صَلَاةٌ مَا بَدَا نُورُ الْكَوَاكِبْ",
         tr: "ʿAlayhi mina-l-Muhaymini kulla waqtin · ṣalātun mā badā nūru-l-kawākib",
         en: "Upon him, from the Guardian, in every moment, be blessings for as long as starlight shines —" },
-      { ar: "تَعُمُّ الْآلَ وَالْأَصْحَابَ طُرًّا ۞ جَمِيعَهُمْ وَعِتْرَتَهُ الْأَطَايِبْ",
+      { repeatRefrain: true,
+        ar: "تَعُمُّ الْآلَ وَالْأَصْحَابَ طُرًّا ۞ جَمِيعَهُمْ وَعِتْرَتَهُ الْأَطَايِبْ",
         tr: "Taʿummu-l-āla wa-l-aṣḥāba ṭurrā · jamīʿahum wa ʿitratahu-l-aṭāyib",
         en: "embracing all his family and companions together, every one of them, and his pure descendants." }
     ]
@@ -1682,26 +1698,32 @@ const QASIDAS = [
         ar: "مَرْحَبًا مَرْحَبًا يَا نُورَ عَيْنِي ۞ مَرْحَبًا مَرْحَبًا جَدَّ الْحُسَيْنِ",
         tr: "Marḥaban marḥaban yā nūra ʿaynī · Marḥaban marḥaban jadda-l-Ḥusayni",
         en: "Welcome, welcome, O light of my eyes! Welcome, welcome, grandfather of al-Husayn!" },
-      { ar: "مَرْحَبًا يَا رَسُولَ اللّٰهِ أَهْلًا ۞ مَرْحَبًا بِكَ إِنَّا بِكَ نُسْعَدْ",
+      { repeatRefrain: true,
+        ar: "مَرْحَبًا يَا رَسُولَ اللّٰهِ أَهْلًا ۞ مَرْحَبًا بِكَ إِنَّا بِكَ نُسْعَدْ",
         tr: "Marḥaban yā Rasūlallāhi ahlan · Marḥaban bika innā bika nusʿad",
         en: "Welcome, O Messenger of Allah, and greetings! Welcome to you — through you we are made happy." },
-      { ar: "مَرْحَبًا.. وَبِجَاهِهْ يَا إِلَهِي ۞ مَرْحَبًا.. جُدْ وَبَلِّغْ كُلَّ مَقْصَدْ",
+      { repeatRefrain: true,
+        ar: "مَرْحَبًا.. وَبِجَاهِهْ يَا إِلَهِي ۞ مَرْحَبًا.. جُدْ وَبَلِّغْ كُلَّ مَقْصَدْ",
         tr: "Marḥaban.. wa bi-jāhih yā ilāhī · Marḥaban.. jud wa balligh kulla maqṣad",
         en: "Welcome! For the sake of his high rank, O my God — welcome! — give generously and bring every aim to fulfillment." },
-      { ar: "مَرْحَبًا.. وَاهْدِنَا نَهْجَ سَبِيلِهْ ۞ مَرْحَبًا.. كَيْ بِهِ نُسْعَدْ وَنُرْشَدْ",
+      { repeatRefrain: true,
+        ar: "مَرْحَبًا.. وَاهْدِنَا نَهْجَ سَبِيلِهْ ۞ مَرْحَبًا.. كَيْ بِهِ نُسْعَدْ وَنُرْشَدْ",
         tr: "Marḥaban.. wa-hdinā nahja sabīlih · Marḥaban.. kay bihi nusʿad wa nurshad",
         en: "Welcome! Guide us along the way of his path — welcome! — that through him we may find happiness and right guidance." },
       { refrain: true,
         ar: "رَبِّ فَاغْفِرْ لِي ذُنُوبِي يَا اللّٰه ۞ بِبَرْكَةِ الْهَادِي مُحَمَّدْ يَا اللّٰه",
         tr: "Rabbi fa-ghfir lī dhunūbī yā Allāh · Bi-barakati-l-hādī Muḥammad yā Allāh",
         en: "My Lord, forgive me my sins, O Allah — by the blessing of the Guide, Muhammad, O Allah." },
-      { ar: "رَبِّ بَلِّغْنَا بِجَاهِهْ يَا اللّٰه ۞ فِي جِوَارِهْ خَيْرَ مَقْعَدْ يَا اللّٰه",
+      { repeatRefrain: true,
+        ar: "رَبِّ بَلِّغْنَا بِجَاهِهْ يَا اللّٰه ۞ فِي جِوَارِهْ خَيْرَ مَقْعَدْ يَا اللّٰه",
         tr: "Rabbi ballighnā bi-jāhih yā Allāh · Fī jiwārih khayra maqʿad yā Allāh",
         en: "My Lord, for the sake of his rank bring us, O Allah, to the best of seats in his nearness, O Allah." },
-      { ar: "وَصَلَاةُ اللّٰهِ تَغْشَى يَا اللّٰه ۞ أَشْرَفَ الرُّسْلِ مُحَمَّدْ يَا اللّٰه",
+      { repeatRefrain: true,
+        ar: "وَصَلَاةُ اللّٰهِ تَغْشَى يَا اللّٰه ۞ أَشْرَفَ الرُّسْلِ مُحَمَّدْ يَا اللّٰه",
         tr: "Wa ṣalātullāhi taghshā yā Allāh · Ashrafa-r-rusli Muḥammad yā Allāh",
         en: "And may the blessings of Allah envelop, O Allah, the noblest of messengers, Muhammad, O Allah." },
-      { ar: "وَسَلَامٌ مُسْتَمِرٌّ يَا اللّٰه ۞ كُلَّ حِينٍ يَتَجَدَّدْ يَا اللّٰه",
+      { repeatRefrain: true,
+        ar: "وَسَلَامٌ مُسْتَمِرٌّ يَا اللّٰه ۞ كُلَّ حِينٍ يَتَجَدَّدْ يَا اللّٰه",
         tr: "Wa salāmun mustamirrun yā Allāh · Kulla ḥīnin yatajaddad yā Allāh",
         en: "And peace unending, O Allah, renewed at every moment, O Allah." }
     ]
@@ -1795,27 +1817,34 @@ const QASIDAS = [
     titleArabic: "طَالَمَا أَشْكُو غَرَامِي",
     titleEnglish: "16 · Ṭālamā Ashkū Gharāmī",
     verses: [
-      { ar: "طَالَمَا أَشْكُو غَرَامِي يَا نُورَ الْوُجُودْ ۞ وَأُنَادِي يَا تِهَامِي يَا مَعْدِنَ الْجُودْ",
-        tr: "Ṭālamā ashkū gharāmī yā nūra l-wujūd. Wa-unādī yā tihāmī yā maʿdina l-jūd.",
-        en: "How long have I lamented my yearning for you, O Light of Existence! And I call out, \"O Tihami [Prophet Muhammad ﷺ], O Source of Generosity!\"" },
-      { ar: "مُنْيَتِي أَقْصَى مَرَامِي أَحْظَى بِالشُّهُودْ ۞ وَأَرَى بَابَ السَّلَامِ يَا زَاكِي الْجُدُودْ",
-        tr: "Munyatī aqṣā marāmī aḥẓā bi-sh-shuhūd. Wa-arā bāba s-salāmi yā zāki l-judūd.",
-        en: "My wish and highest aspiration is to be blessed with your vision. And to behold the Gate of Peace [Paradise], O Pure One of noble lineage." },
-      { ar: "يَا طِرَازَ الْكَوْنِ إِنِّي عَاشِقٌ مُسْتَهَامْ ۞ مُغْرَمٌ وَالْمَدْحُ فَنِّي يَا بَدْرَ التَّمَامْ",
-        tr: "Yā ṭirāza l-kawni innī ʿāshiqun mustahām. Mughramun wa-l-madḥu fannī yā badra t-tamām.",
-        en: "O Adornment of the Universe, I am an ardent lover, Consumed by love, and praise is my art, O Perfect Full Moon!" },
-      { ar: "اِصْرِفِ الْأَعْرَاضَ عَنِّي أَضْنَانِي الْغَرَامْ ۞ فِيكَ قَدْ حَسَّنْتُ ظَنِّي يَا سَامِي الْعُهُودْ",
-        tr: "Iṣrifi l-aʿrāḍa ʿannī aḍnāni l-gharām. Fīka qad ḥassantu ẓannī yā sāmi l-ʿuhūd.",
-        en: "Turn afflictions away from me, longing has worn me down. In you I have placed my finest hopes, O Upholder of noble covenants." },
-      { ar: "يَا سِرَاجَ الْأَنْبِيَاءِ يَا عَالِي الْجَنَابْ ۞ يَا إِمَامَ الْأَتْقِيَاءِ إِنَّ قَلْبِي ذَابْ",
-        tr: "Yā sirāja l-anbiyā'i yā ʿāli l-janāb. Yā imāma l-atqiyā'i inna qalbī dhāb.",
-        en: "O Lantern of the Prophets, O Exalted One! O Leader of the God-fearing, my heart has melted in longing!" },
-      { ar: "يَكْفِي يَا نُورَ الْأَهِلَّةِ إِنَّ هَجْرِي طَالْ ۞ سَيَّدِي وَالْعُمْرُ وَلَّى جُدْ بِالْوَصْلِ جُودْ",
-        tr: "Yakfī yā nūra l-ahillati inna hajrī ṭāl. Sayyadī wa-l-ʿumru wallā jud bi-l-waṣli jūd.",
-        en: "Enough, O Light of the new moons! My separation has gone on too long. My master, life has passed, grant me union with your grace!" },
-      { ar: "يَا نَبِيًّا قَدْ تَحَلَّى حَقًّا بِالْجَمَالْ ۞ وَعَلَيْكَ اللَّهُ صَلَّى رَبِّي ذُو الْجَلَالْ",
-        tr: "Yā nabiyyan qad taḥalla ḥaqqan bi-l-jamāl. Wa-ʿalayka Llāhu ṣallā Rabbī dhū l-jalāl.",
-        en: "O Prophet, you have truly been adorned with beauty. And upon you, may Allah, the Lord of Majesty, send His endless prayers." }
+      { refrain: true,
+        ar: "طَالَمَا أَشْكُو غَرَامِي يَا نُورَ الْوُجُودْ (2) ۞ وَأُنَادِي يَا تِهَامِي يَا مَعْدِنَ الْجُودْ (2)\n(2)",
+        tr: "Ṭālamā ashkū gharāmī yā nūra l-wujūd (2). Wa-unādī yā tihāmī yā maʿdina l-jūd (2).\n(2)",
+        en: "How long have I lamented my yearning for you, O Light of Existence (2)! And I call out, \"O Tihami [Prophet Muhammad ﷺ], O Source of Generosity (2)!\"\n(2)" },
+      { repeatRefrain: true,
+        ar: "مُنْيَتِي أَقْصَى مَرَامِي أَحْظَى بِالشُّهُودْ (2) ۞ وَأَرَى بَابَ السَّلَامِ يَا زَاكِي الْجُدُودْ (2)",
+        tr: "Munyatī aqṣā marāmī aḥẓā bi-sh-shuhūd (2). Wa-arā bāba s-salāmi yā zāki l-judūd (2).",
+        en: "My wish and highest aspiration is to be blessed with your vision (2). And to behold the Gate of Peace [Paradise], O Pure One of noble lineage (2)." },
+      { repeatRefrain: true,
+        ar: "يَا طِرَازَ الْكَوْنِ إِنِّي عَاشِقٌ مُسْتَهَامْ (2) ۞ مُغْرَمٌ وَالْمَدْحُ فَنِّي يَا بَدْرَ التَّمَامْ (2)",
+        tr: "Yā ṭirāza l-kawni innī ʿāshiqun mustahām (2). Mughramun wa-l-madḥu fannī yā badra t-tamām (2).",
+        en: "O Adornment of the Universe, I am an ardent lover (2), Consumed by love, and praise is my art, O Perfect Full Moon (2)!" },
+      { repeatRefrain: true,
+        ar: "اِصْرِفِ الْأَعْرَاضَ عَنِّي أَضْنَانِي الْغَرَامْ (2) ۞ فِيكَ قَدْ حَسَّنْتُ ظَنِّي يَا سَامِي الْعُهُودْ (2)",
+        tr: "Iṣrifi l-aʿrāḍa ʿannī aḍnāni l-gharām (2). Fīka qad ḥassantu ẓannī yā sāmi l-ʿuhūd (2).",
+        en: "Turn afflictions away from me, longing has worn me down (2). In you I have placed my finest hopes, O Upholder of noble covenants (2)." },
+      { repeatRefrain: true,
+        ar: "يَا سِرَاجَ الْأَنْبِيَاءِ يَا عَالِي الْجَنَابْ (2) ۞ يَا إِمَامَ الْأَتْقِيَاءِ إِنَّ قَلْبِي ذَابْ (2)",
+        tr: "Yā sirāja l-anbiyā'i yā ʿāli l-janāb (2). Yā imāma l-atqiyā'i inna qalbī dhāb (2).",
+        en: "O Lantern of the Prophets, O Exalted One (2)! O Leader of the God-fearing, my heart has melted in longing (2)!" },
+      { repeatRefrain: true,
+        ar: "يَكْفِي يَا نُورَ الْأَهِلَّةِ إِنَّ هَجْرِي طَالْ (2) ۞ سَيِّدِي وَالْعُمْرُ وَلَّى جُدْ بِالْوَصْلِ جُودْ (2)",
+        tr: "Yakfī yā nūra l-ahillati inna hajrī ṭāl (2). Sayyidī wa-l-ʿumru wallā jud bi-l-waṣli jūd (2).",
+        en: "Enough, O Light of the new moons! My separation has gone on too long (2). My master, life has passed, grant me union with your grace (2)!" },
+      { repeatRefrain: true,
+        ar: "يَا نَبِيًّا قَدْ تَحَلَّى حَقًّا بِالْجَمَالْ (2) ۞ وَعَلَيْكَ اللّٰهُ صَلَّى رَبِّي ذُو الْجَلَالْ (2)",
+        tr: "Yā nabiyyan qad taḥalla ḥaqqan bi-l-jamāl (2). Wa-ʿalayka Llāhu ṣallā Rabbī dhū l-jalāl (2).",
+        en: "O Prophet, you have truly been adorned with beauty (2). And upon you, may Allah, the Lord of Majesty, send His endless prayers (2)." }
     ]
   },
   {
@@ -12702,7 +12731,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v420';
+const APP_VERSION = 'v423';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -16960,7 +16989,7 @@ function readerHTML(q, backOnclick, kind, idx){
               })()}
           ${v.tr ? `<div class="v-tr ${state.showTr?'':'hide'}">${v.tr.replaceAll('\n','<br>')}</div>` : ''}`}
           ${v.en ? `<div class="v-en ${state.showEn?'':'hide'}">${v.en.replaceAll('\n','<br>')}</div>` : ''}
-        </article>${v.repeatRefrain ? refrainRepeatHTML(q) : ''}`).join('')}`}
+        </article>${v.repeatRefrain ? refrainRepeatHTML(q, n) : ''}`).join('')}`}
       ${pageView ? '' : chapterNav(kind, idx)}
     </main>
 `;
@@ -17208,11 +17237,14 @@ function toggle(kind,i){ state.showTr = !state.showTr; saveCols(); reopen(kind,i
      which is what keeps a follower's own choice through a leader's
      navigation in a live session, exactly as `showTr`/`showEn` do. It is not
      broadcast either, so a leader never opens or closes anyone else's. */
-/* A repeat count on the refrain, e.g. Balagha-l-ʿUlā's " (2)", is for its first
-   singing only (owner's call) — the repeats print without it. */
-const stripRepeatCount = t => t.replace(/ \((?:[0-9]+|[٠-٩]+)\)/g, '');
-function refrainRepeatHTML(q){
-  const r = q.verses.find(v => v.refrain);
+/* A refrain's closing repeat count (Balagha-l-ʿUlā's " (2)", Ṭālamā's line of
+   its own) is for its first singing only, owner's call — the repeats print
+   without it. Counts inside the refrain, on each of its parts, stay. */
+const stripRepeatCount = t => t.replace(/\s*\((?:[0-9]+|[٠-٩]+)\)\s*$/, '');
+/* The refrain repeated is the nearest one above the verse: a piece with a
+   second refrain partway through (Marḥaban Marḥaban) switches to it. */
+function refrainRepeatHTML(q, n){
+  const r = q.verses.slice(0, n + 1).reverse().find(v => v.refrain);
   if(!r) return '';
   const ar = stripRepeatCount(r.ar), tr = r.tr && stripRepeatCount(r.tr), en = r.en && stripRepeatCount(r.en);
   return `<div class="refrain-repeat${state.refrainOpen ? ' open' : ''}">
@@ -17619,6 +17651,13 @@ const QASIDA_AUDIO = {
      video). The player is an <audio> element, which plays the sound and
      ignores the picture, so it works as-is at 3.5 MB. */
   41: [{ reciter:'syrian', file:'Balaghal Ula Bi Kamalihi by Syrian Munshids with English translation.mp4', secs:273 }],
+  /* No reciter, on the owner's instruction: leave it uncredited (the file's
+     only artist tag, "Roy Clark", is not to be used). `title` is what the
+     player calls it, in place of the qasida's full title. */
+  4: [{ file:'Caravan Qasida.mp3', secs:309, title:"The Caravaner's Qasida" }],
+  /* The qasida itself begins at 1:33 (owner's timing); `start` is where the
+     player opens. No reciter: the file carries no artist tag. */
+  9: [{ file:'Talama Ashku Gharami.mp3', secs:517, start:93 }],
 };
 
 const AUDIO_BY_KIND = { d: DALAIL_AUDIO, q: QASIDA_AUDIO };
@@ -17775,10 +17814,10 @@ async function refreshDownloads(){
     html +=
       '<div class="dl-row" id="' + id + '">' +
         '<div class="dl-meta">' +
-          '<div class="dl-title">' + attrEsc(q.titleEnglish || '') + '</div>' +
-          '<div class="dl-sub">' + attrEsc(who) +
-            (whoAr ? ' <span class="r-ar">' + attrEsc(whoAr) + '</span>' : '') +
-            ' · ' + fmtDur(e.rec.secs) + '</div>' +
+          '<div class="dl-title">' + attrEsc(e.rec.title || q.titleEnglish || '') + '</div>' +
+          '<div class="dl-sub">' +
+            (who ? attrEsc(who) + (whoAr ? ' <span class="r-ar">' + attrEsc(whoAr) + '</span>' : '') + ' · ' : '') +
+            fmtDur(e.rec.secs) + '</div>' +
         '</div>' +
         '<button class="session-btn quiet dl-act" ' +
           'onclick="rowAction(\'' + e.rec.file + '\')">' +
@@ -17929,7 +17968,7 @@ async function openAudioDock(kind, idx, rec){
     '<div class="ytdock-in">' +
       '<div class="ytdock-meta">' +
         '<div class="ytdock-titles">' +
-          '<span class="ytdock-title">' + attrEsc(displayTitle(q)) + '</span>' +
+          '<span class="ytdock-title">' + attrEsc(rec.title || displayTitle(q)) + '</span>' +
           (who ? '<span class="ytdock-reciter">' + attrEsc(who) +
                  (whoAr ? ' <span class="r-ar">' + attrEsc(whoAr) + '</span>' : '') +
                  '</span>' : '') +
@@ -17945,20 +17984,24 @@ async function openAudioDock(kind, idx, rec){
   document.body.classList.add('has-player');
 
   const el = d.querySelector('audio');
+  /* Set once the length is known: a seek before metadata is silently lost. */
+  if(rec.start) el.addEventListener('loadedmetadata', () => {
+    if(el.currentTime < rec.start) el.currentTime = rec.start;
+  }, { once:true });
   el.src = await audioSrc(rec);
   el.playbackRate = ytPlayer.rate;
   el.play().catch(()=>{});
   audioDockState();
-  setMediaSession(q, who, el);
+  setMediaSession(rec.title || displayTitle(q), who, el);
   measurePlayer();
 }
 
 /* Lock-screen controls and the correct title while the screen is off. */
-function setMediaSession(q, who, el){
+function setMediaSession(title, who, el){
   if(!('mediaSession' in navigator)) return;
   try{
     navigator.mediaSession.metadata = new MediaMetadata({
-      title: displayTitle(q),
+      title,
       artist: who || '',
       album: 'Dalāʾil al-Khayrāt',
     });

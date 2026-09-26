@@ -22,7 +22,7 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v420** |
+| **Mawalid** (this repo) | the full collection | **v423** |
 | **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v94** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
@@ -40,6 +40,21 @@ titles from `DALAIL_CHAPTERS` directly — adding a recording anywhere else need
 both of those, or the row renders blank. `audioUrl()` percent-encodes each path
 segment because one file name has spaces in it; it is the **only** place a URL
 is built, which is what keeps the fetch and the Cache API key the same string.
+
+A recording may carry its own **`title`**, which the player, the lock screen
+and the Downloads row show in place of the piece's title — the Caravaner's
+Qasida (`QASIDA_AUDIO[4]`, `Caravan Qasida.mp3`, 309 s, v421) is "The
+Caravaner's Qasida" there, not its full "— Ṣalātullāhi mā lāḥat kawākib"
+heading. It carries **no `reciter`, on the owner's instruction** — don't
+credit one; its only artist tag reads "Roy Clark" and is not to be used. The player and Downloads row are built to render a missing reciter
+cleanly — keep them that way.
+
+A recording may also carry a **`start`** in seconds — where the player opens
+it. Ṭālamā Ashkū Gharāmī (`QASIDA_AUDIO[9]`, `Talama Ashku Gharami.mp3`,
+517 s, v423) starts at 93 s (1:33), where the qasida begins, on the owner's
+timing. The seek is set on `loadedmetadata` (earlier is silently lost), and
+it needs a server that answers byte ranges — Pages does; a downloaded copy
+plays from a blob and is always seekable. `secs` stays the whole file.
 
 The **Listen button shows when there is a local recording or a `video` link**.
 It used to require `video`, so a chapter with a file and no YouTube link had no
@@ -591,8 +606,24 @@ the refrain returns after every two verses, i.e. after cards 3, 5, 7 and 9,
 which is where each of its four couplets closes on the ‑ami rhyme. And
 **Qaṣīdatu s-Salām (`QASIDAS[17]`) — v420, Mawalid only**: after every verse
 (cards 2–12), with its note changed from "after each set of verses" to "after
-each verse" so the two agree. The fork's copies of both are untouched, per its
-stale-`QASIDAS` scope.
+each verse" so the two agree. And **the Caravaner's Qasida (`QASIDAS[4]`, in
+the Daybaʿī) — v421, Mawalid only**: after every verse (cards 2–17). And
+**Marḥaban Marḥaban (`QASIDAS[7]`, in the Daybaʿī) — v422, Mawalid only**,
+which has **two** refrains: card 1's after cards 2–4, card 5's after cards
+6–8. `refrainRepeatHTML(q, n)` repeats the **nearest `refrain` above the
+verse**, not the chapter's first — so a second refrain partway through takes
+over from there, and every single-refrain piece is unaffected. And **Ṭālamā
+Ashkū Gharāmī (`QASIDAS[9]`, in the Daybaʿī) — v423, Mawalid only**: card 1
+(the title verse) flagged as the refrain, repeated after cards 2–7. **Every
+part of every verse is sung twice**, so each carries `" (2)"` in all three
+columns, before any closing punctuation (`l-wujūd (2).`, `Existence (2)!`);
+the refrain adds a **closing `(2)` on its own line** (`\n(2)`) for singing
+the whole refrain twice. Cards 3 and 6 divide their English at `, Consumed`
+and before `My master` — neither is a plain two-sentence split. Two spellings
+were corrected in the same release on the owner's instruction: v7's bare
+`اللَّهُ` to the dagger form `اللّٰهُ`, and v6's `سَيَّدِي` / "Sayyadī" to
+`سَيِّدِي` / "Sayyidī" — both copied from the app's majority bytes. The fork's
+copies of all five are untouched, per its stale-`QASIDAS` scope.
 
 - **Collapsed by default**, showing one gold rule reading "↻ Repeat refrain".
   A tap opens **every marker in the chapter at once** — a reciter wants them
@@ -936,8 +967,9 @@ which the reader shows as cards **3, 5 and 7** — it counts the refrain as
 card 1, the same offset as the Daybaʿī above. The `(2)` sits on the last
 hemistich, `صَلُّوا عَلَيْهِ وَآلِهِ`, in all three columns — **on the opening
 refrain only** (v419, owner's call). The data keeps it; `refrainRepeatHTML`
-strips any ` (N)` count from the repeated copies (`stripRepeatCount`), so the
-rule holds for any future refrain that carries a count.
+strips the refrain's **closing** count from the repeated copies
+(`stripRepeatCount`, anchored to the end of the string since v423) — counts
+*inside* a refrain, like Ṭālamā's per-part `(2)`s, stay on every repeat.
 
 **Audio: `Balaghal Ula Bi Kamalihi by Syrian Munshids with English
 translation.mp4`, 273 s** (from the `mvhd` atom — this is an mp4, not an
