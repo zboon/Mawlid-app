@@ -26,7 +26,7 @@
      script, where nothing that reads the page without running it can see
      it — so "which version is actually live?" could only be answered from
      a phone. Keep the two in step when bumping. -->
-<meta name="app-version" content="v423">
+<meta name="app-version" content="v424">
 <!-- YouTube's embedded player refuses to configure itself unless the host page
      sends a Referer (Error 153 / embedder.identity.missing.referrer). This is
      the browser default in most cases, but a standalone PWA or a WebView may
@@ -737,6 +737,13 @@
     border:1px solid var(--gold-soft);border-radius:16px;
     background:linear-gradient(var(--card),var(--card-alt));
     padding:1rem 1.1rem;margin-top:.1rem;
+  }
+  /* The whole-refrain count, worded and ruled off so it cannot be mistaken
+     for the per-line (2)s inside the text. */
+  .refrain-times{
+    text-align:center;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--gold);font-weight:700;margin:.9rem 0 0;padding-top:.65rem;
+    border-top:1px solid var(--gold-soft);
   }
   .refrain-note{
     text-align:center;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;
@@ -1817,10 +1824,10 @@ const QASIDAS = [
     titleArabic: "طَالَمَا أَشْكُو غَرَامِي",
     titleEnglish: "16 · Ṭālamā Ashkū Gharāmī",
     verses: [
-      { refrain: true,
-        ar: "طَالَمَا أَشْكُو غَرَامِي يَا نُورَ الْوُجُودْ (2) ۞ وَأُنَادِي يَا تِهَامِي يَا مَعْدِنَ الْجُودْ (2)\n(2)",
-        tr: "Ṭālamā ashkū gharāmī yā nūra l-wujūd (2). Wa-unādī yā tihāmī yā maʿdina l-jūd (2).\n(2)",
-        en: "How long have I lamented my yearning for you, O Light of Existence (2)! And I call out, \"O Tihami [Prophet Muhammad ﷺ], O Source of Generosity (2)!\"\n(2)" },
+      { refrain: true, times: 2,
+        ar: "طَالَمَا أَشْكُو غَرَامِي يَا نُورَ الْوُجُودْ (2) ۞ وَأُنَادِي يَا تِهَامِي يَا مَعْدِنَ الْجُودْ (2)",
+        tr: "Ṭālamā ashkū gharāmī yā nūra l-wujūd (2). Wa-unādī yā tihāmī yā maʿdina l-jūd (2).",
+        en: "How long have I lamented my yearning for you, O Light of Existence (2)! And I call out, \"O Tihami [Prophet Muhammad ﷺ], O Source of Generosity (2)!\"" },
       { repeatRefrain: true,
         ar: "مُنْيَتِي أَقْصَى مَرَامِي أَحْظَى بِالشُّهُودْ (2) ۞ وَأَرَى بَابَ السَّلَامِ يَا زَاكِي الْجُدُودْ (2)",
         tr: "Munyatī aqṣā marāmī aḥẓā bi-sh-shuhūd (2). Wa-arā bāba s-salāmi yā zāki l-judūd (2).",
@@ -1857,22 +1864,28 @@ const QASIDAS = [
         ar: "صَلَّى اللّٰهُ عَلٰى مُحَمَّدْ ۞ صَلَّى اللّٰهُ عَلَيْهِ وَسَلَّمْ (2)",
         tr: "Ṣallā-Llāhu ʿalā Muḥammad · Ṣallā-Llāhu ʿalayhi wa sallam (2)",
         en: "Allah's blessings be upon Muhammad; Allah bless him and grant him peace." },
-      { ar: "رَبِّ وَاجْعَلْ مُجْتَمَعْنَا ۞ غَايَتُهُ حُسْنُ الْخِتَامِ",
+      { repeatRefrain: true,
+        ar: "رَبِّ وَاجْعَلْ مُجْتَمَعْنَا ۞ غَايَتُهُ حُسْنُ الْخِتَامِ",
         tr: "Rabbi wa-jʿal mujtamaʿnā · ghāyatuhu ḥusnu-l-khitāmi",
         en: "My Lord, make the goal of our gathering the best of endings." },
-      { ar: "وَاعْطِنَا مَا قَدْ سَأَلْنَا ۞ مِنْ عَطَايَاكَ الْجِسَامِ",
+      { repeatRefrain: true,
+        ar: "وَاعْطِنَا مَا قَدْ سَأَلْنَا ۞ مِنْ عَطَايَاكَ الْجِسَامِ",
         tr: "Wa-ʿṭinā mā qad sa'alnā · min ʿaṭāyāka-l-jisāmi",
         en: "And grant us what we have asked of Your immense gifts." },
-      { ar: "وَاكْرِمِ الْأَرْوَاحَ مِنَّا ۞ بِلِقَا خَيْرِ الْأَنَامِ",
+      { repeatRefrain: true,
+        ar: "وَاكْرِمِ الْأَرْوَاحَ مِنَّا ۞ بِلِقَا خَيْرِ الْأَنَامِ",
         tr: "Wa-krimi-l-arwāḥa minnā · bi-liqā khayri-l-anāmi",
         en: "Honor our souls with the meeting of the best of created beings." },
-      { ar: "وَابْلِغِ الْمُخْتَارَ عَنَّا ۞ مِنْ صَلَاةٍ وَسَلَامِ",
+      { repeatRefrain: true,
+        ar: "وَابْلِغِ الْمُخْتَارَ عَنَّا ۞ مِنْ صَلَاةٍ وَسَلَامِ",
         tr: "Wa-blighi-l-mukhtāra ʿannā · min ṣalātin wa salāmi",
         en: "And convey to the Chosen One, from us, blessings and greetings of peace." },
-      { ar: "يَا اللّٰهُ يَا مُحَمَّدْ ۞ يَا أَبَا بَكْرٍ يَا صِدِّيقْ",
+      { repeatRefrain: true,
+        ar: "يَا اللّٰهُ يَا مُحَمَّدْ ۞ يَا أَبَا بَكْرٍ يَا صِدِّيقْ",
         tr: "Yā Allāhu yā Muḥammad · Yā Abā Bakrin yā Ṣiddīq",
         en: "O Allah, O Muhammad ﷺ; O Abu Bakr, O ever-truthful one." },
-      { ar: "يَا عُمَرْ عُثْمَانْ يَا عَلِي ۞ فَاطِمَةْ بِنْتَ الرَّسُولِ",
+      { repeatRefrain: true,
+        ar: "يَا عُمَرْ عُثْمَانْ يَا عَلِي ۞ فَاطِمَةْ بِنْتَ الرَّسُولِ",
         tr: "Yā ʿUmar ʿUthmān yā ʿAlī · Fāṭimah binta-r-Rasūli",
         en: "O Umar, Uthman, O Ali; O Fatima, daughter of the Messenger." }
     ]
@@ -1885,49 +1898,56 @@ const QASIDAS = [
     titleEnglish: "18 · Yā Arḥama-r-Rāḥimīn",
     verses: [
       { refrain: true,
-        ar: "يَا أَرْحَمَ الرَّاحِمِينْ (3)\nيَا أَرْحَمَ الرَّاحِمِينْ ۞ فَرِّجْ عَلٰى الْمُسْلِمِينْ",
-        tr: "Yā arḥama-r-rāḥimīn (3) · Yā arḥama-r-rāḥimīn · farrij ʿalā-l-muslimīn",
-        en: "O Most Merciful of the merciful (3) — O Most Merciful of the merciful, bring relief to the Muslims." },
+        ar: "يَا أَرْحَمَ الرَّاحِمِينْ (3) ۞ فَرِّجْ عَلٰى الْمُسْلِمِينْ",
+        tr: "Yā arḥama-r-rāḥimīn (3) · farrij ʿalā-l-muslimīn",
+        en: "O Most Merciful of the merciful (3) — bring relief to the Muslims." },
       { ar: "يَا رَبَّنَا يَا كَرِيمْ ۞ يَا رَبَّنَا يَا رَحِيمْ",
         tr: "Yā Rabbanā yā Karīm · yā Rabbanā yā Raḥīm",
         en: "O our Lord, O Generous One; O our Lord, O Merciful One." },
-      { ar: "أَنْتَ الْجَوَادُ الْحَلِيمْ ۞ وَأَنْتَ نِعْمَ الْمُعِينْ",
+      { repeatRefrain: true,
+        ar: "أَنْتَ الْجَوَادُ الْحَلِيمْ ۞ وَأَنْتَ نِعْمَ الْمُعِينْ",
         tr: "Anta-l-Jawādu-l-Ḥalīm · wa anta niʿma-l-muʿīn",
         en: "You are the Bestower, the Forbearing — and You are the best of helpers." },
       { ar: "وَمَا لَنَا رَبَّنَا ۞ سِوَاكَ يَا حَسْبُنَا",
         tr: "Wa mā lanā Rabbanā · siwāka yā ḥasbunā",
         en: "We have none, our Lord, besides You — O our Sufficiency." },
-      { ar: "يَا ذَا الْعُلَا وَالْغِنَى ۞ وَيَا قَوِيُّ يَا مَتِينْ",
+      { repeatRefrain: true,
+        ar: "يَا ذَا الْعُلَا وَالْغِنَى ۞ وَيَا قَوِيُّ يَا مَتِينْ",
         tr: "Yā dhā-l-ʿulā wa-l-ghinā · wa yā Qawiyyu yā Matīn",
         en: "O Possessor of highness and all-sufficiency, O Strong One, O Firm One." },
       { ar: "وَلَيْسَ نَرْجُو سِوَاكْ ۞ فَأَدْرِكْ إِلَهِي دَرَاكْ",
         tr: "Wa laysa narjū siwāk · fa-adrik ilāhī darāk",
         en: "We hope in none but You — so reach us, my God, with swift rescue," },
-      { ar: "قَبْلَ الْفَنَا وَالْهَلَاكْ ۞ يَعُمُّ دُنْيَا وَدِينْ",
+      { repeatRefrain: true,
+        ar: "قَبْلَ الْفَنَا وَالْهَلَاكْ ۞ يَعُمُّ دُنْيَا وَدِينْ",
         tr: "Qabla-l-fanā wa-l-halāk · yaʿummu dunyā wa dīn",
         en: "before ruin and destruction engulf both worldly life and religion." },
       { ar: "بِجَاهِ طٰهٰ الرَّسُولْ ۞ جُدْ رَبَّنَا بِالْقَبُولْ",
         tr: "Bi-jāhi Ṭāhā-r-Rasūl · jud Rabbanā bi-l-qabūl",
         en: "For the sake of Taha the Messenger, grant us, our Lord, Your acceptance." },
-      { ar: "وَهَبْ لَنَا كُلَّ سُولْ ۞ رَبِّ اسْتَجِبْ لِي آمِينْ",
+      { repeatRefrain: true,
+        ar: "وَهَبْ لَنَا كُلَّ سُولْ ۞ رَبِّ اسْتَجِبْ لِي آمِينْ",
         tr: "Wa hab lanā kulla sūl · Rabbi-stajib lī āmīn",
         en: "Bestow on us all that we ask — my Lord, answer me. Amin." },
       { ar: "وَاغْفِرْ لِي كُلَّ الذُّنُوبْ ۞ وَاسْتُرْ لِي كُلَّ الْعُيُوبْ",
         tr: "Wa-ghfir lī kulla-dh-dhunūb · wa-stur lī kulla-l-ʿuyūb",
         en: "Forgive me all my sins, and cover all my faults." },
-      { ar: "وَاكْشِفْ لِي كُلَّ الْكُرُوبْ ۞ وَاكْفِ أَذَى الْمُؤْذِينْ",
+      { repeatRefrain: true,
+        ar: "وَاكْشِفْ لِي كُلَّ الْكُرُوبْ ۞ وَاكْفِ أَذَى الْمُؤْذِينْ",
         tr: "Wa-kshif lī kulla-l-kurūb · wa-kfi adhā-l-mu'dhīn",
         en: "Lift from me every distress, and shield me from the harm of those who harm." },
       { ar: "وَاخْتِمْ بِأَحْسَنْ خِتَامْ ۞ إِذَا دَنَا الْاِنْصِرَامْ",
         tr: "Wa-khtim bi-aḥsan khitām · idhā danā-l-inṣirām",
         en: "And seal my life with the best of endings when the departure draws near," },
-      { ar: "وَحَانَ حَيْنُ الْحِمَامْ ۞ وَزَادَ رَشْحُ الْجَبِينْ",
+      { repeatRefrain: true,
+        ar: "وَحَانَ حَيْنُ الْحِمَامْ ۞ وَزَادَ رَشْحُ الْجَبِينْ",
         tr: "Wa ḥāna ḥaynu-l-ḥimām · wa zāda rashḥu-l-jabīn",
         en: "when the appointed hour arrives and the brow beads with sweat." },
       { ar: "ثُمَّ الصَّلَاةُ وَالسَّلَامْ ۞ عَلٰى شَفِيعِ الْأَنَامْ",
         tr: "Thumma-ṣ-ṣalātu wa-s-salām · ʿalā shafīʿi-l-anām",
         en: "Then blessings and peace upon the intercessor of humankind," },
-      { ar: "وَالْآلِ نِعْمَ الْكِرَامْ ۞ وَالصَّحْبِ وَالتَّابِعِينْ",
+      { repeatRefrain: true,
+        ar: "وَالْآلِ نِعْمَ الْكِرَامْ ۞ وَالصَّحْبِ وَالتَّابِعِينْ",
         tr: "Wa-l-āli niʿma-l-kirām · wa-ṣ-ṣaḥbi wa-t-tābiʿīn",
         en: "and upon his family — the finest of nobles — his companions, and those who followed them." }
     ]
@@ -12731,7 +12751,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v423';
+const APP_VERSION = 'v424';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -16989,6 +17009,7 @@ function readerHTML(q, backOnclick, kind, idx){
               })()}
           ${v.tr ? `<div class="v-tr ${state.showTr?'':'hide'}">${v.tr.replaceAll('\n','<br>')}</div>` : ''}`}
           ${v.en ? `<div class="v-en ${state.showEn?'':'hide'}">${v.en.replaceAll('\n','<br>')}</div>` : ''}
+          ${v.times ? `<div class="refrain-times">${v.times === 2 ? 'Sing the whole refrain twice · مَرَّتَيْنِ' : 'Sing the whole refrain ' + v.times + ' times'}</div>` : ''}
         </article>${v.repeatRefrain ? refrainRepeatHTML(q, n) : ''}`).join('')}`}
       ${pageView ? '' : chapterNav(kind, idx)}
     </main>
@@ -17246,7 +17267,10 @@ const stripRepeatCount = t => t.replace(/\s*\((?:[0-9]+|[٠-٩]+)\)\s*$/, '');
 function refrainRepeatHTML(q, n){
   const r = q.verses.slice(0, n + 1).reverse().find(v => v.refrain);
   if(!r) return '';
-  const ar = stripRepeatCount(r.ar), tr = r.tr && stripRepeatCount(r.tr), en = r.en && stripRepeatCount(r.en);
+  /* A `times` refrain states its whole-refrain count on the card, not in the
+     text, so its last in-text count is a per-line one and stays. */
+  const strip = r.times ? (t => t) : stripRepeatCount;
+  const ar = strip(r.ar), tr = r.tr && strip(r.tr), en = r.en && strip(r.en);
   return `<div class="refrain-repeat${state.refrainOpen ? ' open' : ''}">
       <button class="refrain-repeat-btn" onclick="toggleRefrain()"
         aria-expanded="${state.refrainOpen ? 'true' : 'false'}">↻ Repeat refrain · يُرَدَّد</button>
