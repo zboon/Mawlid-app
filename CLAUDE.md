@@ -625,8 +625,10 @@ line and the two were indistinguishable). Repeats never show it. Cards 3 and 6 d
 and before `My master` — neither is a plain two-sentence split. Two spellings
 were corrected in the same release on the owner's instruction: v7's bare
 `اللَّهُ` to the dagger form `اللّٰهُ`, and v6's `سَيَّدِي` / "Sayyadī" to
-`سَيِّدِي` / "Sayyidī" — both copied from the app's majority bytes. The fork's
-copies of all five are untouched, per its stale-`QASIDAS` scope.
+`سَيِّدِي` / "Sayyidī" — both copied from the app's majority bytes. And **Ṣallā-Llāhu ʿalā Muḥammad (`QASIDAS[10]`) — v424, Mawalid only**: after
+every verse (cards 2–7), sung once each — the opening refrain's closing `(2)`
+is dropped from the repeats like Balagha's. The fork's copies of all six are
+untouched, per its stale-`QASIDAS` scope.
 
 - **Collapsed by default**, showing one gold rule reading "↻ Repeat refrain".
   A tap opens **every marker in the chapter at once** — a reciter wants them
