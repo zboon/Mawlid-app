@@ -22,8 +22,8 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v424** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v94** |
+| **Mawalid** (this repo) | the full collection | **v425** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v95** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -1085,8 +1085,17 @@ under `findings/`, which were right.
 - **Transliteration and English** for al-Ḥizb al-Aʿẓam and Ḥizb al-Istighfār —
   Arabic-only by the owner's call (752 of `LITANY_CHAPTERS`' 950 verses). The
   renderer handles per-verse `tr`/`en`, so this can be layered in later with no
-  restructuring. **Diyāʾ (120 verses) and the ilāhīs (70) have `en` but no `tr`**
-  at all — not yet raised with the owner.
+  restructuring. **The ilāhīs (70) have `en` but no `tr`** at all — not yet
+  raised with the owner. **The Diyāʾ's `tr` was written in v425** on the
+  owner's request, all 120 verses, in the mawlid qasidas' style (`QASIDAS[5]`):
+  ` · ` for each `۞`, the article as `-l-`/`-r-`, `-Llāh`, pausal endings as
+  vowelled, the second hemistich lower-case. Lines the app already carried
+  (the Opening Ṣalawāt's first hemistich, the Standing's `Ṣallā-Llāhu` and
+  `Marḥaban` lines) reuse the existing wording. The Qurʾānic verses carry `tr`
+  like the Opening Duʿāʾ's — `en` there was already the owner's source text.
+  The build asserted one ` · ` per rosette in every verse. **Both apps
+  (v425 / v95)** — the fork carries the Diyāʾ in its mawlids list, byte-identical
+  to Mawalid's, like the Barzanji, so a Diyāʾ change goes into both.
 - **The Title Page's three `tr` were filled** in v389. The five Qurʾānic `en` in
   the Opening Duʿāʾ were filled in the same release and **reverted in v390** —
   see non-negotiable 3. Those five are the only Dalāʾil verses without an `en`,
