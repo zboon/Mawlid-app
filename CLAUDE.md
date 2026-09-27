@@ -23,7 +23,7 @@ network.
 | | | current |
 |---|---|---|
 | **Mawalid** (this repo) | the full collection | **v425** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v94** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v95** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -1093,8 +1093,9 @@ under `findings/`, which were right.
   (the Opening Ṣalawāt's first hemistich, the Standing's `Ṣallā-Llāhu` and
   `Marḥaban` lines) reuse the existing wording. The Qurʾānic verses carry `tr`
   like the Opening Duʿāʾ's — `en` there was already the owner's source text.
-  The build asserted one ` · ` per rosette in every verse. Mawalid only — the
-  fork has no Diyāʾ.
+  The build asserted one ` · ` per rosette in every verse. **Both apps
+  (v425 / v95)** — the fork carries the Diyāʾ in its mawlids list, byte-identical
+  to Mawalid's, like the Barzanji, so a Diyāʾ change goes into both.
 - **The Title Page's three `tr` were filled** in v389. The five Qurʾānic `en` in
   the Opening Duʿāʾ were filled in the same release and **reverted in v390** —
   see non-negotiable 3. Those five are the only Dalāʾil verses without an `en`,
