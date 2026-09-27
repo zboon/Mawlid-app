@@ -627,8 +627,12 @@ were corrected in the same release on the owner's instruction: v7's bare
 `اللَّهُ` to the dagger form `اللّٰهُ`, and v6's `سَيَّدِي` / "Sayyadī" to
 `سَيِّدِي` / "Sayyidī" — both copied from the app's majority bytes. And **Ṣallā-Llāhu ʿalā Muḥammad (`QASIDAS[10]`) — v424, Mawalid only**: after
 every verse (cards 2–7), sung once each — the opening refrain's closing `(2)`
-is dropped from the repeats like Balagha's. The fork's copies of all six are
-untouched, per its stale-`QASIDAS` scope.
+is dropped from the repeats like Balagha's. And **Yā Arḥama-r-Rāḥimīn
+(`QASIDAS[11]`) — v424, Mawalid only**: after every two verses (cards 3, 5 …
+15), where each couplet closes on the ‑īn rhyme. Its `(3)` sits mid-refrain,
+so every repeat keeps it. The same release removed a doubled
+`يَا أَرْحَمَ الرَّاحِمِينْ` after that `(3)`, on the owner's instruction. The
+fork's copies of all seven are untouched, per its stale-`QASIDAS` scope.
 
 - **Collapsed by default**, showing one gold rule reading "↻ Repeat refrain".
   A tap opens **every marker in the chapter at once** — a reciter wants them
