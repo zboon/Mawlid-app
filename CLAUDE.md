@@ -22,7 +22,7 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v423** |
+| **Mawalid** (this repo) | the full collection | **v424** |
 | **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v94** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
@@ -616,9 +616,12 @@ over from there, and every single-refrain piece is unaffected. And **Ṭālamā
 Ashkū Gharāmī (`QASIDAS[9]`, in the Daybaʿī) — v423, Mawalid only**: card 1
 (the title verse) flagged as the refrain, repeated after cards 2–7. **Every
 part of every verse is sung twice**, so each carries `" (2)"` in all three
-columns, before any closing punctuation (`l-wujūd (2).`, `Existence (2)!`);
-the refrain adds a **closing `(2)` on its own line** (`\n(2)`) for singing
-the whole refrain twice. Cards 3 and 6 divide their English at `, Consumed`
+columns, before any closing punctuation (`l-wujūd (2).`, `Existence (2)!`).
+Singing the **whole refrain twice** is not a `(2)` in the text: it is
+`times: 2` on the refrain verse, rendered as its own ruled gold line on the
+card — "Sing the whole refrain twice · مَرَّتَيْنِ" — so it cannot be read as
+one more per-line count (v424, owner's call; v423 had it as a bare `\n(2)`
+line and the two were indistinguishable). Repeats never show it. Cards 3 and 6 divide their English at `, Consumed`
 and before `My master` — neither is a plain two-sentence split. Two spellings
 were corrected in the same release on the owner's instruction: v7's bare
 `اللَّهُ` to the dagger form `اللّٰهُ`, and v6's `سَيَّدِي` / "Sayyadī" to
@@ -969,7 +972,8 @@ hemistich, `صَلُّوا عَلَيْهِ وَآلِهِ`, in all three column
 refrain only** (v419, owner's call). The data keeps it; `refrainRepeatHTML`
 strips the refrain's **closing** count from the repeated copies
 (`stripRepeatCount`, anchored to the end of the string since v423) — counts
-*inside* a refrain, like Ṭālamā's per-part `(2)`s, stay on every repeat.
+*inside* a refrain stay on every repeat. A refrain with `times` skips the
+strip entirely, since its last in-text count is a per-line one.
 
 **Audio: `Balaghal Ula Bi Kamalihi by Syrian Munshids with English
 translation.mp4`, 273 s** (from the `mvhd` atom — this is an mp4, not an
