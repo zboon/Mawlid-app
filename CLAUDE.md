@@ -23,7 +23,7 @@ network.
 | | | current |
 |---|---|---|
 | **Mawalid** (this repo) | the full collection | **v425** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v96** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v97** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -267,6 +267,10 @@ against what the earlier estimate guessed:
 Measure the chapter; never quote a stored figure.
 
 `[5]` Names of the Prophet ﷺ (2 in scope) is **not yet done**.
+
+**The fork offers the pre-collation text too (v97)** — see *Two versions of
+the Dalāʾil* below. The ruling above governs `DALAIL_CHAPTERS`, which is the
+**Istanbul** version; it is not a licence to edit the other.
 
 Tuesday is deliberately partial: only the 35 the scan shows bare were removed,
 **v132 is untouched on the owner's instruction**, and the `سيدنا ومولانا` block
@@ -786,6 +790,48 @@ only — Mawalid has no switch.
   Uthmani), written only from `setArFont`. Not synced in a live session and
   not broadcast — a follower keeps their own script, like size and columns.
 - All three OFL notices (Amiri, DigitalKhatt, SIL) head the fork's `OFL.txt`.
+
+## Two versions of the Dalāʾil — fork only (v97)
+
+On the owner's request the Dalāʾil app offers the Dalāʾil in **two
+versions**, switched by an **Istanbul · With Sayyidinā** control on the
+Dalāʾil landing page and in the reader controls of the eight day-chapters.
+"With Sayyidinā" is a **working name** — the owner has not chosen one yet.
+
+- **Istanbul** is `DALAIL_CHAPTERS` as it stands: collated against the
+  printing, with the 520 سيدنا removed.
+- **With Sayyidinā** is `DALAIL_WITH_SAYYIDINA`, a map `"chapter:verse" →
+  {ar, tr, en}` of the **153 verses** the eight splice commits changed
+  (Mawalid `944d5da`…`d081b83`; fork `a97fb1d`…`76b865b`), each restored to
+  its pre-collation text **but carrying every fix made since** — Saturday
+  v15's `شِيثَ` / "Shītha" and the two `إِبْرَاهِيمَ` tatweels. The build
+  asserted, verse by verse, that the two versions differ by exactly the
+  collation's own changes and nothing else; that every `۞` and `‖` is where
+  it was; and 520 restored: Mon1 119, Tue 35, Wed 25, Thu 63, Fri 134,
+  Sat 94, Sun 28, Mon2 22.
+- **Any future fix to one of those 153 verses must go into both** —
+  `DALAIL_CHAPTERS` and its entry in `DALAIL_WITH_SAYYIDINA`. The alternate
+  is a full copy of the verse, not a patch, so a fix made to one alone
+  silently diverges. Check `DALAIL_WITH_SAYYIDINA["c:v"]` before closing
+  any Dalāʾil text edit.
+- **The swap is in place**: `applyDalailEdition()` writes the chosen
+  fields onto `DALAIL_CHAPTERS` at startup and on every switch, from
+  `DALAIL_WITH_SAYYIDINA` or from `DALAIL_ISTANBUL` (a startup snapshot of
+  the same 153 verses). So both readers, search, saved places and live
+  sessions follow the version with no knowledge of it. The **source**
+  `DALAIL_CHAPTERS` is never edited and stays byte-identical with Mawalid's
+  (non-negotiable 6); the alternate lives only in the fork.
+- **Verse indices, leaves and segments are identical in both**, so a saved
+  place resumes on the same leaf and phrase after a switch (tested both
+  ways), and a leader and follower on different versions still land together.
+- **Switching re-renders an open Dalāʾil reader**: the Book view keeps the
+  **leaf** (`msCurrentPage` → `msGoToWhenReady`) — going via the top verse
+  landed a leaf early whenever a verse ran on from the previous page; the
+  Study view keeps the top verse.
+- **`dlk-edition`** (`istanbul` | `sayyidina`; unset or unrecognised =
+  Istanbul), written only from `setDalailEdition`. Not synced in a session.
+- Measured: zero overflowing leaves in the With Sayyidinā version in all
+  three scripts; leaf counts unchanged.
 
 ## Theme
 
