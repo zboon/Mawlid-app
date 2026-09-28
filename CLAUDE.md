@@ -23,7 +23,7 @@ network.
 | | | current |
 |---|---|---|
 | **Mawalid** (this repo) | the full collection | **v425** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v95** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v96** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -746,6 +746,46 @@ leave. They replaced four −/+ chips.
   stack, which is fine and is what the chips did.
 
 ---
+
+## The script switch — Dalāʾil fork only (v96)
+
+A three-way **Uthmani · IndoPak · Naskh** switch in the reader controls, in
+**both** views, sets the reading text (`.v-ar`, `.ms-text`) in one of three
+faces. Titles, cards and the rest of the chrome keep Hafs. Owner's call, fork
+only — Mawalid has no switch.
+
+| Choice | Face | Licence | Embedded |
+|---|---|---|---|
+| Uthmani | KFGQPC Uthmanic Hafs (the standard) | KFGQPC terms | as before |
+| IndoPak | DigitalKhatt IndoPak v0.1 | OFL 1.1, © Amine Anane, Tarteel Inc. | 101 KB WOFF2 |
+| Naskh | Scheherazade New 4.500 | OFL 1.1, © SIL Global, **reserved names** | 125 KB WOFF2 |
+
+- **Scheherazade New is SIL's own web font, byte for byte** —
+  `web/ScheherazadeNew-Regular.woff2` from the 4.500 release zip. Its
+  licence reserves the names "Scheherazade" and "SIL", so a subset or
+  re-encoded copy could not keep the name: never subset or convert it.
+  Google Fonts' copy is a subset, which is why it was not used.
+- **DigitalKhatt IndoPak** is the project's built "coretext" TrueType
+  (`digitalkhatt-js`, `apps/site-angular/src/assets/fonts/coretext/`),
+  re-wrapped as WOFF2 with no glyph changes; it has no reserved name.
+  It maps only 96 codepoints — the Arabic comma, `؟`, ﷺ, the small wāw
+  `ۥ` (4 uses) and the ornate Qurʾān brackets fall through to Hafs/Amiri,
+  and the `ۥ` sits slightly apart from its hāʾ. Scheherazade New covers
+  everything the corpus uses.
+- **Al Majeed was the owner's first choice and cannot ship**: its PDMS
+  licence forbids distribution without a licence from pakdata.com. The
+  common "Indopak Nastaleeq" fonts carry similar no-distribution terms.
+- **The corpus bytes do not change** — every face renders the same text.
+- **Switching flips a class on `<html>` (`ar-indopak` / `ar-naskh`) and
+  re-fits in place** — no `reopen()`, so neither view loses its leaf or
+  scroll. `queueMsAutoFit` also waits on `document.fonts.load()` for the
+  chosen face (`AR_FONTS` maps choice → family), because `fonts.ready` can
+  settle before a just-chosen face starts loading. Measured: zero
+  overflowing leaves across every Dalāʾil and litany chapter in all three.
+- **`dlk-font`** (`uthmani` | `indopak` | `naskh`; unset or unrecognised =
+  Uthmani), written only from `setArFont`. Not synced in a live session and
+  not broadcast — a follower keeps their own script, like size and columns.
+- All three OFL notices (Amiri, DigitalKhatt, SIL) head the fork's `OFL.txt`.
 
 ## Theme
 
