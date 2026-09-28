@@ -23,7 +23,7 @@ network.
 | | | current |
 |---|---|---|
 | **Mawalid** (this repo) | the full collection | **v425** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v95** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v96** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -746,6 +746,36 @@ leave. They replaced four −/+ chips.
   stack, which is fine and is what the chips did.
 
 ---
+
+## The IndoPak script — Dalāʾil fork only (v96)
+
+An **IndoPak** chip in the reader controls, in **both** views, sets the
+reading text (`.v-ar`, `.ms-text`) in **DigitalKhatt IndoPak** instead of the
+Uthmani Hafs face. Titles, cards and the rest of the chrome keep Hafs. Owner's
+call, fork only — Mawalid has no chip.
+
+- **Licence: SIL OFL 1.1**, © Amine Anane and Tarteel Inc.
+  (github.com/DigitalKhatt/indopakfont); the notice is at the head of the
+  fork's `OFL.txt`. The file is the project's built "coretext" TrueType
+  (`digitalkhatt-js`, `apps/site-angular/src/assets/fonts/coretext/`),
+  re-wrapped as WOFF2 with no glyph changes — 101 KB, embedded as base64
+  like the other faces, so it works offline. Version 0.1.
+- **Al Majeed was the owner's first choice and cannot ship**: its PDMS
+  licence forbids distribution without a licence from pakdata.com. The
+  common "Indopak Nastaleeq" fonts carry similar no-distribution terms.
+- **It renders the corpus's existing bytes** — no IndoPak re-encoding. It
+  maps only 96 codepoints; the Arabic comma, `؟`, ﷺ, the small wāw `ۥ`
+  (4 uses) and the ornate Qurʾān brackets fall through to Hafs/Amiri, so
+  no `unicode-range` is needed. The `ۥ` sits slightly apart from its hāʾ.
+- **The chip flips a class on `<html>` and re-fits in place** — no
+  `reopen()`, so neither view loses its leaf or scroll. `queueMsAutoFit`
+  also waits on `document.fonts.load('1em DKIndoPak')`, because
+  `fonts.ready` can settle before a just-chosen face starts loading.
+  Measured: zero overflowing leaves across every Dalāʾil and litany chapter
+  in IndoPak.
+- **`dlk-font`** (`uthmani` | `indopak`, unset = Uthmani), written only
+  from `toggleArFont`. Not synced in a live session and not broadcast — a
+  follower keeps their own script, like the size and the columns.
 
 ## Theme
 
