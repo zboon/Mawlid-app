@@ -22,7 +22,7 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v435** |
+| **Mawalid** (this repo) | the full collection | **v436** |
 | **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v99** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
@@ -633,8 +633,7 @@ and before `My master` — neither is a plain two-sentence split. Two spellings
 were corrected in the same release on the owner's instruction: v7's bare
 `اللَّهُ` to the dagger form `اللّٰهُ`, and v6's `سَيَّدِي` / "Sayyadī" to
 `سَيِّدِي` / "Sayyidī" — both copied from the app's majority bytes. And **Ṣallā-Llāhu ʿalā Muḥammad (`QASIDAS[10]`) — v424, Mawalid only**: after
-every verse (cards 2–7), sung once each — the opening refrain's closing `(2)`
-is dropped from the repeats like Balagha's. And **Yā Arḥama-r-Rāḥimīn
+every verse (cards 2–7), sung once each. And **Yā Arḥama-r-Rāḥimīn
 (`QASIDAS[11]`) — v424, Mawalid only**: after every two verses (cards 3, 5 …
 15), where each couplet closes on the ‑īn rhyme. Its `(3)` sits mid-refrain,
 so every repeat keeps it. The same release removed a doubled
@@ -646,10 +645,26 @@ its **two** opening cards (`طَلَعَ الْبَدْرُ…` and `وَجَب�
 call), repeated after every two verses — cards 4, 6 … 24 and the lone last
 card 25. Card 2 carries **`refrainCont: true`**: it is styled as refrain and
 `refrainRepeatHTML` gathers every `refrainCont` card straight after the
-`refrain` one into the repeat, stripping a closing count from the last part
-only. Kept as two cards rather than merged, so no verse was renumbered and
+`refrain` one into the repeat. Kept as two cards rather than merged, so no verse was renumbered and
 no highlight moved. Every other refrain rendered byte-identical before and
 after. The fork's copy is untouched, per its stale-`QASIDAS` scope.
+
+**#25, batch 1 — v436, Mawalid only: repeat points from the booklet.** The
+Qasida booklet (`Qasida_V1.3.pdf`, PDF pp. 16–43) prints "Chorus" after
+every stanza of most pieces — never after the opening stanza, nor after a
+separate closing `اللّٰهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ…` line. Where a booklet stanza is
+two app cards, the repeat falls every two cards. Applied to 14 pieces:
+ʿIbādallāh, the Yā Rabbī Opening Qasida, Ayyuhā-l-Mushtāq and Mā Lanā
+(2–6), ʿAdnānī (2–4), Yā Ṭaybah (2–3), Yā Abā-z-Zahrā and Yā Shafīʿa-l-Warā
+(2–7), Yā Hanānā (2–4), the Badriyyah (2–14), Ashraqa (3, 5, 7, 9), Anta
+Shamsun (2–4), Yā Rasūlallāhi Salāmun ʿAlayk (card 2 is `refrainCont` —
+the booklet's chorus is two lines — then 3, 5 … 19) and An-Nabī Ṣallū
+ʿAlayh (all 2–11). User's rulings: Ayyuhā-l-Mushtāq's and Yā Shafīʿa's card 1
+became the refrain, and Yā Shafīʿa's closing formula (card 8) lost its
+Refrain label; **An-Nabī Ṣallū ʿAlayh lost three cards** (Marḥaban yā nūra
+ʿaynī, and the two written-out refrains) to match the booklet — so its
+cards were renumbered. The pieces the booklet has no chorus marks for are
+batch 2.
 
 - **Collapsed by default**, showing one gold rule reading "↻ Repeat refrain".
   A tap opens **every marker in the chapter at once** — a reciter wants them
@@ -1311,12 +1326,9 @@ by the owner before it was written:
 **The refrain repeats after the owner's #2, #4 and #6** (`repeatRefrain`),
 which the reader shows as cards **3, 5 and 7** — it counts the refrain as
 card 1, the same offset as the Daybaʿī above. The `(2)` sits on the last
-hemistich, `صَلُّوا عَلَيْهِ وَآلِهِ`, in all three columns — **on the opening
-refrain only** (v419, owner's call). The data keeps it; `refrainRepeatHTML`
-strips the refrain's **closing** count from the repeated copies
-(`stripRepeatCount`, anchored to the end of the string since v423) — counts
-*inside* a refrain stay on every repeat. A refrain with `times` skips the
-strip entirely, since its last in-text count is a per-line one.
+hemistich, `صَلُّوا عَلَيْهِ وَآلِهِ`, in all three columns. From v419 to v435
+repeats stripped that closing count; **since v436 every repeat keeps it**
+(#25, the user's call) and `stripRepeatCount` is gone.
 
 **Audio: `Balaghal Ula Bi Kamalihi by Syrian Munshids with English
 translation.mp4`, 273 s** (from the `mvhd` atom — this is an mp4, not an
