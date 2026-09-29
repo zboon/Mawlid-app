@@ -267,7 +267,7 @@ against what the earlier estimate guessed:
 Measure the chapter; never quote a stored figure.
 
 `[5]` Names of the Prophet ﷺ (2 in scope) is **not yet done** against the
-scan. (The With Sayyidinā version separately adds `سَيِّدُنَا` before all 200
+scan. (The Mughlay version separately adds `سَيِّدُنَا` before all 200
 names — see *Two versions of the Dalāʾil*; that does not touch the Istanbul text.)
 
 **Both apps offer the pre-collation text too (v426 / v97)** — see *Two
@@ -508,7 +508,7 @@ Run all of it before opening a pull request.
   repeat, against the al-Aʿlā 87:2–3 verb+fāʾ+verb pattern the passage runs on).
 - The **commas in the Dalāʾil's Istanbul version** are deliberate (1,065
   measured in v426; an older note said 1113); every other collection keeps
-  the commaless manuscript look, and so does the With Sayyidinā version.
+  the commaless manuscript look, and so does the Mughlay version.
 - ` · ` is a **pervasive UI separator** — 600+ occurrences. A global
   find-and-replace on it wrecks the file. This has happened once.
 - `/[A-Z]/` does **not** match the Latin-Extended capitals used in the
@@ -796,20 +796,25 @@ only — Mawalid has no switch.
 
 ## Two versions of the Dalāʾil — both apps (v426 / v97)
 
-On the owner's request **both apps** offer the Dalāʾil in **two versions**, switched by an **Istanbul · With Sayyidinā** control on the
+On the owner's request **both apps** offer the Dalāʾil in **two versions**, switched by an **Istanbul · Mughlay** control on the
 Dalāʾil landing page and in the reader controls of every chapter that reads
 differently between them (`[6]`–`[14]`: the eight days and the Duʿāʾ of
 Completion).
-"With Sayyidinā" is a **working name** — the owner has not chosen one yet.
+**The owner named it the Mughlay Version** (September 2026) after the
+Indo-Pak "Mughlay" printing it resembles. The code still says `sayyidina`
+(`DALAIL_WITH_SAYYIDINA`, the stored value) — only the label changed.
+**It is not yet collated against that printing**: only Monday P1 has been
+read, and its differences are with the owner (see *The Mughlay printing*
+below).
 
 - **Istanbul** is `DALAIL_CHAPTERS` as it stands: collated against the
   printing, with the 520 سيدنا removed and its Arabic commas.
-- **With Sayyidinā has no Arabic commas** (owner's call): every U+060C is
+- **Mughlay has no Arabic commas** (owner's call): every U+060C is
   dropped from the Arabic of the whole Dalāʾil as the version is applied
   (`stripArCommas`) — 1,065 of them, all written `word، next`, so each
   leaves one space. `tr` and `en` keep their punctuation. The stored
   alternates keep their commas; the stripping happens only at apply time.
-- **With Sayyidinā** is `DALAIL_WITH_SAYYIDINA`, a map `"chapter:verse" →
+- **Mughlay** is `DALAIL_WITH_SAYYIDINA`, a map `"chapter:verse" →
   {ar, tr, en}` of the **153 verses** the eight splice commits changed
   (Mawalid `944d5da`…`d081b83`; fork `a97fb1d`…`76b865b`), each restored to
   its pre-collation text **but carrying every fix made since** — Saturday
@@ -819,7 +824,7 @@ Completion).
   it was; and 520 restored: Mon1 119, Tue 35, Wed 25, Thu 63, Fri 134,
   Sat 94, Sun 28, Mon2 22.
 - **Plus 200 more: `سَيِّدُنَا` before each Name of the Prophet** (`[5]`
-  v2–v201, Aḥmad … Ṣāḥib al-Faraj), With Sayyidinā only, on the owner's
+  v2–v201, Aḥmad … Ṣāḥib al-Faraj), Mughlay only, on the owner's
   call — so the map holds **353** entries. This one is **new text, not a
   restoration**: no copy of the app ever carried it there, and the
   Istanbul Names pages were never uploaded, so Istanbul was left alone.
@@ -852,9 +857,35 @@ Completion).
 - **`mawlid-edition` / `dlk-edition`** (`istanbul` | `sayyidina`; unset or
   unrecognised = Istanbul), written only from `setDalailEdition`. Not synced
   in a session.
-- Measured in both apps: zero overflowing leaves in the With Sayyidinā
+- Measured in both apps: zero overflowing leaves in the Mughlay
   version (all three scripts in the fork); leaf counts, `۞` (478) and `‖`
   (103) unchanged; saved places resume across a switch both ways.
+
+### The Mughlay printing — what Monday P1 showed
+
+`Dalail-al-Khayrat-urdu-eng-monday.pdf`, 20 pages: Arabic on the even book
+pages 98–116, English on the odd ones. Indo-Pak script with a text layer
+that is useless, like the Istanbul scan's. It marks a `○` at the end of
+almost every one of the app's verses, which suggests the app's verse
+chunking came from this edition or one like it. Its internal divisions are
+far fewer than Istanbul's rosettes (none inside v2–v4, v23, v45, v48–v52).
+
+Collated word by word against the app's Mughlay Version and the Istanbul
+scan (pp.19–31). **Nothing has been changed.** Awaiting the owner:
+
+- **Six سيدنا in the Mughlay Version that this printing lacks**: v39 (the
+  last `وَصَلِّ عَلٰى مُحَمَّدٍ عَدَدَ مَا خَلَقْتَ`; the other four have it),
+  v43 ×2 (`مُحَمَّدٍ نَبِيِّكَ وَاِبْرَاهِيمَ`), v45 (`نَبِيِّكَ مُحَمَّدٍ`), v47 ×2
+  (`مِنْهُ مُحَمَّدٌ نَبِيُّكَ`). Everywhere else the two agree.
+- **Mughlay readings that differ from both Istanbul and the app**: v15
+  `لِطَاعَتِكَ` (Istanbul `بِطَاعَتِكَ`); v23 `كَمَا تُحِبُّ` (`يُحِبُّ`); v35
+  `آمَنْتُ بِسَيِّدِنَا مُحَمَّدٍ` (`بِهِ`); v42 no `لَهَا` after `لَا انْقِضَاءَ`.
+- **The app against BOTH printings, in both versions**: v3 `وَآلِ مُحَمَّدٍ`
+  where both print `وَعَلٰى آلِ`; v17 `وَعَلَيْهِ السَّلَامُ` where both print
+  `عَلَيْهِ السَّلَامُ`; v44 `إِنْ شَاءَ اللّٰهُ` where both add `تَعَالٰى`; and
+  v44's `صَلَى` has no shadda — the only one in the Dalāʾil.
+- Spelling only, not flagged as a difference: the Mughlay writes `رِضَا` /
+  `رِضٰى` where Istanbul and the app have `رِضَاءَ`.
 
 ## Theme
 
