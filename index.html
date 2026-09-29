@@ -26,7 +26,7 @@
      script, where nothing that reads the page without running it can see
      it — so "which version is actually live?" could only be answered from
      a phone. Keep the two in step when bumping. -->
-<meta name="app-version" content="v432">
+<meta name="app-version" content="v433">
 <!-- YouTube's embedded player refuses to configure itself unless the host page
      sends a Referer (Error 153 / embedder.identity.missing.referrer). This is
      the browser default in most cases, but a standalone PWA or a WebView may
@@ -2874,17 +2874,41 @@ const QASIDAS = [
     group: "qasidas",
     titleArabic: "المدد المدد المدد",
     titleEnglish: "Madad Madad (Burdah Ensemble Interlude)",
-    note: "Distinct from the separate Naqshbandi 'Madad' litany above; this is a devotional interlude often sung alongside Burdah recitations. Verse 1's source Arabic is corrupted in places (word order/spelling) — transliterated as the most plausible reading, not a verified original.",
+    note: "The Madad sung between sections of the Burdah: the poem Kullu-l-qulūb, the Madad verses, and lines from al-Munfarija. English from the Qasida booklet.",
     verses: [
-      { ar: "قلول القلوب\nإلى الحبيب تميل\nوما عيبي ذلك شاهد شاهد ودليل\nأمد دليل إذا ذكرت محمداً\nسرت دموع العاشقين تسيل\nهذا رسول الله، هذا المصطفى\nهذا لرب العالمين خليل",
-        tr: "Qulūbu-l-qulūbi ila-l-ḥabībi tamīl\nWa lī ʿalā dhālika shāhidun wa dalīl\nAmma dalīlī idhā dhakartu Muḥammadā\nSārat dumūʿu-l-ʿāshiqīna tasīl\nHādhā Rasūlu-llāh, hādha-l-Muṣṭafā\nHādhā li-Rabbi-l-ʿālamīna khalīl",
-        en: "Every heart melts in the rapture of the beloved\nAnd for that love I have a witness, a witness and a proof\nRegarding that proof, if I mention the name of Muhammad\nThe eyes of the lovers will be overrun with tears\nHe is the Messenger of God, He is the Chosen One\nHe is, to the Lord, a most trusted friend" },
-      { refrain: true, ar: "المدد المدد المدد\nالمدد يا رسول الله\nالمدد المدد المدد\nالمدد يا حبيب الله",
+      { ar: "كُلُّ الْقُلُوبِ إِلَى الْحَبِيبِ تَمِيلُ ۞ وَمَعِي بِذٰلِكَ شَاهِدٌ وَدَلِيلُ\nأَمَّا الدَّلِيلُ إِذَا ذَكَرْتُ مُحَمَّدًا ۞ صَارَتْ دُمُوعُ الْعَاشِقِينَ تَسِيلُ\nهٰذَا رَسُولُ اللّٰهِ هٰذَا الْمُصْطَفَى ۞ هٰذَا لِرَبِّ الْعَالَمِينَ خَلِيلُ",
+        tr: "Kullu-l-qulūbi ila-l-ḥabībi tamīlu · wa maʿī bi-dhālika shāhidun wa dalīlu\nAmma-d-dalīlu idhā dhakartu Muḥammadan · ṣārat dumūʿu-l-ʿāshiqīna tasīlu\nHādhā Rasūlu-llāhi hādha-l-Muṣṭafā · hādhā li-Rabbi-l-ʿālamīna khalīlu",
+        en: "Every heart melts in the rapture of the beloved, and for that love I have a witness, a witness and a proof:\nRegarding that proof, if I mention the name of Muhammad, the eyes of the lovers will be overrun with tears\nHe is the Messenger of God, He is the Chosen One, He is, to the Lord, a most trusted friend" },
+      { refrain: true, ar: "الْمَدَدْ الْمَدَدْ الْمَدَدْ\nالْمَدَدْ يَا رَسُولَ اللّٰهْ\nالْمَدَدْ الْمَدَدْ الْمَدَدْ\nالْمَدَدْ يَا حَبِيبَ اللّٰهْ",
         tr: "Al-madad al-madad al-madad\nAl-madad yā Rasūla-llāh\nAl-madad al-madad al-madad\nAl-madad yā Ḥabība-llāh",
-        en: "Aid us, Help us, Support us\nAid us, O Messenger of God!\nAid us, Help us, Support us\nAid us, O Most Beloved of God!" },
-      { ar: "سيدي أنت الحبيب\nبذكرك قلبي يطيب\nسيدي حاشا يخيب\nمن لذا برسول الله",
-        tr: "Sīdī anta-l-ḥabīb\nBi-dhikrika qalbī yaṭīb\nSīdī ḥāshā yakhīb\nMan lajaʾa bi-Rasūli-llāh",
-        en: "Our Master, you are the Beloved\nWith your remembrance my Heart is healed!\nOh my Master! One who takes refuge\nWill never lose with the Messenger of God!" }
+        en: "Aid us, help us\nSupport us, O God's Messenger!\nAid us, help us\nSupport us, O Most Beloved of God!" },
+      { repeatRefrain: true, ar: "رَبِّ وَاجْعَلْ مُجْتَمَعْنَا ۞ غَايَتُهُ حُسْنُ الْخِتَامْ\nوَأَكْرِمِ الْأَرْوَاحَ مِنَّا ۞ بِلِقَا خَيْرِ الْأَنَامْ",
+        tr: "Rabbi wa-jʿal mujtamaʿnā · ghāyatuhu ḥusnu-l-khitām\nWa akrimi-l-arwāḥa minnā · bi-liqā khayri-l-anām",
+        en: "O Lord, grant our gathering a joyous purpose and conclusion\nAnd bless all souls among us to meet the Pearl of Your Creation" },
+      { repeatRefrain: true, ar: "رَبِّ إِنَّا قَدْ دَعَوْنَا ۞ أَعْطِنَا مَا قَدْ رَجَوْنَا\nهَبْ لَنَا فِي الدِّينِ عَوْنَا ۞ بِالصَّلَاةِ عَلَى مُحَمَّدْ",
+        tr: "Rabbi innā qad daʿawnā · aʿṭinā mā qad rajawnā\nHab lanā fi-d-dīni ʿawnā · bi-ṣ-ṣalāti ʿalā Muḥammad",
+        en: "O our Lord, we're calling upon You, and we seek that which pleases You\nGrant us for our journey Your aid, by the blessings upon Muhammad" },
+      { ar: "سِيدِي صَاحِبَ الْحَضْرَةْ ۞ أَكْرِمْنَا مِنْكَ بِنَظْرَةْ\nسِيدِي يَا أَبَا الزَّهْرَا ۞ وَالْقَاسِمْ وَعَبْدِ اللّٰهْ",
+        tr: "Sīdī ṣāḥiba-l-ḥaḍrah · akrimnā minka bi-naẓrah\nSīdī yā aba-z-Zahrā · wa-l-Qāsim wa ʿAbdi-llāh",
+        en: "O treasured friend of the Divine, honour us by looking once upon us!\nOur master, father of Fatima Zahra, and of Qasim and Abd-Allah!" },
+      { repeatRefrain: true, ar: "سِيدِي أَنْتَ الْحَبِيبْ ۞ بِذِكْرِكْ قَلْبِي يَطِيبْ\nسِيدِي حَاشَا يَخِيبْ ۞ مَنْ لَاذَ بِرَسُولِ اللّٰهْ",
+        tr: "Sīdī anta-l-ḥabīb · bi-dhikrik qalbī yaṭīb\nSīdī ḥāshā yakhīb · man lādha bi-Rasūli-llāh",
+        en: "Our master, you are the Beloved; with your remembrance my heart is healed!\nO my master! One who takes refuge will never lose with the Messenger of God!" },
+      { ar: "سِيدِي أَنْتَ الْمُخْتَارْ ۞ بِمَدْحِكْ تُجْلَى الْأَقْدَارْ\nسِيدِي أَجِرْنَا مِنَ النَّارْ ۞ بِجَاهِكْ يَا رَسُولَ اللّٰهْ",
+        tr: "Sīdī anta-l-Mukhtār · bi-madḥik tujla-l-aqdār\nSīdī ajirnā mina-n-nār · bi-jāhik yā Rasūla-llāh",
+        en: "O master, you are the Chosen One; in praising you our destinies become clear\nO master, save us from the fire, for your sake, O God's Messenger" },
+      { refrain: true, ar: "يَا رَبِّ بِهِمْ وَبِآلِهِمِ ۞ عَجِّلْ بِالنَّصْرِ وَبِالْفَرَجِ",
+        tr: "Yā Rabbi bihim wa bi-ālihimi · ʿajjil bi-n-naṣri wa bi-l-faraji",
+        en: "O Lord, we ask You by the beloved and his family: grant us a speedy victory and spiritual openings!" },
+      { ar: "وَارْحَمْ يَا أَكْرَمَ مَنْ رَحِمَا ۞ عَبْدًا عَنْ بَابِكَ لَمْ يَعُجِ",
+        tr: "Wa-rḥam yā akrama man raḥimā · ʿabdan ʿan bābika lam yaʿuji",
+        en: "O Most Merciful One, who is generous with His mercy: a poor servant at Your door will never be refused!" },
+      { repeatRefrain: true, ar: "وَاخْتِمْ عَمَلِي بِخَوَاتِمِهَا ۞ لِأَكُونَ غَدًا فِي الْحَشْرِ نَجِي",
+        tr: "Wa-khtim ʿamalī bi-khawātimihā · li-akūna ghadan fi-l-ḥashri najī",
+        en: "And make my life's deeds to be of virtuous result, so on that Day I come before You my soul may be in peace!" },
+      { repeatRefrain: true, ar: "وَإِذَا بِكَ ضَاقَ الْأَمْرُ فَقُلْ ۞ اشْتَدِّي أَزْمَةُ تَنْفَرِجِي",
+        tr: "Wa idhā bika ḍāqa-l-amru fa-qul · ishtaddī azmatu tanfariji",
+        en: "O friends, if you ever feel hopeless in your life's situation, say: \"With every burden comes a divine opening!\"" }
     ]
   },
 
@@ -12937,7 +12961,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v432';
+const APP_VERSION = 'v433';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 

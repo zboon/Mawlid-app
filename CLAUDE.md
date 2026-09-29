@@ -22,7 +22,7 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v432** |
+| **Mawalid** (this repo) | the full collection | **v433** |
 | **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v99** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
@@ -1265,6 +1265,22 @@ twice" on a non-refrain card (same element, `refrain-times`); X3 on the
 first hemistich of lines 3 and 5 is an inline `(3)`; and the sung response
 **`(اللّٰهْ اللّٰهْ)`** is golded by its own `INLINE_INSTRUCTIONS` entry.
 This is the booklet's text, unlike the Barzanji cue the owner had removed.
+
+## Madad Madad (Burdah interlude) — `QASIDAS[35]`
+
+**v433, Mawalid only** (issue #26), approved from a rendered preview. The
+old 3 verses were a corrupt import (`قلول القلوب…`). The booklet (pp. 50–51,
+PDF 54–55) has **transliteration and English only**, so the Arabic and all
+its vowels were **rebuilt in-house** from that transliteration and the
+well-known texts: the poem `كُلُّ الْقُلُوبِ إِلَى الْحَبِيبِ تَمِيلُ`, the al-Madad
+chorus (refrain), five Madad verses, then lines of al-Munfarija under their
+own refrain `يَا رَبِّ بِهِمْ وَبِآلِهِمِ ۞ عَجِّلْ بِالنَّصْرِ وَبِالْفَرَجِ` (a second
+`refrain`, so later repeats use it). Refrain breaks follow the booklet's.
+Least certain: `بِلِقَا`, `بِمَدْحِكْ تُجْلَى الْأَقْدَارْ`, `بِخَوَاتِمِهَا`. **One
+Munfarija line the booklet marks "(?)" is deliberately omitted**
+("la kinni bi shudika muʿtharifun…") — add it only from a real source.
+English is the booklet's, lightly regularised ("O", capitals, half-lines
+joined).
 
 ## Balagha-l-ʿUlā bi-Kamālihi — the Arabic qasida
 
