@@ -858,10 +858,16 @@ below); the other days still carry the reconstructed pre-collation text.
   for Istanbul (the old key, so existing places survive) and
   `PLACE_KEY + '-mughlay'` for Mughlay. The landing page's resume card is
   redrawn on a switch, Clear wipes both, and every switch shows a short
-  note (`editionToast`) that places are kept separately. Gold-ring phrase
-  highlights (`mawlid-marks` / `dlk-marks`) are still shared and may land
-  on a different phrase in a collated chapter. A leader and follower on
-  different versions still reach the same leaf and verse.
+  note (`editionToast`) that places and highlights are kept separately.
+  **Gold-ring highlights are per version too** (owner's call): the
+  Dalāʾil's `d:` marks for Mughlay live in `mawlid-marks-mughlay` /
+  `dlk-marks-mughlay`; Istanbul's stay in the original store, and every
+  other collection's marks share that store whichever version is on.
+  `loadMarks()` shows the current version's `d:` marks only, `markVerse`
+  writes through `markStoreFor(kind)`, Clear empties both. These are
+  function declarations reading `dalailEdition` through a try, because
+  marks and places can be read before it is declared. A leader and
+  follower on different versions still reach the same leaf and verse.
 - **`noRosette` travels with the version**: an alternate may carry its own
   (Monday v44 closes bare in the Mughlay); `DALAIL_ISTANBUL` snapshots it
   and `applyDalailEdition` restores it.
