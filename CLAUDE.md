@@ -811,10 +811,10 @@ only — Mawalid has no switch.
 
 ## Two versions of the Dalāʾil — both apps (v426 / v97)
 
-On the owner's request **both apps** offer the Dalāʾil in **two versions**, switched by an **Istanbul · Mughlay** control on the
-Dalāʾil landing page and in the reader controls of every chapter that reads
-differently between them (`[6]`–`[14]`: the eight days and the Duʿāʾ of
-Completion).
+On the owner's request **both apps** offer the Dalāʾil in **two versions**, switched by an **Istanbul · Mughlay** control **on the
+Dalāʾil landing page only** (v427 / v98, owner's call — it used to sit in the
+reader controls too; `editionSwitch()` is now called from the landing page
+alone, and `dalailHasEditions` no longer gates anything visible).
 **The owner named it the Mughlay Version** (September 2026) after the
 Indo-Pak "Mughlay" printing it resembles. The code still says `sayyidina`
 (`DALAIL_WITH_SAYYIDINA`, the stored value) — only the label changed.
@@ -947,12 +947,43 @@ scan (pp.19–31). **Applied on the owner's rulings (both apps):**
 
 Still 13 leaves in both versions, zero overflow in every script.
 
+## The top of a reader — decluttered (v427 / v98, owner's call)
+
+The owner found the top of a reader too busy: in the fork's Dalāʾil Study
+view, fourteen controls stood above the first verse. Now:
+
+- **Book / Study is chosen only from the green bar** (`.view-swap`, labelled
+  with the view it switches *to*). The labelled pair under the title is
+  gone, and the swap no longer hides until the bar goes slim.
+- **The controls row keeps only what is used while reading**: Save my place
+  (Dalāʾil, Book view), Two pages (wide screens), full screen (Book view),
+  and **`Aa`**.
+- **`Aa` opens a panel in place** (`toggleAa`, `state.aaOpen` — in memory
+  only, never stored, and never through `reopen()`) holding the settings a
+  reader sets once: the script switch (fork), Transliteration and
+  Translation, and the two text-size sliders (Study only). The button is
+  omitted where the panel would be empty (Mawalid's Book view). A column
+  toggle re-renders the reader; the panel stays open across that because the
+  flag lives on `state`.
+- **About and Listen are one slim row** (`readerActions`): a small "About ·
+  نُبْذَة" button where the note is long enough to fold (the note opens below
+  it; `toggleAbout`), and "▶ Listen" / "▶ Alternate" where there is a
+  recording or a video. A short note is still just shown. In the Book view
+  the row sits in `#ms-tune`, offered from the first leaf only as the Listen
+  bar was — and it now follows the Listen rule above (recording **or**
+  video), where the old Book-view wrapper had needed a video.
+- **The version switch is on the Dalāʾil landing page only.**
+
 ## Theme
 
-**The Study card is printed on the Book Version's paper** (owner's call,
-both apps): `.verse` — every Study reader, not only the Dalāʾil — takes
-`--ms-paper` with a `--rule-soft` gold hairline, where it used to be white
-`--card`. The paper was briefly darkened (`#F6ECD2`) and the owner had
+**In the Dalāʾil and the aḥzāb the Study card is printed on the Book
+Version's paper** (owner's call, both apps): `main.verses` carries `paper`
+for kinds `d` and `l`, which sets `--verse-bg` (`--ms-paper`), `--verse-bg2`
+and `--verse-edge` (a `--rule-soft` gold hairline). `.verse`, a refrain's
+gradient, an instruction card and an opened repeat panel all read those
+variables and fall back to the white `--card` elsewhere. **Every other
+collection keeps its white cards** — the first pass put every Study reader on
+the paper and the owner had it limited to the Dalāʾil and aḥzāb. The paper was briefly darkened (`#F6ECD2`) and the owner had
 the Book Version put back to its original `#FBF4DE` the same day, with the
 cards matching it — so the leaf colour is unchanged from before and only
 the cards moved. A refrain's gradient runs to `--ms-paper-deep`, and so does an opened
