@@ -22,8 +22,8 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v426** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v97** |
+| **Mawalid** (this repo) | the full collection | **v427** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v98** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -641,6 +641,16 @@ so every repeat keeps it. The same release removed a doubled
 `يَا أَرْحَمَ الرَّاحِمِينْ` after that `(3)`, on the owner's instruction. The
 fork's copies of all seven are untouched, per its stale-`QASIDAS` scope.
 
+And **Ṭalaʿa-l-Badru (`QASIDAS[8]`) — v427, Mawalid only**: the refrain is
+its **two** opening cards (`طَلَعَ الْبَدْرُ…` and `وَجَبَ الشُّكْرُ…`, owner's
+call), repeated after every two verses — cards 4, 6 … 24 and the lone last
+card 25. Card 2 carries **`refrainCont: true`**: it is styled as refrain and
+`refrainRepeatHTML` gathers every `refrainCont` card straight after the
+`refrain` one into the repeat, stripping a closing count from the last part
+only. Kept as two cards rather than merged, so no verse was renumbered and
+no highlight moved. Every other refrain rendered byte-identical before and
+after. The fork's copy is untouched, per its stale-`QASIDAS` scope.
+
 - **Collapsed by default**, showing one gold rule reading "↻ Repeat refrain".
   A tap opens **every marker in the chapter at once** — a reciter wants them
   one way or the other, not one at a time.
@@ -789,8 +799,13 @@ only — Mawalid has no switch.
   chosen face (`AR_FONTS` maps choice → family), because `fonts.ready` can
   settle before a just-chosen face starts loading. Measured: zero
   overflowing leaves across every Dalāʾil and litany chapter in all three.
-- **`dlk-font`** (`uthmani` | `indopak` | `naskh`; unset or unrecognised =
-  Uthmani), written only from `setArFont`. Not synced in a live session and
+- **`dlk-font`** (`uthmani` | `indopak` | `naskh`), written only from
+  `setArFont`. **Unset means the version's default (v98, owner's call):
+  IndoPak in the Mughlay Version, Uthmani in Istanbul** — `defaultArFont()`,
+  and `setDalailEdition` swaps it on a switch (`showArFont`) for a reader
+  who has never chosen. Any tap on the script switch is a choice and is
+  stored, even on the script already showing, and then holds in both
+  versions. It is app-wide, so the litanies follow it too. Not synced in a live session and
   not broadcast — a follower keeps their own script, like size and columns.
 - All three OFL notices (Amiri, DigitalKhatt, SIL) head the fork's `OFL.txt`.
 
@@ -940,7 +955,8 @@ both apps): `.verse` — every Study reader, not only the Dalāʾil — takes
 `--card`. The paper was briefly darkened (`#F6ECD2`) and the owner had
 the Book Version put back to its original `#FBF4DE` the same day, with the
 cards matching it — so the leaf colour is unchanged from before and only
-the cards moved. A refrain's gradient runs to `--ms-paper-deep`. In the dark theme the card
+the cards moved. A refrain's gradient runs to `--ms-paper-deep`, and so does an opened
+"Repeat refrain" panel (v427 / v98), which had been left white. In the dark theme the card
 follows the dark leaf the same way. The page behind the cards (`--bg`) and
 the app's other white cards are unchanged.
 
