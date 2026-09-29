@@ -26,7 +26,7 @@
      script, where nothing that reads the page without running it can see
      it — so "which version is actually live?" could only be answered from
      a phone. Keep the two in step when bumping. -->
-<meta name="app-version" content="v428">
+<meta name="app-version" content="v429">
 <!-- YouTube's embedded player refuses to configure itself unless the host page
      sends a Referer (Error 153 / embedder.identity.missing.referrer). This is
      the browser default in most cases, but a standalone PWA or a WebView may
@@ -2512,61 +2512,45 @@ const QASIDAS = [
   {
     category: "qasida",
     group: "qasidas",
-    titleArabic: "اللهم صل على محمد",
+    titleArabic: "اللّٰهُمَّ صَلِّ عَلٰى مُحَمَّدْ",
     titleEnglish: "Allāhumma Ṣalli ʿalā Muḥammad",
-    note: "A few lines in this qasida's source Arabic (verses 8, 9, 13 and 16) don't parse cleanly even after correction — transliterated as literally as possible; worth checking against a print source.",
+    note: "Two verses to a card, with the refrain after each. Six lines still await checking against a print source and are shown unvowelled; two of them (أحيا الله… and والذين آمنوا…) do not parse as they stand.",
     verses: [
-      { refrain: true, ar: "اللهم صل على محمد\nيا رب صل عليه وسلم",
+      { refrain: true, ar: "اللّٰهُمَّ صَلِّ عَلٰى مُحَمَّدْ\nيَا رَبِّ صَلِّ عَلَيْهِ وَسَلِّمْ",
         tr: "Allāhumma ṣalli ʿalā Muḥammad\nYā Rabbi ṣalli ʿalayhi wa sallim",
         en: "O Allah send blessings upon Muhammad\nO Lord, send peace upon him" },
-      { ar: "في حب سيدنا محمد نور البدر الهدى تتم",
-        tr: "Fī ḥubbi sayyidinā Muḥammad nūru-l-badri-l-hudā tatimm",
-        en: "In the love of our master Muhammad, the light of the moon of guidance reaches its fullness" },
-      { ar: "قلبي يحن إلى المحمد ما زال من وجد متيم",
-        tr: "Qalbī yaḥinnu ilā-l-Muḥammadi mā zāla min wajdin mutayyam",
-        en: "My heart longs for Muhammad, it has always been enamoured and enchanted" },
-      { ar: "ما لي حبيب سوى محمد خير الرسول النبي الكرم",
-        tr: "Mā lī ḥabībun siwā Muḥammadin khayri-r-rasūli-n-nabiyyi-l-karam",
-        en: "I have no beloved except Muhammad, the best Messenger, the noble Prophet" },
-      { ar: "شوق المحب إلى المحمد أفناه ثم به لهيم",
-        tr: "Shawqu-l-muḥibbi ilā-l-Muḥammadi afnāhu thumma bihi lahīm",
-        en: "The longing of the lover for Muhammad has consumed him and he is immersed in him" },
-      { ar: "في الحشر شافعنا محمد منحي الخلائق من بهنم",
-        tr: "Fi-l-ḥashri shāfiʿunā Muḥammadun munjī-l-khalāʾiqi min jahannam",
-        en: "Muhammad is our intercessor at the gathering, the one who grants those in hellfire a way out" },
-      { ar: "ميلاد سيدنا محمد أم القرى بلد مقدس",
-        tr: "Mīlādu sayyidinā Muḥammadin Ummu-l-Qurā baladun muqaddas",
-        en: "The birth of our master Muhammad — Umm al-Qura, a sacred city" },
-      { ar: "أحيا الله جازمنا محمد مولاه سله وكلم",
-        tr: "Aḥyā-llāhu jazamanā Muḥammadun mawlāhu sallahu wa kallam",
-        en: "Allah has given life through our age of Muhammad — his master speaks to him" },
-      { ar: "أدعوك أحد يا محمد يا سيد الرسل المقد",
-        tr: "Adʿūka Aḥad yā Muḥammad yā sayyida-r-rusuli-l-muqad",
-        en: "I call upon you, the One, O Muhammad, O master of the noble messengers" },
-      { ar: "إشفع إلى الله يا محمد يوم القيامة كي أنعم",
-        tr: "Ishfaʿ ilā-llāhi yā Muḥammad yawma-l-qiyāmati kay anʿam",
-        en: "Intercede with Allah, O Muhammad, on the Day of Judgement so I may be blessed" },
-      { ar: "أرجوا الشفاعة من محمد لوكنت أرتكب الحرم",
-        tr: "Arjū-sh-shafāʿata min Muḥammadin law kuntu artakibu-l-ḥaram",
-        en: "I hope for intercession from Muhammad even if I have committed the forbidden" },
-      { ar: "منجا وملجاء نا محمد يوم الهوان به تحشم",
-        tr: "Manjan wa maljaʾunā Muḥammadun yawma-l-hawāni bihi taḥshum",
-        en: "Muhammad is our refuge and shelter on the day of humiliation by which we are shielded" },
-      { ar: "والنور جاء ربه محمد والحق بين وإن تكم",
-        tr: "Wa-n-nūru jāʾa rabbuhu Muḥammadun wa-l-ḥaqqu bayyinun wa in takum",
-        en: "And the light came — its Lord Muhammad — and the truth was clear even if they denied" },
-      { ar: "أعلى السماء سما محمد جبريل قال له تقدم",
-        tr: "Aʿlā-s-samāʾi samā Muḥammadun Jibrīlu qāla lahu taqaddam",
-        en: "In the highest heaven, Muhammad ascended — Jibril said to him: Go forward" },
-      { ar: "والجند حين غزا محمد والدين أظهره فهدم",
-        tr: "Wa-l-jundu ḥīna ghazā Muḥammadun wa-d-dīna aẓharahu fa-hadam",
-        en: "And when the army came with Muhammad, the religion he revealed demolished falsehood" },
-      { ar: "والذين آمنوا إلا فاه محمد صلى الإله على محمد وسلم",
-        tr: "Wa-lladhīna āmanū illā fāhu Muḥammadun ṣallā-l-ilāhu ʿalā Muḥammadin wa sallam",
-        en: "And those who believed — Muhammad prayed — may Allah's blessings and peace be upon Muhammad" },
-      { ar: "وصلى الله على محمد وعلى صحبه وسلم",
-        tr: "Wa ṣallā-llāhu ʿalā Muḥammadin wa ʿalā ṣaḥbihi wa sallam",
-        en: "And may Allah's peace and blessings be upon Muhammad and upon his companions" }
+      { repeatRefrain: true,
+        ar: "فِي حُبِّ سَيِّدِنَا مُحَمَّدْ\nنُورٌ لِبَدْرِ الْهُدَى مُتَمَّمْ\nقَلْبِي يَحِنُّ إِلَى مُحَمَّدْ\nمَا زَالَ مِنْ وُجْدِهِ مُتَيَّمْ",
+        tr: "Fī ḥubbi sayyidinā Muḥammad\nNūrun li-badri-l-hudā mutammam\nQalbī yaḥinnu ilā Muḥammad\nMā zāla min wujdihi mutayyam",
+        en: "In the love of our beloved master Muhammad\nWho is the full moon of guidance\nMy heart is filled with the compassion for Muhammad\nIt is still filled with intense longing for him" },
+      { repeatRefrain: true,
+        ar: "ما لي حبيب سوى محمد\nخير الرسول النبي الكرم\nشَوْقُ الْمُحِبِّ إِلَى مُحَمَّدْ\nأَفْنَاهُ ثُمَّ بِهِ تَهَيَّمْ",
+        tr: "Mā lī ḥabībun siwā Muḥammad\nKhayri-r-rasūli-n-nabiyyi-l-karam\nShawqu-l-muḥibbi ilā Muḥammad\nAfnāhu thumma bihi tahayyam",
+        en: "I have no beloved except Muhammad, the best Messenger, the noble Prophet\nThe follower’s wish is nothing but Muhammad\nHe is consumed in him and lost in his love" },
+      { repeatRefrain: true,
+        ar: "فِي الْحَشْرِ شَافِعُنَا مُحَمَّدْ\nمُنْجِي الْخَلَائِقِ مِنْ جَهَنَّمْ\nمِيلَادُ سَيِّدِنَا مُحَمَّدْ\nأُمُّ الْقُرَى بَلَدٌ مُعَظَّمْ",
+        tr: "Fi-l-ḥashri shāfiʿunā Muḥammad\nMunji-l-khalāʾiqi min jahannam\nMīlādu sayyidinā Muḥammad\nUmmu-l-qurā baladun muʿaẓẓam",
+        en: "On the Day of Judgement, our intercessor is Muhammad\nHe is the rescuer of humans from hell-fire (by the Mercy of Allah)\nThe birth of our master Muhammad and his coming in this world! (What an event, all praise is due to his Creator!)\nThe mother of cities is his glorious city" },
+      { repeatRefrain: true,
+        ar: "أحيا الله جازمنا محمد\nمولاه سله وكلم\nأَدْعُوكَ أَحْمَدُ يَا مُحَمَّدْ\nيَا سَيِّدَ الرُّسُلِ الْمُقَدَّمْ",
+        tr: "Aḥyā-llāhu jazamanā Muḥammad\nMawlāhu sallahu wa kallam\nAdʿūka Aḥmadu yā Muḥammad\nYā sayyida-r-rusuli-l-muqaddam",
+        en: "Allah has given life through our age of Muhammad — his master speaks to him\nI call upon you, O Aḥmad, O Muhammad\nO master of the messengers, the foremost" },
+      { repeatRefrain: true,
+        ar: "اِشْفَعْ إِلَى اللّٰهِ يَا مُحَمَّدْ\nيَوْمَ الْقِيَامَةِ كَيْ أُنَعَّمْ\nأَرْجُو الشَّفَاعَةَ مِنْ مُحَمَّدْ\nلَوْ كُنْتُ أَرْتَكِبُ الْمُحَرَّمْ",
+        tr: "Ishfaʿ ila-llāhi yā Muḥammad\nYawma-l-qiyāmati kay unaʿʿam\nArju-sh-shafāʿata min Muḥammad\nLaw kuntu artakibu-l-muḥarram",
+        en: "Intercede with Allah, O Muhammad\nOn the Day of Resurrection, that I may be blessed\nI hope for intercession from Muhammad\nEven had I committed what is forbidden" },
+      { repeatRefrain: true,
+        ar: "منجا وملجاء نا محمد\nيوم الهوان به تحشم\nوَالنُّورُ جَاءَ بِهِ مُحَمَّدْ\nوَالْحَقُّ بَيَّنْ وَإِنْ تَكَلَّمْ",
+        tr: "Manjan wa maljaʾunā Muḥammad\nYawma-l-hawāni bihi taḥshum\nWa-n-nūru jāʾa bihi Muḥammad\nWa-l-ḥaqqu bayyan wa in takallam",
+        en: "Muhammad is our refuge and shelter on the day of humiliation by which we are shielded\nMuhammad brought the light with him\nThe truth manifested when he talked" },
+      { repeatRefrain: true,
+        ar: "أَعْلَى السَّمَاءِ سَمَا مُحَمَّدْ\nجِبْرِيلُ قَالَ لَهُ تَقَدَّمْ\nوالجند حين غزا محمد\nوالدين أظهره فهدم",
+        tr: "Aʿla-s-samāʾi samā Muḥammad\nJibrīlu qāla lahu taqaddam\nWa-l-jundu ḥīna ghazā Muḥammad\nWa-d-dīna aẓharahu fa-hadam",
+        en: "To the highest heaven Muhammad ascended\nJibrīl said to him: Go forward\nAnd when the army came with Muhammad, the religion he revealed demolished falsehood" },
+      { repeatRefrain: true,
+        ar: "والذين آمنوا إلا فاه محمد\nصلى الإله على محمد وسلم\nوصلى الله على محمد\nوعلى صحبه وسلم",
+        tr: "Wa-lladhīna āmanū illā fāhu Muḥammad\nṢallā-l-ilāhu ʿalā Muḥammadin wa sallam\nWa ṣallā-llāhu ʿalā Muḥammad\nWa ʿalā ṣaḥbihi wa sallam",
+        en: "And those who believed — Muhammad prayed — may Allah's blessings and peace be upon Muhammad\nAnd may Allah's peace and blessings be upon Muhammad and upon his companions" }
     ]
   },
   {
@@ -12915,7 +12899,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v428';
+const APP_VERSION = 'v429';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
