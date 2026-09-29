@@ -22,8 +22,8 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v436** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v99** |
+| **Mawalid** (this repo) | the full collection | **v437** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v100** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -974,10 +974,15 @@ fonts** — the owner declined them.
 
 In the Dalāʾil and aḥzāb:
 
-- **Book / Study is chosen only from the green bar** (`.view-swap`, labelled
-  with the view it switches *to*). The labelled pair under the title is
-  gone, and the swap no longer hides until the bar goes slim. (Only these
-  two collections have a Book Version, so no other reader is affected.)
+- **Book / Study is chosen from the labelled pair under the title again**
+  (v429 / v100, owner's call — the bar-only icon was too easy for a new
+  reader to miss). `.view-switch` with "Book Version"/"Study Version" sits
+  in `.controls`, inside the `hasPages` block, so only the Dalāʾil and
+  litanies show it (the only two collections with folios). The small
+  `.view-swap` icon in the green bar is back to hiding until the bar goes
+  slim (`.reader-bar:not(.slim) .view-swap{ display:none }`) — it reappears
+  once a reader scrolls into the leaf, so the view can still be swapped
+  without scrolling back up.
 - **The controls row keeps only what is used while reading**: Save my place
   (Dalāʾil, Book view), Two pages (wide screens), full screen (Book view),
   and **`Aa`**.
