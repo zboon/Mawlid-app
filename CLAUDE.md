@@ -22,7 +22,7 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v434** |
+| **Mawalid** (this repo) | the full collection | **v435** |
 | **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v99** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
