@@ -937,9 +937,10 @@ Still 13 leaves in both versions, zero overflow in every script.
 **The Study card is printed on the Book Version's paper** (owner's call,
 both apps): `.verse` — every Study reader, not only the Dalāʾil — takes
 `--ms-paper` with a `--rule-soft` gold hairline, where it used to be white
-`--card`. The paper itself went a shade darker at the same time, `#FBF4DE`
-→ `#F6ECD2`, "for that classical book feel", so the Book leaf darkened too.
-A refrain's gradient runs to `--ms-paper-deep`. In the dark theme the card
+`--card`. The paper was briefly darkened (`#F6ECD2`) and the owner had
+the Book Version put back to its original `#FBF4DE` the same day, with the
+cards matching it — so the leaf colour is unchanged from before and only
+the cards moved. A refrain's gradient runs to `--ms-paper-deep`. In the dark theme the card
 follows the dark leaf the same way. The page behind the cards (`--bg`) and
 the app's other white cards are unchanged.
 
