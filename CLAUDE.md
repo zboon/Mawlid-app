@@ -22,7 +22,7 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v430** |
+| **Mawalid** (this repo) | the full collection | **v431** |
 | **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v99** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
@@ -70,7 +70,7 @@ also where the reciter's name came from.
 |---|---|---|---|
 | `DALAIL_CHAPTERS` | 15 | 779 | `1,5,2,1,1,5,13,14,13,14,16,16,15,7,6` |
 | `LITANY_CHAPTERS` | 18 | 950 | `5,7,0,0,13,13,12,15,14,11,18,6,4,5,5,4,4,7` |
-| `QASIDAS` | 42 | 456 | — |
+| `QASIDAS` | 42 | 457 | — |
 | `BURDAH_CHAPTERS` | 10 | 167 | — |
 | `SIRAH_CHAPTERS` | 7 | 143 | — |
 | `DIYA_CHAPTERS` | 8 | 120 | — |
@@ -1222,6 +1222,31 @@ before trusting the export for any other piece it supplied.
 - English: six verses are the user's; the rest (3, 7–11, 13–17, closing) is
   in-house, approved as drafted. v11's `تَحَشَّمْ` ("through him we keep our
   honour") is the least certain line.
+
+## Madad — the Naqshbandi Golden Chain, `QASIDAS[26]`
+
+**v431, Mawalid only** (issue #23, the user's rulings). Source: the same
+booklet, book pp. 13–14 (PDF pp. 18–19), which has a **real text layer** on
+these Naqshbandi Nazimiya pages — characters can be read off it, unlike the
+image pages. One card per group, **breaking where the booklet prints
+"Chorus"** (6,6,6,6,6,4,5), `repeatRefrain` on every card; the Mahdī couplet
+card is gone.
+
+- **Booklet spellings, exactly, where it differs** (user's call): `شَاهِ`,
+  `عَطَّارُوْ`, `ذَاهِدِيْ` (a likely typo for زاهدي — kept on purpose; `tr`/`en`
+  say Zāhidī, as the booklet's own transliteration does), `يَرَأْغِيْ`,
+  `صَاحِبُ الْوَقْتِ`, `فَرْدَانِيْ`. A mark the booklet merely omits is not a
+  difference: `حَقَّانِيْ` keeps its shadda.
+- **The end departs from the booklet on the user's instruction**:
+  Sulṭān al-Awliyāʾ · Shaykh Nāẓim · Ḥaqqānī | Ṣāḥib al-Waqt · Ṣāḥib az-Zamān ·
+  Imām Mahdī | Fardānī … Ghawth al-Anām, a chorus after each. Sulṭānī became
+  Sulṭān al-Awliyāʾ; Shaykh Hishām, Shaykh ʿAdnān and Shaykh Muḥammad ʿĀdil
+  were **removed**, and the closing `مُحَمَّدُ الْمَهْدِيُّ خَلِيفَةُ اللّٰهِ` couplet
+  with them. Do not restore any of it from the booklet.
+- The duplicate Ṣiddīqūn and the ‑ū forms (Qāsimū, Ṣādiqū, Khiḍrū, Darwīshū)
+  are genuine — the booklet has them.
+- `en` is "Support us, O …" per line, names in their usual English form
+  (Sayf ad-Dīn, Imām al-ʿĀrifīn); the refrain's "Aid…" became "Support us…".
 
 ## Balagha-l-ʿUlā bi-Kamālihi — the Arabic qasida
 
