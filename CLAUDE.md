@@ -826,7 +826,8 @@ below); the other days still carry the reconstructed pre-collation text.
   Sat 94, Sun 28, Mon2 22.
 - **Plus 200 more: `سَيِّدُنَا` before each Name of the Prophet** (`[5]`
   v2–v201, Aḥmad … Ṣāḥib al-Faraj), Mughlay only, on the owner's
-  call — so the map held **353** entries (352 after Monday's collation below). This one is **new text, not a
+  call — so the map held **353** entries (369 after Monday's collation below:
+  every Monday verse now has one, for the English). This one is **new text, not a
   restoration**: no copy of the app ever carried it there, and the
   Istanbul Names pages were never uploaded, so Istanbul was left alone.
   `tr` "Sayyidunā Aḥmad" (`Sayyidunā n-najmu th-thāqib` for v98), `en`
@@ -835,7 +836,7 @@ below); the other days still carry the reconstructed pre-collation text.
   nominative `سَيِّدُنَا`, shadda-before-kasra like the 433-strong majority
   of `سَيِّدِنَا`. v1's `مَنِ اسْمُهُ مُحَمَّدٌ` is inside the duʿāʾ and takes none.
   Still 5 leaves, zero overflow in every script.
-- **Any future fix to one of those 352 verses must go into both** —
+- **Any future fix to one of those 369 verses must go into both** —
   `DALAIL_CHAPTERS` and its entry in `DALAIL_WITH_SAYYIDINA`. The alternate
   is a full copy of the verse, not a patch, so a fix made to one alone
   silently diverges. Check `DALAIL_WITH_SAYYIDINA["c:v"]` before closing
@@ -848,9 +849,22 @@ below); the other days still carry the reconstructed pre-collation text.
   snapshots every Dalāʾil verse (the comma strip touches them all). The
   **source** `DALAIL_CHAPTERS` is never edited, and it and
   `DALAIL_WITH_SAYYIDINA` are byte-identical between the two apps.
-- **Verse indices, leaves and segments are identical in both**, so a saved
-  place resumes on the same leaf and phrase after a switch (tested both
-  ways), and a leader and follower on different versions still land together.
+- **Verse indices and leaves are identical in both; segments are not.** The
+  `‖` page breaks are Istanbul's in both versions, but where the Mughlay
+  printing has been collated its **rosettes follow that book** (owner's
+  call), and rosettes are what `segWrap` splits phrases on. So a phrase —
+  and a saved place — in one version is a different phrase in the other.
+  **Saved places are kept per version**: `placeKey()` returns `PLACE_KEY`
+  for Istanbul (the old key, so existing places survive) and
+  `PLACE_KEY + '-mughlay'` for Mughlay. The landing page's resume card is
+  redrawn on a switch, Clear wipes both, and every switch shows a short
+  note (`editionToast`) that places are kept separately. Gold-ring phrase
+  highlights (`mawlid-marks` / `dlk-marks`) are still shared and may land
+  on a different phrase in a collated chapter. A leader and follower on
+  different versions still reach the same leaf and verse.
+- **`noRosette` travels with the version**: an alternate may carry its own
+  (Monday v44 closes bare in the Mughlay); `DALAIL_ISTANBUL` snapshots it
+  and `applyDalailEdition` restores it.
 - **Switching re-renders an open Dalāʾil reader**: the Book view keeps the
   **leaf** (`msCurrentPage` → `msGoToWhenReady`) — going via the top verse
   landed a leaf early whenever a verse ran on from the previous page; the
@@ -891,9 +905,22 @@ scan (pp.19–31). **Applied on the owner's rulings (both apps):**
   `بِسَيِّدِنَا مُحَمَّدٍ` from the alternate of v33, `تَعَالٰى` the corpus's
   dagger form (4 of 6). `لِطَاعَتِكَ` has no copy anywhere — it is v15's own
   `بِطَاعَتِكَ` with the bāʾ swapped for a lām.
-- Not done, and deliberately: the printing's `○` divisions. The Mughlay
-  Version keeps Istanbul's internal rosettes so both versions share every
-  segment and saved place.
+- **Rosettes follow the Mughlay printing** (owner's call, second pass).
+  It marks a `○` at the end of every verse but one — v44, the
+  instruction, closes bare, so its alternate carries `noRosette` — and
+  inside only five: v17 ×2 (after `عَظِيمٍ` and after the āyah; not before
+  `عَلٰى سَيِّدِنَا مُحَمَّدِ بْنِ`), v30 ×3, v31 ×4, v38 ×3 (after `وَرَسُولِكَ`,
+  `وَنَجِيِّكَ`, `وَسَمَائِكَ`), v39 ×3 (not after `بَنَيْتَهَا`). Every other
+  internal rosette came out. Book leaf: 66 rosettes against Istanbul's 105,
+  per leaf `5,6,3,4,4,6,13,6,4,6,2,3,4`. Read off the page and checked at
+  zoom where unsure; a ring detector was tried and is too noisy to trust.
+- **English from the book's facing pages**, all 53 verses, transcribed
+  from the images (the text layer mangles "Allah" as "Allak"/"Atlah" and
+  shuffles lines). Verbatim — archaic ("Thou didst", "burthen"), including
+  where the English keeps "our master" over Arabic the book prints bare
+  (v39, v45, v47) — except: the book's "O Allah." is written "O Allah,";
+  "untill" → "until"; v17 "let those who believe, as Allah" → "ask Allah";
+  a verse's closing comma or colon ends in a full stop. `tr` is unchanged.
 - Spelling only, not changed: the Mughlay writes `رِضَا` / `رِضٰى` where
   Istanbul and the app have `رِضَاءَ`.
 
