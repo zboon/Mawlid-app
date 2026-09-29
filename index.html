@@ -26,7 +26,7 @@
      script, where nothing that reads the page without running it can see
      it — so "which version is actually live?" could only be answered from
      a phone. Keep the two in step when bumping. -->
-<meta name="app-version" content="v431">
+<meta name="app-version" content="v432">
 <!-- YouTube's embedded player refuses to configure itself unless the host page
      sends a Referer (Error 153 / embedder.identity.missing.referrer). This is
      the browser default in most cases, but a standalone PWA or a WebView may
@@ -2489,24 +2489,24 @@ const QASIDAS = [
   {
     category: "qasida",
     group: "qasidas",
-    titleArabic: "قمر",
+    titleArabic: "قَمَرٌ",
     titleEnglish: "Qamarun — Brilliant Like the Moon",
     verses: [
-      { refrain: true, ar: "قمر قمر قمر سيدنا النبي قمر\nوجميل وجميل وجميل سيدنا النبي وجميل",
-        tr: "Qamarun, qamarun, qamarun, sayyidunā-n-nabiyyu qamarun\nWa jamīlun, wa jamīlun, wa jamīlun, sayyidunā-n-nabiyyu wa jamīlun",
+      { refrain: true, times: 2, ar: "قَمَرٌ قَمَرٌ قَمَرٌ سِيدْنَا النَّبِي قَمَرٌ\nوَجَمِيل وَجَمِيل وَجَمِيل سِيدْنَا النَّبِي وَجَمِيل",
+        tr: "Qamarun, qamarun, qamarun, sīdna-n-nabī qamarun\nWa jamīl, wa jamīl, wa jamīl, sīdna-n-nabī wa jamīl",
         en: "Brilliant like the moon — Oh our master the Prophet, Brilliant like the moon!\nBeautiful — Oh our master the Prophet, Beautiful!" },
-      { ar: "وكف المصطفى كالورد نادي\nوعطره يبقى إذا مست أيادي",
-        tr: "Wa kaffu-l-Muṣṭafā ka-l-wardi nādī\nWa ʿiṭruhu yabqā idhā massat ayādī",
-        en: "And your palm like a flower mist by the dew\nIts fragrance everlasting where it touches!" },
-      { ar: "وعم نواله كل العبادي\nحبيب الله يا خير البرايا",
-        tr: "Wa ʿamma nawāluhu kulla-l-ʿibādī\nYā Ḥabība-llāhi yā khayra-l-barāyā",
-        en: "Its generosity ever extended to all humanity!\nSo beloved to Allah oh you the best of creation!" },
-      { ar: "ولا ظل له بل كان نورا\nتنال الشمس منه والبدور",
-        tr: "Wa lā ẓilla lahū bal kāna nūrā\nTanālu-sh-shamsu minhu wa-l-budūru",
-        en: "Shade-less but brilliant you ever are\nThe sun and stars feed off your light!" },
-      { ar: "ولم يكن الهدى لولا ظهوره\nوكل الكون أنار بنوري طه",
-        tr: "Wa lam yakuni-l-hudā lawlā ẓuhūruhū\nWa kullu-l-kawni anāra bi-nūri Ṭāhā",
-        en: "Guidance would have not been possible without you\nYou have summoned the Cosmos willingly!" }
+      { times: 2, ar: "وَكَفُّ الْمُصْطَفَى كَالْوَرْدِ نَادِي (اللّٰهْ اللّٰهْ)\nوَعِطْرُهَا يَبْقَى إِذَا مَسَّتْ أَيَادِي (اللّٰهْ اللّٰهْ)",
+        tr: "Wa kaffu-l-Muṣṭafā ka-l-wardi nādī (Allāh Allāh)\nWa ʿiṭruhā yabqā idhā massat ayādī (Allāh Allāh)",
+        en: "And your palm like a flower mist by the dew (Allah, Allah)\nIts fragrance everlasting where it touches! (Allah, Allah)" },
+      { ar: "وَعَمَّ نَوَالُهَا كُلَّ الْعِبَادِي (3)\nحَبِيبُ اللّٰهِ يَا خَيْرَ الْبَرَايَا",
+        tr: "Wa ʿamma nawāluhā kulla-l-ʿibādī (3)\nḤabību-llāhi yā khayra-l-barāyā",
+        en: "Its generosity ever extended to all humanity (3)!\nSo beloved to Allah oh you the best of creation!" },
+      { times: 2, ar: "وَلَا ظِلُّ لَّهُ بَلْ كَانَ نُورَا (اللّٰهْ اللّٰهْ)\nتَنَالَ الشَّمْسَ مِنْهُ وَالْبُدُورَ (اللّٰهْ اللّٰهْ)",
+        tr: "Wa lā ẓillu lahū bal kāna nūrā (Allāh Allāh)\nTanāla-sh-shamsa minhu wa-l-budūra (Allāh Allāh)",
+        en: "Shade-less but brilliant you ever are (Allah, Allah)\nThe sun and stars feed off your light! (Allah, Allah)" },
+      { ar: "وَلَمْ يَكُنِ الْهُدَى لَوْلَا ظُهُورَه (3)\nوَكُلُّ الْكَوْنِ أَنَارُ بِنُورِ طَه",
+        tr: "Wa lam yakuni-l-hudā lawlā ẓuhūrah (3)\nWa kullu-l-kawni anāru bi-nūri Ṭāhā",
+        en: "Guidance would have not been possible without you (3)\nYou have summoned the Cosmos willingly!" }
     ]
   },
   {
@@ -12937,7 +12937,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v431';
+const APP_VERSION = 'v432';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -17256,7 +17256,7 @@ function readerHTML(q, backOnclick, kind, idx){
               })()}
           ${v.tr ? `<div class="v-tr ${state.showTr?'':'hide'}">${v.tr.replaceAll('\n','<br>')}</div>` : ''}`}
           ${v.en ? `<div class="v-en ${state.showEn?'':'hide'}">${v.en.replaceAll('\n','<br>')}</div>` : ''}
-          ${v.times ? `<div class="refrain-times">${v.times === 2 ? 'Sing the whole refrain twice · مَرَّتَيْنِ' : 'Sing the whole refrain ' + v.times + ' times'}</div>` : ''}
+          ${v.times ? `<div class="refrain-times">${v.times === 2 ? `Sing the whole ${v.refrain ? 'refrain' : 'verse'} twice · مَرَّتَيْنِ` : `Sing the whole ${v.refrain ? 'refrain' : 'verse'} ` + v.times + ' times'}</div>` : ''}
         </article>${v.repeatRefrain ? refrainRepeatHTML(q, n) : ''}`).join('')}`}
       ${pageView ? '' : chapterNav(kind, idx)}
     </main>
@@ -18595,6 +18595,7 @@ const INLINE_INSTRUCTIONS = [
   { find: /\((?:[0-9]+|[\u0660-\u0669]+)\)/g },   /* repeat counts — (3), (14) */
   { find: '(٤ مرات)' },                            /* …and the same spelled out */
   { find: '(محل الْقيام)' },                        /* the standing */
+  { find: '(اللّٰهْ اللّٰهْ)' },  /* Qamarun — the gathering's sung response, as the booklet prints it */
   { find: '(اَنِّي رَسُولُكَ فِي دُعَائِهِ ﷺ)' },  /* al-Ḥizb al-Aʿẓam, Thursday — printed in coloured ink, not black */
   { find: 'وَفِي الصَّحِيحِ كَانَ اَكْثَرُ دُعَاءِ النَّبِيِّ صَلَّى اللّٰهُ تَعَالَى عَلَيْهِ وَسَلَّمَ' },  /* al-Ḥizb al-Aʿẓam, Tuesday — printed in coloured ink, not black */
   { find: 'وَفِي نُسْخَةٍ اُخْرٰى' },                 /* Ḥizb al-Istighfār, Thursday — the editorial "and in another copy", printed in coloured ink */

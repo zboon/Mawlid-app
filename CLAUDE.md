@@ -22,7 +22,7 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v431** |
+| **Mawalid** (this repo) | the full collection | **v432** |
 | **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v99** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
@@ -1247,6 +1247,24 @@ card is gone.
   are genuine — the booklet has them.
 - `en` is "Support us, O …" per line, names in their usual English form
   (Sayf ad-Dīn, Imām al-ʿĀrifīn); the refrain's "Aid…" became "Support us…".
+
+## Qamarun — `QASIDAS[23]`
+
+**v432, Mawalid only** (issue #26). Vowelled from the booklet, book p. 2
+(PDF p. 7, an image-quality text layer — read at zoom, not extracted).
+User's rulings: the **booklet's words, completed where its own
+transliteration shows the Arabic cut short** (`وَعِطْرُهَا` for printed
+`وَعِطْرُهَ`, `الْبَرَايَا` for `الْبَرَى`; `نَوَالُهَا`, `بِنُورِ`, and the refrain's
+three قَمَرٌ / وَجَمِيل as its transliteration sings them); its **vowels as
+printed, ungrammatical ones included** — `ظِلُّ لَّهُ`, `تَنَالَ الشَّمْسَ …
+وَالْبُدُورَ`, `أَنَارُ`, colloquial `سِيدْنَا`. Do not "correct" these.
+
+Its repeat marks went in too: the bracketed X2 on the refrain and on lines
+2 and 4 is **`times: 2`** — the label now reads "Sing the whole *verse*
+twice" on a non-refrain card (same element, `refrain-times`); X3 on the
+first hemistich of lines 3 and 5 is an inline `(3)`; and the sung response
+**`(اللّٰهْ اللّٰهْ)`** is golded by its own `INLINE_INSTRUCTIONS` entry.
+This is the booklet's text, unlike the Barzanji cue the owner had removed.
 
 ## Balagha-l-ʿUlā bi-Kamālihi — the Arabic qasida
 
