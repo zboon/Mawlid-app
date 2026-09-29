@@ -266,7 +266,9 @@ against what the earlier estimate guessed:
 `سيدنا محمد`, which is the overwhelming bulk of it, so every row read 3–5× low.
 Measure the chapter; never quote a stored figure.
 
-`[5]` Names of the Prophet ﷺ (2 in scope) is **not yet done**.
+`[5]` Names of the Prophet ﷺ (2 in scope) is **not yet done** against the
+scan. (The With Sayyidinā version separately adds `سَيِّدُنَا` before all 200
+names — see *Two versions of the Dalāʾil*; that does not touch the Istanbul text.)
 
 **Both apps offer the pre-collation text too (v426 / v97)** — see *Two
 versions of the Dalāʾil* below. The ruling above governs `DALAIL_CHAPTERS`, which is the
@@ -816,7 +818,18 @@ Completion).
   collation's own changes and nothing else; that every `۞` and `‖` is where
   it was; and 520 restored: Mon1 119, Tue 35, Wed 25, Thu 63, Fri 134,
   Sat 94, Sun 28, Mon2 22.
-- **Any future fix to one of those 153 verses must go into both** —
+- **Plus 200 more: `سَيِّدُنَا` before each Name of the Prophet** (`[5]`
+  v2–v201, Aḥmad … Ṣāḥib al-Faraj), With Sayyidinā only, on the owner's
+  call — so the map holds **353** entries. This one is **new text, not a
+  restoration**: no copy of the app ever carried it there, and the
+  Istanbul Names pages were never uploaded, so Istanbul was left alone.
+  `tr` "Sayyidunā Aḥmad" (`Sayyidunā n-najmu th-thāqib` for v98), `en`
+  "Our master, most praising of Allah" (proper names `Ṭā Hā`/`Yā Sīn` keep
+  their capital). The bytes are Saturday v21's — the Dalāʾil's only
+  nominative `سَيِّدُنَا`, shadda-before-kasra like the 433-strong majority
+  of `سَيِّدِنَا`. v1's `مَنِ اسْمُهُ مُحَمَّدٌ` is inside the duʿāʾ and takes none.
+  Still 5 leaves, zero overflow in every script.
+- **Any future fix to one of those 353 verses must go into both** —
   `DALAIL_CHAPTERS` and its entry in `DALAIL_WITH_SAYYIDINA`. The alternate
   is a full copy of the verse, not a patch, so a fix made to one alone
   silently diverges. Check `DALAIL_WITH_SAYYIDINA["c:v"]` before closing
@@ -824,7 +837,7 @@ Completion).
 - **The swap is in place**: `applyDalailEdition()` writes the chosen
   fields onto `DALAIL_CHAPTERS` at startup and on every switch, from
   `DALAIL_WITH_SAYYIDINA` or from `DALAIL_ISTANBUL` (a startup snapshot of
-  the same 153 verses). So both readers, search, saved places and live
+  the same verses). So both readers, search, saved places and live
   sessions follow the version with no knowledge of it. `DALAIL_ISTANBUL`
   snapshots every Dalāʾil verse (the comma strip touches them all). The
   **source** `DALAIL_CHAPTERS` is never edited, and it and
