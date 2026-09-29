@@ -26,7 +26,7 @@
      script, where nothing that reads the page without running it can see
      it — so "which version is actually live?" could only be answered from
      a phone. Keep the two in step when bumping. -->
-<meta name="app-version" content="v426">
+<meta name="app-version" content="v427">
 <!-- YouTube's embedded player refuses to configure itself unless the host page
      sends a Referer (Error 153 / embedder.identity.missing.referrer). This is
      the browser default in most cases, but a standalone PWA or a WebView may
@@ -737,7 +737,7 @@
   .refrain-repeat.open .refrain-repeat-body{
     display:block;
     border:1px solid var(--gold-soft);border-radius:16px;
-    background:linear-gradient(var(--card),var(--card-alt));
+    background:linear-gradient(var(--ms-paper),var(--ms-paper-deep));
     padding:1rem 1.1rem;margin-top:.1rem;
   }
   /* The whole-refrain count, worded and ruled off so it cannot be mistaken
@@ -1755,76 +1755,76 @@ const QASIDAS = [
       { refrain: true, ar: "طَلَعَ الْبَدْرُ عَلَيْنَا ۞ مِنْ ثَنِيَّاتِ الْوَدَاعْ",
         tr: "Ṭalaʿa l-badru ʿalaynā, min thanīyāti l-wadāʿ.",
         en: "The full moon has risen upon us, from the valley of Wada." },
-      { ar: "وَجَبَ الشُّكْرُ عَلَيْنَا ۞ مَا دَعَا لِلَّهِ دَاعْ",
+      { refrainCont: true, ar: "وَجَبَ الشُّكْرُ عَلَيْنَا ۞ مَا دَعَا لِلَّهِ دَاعْ",
         tr: "Wajaba sh-shukru ʿalaynā, mā daʿā li-Llāhi dāʿ.",
         en: "Gratitude is incumbent upon us, whenever one calls to Allah." },
       { ar: "أَيُّهَا الْمَبْعُوثُ فِينَا ۞ جِئْتَ بِالْأَمْرِ الْمُطَاعْ",
         tr: "Ayyuha l-mabʿūthu fīnā, ji'ta bi-l-amri l-muṭāʿ.",
         en: "O you who have been sent among us, you came with the command to be obeyed." },
-      { ar: "جِئْتَ شَرَفْتَ الْمَدِينَةَ ۞ مَرْحَبًا يَا خَيْرَ دَاعْ",
+      { repeatRefrain: true, ar: "جِئْتَ شَرَفْتَ الْمَدِينَةَ ۞ مَرْحَبًا يَا خَيْرَ دَاعْ",
         tr: "Ji'ta sharrafta l-Madīnah, marḥaban yā khayra dāʿ.",
         en: "You came and honoured Madinah, welcome, O noblest caller to Allah!" },
       { ar: "طَلَعَ النُّورُ الْمُبِينُ ۞ نُورُ خَيْرِ الْمُرْسَلِينْ",
         tr: "Ṭalaʿa n-nūru l-mubīnu, nūru khayri l-mursalīn.",
         en: "The clear light has risen, the light of the best of messengers." },
-      { ar: "نُورُ أَمْنٍ وَسَلَامٍ ۞ نُورُ حَقٍّ وَيَقِينْ",
+      { repeatRefrain: true, ar: "نُورُ أَمْنٍ وَسَلَامٍ ۞ نُورُ حَقٍّ وَيَقِينْ",
         tr: "Nūru amnin wa-salāmin, nūru ḥaqqin wa-yaqīn.",
         en: "A light of safety and peace, a light of truth and certainty." },
       { ar: "سَاقَهُ اللَّهُ تَعَالَى ۞ رَحْمَةً لِلْعَالَمِينْ",
         tr: "Sāqahu Llāhu taʿālā, raḥmatan li-l-ʿālamīn.",
         en: "Allah Most High sent him, a mercy to all the worlds." },
-      { ar: "فَعَلَى الْبَرِّ شُعَاعٌ ۞ وَعَلَى الْبَحْرِ شُعَاعْ",
+      { repeatRefrain: true, ar: "فَعَلَى الْبَرِّ شُعَاعٌ ۞ وَعَلَى الْبَحْرِ شُعَاعْ",
         tr: "Fa-ʿalā l-barri shuʿā'un, wa-ʿalā l-baḥri shuʿā.",
         en: "Its radiance shines upon the land, and upon the sea." },
       { ar: "مَرْحَبًا يَا مُصْطَفَانَا ۞ نُورُكَ الْغَالِي أَضَاءْ",
         tr: "Marḥaban yā Muṣṭafānā, nūruka l-ghālī aḍā'.",
         en: "Welcome, O our Chosen One, your precious light has shone forth." },
-      { ar: "رُغْمَ أَنْفِ الْمُلْحِدِينَ ۞ فَيْضُهُ عَمَّ الْبِقَاعْ",
+      { repeatRefrain: true, ar: "رُغْمَ أَنْفِ الْمُلْحِدِينَ ۞ فَيْضُهُ عَمَّ الْبِقَاعْ",
         tr: "Rughma anfi l-mulḥidīna, fayḍuhu ʿamma l-biqāʿ.",
         en: "Despite the deniers, his overflowing grace has spread across the lands." },
       { ar: "أَشْرَقَتْ شَمْسُ الْكَمَالِ ۞ بِكَ يَا بَاهِي الْجَمَالْ",
         tr: "Ashraqat shamsu l-kamāli, bika yā bāhī l-jamāl.",
         en: "The sun of perfection has risen through you, O radiant in beauty." },
-      { ar: "جَلَّ مَنْ سَوَّاكَ حَقًّا ۞ دَائِمًا لِلْخَيْرِ سَاعْ",
+      { repeatRefrain: true, ar: "جَلَّ مَنْ سَوَّاكَ حَقًّا ۞ دَائِمًا لِلْخَيْرِ سَاعْ",
         tr: "Jalla man sawwāka ḥaqqan, dā'iman li-l-khayri sāʿ.",
         en: "Exalted is He who truly fashioned you, ever hastening you toward every good." },
       { ar: "صَفْوَةُ الْبَارِي مُحَمَّدٌ ۞ دُرَّةٌ لِلْكَائِنَاتْ",
         tr: "Ṣafwatu l-Bārī Muḥammadun, durratun li-l-kā'ināt.",
         en: "Muhammad, the Elect of the Creator, a pearl among all creation." },
-      { ar: "مَدْحُهُ بَلْسَمُ رُوحِي ۞ وَلَهُ يَحْلُو السَّمَاعْ",
+      { repeatRefrain: true, ar: "مَدْحُهُ بَلْسَمُ رُوحِي ۞ وَلَهُ يَحْلُو السَّمَاعْ",
         tr: "Madḥuhu balsamu rūḥī, wa-lahu yaḥlū s-samāʿ.",
         en: "His praise is balm to my soul, and listening to it is sweet indeed." },
       { ar: "يَا خِتَامَ الْأَنْبِيَاءِ ۞ يَا إِمَامَ الْأَوْلِيَاءْ",
         tr: "Yā khitāma l-anbiyā'i, yā imāma l-awliyā.",
         en: "O Seal of the Prophets! O Leader of the Saints!" },
-      { ar: "رَحْمَةً أُرْسِلْتَ طَهَ ۞ مُنْقِذًا بَعْدَ الضَّيَاعْ",
+      { repeatRefrain: true, ar: "رَحْمَةً أُرْسِلْتَ طَهَ ۞ مُنْقِذًا بَعْدَ الضَّيَاعْ",
         tr: "Raḥmatan ursilta Ṭāhā, munqiẓan baʿda ḍ-ḍayāʿ.",
         en: "You were sent as mercy, O Taha, a saviour after mankind had gone astray." },
       { ar: "صَلَوَاتُ اللَّهِ تُهْدَى ۞ لَكَ مِنَّا وَالسَّلَامْ",
         tr: "Ṣalawātu Llāhi tuhdā, laka minnā wa-s-salām.",
         en: "Blessings of Allah are sent to you, and peace from all of us." },
-      { ar: "يَا أَبَا الْقَاسِمِ يَا مَنْ ۞ أَمْرُهُ دَوْمًا مُطَاعْ",
+      { repeatRefrain: true, ar: "يَا أَبَا الْقَاسِمِ يَا مَنْ ۞ أَمْرُهُ دَوْمًا مُطَاعْ",
         tr: "Yā Abā l-Qāsimi yā man, amruhu dawman muṭāʿ.",
         en: "O Aba al-Qasim, O you whose word is ever obeyed." },
       { ar: "بَيْنَ كَتْفَهِ عَلَامَةٌ ۞ خَاتِمُ الرُّسْلِ الْكِرَامْ",
         tr: "Bayna katfahi ʿalāmah, khātimu r-rusli l-kirām.",
         en: "Between his shoulder blades is a mark, the seal of all the noble messengers." },
-      { ar: "أَشْرَقَ الْبَدْرُ عَلَيْنَا ۞ وَاخْتَفَى بَدْرُ التَّمَامْ",
+      { repeatRefrain: true, ar: "أَشْرَقَ الْبَدْرُ عَلَيْنَا ۞ وَاخْتَفَى بَدْرُ التَّمَامْ",
         tr: "Ashraqa l-badru ʿalaynā, wa-khtafā badru t-tamām.",
         en: "The full moon has risen upon us, and all other full moons have faded." },
       { ar: "مِثْلُ حُسْنِكَ مَا رَأَيْنَا ۞ فِي الْعِرَاقَيْنِ وَشَامْ",
         tr: "Mithla ḥusnika mā ra'aynā, fī l-ʿIrāqayni wa-Shām.",
         en: "We have never seen beauty like yours, not in Iraq, nor in the Levant." },
-      { ar: "رَبِّ فَاجْعَلْ مُجْتَمَعْنَا ۞ غَايَتُهْ حُسْنُ الْخِتَامْ",
+      { repeatRefrain: true, ar: "رَبِّ فَاجْعَلْ مُجْتَمَعْنَا ۞ غَايَتُهْ حُسْنُ الْخِتَامْ",
         tr: "Rabbi fajʿal mujtamaʿnā, ghāyatuh ḥusnu l-khitām.",
         en: "My Lord, make the goal of our gathering a beautiful ending." },
       { ar: "وَأَعْطِنَا مَا قَدْ سَأَلْنَا ۞ مِنْ عَطَايَاكَ الْجِسَامْ",
         tr: "Wa-aʿṭinā mā qad sa'alnā, min ʿaṭāyāka l-jisām.",
         en: "And grant us what we have asked for, from Your vast, abundant gifts." },
-      { ar: "وَأَكْرِمِ الْأَرْوَاحَ مِنَّا ۞ بِاللِّقَاءْ خَيْرِ الْأَنَامْ",
+      { repeatRefrain: true, ar: "وَأَكْرِمِ الْأَرْوَاحَ مِنَّا ۞ بِاللِّقَاءْ خَيْرِ الْأَنَامْ",
         tr: "Wa-akrimi l-arwāḥa minnā, bi-l-liqā' khayri l-anām.",
         en: "And honour our souls by granting us, a meeting with the Best of Creation." },
-      { ar: "وَابْلِغِ الْمُخْتَارَ عَنَّا ۞ مِنْ صَلَاةٍ وَسَلَامْ",
+      { repeatRefrain: true, ar: "وَابْلِغِ الْمُخْتَارَ عَنَّا ۞ مِنْ صَلَاةٍ وَسَلَامْ",
         tr: "Wa-blighi l-mukhtāra ʿannā, min ṣalātin wa-salām.",
         en: "And convey from us to the Chosen One our prayers and peace." }
     ]
@@ -12893,7 +12893,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v426';
+const APP_VERSION = 'v427';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -17132,7 +17132,7 @@ function readerHTML(q, backOnclick, kind, idx){
       ${(q.video || audioFor(kind, idx).length) ? `<button class="qtune" onclick="openPlayerFor('${kind}',${idx},1)">▶ ${(kind === 'd' || kind === 'l') ? 'Listen to this ḥizb' : 'Listen to the tune'}</button>` : ''}
       ${q.video2 ? `<button class="qtune" onclick="openPlayerFor('${kind}',${idx},2)">▶ Listen — alternate version</button>` : ''}
       ${q.verses.map((v,n)=>`
-        <article class="verse ${v.refrain?'refrain':''} ${v.instruction?'v-instruction':''}${kind==='d'&&placedVerse(idx,n)?' placed':''}" data-v="${n}">
+        <article class="verse ${v.refrain||v.refrainCont?'refrain':''} ${v.instruction?'v-instruction':''}${kind==='d'&&placedVerse(idx,n)?' placed':''}" data-v="${n}">
           ${kind === 'd' ? `<button class="verse-place ${placedVerse(idx,n)?'on':''}"
             onclick="placeVerse(${idx},${n})"
             aria-label="${placedVerse(idx,n)?'Remove my place':'Mark my place here'}"
@@ -17408,19 +17408,32 @@ const stripRepeatCount = t => t.replace(/\s*\((?:[0-9]+|[٠-٩]+)\)\s*$/, '');
 /* The refrain repeated is the nearest one above the verse: a piece with a
    second refrain partway through (Marḥaban Marḥaban) switches to it. */
 function refrainRepeatHTML(q, n){
-  const r = q.verses.slice(0, n + 1).reverse().find(v => v.refrain);
-  if(!r) return '';
+  let at = -1;
+  for(let k = n; k >= 0; k--) if(q.verses[k].refrain){ at = k; break; }
+  if(at < 0) return '';
+  const r = q.verses[at];
+  /* A refrain can run over more than one card: the cards straight after it
+     flagged `refrainCont` are sung with it and repeat with it (Ṭalaʿa-l-Badru,
+     QASIDAS[8]: its two opening lines). They stay separate cards so no verse
+     is renumbered. */
+  const parts = [r];
+  for(let k = at + 1; k < q.verses.length && q.verses[k].refrainCont; k++) parts.push(q.verses[k]);
   /* A `times` refrain states its whole-refrain count on the card, not in the
-     text, so its last in-text count is a per-line one and stays. */
+     text, so its last in-text count is a per-line one and stays. Only the
+     closing count of the whole refrain is ever stripped. */
   const strip = r.times ? (t => t) : stripRepeatCount;
-  const ar = strip(r.ar), tr = r.tr && strip(r.tr), en = r.en && strip(r.en);
+  const body = parts.map((p, x) => {
+    const f = x === parts.length - 1 ? strip : (t => t);
+    const ar = f(p.ar), tr = p.tr && f(p.tr), en = p.en && f(p.en);
+    return `<div class="v-ar">${arHTML(ar)}</div>
+        ${tr ? `<div class="v-tr ${state.showTr?'':'hide'}">${tr.replaceAll('\n','<br>')}</div>` : ''}
+        ${en ? `<div class="v-en ${state.showEn?'':'hide'}">${en.replaceAll('\n','<br>')}</div>` : ''}`;
+  }).join('');
   return `<div class="refrain-repeat${state.refrainOpen ? ' open' : ''}">
       <button class="refrain-repeat-btn" onclick="toggleRefrain()"
         aria-expanded="${state.refrainOpen ? 'true' : 'false'}">↻ Repeat refrain · يُرَدَّد</button>
       <div class="refrain-repeat-body">
-        <div class="v-ar">${arHTML(ar)}</div>
-        ${tr ? `<div class="v-tr ${state.showTr?'':'hide'}">${tr.replaceAll('\n','<br>')}</div>` : ''}
-        ${en ? `<div class="v-en ${state.showEn?'':'hide'}">${en.replaceAll('\n','<br>')}</div>` : ''}
+        ${body}
       </div>
     </div>`;
 }
