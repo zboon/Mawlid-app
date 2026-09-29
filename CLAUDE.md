@@ -803,9 +803,10 @@ Completion).
 **The owner named it the Mughlay Version** (September 2026) after the
 Indo-Pak "Mughlay" printing it resembles. The code still says `sayyidina`
 (`DALAIL_WITH_SAYYIDINA`, the stored value) — only the label changed.
-**It is not yet collated against that printing**: only Monday P1 has been
-read, and its differences are with the owner (see *The Mughlay printing*
-below).
+**It is being collated against that printing, day by day** — the owner's
+rule is that the Mughlay Version **follows the Mughlay printing exactly**,
+as Istanbul follows its own. Monday P1 is done (see *The Mughlay printing*
+below); the other days still carry the reconstructed pre-collation text.
 
 - **Istanbul** is `DALAIL_CHAPTERS` as it stands: collated against the
   printing, with the 520 سيدنا removed and its Arabic commas.
@@ -825,7 +826,7 @@ below).
   Sat 94, Sun 28, Mon2 22.
 - **Plus 200 more: `سَيِّدُنَا` before each Name of the Prophet** (`[5]`
   v2–v201, Aḥmad … Ṣāḥib al-Faraj), Mughlay only, on the owner's
-  call — so the map holds **353** entries. This one is **new text, not a
+  call — so the map held **353** entries (352 after Monday's collation below). This one is **new text, not a
   restoration**: no copy of the app ever carried it there, and the
   Istanbul Names pages were never uploaded, so Istanbul was left alone.
   `tr` "Sayyidunā Aḥmad" (`Sayyidunā n-najmu th-thāqib` for v98), `en`
@@ -834,7 +835,7 @@ below).
   nominative `سَيِّدُنَا`, shadda-before-kasra like the 433-strong majority
   of `سَيِّدِنَا`. v1's `مَنِ اسْمُهُ مُحَمَّدٌ` is inside the duʿāʾ and takes none.
   Still 5 leaves, zero overflow in every script.
-- **Any future fix to one of those 353 verses must go into both** —
+- **Any future fix to one of those 352 verses must go into both** —
   `DALAIL_CHAPTERS` and its entry in `DALAIL_WITH_SAYYIDINA`. The alternate
   is a full copy of the verse, not a patch, so a fix made to one alone
   silently diverges. Check `DALAIL_WITH_SAYYIDINA["c:v"]` before closing
@@ -871,21 +872,32 @@ chunking came from this edition or one like it. Its internal divisions are
 far fewer than Istanbul's rosettes (none inside v2–v4, v23, v45, v48–v52).
 
 Collated word by word against the app's Mughlay Version and the Istanbul
-scan (pp.19–31). **Nothing has been changed.** Awaiting the owner:
+scan (pp.19–31). **Applied on the owner's rulings (both apps):**
 
-- **Six سيدنا in the Mughlay Version that this printing lacks**: v39 (the
-  last `وَصَلِّ عَلٰى مُحَمَّدٍ عَدَدَ مَا خَلَقْتَ`; the other four have it),
-  v43 ×2 (`مُحَمَّدٍ نَبِيِّكَ وَاِبْرَاهِيمَ`), v45 (`نَبِيِّكَ مُحَمَّدٍ`), v47 ×2
-  (`مِنْهُ مُحَمَّدٌ نَبِيُّكَ`). Everywhere else the two agree.
-- **Mughlay readings that differ from both Istanbul and the app**: v15
-  `لِطَاعَتِكَ` (Istanbul `بِطَاعَتِكَ`); v23 `كَمَا تُحِبُّ` (`يُحِبُّ`); v35
-  `آمَنْتُ بِسَيِّدِنَا مُحَمَّدٍ` (`بِهِ`); v42 no `لَهَا` after `لَا انْقِضَاءَ`.
-- **The app against BOTH printings, in both versions**: v3 `وَآلِ مُحَمَّدٍ`
-  where both print `وَعَلٰى آلِ`; v17 `وَعَلَيْهِ السَّلَامُ` where both print
-  `عَلَيْهِ السَّلَامُ`; v44 `إِنْ شَاءَ اللّٰهُ` where both add `تَعَالٰى`; and
-  v44's `صَلَى` has no shadda — the only one in the Dalāʾil.
-- Spelling only, not flagged as a difference: the Mughlay writes `رِضَا` /
-  `رِضٰى` where Istanbul and the app have `رِضَاءَ`.
+- **Six سيدنا out of the Mughlay Version** where this printing is bare:
+  v39 (only the last `وَصَلِّ عَلٰى مُحَمَّدٍ عَدَدَ مَا خَلَقْتَ` — the other four
+  keep it), v43 ×2, v45, v47 ×2. v43/v45/v47 then equal Istanbul, so their
+  alternates were **deleted** from the map, not edited.
+- **Each version follows its own book where the two printings differ**
+  (the alternate carries the Mughlay reading, Istanbul is untouched): v15
+  `لِطَاعَتِكَ` (Istanbul `بِطَاعَتِكَ`); v23 `كَمَا تُحِبُّ` / "as You love him"
+  (Istanbul `يُحِبُّ`); v35 `آمَنْتُ بِسَيِّدِنَا مُحَمَّدٍ` (Istanbul `بِهِ`) — a new
+  alternate; v42 no `لَهَا` (Istanbul keeps it) — a new alternate.
+- **Fixed in both versions to what both printings have**: v3 `وَعَلٰى آلِ
+  مُحَمَّدٍ` (was `وَآلِ`); v17 `عَلَيْهِ السَّلَامُ` (the app had `وَعَلَيْهِ`);
+  v44 `إِنْ شَاءَ اللّٰهُ تَعَالٰى` / "Allah Most High willing", and its `صَلَى`
+  given its shadda (bytes copied from v45).
+- Bytes: `وَعَلٰى` from v3 itself, `تُحِبُّ` from v26, `صَلَّى` from v45,
+  `بِسَيِّدِنَا مُحَمَّدٍ` from the alternate of v33, `تَعَالٰى` the corpus's
+  dagger form (4 of 6). `لِطَاعَتِكَ` has no copy anywhere — it is v15's own
+  `بِطَاعَتِكَ` with the bāʾ swapped for a lām.
+- Not done, and deliberately: the printing's `○` divisions. The Mughlay
+  Version keeps Istanbul's internal rosettes so both versions share every
+  segment and saved place.
+- Spelling only, not changed: the Mughlay writes `رِضَا` / `رِضٰى` where
+  Istanbul and the app have `رِضَاءَ`.
+
+Still 13 leaves in both versions, zero overflow in every script.
 
 ## Theme
 
