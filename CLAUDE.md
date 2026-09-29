@@ -934,6 +934,15 @@ Still 13 leaves in both versions, zero overflow in every script.
 
 ## Theme
 
+**The Study card is printed on the Book Version's paper** (owner's call,
+both apps): `.verse` — every Study reader, not only the Dalāʾil — takes
+`--ms-paper` with a `--rule-soft` gold hairline, where it used to be white
+`--card`. The paper itself went a shade darker at the same time, `#FBF4DE`
+→ `#F6ECD2`, "for that classical book feel", so the Book leaf darkened too.
+A refrain's gradient runs to `--ms-paper-deep`. In the dark theme the card
+follows the dark leaf the same way. The page behind the cards (`--bg`) and
+the app's other white cards are unchanged.
+
 **Light is the standard first-open look.** A reader who has never chosen gets
 light whatever their phone's system setting says; dark is only ever entered by
 tapping the toggle, and only then is it remembered (`mawlid-theme` /
