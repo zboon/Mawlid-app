@@ -22,8 +22,8 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v425** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v96** |
+| **Mawalid** (this repo) | the full collection | **v426** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v97** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -266,7 +266,13 @@ against what the earlier estimate guessed:
 `سيدنا محمد`, which is the overwhelming bulk of it, so every row read 3–5× low.
 Measure the chapter; never quote a stored figure.
 
-`[5]` Names of the Prophet ﷺ (2 in scope) is **not yet done**.
+`[5]` Names of the Prophet ﷺ (2 in scope) is **not yet done** against the
+scan. (The Mughlay version separately adds `سَيِّدُنَا` before all 200
+names — see *Two versions of the Dalāʾil*; that does not touch the Istanbul text.)
+
+**Both apps offer the pre-collation text too (v426 / v97)** — see *Two
+versions of the Dalāʾil* below. The ruling above governs `DALAIL_CHAPTERS`, which is the
+**Istanbul** version; it is not a licence to edit the other.
 
 Tuesday is deliberately partial: only the 35 the scan shows bare were removed,
 **v132 is untouched on the owner's instruction**, and the `سيدنا ومولانا` block
@@ -500,8 +506,9 @@ Run all of it before opening a pull request.
   two candidate corrections, nothing to arbitrate between them.
 - **Aʿẓam Thursday p209**: the dittography **was** removed (a verbatim four-word
   repeat, against the al-Aʿlā 87:2–3 verb+fāʾ+verb pattern the passage runs on).
-- The **1113 commas in the Dalāʾil's Book Version** are deliberate; every other
-  collection keeps the commaless manuscript look.
+- The **commas in the Dalāʾil's Istanbul version** are deliberate (1,065
+  measured in v426; an older note said 1113); every other collection keeps
+  the commaless manuscript look, and so does the Mughlay version.
 - ` · ` is a **pervasive UI separator** — 600+ occurrences. A global
   find-and-replace on it wrecks the file. This has happened once.
 - `/[A-Z]/` does **not** match the Latin-Extended capitals used in the
@@ -787,7 +794,155 @@ only — Mawalid has no switch.
   not broadcast — a follower keeps their own script, like size and columns.
 - All three OFL notices (Amiri, DigitalKhatt, SIL) head the fork's `OFL.txt`.
 
+## Two versions of the Dalāʾil — both apps (v426 / v97)
+
+On the owner's request **both apps** offer the Dalāʾil in **two versions**, switched by an **Istanbul · Mughlay** control on the
+Dalāʾil landing page and in the reader controls of every chapter that reads
+differently between them (`[6]`–`[14]`: the eight days and the Duʿāʾ of
+Completion).
+**The owner named it the Mughlay Version** (September 2026) after the
+Indo-Pak "Mughlay" printing it resembles. The code still says `sayyidina`
+(`DALAIL_WITH_SAYYIDINA`, the stored value) — only the label changed.
+**It is being collated against that printing, day by day** — the owner's
+rule is that the Mughlay Version **follows the Mughlay printing exactly**,
+as Istanbul follows its own. Monday P1 is done (see *The Mughlay printing*
+below); the other days still carry the reconstructed pre-collation text.
+
+- **Istanbul** is `DALAIL_CHAPTERS` as it stands: collated against the
+  printing, with the 520 سيدنا removed and its Arabic commas.
+- **Mughlay has no Arabic commas** (owner's call): every U+060C is
+  dropped from the Arabic of the whole Dalāʾil as the version is applied
+  (`stripArCommas`) — 1,065 of them, all written `word، next`, so each
+  leaves one space. `tr` and `en` keep their punctuation. The stored
+  alternates keep their commas; the stripping happens only at apply time.
+- **Mughlay** is `DALAIL_WITH_SAYYIDINA`, a map `"chapter:verse" →
+  {ar, tr, en}` of the **153 verses** the eight splice commits changed
+  (Mawalid `944d5da`…`d081b83`; fork `a97fb1d`…`76b865b`), each restored to
+  its pre-collation text **but carrying every fix made since** — Saturday
+  v15's `شِيثَ` / "Shītha" and the two `إِبْرَاهِيمَ` tatweels. The build
+  asserted, verse by verse, that the two versions differ by exactly the
+  collation's own changes and nothing else; that every `۞` and `‖` is where
+  it was; and 520 restored: Mon1 119, Tue 35, Wed 25, Thu 63, Fri 134,
+  Sat 94, Sun 28, Mon2 22.
+- **Plus 200 more: `سَيِّدُنَا` before each Name of the Prophet** (`[5]`
+  v2–v201, Aḥmad … Ṣāḥib al-Faraj), Mughlay only, on the owner's
+  call — so the map held **353** entries (369 after Monday's collation below:
+  every Monday verse now has one, for the English). This one is **new text, not a
+  restoration**: no copy of the app ever carried it there, and the
+  Istanbul Names pages were never uploaded, so Istanbul was left alone.
+  `tr` "Sayyidunā Aḥmad" (`Sayyidunā n-najmu th-thāqib` for v98), `en`
+  "Our master, most praising of Allah" (proper names `Ṭā Hā`/`Yā Sīn` keep
+  their capital). The bytes are Saturday v21's — the Dalāʾil's only
+  nominative `سَيِّدُنَا`, shadda-before-kasra like the 433-strong majority
+  of `سَيِّدِنَا`. v1's `مَنِ اسْمُهُ مُحَمَّدٌ` is inside the duʿāʾ and takes none.
+  Still 5 leaves, zero overflow in every script.
+- **Any future fix to one of those 369 verses must go into both** —
+  `DALAIL_CHAPTERS` and its entry in `DALAIL_WITH_SAYYIDINA`. The alternate
+  is a full copy of the verse, not a patch, so a fix made to one alone
+  silently diverges. Check `DALAIL_WITH_SAYYIDINA["c:v"]` before closing
+  any Dalāʾil text edit.
+- **The swap is in place**: `applyDalailEdition()` writes the chosen
+  fields onto `DALAIL_CHAPTERS` at startup and on every switch, from
+  `DALAIL_WITH_SAYYIDINA` or from `DALAIL_ISTANBUL` (a startup snapshot of
+  the same verses). So both readers, search, saved places and live
+  sessions follow the version with no knowledge of it. `DALAIL_ISTANBUL`
+  snapshots every Dalāʾil verse (the comma strip touches them all). The
+  **source** `DALAIL_CHAPTERS` is never edited, and it and
+  `DALAIL_WITH_SAYYIDINA` are byte-identical between the two apps.
+- **Verse indices and leaves are identical in both; segments are not.** The
+  `‖` page breaks are Istanbul's in both versions, but where the Mughlay
+  printing has been collated its **rosettes follow that book** (owner's
+  call), and rosettes are what `segWrap` splits phrases on. So a phrase —
+  and a saved place — in one version is a different phrase in the other.
+  **Saved places are kept per version**: `placeKey()` returns `PLACE_KEY`
+  for Istanbul (the old key, so existing places survive) and
+  `PLACE_KEY + '-mughlay'` for Mughlay. The landing page's resume card is
+  redrawn on a switch, Clear wipes both, and every switch shows a short
+  note (`editionToast`) that places and highlights are kept separately.
+  **Gold-ring highlights are per version too** (owner's call): the
+  Dalāʾil's `d:` marks for Mughlay live in `mawlid-marks-mughlay` /
+  `dlk-marks-mughlay`; Istanbul's stay in the original store, and every
+  other collection's marks share that store whichever version is on.
+  `loadMarks()` shows the current version's `d:` marks only, `markVerse`
+  writes through `markStoreFor(kind)`, Clear empties both. These are
+  function declarations reading `dalailEdition` through a try, because
+  marks and places can be read before it is declared. A leader and
+  follower on different versions still reach the same leaf and verse.
+- **`noRosette` travels with the version**: an alternate may carry its own
+  (Monday v44 closes bare in the Mughlay); `DALAIL_ISTANBUL` snapshots it
+  and `applyDalailEdition` restores it.
+- **Switching re-renders an open Dalāʾil reader**: the Book view keeps the
+  **leaf** (`msCurrentPage` → `msGoToWhenReady`) — going via the top verse
+  landed a leaf early whenever a verse ran on from the previous page; the
+  Study view keeps the top verse.
+- **`mawlid-edition` / `dlk-edition`** (`istanbul` | `sayyidina`; unset or
+  unrecognised = Istanbul), written only from `setDalailEdition`. Not synced
+  in a session.
+- Measured in both apps: zero overflowing leaves in the Mughlay
+  version (all three scripts in the fork); leaf counts, `۞` (478) and `‖`
+  (103) unchanged; saved places resume across a switch both ways.
+
+### The Mughlay printing — what Monday P1 showed
+
+`Dalail-al-Khayrat-urdu-eng-monday.pdf`, 20 pages: Arabic on the even book
+pages 98–116, English on the odd ones. Indo-Pak script with a text layer
+that is useless, like the Istanbul scan's. It marks a `○` at the end of
+almost every one of the app's verses, which suggests the app's verse
+chunking came from this edition or one like it. Its internal divisions are
+far fewer than Istanbul's rosettes (none inside v2–v4, v23, v45, v48–v52).
+
+Collated word by word against the app's Mughlay Version and the Istanbul
+scan (pp.19–31). **Applied on the owner's rulings (both apps):**
+
+- **Six سيدنا out of the Mughlay Version** where this printing is bare:
+  v39 (only the last `وَصَلِّ عَلٰى مُحَمَّدٍ عَدَدَ مَا خَلَقْتَ` — the other four
+  keep it), v43 ×2, v45, v47 ×2. v43/v45/v47 then equal Istanbul, so their
+  alternates were **deleted** from the map, not edited.
+- **Each version follows its own book where the two printings differ**
+  (the alternate carries the Mughlay reading, Istanbul is untouched): v15
+  `لِطَاعَتِكَ` (Istanbul `بِطَاعَتِكَ`); v23 `كَمَا تُحِبُّ` / "as You love him"
+  (Istanbul `يُحِبُّ`); v35 `آمَنْتُ بِسَيِّدِنَا مُحَمَّدٍ` (Istanbul `بِهِ`) — a new
+  alternate; v42 no `لَهَا` (Istanbul keeps it) — a new alternate.
+- **Fixed in both versions to what both printings have**: v3 `وَعَلٰى آلِ
+  مُحَمَّدٍ` (was `وَآلِ`); v17 `عَلَيْهِ السَّلَامُ` (the app had `وَعَلَيْهِ`);
+  v44 `إِنْ شَاءَ اللّٰهُ تَعَالٰى` / "Allah Most High willing", and its `صَلَى`
+  given its shadda (bytes copied from v45).
+- Bytes: `وَعَلٰى` from v3 itself, `تُحِبُّ` from v26, `صَلَّى` from v45,
+  `بِسَيِّدِنَا مُحَمَّدٍ` from the alternate of v33, `تَعَالٰى` the corpus's
+  dagger form (4 of 6). `لِطَاعَتِكَ` has no copy anywhere — it is v15's own
+  `بِطَاعَتِكَ` with the bāʾ swapped for a lām.
+- **Rosettes follow the Mughlay printing** (owner's call, second pass).
+  It marks a `○` at the end of every verse but one — v44, the
+  instruction, closes bare, so its alternate carries `noRosette` — and
+  inside only five: v17 ×2 (after `عَظِيمٍ` and after the āyah; not before
+  `عَلٰى سَيِّدِنَا مُحَمَّدِ بْنِ`), v30 ×3, v31 ×4, v38 ×3 (after `وَرَسُولِكَ`,
+  `وَنَجِيِّكَ`, `وَسَمَائِكَ`), v39 ×3 (not after `بَنَيْتَهَا`). Every other
+  internal rosette came out. Book leaf: 66 rosettes against Istanbul's 105,
+  per leaf `5,6,3,4,4,6,13,6,4,6,2,3,4`. Read off the page and checked at
+  zoom where unsure; a ring detector was tried and is too noisy to trust.
+- **English from the book's facing pages**, all 53 verses, transcribed
+  from the images (the text layer mangles "Allah" as "Allak"/"Atlah" and
+  shuffles lines). Verbatim — archaic ("Thou didst", "burthen"), including
+  where the English keeps "our master" over Arabic the book prints bare
+  (v39, v45, v47) — except: the book's "O Allah." is written "O Allah,";
+  "untill" → "until"; v17 "let those who believe, as Allah" → "ask Allah";
+  a verse's closing comma or colon ends in a full stop. `tr` is unchanged.
+- Spelling only, not changed: the Mughlay writes `رِضَا` / `رِضٰى` where
+  Istanbul and the app have `رِضَاءَ`.
+
+Still 13 leaves in both versions, zero overflow in every script.
+
 ## Theme
+
+**The Study card is printed on the Book Version's paper** (owner's call,
+both apps): `.verse` — every Study reader, not only the Dalāʾil — takes
+`--ms-paper` with a `--rule-soft` gold hairline, where it used to be white
+`--card`. The paper was briefly darkened (`#F6ECD2`) and the owner had
+the Book Version put back to its original `#FBF4DE` the same day, with the
+cards matching it — so the leaf colour is unchanged from before and only
+the cards moved. A refrain's gradient runs to `--ms-paper-deep`. In the dark theme the card
+follows the dark leaf the same way. The page behind the cards (`--bg`) and
+the app's other white cards are unchanged.
 
 **Light is the standard first-open look.** A reader who has never chosen gets
 light whatever their phone's system setting says; dark is only ever entered by
