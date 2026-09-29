@@ -22,7 +22,7 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v429** |
+| **Mawalid** (this repo) | the full collection | **v430** |
 | **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v99** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
@@ -1201,26 +1201,27 @@ The recording is `Ya Rabbi Salli Ala Muhammad.mp3` (Aashiq al-Rasul, 240 s).
 
 ## Allāhumma Ṣalli ʿalā Muḥammad — `QASIDAS[24]`
 
-**v429, Mawalid only** (issues #22 + #26, the user's rulings). #6 in the
-Qasida list on screen (the Burdah card is #1). Was one unvowelled line per
-verse; now **two verses to a card** (8 cards after the refrain), each
-hemistich on its own line, `repeatRefrain` on every card.
+**v429–v430, Mawalid only** (issues #22 + #26, the user's rulings). #6 in
+the Qasida list on screen (the Burdah card is #1).
 
-- **Six verses vowelled from the user's pasted text** (v2, v3, v5, v6, v7,
-  v13 by the old numbering), with their English. The paste's spelling was
-  brought to house style only — sukūn on the article lām, `إِلَى`, `أُمُّ`,
-  `جَاءَ`, `مُنْجِي`, waw attached — and asserted letter-identical to it.
-- **Four restored by rhyme and metre** (mukhallaʿ al-basīṭ, rhyme ‑ammْ),
-  approved as "confident": v9 `أَدْعُوكَ أَحْمَدُ … الرُّسُلِ الْمُقَدَّمْ` (was
-  `أحد`/`المقد`; `الرُّسُلِ` not `الرُّسْلِ` — the metre needs it), v10, v11
-  `الْمُحَرَّمْ` (was `الحرم`), v14. English for these four is in-house.
-- **Six are still the old unvowelled text, byte-identical** apart from the
-  new hemistich break: v4, v8, v12, v15, v16, v17. v8 and v16 do not parse;
-  v4/v12/v15/v17 had plausible reconstructions the user held back. They
-  still carry bare `الله`/`الإله` — a known hygiene exception until a source
-  arrives. **Do not vowel them from memory.**
-- The refrain kept `اللّٰهُمَّ` (the app's), not the paste's `يَا رَبِّ`, and
-  kept its English. The verse order is the app's, not the paste's.
+**The source is the user's printed booklet**, `lyrics/qasida/Qasida_V1.3.pdf`
+in `abdulmajid1993/qasida`, book pp. 3–4 (PDF pp. 8–9): fully vowelled, 17
+verses and a closing `اللّٰهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَيْهِ`. The earlier text came
+from the Sacred Lyrics export and was **corrupt**: 16 verses, two hemistichs
+lost, the next verse glued onto `وَالْجُنْدُ`, and a line
+(`والذين آمنوا إلا فاه محمد`) that is in no printing. Check this booklet
+before trusting the export for any other piece it supplied.
+
+- Layout: refrain · pairs 1–14 · v15 alone · v16 + v17 + closing, all nine
+  flagged `repeatRefrain` (after the last too, on the user's call).
+- **Pausal `مُحَمَّدْ`** closes every first hemistich, as sung — the printing
+  gives full case endings there; the user chose pausal. **`بَيَّنَ`** (v12)
+  follows the printing over the user's paste.
+- House spellings over the printing's: `الدُّجَى`, `الْإِلَهُ`, `عَلٰى`, `إِلَى`,
+  `أَرْجُو`, `أَعْلَى`. `مَنْجًا وَمَلْجَاءُ نَا` keeps the printing's split `نَا`.
+- English: six verses are the user's; the rest (3, 7–11, 13–17, closing) is
+  in-house, approved as drafted. v11's `تَحَشَّمْ` ("through him we keep our
+  honour") is the least certain line.
 
 ## Balagha-l-ʿUlā bi-Kamālihi — the Arabic qasida
 
