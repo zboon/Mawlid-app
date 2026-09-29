@@ -22,8 +22,8 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v427** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v98** |
+| **Mawalid** (this repo) | the full collection | **v428** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v99** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -947,31 +947,40 @@ scan (pp.19–31). **Applied on the owner's rulings (both apps):**
 
 Still 13 leaves in both versions, zero overflow in every script.
 
-## The top of a reader — decluttered (v427 / v98, owner's call)
+## The top of a reader — Dalāʾil and aḥzāb only (v427–v428 / v98–v99)
 
-The owner found the top of a reader too busy: in the fork's Dalāʾil Study
-view, fourteen controls stood above the first verse. Now:
+**Scope, twice restated by the owner: this applies to the Dalāʾil and the
+aḥzāb (kinds `d` and `l`) in both apps, and nowhere else.** `readerHTML`
+sets `compact = kind === 'd' || kind === 'l'`. v427 shipped the Aa panel and
+the slim About · Listen row to every reader; v428 put every other
+collection back exactly as it was (verified: the qasida, Burdah, Barzanji
+and Diyāʾ tops render identically to v426/v97). **Mawalid gets no script
+fonts** — the owner declined them.
+
+In the Dalāʾil and aḥzāb:
 
 - **Book / Study is chosen only from the green bar** (`.view-swap`, labelled
   with the view it switches *to*). The labelled pair under the title is
-  gone, and the swap no longer hides until the bar goes slim.
+  gone, and the swap no longer hides until the bar goes slim. (Only these
+  two collections have a Book Version, so no other reader is affected.)
 - **The controls row keeps only what is used while reading**: Save my place
   (Dalāʾil, Book view), Two pages (wide screens), full screen (Book view),
   and **`Aa`**.
 - **`Aa` opens a panel in place** (`toggleAa`, `state.aaOpen` — in memory
   only, never stored, and never through `reopen()`) holding the settings a
   reader sets once: the script switch (fork), Transliteration and
-  Translation, and the two text-size sliders (Study only). The button is
-  omitted where the panel would be empty (Mawalid's Book view). A column
-  toggle re-renders the reader; the panel stays open across that because the
-  flag lives on `state`.
-- **About and Listen are one slim row** (`readerActions`): a small "About ·
-  نُبْذَة" button where the note is long enough to fold (the note opens below
-  it; `toggleAbout`), and "▶ Listen" / "▶ Alternate" where there is a
-  recording or a video. A short note is still just shown. In the Book view
-  the row sits in `#ms-tune`, offered from the first leaf only as the Listen
-  bar was — and it now follows the Listen rule above (recording **or**
-  video), where the old Book-view wrapper had needed a video.
+  Translation, and the two text-size sliders (Study only). Omitted where the
+  panel would be empty (Mawalid's Book view). A column toggle re-renders the
+  reader; the panel stays open because the flag lives on `state`.
+- **The chapter note is hidden** (v428 / v99, owner's call, "so if I change
+  my mind we can show it again"): `SHOW_CHAPTER_NOTES = false` in
+  `readerActions`. Set it to `true` and the note returns as a small
+  "About · نُبْذَة" button that opens it beneath (a short note just shows);
+  that path was tested with the flag on. The notes are untouched in the data.
+- **Listen is the full-width bar again** (v428, "make it wider again" — v427
+  had made it a small button). In the Book view it sits in `#ms-tune`,
+  offered from the first leaf only, and now follows the Listen rule above
+  (a recording **or** a video; the old Book wrapper had needed a video).
 - **The version switch is on the Dalāʾil landing page only.**
 
 ## Theme
