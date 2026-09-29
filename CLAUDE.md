@@ -22,7 +22,7 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v437** |
+| **Mawalid** (this repo) | the full collection | **v438** |
 | **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v100** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
@@ -658,13 +658,30 @@ two app cards, the repeat falls every two cards. Applied to 14 pieces:
 (2–6), ʿAdnānī (2–4), Yā Ṭaybah (2–3), Yā Abā-z-Zahrā and Yā Shafīʿa-l-Warā
 (2–7), Yā Hanānā (2–4), the Badriyyah (2–14), Ashraqa (3, 5, 7, 9), Anta
 Shamsun (2–4), Yā Rasūlallāhi Salāmun ʿAlayk (card 2 is `refrainCont` —
-the booklet's chorus is two lines — then 3, 5 … 19) and An-Nabī Ṣallū
-ʿAlayh (all 2–11). User's rulings: Ayyuhā-l-Mushtāq's and Yā Shafīʿa's card 1
+the booklet's chorus is two lines — cadence corrected in v438, below) and
+An-Nabī Ṣallū ʿAlayh (all 2–11). User's rulings: Ayyuhā-l-Mushtāq's and Yā Shafīʿa's card 1
 became the refrain, and Yā Shafīʿa's closing formula (card 8) lost its
 Refrain label; **An-Nabī Ṣallū ʿAlayh lost three cards** (Marḥaban yā nūra
 ʿaynī, and the two written-out refrains) to match the booklet — so its
 cards were renumbered. The pieces the booklet has no chorus marks for are
 batch 2.
+
+**Yā Rasūlallāhi Salāmun ʿAlayk — cadence corrected, v438, Mawalid only**
+(user's ruling). The v436 placement was wrong: `repeatRefrain` sat on the
+*first* card of each pair (3, 5, 7 … 19), so the refrain returned after
+just one verse the first time and the spacing read as staggered rather than
+"every two verses." Moved to the *second* card of each pair (4, 6, 8 … 20)
+so the refrain runs verse, verse, refrain throughout; the 19th and last
+verse has no partner to pair with, so it keeps its own repeat too (card 21,
+following the Allāhumma Ṣalli precedent of repeating after a trailing solo
+verse). **The opening refrain (cards 1–2 together) is now sung twice**,
+`times: 2` on card 1 — every later repeat still sings it once, since
+`refrainRepeatHTML`'s repeat body never carries `v.times`. `times` has to
+sit on card 1, not card 2: the note's wording reads off `v.refrain`, and
+only card 1 carries that flag — putting it on the `refrainCont` card would
+print "Sing the whole verse twice" instead of "refrain." The fork's copy is
+untouched (pre-v436 text, no refrain flags at all), per its stale-`QASIDAS`
+scope.
 
 - **Collapsed by default**, showing one gold rule reading "↻ Repeat refrain".
   A tap opens **every marker in the chapter at once** — a reciter wants them
