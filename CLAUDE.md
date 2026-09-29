@@ -22,7 +22,7 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v433** |
+| **Mawalid** (this repo) | the full collection | **v434** |
 | **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v99** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
@@ -1281,6 +1281,9 @@ Munfarija line the booklet marks "(?)" is deliberately omitted**
 ("la kinni bi shudika muʿtharifun…") — add it only from a real source.
 English is the booklet's, lightly regularised ("O", capitals, half-lines
 joined).
+**It carries no `note`** (v434), and neither do `QASIDAS[24]` or `[26]`:
+the user removed all three notes Claude had written or rewritten in
+v430–v433 without being asked. Do not add or reword a chapter note unasked.
 
 ## Balagha-l-ʿUlā bi-Kamālihi — the Arabic qasida
 
