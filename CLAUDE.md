@@ -22,7 +22,7 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v441** |
+| **Mawalid** (this repo) | the full collection | **v442** |
 | **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v101** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
@@ -690,6 +690,9 @@ already after every two verses (cards 3, 5, 7, 9), so no flag moved. The
 line was removed by index from the refrain's own `ar`, not by a typed
 anchor. The fork's copy keeps the five-line refrain, per its
 stale-`QASIDAS` scope.
+
+**Qul Yā ʿAẓīm (#21), v442, Mawalid only** (user's ruling): the refrain
+repeats after every verse, cards 2–4, the last included.
 
 - **Collapsed by default**, showing one gold rule reading "↻ Repeat refrain".
   A tap opens **every marker in the chapter at once** — a reciter wants them
