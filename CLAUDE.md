@@ -22,8 +22,8 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v439** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v100** |
+| **Mawalid** (this repo) | the full collection | **v440** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v101** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -860,8 +860,9 @@ Indo-Pak "Mughlay" printing it resembles. The code still says `sayyidina`
 (`DALAIL_WITH_SAYYIDINA`, the stored value) — only the label changed.
 **It is being collated against that printing, day by day** — the owner's
 rule is that the Mughlay Version **follows the Mughlay printing exactly**,
-as Istanbul follows its own. Monday P1 is done (see *The Mughlay printing*
-below); the other days still carry the reconstructed pre-collation text.
+as Istanbul follows its own. Monday P1 and Tuesday are done (see *The
+Mughlay printing* below); the other days still carry the reconstructed
+pre-collation text.
 
 - **Istanbul** is `DALAIL_CHAPTERS` as it stands: collated against the
   printing, with the 520 سيدنا removed and its Arabic commas.
@@ -881,8 +882,8 @@ below); the other days still carry the reconstructed pre-collation text.
   Sat 94, Sun 28, Mon2 22.
 - **Plus 200 more: `سَيِّدُنَا` before each Name of the Prophet** (`[5]`
   v2–v201, Aḥmad … Ṣāḥib al-Faraj), Mughlay only, on the owner's
-  call — so the map held **353** entries (369 after Monday's collation below:
-  every Monday verse now has one, for the English). This one is **new text, not a
+  call — so the map held **353** entries (369 after Monday's collation, 500
+  after Tuesday's: every verse of both days now has one, for the English). This one is **new text, not a
   restoration**: no copy of the app ever carried it there, and the
   Istanbul Names pages were never uploaded, so Istanbul was left alone.
   `tr` "Sayyidunā Aḥmad" (`Sayyidunā n-najmu th-thāqib` for v98), `en`
@@ -891,7 +892,7 @@ below); the other days still carry the reconstructed pre-collation text.
   nominative `سَيِّدُنَا`, shadda-before-kasra like the 433-strong majority
   of `سَيِّدِنَا`. v1's `مَنِ اسْمُهُ مُحَمَّدٌ` is inside the duʿāʾ and takes none.
   Still 5 leaves, zero overflow in every script.
-- **Any future fix to one of those 369 verses must go into both** —
+- **Any future fix to one of those 500 verses must go into both** —
   `DALAIL_CHAPTERS` and its entry in `DALAIL_WITH_SAYYIDINA`. The alternate
   is a full copy of the verse, not a patch, so a fix made to one alone
   silently diverges. Check `DALAIL_WITH_SAYYIDINA["c:v"]` before closing
@@ -986,6 +987,47 @@ scan (pp.19–31). **Applied on the owner's rulings (both apps):**
   Istanbul and the app have `رِضَاءَ`.
 
 Still 13 leaves in both versions, zero overflow in every script.
+
+### The Mughlay printing — Tuesday (v440 / v101, both apps)
+
+`Dalail-al-Khayrat-urdu-eng_Tuesday.pdf`: Arabic on book pp.120–138, English
+on 121–139. Collated word by word, each difference checked against the
+Istanbul scan (pp.32–43); audit in `findings/tue-mughlay.md`. Owner's
+rulings, all applied:
+
+- **v104 bare** (`رَسُولِكَ أَبِي الْقَاسِمِ`) — its سيدنا is out; the Arabic
+  now equals Istanbul's. The other eight alternates' سيدنا are all printed.
+- **Each version follows its own book** where the printings differ (the
+  alternate carries the Mughlay reading): v5 `يَا رَبَّ الْعَالَمِينَ` (Istanbul
+  `أَرْحَمَ الرَّاحِمِينَ`), v6 `وَالْحَرَمِ` (`وَالْحَرَامِ`), v16 `الرُّعُودِ لَكَ إِذْ`
+  (`ذَاكَ`), v45 `مَوْلَى النِّعْمَةِ` (`مُولِي`), v46 `مُولِي الرَّحْمَةِ` (`مُؤْتِي`),
+  v81 `بِأَفْصَحِ الْكَلَامِ` (`كَلَامٍ`), v112 `صَاحِبِ خَوَارِقِ` (`الْخَوَارِقِ`).
+  v45 was not named in the ruling and follows the standing rule. `tr`
+  moved with each.
+- **Fixed in Istanbul to its own printing**: v81 `كَلَام` → `كَلَامٍ`; v112
+  `لِخَوَارِقِ` → `الْخَوَارِقِ` (the scan's lām carries sukūn — the article,
+  not the preposition); v133's `وَعَلٰى آلِ إِبْرَاهِيمَ` removed (see *Known
+  open items*).
+- **Rosettes follow the Mughlay printing**: 13 internal, against the app's
+  27 — v3 ×5, v11, v16 (only after `الْمَجِيدِ`), v130 ×5 (none after
+  `إِلَّا لَكَ`; new ones after `زُورًا` and `فُجُورًا`), v133. Every verse
+  closes with one. Its `○ ثلاثا ○` in v131–v132 stays the app's `(3)`.
+- **English from the facing pages**, all 140, on Monday's conventions,
+  plus two press typos corrected: "Footstall" → "Footstool" (v16),
+  "sparking" → "sparkling" (v86). Counts are written `. (3)` as the app
+  already did. The book's English keeps "our master" where the Arabic is
+  bare, and in v5 renders both `أَرْحَمَ الرَّاحِمِينَ` and `رَبَّ الْعَالَمِينَ`.
+- Istanbul's own `en` for v5 still says "O Lord of the Worlds" against
+  its `أَرْحَمَ الرَّاحِمِينَ` — flagged, not changed.
+- Spelling only, not changed: v124 `الْمُؤَيَّدِ` (app `الْمُوَيَّدِ`), v133
+  `رِضٰى` (app `رِضَاءَ`).
+- Bytes: `وَالْحَرَمِ` and `مَوْلَى` copied from the corpus; `رَبَّ` from v6,
+  `الْعَالَمِينَ` from v128, `لَكَ` from v16 itself, `مُولِي` from v45; `الْ`
+  taken from v112's own `الْعَادَاتِ`. The one typed anchor (v104's
+  `سَيِّدِنَا`) silently failed on mark order and the build's assert caught
+  it — anchor on the bare form.
+
+14 leaves in both versions, zero overflow in every script.
 
 ## The top of a reader — Dalāʾil and aḥzāb only (v427–v428 / v98–v99)
 
@@ -1377,14 +1419,14 @@ wrong; the corrected reading is what stands here. **Re-measure a flag before
 acting on it** — all three errors were in the summary, not in the audit files
 under `findings/`, which were right.
 
-- **Tuesday is missing two `‖` page breaks.** The leaf count measures 12 where
-  the corpus table records 14. Pre-existing; the splice did not move it.
-- **Tuesday v134 — the app has a clause the book does not.** The note used to
-  read that the app *lacked* `وَعَلٰى آلِ إِبْرَاهِيمَ`. The reverse is true: the app
-  carries it, and `findings/tue.md` records "book also lacks the
-  `وَعَلٰى آلِ إِبْرَاهِيمَ` clause entirely". Matching the printing therefore means
-  **deleting** three words of Arabic, which is outside the سيدنا ruling.
-  **Owner's call, not yet made.**
+- ~~Tuesday is missing two `‖` page breaks~~ — **not so**: measured in v440,
+  Tuesday renders 14 leaves in both apps and both versions, as the corpus
+  table records.
+- ~~Tuesday v134 — the app has a clause the book does not~~ — **removed in
+  v440 / v101**, owner's call, once the Mughlay printing showed it lacks
+  `وَعَلٰى آلِ إِبْرَاهِيمَ` too. Gone from both versions (the Mughlay's
+  `وَعَلٰى آلِ سَيِّدِنَا إِبْرَاهِيمَ`), `tr` and `en` in step. (That is index
+  133; this list counted from 1.)
 - ~~Monday P1 v43 tatweel~~ — **it was Wednesday v43, and it is fixed** (v389).
   `أَنْبِيَـاءِ` now matches v44's spelling byte-for-byte. Three tatweels remain
   and are all correct: `هـ` in the Title Page (the AH abbreviation) and
