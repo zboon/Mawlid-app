@@ -22,7 +22,7 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v438** |
+| **Mawalid** (this repo) | the full collection | **v439** |
 | **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v100** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
@@ -682,6 +682,14 @@ only card 1 carries that flag — putting it on the `refrainCont` card would
 print "Sing the whole verse twice" instead of "refrain." The fork's copy is
 untouched (pre-v436 text, no refrain flags at all), per its stale-`QASIDAS`
 scope.
+
+**Yā Nabī Salām ʿAlayka — Mawlid version (Ashraqa-l-kawn, #13), v439,
+Mawalid only** (user's ruling). The refrain lost its fourth line,
+`يَا رَسُولَ اللّٰه` — four lines now, `tr` and `en` in step. The repeat was
+already after every two verses (cards 3, 5, 7, 9), so no flag moved. The
+line was removed by index from the refrain's own `ar`, not by a typed
+anchor. The fork's copy keeps the five-line refrain, per its
+stale-`QASIDAS` scope.
 
 - **Collapsed by default**, showing one gold rule reading "↻ Repeat refrain".
   A tap opens **every marker in the chapter at once** — a reciter wants them
