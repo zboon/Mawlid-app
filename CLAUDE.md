@@ -22,7 +22,7 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v440** |
+| **Mawalid** (this repo) | the full collection | **v441** |
 | **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v101** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
@@ -804,12 +804,18 @@ leave. They replaced four −/+ chips.
 
 ---
 
-## The script switch — Dalāʾil fork only (v96)
+## The script switch — Dalāʾil and aḥzāb, both apps (v96 / v441)
 
 A three-way **Uthmani · IndoPak · Naskh** switch in the reader controls, in
 **both** views, sets the reading text (`.v-ar`, `.ms-text`) in one of three
-faces. Titles, cards and the rest of the chrome keep Hafs. Owner's call, fork
-only — Mawalid has no switch.
+faces. Titles, cards and the rest of the chrome keep Hafs. Fork since v96;
+**Mawalid since v441**, owner's call — "the Dalāʾil should be the same
+across both apps". In Mawalid it is **scoped to the Dalāʾil and aḥzāb**:
+the CSS reads `html.ar-indopak main.paper …`, and `main.paper` exists only
+for kinds `d`/`l`, so qasidas, Burdah, Barzanji and every other collection
+keep Hafs whatever is chosen. The fork's rule is unscoped (it styles its
+Barzanji and Diyāʾ too) — leave that as it is. Code, fonts and `OFL.txt`
+header were copied byte for byte from the fork; only the storage keys differ.
 
 | Choice | Face | Licence | Embedded |
 |---|---|---|---|
@@ -839,7 +845,7 @@ only — Mawalid has no switch.
   chosen face (`AR_FONTS` maps choice → family), because `fonts.ready` can
   settle before a just-chosen face starts loading. Measured: zero
   overflowing leaves across every Dalāʾil and litany chapter in all three.
-- **`dlk-font`** (`uthmani` | `indopak` | `naskh`), written only from
+- **`dlk-font` / `mawlid-font`** (`uthmani` | `indopak` | `naskh`), written only from
   `setArFont`. **Unset means the version's default (v98, owner's call):
   IndoPak in the Mughlay Version, Uthmani in Istanbul** — `defaultArFont()`,
   and `setDalailEdition` swaps it on a switch (`showArFont`) for a reader
@@ -847,7 +853,9 @@ only — Mawalid has no switch.
   stored, even on the script already showing, and then holds in both
   versions. It is app-wide, so the litanies follow it too. Not synced in a live session and
   not broadcast — a follower keeps their own script, like size and columns.
-- All three OFL notices (Amiri, DigitalKhatt, SIL) head the fork's `OFL.txt`.
+- All three OFL notices (Amiri, DigitalKhatt, SIL) head `OFL.txt` in both apps.
+- Measured in Mawalid (v441): 272 Dalāʾil and litany leaves, zero overflow in
+  all three scripts in both versions.
 
 ## Two versions of the Dalāʾil — both apps (v426 / v97)
 
@@ -1036,8 +1044,9 @@ aḥzāb (kinds `d` and `l`) in both apps, and nowhere else.** `readerHTML`
 sets `compact = kind === 'd' || kind === 'l'`. v427 shipped the Aa panel and
 the slim About · Listen row to every reader; v428 put every other
 collection back exactly as it was (verified: the qasida, Burdah, Barzanji
-and Diyāʾ tops render identically to v426/v97). **Mawalid gets no script
-fonts** — the owner declined them.
+and Diyāʾ tops render identically to v426/v97). The script switch reached
+Mawalid's Dalāʾil and aḥzāb in v441 (see *The script switch*); the rest of
+Mawalid has none.
 
 In the Dalāʾil and aḥzāb:
 
@@ -1055,9 +1064,9 @@ In the Dalāʾil and aḥzāb:
   and **`Aa`**.
 - **`Aa` opens a panel in place** (`toggleAa`, `state.aaOpen` — in memory
   only, never stored, and never through `reopen()`) holding the settings a
-  reader sets once: the script switch (fork), Transliteration and
-  Translation, and the two text-size sliders (Study only). Omitted where the
-  panel would be empty (Mawalid's Book view). A column toggle re-renders the
+  reader sets once: the script switch, Transliteration and
+  Translation, and the two text-size sliders (Study only). In the Book
+  view it holds the script switch alone. A column toggle re-renders the
   reader; the panel stays open because the flag lives on `state`.
 - **The chapter note is hidden** (v428 / v99, owner's call, "so if I change
   my mind we can show it again"): `SHOW_CHAPTER_NOTES = false` in
