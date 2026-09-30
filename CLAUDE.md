@@ -22,7 +22,7 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v442** |
+| **Mawalid** (this repo) | the full collection | **v443** |
 | **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v101** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
@@ -693,6 +693,12 @@ stale-`QASIDAS` scope.
 
 **Qul Yā ʿAẓīm (#21), v442, Mawalid only** (user's ruling): the refrain
 repeats after every verse, cards 2–4, the last included.
+
+**Yā Rabbī Ṣalli ʿalā-n-Nabī Muḥammadin (#23), v443, Mawalid only**
+(user's ruling): `" (2)"` before every rosette — the first hemistich of the
+refrain and all eight verses — in all three columns (`tr` before its ` · `,
+`en` at the hemistich break); refrain repeats after every two verses, cards
+3, 5, 7, 9. Its note ("Repeat each verse twice…") was left as it was.
 
 - **Collapsed by default**, showing one gold rule reading "↻ Repeat refrain".
   A tap opens **every marker in the chapter at once** — a reciter wants them
