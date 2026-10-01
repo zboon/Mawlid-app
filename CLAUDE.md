@@ -22,8 +22,8 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v444** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v102** |
+| **Mawalid** (this repo) | the full collection | **v445** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v103** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -1559,6 +1559,39 @@ under `findings/`, which were right.
   looked like the one that runs after a render, but it was inside dead code.
   `msSyncDots` is reachable from the `#ms-book` `onscroll` handler, from
   `resumeDalail`, and from `scrollToVerse` — **not** from a plain open.
+
+  **v445 / v103 — the phrase, not the verse** (owner's report: a bookmark
+  did not bring them back to the words they had highlighted, and switching
+  to Study did not land on the verse holding them). Measured first, in a
+  headless browser over four days, both versions: Book → Study landed on the
+  wrong verse 38 times in 78, and a resume left the phrase off-screen 8
+  times. Two causes:
+
+  - `resumeDalail` scrolled to the top of the phrase's whole **verse**
+    (`vEl`). A long verse fills most of a leaf, so the phrase sat below the
+    screen. It now scrolls to the `.seg` carrying `p.mk`, and raises it if
+    it is in the lowest quarter of the screen, where the fixed leaf arrows sit.
+    The flash is on the phrase, and only on the last of the two passes.
+  - `setPageView` always took the **top verse of the leaf**
+    (`topVisibleMsVerse`). It now asks `bookSpotForSwitch()`: the phrase the
+    reader last highlighted (`msPlaceCandidate`), else the `.placed`
+    bookmark, if either is on the current leaf; else the top verse. The
+    phrase travels as **its text plus its position** in the verse, and
+    `studySegFor` finds the Study phrase containing that text. Matching by
+    text is required because the two views number phrases differently:
+    the Book count restarts on each page a verse spans, and a `‖` inside a
+    phrase splits it in Book but not in Study. `scrollToVerse`'s Study
+    branch takes that object as `seg` and keeps the verse number in view
+    unless the phrase is further down than 60% of a screen.
+
+  After, both versions: Mawalid 114/114 (Monday P1, Wednesday, Friday,
+  Saturday) and the fork 36/36 (Tuesday, Sunday), for both the switch —
+  the highlighted words on screen, flashed — and the resume — the right
+  leaf, the phrase on screen and placed. Test in `scratchpad/bm/bm.js`. A Mughlay phrase taller
+  than the screen — no commas, so one phrase can be a whole long verse —
+  starts at the top, which is the most that can be shown. Study → Book
+  still lands on the leaf where the top verse begins (unchanged, not
+  reported).
 - ~~`leaderPending` and its panel branch are unreachable~~ — **removed in v398**.
   Nothing ever set the flag true and there was no dynamic access, so every read
   was constant-false: the "Looking for the leader…" panel branch could not
