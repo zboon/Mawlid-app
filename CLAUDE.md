@@ -22,8 +22,8 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v443** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v101** |
+| **Mawalid** (this repo) | the full collection | **v444** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v102** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -877,7 +877,7 @@ Indo-Pak "Mughlay" printing it resembles. The code still says `sayyidina`
 (`DALAIL_WITH_SAYYIDINA`, the stored value) — only the label changed.
 **It is being collated against that printing, day by day** — the owner's
 rule is that the Mughlay Version **follows the Mughlay printing exactly**,
-as Istanbul follows its own. Monday P1 and Tuesday are done (see *The
+as Istanbul follows its own. Monday P1, Tuesday and Wednesday are done (see *The
 Mughlay printing* below); the other days still carry the reconstructed
 pre-collation text.
 
@@ -900,7 +900,7 @@ pre-collation text.
 - **Plus 200 more: `سَيِّدُنَا` before each Name of the Prophet** (`[5]`
   v2–v201, Aḥmad … Ṣāḥib al-Faraj), Mughlay only, on the owner's
   call — so the map held **353** entries (369 after Monday's collation, 500
-  after Tuesday's: every verse of both days now has one, for the English). This one is **new text, not a
+  after Tuesday's, 537 after Wednesday's: every verse of those days now has one, for the English). This one is **new text, not a
   restoration**: no copy of the app ever carried it there, and the
   Istanbul Names pages were never uploaded, so Istanbul was left alone.
   `tr` "Sayyidunā Aḥmad" (`Sayyidunā n-najmu th-thāqib` for v98), `en`
@@ -1045,6 +1045,47 @@ rulings, all applied:
   it — anchor on the bare form.
 
 14 leaves in both versions, zero overflow in every script.
+
+### The Mughlay printing — Wednesday (v444 / v102, both apps)
+
+`Dalail-al-Khayrat-urdu-eng_short_Wednesday.pdf`: Arabic on book pp.142–162,
+English on 143–163. Collated word by word, each difference checked against
+the Istanbul scan (pp.46–58); audit in `findings/wed-mughlay.md`. Every سيدنا
+the alternates carry is printed — none removed. Owner's rulings, all applied:
+
+- **Fixed in both versions** (both printings agree against the app): v10's
+  `(3)` removed (neither book repeats it; Istanbul's `(recite three times)`
+  went from `en` too), and Istanbul v10 also lost `أَفْضَلَ`, which its
+  printing lacks (`en` "with what You have rewarded"); v21 `عِنَايَتِكَ` (was a
+  stray sukūn); v28 `مَا كَانَ وَمَا يَكُونُ`; v33 `تُبَلِّغُنَا` with no `وَ`;
+  v39 `الْأَمْوَاجُ` (ḍamma). And, reported by the owner reading the app,
+  v39 `وَالتَّبْلِيغِ` — the bāʾ had no sukūn.
+- **Each version follows its own book** (the alternate carries the Mughlay
+  reading): v3 adds `وَبَارِكْ`; v7 `بِتَاجِ الْعِزِّ وَالرِّضَاءِ` (the app's
+  `رِضَاءِ` spelling kept); v23 `تُنَجِّينَا` (Istanbul `تُنْجِينَا`); v34 has no
+  `وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ`; v42 `أَعْظَمِ` with no `وَ`; v43 has no second
+  `وَأَوْفَاهُمْ عَهْدًا`.
+- **Rosettes follow the Mughlay printing**: 70 internal against the app's 72
+  — none at all in v4, v8, v15, v23, v25, v31–v34; v19 after `مَجِيدٌ`
+  (not after the first `إِبْرَاهِيمَ`); v42 25 and v43 11, almost one per
+  epithet. Its `○ ثلاثا ○` in v9/v11 stays the app's `(3)`.
+- **English from the facing pages**, all 44, on Monday's conventions.
+  Press typos corrected: "Thorne" → "Throne" (v11), "Secretes" →
+  "Secrets" (v17). In v43's long list a line-initial capital after a comma
+  is lower-cased. The book's English keeps "and to the Family" in v34.
+- **The "ابْتِدَاءُ الثُّلُثِ الثَّانِي" heading before v31.** The Book Version
+  already drew it from v31's `band`; the Study Version showed nothing,
+  because it renders `v.note`, not `v.band`. v31 now carries the heading as
+  its `note` too, as Tuesday's v129 does. The other verse `band`s —
+  Thursday's rubʿ and Saturday's thulth and rubʿ — are still Book-only.
+- Spelling only, not changed: `رِضًى`/`رِضٰى` (v4, v19, v24), v8 `مَسْؤُول`,
+  v19 `بَقِيَ`.
+- Bytes: `وَمَا` and `وَبَارِكْ` and `الْعِزِّ` the corpus's majority forms;
+  `تُنَجِّينَا` built from v23's own word with the shadda/kasra order of its
+  `صَلِّ`. Two typed assertions failed on mark order and the bare-form
+  helper had `ة→ي`; all three were caught before anything was written.
+
+13 leaves in both versions, zero overflow in every script.
 
 ## The top of a reader — Dalāʾil and aḥzāb only (v427–v428 / v98–v99)
 
