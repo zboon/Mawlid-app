@@ -1060,6 +1060,11 @@ the alternates carry is printed — none removed. Owner's rulings, all applied:
   stray sukūn); v28 `مَا كَانَ وَمَا يَكُونُ`; v33 `تُبَلِّغُنَا` with no `وَ`;
   v39 `الْأَمْوَاجُ` (ḍamma). And, reported by the owner reading the app,
   v39 `وَالتَّبْلِيغِ` — the bāʾ had no sukūn.
+- **Mark slips, both versions, owner's call**: v26/v38 `اللّٰهمَّ` and v31
+  `اللّٰهُمَ` → `اللّٰهُمَّ`; v31 `وَبَارِْك` → `وَبَارِكْ` (both copied from the
+  corpus majority); v38 `وَالكَؤْثَرِ` → `وَالْكَوْثَرِ`; v39 `الْأَبْحُرِ`,
+  `تَلَاطَمَتْ`; v42 `وَأَكْمَلِ`; v43 `وَأَعْلَاهُمْ` (its sukūn sat alone as a
+  word); v26 `آلِهِ`. Each now matches the bytes the corpus already uses.
 - **Each version follows its own book** (the alternate carries the Mughlay
   reading): v3 adds `وَبَارِكْ`; v7 `بِتَاجِ الْعِزِّ وَالرِّضَاءِ` (the app's
   `رِضَاءِ` spelling kept); v23 `تُنَجِّينَا` (Istanbul `تُنْجِينَا`); v34 has no
