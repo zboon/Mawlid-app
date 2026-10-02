@@ -22,8 +22,8 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v446** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v104** |
+| **Mawalid** (this repo) | the full collection | **v447** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v105** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -221,6 +221,12 @@ both `تُبَلِّغَنِي` — a different pronoun suffix, ـنِي "me" vs
 "us", which is why the vowel on the final غ legitimately differs between them;
 only the ب was ever wrong). `tr` already read "tuballighunā" throughout and
 needed no change — only the Arabic bytes moved.
+
+**Friday `وَالثِّمَارِ` — v447/v105.** Reported by the owner reading from the app
+(book p.5 of Friday): `وَالثَّمَارِ` had a fatha on the ث; the scan has a kasra
+("fruits"). Fixed in `DALAIL_CHAPTERS` and in its `DALAIL_WITH_SAYYIDINA`
+entry, bytes copied from the Dalāʾil's own `الثِّمَارِ` (3 of 3). `tr` already
+read "wath-thimār".
 
 ### سيدنا — RULING REVERSED, September 2026
 
