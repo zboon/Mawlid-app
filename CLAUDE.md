@@ -22,8 +22,8 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v445** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v103** |
+| **Mawalid** (this repo) | the full collection | **v446** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v104** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -451,6 +451,16 @@ Cache strings `mawlid-vNNN` / `dalail-vNN`. The audio cache is **`mawlid-audio`
 in both apps** — same origin, so a portion downloaded in one is already present
 in the other. It carries **no version number**, and `KEEP` in `sw.js` spares it;
 version it and every release wipes the users' downloads.
+
+**Each app's `activate` sweeps only its own old caches** (`OWN` =
+`mawlid-v` / `dalail-v`), v446 / v104. The two apps share one origin,
+`zboon.github.io`, so `caches.keys()` lists **both apps' caches**. Until then
+the sweep deleted everything not in `KEEP`, so whichever app updated wiped
+the other's offline copy, and that app then would not open with no signal
+(owner's report: "the webpage couldn't be fetched"). Reproduced with both apps
+served from one local origin and the server actually stopped. Playwright's
+`setOffline` does **not** cut a service worker's own fetches, so it hides this.
+Never widen the sweep again.
 
 The service worker precaches with `cache:'reload'` and fetches navigations with
 `cache:'no-store'`. Both are deliberate: `addAll()` defaults to the HTTP cache and
