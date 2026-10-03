@@ -22,8 +22,8 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v447** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v105** |
+| **Mawalid** (this repo) | the full collection | **v448** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v106** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -893,7 +893,7 @@ Indo-Pak "Mughlay" printing it resembles. The code still says `sayyidina`
 (`DALAIL_WITH_SAYYIDINA`, the stored value) — only the label changed.
 **It is being collated against that printing, day by day** — the owner's
 rule is that the Mughlay Version **follows the Mughlay printing exactly**,
-as Istanbul follows its own. Monday P1, Tuesday, Wednesday and Thursday are done (see *The
+as Istanbul follows its own. Monday P1 and Tuesday to Friday are done (see *The
 Mughlay printing* below); the other days still carry the reconstructed
 pre-collation text.
 
@@ -916,7 +916,7 @@ pre-collation text.
 - **Plus 200 more: `سَيِّدُنَا` before each Name of the Prophet** (`[5]`
   v2–v201, Aḥmad … Ṣāḥib al-Faraj), Mughlay only, on the owner's
   call — so the map held **353** entries (369 after Monday's collation, 500
-  after Tuesday's, 537 after Wednesday's, 557 after Thursday's: every verse of those days now has one, for the English). This one is **new text, not a
+  after Tuesday's, 537 after Wednesday's, 557 after Thursday's, 560 after Friday's: every verse of those days now has one, for the English). This one is **new text, not a
   restoration**: no copy of the app ever carried it there, and the
   Istanbul Names pages were never uploaded, so Istanbul was left alone.
   `tr` "Sayyidunā Aḥmad" (`Sayyidunā n-najmu th-thāqib` for v98), `en`
@@ -1139,6 +1139,35 @@ every recommendation applied.
   cannot appear in an anchor — the build's first run caught that.
 
 14 leaves in both versions, zero overflow in every script.
+
+### The Mughlay printing — Friday (v448 / v106, both apps)
+
+`Dalail-al-Khayrat-urdu-eng_short_friday.pdf`: Arabic on book pp.188–210,
+English on 189–211. Checked against the Istanbul scan (pp.73–88); audit in
+`findings/fri-mughlay.md`. Owner's call: every recommendation applied, and
+v11 made to match the book.
+
+- **Both versions**: v25 opens `وَأَسْأَلُكَ` (no `اللّٰهُمَّ`) and ends
+  `رَّحِيمٌ`; v27 `مَطْحِيَّةً` (was `مَدْحِيَّةً`).
+- **Istanbul, to its own printing**: v13 `شَرْقِهَا وَغَرْبِهَا سَهْلِهَا` (no
+  `وَ`); v45 has no `وَعَلٰى آلِ مُحَمَّدٍ`.
+- **Mughlay only**: v0 opens with the `الْأَسْمَاءِ الْعِظَامِ … وَمَا لَمْ أَعْلَمْ`
+  clause its Thursday v45 lacks (bytes from Istanbul Thursday v45), and has
+  `عِيسَى ابْنِ مَرْيَمَ`, `مُرْسَاةً`; v20 `بِعَدَدِ`; v25 `وَلِوَالِدَيَّ`; v26
+  `صَلَّى بِهِ`, `فِي كُلِّ يَوْمِ الْجُمُعَةِ`; v27 `عَلٰى السَّحَابِ` (no `مَاءِ`); v44
+  carries the printing's extra `… عَدَدَ مَنْ يُصَلِّي عَلَيْهِ` after a rosette.
+- **v11 is not in the Mughlay printing at all.** Its alternate carries
+  `omit: true`; `applyDalailEdition` sets `v.omit`, and both readers, search
+  and the Book splitter skip it. **The verse stays in the array** — every
+  later index is unchanged, so places, highlights and live sessions still
+  agree between versions. `verseNo()` gives the Study number (Mughlay Friday
+  runs 1–50, as the book has 50), and `shownVerseN()` sends anything aimed
+  at an omitted verse (a leader on Istanbul, an old place) to the next one.
+  Any other verse a printing lacks can use the same flag.
+- **Rosettes follow the Mughlay printing** (v0, v5, v24, v27, v44, v50).
+- **English from the facing pages**, all 50.
+
+16 leaves in both versions, zero overflow in every script.
 
 ## The top of a reader — Dalāʾil and aḥzāb only (v427–v428 / v98–v99)
 
