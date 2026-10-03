@@ -893,7 +893,7 @@ Indo-Pak "Mughlay" printing it resembles. The code still says `sayyidina`
 (`DALAIL_WITH_SAYYIDINA`, the stored value) — only the label changed.
 **It is being collated against that printing, day by day** — the owner's
 rule is that the Mughlay Version **follows the Mughlay printing exactly**,
-as Istanbul follows its own. Monday P1, Tuesday and Wednesday are done (see *The
+as Istanbul follows its own. Monday P1, Tuesday, Wednesday and Thursday are done (see *The
 Mughlay printing* below); the other days still carry the reconstructed
 pre-collation text.
 
@@ -916,7 +916,7 @@ pre-collation text.
 - **Plus 200 more: `سَيِّدُنَا` before each Name of the Prophet** (`[5]`
   v2–v201, Aḥmad … Ṣāḥib al-Faraj), Mughlay only, on the owner's
   call — so the map held **353** entries (369 after Monday's collation, 500
-  after Tuesday's, 537 after Wednesday's: every verse of those days now has one, for the English). This one is **new text, not a
+  after Tuesday's, 537 after Wednesday's, 557 after Thursday's: every verse of those days now has one, for the English). This one is **new text, not a
   restoration**: no copy of the app ever carried it there, and the
   Istanbul Names pages were never uploaded, so Istanbul was left alone.
   `tr` "Sayyidunā Aḥmad" (`Sayyidunā n-najmu th-thāqib` for v98), `en`
@@ -925,7 +925,7 @@ pre-collation text.
   nominative `سَيِّدُنَا`, shadda-before-kasra like the 433-strong majority
   of `سَيِّدِنَا`. v1's `مَنِ اسْمُهُ مُحَمَّدٌ` is inside the duʿāʾ and takes none.
   Still 5 leaves, zero overflow in every script.
-- **Any future fix to one of those 500 verses must go into both** —
+- **Any future fix to a verse with an alternate must go into both** —
   `DALAIL_CHAPTERS` and its entry in `DALAIL_WITH_SAYYIDINA`. The alternate
   is a full copy of the verse, not a patch, so a fix made to one alone
   silently diverges. Check `DALAIL_WITH_SAYYIDINA["c:v"]` before closing
@@ -1097,8 +1097,8 @@ the alternates carry is printed — none removed. Owner's rulings, all applied:
 - **The "ابْتِدَاءُ الثُّلُثِ الثَّانِي" heading before v31.** The Book Version
   already drew it from v31's `band`; the Study Version showed nothing,
   because it renders `v.note`, not `v.band`. v31 now carries the heading as
-  its `note` too, as Tuesday's v129 does. The other verse `band`s —
-  Thursday's rubʿ and Saturday's thulth and rubʿ — are still Book-only.
+  its `note` too, as Tuesday's v129 does (and Thursday's v31 since v447).
+  Saturday's thulth and rubʿ `band`s are still Book-only.
 - Spelling only, not changed: `رِضًى`/`رِضٰى` (v4, v19, v24), v8 `مَسْؤُول`,
   v19 `بَقِيَ`.
 - Bytes: `وَمَا` and `وَبَارِكْ` and `الْعِزِّ` the corpus's majority forms;
@@ -1107,6 +1107,38 @@ the alternates carry is printed — none removed. Owner's rulings, all applied:
   helper had `ة→ي`; all three were caught before anything was written.
 
 13 leaves in both versions, zero overflow in every script.
+
+### The Mughlay printing — Thursday (v447 / v105, both apps)
+
+`Dalail-al-Khayrat-urdu-eng_short_Thursday.pdf`: Arabic on book pp.166–184,
+English on 167–185; p.186 is a Burdah filler page. Checked against the
+Istanbul scan (pp.59–72); audit in `findings/thu-mughlay.md`. Owner's call:
+every recommendation applied.
+
+- **Fixed in both versions** (both printings agree against the app): v20's
+  second clause `وَصَلِّ عَلٰى (سَيِّدِنَا) مُحَمَّدٍ` (was `عَلَيْهِ`); v21 no name at
+  all, `صَلِّ عَلٰى نَبِيِّكَ`; v22 `الْقَائِمِ` with no `وَ`; v24 `أُزَرَاءَ` (was
+  `وُزَرَاءَ`); v45 `فَأَرْسَتْ` (was `فَرَسَتْ`). Istanbul v45 also takes its own
+  printing's `وَأَسْأَلُكَ بِالْأَسْمَاءِ … حَوْلَ الْكُرْسِيِّ` (was `وَبِالأَسْمَاءِ`).
+- **Each version follows its own book** (Mughlay alternate only): v11 no
+  `(3)`; v12 `يَا سَيِّدَنَا مُحَمَّدًا`; v16 `وَمُحَيَّاهُ`; v23 adds
+  `لِلْمُحْسِنِينَ`; v34 `وَسَيِّدِنَا رِضْوَانَ`; **v45 ends at `وَرَقِ الزَّيْتُونِ`** — no
+  `حَوْلَ الْعَرْشِ` clause and no closing `الْعِظَامِ` clause, as the printing
+  (Arabic and English) has it. v24's Mughlay `عَيْنُهُ` reads as a slip and
+  was not taken.
+- **Rosettes follow the Mughlay printing**: 30 internal, against the app's
+  41; v45 has seven, after each `فَاسْتَقَلَّتْ … فَأَمْطَرَتْ` clause, `الْمُقَرَّبِينَ`
+  and `الْكُرْسِيِّ`.
+- **The `ابْتِدَاءُ الرُّبْعِ الثَّالِثِ` heading** is v31's `note` too, so Study shows it.
+- **English from the facing pages**, all 46, on Monday's conventions; press
+  slips corrected: "yea"→"ye", "sooth"→"soothe", "angles"→"angels", "Lord
+  of the World"→"Worlds", a lost "master" (v19), v32's bracket closed.
+- Bytes: `مُحَمَّدًا` the corpus majority; `مُحَيَّاهُ` from the corpus's `مُحَيَّاهْ`
+  with the verse's own final ḍamma; v20's name and v34's `وَسَيِّدِنَا` from
+  the verse itself. `۞` is inside the bare matcher's stripped range, so it
+  cannot appear in an anchor — the build's first run caught that.
+
+14 leaves in both versions, zero overflow in every script.
 
 ## The top of a reader — Dalāʾil and aḥzāb only (v427–v428 / v98–v99)
 
