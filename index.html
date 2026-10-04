@@ -26,7 +26,7 @@
      script, where nothing that reads the page without running it can see
      it — so "which version is actually live?" could only be answered from
      a phone. Keep the two in step when bumping. -->
-<meta name="app-version" content="v452">
+<meta name="app-version" content="v453">
 <!-- YouTube's embedded player refuses to configure itself unless the host page
      sends a Referer (Error 153 / embedder.identity.missing.referrer). This is
      the browser default in most cases, but a standalone PWA or a WebView may
@@ -13110,7 +13110,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v452';
+const APP_VERSION = 'v453';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -18143,6 +18143,10 @@ const QASIDA_AUDIO = {
      ampersand: audioUrl encodes them, and the Downloads row JSON-quotes it. */
   12: [{ file:"Ya Rasulallah Salamun 'Alaik   Lirik & Terjemahan.mp3", secs:277 }],
   11: [{ reciter:'rabbani', file:'Rabbani Ensemble - Ya Arhamar Rahimin.mp3', secs:214 }],
+  /* The file name carries Arabic (with a Persian yeh, U+06CC), written as
+     escapes copied from the audio repo so no retyped letter can miss the
+     file. No artist tag, so no reciter. */
+  13: [{ file:"Qul Ya Azeem Arabic Nasheed \u0642\u064f\u0644\u0652 \u06cc\u064e\u0627 \u0639\u0638\u06cc\u0645 English Subtitles.mp3", secs:309 }],
 };
 
 const AUDIO_BY_KIND = { d: DALAIL_AUDIO, q: QASIDA_AUDIO };

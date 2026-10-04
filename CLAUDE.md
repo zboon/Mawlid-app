@@ -22,7 +22,7 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v452** |
+| **Mawalid** (this repo) | the full collection | **v453** |
 | **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v108** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
@@ -67,6 +67,11 @@ Arhamar Rahimin.mp3`, 214 s (v452, Mawalid only), credited to reciter
 artist tag. Its `RECITERS` entry has an **empty `ar`**, deliberately: no
 Arabic form of the name is on record, and the player and Downloads row both
 skip an empty one.
+Qul Yā ʿAẓīm (`QASIDAS[13]`, "21 ·") plays `Qul Ya Azeem Arabic Nasheed قُلْ یَا
+عظیم English Subtitles.mp3`, 309 s, no artist tag so no reciter (v453,
+Mawalid only). Its name carries Arabic letters, among them the Persian yeh
+`ی` (U+06CC), not `ي`, so it is written in the code as `\u` escapes copied from
+the audio repo's own listing — a retyped name would miss the file.
 **The Downloads row now JSON-quotes the file name in its `onclick`**
 (`rowAction(attrEsc(JSON.stringify(file)))`): the old `rowAction('…')` broke
 on any name with an apostrophe — `attrEsc`'s `&#39;` decodes back to `'`
