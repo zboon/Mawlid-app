@@ -22,7 +22,7 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v450** |
+| **Mawalid** (this repo) | the full collection | **v451** |
 | **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v108** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
@@ -691,8 +691,8 @@ two app cards, the repeat falls every two cards. Applied to 14 pieces:
 ʿIbādallāh, the Yā Rabbī Opening Qasida, Ayyuhā-l-Mushtāq and Mā Lanā
 (2–6), ʿAdnānī (2–4), Yā Ṭaybah (2–3), Yā Abā-z-Zahrā and Yā Shafīʿa-l-Warā
 (2–7), Yā Hanānā (2–4), the Badriyyah (2–14), Ashraqa (3, 5, 7, 9), Anta
-Shamsun (2–4), Yā Rasūlallāhi Salāmun ʿAlayk (card 2 is `refrainCont` —
-the booklet's chorus is two lines — cadence corrected in v438, below) and
+Shamsun (2–4), Yā Rasūlallāhi Salāmun ʿAlayk (the booklet's chorus is two
+lines — cadence corrected in v438 and the two cards merged in v451, below) and
 An-Nabī Ṣallū ʿAlayh (all 2–11). User's rulings: Ayyuhā-l-Mushtāq's and Yā Shafīʿa's card 1
 became the refrain, and Yā Shafīʿa's closing formula (card 8) lost its
 Refrain label; **An-Nabī Ṣallū ʿAlayh lost three cards** (Marḥaban yā nūra
@@ -713,7 +713,15 @@ verse). **The opening refrain (cards 1–2 together) is now sung twice**,
 `refrainRepeatHTML`'s repeat body never carries `v.times`. `times` has to
 sit on card 1, not card 2: the note's wording reads off `v.refrain`, and
 only card 1 carries that flag — putting it on the `refrainCont` card would
-print "Sing the whole verse twice" instead of "refrain." The fork's copy is
+print "Sing the whole verse twice" instead of "refrain."
+
+**v451 (owner's call): the two refrain lines are one card** — card 1 holds
+both, joined by `\n` in all three columns, and `refrainCont` is gone from
+this piece. "Sing the whole refrain twice" now sits after the whole refrain,
+on card 1 only; repeats still carry no `times`. Every later card moved up one
+(repeats now after cards 3, 5 … 19 and 20 — the same verse-verse-refrain
+cadence), so a gold-ring highlight saved on this qasida before v451 points one
+card later than it did. The fork's copy is
 untouched (pre-v436 text, no refrain flags at all), per its stale-`QASIDAS`
 scope.
 
