@@ -22,8 +22,8 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v449** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v107** |
+| **Mawalid** (this repo) | the full collection | **v450** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v108** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -55,6 +55,24 @@ it. Ṭālamā Ashkū Gharāmī (`QASIDA_AUDIO[9]`, `Talama Ashku Gharami.mp3`,
 timing. The seek is set on `loadedmetadata` (earlier is silently lost), and
 it needs a server that answers byte ranges — Pages does; a downloaded copy
 plays from a blob and is always seekable. `secs` stays the whole file.
+
+Yā Rasūlallāhi Salāmun ʿAlayk (`QASIDAS[12]`, "19 ·" on screen, in the
+Daybaʿī) plays `Ya Rasulallah Salamun Alaik.mp3`, 277 s, no artist tag so no
+reciter (v450, Mawalid only). The owner first uploaded an `.m4a` of the same
+recording under a name with an apostrophe and an ampersand, then supplied the
+MP3 as the right file; it goes in the audio repo under that plain name.
+**The Downloads row now JSON-quotes the file name in its `onclick`**
+(`rowAction(attrEsc(JSON.stringify(file)))`): the old `rowAction('…')` broke
+on any name with an apostrophe — `attrEsc`'s `&#39;` decodes back to `'`
+before the handler is parsed, so escaping for HTML alone does not help.
+
+**The Burdah's chapters each play their own slice of one recitation**
+(`CnfY5RCWBi0`, v450 / v108, both apps — the fork's Burdah is byte-identical).
+They had the start only as `?t=` in the URL, which `ytId` throws away, so
+every chapter opened at 0:00 and ran on. Now `videoStart`/`videoEnd` on each,
+the owner's timings: 0:10, 5:55, 10:48, 20:13, 24:39, 30:22, 35:54, 40:23,
+47:20, 54:49; each ends where the next begins and chapter 10 plays to the end.
+Chapter 7's `video2` is a separate recording and was left alone.
 
 The **Listen button shows when there is a local recording or a `video` link**.
 It used to require `video`, so a chapter with a file and no YouTube link had no
