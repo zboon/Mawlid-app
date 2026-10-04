@@ -57,10 +57,10 @@ it needs a server that answers byte ranges — Pages does; a downloaded copy
 plays from a blob and is always seekable. `secs` stays the whole file.
 
 Yā Rasūlallāhi Salāmun ʿAlayk (`QASIDAS[12]`, "19 ·" on screen, in the
-Daybaʿī) plays `Ya Rasulallah Salamun Alaik.mp3`, 277 s, no artist tag so no
-reciter (v450, Mawalid only). The owner first uploaded an `.m4a` of the same
-recording under a name with an apostrophe and an ampersand, then supplied the
-MP3 as the right file; it goes in the audio repo under that plain name.
+Daybaʿī) plays `Ya Rasulallah Salamun 'Alaik   Lirik & Terjemahan.mp3` (three
+spaces, as uploaded), 277 s, no artist tag so no reciter (v450, Mawalid only).
+The `.m4a` beside it in the audio repo is the same recording and is unused —
+the owner named the MP3 as the right file.
 **The Downloads row now JSON-quotes the file name in its `onclick`**
 (`rowAction(attrEsc(JSON.stringify(file)))`): the old `rowAction('…')` broke
 on any name with an apostrophe — `attrEsc`'s `&#39;` decodes back to `'`

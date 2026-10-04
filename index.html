@@ -18139,8 +18139,9 @@ const QASIDA_AUDIO = {
   /* The qasida itself begins at 1:33 (owner's timing); `start` is where the
      player opens. No reciter: the file carries no artist tag. */
   9: [{ file:'Talama Ashku Gharami.mp3', secs:517, start:93 }],
-  /* No artist tag, so no reciter. */
-  12: [{ file:'Ya Rasulallah Salamun Alaik.mp3', secs:277 }],
+  /* No artist tag, so no reciter. The name carries an apostrophe and an
+     ampersand: audioUrl encodes them, and the Downloads row JSON-quotes it. */
+  12: [{ file:"Ya Rasulallah Salamun 'Alaik   Lirik & Terjemahan.mp3", secs:277 }],
 };
 
 const AUDIO_BY_KIND = { d: DALAIL_AUDIO, q: QASIDA_AUDIO };
