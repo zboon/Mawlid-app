@@ -26,7 +26,7 @@
      script, where nothing that reads the page without running it can see
      it — so "which version is actually live?" could only be answered from
      a phone. Keep the two in step when bumping. -->
-<meta name="app-version" content="v451">
+<meta name="app-version" content="v452">
 <!-- YouTube's embedded player refuses to configure itself unless the host page
      sends a Referer (Error 153 / embedder.identity.missing.referrer). This is
      the browser default in most cases, but a standalone PWA or a WebView may
@@ -13110,7 +13110,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v451';
+const APP_VERSION = 'v452';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -18099,6 +18099,9 @@ const RECITERS = {
   /* Named from the file itself ("… by Syrian Munshids …"): it carries no
      artist tag, only its encoder, so there is no fuller credit to give. */
   syrian:    { ar: 'منشدون سوريون',       en: 'Syrian Munshids' },
+  /* Named from the file's own title tag; no Arabic form of the ensemble's
+     name is on record, so none is given — every caller skips an empty one. */
+  rabbani:   { ar: '',                    en: 'Rabbani Ensemble' },
 };
 
 /* Recordings hang off the chapter, not the collection: these seven portions
@@ -18139,6 +18142,7 @@ const QASIDA_AUDIO = {
   /* No artist tag, so no reciter. The name carries an apostrophe and an
      ampersand: audioUrl encodes them, and the Downloads row JSON-quotes it. */
   12: [{ file:"Ya Rasulallah Salamun 'Alaik   Lirik & Terjemahan.mp3", secs:277 }],
+  11: [{ reciter:'rabbani', file:'Rabbani Ensemble - Ya Arhamar Rahimin.mp3', secs:214 }],
 };
 
 const AUDIO_BY_KIND = { d: DALAIL_AUDIO, q: QASIDA_AUDIO };

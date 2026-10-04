@@ -22,7 +22,7 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v451** |
+| **Mawalid** (this repo) | the full collection | **v452** |
 | **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v108** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
@@ -61,6 +61,12 @@ Daybaʿī) plays `Ya Rasulallah Salamun 'Alaik   Lirik & Terjemahan.mp3` (three
 spaces, as uploaded), 277 s, no artist tag so no reciter (v450, Mawalid only).
 The `.m4a` beside it in the audio repo is the same recording and is unused —
 the owner named the MP3 as the right file.
+Yā Arḥama-r-Rāḥimīn (`QASIDAS[11]`, "18 ·") plays `Rabbani Ensemble - Ya
+Arhamar Rahimin.mp3`, 214 s (v452, Mawalid only), credited to reciter
+`rabbani`, "Rabbani Ensemble" — the file's title tag names them; it has no
+artist tag. Its `RECITERS` entry has an **empty `ar`**, deliberately: no
+Arabic form of the name is on record, and the player and Downloads row both
+skip an empty one.
 **The Downloads row now JSON-quotes the file name in its `onclick`**
 (`rowAction(attrEsc(JSON.stringify(file)))`): the old `rowAction('…')` broke
 on any name with an apostrophe — `attrEsc`'s `&#39;` decodes back to `'`
