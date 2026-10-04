@@ -22,8 +22,8 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v448** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v106** |
+| **Mawalid** (this repo) | the full collection | **v449** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v107** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -893,7 +893,7 @@ Indo-Pak "Mughlay" printing it resembles. The code still says `sayyidina`
 (`DALAIL_WITH_SAYYIDINA`, the stored value) — only the label changed.
 **It is being collated against that printing, day by day** — the owner's
 rule is that the Mughlay Version **follows the Mughlay printing exactly**,
-as Istanbul follows its own. Monday P1 and Tuesday to Friday are done (see *The
+as Istanbul follows its own. Monday P1 and Tuesday to Saturday are done (see *The
 Mughlay printing* below); the other days still carry the reconstructed
 pre-collation text.
 
@@ -916,7 +916,7 @@ pre-collation text.
 - **Plus 200 more: `سَيِّدُنَا` before each Name of the Prophet** (`[5]`
   v2–v201, Aḥmad … Ṣāḥib al-Faraj), Mughlay only, on the owner's
   call — so the map held **353** entries (369 after Monday's collation, 500
-  after Tuesday's, 537 after Wednesday's, 557 after Thursday's, 560 after Friday's: every verse of those days now has one, for the English). This one is **new text, not a
+  after Tuesday's, 537 after Wednesday's, 557 after Thursday's, 560 after Friday's, 572 after Saturday's: every verse of those days now has one, for the English). This one is **new text, not a
   restoration**: no copy of the app ever carried it there, and the
   Istanbul Names pages were never uploaded, so Istanbul was left alone.
   `tr` "Sayyidunā Aḥmad" (`Sayyidunā n-najmu th-thāqib` for v98), `en`
@@ -1166,6 +1166,38 @@ v11 made to match the book.
   Any other verse a printing lacks can use the same flag.
 - **Rosettes follow the Mughlay printing** (v0, v5, v24, v27, v44, v50).
 - **English from the facing pages**, all 50.
+
+16 leaves in both versions, zero overflow in every script.
+
+### The Mughlay printing — Saturday (v449 / v107, both apps)
+
+`Dalail-al-Khayrat-urdu-eng_short_Saturday.pdf`: Arabic on book pp.214–236,
+English on 215–237. Checked against the Istanbul scan (pp.89–103); audit in
+`findings/sat-mughlay.md`. Owner's call: every recommendation applied.
+
+- **Both versions** (both printings agree against the app): v0 has no
+  `اللّٰهُمَّ` after `وَابْعَثْهُ` (Istanbul `en` "resurrect him to"); v3
+  `النَّبِيَّ` (was `نَبِيًّا`); v12 `عَدَدَ` (had lost its fatha).
+- **Mughlay only**: v12 ends `وَابْعَثْهُ الْمَقَامَ` (Istanbul `وَالْمَقَامَ`); v19
+  `وَاغْفِرْ لَنَا وَلِوَالِدِينَا` (bytes from the corpus's same phrase); v20 adds
+  Yaʿqūb and Yūsuf after Ṣāliḥ and Yaḥyā after Zakariyyā (each unit copied
+  from its neighbour, name from the corpus), and calls `يَا اللّٰهُ` twice, not
+  three times, before `أَنْ تَرْزُقَنِي`; v20 closes bare (`noRosette`).
+- **The marginal ع (v20, after `بِجَمْعِ هٰذَا الْكِتَابِ`).** The Mughlay prints a
+  section sign there instead of a rosette; owner's call: "print it as the
+  book shows". It is a lone `ع` word in the alternate's Arabic, golded by its
+  own `INLINE_INSTRUCTIONS` entry, which matches `ع` only as a whole word —
+  the corpus has no other. Not mirrored into `tr`/`en`. The digits beside it
+  in the margin are unreadable in the scan and were not added.
+- **Rosettes follow the Mughlay printing**: 21 fewer than Istanbul's; v20
+  alone loses 12 and gains 9 (after each `فَاسْتَقَلَّتْ … فَنَبَعَتْ` clause, the
+  two angels, and the three added prophets).
+- **English from the facing pages**, all 22. Press slips corrected: "name
+  that are written" → "Names", "on his be peace" → "him", "EL Khudr", "will
+  bless" → "wilt", "Resurrections". Kept as printed: v12 "blow in the
+  Eastern and in the inland part" (a dropped "and Western"), v20's three "O
+  Allah" against the Arabic's two, v21 "by the Truth onward Thou hast sworn".
+- Spelling only, not changed: `مَّجِيدٌ`, `زَكَرِيَّا`, `مُرْسِيَةً`, `وَلِوَالِدَيْنَا`.
 
 16 leaves in both versions, zero overflow in every script.
 
