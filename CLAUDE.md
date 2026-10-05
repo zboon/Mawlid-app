@@ -69,7 +69,9 @@ Arabic form of the name is on record, and the player and Downloads row both
 skip an empty one.
 Qul Yā ʿAẓīm (`QASIDAS[13]`, "21 ·") plays `Qul Ya Azeem Arabic Nasheed قُلْ یَا
 عظیم English Subtitles.mp3`, 309 s, no artist tag so no reciter (v453,
-Mawalid only). Its name carries Arabic letters, among them the Persian yeh
+Mawalid only). An-Nabī Ṣallū ʿAlayh (`QASIDAS[15]`, "24 ·") plays
+`An Nabi Sollu Alaih.mp3`, 291 s, no artist tag so no reciter (v454, Mawalid
+only). Qul Yā ʿAẓīm's name carries Arabic letters, among them the Persian yeh
 `ی` (U+06CC), not `ي`, so it is written in the code as `\u` escapes copied from
 the audio repo's own listing — a retyped name would miss the file.
 **The Downloads row now JSON-quotes the file name in its `onclick`**
