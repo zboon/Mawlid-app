@@ -22,7 +22,7 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v455** |
+| **Mawalid** (this repo) | the full collection | **v456** |
 | **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v109** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
@@ -1516,6 +1516,38 @@ The refrain carries the house repeat marker `" (2)"` on all three columns — no
 
 The recording is `Ya Rabbi Salli Ala Muhammad.mp3` (Aashiq al-Rasul, 240 s).
 **`QASIDAS[27]` is a near-duplicate of this qasida and was not touched.**
+
+## The Qasidas page lists the Daybaʿī's qasidas too (v456)
+
+Owner's call: every qasida sung within the Mawlid ad-Daybaʿī (the 17
+`QASIDAS` entries with `group: 'qasidas'` and a section number) also
+appears on the Qasidas page, under its own "From the Mawlid ad-Daybaʿī"
+label **after** the existing list, so the numbers already in use there (the
+Burdah #1 … Balagha #21) did not move. `daybaiQasidaItems()` reads them out
+of `mawlidItems()` in the kitab's order; they are the same entries, not
+copies. A search does not add them again — it already shows them under the
+Daybaʿī heading. The landing page's count includes them.
+
+The owner's rule for duplicates: **a fixed copy replaces an outdated one;
+genuinely different versions are labelled.**
+
+- **`QASIDAS[38]` Al-Qaṣīdah al-Muḥammadiyyah is retired** — the same poem
+  as the Daybaʿī's `[22]` "34 · The Muhammadan Qasidah", which has the
+  dagger, `عَلٰى`, `الظُّلَمِ` and its chorus where `[38]` had none of them.
+  `[38]` read `الْأَقْوَالِ`, `مُجْمِلًا`, `رَوْحٌ` where `[22]` has `الْقَوْلِ`,
+  `مُجْمَلًا`, `رُوحٌ`. **`retired: true` keeps it in the array** (marks and
+  audio are keyed by index, so deleting would shift every later qasida);
+  `additionalQasidaItems()` and `neighbourPiece` skip it. Use the same flag
+  for any future retirement — never splice an entry out of `QASIDAS`.
+- **The Opening Qasida is two versions**, both kept: `[3]` (the Daybaʿī's,
+  one card per line, `اللّٰهُمَّ` on verses 8–11 and 20–23, with audio) is now
+  titled "2 · The Opening Qasida — Mawlid version (Yā Rabbi Ṣalli ʿalā
+  Muḥammad)"; `[27]` (the booklet's four-line stanzas with a chorus, `يَا
+  رَبِّي`) keeps "The Opening Qasida (Yā Rabbī Version)". The rename would
+  have dropped a favourite saved under the old title, so `FAV_RENAMES` maps
+  it across in `loadFavs()`.
+- Yā Nabī Salām ʿAlayka's two (`[5]` Mawlid / Ashraqa-l-kawn, `[6]` Anta
+  Shamsun) were already labelled as versions.
 
 ## Allāhumma Ṣalli ʿalā Muḥammad — `QASIDAS[24]`
 

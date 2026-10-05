@@ -26,7 +26,7 @@
      script, where nothing that reads the page without running it can see
      it — so "which version is actually live?" could only be answered from
      a phone. Keep the two in step when bumping. -->
-<meta name="app-version" content="v455">
+<meta name="app-version" content="v456">
 <!-- YouTube's embedded player refuses to configure itself unless the host page
      sends a Referer (Error 153 / embedder.identity.missing.referrer). This is
      the browser default in most cases, but a standalone PWA or a WebView may
@@ -1559,7 +1559,7 @@ const QASIDAS = [
     category: "qasida",
     group: "qasidas",
     titleArabic: "قَصِيدَةُ الْاِفْتِتَاحْ",
-    titleEnglish: "2 · The Opening Qasida — Yā Rabbi Ṣalli ʿalā Muḥammad",
+    titleEnglish: "2 · The Opening Qasida — Mawlid version (Yā Rabbi Ṣalli ʿalā Muḥammad)",
     verses: [
       { refrain: true,
         ar: "يَا رَبِّ صَلِّ عَلٰى مُحَمَّدْ ۞ يَا رَبِّ صَلِّ عَلَيْهِ وَسَلِّمْ (2)",
@@ -3140,6 +3140,12 @@ const QASIDAS = [
     group: "qasidas",
     titleArabic: "الْقَصِيدَةُ الْمُحَمَّدِيَّة",
     titleEnglish: "Al-Qaṣīdah al-Muḥammadiyyah",
+    /* Retired (v456, owner's rule: a fixed copy replaces an outdated one).
+       The Daybaʿī's "34 · The Muhammadan Qasidah" is this poem, corrected
+       (lafẓ al-jalāla dagger, عَلٰى, الظُّلَمِ) and with its chorus, and the
+       Qasidas page now lists that one. Kept in the array, not deleted, because
+       marks and audio are keyed by index; nothing lists it any more. */
+    retired: true,
     verses: [
       { ar: "مُحَمَّدٌ أَشْرَفُ الْأَعْرَابِ وَالْعَجَمِ ۞ مُحَمَّدٌ خَيْرُ مَنْ يَمْشِي عَلَى قَدَمِ",
         tr: "Muḥammadun ashrafu l-aʿrābi wa-l-ʿajami. Muḥammadun khayru man yamshī ʿalā qadami.",
@@ -3343,9 +3349,12 @@ const arHTML = (s, seg) => markInline(withRosettes(stripBreaks(s).replaceAll('\n
    array index, so favourites survive adding, removing or reordering pieces.
    A favourite whose title is later edited is simply dropped. */
 const FAV_KEY = 'mawlid-favs';
+/* Titles edited since a favourite may have been saved under the old one
+   (v456: the Opening Qasida was labelled as the Mawlid version). */
+const FAV_RENAMES = { 'q|2 · The Opening Qasida — Yā Rabbi Ṣalli ʿalā Muḥammad': 'q|2 · The Opening Qasida — Mawlid version (Yā Rabbi Ṣalli ʿalā Muḥammad)' };
 
 function loadFavs(){
-  try { const v = JSON.parse(localStorage.getItem(FAV_KEY)); return Array.isArray(v) ? v : []; }
+  try { const v = JSON.parse(localStorage.getItem(FAV_KEY)); return Array.isArray(v) ? v.map(k => FAV_RENAMES[k] || k) : []; }
   catch(e){ return []; }
 }
 function saveFavs(){
@@ -13110,7 +13119,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v455';
+const APP_VERSION = 'v456';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -14945,7 +14954,15 @@ function mawlidCards(){
    the Qasidas tab and the landing page's count. */
 function additionalQasidaItems(){
   return QASIDAS.map((qa,i) => ({q:qa, i}))
-    .filter(x => x.q.group === 'qasidas' && !sectionOf(x.q.titleEnglish));
+    .filter(x => x.q.group === 'qasidas' && !x.q.retired && !sectionOf(x.q.titleEnglish));
+}
+/* The qasidas sung within the Mawlid ad-Daybaʿī, in the kitab's order (v456,
+   owner's call). The Qasidas page lists them too, after the rest so the
+   numbers people already use there do not move. They are the same entries,
+   not copies, so a fix or a recording shows in both places. */
+function daybaiQasidaItems(){
+  return mawlidItems().filter(x => x.kind === 'q' && x.piece.group === 'qasidas')
+    .map(x => ({q:x.piece, i:x.idx}));
 }
 
 /* Qasida al-Burdah isn't a QASIDAS entry — it's a synthetic card that opens
@@ -14971,18 +14988,25 @@ function additionalQasidaCards(){
           <span class="chev">›</span>
         </button>`;
   }
-  out += items.map(({q:qa, i}) => {
+  const card = ({q:qa, i}) => {
     n++;
+    const sec = sectionOf(qa.titleEnglish);
     return `
         <button class="qcard" onclick="openQasida(${i})">
           <span class="num">${toArNum(n)}</span>
           <span class="titles">
             <span class="t-ar">${qa.titleArabic}</span>
-            <span class="t-en">${qa.titleEnglish}</span>
+            <span class="t-en">${sec ? sec.rest : qa.titleEnglish}</span>
           </span>
           <span class="chev">›</span>
         </button>` + hitList('q', i);
-  }).join('');
+  };
+  out += items.map(card).join('');
+  /* A search already shows these under the Mawlid ad-Daybaʿī heading. */
+  if(!state.query){
+    const daybai = daybaiQasidaItems();
+    if(daybai.length) out += label('From the Mawlid ad-Daybaʿī · من الْمولد الدّيبعي', true) + daybai.map(card).join('');
+  }
   return out;
 }
 
@@ -15439,7 +15463,7 @@ function sectionCount(id){
        : id === 'istighfar'? istighfarFilledDays().length
        : id === 'qawwalis'? QAWWALI_CHAPTERS.length
        : id === 'mawlid'  ? mawlidItems().length
-       : id === 'qasidas' ? additionalQasidaItems().length + 1 /* +1 for the Qasida al-Burdah entry */
+       : id === 'qasidas' ? additionalQasidaItems().length + daybaiQasidaItems().length + 1 /* +1 for the Qasida al-Burdah entry */
        : id === 'burdah'  ? BURDAH_CHAPTERS.length
        : id === 'dalail'  ? DALAIL_CHAPTERS.length
        : id === 'barzanji'? BARZANJI_CHAPTERS.length
@@ -18656,7 +18680,7 @@ function neighbourPiece(kind, idx, dir){
   const g = (kind === 'd') ? dalailGroup(idx) : null;
   const lo = g ? g[0] : 0, hi = g ? Math.min(g[1], a.length - 1) : a.length - 1;
   for(let n = idx + dir; n >= lo && n <= hi; n += dir){
-    if(a[n] && a[n].verses && a[n].verses.length) return { kind, idx: n };
+    if(a[n] && !a[n].retired && a[n].verses && a[n].verses.length) return { kind, idx: n };
   }
   return null;
 }
