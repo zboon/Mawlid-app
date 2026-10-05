@@ -22,8 +22,8 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v453** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v108** |
+| **Mawalid** (this repo) | the full collection | **v454** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v109** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -642,6 +642,23 @@ html so `.seg` numbering ran on across the verse, and `placeVerse` /
 the problem; the reading experience was.
 
 ## The repeating refrain
+
+**On screen it is the "Chorus" (v454 / v109, both apps, owner's call — "most
+people don't know what a refrain is").** The card label, the "↻ Repeat
+chorus" rule, "Sing the whole chorus twice" and every chapter note say
+chorus. The code and data keep `refrain` (`refrain`, `repeatRefrain`,
+`.refrain-note`, `state.refrainOpen`) — only the reader's words changed, so
+this file still says refrain. Don't put the word back on screen.
+
+**An-Nabī Ṣallū ʿAlayh (`QASIDAS[15]`, "24 ·"), v454, Mawalid only** (owner's
+ruling). The sung echo after each line (`— صَلُّوا عَلَيْه`, `— قُلْ وَالْمَجُوسْ`,
+`— صَلَّى اللّٰهُ عَلَيْه` …) is gone from every card, chorus included, in `ar`
+and `tr`, and the matching "— may Allah bless him" from `en`. Each card is now
+two lines of two halves joined by `۞`; on every verse card **the first two
+halves are sung together twice**, so `" (2)"` closes the first line (`tr`
+after its second phrase, `en` after their translation). The chorus carries no
+count. Built by splitting each line on ` — ` and keeping the first part, so no
+Arabic was retyped.
 
 **Both apps, v403. Barzanji chapter 4 (`BARZANJI_CHAPTERS[3]`, "The Birth of
 the Prophet ﷺ").** v3 — `يَا نَبِيّ سَلَامْ عَلَيْكَ`, where the gathering stands —
