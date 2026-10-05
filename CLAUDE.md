@@ -22,7 +22,7 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v454** |
+| **Mawalid** (this repo) | the full collection | **v455** |
 | **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v109** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
@@ -71,7 +71,9 @@ Qul Yā ʿAẓīm (`QASIDAS[13]`, "21 ·") plays `Qul Ya Azeem Arabic Nasheed ق
 عظیم English Subtitles.mp3`, 309 s, no artist tag so no reciter (v453,
 Mawalid only). An-Nabī Ṣallū ʿAlayh (`QASIDAS[15]`, "24 ·") plays
 `An Nabi Sollu Alaih.mp3`, 291 s, no artist tag so no reciter (v454, Mawalid
-only). Qul Yā ʿAẓīm's name carries Arabic letters, among them the Persian yeh
+only). Yā Imāma-r-Rusli (`QASIDAS[16]`, "26 ·") plays `Ya Imam Ar Rusli By
+Syrian Munshids.mp3`, 414 s (v455, Mawalid only), credited to `syrian` from
+the file's title, as Balagha-l-ʿUlā is — no artist tag. Qul Yā ʿAẓīm's name carries Arabic letters, among them the Persian yeh
 `ی` (U+06CC), not `ي`, so it is written in the code as `\u` escapes copied from
 the audio repo's own listing — a retyped name would miss the file.
 **The Downloads row now JSON-quotes the file name in its `onclick`**

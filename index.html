@@ -26,7 +26,7 @@
      script, where nothing that reads the page without running it can see
      it — so "which version is actually live?" could only be answered from
      a phone. Keep the two in step when bumping. -->
-<meta name="app-version" content="v454">
+<meta name="app-version" content="v455">
 <!-- YouTube's embedded player refuses to configure itself unless the host page
      sends a Referer (Error 153 / embedder.identity.missing.referrer). This is
      the browser default in most cases, but a standalone PWA or a WebView may
@@ -13110,7 +13110,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v454';
+const APP_VERSION = 'v455';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -18150,6 +18150,9 @@ const QASIDA_AUDIO = {
   /* An-Nabī Ṣallū ʿAlayh ("24 ·"). The title tag names the piece; there is
      no artist tag, so no reciter. */
   15: [{ file:'An Nabi Sollu Alaih.mp3', secs:291 }],
+  /* Yā Imāma-r-Rusli ("26 ·"). No artist tag; the reciters are named from the
+     file's own title, as Balagha-l-ʿUlā's are. */
+  16: [{ reciter:'syrian', file:'Ya Imam Ar Rusli By Syrian Munshids.mp3', secs:414 }],
 };
 
 const AUDIO_BY_KIND = { d: DALAIL_AUDIO, q: QASIDA_AUDIO };
