@@ -22,8 +22,8 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v456** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v109** |
+| **Mawalid** (this repo) | the full collection | **v457** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v110** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -951,9 +951,9 @@ Indo-Pak "Mughlay" printing it resembles. The code still says `sayyidina`
 (`DALAIL_WITH_SAYYIDINA`, the stored value) — only the label changed.
 **It is being collated against that printing, day by day** — the owner's
 rule is that the Mughlay Version **follows the Mughlay printing exactly**,
-as Istanbul follows its own. Monday P1 and Tuesday to Saturday are done (see *The
-Mughlay printing* below); the other days still carry the reconstructed
-pre-collation text.
+as Istanbul follows its own. Monday P1 and Tuesday to Sunday are done (see *The
+Mughlay printing* below); Monday P2 still carries the reconstructed
+pre-collation text (its Mughlay PDF is not in yet).
 
 - **Istanbul** is `DALAIL_CHAPTERS` as it stands: collated against the
   printing, with the 520 سيدنا removed and its Arabic commas.
@@ -974,7 +974,7 @@ pre-collation text.
 - **Plus 200 more: `سَيِّدُنَا` before each Name of the Prophet** (`[5]`
   v2–v201, Aḥmad … Ṣāḥib al-Faraj), Mughlay only, on the owner's
   call — so the map held **353** entries (369 after Monday's collation, 500
-  after Tuesday's, 537 after Wednesday's, 557 after Thursday's, 560 after Friday's, 572 after Saturday's: every verse of those days now has one, for the English). This one is **new text, not a
+  after Tuesday's, 537 after Wednesday's, 557 after Thursday's, 560 after Friday's, 572 after Saturday's, 609 after Sunday's: every verse of those days now has one, for the English). This one is **new text, not a
   restoration**: no copy of the app ever carried it there, and the
   Istanbul Names pages were never uploaded, so Istanbul was left alone.
   `tr` "Sayyidunā Aḥmad" (`Sayyidunā n-najmu th-thāqib` for v98), `en`
@@ -1258,6 +1258,67 @@ English on 215–237. Checked against the Istanbul scan (pp.89–103); audit in
 - Spelling only, not changed: `مَّجِيدٌ`, `زَكَرِيَّا`, `مُرْسِيَةً`, `وَلِوَالِدَيْنَا`.
 
 16 leaves in both versions, zero overflow in every script.
+
+### The Mughlay printing — Sunday (v457 / v110, both apps)
+
+`Dalail-al-Khayrat-urdu-eng_short_sunday.pdf`: Arabic on book pp.240–260,
+English on 241–261 (p.262 a filler). Checked against the Istanbul scan
+(`Part_7_Sunday.pdf`, book pp.105–119, 15 leaves). Owner's call: apply all
+of it. **This is the first
+day collated against both books in the same pass** — each version now follows
+its own, and the shared fixes went into both.
+
+- **Both versions** (both printings agree against the app): v27 has no waw
+  (`الْمُتَّصِفِينَ`, was `وَالْمُتَّصِفِينَ`); v42 `وَالْعِلْمِ الْمَشْهُورِ` (was
+  `الْعَلَمِ`; Istanbul `en` "renowned standing" → "renowned knowledge"); v11
+  `طَيْرَانِ` (was `طَيَرَانِ`; clear in the Istanbul scan, unreadable in the
+  Mughlay — carried to both).
+- **Istanbul only** (the Mughlay prints what the app had): v24 rosette after
+  `الشَّمْسُ` (the one leaf, p110, that showed 5 rosettes against the scan's 6);
+  v34 `رِضَائِكَ` (Mughlay `رِضَاكَ`); v37 `وَلَدِ آدَمَ` (Mughlay `وُلْدِ`).
+  After this every Istanbul leaf's rosette count matches the scan:
+  `4,4,5,7,16,6,11,7,3,3,6,0,7,7,6`.
+- **Mughlay only**: v17 ends `شَفِيعًا حَفِيًّا` (the suffix copied from `صَبِيًّا` in
+  the same verse; Istanbul has no `حَفِيًّا`, and the book's English does not
+  translate it); v37 `الْجَنَّةَ وَالْمُؤَيَّدِ` (waw copied from `وَخَاتَمِ`); v45
+  `نَطَقَ الْكُتُبُ` (Istanbul `الْكِتَابُ`).
+- **Every سيدنا already matched the Mughlay printing** — none added or removed.
+- **Rosettes follow the Mughlay printing**: 43 internal in Istanbul, 6 here —
+  v19 after `رَبِّ الْعَالَمِينَ`, v37 the same place (moved from after
+  `الْعَظِيمَ`), v42 after `وَغَايَةِ الْغَمَامِ`, v43 after `رَغَامًا`, v44 after
+  `وَبَدْءًا` (moved), v45 after `الْأَقْمَارُ` (moved). A removed rosette leaves a
+  plain space in the stored alternate, as on earlier days; the Istanbul commas
+  stay in it and are stripped at apply time. Where the verse-end ring looks
+  internal in the scan (v27, v40) it sits above the last word of an overfull
+  last line — it is the verse-end ring, not an internal one.
+- **English from the facing pages, all 49** — the map went from 12 alternates
+  to 49, because the other 37 verses had been inheriting Istanbul's modern
+  English. Conventions as on every day since Monday: the book's English is
+  **verbatim, archaic and all** ("Thou wilt", "Thy", "didst" — 41/53 Monday
+  verses, 37/51 Friday's…), a sentence opens with a capital, a verse ends in a
+  full stop, and the book's own mid-verse semicolons and colons stay. The only
+  changes are press slips and the script-font punctuation: the book's script
+  "Allah." is a comma ("O Allah," / "obey Allah, and"), "angles" → "angels",
+  "Gabrial" → "Gabriel", "aspires for. and" → "aspires for, and". **Worth
+  knowing: the Mughlay English was never modernised** — an earlier belief that
+  it carried "modern wording adjustments" was checked against the commits and
+  the data and is wrong; only typos and punctuation were touched. The book
+  merges v2/v3 and v18/v19 into single paragraphs; they were cut at the
+  Arabic's verse boundaries.
+- Marks left as the app has them (the Mughlay scan is too coarse): v43
+  `غَيْرَ مُضْمَحِلَّةٍ` / `يُشَرَّفُ` / `أَجْوَدَ`, v44 `يَعْقُبُهَا`, v46
+  `الْمِدْرَارُ` (all clear and matching in the Istanbul scan). Spelling only,
+  not changed: `رِضَى` (Mughlay, v18) vs `رِضَاءَ`, `السَّمٰوٰتِ` vs
+  `السَّمَاوَاتِ`, `مَلَئِكَتِكَ`; the ornate brackets round v38's Qurʾānic lines
+  are the app's own — neither scan prints them.
+- Bytes: nothing retyped — every changed word was edited by token index on the
+  verse's own string; the only new letters are `حَفِ` and `ئِ` (single marks),
+  written as code points. The build's anchors are bare-form matches asserted to
+  hit exactly once, and it re-parses the result and asserts every other
+  chapter, verse and map key is untouched.
+
+15 leaves in both versions, zero overflow in every script at 390 and 1100 px
+(48 configurations, both apps), 49 Study cards.
 
 ## The top of a reader — Dalāʾil and aḥzāb only (v427–v428 / v98–v99)
 
