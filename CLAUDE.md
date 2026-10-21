@@ -22,8 +22,8 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v457** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v110** |
+| **Mawalid** (this repo) | the full collection | **v459** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v111** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -951,9 +951,8 @@ Indo-Pak "Mughlay" printing it resembles. The code still says `sayyidina`
 (`DALAIL_WITH_SAYYIDINA`, the stored value) — only the label changed.
 **It is being collated against that printing, day by day** — the owner's
 rule is that the Mughlay Version **follows the Mughlay printing exactly**,
-as Istanbul follows its own. Monday P1 and Tuesday to Sunday are done (see *The
-Mughlay printing* below); Monday P2 still carries the reconstructed
-pre-collation text (its Mughlay PDF is not in yet).
+as Istanbul follows its own. Every day is done, Monday P1 to Sunday and Monday P2 with the closing
+Duʿāʾ (see *The Mughlay printing* below).
 
 - **Istanbul** is `DALAIL_CHAPTERS` as it stands: collated against the
   printing, with the 520 سيدنا removed and its Arabic commas.
@@ -974,7 +973,7 @@ pre-collation text (its Mughlay PDF is not in yet).
 - **Plus 200 more: `سَيِّدُنَا` before each Name of the Prophet** (`[5]`
   v2–v201, Aḥmad … Ṣāḥib al-Faraj), Mughlay only, on the owner's
   call — so the map held **353** entries (369 after Monday's collation, 500
-  after Tuesday's, 537 after Wednesday's, 557 after Thursday's, 560 after Friday's, 572 after Saturday's, 609 after Sunday's: every verse of those days now has one, for the English). This one is **new text, not a
+  after Tuesday's, 537 after Wednesday's, 557 after Thursday's, 560 after Friday's, 572 after Saturday's, 609 after Sunday's, 630 after Monday P2's and the Duʿāʾ's: every verse of those days now has one, for the English). This one is **new text, not a
   restoration**: no copy of the app ever carried it there, and the
   Istanbul Names pages were never uploaded, so Istanbul was left alone.
   `tr` "Sayyidunā Aḥmad" (`Sayyidunā n-najmu th-thāqib` for v98), `en`
@@ -1319,6 +1318,80 @@ its own, and the shared fixes went into both.
 
 15 leaves in both versions, zero overflow in every script at 390 and 1100 px
 (48 configurations, both apps), 49 Study cards.
+
+### The Mughlay printing — Monday Part 2 and the Duʿāʾ (v459 / v111, both apps)
+
+`Dalail-al-Khayrat-urdu-eng_monday_pt_2.pdf`: Arabic on book pp.264–282,
+English on 263–283; p.284 a filler. It carries **two chapters**: Monday P2
+(`DALAIL_CHAPTERS[13]`) and the Duʿāʾ after the Khatm (`[14]`), and **the
+Mughlay puts the closing material in a different order**. Owner's rulings:
+the Mughlay Version follows its book, and the Duʿāʾ gets the same treatment.
+`DALAIL_CHAPTERS` itself is untouched — no Istanbul word changed and the
+Istanbul English is as it was (the Istanbul scan for `[14]` was not re-checked).
+
+- **Monday P2 words**: all 14 verses already matched; no سيدنا difference.
+- **Rosettes follow the book**: 23 net out, 1 in — v3 gains one after
+  `لَا يَمُوتُ`; v5 moves to after `النَّارِ` and `الْغَفَّارُ`; v7 keeps only
+  `الْجَلَالِ`, `الدُّهُورِ`, `زَمَانٌ`; v8 keeps only `الْمُتَعَالِ` **and closes
+  bare** (the book prints no ring between `مَكَانَكَ` and `أَنْتَ رَبِّي`, so
+  v8 and v9 run into one unit — `noRosette` on v8); v9, v10, v13 none (the
+  mark after v10's `أَحَدٌ` is a waqf ط, not a rosette); v11 keeps one; v12
+  keeps only the one after `الْحِكْمَةَ`.
+- **v13 gains the book's `وَهُوَ حَسْبُنَا وَنِعْمَ الْوَكِيلُ …`** after its
+  `رَبِّ الْعَالَمِينَ ۞` (`حَسْبُنَا` is the one new word; the rest are corpus
+  bytes).
+- **Chapter 14 is re-ordered in the Mughlay Version by putting different text
+  in the same slots — no index moves, nothing is added or deleted.** Slots
+  0–10 hold, in the book's order: the author's prayer
+  (`اللّٰهُمَّ اغْفِرْ لِمُؤَلِّفِهِ وَارْحَمْهُ وَاجْعَلْهُ مِنَ الْمَحْشُورِينَ …`), `وَاغْفِرِ
+  اللّٰهُمَّ لَنَا وَلِوَالِدِينَا وَلِأَسَاتِذَتِنَا …`, the instruction (`هٰذِهِ
+  الصَّلَوَاتُ الْأَرْبَعُ تُقْرَأُ أَرْبَعَ عَشْرَةَ مَرَّاتٍ …`), the four
+  ṣalawāt, the instruction before the poem, the poem, the Fātiḥa line, then
+  the Duʿāʾ's four verses. **Istanbul's slot meanings are unchanged**: slot 0
+  there is the Duʿāʾ and the author's matter follows it. So a saved place, a
+  highlight or a live-session position in chapter 14 means different text in
+  the two versions (places and marks are already kept per version).
+  Istanbul's slot 5 (`اللّٰهُمَّ صَلِّ عَلٰى سَيِّدِ الْأَبْرَارِ`) repeats a line the Mughlay prints only inside Monday, so the
+  Mughlay has no such card in chapter 14 — its slot 5 carries the poem.
+- **New in the code: an alternate may carry `instruction`**, because the slot
+  that is an instruction in one version is a prayer in the other.
+  `DALAIL_ISTANBUL` snapshots it and `applyDalailEdition` restores it, as it
+  does `noRosette`. Chapter 14 is now one of the chapters that shows the version
+  switch's effect.
+- **Page breaks (‖) in chapter 14** follow the Mughlay's pages — after the four
+  ṣalawāt, after the Fātiḥa line, and the Duʿāʾ's own three breaks carried from
+  Istanbul; the old trailing ‖ after the Duʿāʾ's last verse is dropped (it is
+  the last verse now). Six leaves in both versions.
+- **Duʿāʾ words (Mughlay)**: v0 reads `فِي الْقِيَامَةِ` (no `يَوْمِ`) and gains
+  `وَعَلٰى آلِهِ` after `صَلَّى اللّٰهُ عَلَيْهِ`; v2 gains `وَفَسَادَ أَعْمَالِنَا` and
+  reads `يَا رَبَّنَا ۞ اللّٰهُمَّ وَإِلَى جَنَابِ`. `tr` moved with each.
+  Rosettes follow the book — 21 inside v0, 6 inside v1, 13 inside v2, 15
+  inside v3 — and the poem has none.
+- **The four ṣalawāt** carry a rosette after each of the first three lines, as
+  the book does; the `(14)` stays.
+- **English from the facing pages, all 14 + 11 verses.** The book's wording is
+  verbatim and archaic in Monday ("Thou", "hast") and plainer in the Duʿāʾ
+  (the book uses a different translation there from the Istanbul app's).
+  Slips corrected: "That he hath" → "that", "family" → "Family", "off springs"
+  → "offsprings", period-for-comma after a script "Allah." Kept as printed:
+  "(Mecca Muccarama)", "(Madina Munawarra)", v7's "O Allah:". The four ṣalawāt's
+  lines each end in a full stop.
+- **Readings I could not settle (owner to confirm)**: the heading before the
+  poem, read as `وَلْيُقْرَأِ الْأَبْيَاتُ الْمَنْسُوبَةُ إِلَى الْمُؤَلِّفِ` (the scan's
+  marks are ambiguous; its running head shows ḍammas); `مَرَّاتٍ` (the book's
+  plural after `أَرْبَعَ عَشْرَةَ`, kept); `وَلِمَشَائِخِنَا`. The Duʿāʾ's
+  heading and basmala (p.278) are not carried — the slot has no field for them.
+- Bytes: nothing retyped; every old word is a corpus token or a one-mark edit of
+  one (`وَارْحَمْهُ` from `وَارْحَمْهُمْ`, `لِمُؤَلِّفِهِ` from `وَلِمُؤَلِّفِهِ`,
+  `تُقْرَأُ` from `تَقْرَأُ`, `فَإِنَّ` from `إِنَّكَ`). The new words
+  (`حَسْبُنَا`, `الْمَحْشُورِينَ`, `وَلِأَسَاتِذَتِنَا`, `وَلِمَشَائِخِنَا`,
+  `الصَّلَوَاتُ`, `قِرَاءَتِهَا`, `الْفَاتِحَةُ`, `وَفَسَادَ`, `أَعْمَالِنَا`) are
+  typed NFC. Every anchor is a bare-form phrase asserted to match once; the
+  build asserts each verse's skeleton against Istanbul's plus the intended edit.
+
+Tested: Monday P2 7 leaves, the Duʿāʾ 6 leaves, in both versions, zero
+overflow in all three scripts at 390 and 1100 px; 14 and 11 Study cards, 3
+instruction cards in the Duʿāʾ.
 
 ## The top of a reader — Dalāʾil and aḥzāb only (v427–v428 / v98–v99)
 
