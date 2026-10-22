@@ -22,8 +22,8 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v460** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v112** |
+| **Mawalid** (this repo) | the full collection | **v461** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v113** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -1383,9 +1383,13 @@ Istanbul English is as it was (the Istanbul scan for `[14]` was not re-checked).
   `وَلْيُقْرَأِ الْأَبْيَاتُ الْمَنْسُوبَةُ إِلَى الْمُؤَلِّفِ` (accepted; the scan's marks
   are ambiguous, its running head shows ḍammas) and `مَرَّاتٍ` keeps the book's plural.
   `وَلِمَشَائِخِنَا` (hamza on a yāʾ seat) is my reading of the scan, shown enlarged
-  to the owner. The Duʿāʾ's own heading and basmala (p.278) are **not carried**
-  — preview of both ways shown, no ruling yet. (`isBasmala` already gives a
-  leading basmala verse the leaf-head treatment.)
+  to the owner. The Duʿāʾ's own heading and basmala (p.278) **are carried** (v461 / v113, owner's call: "if the
+  book has the heading, put it in the app"): the Mughlay's `14:0` opens with `هٰذَا الدُّعَاءُ يُقْرَأُ عَقِيبَ خَتْمِ
+  دَلَائِلِ الْخَيْرَاتِ`, the corpus's own basmala, then the first petition — as lines inside the first verse
+  (no field for a separate heading), with `tr` and the book's English ("Supplication which is the Seal of the Guide to
+  Happiness / In the name of Allah, the Merciful, the Compassionate"). Mughlay only. `يُقْرَأُ`, `عَقِيبَ` and
+  `خَتْمِ` are typed NFC; `هٰذَا` and the basmala are corpus bytes, `الدُّعَاءُ` and `دَلَائِلِ` one-mark edits of corpus tokens.
+  `وَلِمَشَائِخِنَا` is as read, owner approved after seeing it enlarged.
 - Bytes: nothing retyped; every old word is a corpus token or a one-mark edit of
   one (`وَارْحَمْهُ` from `وَارْحَمْهُمْ`, `لِمُؤَلِّفِهِ` from `وَلِمُؤَلِّفِهِ`,
   `تُقْرَأُ` from `تَقْرَأُ`, `فَإِنَّ` from `إِنَّكَ`). The new words
