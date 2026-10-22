@@ -22,8 +22,8 @@ network.
 
 | | | current |
 |---|---|---|
-| **Mawalid** (this repo) | the full collection | **v459** |
-| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v111** |
+| **Mawalid** (this repo) | the full collection | **v460** |
+| **Dalāʾil al-Khayrāt** | a slimmer fork: Dalāʾil and the aḥzāb only | **v112** |
 
 Deployed by GitHub Pages from `main`. **Anything merged is live within a
 minute**, and people recite from it.
@@ -1340,28 +1340,31 @@ Istanbul English is as it was (the Istanbul scan for `[14]` was not re-checked).
 - **v13 gains the book's `وَهُوَ حَسْبُنَا وَنِعْمَ الْوَكِيلُ …`** after its
   `رَبِّ الْعَالَمِينَ ۞` (`حَسْبُنَا` is the one new word; the rest are corpus
   bytes).
-- **Chapter 14 is re-ordered in the Mughlay Version by putting different text
-  in the same slots — no index moves, nothing is added or deleted.** Slots
-  0–10 hold, in the book's order: the author's prayer
-  (`اللّٰهُمَّ اغْفِرْ لِمُؤَلِّفِهِ وَارْحَمْهُ وَاجْعَلْهُ مِنَ الْمَحْشُورِينَ …`), `وَاغْفِرِ
-  اللّٰهُمَّ لَنَا وَلِوَالِدِينَا وَلِأَسَاتِذَتِنَا …`, the instruction (`هٰذِهِ
-  الصَّلَوَاتُ الْأَرْبَعُ تُقْرَأُ أَرْبَعَ عَشْرَةَ مَرَّاتٍ …`), the four
-  ṣalawāt, the instruction before the poem, the poem, the Fātiḥa line, then
-  the Duʿāʾ's four verses. **Istanbul's slot meanings are unchanged**: slot 0
-  there is the Duʿāʾ and the author's matter follows it. So a saved place, a
-  highlight or a live-session position in chapter 14 means different text in
-  the two versions (places and marks are already kept per version).
-  Istanbul's slot 5 (`اللّٰهُمَّ صَلِّ عَلٰى سَيِّدِ الْأَبْرَارِ`) repeats a line the Mughlay prints only inside Monday, so the
-  Mughlay has no such card in chapter 14 — its slot 5 carries the poem.
-- **New in the code: an alternate may carry `instruction`**, because the slot
-  that is an instruction in one version is a prayer in the other.
-  `DALAIL_ISTANBUL` snapshots it and `applyDalailEdition` restores it, as it
-  does `noRosette`. Chapter 14 is now one of the chapters that shows the version
-  switch's effect.
-- **Page breaks (‖) in chapter 14** follow the Mughlay's pages — after the four
-  ṣalawāt, after the Fātiḥa line, and the Duʿāʾ's own three breaks carried from
-  Istanbul; the old trailing ‖ after the Duʿāʾ's last verse is dropped (it is
-  the last verse now). Six leaves in both versions.
+- **Monday P2 now runs on into the closing material, and the Duʿāʾ is its own
+  chapter again (v460 / v112, owner's call: "Monday pt 2 should finish and then
+  I should be able to select the closing duʿāʾ from that page, like the end of
+  each qasida links to the next").** v459 had put the closing material into
+  chapter 14's slots; v460 replaces that. In the Mughlay Version
+  `DALAIL_CHAPTERS[13]` has **21 verses**: its 14, then the author's prayer
+  (`اللّٰهُمَّ اغْفِرْ لِمُؤَلِّفِهِ …`), `وَاغْفِرِ اللّٰهُمَّ لَنَا …`, the instruction
+  (`هٰذِهِ الصَّلَوَاتُ الْأَرْبَعُ تُقْرَأُ …`), the four ṣalawāt, the instruction before the
+  poem, the poem, and the Fātiḥa line. Chapter 14 is just the Duʿāʾ (slots 0–3, the
+  same meaning as Istanbul's; slots 4–10 carry `omit: true`, like Friday's v11),
+  reached from the end of Monday by the ordinary Next — `neighbourPiece` already
+  chains 13 → 14, so no navigation code changed. **Istanbul is untouched**: its
+  chapter 14 still opens on the Duʿāʾ and carries the author's matter after it.
+- **New in the code: an alternate may run past the Istanbul verses.** Keys
+  `"13:14"`…`"13:20"` have no Istanbul verse; `applyDalailEdition` appends them for
+  the Mughlay (an alternate may carry `instruction` and `noRosette`), cuts them
+  off on the way back, and stretches the chapter's last `folio.to` over them
+  (`DALAIL_FOLIO_TO` remembers Istanbul's). Switching version while Monday P2 is
+  open re-renders 7 ↔ 9 leaves cleanly. The source `DALAIL_CHAPTERS` is never
+  edited. **Saved places in `[13]` past v13 exist only in the Mughlay**, and a place
+  saved in the Mughlay on chapter 14's v0–v3 is the same Duʿāʾ text as Istanbul's.
+- **Page breaks (‖)** follow the Mughlay's pages: after the author's prayer (end of
+  p.272), after the four ṣalawāt (end of p.274); the Fātiḥa line is the chapter's
+  last verse and carries none. Mughlay Monday P2 is **9 leaves**, the Duʿāʾ **4** (its
+  own three breaks carried from Istanbul; the old trailing ‖ is dropped).
 - **Duʿāʾ words (Mughlay)**: v0 reads `فِي الْقِيَامَةِ` (no `يَوْمِ`) and gains
   `وَعَلٰى آلِهِ` after `صَلَّى اللّٰهُ عَلَيْهِ`; v2 gains `وَفَسَادَ أَعْمَالِنَا` and
   reads `يَا رَبَّنَا ۞ اللّٰهُمَّ وَإِلَى جَنَابِ`. `tr` moved with each.
@@ -1376,11 +1379,13 @@ Istanbul English is as it was (the Istanbul scan for `[14]` was not re-checked).
   → "offsprings", period-for-comma after a script "Allah." Kept as printed:
   "(Mecca Muccarama)", "(Madina Munawarra)", v7's "O Allah:". The four ṣalawāt's
   lines each end in a full stop.
-- **Readings I could not settle (owner to confirm)**: the heading before the
-  poem, read as `وَلْيُقْرَأِ الْأَبْيَاتُ الْمَنْسُوبَةُ إِلَى الْمُؤَلِّفِ` (the scan's
-  marks are ambiguous; its running head shows ḍammas); `مَرَّاتٍ` (the book's
-  plural after `أَرْبَعَ عَشْرَةَ`, kept); `وَلِمَشَائِخِنَا`. The Duʿāʾ's
-  heading and basmala (p.278) are not carried — the slot has no field for them.
+- **Readings the owner has ruled on**: the heading before the poem is
+  `وَلْيُقْرَأِ الْأَبْيَاتُ الْمَنْسُوبَةُ إِلَى الْمُؤَلِّفِ` (accepted; the scan's marks
+  are ambiguous, its running head shows ḍammas) and `مَرَّاتٍ` keeps the book's plural.
+  `وَلِمَشَائِخِنَا` (hamza on a yāʾ seat) is my reading of the scan, shown enlarged
+  to the owner. The Duʿāʾ's own heading and basmala (p.278) are **not carried**
+  — preview of both ways shown, no ruling yet. (`isBasmala` already gives a
+  leading basmala verse the leaf-head treatment.)
 - Bytes: nothing retyped; every old word is a corpus token or a one-mark edit of
   one (`وَارْحَمْهُ` from `وَارْحَمْهُمْ`, `لِمُؤَلِّفِهِ` from `وَلِمُؤَلِّفِهِ`,
   `تُقْرَأُ` from `تَقْرَأُ`, `فَإِنَّ` from `إِنَّكَ`). The new words
@@ -1389,9 +1394,9 @@ Istanbul English is as it was (the Istanbul scan for `[14]` was not re-checked).
   typed NFC. Every anchor is a bare-form phrase asserted to match once; the
   build asserts each verse's skeleton against Istanbul's plus the intended edit.
 
-Tested: Monday P2 7 leaves, the Duʿāʾ 6 leaves, in both versions, zero
-overflow in all three scripts at 390 and 1100 px; 14 and 11 Study cards, 3
-instruction cards in the Duʿāʾ.
+Tested: Istanbul Monday P2 7 leaves and the Duʿāʾ 6, as before; Mughlay Monday P2
+9 leaves (21 Study cards, 3 instruction cards) and the Duʿāʾ 4 (4 cards), zero overflow in all three
+scripts at 390 and 1100 px, both apps.
 
 ## The top of a reader — Dalāʾil and aḥzāb only (v427–v428 / v98–v99)
 
