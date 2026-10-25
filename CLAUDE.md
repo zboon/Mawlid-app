@@ -138,7 +138,8 @@ fetch, Pages serves it from `main` unchanged); only the way it is *edited* moved
 then runs `node build.js` — the all-or-nothing rule and the bare-form matcher are unchanged.
 The Dalāʾil and litany data are **separate files in each app's `src/`**; the byte-identity
 rule is checked by comparing `src/js/*-data-dalail/` and `*-data-litany/` between the two
-repos (their file numbers can differ, the contents must not).
+repos (`diff -r`; their directory numbers can differ, and a `000_head.js` may carry a different
+leading comment — every chapter file and `999_tail.js` must be identical).
 The older notes below that say "in `index.html`" or "line N" describe the generated file.
 
 ### The corpus
