@@ -14,8 +14,12 @@ It is a **single self-contained app** — no build step, no server, no dependenc
 
 | File | What it is |
 |------|------------|
-| `index.html` | **Everything.** All content, styling (CSS), and logic (JS) live here — including the bundled Arabic font. This is the only file you normally edit. |
-| `sw.js` | Service worker — makes the app work offline. Contains the cache version string (see below). |
+| `content/` | **The texts.** One folder per section, one JSON file per piece, an `index.json` per folder for the order — where you normally edit (see `content/README.md`). |
+| `src/` | The code: `css/`, `js/`, the page and service-worker templates, and `version.txt` (see `src/README.md`). |
+| `fonts/`, `img/` | The fonts and artwork, embedded into the page as base64 at build time. |
+| `build.js` | `node build.js` stitches `content/`, `src/`, `fonts/` and `img/` into the two generated files below; `--check` verifies they are current. |
+| `index.html` | **Generated** — the whole app in one self-contained page (texts, CSS, JS, fonts). Never edit by hand. |
+| `sw.js` | **Generated** service worker — makes the app work offline. Its cache version comes from `src/version.txt`. |
 | `manifest.json` | PWA metadata (app name, icons, colours) so it installs to a phone home screen. |
 | `icon-192.png`, `icon-512.png` | Home-screen icons. |
 | `OFL.txt` | The SIL Open Font License for the bundled Arabic font. **Keep this file** — the licence requires it to travel with the font. |

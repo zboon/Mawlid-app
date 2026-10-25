@@ -104,13 +104,15 @@ also where the reciter's name came from.
 
 The page is still **one self-contained file** (offline-first, nothing extra to
 fetch, Pages serves it from `main` unchanged); only the way it is *edited* moved.
-`src/` is the source, `build.js` stitches it into `index.html` and `sw.js`, and
-**both generated files stay committed** because Pages deploys straight from `main`.
+The layout mirrors the SacredTexts app (`zboon/SacredTexts`): `content/` for the
+texts, `fonts/`, `img/`, and the code under `src/`. `build.js` stitches them into
+`index.html` and `sw.js`, and **both generated files stay committed** because Pages
+deploys straight from `main`.
 
     node build.js           # regenerate index.html and sw.js
-    node build.js --check   # exit 1 if they are not exactly what src/ builds
+    node build.js --check   # exit 1 if they are not exactly what the sources build
 
-`src/README.md` lists every file. In short:
+`src/README.md` lists every code file and `content/README.md` explains the texts. In short:
 
 - `src/version.txt` — **the only place the version lives.** It feeds the
   `<meta name="app-version">`, `APP_VERSION` and the `sw.js` cache name together
@@ -120,27 +122,28 @@ fetch, Pages serves it from `main` unchanged); only the way it is *edited* moved
   They are plain scripts sharing one global scope, so **order is load order** (a `const`
   must be defined before anything that reads it at load; `SIZE_KEY` above `const state`
   is one such constraint). Give a new file a number between its neighbours.
-- **Each big data array is a directory**: `js/080-data-dalail/` has `000_head.js`
-  (`const DALAIL_CHAPTERS = [`), one fragment per chapter (`001-title-page.js` …, an
-  object plus its comma) and `999_tail.js` (`];`). `QASIDAS`, `LITANY_CHAPTERS`,
-  `BURDAH_CHAPTERS`, `SIRAH_CHAPTERS`, `DIYA_CHAPTERS`, `BARZANJI_CHAPTERS`,
-  `ILAHI_CHAPTERS` and `QAWWALI_CHAPTERS` are split the same way. Entry files are
-  fragments, so an editor may flag them; the built page is what is checked.
-- `DALAIL_WITH_SAYYIDINA` (the Mughlay map, ~1 MB on one line) is the directory
-  `js/090-data-dalail-mughlay/`, **one file per chapter** (`013-chapter-monday-part-2.js`
-  holds every `"13:v"` key). The files are joined with no separator, so every file but the
-  last ends in the comma that separates it from the next.
-- `src/fonts/`, `src/img/` — the embedded fonts and icons as real files, inlined as base64
-  at build time (`{{inline:fonts/x.otf}}`).
+- **The texts are JSON, one file per piece**: `content/<section>/<piece>.json` plus an
+  `index.json` per folder giving the order — `dalail`, `litanies`, `qasidas`, `burdah`,
+  `sirah`, `diya`, `barzanji`, `ilahis`, `qawwalis`, and `dalail-mughlay` (the Mughlay map,
+  one file per chapter, each an object of `"c:v"` keys merged in index order). The array's
+  `const` line sits in a small file such as `src/js/080-data-dalail.js`
+  (`const DALAIL_CHAPTERS = {{content:dalail}};`) with the comment that used to head it.
+  File names follow SacredTexts' rule (English title, no numbers; `content/README.md`).
+  **Array position is data** — audio, marks, places and the day cards index by it — so
+  never reorder or delete an `index.json` entry (retire with `retired: true`); the build
+  fails if an `index.json` and its folder disagree.
+- `fonts/`, `img/` — the embedded fonts and icons as real files, inlined as base64
+  at build time (`{{inline:fonts/x.otf}}`, path from the repo root).
 
 **Consequences for everything below.** A build script now reads and edits the relevant
-`src/` file (a chapter or a module, not a 3.6 MB blob), asserts its anchors there, writes it,
+`content/` JSON file (a piece, not a 3.6 MB blob), asserts its anchors there, writes it,
 then runs `node build.js` — the all-or-nothing rule and the bare-form matcher are unchanged.
-The Dalāʾil and litany data are **separate files in each app's `src/`**; the byte-identity
-rule is checked by comparing `src/js/*-data-dalail/` and `*-data-litany/` between the two
-repos (`diff -r`; their directory numbers can differ, and a `000_head.js` may carry a different
-leading comment — every chapter file and `999_tail.js` must be identical).
-The older notes below that say "in `index.html`" or "line N" describe the generated file.
+Fields are JSON now (`"ar": "…"`, double-quoted keys), which suits the *anchor on the field
+key* rule. The Dalāʾil and litany data are **separate files in each app's `content/`**; the
+byte-identity rule is checked with `diff -r content/dalail content/litanies content/dalail-mughlay`
+between the two repos (every file must be identical).
+The older notes below that say "in `index.html`", "line N" or "fragment" describe the
+generated file or the earlier layout.
 
 ### The corpus
 
