@@ -18,6 +18,9 @@ JavaScript and the whole Arabic corpus inline — plus a service worker, a
 manifest and two icons. It installs to a phone's home screen and works with no
 network.
 
+**`index.html` and `sw.js` are generated — edit `src/`, then run `node build.js`.**
+See *Source layout* below; never hand-edit the two generated files.
+
 **Two apps from the same source:**
 
 | | | current |
@@ -96,6 +99,47 @@ way to reach its own audio.
 `secs` is measured from the file. With no `ffprobe` in the sandbox, read the
 MP3's Xing frame count and divide by the sample rate; the ID3 `TPE1` tag is
 also where the reciter's name came from.
+
+### Source layout
+
+The page is still **one self-contained file** (offline-first, nothing extra to
+fetch, Pages serves it from `main` unchanged); only the way it is *edited* moved.
+`src/` is the source, `build.js` stitches it into `index.html` and `sw.js`, and
+**both generated files stay committed** because Pages deploys straight from `main`.
+
+    node build.js           # regenerate index.html and sw.js
+    node build.js --check   # exit 1 if they are not exactly what src/ builds
+
+`src/README.md` lists every file. In short:
+
+- `src/version.txt` — **the only place the version lives.** It feeds the
+  `<meta name="app-version">`, `APP_VERSION` and the `sw.js` cache name together
+  (`{{version}}`), so the three can no longer drift — the old "bump all three" step is
+  now "edit this file".
+- `src/css/`, `src/js/` — concatenated **in filename order, directories included**.
+  They are plain scripts sharing one global scope, so **order is load order** (a `const`
+  must be defined before anything that reads it at load; `SIZE_KEY` above `const state`
+  is one such constraint). Give a new file a number between its neighbours.
+- **Each big data array is a directory**: `js/080-data-dalail/` has `000_head.js`
+  (`const DALAIL_CHAPTERS = [`), one fragment per chapter (`001-title-page.js` …, an
+  object plus its comma) and `999_tail.js` (`];`). `QASIDAS`, `LITANY_CHAPTERS`,
+  `BURDAH_CHAPTERS`, `SIRAH_CHAPTERS`, `DIYA_CHAPTERS`, `BARZANJI_CHAPTERS`,
+  `ILAHI_CHAPTERS` and `QAWWALI_CHAPTERS` are split the same way. Entry files are
+  fragments, so an editor may flag them; the built page is what is checked.
+- `DALAIL_WITH_SAYYIDINA` (the Mughlay map, ~1 MB on one line) is the directory
+  `js/090-data-dalail-mughlay/`, **one file per chapter** (`013-chapter-monday-part-2.js`
+  holds every `"13:v"` key). The files are joined with no separator, so every file but the
+  last ends in the comma that separates it from the next.
+- `src/fonts/`, `src/img/` — the embedded fonts and icons as real files, inlined as base64
+  at build time (`{{inline:fonts/x.otf}}`).
+
+**Consequences for everything below.** A build script now reads and edits the relevant
+`src/` file (a chapter or a module, not a 3.6 MB blob), asserts its anchors there, writes it,
+then runs `node build.js` — the all-or-nothing rule and the bare-form matcher are unchanged.
+The Dalāʾil and litany data are **separate files in each app's `src/`**; the byte-identity
+rule is checked by comparing `src/js/*-data-dalail/` and `*-data-litany/` between the two
+repos (their file numbers can differ, the contents must not).
+The older notes below that say "in `index.html`" or "line N" describe the generated file.
 
 ### The corpus
 
@@ -479,12 +523,14 @@ exactly.
 
 ## Build and release
 
-1. Bump **`APP_VERSION` in `index.html` and `CACHE` in `sw.js` together.** They
-   must match or the worker serves stale content forever.
-2. Also bump `<meta name="app-version">`.
-3. Apply the same change to **both apps**.
-4. Package all 7 files per app: `index.html`, `sw.js`, `manifest.json`,
-   `icon-192.png`, `icon-512.png`, `OFL.txt`, `README.md`.
+1. Bump **`src/version.txt`** and run `node build.js`. That one number feeds
+   `APP_VERSION`, the `<meta name="app-version">` and `CACHE` in `sw.js` together
+   (they must match or the worker serves stale content forever).
+2. Apply the same change to **both apps**.
+3. Package all 7 files per app: `index.html`, `sw.js`, `manifest.json`,
+   `icon-192.png`, `icon-512.png`, `OFL.txt`, `README.md` — **plus `src/` and
+   `build.js`, which are what you edit; `index.html` and `sw.js` must be freshly built
+   (`node build.js --check`).**
 
 Cache strings `mawlid-vNNN` / `dalail-vNN`. The audio cache is **`mawlid-audio`
 in both apps** — same origin, so a portion downloaded in one is already present
@@ -520,6 +566,7 @@ merge conflict. **Whoever merges second re-bumps.**
 Run all of it before opening a pull request.
 
 **Structure**
+- `node build.js --check` passes (the committed `index.html` and `sw.js` are exactly what `src/` builds)
 - both apps' `LITANY_CHAPTERS` byte-identical; same for `DALAIL_CHAPTERS`
 - every array not deliberately touched byte-identical to the previous release
 - Book-Version leaf counts unchanged where pagination shouldn't have moved
