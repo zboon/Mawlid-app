@@ -2110,3 +2110,13 @@ worse than an obvious missing one.
 
 When in doubt about a reading, a variant or a structural choice: **ask the owner
 rather than guessing.** Every ruling recorded above came from doing exactly that.
+
+## Shared content (synced from the Dalāʾil repo)
+
+`content/dalail`, `content/dalail-mughlay` and `content/litanies` are owned by
+`zboon/dalailul-khayrat` and overwritten by an automatic pull request
+(`.github/workflows/sync-shared.yml`, every 6 hours or on demand, which also
+bumps `src/version.txt` and rebuilds). Edit them there, never here;
+`check-shared.yml` fails any PR that drifts. The map is `sync.json`. All other
+folders, including `barzanji`, `burdah`, `diya`, `sirah`, `qasidas` and
+`qawwalis`, are owned here and flow on to Sacred Texts.
