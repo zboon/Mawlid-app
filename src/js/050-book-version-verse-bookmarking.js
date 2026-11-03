@@ -264,7 +264,7 @@ function resumeCard(){
     </div>`;
 }
 
-const state = { showTr: loadCols('tr'), showEn: loadCols('en'), refrainOpen: false, arScale: loadTextScale('ar'), latinScale: loadTextScale('latin'), msZoom: 1, query: '', tab: 'home', burdahChapter: null, favs: loadFavs() , pageView:true, immersive:false};
+const state = { showTr: loadCols('tr'), showEn: loadCols('en'), refrainOpen: false, showIntro: true, arScale: loadTextScale('ar'), latinScale: loadTextScale('latin'), msZoom: 1, query: '', tab: 'home', burdahChapter: null, favs: loadFavs() , pageView:true, immersive:false};
 
 /* The content arrays, keyed by the same letters as OPENERS. */
 function arrayOf(kind){

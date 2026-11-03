@@ -26,7 +26,7 @@
      script, where nothing that reads the page without running it can see
      it — so "which version is actually live?" could only be answered from
      a phone. Keep the two in step when bumping. -->
-<meta name="app-version" content="v462">
+<meta name="app-version" content="v463">
 <!-- YouTube's embedded player refuses to configure itself unless the host page
      sends a Referer (Error 153 / embedder.identity.missing.referrer). This is
      the browser default in most cases, but a standalone PWA or a WebView may
@@ -1008,6 +1008,9 @@
     box-shadow:0 1px 2px rgba(18,53,40,.05);
   }
   .verse.refrain{border-color:var(--gold-soft);background:linear-gradient(var(--verse-bg, var(--card)),var(--verse-bg2, var(--card-alt)))}
+  main.verses.no-intro .verse.v-intro{display:none}
+  .v-num.intro-tag{width:auto;padding:0 .7rem;border-radius:1rem;font-family:inherit;font-size:.72rem;
+    letter-spacing:.14em;text-transform:uppercase;font-weight:700}
   .v-num{
     position:absolute;top:-0.85rem;left:50%;transform:translateX(-50%);
     background:var(--bg);border:1.5px solid var(--gold);color:var(--gold);
@@ -1936,7 +1939,7 @@ function resumeCard(){
     </div>`;
 }
 
-const state = { showTr: loadCols('tr'), showEn: loadCols('en'), refrainOpen: false, arScale: loadTextScale('ar'), latinScale: loadTextScale('latin'), msZoom: 1, query: '', tab: 'home', burdahChapter: null, favs: loadFavs() , pageView:true, immersive:false};
+const state = { showTr: loadCols('tr'), showEn: loadCols('en'), refrainOpen: false, showIntro: true, arScale: loadTextScale('ar'), latinScale: loadTextScale('latin'), msZoom: 1, query: '', tab: 'home', burdahChapter: null, favs: loadFavs() , pageView:true, immersive:false};
 
 /* The content arrays, keyed by the same letters as OPENERS. */
 function arrayOf(kind){
@@ -2364,6 +2367,14 @@ function applyDalailEdition(){
    simply not drawn. The verses after it number on as the book would, and
    anything sent to it (a session, an old place) lands on the next one. */
 function verseNo(kind, idx, n){
+  /* A qawwali's intro cards carry no number (they wear an "Intro" tag), so the
+     verses after them count from 1. */
+  if(kind === 'w'){
+    const vs = (QAWWALI_CHAPTERS[idx] || {}).verses || [];
+    let k = n + 1;
+    for(let i = 0; i < n; i++) if(vs[i] && vs[i].intro) k--;
+    return k;
+  }
   if(kind !== 'd') return n + 1;
   const vs = (DALAIL_CHAPTERS[idx] || {}).verses || [];
   let k = n + 1;
@@ -2465,7 +2476,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v462';
+const APP_VERSION = 'v463';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -4977,6 +4988,18 @@ function toggleAbout(btn){
   btn.classList.toggle('on', open);
   btn.setAttribute('aria-expanded', open ? 'true' : 'false');
 }
+/* The Intro chip hides and shows a qawwali's introductory cards in place — a
+   class on the reader, never reopen(), so the scroll position survives. Like
+   `refrainOpen`, state.showIntro lives in memory only: it survives a
+   re-render but is not stored, and a piece with no intro never shows the chip. */
+function toggleIntro(){
+  state.showIntro = !state.showIntro;
+  document.querySelectorAll('main.verses').forEach(m => m.classList.toggle('no-intro', !state.showIntro));
+  document.querySelectorAll('.intro-chip').forEach(b => {
+    b.classList.toggle('off', !state.showIntro);
+    b.setAttribute('aria-pressed', state.showIntro ? 'true' : 'false');
+  });
+}
 /* Opens and closes in place — like the refrain markers and the size sliders,
    never through reopen(), so the reader keeps its scroll. state.aaOpen is in
    memory only, so it survives the re-render a column toggle makes but a
@@ -5039,6 +5062,8 @@ function readerHTML(q, backOnclick, kind, idx){
       ${enTitle ? `<div class="piece-title-en">${enTitle}</div>` : ''}
     </div>
     ${empty ? '' : `<div class="controls">
+      ${q.verses.some(v => v.intro) ? `<button class="chip intro-chip ${state.showIntro?'':'off'}" onclick="toggleIntro()"
+        aria-pressed="${state.showIntro?'true':'false'}">Intro</button>` : ''}
       ${kind === 'd' && pageView ? `<button class="chip place-btn ${placeIsHere(idx)&&placeStillMarked()?'on':''}"
         data-idx="${idx}" onclick="saveDalailPlace(${idx})">${placeBtnLabel(idx)}</button>` : ''}
       ${hasPages ? `<span class="view-switch" role="group" aria-label="How to read this">
@@ -5073,18 +5098,18 @@ function readerHTML(q, backOnclick, kind, idx){
       </div>`}
       `}
     </div>`}
-    <main class="verses${pageView ? ' ms-view' : ''}${(kind === 'd' || kind === 'l') ? ' paper' : ''}">
+    <main class="verses${state.showIntro ? '' : ' no-intro'}${pageView ? ' ms-view' : ''}${(kind === 'd' || kind === 'l') ? ' paper' : ''}">
       ${pageView ? manuscriptPages(q, kind, idx) : empty ? placeholder(q.titleEnglish) : `
       ${compact ? readerActions(q, kind, idx, false) : `${noteBlock(q.note)}
       ${(q.video || audioFor(kind, idx).length) ? `<button class="qtune" onclick="openPlayerFor('${kind}',${idx},1)">▶ Listen to the tune</button>` : ''}
       ${q.video2 ? `<button class="qtune" onclick="openPlayerFor('${kind}',${idx},2)">▶ Listen — alternate version</button>` : ''}`}
       ${q.verses.map((v,n)=> v.omit ? '' : `
-        <article class="verse ${v.refrain||v.refrainCont?'refrain':''} ${v.instruction?'v-instruction':''}${kind==='d'&&placedVerse(idx,n)?' placed':''}" data-v="${n}">
+        <article class="verse ${v.refrain||v.refrainCont?'refrain':''}${v.intro?' v-intro':''} ${v.instruction?'v-instruction':''}${kind==='d'&&placedVerse(idx,n)?' placed':''}" data-v="${n}">
           ${kind === 'd' ? `<button class="verse-place ${placedVerse(idx,n)?'on':''}"
             onclick="placeVerse(${idx},${n})"
             aria-label="${placedVerse(idx,n)?'Remove my place':'Mark my place here'}"
             title="${placedVerse(idx,n)?'Remove my place':'Mark my place here'}">${bookmarkIcon(placedVerse(idx,n))}</button>` : ''}
-          <div class="v-num">${toArNum(verseNo(kind, idx, n))}</div>
+          ${v.intro ? '<div class="v-num intro-tag">Intro</div>' : `<div class="v-num">${toArNum(verseNo(kind, idx, n))}</div>`}
           ${v.refrain?'<div class="refrain-note">Chorus · يُرَدَّد</div>':''}
           ${v.instruction?'<div class="instruction-note">Instruction · إِرْشَاد</div>':''}
           ${v.note?`<div class="v-note">${v.note}</div>`:''}
