@@ -44,28 +44,29 @@
     {
       "ar": "Yeh Zameen Jab Na Thi Yeh Jahaan Jab Na Thaa\nChaand Suraj Na Thay Aasman Jab Na Tha\nRaaz-E-Haq Bhi Kisi Per Ayaan Jab Na Tha\nTab Na Tha Kuch Yahaan Tha Magar Tu Hee Tu",
       "tr": "",
-      "en": "When this earth and world did not exist\nWhen there was no moon, sun or sky\nWhen the secret of the truth was still unknown\nWhen there was nothing, there was you"
+      "en": "When this earth and world did not exist\nWhen there was no moon, sun or sky\nWhen the secret of the truth was still unknown\nWhen there was nothing, there was you",
+      "repeatRefrain": true
     },
     {
       "ar": "Har Shay Tere Jamaal Ki Aainaa Daar Hai\nHar Shay Pukaarti Hai Tu Parvardigaar Hai",
       "tr": "",
       "en": "Everything is a reflection of your glory\nEvery thing cries out that you are the Lord",
-      "note": "Optional",
-      "repeatRefrain": true
+      "repeatRefrain": true,
+      "optional": true
     },
     {
       "ar": "Teri Ruboobiyat Ki Ada Ka Kamaal Hai\nTu Rab-e-Qayaanat Hai, Tu Lajwal Hai",
       "tr": "",
       "en": "It is the distinction of your enthralling visage\nYou are the unrivalled Lord of the Universe",
-      "note": "Optional",
-      "repeatRefrain": true
+      "repeatRefrain": true,
+      "optional": true
     },
     {
       "ar": "Tu Jo Her Aan Nayi Shaan Dikha Deta Hai\nDeeda-E-Shouq Ko Hairan Bana Deta Hai\nDaali Daali Teri Takhleeq K Gun Gaati Hai\nPatta Patta Teri Qudrat Ka Pata Deta Hai",
       "tr": "",
       "en": "You who shows new beauty every instant\nSurprises even those who yearn for more\nEvery sapling sings of your creation\nEvery leaf is a signature of your nature",
-      "note": "Optional",
-      "repeatRefrain": true
+      "repeatRefrain": true,
+      "optional": true
     },
     {
       "ar": "Laa Ilaahaa Teri Shaan Ya Wahdahoo\nTu Khayaal-O-Tajassus Tu He Aarzoo\nAankh Ki Roshni Dil Ki Awaaz Tu\nTha Bhi Tu! Hai Bhi Tu! Hoga Bhi Tu Hee Tu!",
@@ -76,7 +77,7 @@
     {
       "ar": "Pohnche Meraaj mein arsh par Mustafa\nJab na mabood o bande mein parda raha\nTab malaaik ne Hazrat se jhuk kar kaha\nSaari makhlooq mein Haq-numa tu hi tu",
       "tr": "",
-      "en": "When Mustafa (another name of Prophet Muhammad) ascended beyond the Arsh\n[and] when there was no veil between the master and the servant.\nThen the angels said secretly to the Prophet\nthat in of all the creation, only he was truth",
+      "en": "When Mustafa (another name of Prophet Muhammad) ascended beyond the Arsh\n[and] when there was no veil between the master and the servant.\nThen the angels said secretly to the Prophet\nthat in all of creation, only He is the Truth",
       "repeatRefrain": true
     },
     {

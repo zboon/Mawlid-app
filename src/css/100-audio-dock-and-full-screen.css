@@ -90,7 +90,7 @@
     box-shadow:0 1px 2px rgba(18,53,40,.05);
   }
   .verse.refrain{border-color:var(--gold-soft);background:linear-gradient(var(--verse-bg, var(--card)),var(--verse-bg2, var(--card-alt)))}
-  main.verses.no-intro .verse.v-intro{display:none}
+  main.verses.no-intro .verse.v-intro,main.verses.no-optional .v-optional{display:none}
   .v-num.intro-tag{width:auto;padding:0 .7rem;border-radius:1rem;font-family:inherit;font-size:.72rem;
     letter-spacing:.14em;text-transform:uppercase;font-weight:700}
   .v-num{
