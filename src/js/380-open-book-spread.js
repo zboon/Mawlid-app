@@ -153,7 +153,7 @@ function readMarkStore(key){
   try { return JSON.parse(localStorage.getItem(key)) || {}; }
   catch(e){ return {}; }
 }
-function mughlayNow(){ try { return dalailEdition === 'sayyidina'; } catch(e){ return false; } }
+function mughlayNow(){ try { return dalailEdition === 'sayyidina'; } catch(e){ return initialEdition() === 'sayyidina'; } }
 function markStoreFor(kind){ return (kind === 'd' && mughlayNow()) ? 'mawlid-marks-mughlay' : 'mawlid-marks'; }
 function loadMarks(){
   const m = readMarkStore('mawlid-marks');

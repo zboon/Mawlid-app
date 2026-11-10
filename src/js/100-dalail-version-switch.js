@@ -3,7 +3,7 @@ const DALAIL_ISTANBUL = DALAIL_CHAPTERS.map(c => c.verses.map(v => ({ ar: v.ar, 
    chapter (Monday P2), so its folio is stretched to cover them and put back. */
 const DALAIL_FOLIO_TO = DALAIL_CHAPTERS.map(c => (c.folios && c.folios.length) ? c.folios[c.folios.length - 1].to : null);
 const stripArCommas = t => t.replace(/\u060C/g, '').replace(/ {2,}/g, ' ').trim();
-/* 'istanbul' | 'sayyidina'; unset or unrecognised means Istanbul. Written
+/* 'istanbul' | 'sayyidina'; unset means Mughlay (see initialEdition), unrecognised too. Written
    only from setDalailEdition, the reader's own switch. Not synced in a live
    session: the two versions share every verse index, leaf and segment, so a
    leader and a follower on different versions still land on the same place. */
@@ -26,7 +26,7 @@ let arFontChosen = (() => { try { const v = localStorage.getItem(FONT_KEY); retu
 function defaultArFont(){
   let ed;
   try { ed = dalailEdition; }
-  catch(e){ try { ed = localStorage.getItem('mawlid-edition') === 'sayyidina' ? 'sayyidina' : 'istanbul'; } catch(e2){ ed = 'istanbul'; } }
+  catch(e){ ed = initialEdition(); }
   return ed === 'sayyidina' ? 'indopak' : 'uthmani';
 }
 let arFont = arFontChosen || defaultArFont();
@@ -36,7 +36,7 @@ function applyArFont(){
 }
 applyArFont();
 const EDITION_KEY = 'mawlid-edition';
-let dalailEdition = (() => { try { return localStorage.getItem(EDITION_KEY) === 'sayyidina' ? 'sayyidina' : 'istanbul'; } catch(e){ return 'istanbul'; } })();
+let dalailEdition = initialEdition();
 function applyDalailEdition(){
   const alt = dalailEdition === 'sayyidina';
   DALAIL_CHAPTERS.forEach((c, ci) => {
@@ -101,7 +101,7 @@ const DALAIL_EDITION_CHAPTERS = DALAIL_ISTANBUL.map((vs, ci) =>
 const dalailHasEditions = idx => !!DALAIL_EDITION_CHAPTERS[idx];
 function editionSwitch(){
   return `<span class="view-switch edition-switch" role="group" aria-label="Version of the Dalāʾil">${
-    [['istanbul', 'Istanbul'], ['sayyidina', 'Mughlay']].map(([v, l]) =>
+    [['sayyidina', 'Mughlay'], ['istanbul', 'Istanbul']].map(([v, l]) =>
       `<button data-ed="${v}" class="${dalailEdition === v ? 'on' : ''}" aria-pressed="${dalailEdition === v}" onclick="setDalailEdition('${v}')">${l}</button>`).join('')
   }</span>`;
 }

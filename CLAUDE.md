@@ -1072,9 +1072,14 @@ Duʿāʾ (see *The Mughlay printing* below).
   **leaf** (`msCurrentPage` → `msGoToWhenReady`) — going via the top verse
   landed a leaf early whenever a verse ran on from the previous page; the
   Study view keeps the top verse.
-- **`mawlid-edition` / `dlk-edition`** (`istanbul` | `sayyidina`; unset or
-  unrecognised = Istanbul), written only from `setDalailEdition`. Not synced
-  in a session.
+- **`mawlid-edition` / `dlk-edition`** (`istanbul` | `sayyidina`), written only from
+  `setDalailEdition`. Not synced in a session. **Unset means Mughlay (v462 / v114, owner's
+  call; all three apps)** — `initialEdition()` — **unless** an Istanbul place
+  (`*-dalail-place`) or a Dalāʾil highlight (`d:` in `*-marks`) is already saved, which
+  keeps that reader on Istanbul so a bookmark made before the change is not stranded.
+  The switch lists **Mughlay on the left, Istanbul on the right**. The same function
+  feeds `placeKey()`, `mughlayNow()` and `defaultArFont()`, which all run before
+  `dalailEdition` is declared, so it uses literal keys, not the consts.
 - Measured in both apps: zero overflowing leaves in the Mughlay
   version (all three scripts in the fork); leaf counts, `۞` (478) and `‖`
   (103) unchanged; saved places resume across a switch both ways.
