@@ -248,6 +248,29 @@ function toggleAbout(btn){
   btn.classList.toggle('on', open);
   btn.setAttribute('aria-expanded', open ? 'true' : 'false');
 }
+/* The Intro chip hides and shows a qawwali's introductory cards in place — a
+   class on the reader, never reopen(), so the scroll position survives. Like
+   `refrainOpen`, state.showIntro lives in memory only: it survives a
+   re-render but is not stored, and a piece with no intro never shows the chip. */
+function toggleIntro(){
+  state.showIntro = !state.showIntro;
+  document.querySelectorAll('main.verses').forEach(m => m.classList.toggle('no-intro', !state.showIntro));
+  document.querySelectorAll('.intro-chip').forEach(b => {
+    b.classList.toggle('off', !state.showIntro);
+    b.setAttribute('aria-pressed', state.showIntro ? 'true' : 'false');
+  });
+}
+/* Optional verses (a qawwali's extra verses, sung or skipped) work the same
+   way. The chorus repeat that follows an optional verse is wrapped with it, so
+   skipping the verse does not leave a stranded repeat panel behind. */
+function toggleOptional(){
+  state.showOptional = !state.showOptional;
+  document.querySelectorAll('main.verses').forEach(m => m.classList.toggle('no-optional', !state.showOptional));
+  document.querySelectorAll('.optional-chip').forEach(b => {
+    b.classList.toggle('off', !state.showOptional);
+    b.setAttribute('aria-pressed', state.showOptional ? 'true' : 'false');
+  });
+}
 /* Opens and closes in place — like the refrain markers and the size sliders,
    never through reopen(), so the reader keeps its scroll. state.aaOpen is in
    memory only, so it survives the re-render a column toggle makes but a
@@ -310,6 +333,10 @@ function readerHTML(q, backOnclick, kind, idx){
       ${enTitle ? `<div class="piece-title-en">${enTitle}</div>` : ''}
     </div>
     ${empty ? '' : `<div class="controls">
+      ${q.verses.some(v => v.intro) ? `<button class="chip intro-chip ${state.showIntro?'':'off'}" onclick="toggleIntro()"
+        aria-pressed="${state.showIntro?'true':'false'}">Intro</button>` : ''}
+      ${q.verses.some(v => v.optional) ? `<button class="chip optional-chip ${state.showOptional?'':'off'}" onclick="toggleOptional()"
+        aria-pressed="${state.showOptional?'true':'false'}">Optional verses</button>` : ''}
       ${kind === 'd' && pageView ? `<button class="chip place-btn ${placeIsHere(idx)&&placeStillMarked()?'on':''}"
         data-idx="${idx}" onclick="saveDalailPlace(${idx})">${placeBtnLabel(idx)}</button>` : ''}
       ${hasPages ? `<span class="view-switch" role="group" aria-label="How to read this">
@@ -344,18 +371,18 @@ function readerHTML(q, backOnclick, kind, idx){
       </div>`}
       `}
     </div>`}
-    <main class="verses${pageView ? ' ms-view' : ''}${(kind === 'd' || kind === 'l') ? ' paper' : ''}">
+    <main class="verses${state.showIntro ? '' : ' no-intro'}${state.showOptional ? '' : ' no-optional'}${pageView ? ' ms-view' : ''}${(kind === 'd' || kind === 'l') ? ' paper' : ''}">
       ${pageView ? manuscriptPages(q, kind, idx) : empty ? placeholder(q.titleEnglish) : `
       ${compact ? readerActions(q, kind, idx, false) : `${noteBlock(q.note)}
       ${(q.video || audioFor(kind, idx).length) ? `<button class="qtune" onclick="openPlayerFor('${kind}',${idx},1)">▶ Listen to the tune</button>` : ''}
       ${q.video2 ? `<button class="qtune" onclick="openPlayerFor('${kind}',${idx},2)">▶ Listen — alternate version</button>` : ''}`}
       ${q.verses.map((v,n)=> v.omit ? '' : `
-        <article class="verse ${v.refrain||v.refrainCont?'refrain':''} ${v.instruction?'v-instruction':''}${kind==='d'&&placedVerse(idx,n)?' placed':''}" data-v="${n}">
+        <article class="verse ${v.refrain||v.refrainCont?'refrain':''}${v.intro?' v-intro':''}${v.optional?' v-optional':''} ${v.instruction?'v-instruction':''}${kind==='d'&&placedVerse(idx,n)?' placed':''}" data-v="${n}">
           ${kind === 'd' ? `<button class="verse-place ${placedVerse(idx,n)?'on':''}"
             onclick="placeVerse(${idx},${n})"
             aria-label="${placedVerse(idx,n)?'Remove my place':'Mark my place here'}"
             title="${placedVerse(idx,n)?'Remove my place':'Mark my place here'}">${bookmarkIcon(placedVerse(idx,n))}</button>` : ''}
-          <div class="v-num">${toArNum(verseNo(kind, idx, n))}</div>
+          ${v.intro || v.optional ? `<div class="v-num intro-tag">${v.intro ? 'Intro' : 'Optional'}</div>` : `<div class="v-num">${toArNum(verseNo(kind, idx, n))}</div>`}
           ${v.refrain?'<div class="refrain-note">Chorus · يُرَدَّد</div>':''}
           ${v.instruction?'<div class="instruction-note">Instruction · إِرْشَاد</div>':''}
           ${v.note?`<div class="v-note">${v.note}</div>`:''}
@@ -371,7 +398,7 @@ function readerHTML(q, backOnclick, kind, idx){
           ${v.tr ? `<div class="v-tr ${state.showTr?'':'hide'}">${v.tr.replaceAll('\n','<br>')}</div>` : ''}`}
           ${v.en ? `<div class="v-en ${state.showEn?'':'hide'}">${v.en.replaceAll('\n','<br>')}</div>` : ''}
           ${v.times ? `<div class="refrain-times">${v.times === 2 ? `Sing the whole ${v.refrain ? 'chorus' : 'verse'} twice · مَرَّتَيْنِ` : `Sing the whole ${v.refrain ? 'chorus' : 'verse'} ` + v.times + ' times'}</div>` : ''}
-        </article>${v.repeatRefrain ? refrainRepeatHTML(q, n) : ''}`).join('')}`}
+        </article>${v.repeatRefrain ? (v.optional ? `<div class="v-optional">${refrainRepeatHTML(q, n)}</div>` : refrainRepeatHTML(q, n)) : ''}`).join('')}`}
       ${pageView ? '' : chapterNav(kind, idx)}
     </main>
 `;

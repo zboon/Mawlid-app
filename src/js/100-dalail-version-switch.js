@@ -78,6 +78,14 @@ function applyDalailEdition(){
    simply not drawn. The verses after it number on as the book would, and
    anything sent to it (a session, an old place) lands on the next one. */
 function verseNo(kind, idx, n){
+  /* A qawwali's intro and optional cards carry no number (they wear an "Intro" tag), so the
+     verses after them count from 1. */
+  if(kind === 'w'){
+    const vs = (QAWWALI_CHAPTERS[idx] || {}).verses || [];
+    let k = n + 1;
+    for(let i = 0; i < n; i++) if(vs[i] && (vs[i].intro || vs[i].optional)) k--;
+    return k;
+  }
   if(kind !== 'd') return n + 1;
   const vs = (DALAIL_CHAPTERS[idx] || {}).verses || [];
   let k = n + 1;
