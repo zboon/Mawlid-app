@@ -75,6 +75,7 @@ function dalailIndex(){
   const before = navRow("selectTab('before')", DALAIL_ROWS.before.en, DALAIL_ROWS.before.ar);
   const rows =
       navRow("openDalail(14)",        DALAIL_ROWS.done.en,   DALAIL_ROWS.done.ar)
+    + navRow("selectTab('litanies')", 'Additional daily readings & duas', 'الْأَوْرَادُ وَالْأَدْعِيَةُ')
     + navRow("selectTab('downloads')", 'Downloaded recitations', 'التَّسْجِيلَاتُ الْمَحْفُوظَةُ')
     + navRow("openDalail(0)",         'About Dalāʾil al-Khayrāt', 'دَلَائِلُ الْخَيْرَاتِ');
   return `<div class="edition-row"><span class="edition-k">Version</span>${editionSwitch()}</div>` + todayCard + resumeCard()
