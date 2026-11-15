@@ -58,7 +58,7 @@ function collectionLabel(i){
 }
 
 function backToLitanies(){
-  return `<button class="back-link" onclick="selectTab('litanies')">‹ Daily litanies &amp; duas</button>`;
+  return `<button class="back-link" onclick="selectTab('litanies')">‹ Additional daily readings &amp; duas</button>`;
 }
 
 /* The Dalāʾil intro line, made tappable — it opens the book's title page, which
