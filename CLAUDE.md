@@ -1673,6 +1673,17 @@ Three invariants, each learned the hard way:
   which meant the first person into a new session waited 14 s on a leader who did
   not exist. Fix detection; don't pad it.
 
+**A follower's own scroll breaks the link on the input, not on the drift (v476).**
+`spotWatchFollower` alone judged it by how far the page had strayed from where
+`spotStep` last put it (half a screen), and failed three ways: a smaller scroll
+never counted; before the first position arrived (`spotExpectedY` null) it was
+blind; and while the leader was moving `spotStep` dragged the page back every
+frame and re-recorded the target, so a follower fighting it never drifted far
+enough (a 700px wheel did not break it). `wheel`, a finger drag (>10px, one
+finger) and scroll keys fire only for a person, so `spotUserTookOver()` pauses on
+those; ctrl+wheel and pinch are zooms and do not. The drift test stays as the
+fallback for a scrollbar drag. Our own `scrollTo` fires none of them.
+
 `slog` keeps a rolling in-app log of role changes and probe outcomes — the fastest
 way to see what each device actually decided.
 
