@@ -5,7 +5,7 @@
 /* The reserved title slots: LITANY_CHAPTERS[3] names al-Ḥizb al-Aʿẓam and
    [2] names Ḥizb al-Istighfār. They carry no verses — the seven daily
    portions of each live at [4]–[10] and [11]–[17] — so the slot's job is to
-   hold the collection's own name, which the Al-Aḥzāb row and the sub-page
+   hold the collection's own name, which the litanies row and the sub-page
    header both read from here rather than repeating it as a literal. */
 const AZAM_TITLE_IDX = 3;
 const ISTIGHFAR_TITLE_IDX = 2;
@@ -58,7 +58,7 @@ function collectionLabel(i){
 }
 
 function backToLitanies(){
-  return `<button class="back-link" onclick="selectTab('litanies')">‹ Al-Aḥzāb</button>`;
+  return `<button class="back-link" onclick="selectTab('litanies')">‹ Daily litanies &amp; duas</button>`;
 }
 
 /* The Dalāʾil intro line, made tappable — it opens the book's title page, which

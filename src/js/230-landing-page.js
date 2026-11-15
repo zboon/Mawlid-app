@@ -130,7 +130,7 @@ function renderResults(){
   if(tab === 'praises') return sectionIntro('praises') + label('Choose a section · اختر قسماً') + `<div class="home-grid">${praisesHub()}</div>`;
   if(tab === 'qasidas') return backToPraises() + sectionIntro('qasidas') + (additionalQasidaCards() || placeholder('Qasidas'));
   if(tab === 'ilahis')  return backToPraises() + sectionIntro('ilahis') + label('Select an ilahi · ilahi seçin') + ilahiCards();
-  if(tab === 'litanies')return backToDalail() + sectionIntro('litanies') + label('Select a litany · اختر حزباً') + litanyCards();
+  if(tab === 'litanies')return backToDalail() + sectionIntro('litanies') + label('Daily litanies & duas · الْأَوْرَادُ وَالْأَدْعِيَةُ') + litanyCards();
   if(tab === 'before')  return backToDalail() + label('Before the reading · قَبْلَ الْقِرَاءَةِ') + dalailBeforeCards();
   if(tab === 'downloads') return downloadsScreen();
   if(tab === 'azam')    return backToLitanies() + collectionLabel(AZAM_TITLE_IDX) + azamIndex();
